@@ -86,6 +86,28 @@ async function verify(atom, verdict) {
     err.value = String(e.message || e);
   }
 }
+// Chọn nhiều + duyệt HÀNG LOẠT (ui-ux-pro-max §Data Entry: duyệt từng cái mệt →
+// multi-select + bulk action bar). Backend /verify-bulk có sẵn.
+const selected = ref(new Set());
+function toggleSel(id) {
+  const s = new Set(selected.value);
+  s.has(id) ? s.delete(id) : s.add(id);
+  selected.value = s;
+}
+async function bulkVerify(verdict) {
+  const ids = [...selected.value];
+  if (!ids.length) return;
+  try {
+    await api(`/verify-bulk?verdict=${verdict}`, { method: "POST", body: JSON.stringify(ids) });
+    atoms.value.forEach((a) => { if (selected.value.has(a.atom_id)) a.founder_verified = verdict; });
+    selected.value = new Set();
+    if (section.value) {
+      section.value.n_verified = atoms.value.filter((a) => a.founder_verified === 1).length;
+      section.value.n_rejected = atoms.value.filter((a) => a.founder_verified === -1).length;
+    }
+    loadStats();
+  } catch (e) { err.value = String(e.message || e); }
+}
 const sid = (a) => {
   const s = a.subject_identifiers || {};
   return [s.sao, s.cung, s.chi, s.hoa].filter(Boolean).join(" · ");
@@ -139,12 +161,22 @@ onMounted(() => { loadStats(); loadBooks(); });
         <h3>{{ section.title || section.id }} — {{ shownAtoms.length }} atom</h3>
         <label class="av-toggle"><input type="checkbox" v-model="onlyUnverified" /> chỉ hiện chưa duyệt</label>
       </div>
+      <div v-if="selected.size" class="av-bulk">
+        <span>Đã chọn <b>{{ selected.size }}</b> →</span>
+        <button class="av-ok active" @click="bulkVerify(1)">✓ Đúng tất cả</button>
+        <button class="av-no active" @click="bulkVerify(-1)">✕ Sai tất cả</button>
+        <button class="av-reset" @click="selected = new Set()">bỏ chọn</button>
+      </div>
       <p v-if="loading === 'atoms'" class="av-mut">đang tải atoms…</p>
       <p v-else-if="!shownAtoms.length" class="av-mut">Không còn atom nào {{ onlyUnverified ? 'chưa duyệt' : '' }} trong mục này. 🎉</p>
 
       <article v-for="a in shownAtoms" :key="a.atom_id" class="av-atom"
-        :class="{ ok: a.founder_verified === 1, no: a.founder_verified === -1 }">
-        <div class="av-atom-q">{{ a.question_text }}</div>
+        :class="{ ok: a.founder_verified === 1, no: a.founder_verified === -1, sel: selected.has(a.atom_id) }">
+        <div class="av-atom-top">
+          <input type="checkbox" class="av-atom-sel" :checked="selected.has(a.atom_id)"
+            @change="toggleSel(a.atom_id)" aria-label="chọn atom để duyệt hàng loạt" />
+          <div class="av-atom-q">{{ a.question_text }}</div>
+        </div>
         <p v-if="sid(a)" class="av-atom-sid">{{ sid(a) }}</p>
         <blockquote v-if="a.source_quote" class="av-atom-src">“{{ a.source_quote }}”
           <cite v-if="a.page_start">— tr.{{ a.page_start }}</cite></blockquote>
@@ -192,6 +224,13 @@ onMounted(() => { loadStats(); loadBooks(); });
 .av-atoms-head { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; margin-bottom: .5rem; }
 .av-atoms-head h3 { margin: 0; font-size: 1.05rem; }
 .av-toggle { font-size: .85rem; color: var(--read-muted, #888); cursor: pointer; }
+.av-bulk { display: flex; align-items: center; gap: .55rem; flex-wrap: wrap; margin-bottom: .6rem;
+  padding: .5rem .8rem; border-radius: 8px; background: rgba(124,58,237,.08); border: 1px solid rgba(124,58,237,.22); font-size: .9rem; }
+.av-bulk button { padding: .35rem .8rem; }
+.av-atom-top { display: flex; align-items: flex-start; gap: .6rem; }
+.av-atom-top .av-atom-q { flex: 1; }
+.av-atom-sel { margin-top: .25rem; width: 18px; height: 18px; cursor: pointer; flex: 0 0 auto; }
+.av-atom.sel { background: rgba(124,58,237,.05); border-color: #7c3aed; }
 .av-atom { border: 1px solid var(--read-border, #ddd); border-radius: 10px; padding: .8rem 1rem; margin-bottom: .7rem;
   background: var(--read-bg, transparent); }
 .av-atom.ok { border-left: 3px solid #16a34a; }
