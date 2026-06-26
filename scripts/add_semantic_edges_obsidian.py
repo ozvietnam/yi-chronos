@@ -107,35 +107,31 @@ def backfill_concept_embeddings(db: sqlite3.Connection, batch: int = 64) -> int:
 
 
 def build_note_index() -> dict[str, Path]:
-    """ground-truth title -> path for every concept note on disk (filename w/o .md)."""
+    """Real on-disk stem (case-EXACT) -> path. Keyed by casefold too so we always
+    recover the TRUE filename casing (macOS FS is case-insensitive; Path.exists()
+    on a mis-cased name lies — we must read the actual stem from iterdir)."""
     idx: dict[str, Path] = {}
     for p in F_CONCEPT.rglob("*.md"):
         idx[p.stem] = p
+        idx.setdefault("\x00cf\x00" + p.stem.casefold(), p)  # casefold fallback key
     return idx
 
 
 def resolve_concept_note(
     concept_id: int, school: str, canonical_vi: str, note_index: dict[str, Path]
 ) -> Path | None:
-    """Map a concept to its ACTUAL note file, mirroring build_obsidian_graph's
-    title rule: base = safe_name(canonical_vi); on case-insensitive FS collision
-    the builder suffixed ' (id<concept_id>)'. Read both candidates from disk."""
+    """Map a concept to its ACTUAL note file (case-exact path from disk), mirroring
+    build_obsidian_graph's title rule: base = safe_name(canonical_vi); on
+    case-insensitive FS collision the builder suffixed ' (id<concept_id>)'."""
     base = safe_name(canonical_vi)
-    school_dir = F_CONCEPT / (school or "khac")
-    # Preferred: exact base in this school dir.
-    cand = school_dir / (base + ".md")
-    if cand.exists():
-        return cand
-    # Disambiguated form.
-    cand2 = school_dir / (f"{base} (id{concept_id}).md")
-    if cand2.exists():
-        return cand2
-    # Fallback: any dir (school value vs dir name edge cases).
-    if base in note_index:
-        return note_index[base]
     disamb = f"{base} (id{concept_id})"
-    if disamb in note_index:
-        return note_index[disamb]
+    # Prefer exact-cased disk stem; else casefold-recovered real path.
+    for key in (base, disamb):
+        if key in note_index:
+            return note_index[key]
+        cf = note_index.get("\x00cf\x00" + key.casefold())
+        if cf is not None:
+            return cf
     return None
 
 
