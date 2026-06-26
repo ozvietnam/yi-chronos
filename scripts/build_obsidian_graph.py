@@ -33,6 +33,7 @@ DB = ROOT / "data/yi_wiki/wiki.sqlite3"
 NGU_UAN = ROOT / "data/yi_wiki/tuvibonba_ngu_uan.json"
 CACH_CUC = ROOT / "data/yi_publishing/q1_tuvi/master/cach_cuc_index.json"
 BOOKS = ROOT / "data/yi_publishing/books.json"
+ONTOLOGY = ROOT / "data/yi_lexicon/ontology_nen.json"  # toạ-độ gốc chung (canonical)
 
 VAULT = ROOT / "thư viện sách"
 OUT = VAULT / "🧠 Mạng Tri Thức YI"
@@ -43,6 +44,7 @@ from engine.tu_vi.an_sao import CHINH_TINH_NAMES, PALACE_NAMES  # noqa: E402
 
 # ───────────────────────── CONSTANTS ─────────────────────────
 # Subfolders
+F_COORD = "00 · Toạ độ gốc chung"  # hub TRUNG LẬP PHÁI (school=chung): can/chi/quái/quẻ/hành…
 F_TRIET = "00 · Nền triết"
 F_PHAI = "01 · Phái"
 F_TV_TINH = "02 · Tử Vi/Chính tinh"
@@ -288,12 +290,193 @@ def main():
     for name, (note, al) in triet_nodes.items():
         V.add(name, F_TRIET, ntype="nen-triet", school="nen-triet",
               category="nền triết", aliases=al, body_lines=[note], extra_tags=["#nền-triết"])
-    # 5 hành
-    HANH_ZH = {"Kim": "金", "Mộc": "木", "Thủy": "水", "Hỏa": "火", "Thổ": "土"}
+    # ===== 1-bis. TOẠ ĐỘ GỐC CHUNG (school=chung, trung lập phái) =====
+    # Nguồn: ontology_nen.json — canonical deterministic. Mọi cạnh toạ-độ truy được về đây.
+    ont = json.loads(ONTOLOGY.read_text(encoding="utf-8"))
+    ONT_NH = ont["ngu_hanh"]
+    ONT_AD = ont["am_duong"]
+    ONT_CAN = ont["thien_can"]
+    ONT_CHI = ont["dia_chi"]
+    ONT_QUAI = ont["bat_quai"]
+    ONT_QUE = ont["que_64"]
+    ONT_ALIAS = ont.get("alias", {})
+
+    # — 5 hành = HUB toạ-độ (school=chung). Đây là node neo cho mọi cạnh "→[[<hành>]]".
     for h in NGU_HANH:
-        V.add(h, F_TRIET, ntype="hanh", school="nen-triet", category="ngũ hành",
-              canonical_zh=HANH_ZH[h], body_lines=[f"Hành {h} — một trong Ngũ Hành."],
-              extra_tags=["#ngũ-hành"])
+        nh = ONT_NH[h]
+        V.add(h, F_COORD, ntype="hanh", school="chung", category="ngũ hành",
+              canonical_zh=nh.get("zh"),
+              body_lines=[f"**Hành {h}** — toạ độ gốc chung (trung lập phái).",
+                          f"Sinh → {nh['sinh']} · Khắc → {nh['khac']} · "
+                          f"Được sinh bởi {nh['duoc_sinh_boi']} · Bị khắc bởi {nh['bi_khac_boi']}."],
+              extra_tags=["#ngũ-hành", "#toạ-độ-gốc"])
+
+    # — Âm / Dương = HUB toạ-độ
+    for ad, meta in ONT_AD.items():
+        V.add(ad, F_COORD, ntype="am-duong", school="chung", category="âm dương",
+              canonical_zh=meta.get("zh"),
+              body_lines=[f"**{ad}** — một trong hai khí gốc (toạ độ chung)."],
+              extra_tags=["#âm-dương", "#toạ-độ-gốc"])
+
+    # — Thiên Can hub + 10 can
+    V.add("Thiên Can", F_COORD, ntype="hub-toa-do", school="chung", category="thiên can",
+          canonical_zh="天干",
+          body_lines=["**Thiên Can** — 10 can trời, toạ độ gốc chung của Bát Tự/Kinh Dịch."],
+          extra_tags=["#toạ-độ-gốc"])
+    can_title = {}
+    for can, meta in ONT_CAN.items():
+        t = f"Can · {can}"
+        can_title[can] = t
+        V.add(t, F_COORD, ntype="thien-can", school="chung", category="thiên can",
+              aliases=[can, meta.get("zh")], canonical_zh=meta.get("zh"),
+              body_lines=[f"**Can {can}** ({meta.get('zh')}) — số {meta.get('so')} · "
+                          f"{meta.get('am_duong')} · hành {meta.get('ngu_hanh')}."],
+              extra_tags=["#thiên-can", "#toạ-độ-gốc"], disambig=f"can{meta.get('so')}")
+
+    # — Địa Chi hub + 12 chi
+    V.add("Địa Chi", F_COORD, ntype="hub-toa-do", school="chung", category="địa chi",
+          canonical_zh="地支",
+          body_lines=["**Địa Chi** — 12 chi đất, toạ độ gốc chung."],
+          extra_tags=["#toạ-độ-gốc"])
+    chi_title = {}
+    for chi, meta in ONT_CHI.items():
+        t = f"Chi · {chi}"
+        chi_title[chi] = t
+        tc = " · ".join(meta.get("tang_can", []))
+        V.add(t, F_COORD, ntype="dia-chi", school="chung", category="địa chi",
+              aliases=[chi, meta.get("zh")], canonical_zh=meta.get("zh"),
+              body_lines=[f"**Chi {chi}** ({meta.get('zh')}) — số {meta.get('so')} · "
+                          f"{meta.get('am_duong')} · hành {meta.get('ngu_hanh')}."
+                          + (f" Tàng can: {tc}." if tc else "")],
+              extra_tags=["#địa-chi", "#toạ-độ-gốc"], disambig=f"chi{meta.get('so')}")
+
+    # — Bát Quái hub + 8 quái
+    V.add("Bát Quái", F_COORD, ntype="hub-toa-do", school="chung", category="bát quái",
+          canonical_zh="八卦",
+          body_lines=["**Bát Quái** — 8 quẻ đơn, toạ độ gốc chung của Kinh Dịch."],
+          extra_tags=["#toạ-độ-gốc"])
+    quai_title = {}
+    for quai, meta in ONT_QUAI.items():
+        t = f"Quái · {quai}"
+        quai_title[quai] = t
+        ng = " · ".join(meta.get("nap_giap", []))
+        V.add(t, F_COORD, ntype="bat-quai", school="chung", category="bát quái",
+              aliases=[quai, meta.get("zh")], canonical_zh=meta.get("zh"),
+              body_lines=[f"**Quái {quai}** ({meta.get('zh')}) — số {meta.get('so')} · "
+                          f"{meta.get('am_duong')} · hành {meta.get('ngu_hanh')}."
+                          + (f" Nạp giáp: {ng}." if ng else "")],
+              extra_tags=["#bát-quái", "#toạ-độ-gốc"], disambig=f"quai{meta.get('so')}")
+
+    # — 64 Quẻ hub + 64 quẻ kép
+    V.add("64 Quẻ", F_COORD, ntype="hub-toa-do", school="chung", category="64 quẻ",
+          canonical_zh="六十四卦",
+          body_lines=["**64 Quẻ** — toạ độ gốc chung; mỗi quẻ = thượng quái + hạ quái."],
+          extra_tags=["#toạ-độ-gốc"])
+    que_title = {}
+    for que, meta in ONT_QUE.items():
+        t = f"Quẻ · {que}"
+        que_title[que] = t
+        V.add(t, F_COORD, ntype="que-64", school="chung", category="64 quẻ",
+              aliases=[que, meta.get("zh")], canonical_zh=meta.get("zh"),
+              body_lines=[f"**Quẻ {que}** ({meta.get('zh')}) — số {meta.get('so_sinh')} · "
+                          f"thượng {meta.get('thuong_quai')} / hạ {meta.get('ha_quai')}."],
+              extra_tags=["#64-quẻ", "#toạ-độ-gốc"], disambig=f"que{meta.get('so_sinh')}")
+    # ── MATCHER toạ-độ: token canonical (vi/zh/alias) → [(hub_title, edge_type)] ──
+    # KHỚP CHÍNH XÁC (exact, canonical), KHÔNG fuzzy. Mọi cạnh truy được về ontology_nen.
+    # Key đã safe_name + casefold để so khít với tên/alias/zh của node bất kỳ phái.
+    coord_index = {}  # casefold(safe_name(token)) -> list[(hub_title, edge_type)]
+
+    def _reg(token, links):
+        if not token:
+            return
+        k = safe_name(str(token)).casefold()
+        if not k:
+            return
+        coord_index.setdefault(k, [])
+        for pair in links:
+            if pair not in coord_index[k]:
+                coord_index[k].append(pair)
+
+    # ngũ hành: tên + zh → [[<hành>]]
+    for h in NGU_HANH:
+        links = [(h, "toạ-độ ngũ-hành")]
+        _reg(h, links)
+        _reg(ONT_NH[h].get("zh"), links)
+    # âm dương: tên + zh → [[Âm/Dương]]
+    for ad, meta in ONT_AD.items():
+        links = [(ad, "toạ-độ âm-dương")]
+        _reg(ad, links)
+        _reg(meta.get("zh"), links)
+    # thiên can: tên + zh + alias → [[Thiên Can]] + [[hành]] + [[Âm/Dương]]
+    for can, meta in ONT_CAN.items():
+        links = [("Thiên Can", "toạ-độ thiên-can"),
+                 (meta["ngu_hanh"], "toạ-độ ngũ-hành"),
+                 (meta["am_duong"], "toạ-độ âm-dương")]
+        _reg(can, links)
+        _reg(meta.get("zh"), links)
+    for alias, canon in ONT_ALIAS.get("thien_can", {}).items():
+        m = ONT_CAN.get(canon)
+        if m:
+            _reg(alias, [("Thiên Can", "toạ-độ thiên-can"),
+                         (m["ngu_hanh"], "toạ-độ ngũ-hành"),
+                         (m["am_duong"], "toạ-độ âm-dương")])
+    # địa chi: tên + zh + alias → [[Địa Chi]] + [[hành]]
+    for chi, meta in ONT_CHI.items():
+        links = [("Địa Chi", "toạ-độ địa-chi"), (meta["ngu_hanh"], "toạ-độ ngũ-hành")]
+        _reg(chi, links)
+        _reg(meta.get("zh"), links)
+    for alias, canon in ONT_ALIAS.get("dia_chi", {}).items():
+        m = ONT_CHI.get(canon)
+        if m:
+            _reg(alias, [("Địa Chi", "toạ-độ địa-chi"), (m["ngu_hanh"], "toạ-độ ngũ-hành")])
+    # bát quái: tên + zh + alias → [[Bát Quái]] + [[hành]] + nạp-giáp can
+    for quai, meta in ONT_QUAI.items():
+        links = [("Bát Quái", "toạ-độ bát-quái"), (meta["ngu_hanh"], "toạ-độ ngũ-hành")]
+        for ng in meta.get("nap_giap", []):
+            links.append((can_title[ng], "nạp-giáp can"))
+        _reg(quai, links)
+        _reg(meta.get("zh"), links)
+    for alias, canon in ONT_ALIAS.get("bat_quai", {}).items():
+        m = ONT_QUAI.get(canon)
+        if m:
+            ls = [("Bát Quái", "toạ-độ bát-quái"), (m["ngu_hanh"], "toạ-độ ngũ-hành")]
+            for ng in m.get("nap_giap", []):
+                ls.append((can_title[ng], "nạp-giáp can"))
+            _reg(alias, ls)
+    # 64 quẻ: tên + zh + alias → [[thượng quái]] + [[hạ quái]] + [[64 Quẻ]]
+    for que, meta in ONT_QUE.items():
+        links = [("64 Quẻ", "toạ-độ 64-quẻ"),
+                 (quai_title[meta["thuong_quai"]], "thượng quái"),
+                 (quai_title[meta["ha_quai"]], "hạ quái")]
+        _reg(que, links)
+        _reg(meta.get("zh"), links)
+    for alias, canon in ONT_ALIAS.get("que_64", {}).items():
+        m = ONT_QUE.get(canon)
+        if m:
+            _reg(alias, [("64 Quẻ", "toạ-độ 64-quẻ"),
+                         (quai_title[m["thuong_quai"]], "thượng quái"),
+                         (quai_title[m["ha_quai"]], "hạ quái")])
+
+    def coord_links_for(*tokens):
+        """Trả về list (hub_title, edge_type) cho node có 1 trong các token KHỚP CHÍNH XÁC
+        một primitive. Dedupe, ổn định thứ tự."""
+        out = []
+        seen = set()
+        for tok in tokens:
+            if not tok:
+                continue
+            hits = coord_index.get(safe_name(str(tok)).casefold())
+            if not hits:
+                continue
+            for pair in hits:
+                if pair not in seen:
+                    seen.add(pair)
+                    out.append(pair)
+            # CHÍNH XÁC: token đầu tiên khớp là đủ (mỗi node khớp 1 primitive)
+            if out:
+                break
+        return out
+
     # 5 uẩn
     UAN_ZH = {"Sắc": "色", "Thọ": "受", "Tưởng": "想", "Hành": "行", "Thức": "識"}
     for u in NGU_UAN_5:
@@ -407,9 +590,11 @@ def main():
     # ===== 4. 3641 CONCEPT (concept_index) =====
     concept_rows = con.execute(
         "select concept_id, canonical_vi, canonical_zh, aliases, mentioned_in_passages, "
-        "short_note, first_seen_corpus, corpora, school, category from concept_index").fetchall()
+        "short_note, first_seen_corpus, first_seen_page, corpora, school, category "
+        "from concept_index").fetchall()
     concept_title = {}
     concept_passages = {}   # title -> set(passage)
+    concept_tokens = {}     # cid -> (vi, zh, [aliases]) cho matcher toạ-độ
     for r in concept_rows:
         vi = (r["canonical_vi"] or "").strip()
         if not vi:
@@ -427,6 +612,7 @@ def main():
         concept_title[r["concept_id"]] = rec["title"]
         ps = set(norm_passage(p) for p in parse_json_field(r["mentioned_in_passages"]))
         concept_passages[r["concept_id"]] = ps
+        concept_tokens[r["concept_id"]] = (vi, r["canonical_zh"], al)
 
     # ============================================================
     #                       CẠNH (EDGES)
@@ -507,12 +693,7 @@ def main():
         V.link(rec, SINH[h], "sinh →")
         V.link(rec, KHAC[h], "khắc →")
 
-    # E5. sao → [[hành]] (ngũ hành chính tinh)
-    for s in CHINH_TINH_NAMES:
-        ele = STAR_ELEMENT_CANON.get(s)
-        rec = V.notes.get(star_title[s])
-        if rec and ele:
-            V.link(rec, ele, "hành của sao")
+    # E5. (gộp vào B1 — cạnh toạ-độ ngũ-hành cho 14 chính tinh, xem mục (B) bên dưới)
 
     # E6. cách cục → [[sao cấu thành]] (chính tinh xuất hiện trong tên/điều kiện)
     for t, text in cach_recs:
@@ -559,6 +740,142 @@ def main():
             if hits >= 5:
                 break
 
+    # ============================================================
+    #  (A) PROVENANCE BẮT BUỘC — diệt cô đơn: MỌI node có ≥1 [[Phái·]] / [[Sách·]]
+    # ============================================================
+    # A0. hub toạ-độ nội bộ (Thiên Can→10 can, Địa Chi→12 chi, …) — neo cụm toạ-độ.
+    for can in ONT_CAN:
+        V.link(V.notes["Thiên Can"], can_title[can], "gồm can")
+    for chi in ONT_CHI:
+        V.link(V.notes["Địa Chi"], chi_title[chi], "gồm chi")
+    for quai in ONT_QUAI:
+        V.link(V.notes["Bát Quái"], quai_title[quai], "gồm quái")
+    for que in ONT_QUE:
+        V.link(V.notes["64 Quẻ"], que_title[que], "gồm quẻ")
+    # Âm Dương (nền triết) → 2 khí toạ-độ (neo Âm/Dương hub vào cụm)
+    V.link(V.notes["Âm Dương"], "Âm", "phân thành")
+    V.link(V.notes["Âm Dương"], "Dương", "phân thành")
+
+    # A1. CHÍNH TINH → [[Phái · tu_vi]] (provenance phái — mọi sao đều thuộc tu_vi).
+    for s in CHINH_TINH_NAMES:
+        rec = V.notes.get(star_title[s])
+        if rec and "tu_vi" in phai_title:
+            V.link(rec, phai_title["tu_vi"], "thuộc-phái")
+
+    # A2. CUNG → [[Phái · tu_vi]] (cung = tu_vi; sao quay theo lá số nên không neo sao cố định).
+    for c in PALACE_NAMES:
+        rec = V.notes.get(cung_title[c])
+        if rec and "tu_vi" in phai_title:
+            V.link(rec, phai_title["tu_vi"], "thuộc-phái")
+
+    # A3. CÁCH CỤC → [[Phái · tu_vi]] (provenance) + [[Sách · …]] nguồn (cach_cuc_index.sources).
+    cc_sources = {}  # title -> set(corpus/book hints)
+    for idx, (k, v) in enumerate(cc.items()):
+        ten = v.get("ten") or k
+        t = f"Cách · {safe_name(ten)}"
+        # tên thật có thể bị suffix khi đụng; tra lại từ cach_recs theo thứ tự
+        srcs = v.get("sources") or []
+        cc_sources.setdefault(t, []).extend(srcs)
+    for t, _text in cach_recs:
+        rec = V.notes.get(t)
+        if not rec:
+            continue
+        if "tu_vi" in phai_title:
+            V.link(rec, phai_title["tu_vi"], "thuộc-phái")
+        # sách nguồn cách cục = corpus Tử Vi Q1 (Phú Thái Vi). Neo về sách nếu corpus có node.
+        for cand in ("tuvidauso-zh-q1", "q1_tuvi"):
+            if cand in corpus_title:
+                V.link(rec, corpus_title[cand], "trích-từ-sách")
+                break
+
+    # A4. NỀN TRIẾT → [[Phái · phat_hoc_nen]] nếu có hub (Phật học) — provenance.
+    if "phat_hoc_nen" in phai_title:
+        for n in ("Ngũ Uẩn", "Tứ Diệu Đế", "Bát Chánh Đạo", "Duyên Khởi", "Vô Ngã"):
+            rec = V.notes.get(n)
+            if rec:
+                V.link(rec, phai_title["phat_hoc_nen"], "thuộc-phái")
+
+    # A5. SÁCH NGUỒN → [[Phái · <school>]] (provenance cho node sách, từ books.json school).
+    for cid, t in corpus_title.items():
+        rec = V.notes.get(t)
+        if not rec:
+            continue
+        sch = rec.get("school")
+        if sch and sch in phai_title:
+            V.link(rec, phai_title[sch], "thuộc-phái")
+        # fallback: sách chưa biết phái → neo về hub sách (64 Quẻ/Thiên Can nếu khớp tên? không).
+        # Nếu vẫn trống, A6 không áp dụng cho sách → để A-final safety net xử lý.
+
+    # ============================================================
+    #  (B) CẠNH TOẠ-ĐỘ-GỐC LIÊN-PHÁI (binder) — KHỚP CHÍNH XÁC primitive → hub chung
+    # ============================================================
+    coord_edge_count = 0
+
+    def apply_coord(rec, *tokens):
+        nonlocal coord_edge_count
+        if not rec:
+            return 0
+        n = 0
+        for hub_title, et in coord_links_for(*tokens):
+            # tránh tự-nối node toạ-độ với chính nó
+            if hub_title == rec["title"]:
+                continue
+            if V.link(rec, hub_title, et):
+                n += 1
+        coord_edge_count += n
+        return n
+
+    # B1. 14 chính tinh: record CÓ thuộc tính ngũ-hành → nối hub <hành>.
+    #     (thay edge "hành của sao" cũ bằng cạnh toạ-độ chuẩn, vẫn deterministic Toàn Thư.)
+    for s in CHINH_TINH_NAMES:
+        ele = STAR_ELEMENT_CANON.get(s)
+        rec = V.notes.get(star_title[s])
+        if rec and ele:
+            if V.link(rec, ele, "toạ-độ ngũ-hành"):
+                coord_edge_count += 1
+
+    # B2. MỌI node toạ-độ (can/chi/quái/quẻ) → tự nối hub + hành + nạp-giáp + thượng/hạ quái.
+    for can in ONT_CAN:
+        apply_coord(V.notes.get(can_title[can]), can)
+    for chi in ONT_CHI:
+        apply_coord(V.notes.get(chi_title[chi]), chi)
+    for quai in ONT_QUAI:
+        apply_coord(V.notes.get(quai_title[quai]), quai)
+    for que in ONT_QUE:
+        apply_coord(V.notes.get(que_title[que]), que)
+
+    # B3. MỌI KHÁI NIỆM (mọi phái): nếu vi/zh/alias KHỚP CHÍNH XÁC primitive → nối hub chung.
+    for cid, (vi, zh, al) in concept_tokens.items():
+        if cid not in concept_title:
+            continue
+        rec = V.notes.get(concept_title[cid])
+        apply_coord(rec, vi, zh, *al)
+
+    # B4. CÁCH CỤC: tên cách khớp primitive? (hiếm) — vẫn áp để liên-phái.
+    for t, text in cach_recs:
+        apply_coord(V.notes.get(t), t.replace("Cách · ", ""))
+
+    # ============================================================
+    #  (A-final) SAFETY NET: quét node cô đơn (0 in + 0 out) → neo provenance tối thiểu.
+    # ============================================================
+    indeg = {}
+    for rec in V.notes.values():
+        for tgt, _et in rec["links"]:
+            indeg[tgt] = indeg.get(tgt, 0) + 1
+    for title, rec in V.notes.items():
+        if rec["ntype"] == "readme":
+            continue
+        has_out = bool(rec["links"])
+        has_in = indeg.get(title, 0) > 0
+        if has_out or has_in:
+            continue
+        # node cô đơn còn sót → neo về [[Phái · <school>]] nếu có, else hub toạ-độ chung.
+        sch = rec.get("school")
+        if sch and sch in phai_title and phai_title[sch] != title:
+            V.link(rec, phai_title[sch], "thuộc-phái")
+        elif "tu_vi" in phai_title and phai_title["tu_vi"] != title:
+            V.link(rec, phai_title["tu_vi"], "thuộc-phái")
+
     # ===== README =====
     readme = build_readme(V)
     V.add("_README — Mạng Tri Thức YI", ".", ntype="readme",
@@ -570,14 +887,39 @@ def main():
     # ===== merge graph.json colorGroups =====
     merge_graph_colors()
 
+    # ===== ĐO CÔ ĐƠN (0 in + 0 out, trừ README) =====
+    indeg2 = {}
+    for rec in V.notes.values():
+        for tgt, _et in rec["links"]:
+            indeg2[tgt] = indeg2.get(tgt, 0) + 1
+    co_don = []
+    for title, rec in V.notes.items():
+        if rec["ntype"] == "readme":
+            continue
+        if not rec["links"] and indeg2.get(title, 0) == 0:
+            co_don.append(title)
+    so_co_don = len(co_don)
+
+    # degree mới của các hub toạ-độ ngũ-hành (in + out)
+    def _deg(title):
+        out = len(V.notes.get(title, {}).get("links", []))
+        return out + indeg2.get(title, 0)
+    element_hub_degree = {h: _deg(h) for h in NGU_HANH}
+
     # ===== SELF-TEST =====
     n_notes = len(V.notes)
     n_links = V.link_count
     passed, checks = self_test(V, n_notes, n_links)
+    checks["so_co_don_eq_0"] = (so_co_don == 0)
+    checks["co_don_sample"] = co_don[:10]
+    passed = passed and checks["so_co_don_eq_0"]
 
     result = {
         "so_note": n_notes,
         "so_link": n_links,
+        "so_co_don": so_co_don,
+        "so_canh_toa_do": coord_edge_count,
+        "element_hub_degree": element_hub_degree,
         "passed": passed,
         "theo_loai": {
             "node": dict(sorted(V.breakdown_nodes.items(), key=lambda x: -x[1])),
@@ -597,11 +939,20 @@ def build_readme(V) -> str:
         "## Cách đọc graph",
         "- Mở **Graph view** (Ctrl/Cmd+G). Mỗi chấm = 1 note. Mỗi đường = 1 quan hệ THẬT.",
         "- Bật **Groups** trong panel để thấy màu theo phái.",
+        "- Folder `00 · Toạ độ gốc chung` = HUB TRUNG LẬP PHÁI (school=chung): "
+        "5 hành · Âm/Dương · 10 can · 12 chi · 8 quái · 64 quẻ. Mọi phái nối về đây (binder).",
         "- Folder `00 · Nền triết` = gốc Âm Dương / Ngũ Hành / Ngũ Uẩn / Phật học.",
         "- Folder `01 · Phái` = hub MOC mỗi trường phái (backlink hội tụ).",
         "- Folder `02 · Tử Vi` = 14 chính tinh + 12 cung + cách cục.",
         "- Folder `03 · Khái niệm/<phái>` = 3641 khái niệm wiki.",
         "- Folder `04 · Sách nguồn` = corpus gốc mỗi khái niệm trích ra.",
+        "",
+        "## Hai lớp cạnh mới (2 invariant)",
+        "- **(A) Provenance bắt buộc**: MỌI node có ≥1 [[Phái · …]] hoặc [[Sách · …]] → "
+        "KHÔNG còn node cô đơn (so_co_don = 0).",
+        "- **(B) Toạ-độ gốc liên-phái**: node bất kỳ phái nếu tên/zh/alias KHỚP CHÍNH XÁC "
+        "một primitive (can/chi/quái/quẻ/hành) HOẶC có thuộc tính ngũ-hành (14 sao) → nối "
+        "hub toạ-độ chung. KHỚP CHÍNH XÁC, KHÔNG fuzzy — mọi cạnh truy về `ontology_nen.json`.",
         "",
         "## Chú giải màu (theo phái)",
     ]
@@ -614,10 +965,17 @@ def build_readme(V) -> str:
         "- **trích-từ-sách**: concept.first_seen_corpus + corpora → sách nguồn.",
         "- **đồng-hiện**: 2 concept chung `mentioned_in_passages` (CAP top-8/concept).",
         "- **sinh → / khắc →**: vòng Ngũ Hành cổ điển (deterministic).",
-        "- **hành của sao**: 14 chính tinh → Ngũ Hành (Toàn Thư, cross-check prose ngũ_uẩn).",
         "- **sao cấu thành**: cách cục → chính tinh xuất hiện trong tên/điều kiện.",
         "- **gốc-tham nhắc**: sao → concept có tên khớp nguyên văn trong trường `goc_tham`.",
         "- **nền triết nội bộ**: Ngũ Uẩn→5 uẩn, khe Thọ→Hành, Bát Chánh Đạo→Tứ Diệu Đế…",
+        "",
+        "### Cạnh toạ-độ gốc (B) — từ `ontology_nen.json` (canonical, KHỚP CHÍNH XÁC)",
+        "- **toạ-độ ngũ-hành**: node khớp 1 hành / 14 sao có thuộc tính ngũ-hành → [[Kim/Mộc/…]].",
+        "- **toạ-độ âm-dương**: khớp Âm/Dương / can → [[Âm]] / [[Dương]].",
+        "- **toạ-độ thiên-can / địa-chi / bát-quái / 64-quẻ**: khớp can/chi/quái/quẻ → hub chung.",
+        "- **thượng quái / hạ quái**: quẻ → 2 quái cấu thành (nội/ngoại).",
+        "- **nạp-giáp can**: quái → can nạp giáp (nối Kinh Dịch ↔ Bát Tự).",
+        "- **gồm can/chi/quái/quẻ/hành**: hub toạ-độ → các phần tử của nó.",
     ]
     return "\n".join(lines)
 

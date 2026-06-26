@@ -49,10 +49,13 @@ END_MARK = "<!-- KHO-TRI-THUC:END -->"
 SECTION_HEADING = "## 📚 Nội dung (từ kho tri thức)"
 
 # Các dòng "mục link" — mục bơm phải đặt TRƯỚC dòng đầu tiên khớp một trong số này.
-LINK_LINE_RE = re.compile(
-    r"^(?:\*\*(?:thuộc-phái|trích-từ-sách|đồng-hiện|hành của sao|sao cấu thành|"
-    r"Ngũ Hành|Cấp độ)\b|## 🔗|## 📚)"
-)
+# build_obsidian_graph render MỖI cạnh thành dòng `**<edge type>:** [[..]] · [[..]]`
+# (edge type động: thuộc-phái / trích-từ-sách / đồng-hiện / toạ-độ ngũ-hành /
+#  thượng quái / nạp-giáp can / gồm can …). Để bắt ĐÚNG dòng link ĐẦU TIÊN bất kể
+#  nhãn cạnh là gì, ta nhận diện TỔNG QUÁT: dòng bắt đầu `**…:**` VÀ có chứa `[[`,
+#  hoặc các heading mục bơm/gần-nghĩa. (Dòng body in đậm như `**Gốc tham:** …` KHÔNG
+#  có wikilink nên KHÔNG bị nhầm là dòng link.)
+LINK_LINE_RE = re.compile(r"^(?:\*\*[^*]+:\*\*\s*\[\[|## 🔗|## 📚)")
 
 ATOM_LIMIT = 15  # số atom bơm tối đa mỗi note concept / sao
 
