@@ -223,7 +223,7 @@ textarea {
 /* ========== Compact topbar v2 ========== */
 .topbar-v2 {
   display: grid;
-  grid-template-columns: minmax(220px, auto) 1fr auto;
+  grid-template-columns: minmax(0, 1fr) auto auto;
   gap: 18px;
   align-items: center;
   margin-bottom: 14px;
@@ -243,6 +243,7 @@ textarea {
 /* Cho khối chữ brand CO lại + wrap trong cột grid (tránh subtitle + pill phái
    tràn đè lên cụm đồng hồ/ngày khi cột bị ép). */
 .topbar-brand-text { min-width: 0; }
+.topbar-brand-text h1 { white-space: nowrap; }
 .topbar-brand-text p { overflow-wrap: anywhere; }
 
 .brand-glyph {
