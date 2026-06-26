@@ -34,6 +34,7 @@ NGU_UAN = ROOT / "data/yi_wiki/tuvibonba_ngu_uan.json"
 CACH_CUC = ROOT / "data/yi_publishing/q1_tuvi/master/cach_cuc_index.json"
 BOOKS = ROOT / "data/yi_publishing/books.json"
 ONTOLOGY = ROOT / "data/yi_lexicon/ontology_nen.json"  # toạ-độ gốc chung (canonical)
+HANH_MAP = ROOT / "data/yi_lexicon/concept_ngu_hanh_map.json"  # bảng hành GROUNDED (có nguồn)
 
 VAULT = ROOT / "thư viện sách"
 OUT = VAULT / "🧠 Mạng Tri Thức YI"
@@ -855,6 +856,49 @@ def main():
     for t, text in cach_recs:
         apply_coord(V.notes.get(t), t.replace("Cách · ", ""))
 
+    # B5. BẢNG HÀNH GROUNDED (concept_ngu_hanh_map.json) → cạnh toạ-độ ngũ-hành + âm-dương.
+    #     GROUNDED TUYỆT ĐỐI: mỗi gán hành trong bảng đã có trường `nguon` (canonical table
+    #     ontology_nen / engine tu_vi, HOẶC câu trích short_note tường minh). KHÔNG fuzzy,
+    #     KHÔNG bịa — chỉ đọc kết quả đã neo nguồn. Nguồn được GIỮ trong body note (verify)
+    #     để mỗi cạnh truy ngược được. Bổ trợ B1-B3: bắt các concept có hành nhưng tên KHÔNG
+    #     khớp primitive (vd "Sa Trung Kim", "Thiên Khốc", "Quẻ Càn", các quẻ nạp-quái lưỡng hành).
+    hanh_edge_count = 0
+    hanh_concepts = 0
+    try:
+        _hm = json.loads(HANH_MAP.read_text(encoding="utf-8"))
+    except Exception:
+        _hm = {"concepts": {}}
+    for _key, _entry in _hm.get("concepts", {}).items():
+        cid = _entry.get("concept_id")
+        if cid not in concept_title:
+            continue  # concept không có node (vd canonical_vi rỗng) → bỏ qua an toàn
+        rec = V.notes.get(concept_title[cid])
+        if not rec:
+            continue
+        nguon = (_entry.get("nguon") or "").strip()
+        added_here = 0
+        # — cạnh ngũ-hành: mỗi hành grounded → [[<hành>]] (1..2 hành cho quẻ nạp-quái) —
+        for h in _entry.get("hanh", []):
+            if h in NGU_HANH and h != rec["title"]:
+                if V.link(rec, h, "toạ-độ ngũ-hành"):
+                    hanh_edge_count += 1
+                    added_here += 1
+        # — cạnh âm-dương: chỉ khi bảng có am_duong grounded → [[Âm]]/[[Dương]] —
+        ad = _entry.get("am_duong")
+        if ad in ("Âm", "Dương") and ad != rec["title"]:
+            if V.link(rec, ad, "toạ-độ âm-dương"):
+                hanh_edge_count += 1
+                added_here += 1
+        # — GIỮ NGUỒN trong body note để verify (provenance cạnh hành, KHÔNG đụng so_co_don) —
+        if added_here and nguon:
+            tag = f"<!-- toạ-độ ngũ-hành: hành={'+'.join(_entry.get('hanh', []))}" \
+                  + (f" · âm-dương={ad}" if ad in ("Âm", "Dương") else "") \
+                  + f" · nguồn: {nguon} -->"
+            if tag not in rec["body"]:
+                rec["body"].append("")
+                rec["body"].append(tag)
+            hanh_concepts += 1
+
     # ============================================================
     #  (A-final) SAFETY NET: quét node cô đơn (0 in + 0 out) → neo provenance tối thiểu.
     # ============================================================
@@ -919,6 +963,8 @@ def main():
         "so_link": n_links,
         "so_co_don": so_co_don,
         "so_canh_toa_do": coord_edge_count,
+        "so_canh_hanh_grounded": hanh_edge_count,
+        "so_concept_hanh_grounded": hanh_concepts,
         "element_hub_degree": element_hub_degree,
         "passed": passed,
         "theo_loai": {
@@ -970,8 +1016,11 @@ def build_readme(V) -> str:
         "- **nền triết nội bộ**: Ngũ Uẩn→5 uẩn, khe Thọ→Hành, Bát Chánh Đạo→Tứ Diệu Đế…",
         "",
         "### Cạnh toạ-độ gốc (B) — từ `ontology_nen.json` (canonical, KHỚP CHÍNH XÁC)",
-        "- **toạ-độ ngũ-hành**: node khớp 1 hành / 14 sao có thuộc tính ngũ-hành → [[Kim/Mộc/…]].",
-        "- **toạ-độ âm-dương**: khớp Âm/Dương / can → [[Âm]] / [[Dương]].",
+        "- **toạ-độ ngũ-hành**: node khớp 1 hành / 14 sao có thuộc tính ngũ-hành → [[Kim/Mộc/…]]; "
+        "CỘNG bảng `concept_ngu_hanh_map.json` (GROUNDED, mỗi gán có `nguon` giữ trong comment "
+        "note để verify — canonical table HOẶC trích short_note; KHÔNG fuzzy).",
+        "- **toạ-độ âm-dương**: khớp Âm/Dương / can → [[Âm]] / [[Dương]]; CỘNG bảng hành grounded "
+        "(chỉ khi có `am_duong` neo nguồn).",
         "- **toạ-độ thiên-can / địa-chi / bát-quái / 64-quẻ**: khớp can/chi/quái/quẻ → hub chung.",
         "- **thượng quái / hạ quái**: quẻ → 2 quái cấu thành (nội/ngoại).",
         "- **nạp-giáp can**: quái → can nạp giáp (nối Kinh Dịch ↔ Bát Tự).",
