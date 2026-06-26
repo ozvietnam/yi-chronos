@@ -160,16 +160,28 @@ class Vault:
         self.out = out
         self.notes = {}          # title -> dict(meta)
         self.aliases = {}        # alias -> title (for resolve)
+        self.casefold = {}       # casefold(title) -> title (macOS case-insensitive FS)
         self.link_count = 0
         self.breakdown_nodes = {}
         self.breakdown_edges = {}
 
     def add(self, title, subdir, *, ntype, school=None, category=None,
-            aliases=None, canonical_zh=None, body_lines=None, extra_tags=None):
-        title = safe_name(title)
+            aliases=None, canonical_zh=None, body_lines=None, extra_tags=None,
+            disambig=None):
+        orig = safe_name(title)
+        title = orig
         if title in self.notes:
-            # idempotent within run: keep first, merge body links later if needed
+            # exact dup (same name): keep first (idempotent within run)
             return self.notes[title]
+        # macOS filesystem is case-insensitive: 'Khắc Ứng' vs 'Khắc ứng' collide on disk.
+        # Disambiguate by suffixing a stable token so every concept keeps its own node.
+        if title.casefold() in self.casefold:
+            suffix = f" ({disambig})" if disambig is not None else " ·2"
+            title = (orig + suffix)
+            # extremely rare second-collision: keep bumping
+            while title in self.notes or title.casefold() in self.casefold:
+                suffix = suffix + "·"
+                title = orig + suffix
         tags = []
         if extra_tags:
             tags += list(extra_tags)
@@ -186,6 +198,7 @@ class Vault:
             "links": [],  # collected outgoing [[..]] for counting
         }
         self.notes[title] = rec
+        self.casefold[title.casefold()] = title
         for a in rec["aliases"]:
             a = (a or "").strip()
             if a and a != title:
@@ -377,7 +390,7 @@ def main():
     # ===== 6. CÁCH CỤC =====
     cc = json.loads(CACH_CUC.read_text(encoding="utf-8"))
     cach_recs = []
-    for k, v in cc.items():
+    for idx, (k, v) in enumerate(cc.items()):
         ten = v.get("ten") or k
         t = f"Cách · {safe_name(ten)}"
         body = []
@@ -386,9 +399,10 @@ def main():
         if v.get("y_nghia"):
             body.append("")
             body.append(v["y_nghia"])
-        V.add(t, F_TV_CACH, ntype="cach-cuc", school="tu_vi", category="cách cục",
-              body_lines=body or [ten], extra_tags=["#cách-cục"])
-        cach_recs.append((t, ten + " " + (v.get("dieu_kien") or "")))
+        rec = V.add(t, F_TV_CACH, ntype="cach-cuc", school="tu_vi", category="cách cục",
+                    body_lines=body or [ten], extra_tags=["#cách-cục"],
+                    disambig=f"c{idx}")
+        cach_recs.append((rec["title"], ten + " " + (v.get("dieu_kien") or "")))
 
     # ===== 4. 3641 CONCEPT (concept_index) =====
     concept_rows = con.execute(
@@ -401,15 +415,16 @@ def main():
         if not vi:
             continue
         al = parse_json_field(r["aliases"])
-        t = safe_name(vi)
-        # avoid collision with structural notes (Sao·, Cung·, ...): concepts keep raw name
-        concept_title[r["concept_id"]] = t
         body = []
         if r["short_note"]:
             body.append(r["short_note"])
-        V.add(vi, f"{F_CONCEPT}/{r['school'] or 'khac'}", ntype="khai-niem",
-              school=r["school"], category=r["category"], aliases=al,
-              canonical_zh=r["canonical_zh"], body_lines=body or [vi])
+        # disambig by concept_id so case-insensitive FS collisions keep distinct nodes
+        rec = V.add(vi, f"{F_CONCEPT}/{r['school'] or 'khac'}", ntype="khai-niem",
+                    school=r["school"], category=r["category"], aliases=al,
+                    canonical_zh=r["canonical_zh"], body_lines=body or [vi],
+                    disambig=f"id{r['concept_id']}")
+        # map to ACTUAL written title (may be suffixed on collision)
+        concept_title[r["concept_id"]] = rec["title"]
         ps = set(norm_passage(p) for p in parse_json_field(r["mentioned_in_passages"]))
         concept_passages[r["concept_id"]] = ps
 
