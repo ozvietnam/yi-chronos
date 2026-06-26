@@ -102,6 +102,14 @@ def _ans_cung_phu_the(out: dict) -> str:
     if not cpt:
         return ""
     parts = []
+    # GROUND vào branch THẬT của lá số (router chỉ _scrub → giữ 'Tỵ'; còn ở display
+    # _plain_vi strip 'tại Tỵ' → 'an.' SẠCH, không để orphan ',:.:' nhờ
+    # _ORPHAN_LOCATIVE_VERB_RE). Dùng 1 CÂU RIÊNG dạng 'an tại <chi>.' — KHÔNG ghép
+    # tên cung + tên sao vào cùng cụm (cái đó mới sinh orphan). 'an tại' là locative
+    # → khi strip object chỉ rụng locative, vế nghĩa phía sau còn nguyên.
+    branch = (cpt.get("phu_the_branch") or "").strip()
+    if branch:
+        parts.append(f"Cung bạn đời của em an tại {branch}.")
     # Mở bằng câu THUẦN nghĩa, KHÔNG nhồi tên cung/chi/sao (jargon) vào — tránh
     # orphan ',:.:' sau khi _plain_vi strip. 'mượn sao đối cung' giữ vì là nghĩa.
     if cpt.get("muon_sao_doi_cung"):

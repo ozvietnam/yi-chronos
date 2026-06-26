@@ -483,9 +483,13 @@ def _sec_hoi_dap(cau_hoi: list[dict]) -> Optional[dict]:
     for q in cau_hoi:
         if not _nonempty(q.get("cau_hoi")):
             continue
+        # BUG4 — 'dap' là câu trả lời USER-FACING: phải SẠCH Hán + jargon như mọi
+        # surface đọc. Router chỉ _scrub (giữ branch 'Tỵ' để ground), nhưng body rút
+        # từ tinh_chat_phoi_ngau còn lẫn '(刚烈之星)/(孤克)' → _plain_vi strip Hán +
+        # tên-sao + dọn orphan. 'hoi' (câu user) cũng _plain_vi cho đồng nhất.
         items.append({
-            "hoi": q.get("cau_hoi"),
-            "dap": q.get("tra_loi"),
+            "hoi": _plain_vi(q.get("cau_hoi")),
+            "dap": _plain_vi(q.get("tra_loi")),
             "he": q.get("he_tra_loi"),
             "cta_gieo_que": bool(q.get("can_gieo_que")),
         })
