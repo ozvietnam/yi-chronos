@@ -429,7 +429,7 @@ onBeforeUnmount(() => {
           <button type="button" :class="{ active: activeMainTab === 'my-publications' }"
             @click="activeMainTab = 'my-publications'"
             title="Hồ sơ kết quả: PDF, Word, MD đã sinh thành">
-            <span class="tab-icon">📚</span> Kết quả
+            <span class="tab-icon"><SchoolIcon name="my-publications" /></span> Kết quả
           </button>
         </div>
         <div class="tab-divider"></div>
@@ -437,11 +437,11 @@ onBeforeUnmount(() => {
           <span class="tab-group-label">Hermes</span>
           <button type="button" :class="{ active: activeMainTab === 'chan-dung' }"
             @click="activeMainTab = 'chan-dung'" title="Chân dung tổng hợp: bạn là ai qua ba lá số">
-            <span class="tab-icon">🪞</span> Chân Dung
+            <span class="tab-icon"><SchoolIcon name="chan-dung" /></span> Chân Dung
           </button>
           <button type="button" :class="{ active: activeMainTab === 'hoi-hermes' }"
             @click="activeMainTab = 'hoi-hermes'">
-            <span class="tab-icon">⚖️</span> Hỏi Hermes
+            <span class="tab-icon"><SchoolIcon name="hoi-hermes" /></span> Hỏi Hermes
           </button>
         </div>
         <div class="tab-divider"></div>
@@ -485,7 +485,7 @@ onBeforeUnmount(() => {
           </button>
           <button type="button" :class="{ active: activeMainTab === 'hoang-cuc' }"
             @click="activeMainTab = 'hoang-cuc'">
-            <span class="tab-icon">🌌</span> Hoàng Cực
+            <span class="tab-icon"><SchoolIcon name="hoang-cuc" /></span> Hoàng Cực
           </button>
         </div>
         <div class="tab-divider"></div>
@@ -493,7 +493,7 @@ onBeforeUnmount(() => {
           <span class="tab-group-label">Tri thức</span>
           <button type="button" :class="{ active: activeMainTab === 'library' }"
             @click="activeMainTab = 'library'">
-            <span class="tab-icon">📚</span> Thư viện
+            <span class="tab-icon"><SchoolIcon name="library" /></span> Thư viện
           </button>
         </div>
         <div class="tab-divider"></div>
@@ -501,7 +501,7 @@ onBeforeUnmount(() => {
           <span class="tab-group-label">Tổng hợp</span>
           <button type="button" :class="{ active: activeMainTab === 'gieo-duyen' }"
             @click="activeMainTab = 'gieo-duyen'">
-            <span class="tab-icon">💞</span> Gieo Duyên
+            <span class="tab-icon"><SchoolIcon name="gieo-duyen" /></span> Gieo Duyên
           </button>
           <button type="button" :class="{ active: activeMainTab === 'family' }"
             @click="activeMainTab = 'family'">
@@ -514,11 +514,11 @@ onBeforeUnmount(() => {
           <button type="button" :class="{ active: activeMainTab === 'health' }"
             @click="activeMainTab = 'health'"
             title="Sức khỏe — Bát Tự × Đông y">
-            <span class="tab-icon">🌿</span> Sức khỏe
+            <span class="tab-icon"><SchoolIcon name="health" /></span> Sức khỏe
           </button>
           <button type="button" :class="{ active: activeMainTab === 'settings' }"
             @click="activeMainTab = 'settings'">
-            <span class="tab-icon">⚙️</span> Cài đặt
+            <span class="tab-icon"><SchoolIcon name="settings" /></span> Cài đặt
           </button>
         </div>
         <!-- Dev / Owner-only tabs — ẩn cho user thường, sẽ ẩn hết khi phổ biến rộng -->
@@ -532,27 +532,27 @@ onBeforeUnmount(() => {
             </button>
             <button type="button" :class="{ active: activeMainTab === 'research' }"
               @click="activeMainTab = 'research'">
-              <span class="tab-icon">🔬</span> Research
+              <span class="tab-icon"><SchoolIcon name="research" /></span> Research
             </button>
             <button type="button" :class="{ active: activeMainTab === 'wiki' }"
               @click="activeMainTab = 'wiki'">
-              <span class="tab-icon">🌌</span> Wiki Tổ sư
+              <span class="tab-icon"><SchoolIcon name="wiki" /></span> Wiki Tổ sư
             </button>
             <button type="button" :class="{ active: activeMainTab === 'publishing' }"
               @click="activeMainTab = 'publishing'">
-              <span class="tab-icon">📖</span> Dịch sách
+              <span class="tab-icon"><SchoolIcon name="publishing" /></span> Dịch sách
             </button>
             <button type="button" :class="{ active: activeMainTab === 'admin' }"
               @click="activeMainTab = 'admin'">
-              <span class="tab-icon">👥</span> Admin
+              <span class="tab-icon"><SchoolIcon name="admin" /></span> Admin
             </button>
             <button type="button" :class="{ active: activeMainTab === 'admin-hermes' }"
               @click="activeMainTab = 'admin-hermes'">
-              <span class="tab-icon">🛡️</span> Quản trị Hermes
+              <span class="tab-icon"><SchoolIcon name="admin-hermes" /></span> Quản trị Hermes
             </button>
             <button type="button" :class="{ active: activeMainTab === 'atom-verify' }"
               @click="activeMainTab = 'atom-verify'">
-              <span class="tab-icon">📋</span> Duyệt Atoms
+              <span class="tab-icon"><SchoolIcon name="atom-verify" /></span> Duyệt Atoms
             </button>
           </div>
         </template>

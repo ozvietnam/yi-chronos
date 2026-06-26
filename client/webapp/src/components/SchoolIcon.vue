@@ -1,56 +1,74 @@
 <script setup>
 import { computed } from "vue";
+import {
+  ClipboardList, Orbit, Sun, Flower2, AlignJustify, Flower, Columns3,
+  Sparkles, LayoutGrid, Calculator, Users, Compass, BookA, Clock,
+  FileText, ScanFace, Scale, Atom, Library, HeartHandshake, HeartPulse,
+  Settings, FlaskConical, BookOpenText, BookMarked, UserCog, Shield, ClipboardCheck
+} from "lucide-vue-next";
 
 const props = defineProps({
   name: { type: String, required: true },
   size: { type: [Number, String], default: 16 }
 });
 
+// name → { icon Lucide (SVG thật, không còn emoji), tone màu }
 const iconMap = {
-  profiles: { glyph: "📋", tone: "gold" },
-  universe: { glyph: "🌌", tone: "blue" },
-  western: { glyph: "♈", tone: "violet" },
-  maihoa: { glyph: "☯", tone: "teal" },
-  "luc-hao": { glyph: "☷", tone: "slate" },
-  "lien-hoa": { glyph: "☘", tone: "green" },
-  "bat-tu": { glyph: "🪙", tone: "amber" },
-  "tu-vi": { glyph: "🔮", tone: "magenta" },
-  "ky-mon": { glyph: "⊞", tone: "bronze" },
-  pytago: { glyph: "🔢", tone: "cyan" },
-  family: { glyph: "👪", tone: "sage" },
-  gps: { glyph: "🎯", tone: "red" },
-  lexicon: { glyph: "📖", tone: "indigo" },
-  chronos: { glyph: "☯", tone: "gold" },
-  hexagram: { glyph: "☰", tone: "gold" }
+  profiles: { comp: ClipboardList, tone: "gold" },
+  universe: { comp: Orbit, tone: "blue" },
+  western: { comp: Sun, tone: "violet" },
+  maihoa: { comp: Flower2, tone: "teal" },
+  "luc-hao": { comp: AlignJustify, tone: "slate" },
+  "lien-hoa": { comp: Flower, tone: "green" },
+  "bat-tu": { comp: Columns3, tone: "amber" },
+  "tu-vi": { comp: Sparkles, tone: "magenta" },
+  "ky-mon": { comp: LayoutGrid, tone: "bronze" },
+  pytago: { comp: Calculator, tone: "cyan" },
+  family: { comp: Users, tone: "sage" },
+  gps: { comp: Compass, tone: "red" },
+  lexicon: { comp: BookA, tone: "indigo" },
+  chronos: { comp: Clock, tone: "gold" },
+  hexagram: { comp: AlignJustify, tone: "gold" },
+  // Các tab/heading trước dùng emoji → nay SVG đồng bộ
+  "my-publications": { comp: FileText, tone: "gold" },
+  "chan-dung": { comp: ScanFace, tone: "magenta" },
+  "hoi-hermes": { comp: Scale, tone: "gold" },
+  "hoang-cuc": { comp: Atom, tone: "violet" },
+  library: { comp: Library, tone: "indigo" },
+  "gieo-duyen": { comp: HeartHandshake, tone: "magenta" },
+  health: { comp: HeartPulse, tone: "green" },
+  settings: { comp: Settings, tone: "slate" },
+  research: { comp: FlaskConical, tone: "cyan" },
+  wiki: { comp: BookOpenText, tone: "blue" },
+  publishing: { comp: BookMarked, tone: "amber" },
+  admin: { comp: UserCog, tone: "slate" },
+  "admin-hermes": { comp: Shield, tone: "gold" },
+  "atom-verify": { comp: ClipboardCheck, tone: "green" }
 };
 
-const icon = computed(() => iconMap[props.name] || iconMap.hexagram);
-const style = computed(() => ({
-  "--school-icon-size": `${Number(props.size) || 16}px`
-}));
+const entry = computed(() => iconMap[props.name] || iconMap.hexagram);
+const px = computed(() => Number(props.size) || 16);
 </script>
 
 <template>
-  <span class="school-icon" :class="`tone-${icon.tone}`" :style="style" aria-hidden="true">
-    {{ icon.glyph }}
-  </span>
+  <component
+    :is="entry.comp"
+    :size="px"
+    :stroke-width="2"
+    class="school-icon"
+    :class="`tone-${entry.tone}`"
+    aria-hidden="true"
+  />
 </template>
 
 <style scoped>
 .school-icon {
-  display: inline-grid;
-  place-items: center;
   flex: 0 0 auto;
-  width: var(--school-icon-size);
-  height: var(--school-icon-size);
-  border: 0;
-  border-radius: 0;
-  font-size: var(--school-icon-size);
-  line-height: 1;
-  background: transparent;
-  box-shadow: none;
+  display: inline-block;
+  vertical-align: -0.18em;
 }
 
+/* màu tông (SVG dùng stroke=currentColor → ăn theo color) */
 .tone-gold { color: #e8c95a; }
 .tone-blue { color: #7dd3fc; }
 .tone-violet { color: #c4b5fd; }
