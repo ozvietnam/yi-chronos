@@ -19,9 +19,21 @@ const nenTang = ref(null);
 const profiles = ref([]);
 const oracleCards = ref([]);
 const paradigmNote = ref("");
+const disclaimer = ref("");
 const selected = ref(null);
 const selectedOracleCard = ref(null);
 const showCung12 = ref(false);
+
+// Chân dung v3 8 lớp của sao đang chọn (l1..l8). null nếu API chưa trả v3.
+const v3 = computed(() => selected.value?.v3 || null);
+
+// Lớp 5 — nhãn giai đoạn đời người (dict {nho, thieu_nien, trung_nien, ve_gia}).
+const L5_LABELS = {
+  nho: "Khi còn nhỏ",
+  thieu_nien: "Thiếu niên",
+  trung_nien: "Trung niên",
+  ve_gia: "Về già",
+};
 
 const PURE_CHINH_TINH_SLUG = Object.freeze({
   "Tử Vi": "tu-vi",
@@ -64,6 +76,7 @@ async function toggle() {
       nenTang.value = d.nen_tang;
       profiles.value = d.profiles || [];
       paradigmNote.value = d.paradigm_note || "";
+      disclaimer.value = d.disclaimer || "";
       selected.value = profiles.value[0] || null;
       if (cardResp.ok) {
         const manifest = await cardResp.json();
@@ -83,6 +96,33 @@ function uanOf(profile, key) {
   if (typeof u === "string") return { mo_ta: u };
   return u;
 }
+
+// Lớp 3 v3 = list 5 bước {buoc, mo_ta}. rec-only = dict 5 uẩn cũ → render qua uanOf.
+const l3Steps = computed(() => {
+  const l3 = v3.value?.l3_ngu_uan;
+  return Array.isArray(l3) ? l3 : null;
+});
+
+// Lớp 5 — biến dict {nho,...} thành list có thứ tự + nhãn đẹp.
+const l5Entries = computed(() => {
+  const l5 = v3.value?.l5_theo_doi_nguoi;
+  if (!l5 || typeof l5 !== "object") return [];
+  return Object.keys(L5_LABELS)
+    .filter((k) => l5[k])
+    .map((k) => ({ label: L5_LABELS[k], text: l5[k] }));
+});
+
+// Lớp 7 — v3 trả string; rec cũ trả array vi_du_song/quotes.
+const l7Examples = computed(() => {
+  const e = v3.value?.l7_vi_du_song;
+  if (typeof e === "string" && e.trim()) return [e];
+  if (Array.isArray(e)) return e;
+  return (
+    selected.value?.ngu_uan?.vi_du_song ||
+    selected.value?.ngu_uan?.vi_du_an_du ||
+    []
+  );
+});
 
 function levelClass(lv) {
   if (lv === "miếu" || lv === "vượng") return "lv-thuan";
@@ -227,77 +267,173 @@ function openOracle(card) {
             </header>
           </div>
 
-          <!-- ☸ Quán chiếu Ngũ Uẩn — TÁCH LỚP (v3 8 lớp): tóm gọn nổi, chi tiết bung -->
-          <div v-if="selected.ngu_uan" class="ctl-nu">
+          <!-- ☸ Quán chiếu Ngũ Uẩn — TÁCH LỚP (chân dung v3 8 lớp l1..l8):
+               nguồn v3.l* trước, fallback ngu_uan cũ. tóm gọn nổi, chi tiết bung -->
+          <div v-if="v3 || selected.ngu_uan" class="ctl-nu">
             <!-- TÓM GỌN: Gốc Tham (mệnh đề định vị) + 1 dòng đường ra -->
             <div class="ctl-nu-summary">
-              <p v-if="selected.ngu_uan.goc_tham || selected.ngu_uan.menh_de_dinh_vi" class="ctl-nu-goctham">
+              <p
+                v-if="v3?.l2_goc_tham || selected.ngu_uan?.goc_tham || selected.ngu_uan?.menh_de_dinh_vi"
+                class="ctl-nu-goctham"
+              >
                 <span class="ctl-nu-lbl">Gốc tham</span>
-                {{ selected.ngu_uan.goc_tham || selected.ngu_uan.menh_de_dinh_vi }}
+                {{ v3?.l2_goc_tham || selected.ngu_uan?.goc_tham || selected.ngu_uan?.menh_de_dinh_vi }}
               </p>
-              <p v-if="selected.ngu_uan.duong_ra || selected.ngu_uan.can_de_phat_huy" class="ctl-nu-duongra">
+              <p
+                v-if="v3?.l6_duong_ra || selected.ngu_uan?.duong_ra || selected.ngu_uan?.can_de_phat_huy"
+                class="ctl-nu-duongra"
+              >
                 <span class="ctl-nu-lbl ctl-nu-lbl-out">Đường ra</span>
-                {{ selected.ngu_uan.duong_ra || selected.ngu_uan.can_de_phat_huy }}
+                {{ v3?.l6_duong_ra || selected.ngu_uan?.duong_ra || selected.ngu_uan?.can_de_phat_huy }}
               </p>
             </div>
 
             <!-- LỚP 1 — Căn cơ Âm Dương / Ngũ Hành -->
-            <details v-if="selected.ngu_uan.am_duong_ngu_hanh" class="ctl-nu-layer">
+            <details
+              v-if="v3?.l1_am_duong_ngu_hanh || selected.ngu_uan?.am_duong_ngu_hanh"
+              class="ctl-nu-layer"
+            >
               <summary><b>1.</b> Căn cơ tạo hóa — Âm Dương / Ngũ Hành</summary>
-              <p class="ctl-nu-body">{{ selected.ngu_uan.am_duong_ngu_hanh }}</p>
+              <p class="ctl-nu-body">{{ v3?.l1_am_duong_ngu_hanh || selected.ngu_uan?.am_duong_ngu_hanh }}</p>
             </details>
 
             <!-- LỚP 3 — Ngũ Uẩn tiến trình tâm (Sắc→Thọ→Tưởng→Hành→Thức) -->
             <details class="ctl-nu-layer">
               <summary><b>3.</b> Ngũ Uẩn — tiến trình tâm (Sắc→Thọ→Tưởng→Hành→Thức)</summary>
-              <dl class="ctl-uan ctl-nu-body">
-                <template v-for="key in UAN_KEYS" :key="key">
-                  <template v-if="uanOf(selected, key)">
-                    <dt>{{ UAN_LABELS[key] }}</dt>
-                    <dd>
-                      {{ uanOf(selected, key).mo_ta }}
-                      <span v-if="uanOf(selected, key).khi_manh" class="ctl-manh">
-                        ▲ Khi mạnh: {{ uanOf(selected, key).khi_manh }}</span>
-                      <span v-if="uanOf(selected, key).khi_lech" class="ctl-lech">
-                        ▽ Khi lệch: {{ uanOf(selected, key).khi_lech }}</span>
-                    </dd>
+              <div class="ctl-nu-body">
+                <!-- v3: list 5 bước {buoc, mo_ta} -->
+                <dl v-if="l3Steps" class="ctl-uan">
+                  <template v-for="(step, i) in l3Steps" :key="'l3' + i">
+                    <dt>{{ step.buoc }}</dt>
+                    <dd>{{ step.mo_ta }}</dd>
                   </template>
-                </template>
-              </dl>
+                </dl>
+                <!-- fallback: dict 5 uẩn cũ -->
+                <dl v-else class="ctl-uan">
+                  <template v-for="key in UAN_KEYS" :key="key">
+                    <template v-if="uanOf(selected, key)">
+                      <dt>{{ UAN_LABELS[key] }}</dt>
+                      <dd>
+                        {{ uanOf(selected, key).mo_ta }}
+                        <span v-if="uanOf(selected, key).khi_manh" class="ctl-manh">
+                          ▲ Khi mạnh: {{ uanOf(selected, key).khi_manh }}</span>
+                        <span v-if="uanOf(selected, key).khi_lech" class="ctl-lech">
+                          ▽ Khi lệch: {{ uanOf(selected, key).khi_lech }}</span>
+                      </dd>
+                    </template>
+                  </template>
+                </dl>
+              </div>
             </details>
 
-            <!-- LỚP 4 — Khí vượng ↔ Khí suy -->
-            <details v-if="selected.ngu_uan.khi_vuong_suy || selected.sao_o_dau_thi" class="ctl-nu-layer">
+            <!-- LỚP 4 — Khí vượng ↔ Khí suy. v3.l4 = DICT {dac_dia, ham_dia, active}.
+                 Có vị trí (active) → đánh dấu nhánh đang ứng; chưa biết → hiện CẢ HAI nhãn ĐẮC/HÃM. -->
+            <details
+              v-if="v3?.l4_khi_vuong_suy || selected.ngu_uan?.khi_vuong_suy || selected.sao_o_dau_thi"
+              class="ctl-nu-layer"
+            >
               <summary><b>4.</b> Khí vượng ↔ Khí suy</summary>
               <div class="ctl-nu-body">
-                <p v-if="selected.ngu_uan.khi_vuong_suy" class="ctl-nu-kvs">{{ selected.ngu_uan.khi_vuong_suy }}</p>
+                <template v-if="v3?.l4_khi_vuong_suy">
+                  <p
+                    v-if="v3.l4_khi_vuong_suy.dac_dia"
+                    class="ctl-nu-kvs ctl-manh"
+                    :class="{ 'ctl-kvs-active': v3.l4_khi_vuong_suy.active === 'dac_dia' }"
+                  >
+                    <span class="ctl-kvs-tag ctl-kvs-tag-dac">ĐẮC</span>
+                    <span v-if="v3.l4_khi_vuong_suy.active === 'dac_dia'" class="ctl-kvs-now">● đang ứng</span>
+                    {{ v3.l4_khi_vuong_suy.dac_dia }}
+                  </p>
+                  <p
+                    v-if="v3.l4_khi_vuong_suy.ham_dia"
+                    class="ctl-nu-kvs ctl-lech"
+                    :class="{ 'ctl-kvs-active': v3.l4_khi_vuong_suy.active === 'ham_dia' }"
+                  >
+                    <span class="ctl-kvs-tag ctl-kvs-tag-ham">HÃM</span>
+                    <span v-if="v3.l4_khi_vuong_suy.active === 'ham_dia'" class="ctl-kvs-now">● đang ứng</span>
+                    {{ v3.l4_khi_vuong_suy.ham_dia }}
+                  </p>
+                </template>
+                <template v-else-if="selected.ngu_uan?.khi_vuong_suy && typeof selected.ngu_uan.khi_vuong_suy === 'object'">
+                  <p v-if="selected.ngu_uan.khi_vuong_suy.dac_dia" class="ctl-nu-kvs ctl-manh">
+                    <span class="ctl-kvs-tag ctl-kvs-tag-dac">ĐẮC</span>
+                    {{ selected.ngu_uan.khi_vuong_suy.dac_dia }}
+                  </p>
+                  <p v-if="selected.ngu_uan.khi_vuong_suy.ham_dia" class="ctl-nu-kvs ctl-lech">
+                    <span class="ctl-kvs-tag ctl-kvs-tag-ham">HÃM</span>
+                    {{ selected.ngu_uan.khi_vuong_suy.ham_dia }}
+                  </p>
+                </template>
+                <p v-else-if="selected.ngu_uan?.khi_vuong_suy" class="ctl-nu-kvs">{{ selected.ngu_uan.khi_vuong_suy }}</p>
                 <p v-if="selected.sao_o_dau_thi" class="ctl-odau">☞ {{ selected.sao_o_dau_thi }}</p>
               </div>
             </details>
 
-            <!-- LỚP 5 — Theo đời người -->
-            <details v-if="selected.ngu_uan.theo_doi_nguoi" class="ctl-nu-layer">
+            <!-- LỚP 5 — Theo đời người (v3.l5 = dict {nho, thieu_nien, trung_nien, ve_gia}) -->
+            <details
+              v-if="l5Entries.length || selected.ngu_uan?.theo_doi_nguoi"
+              class="ctl-nu-layer"
+            >
               <summary><b>5.</b> Theo đời người</summary>
               <div class="ctl-nu-body">
-                <template v-if="typeof selected.ngu_uan.theo_doi_nguoi === 'object'">
+                <template v-if="l5Entries.length">
+                  <p v-for="e in l5Entries" :key="e.label" class="ctl-nu-doinguoi">
+                    <span class="ctl-nu-lbl">{{ e.label }}</span> {{ e.text }}
+                  </p>
+                </template>
+                <template v-else-if="typeof selected.ngu_uan?.theo_doi_nguoi === 'object'">
                   <p v-for="(val, giai) in selected.ngu_uan.theo_doi_nguoi" :key="giai" class="ctl-nu-doinguoi">
                     <span class="ctl-nu-lbl">{{ giai }}</span> {{ val }}
                   </p>
                 </template>
-                <p v-else class="ctl-nu-doinguoi">{{ selected.ngu_uan.theo_doi_nguoi }}</p>
+                <p v-else class="ctl-nu-doinguoi">{{ selected.ngu_uan?.theo_doi_nguoi }}</p>
               </div>
             </details>
 
             <!-- LỚP 6 — Khe tỉnh thức + Đường ra -->
-            <details v-if="selected.ngu_uan.khe_tinh_thuc || selected.ngu_uan.duong_ra || selected.ngu_uan.can_de_phat_huy" class="ctl-nu-layer">
+            <details
+              v-if="v3?.l6_khe_tinh_thuc || v3?.l6_duong_ra || selected.ngu_uan?.khe_tinh_thuc || selected.ngu_uan?.duong_ra || selected.ngu_uan?.can_de_phat_huy"
+              class="ctl-nu-layer"
+            >
               <summary><b>6.</b> Khe tỉnh thức + Đường ra</summary>
               <div class="ctl-nu-body">
-                <p v-if="selected.ngu_uan.khe_tinh_thuc" class="ctl-nu-khe">⟡ {{ selected.ngu_uan.khe_tinh_thuc }}</p>
-                <p v-if="selected.ngu_uan.duong_ra" class="ctl-nu-duongra-full">🚪 {{ selected.ngu_uan.duong_ra }}</p>
-                <p v-if="selected.ngu_uan.can_de_phat_huy" class="ctl-can">
+                <p v-if="v3?.l6_khe_tinh_thuc || selected.ngu_uan?.khe_tinh_thuc" class="ctl-nu-khe">
+                  ⟡ {{ v3?.l6_khe_tinh_thuc || selected.ngu_uan?.khe_tinh_thuc }}
+                </p>
+                <p v-if="v3?.l6_duong_ra || selected.ngu_uan?.duong_ra" class="ctl-nu-duongra-full">
+                  🚪 {{ v3?.l6_duong_ra || selected.ngu_uan?.duong_ra }}
+                </p>
+                <p v-if="selected.ngu_uan?.can_de_phat_huy" class="ctl-can">
                   ✦ Cần để phát huy: {{ selected.ngu_uan.can_de_phat_huy }}
                 </p>
               </div>
+            </details>
+
+            <!-- LỚP 7 — Ví dụ sống (v3.l7 = string; rec cũ = array) + quotes gốc -->
+            <details
+              v-if="l7Examples.length || (selected.ngu_uan?.quotes || []).length"
+              class="ctl-nu-layer"
+            >
+              <summary><b>7.</b> Ví dụ sống &amp; ẩn dụ</summary>
+              <div class="ctl-nu-body">
+                <ul v-if="l7Examples.length" class="ctl-andu">
+                  <li v-for="(a, i) in l7Examples" :key="'l7' + i">🌿 {{ a }}</li>
+                </ul>
+                <blockquote
+                  v-for="(q, i) in (selected.ngu_uan?.quotes || []).slice(0, 3)"
+                  :key="'q' + i"
+                  class="ctl-quote"
+                >“{{ q }}”</blockquote>
+              </div>
+            </details>
+
+            <!-- LỚP 8 — Căn cứ / nguồn & cơ sở dẫn chứng (v3.l8_can_cu) -->
+            <details
+              v-if="v3?.l8_can_cu || selected.ngu_uan?.can_cu"
+              class="ctl-nu-layer"
+            >
+              <summary><b>8.</b> Căn cứ — nguồn &amp; cơ sở dẫn chứng</summary>
+              <p class="ctl-nu-body ctl-nu-cancu">{{ v3?.l8_can_cu || selected.ngu_uan?.can_cu }}</p>
             </details>
           </div>
 
@@ -364,21 +500,11 @@ function openOracle(card) {
             </span>
           </div>
 
-          <!-- LỚP 7 — Ví dụ sống (ẩn dụ + quotes gốc) -->
-          <details v-if="(selected.ngu_uan?.vi_du_song || selected.ngu_uan?.vi_du_an_du || []).length || (selected.ngu_uan?.quotes || []).length"
-                   class="ctl-nu-layer">
-            <summary><b>7.</b> Ví dụ sống &amp; ẩn dụ</summary>
-            <div class="ctl-nu-body">
-              <ul v-if="(selected.ngu_uan.vi_du_song || selected.ngu_uan.vi_du_an_du || []).length" class="ctl-andu">
-                <li v-for="(a, i) in (selected.ngu_uan.vi_du_song || selected.ngu_uan.vi_du_an_du)" :key="i">🌿 {{ a }}</li>
-              </ul>
-              <blockquote v-for="(q, i) in (selected.ngu_uan.quotes || []).slice(0, 3)" :key="'q' + i"
-                class="ctl-quote">“{{ q }}”</blockquote>
-            </div>
-          </details>
         </article>
 
         <p v-if="paradigmNote" class="ctl-paradigm">{{ paradigmNote }}</p>
+        <!-- Iron #9 — lá chắn đạo đức: Tử Vi mượn khung Phật để soi tâm -->
+        <p v-if="disclaimer" class="ctl-disclaimer">⚖ {{ disclaimer }}</p>
       </template>
     </div>
 
@@ -637,6 +763,38 @@ function openOracle(card) {
 }
 .ctl-nu-doinguoi .ctl-nu-lbl { color: var(--read-note-accent, #a9c8a0); }
 
+/* Lớp 4 — nhãn ĐẮC / HÃM + nhánh đang ứng */
+.ctl-kvs-tag {
+  display: inline-block;
+  margin-right: 6px;
+  padding: 1px 7px;
+  border-radius: 999px;
+  font-size: calc(10px * var(--reading-scale, 1));
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  vertical-align: middle;
+}
+.ctl-kvs-tag-dac { color: #0f1c12; background: #88d39e; }
+.ctl-kvs-tag-ham { color: #2a0f0a; background: #f5a08c; }
+.ctl-kvs-now {
+  margin-right: 6px;
+  font-size: calc(10px * var(--reading-scale, 1));
+  font-weight: 700;
+  color: var(--accent-gold, #e8c95a);
+}
+.ctl-nu-kvs.ctl-kvs-active {
+  padding: 4px 8px;
+  border-radius: 5px;
+  background: rgba(232, 201, 90, 0.08);
+  border-left: 2px solid var(--accent-gold, #e8c95a);
+}
+/* Lớp 8 — căn cứ / nguồn (văn dẫn chứng dài, cỡ chữ nhỏ hơn) */
+.ctl-nu-cancu {
+  font-size: calc(11.5px * var(--reading-scale, 1));
+  opacity: 0.85;
+  white-space: pre-wrap;
+}
+
 .ctl-pos { margin: 6px 0 0 0; font-size: 12px; color: #88d39e; line-height: 1.5; }
 .ctl-neg { margin: 3px 0 0 0; font-size: 12px; color: #f5b08c; line-height: 1.5; }
 .ctl-mh { margin: 10px 0 0 0; display: flex; flex-wrap: wrap; gap: 5px; align-items: center; }
@@ -660,6 +818,16 @@ function openOracle(card) {
 .ctl-paradigm {
   margin: 12px 0 0 0; font-size: 11.5px; font-style: italic;
   color: var(--text-secondary, rgba(230,238,245,0.55));
+}
+.ctl-disclaimer {
+  margin: 8px 0 0 0;
+  padding: 7px 10px;
+  font-size: 11px;
+  line-height: 1.55;
+  border-radius: 6px;
+  border: 1px dashed rgba(232, 201, 90, 0.3);
+  background: rgba(232, 201, 90, 0.04);
+  color: var(--text-secondary, rgba(230,238,245,0.6));
 }
 /* 📜 Luận giải sâu đa phái */
 .ctl-deep {

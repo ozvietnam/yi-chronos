@@ -2475,6 +2475,9 @@ def tu_vi_star_profiles() -> dict[str, object]:
         profiles.append({
             "co_ban": s.to_dict(),
             "ngu_uan": tvbb,  # None nếu dataset chưa có sao này
+            # Chân dung v3 8 lớp (l1..l8) — thư viện không có vị trí cụ thể nên
+            # mieu_ham_level=None → l4 trả CẢ HAI nhánh đắc/hãm, active=None.
+            "v3": ngu_uan_mod.get_star_v3(s.ten_vi),  # None nếu record chưa có
             "sao_o_dau_thi": ngu_uan_mod.sao_o_dau_thi(s.ten_vi),
             "mieu_ham_12_chi": {chi: level_at(s.ten_vi, chi) for chi in chi_12},
             "luan_giai_sau": _deep_profile(s.ten_vi),  # None nếu chưa build
@@ -2488,9 +2491,11 @@ def tu_vi_star_profiles() -> dict[str, object]:
                        "keywords": vcd.get("tom_gon") or [],
                        "tich_cuc": None, "tieu_cuc": None, "chu_ve": []},
             "ngu_uan": vcd,
+            "v3": ngu_uan_mod.get_star_v3("Vô Chính Diệu"),
             "sao_o_dau_thi": ngu_uan_mod.sao_o_dau_thi("Vô Chính Diệu"),
             "mieu_ham_12_chi": {},
         })
+    from engine.hermes_guard import DISCLAIMER
     return {
         "status": "ok",
         "nen_tang": vong_sinh_khac(),
@@ -2499,6 +2504,7 @@ def tu_vi_star_profiles() -> dict[str, object]:
             "Sao không tốt không xấu — mỗi sao là một dạng lực sống; "
             "miếu hay hãm là độ khó của bài học tại từng đất cung, không phải lời khen chê."
         ),
+        "disclaimer": DISCLAIMER,
     }
 
 

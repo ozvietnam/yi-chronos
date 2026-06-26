@@ -27,6 +27,16 @@ from .providers import LLMProvider, ProviderError
 from .registry import get_registry
 
 
+def _with_disclaimer(text: str) -> str:
+    """Iron #9 — gắn DISCLAIMER (Brahmajāla) vào synthesis cuối, idempotent.
+    Lazy import (hermes_guard thuần stdlib, không vòng) — gói an toàn nếu fail."""
+    try:
+        from engine.hermes_guard import with_disclaimer
+        return with_disclaimer(text)
+    except Exception:
+        return text
+
+
 # ─── Default agent provider mapping ──────────────────────────────────────────
 # Anh có thể override per-agent runtime. Mặc định:
 DEFAULT_AGENT_PROVIDER: dict[str, list[str]] = {
@@ -371,7 +381,11 @@ Vietnamese markdown.
             temperature=0.5,
             max_tokens=4000,   # LUẬN SÂU: tổng hợp DÀI, CHI TIẾT (async — không tiếc thời gian)
         )
-        return resp.content
+        # Iron #9 (Brahmajāla) — chèn CỨNG DISCLAIMER vào synthesis cuối NGAY tại
+        # chokepoint engine, KHÔNG phụ thuộc caller nhớ gắn (api/ai/council/consult
+        # gọi thẳng consult_council, không qua hermes_service). Idempotent — nếu
+        # caller (hermes_service.run_council) gắn lại cũng không nhân đôi.
+        return _with_disclaimer(resp.content)
     except ProviderError as e:
         get_registry().mark_unhealthy(provider.name, str(e))
         try:
@@ -383,7 +397,9 @@ Vietnamese markdown.
                 ],
                 model="mock-v1", temperature=0.5, max_tokens=1500,
             )
-            return f"[Trọng tài fallback Mock — {provider.name} lỗi: {e}]\n\n{resp.content}"
+            return _with_disclaimer(
+                f"[Trọng tài fallback Mock — {provider.name} lỗi: {e}]\n\n{resp.content}"
+            )
         except Exception:
             return f"(Trọng tài lỗi giai đoạn tổng hợp: {e})"
 

@@ -149,3 +149,41 @@ def test_run_quick_paradigm_guard_runs_on_body_not_disclaimer(backend):
     r = hs.run_quick("uid_d", Q, answer=_ans)
     assert r["paradigm_ok"] is True
     assert r["answer"].rstrip().endswith(DISCLAIMER)
+
+
+# ── 3. CHOKEPOINT ENGINE: consult_council.final_synthesis (M1-FIX-B) ──────────
+# Lỗ hổng M1: /api/ai/council/consult gọi THẲNG consult_council, KHÔNG qua
+# hermes_service.run_council → trước đây synthesis tới user KHÔNG có disclaimer.
+# Vá CỨNG tại _orchestrator_synthesize → mọi caller (direct API, async job, session
+# đọc-lại) đều có. Test mock toàn bộ provider (force_mock_council) → nhanh.
+
+def test_consult_council_synthesis_has_disclaimer(force_mock_council):
+    """final_synthesis (output engine, KHÔNG qua hermes_service) PHẢI kèm disclaimer."""
+    from engine.ai.council import consult_council
+    r = consult_council(
+        question=Q, chart_data={"day_master": "Kỷ"},
+        explicit_agents=["tu_vi"], skip_challenge=True, persist=False,
+    )
+    syn = r["final_synthesis"]
+    assert syn, "phải có synthesis"
+    assert DISCLAIMER in syn
+    assert syn.rstrip().endswith(DISCLAIMER)
+    assert syn.count(DISCLAIMER) == 1
+
+
+def test_consult_council_synthesis_disclaimer_not_doubled_by_hermes(force_mock_council, backend):
+    """Idempotent xuyên 2 lớp: engine gắn 1 lần; hermes_service.run_council gắn lại
+    cũng KHÔNG nhân đôi (with_disclaimer thấy đã có → bỏ qua)."""
+    from engine.ai.council import consult_council
+    _seed()
+
+    def _consult_real(q, p, u):
+        s = consult_council(question=q, chart_data={}, explicit_agents=["tu_vi"],
+                            skip_challenge=True, persist=False)
+        return {"synthesis": s["final_synthesis"], "agents": ["tu_vi"],
+                "provider": "mock", "cost_usd": 0.0, "raw": {"round_1_outputs": []}}
+
+    r = hs.run_council("uid_d", Q, consult=_consult_real)
+    assert r["status"] == "done"
+    assert r["synthesis"].rstrip().endswith(DISCLAIMER)
+    assert r["synthesis"].count(DISCLAIMER) == 1   # KHÔNG nhân đôi xuyên 2 lớp
