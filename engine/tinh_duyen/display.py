@@ -125,6 +125,10 @@ def _strip_internal_ref(text: Any) -> Any:
 # Mục tiêu: tom_tat còn lại là NGHĨA đời thường (KHÔNG tên sao / thập thần / lý-thuật
 # / Hán). Jargon đẩy xuống can_cu (giữ nguyên ở data/can_cu).
 # --------------------------------------------------------------------------- #
+# Cache regex đã compile cho scrub_phrases_regex (BUG4) — key = id(glossary).
+_SCRUB_CACHE: dict[int, list] = {}
+
+
 def _load_glossary() -> dict:
     """Trả plain_glossary (cached qua knowledge_loader). Lỗi → fallback rỗng."""
     try:
@@ -222,14 +226,42 @@ def _strip_orphan_operators(s: str) -> str:
     return s
 
 
+def _compile_scrub_patterns(glossary: dict) -> list[tuple["re.Pattern", str]]:
+    """BUG4 — compile các regex 'scrub_phrases_regex' từ glossary (cụm jargon CÓ
+    BIẾN THỂ: 'Nam/Bắc Đẩu đệ X tinh', '(âm/dương <hành>)', 'X chi tinh', 'hóa khí
+    vi Y'). Cache theo id(glossary) để khỏi recompile mỗi chuỗi. Pattern lỗi → bỏ
+    qua (an toàn, không vỡ tom_tat)."""
+    cache_key = id(glossary)
+    cached = _SCRUB_CACHE.get(cache_key)
+    if cached is not None:
+        return cached
+    out: list[tuple["re.Pattern", str]] = []
+    block = (glossary or {}).get("scrub_phrases_regex") or {}
+    for item in block.get("patterns") or []:
+        pat = item.get("pattern")
+        if not isinstance(pat, str) or not pat:
+            continue
+        try:
+            out.append((re.compile(pat), item.get("thay") or ""))
+        except re.error:
+            continue
+    _SCRUB_CACHE[cache_key] = out
+    return out
+
+
 def _plain_one(s: str, glossary: dict, jargon: list[str]) -> str:
-    """Thuần 1 chuỗi: strip Hán + bỏ con trỏ internal + áp thay_the (jargon→nghĩa
-    đời thường hoặc bỏ) + xoá jargon còn sót + dọn mệnh đề rỗng + dấu mồ côi."""
+    """Thuần 1 chuỗi: strip Hán + bỏ con trỏ internal + scrub cụm-jargon-biến-thể
+    (Nam/Bắc Đẩu đệ X tinh, hành âm-dương, 'X chi tinh', 'hóa khí vi Y') + áp
+    thay_the (jargon→nghĩa đời thường hoặc bỏ) + xoá jargon còn sót + dọn mệnh đề
+    rỗng + dấu mồ côi."""
     if not isinstance(s, str) or not s.strip():
         return s
     out = _strip_internal_ref(_strip_han(s))
     if not isinstance(out, str):
         return out
+    # 0) BUG4 — scrub cụm jargon CÓ BIẾN THỂ trước thay_the (xoá hẳn khỏi KẾT QUẢ).
+    for pat, rep in _compile_scrub_patterns(glossary):
+        out = pat.sub(rep, out)
     thay_the = (glossary or {}).get("thay_the") or {}
     # 1) Thay theo thay_the (key DÀI trước để tránh thay lồng).
     for k in sorted(thay_the.keys(), key=len, reverse=True):
