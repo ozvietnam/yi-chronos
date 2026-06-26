@@ -422,6 +422,9 @@ async def chu_de_from_birth(birth: ChuDeBirthInput, request: Request,
         "slug": cd["slug"], "ten": cd["ten"], "icon": cd["icon"],
         "narrative": result["narrative"],
         "cached": result["cached"], "model": result["model"],
+        # Bài đọc DETERMINISTIC (phương pháp cổ điển, kèm caveat) — hiện thẳng, không qua LLM.
+        "tu_tuc_reading": cd.get("tu_tuc_reading"),    # con cái (nam-đẩu/bắc-đẩu) — topic Gia đạo
+        "phu_the_signals": cd.get("phu_the_signals"),  # tình duyên (đào hoa/độc thân/duyên xa)
     }
 
 

@@ -41,6 +41,33 @@
         <div v-else-if="chuDeText" class="content narrative-text mc-text" v-html="renderMarkdown(chuDeText)"></div>
         <small v-if="chuDeText" class="narrative-meta">✨ Luận gộp các mảng liên quan — mệnh là động từ: cấu trúc này vận hành mạnh nhất khi anh chủ động</small>
 
+        <!-- Bài đọc DETERMINISTIC: Con cái (phương pháp nam-đẩu/bắc-đẩu cổ điển) -->
+        <div v-if="tuTucReading" class="mc-det-card">
+          <h5>🍼 Con cái — đọc theo sao cổ điển</h5>
+          <ul>
+            <li><b>Giới tính (xu hướng):</b> {{ tuTucReading.gioi_tinh_con.xu_huong }}<br>
+              <small>{{ tuTucReading.gioi_tinh_con.ly_do }}</small></li>
+            <li><b>Số con (xu hướng):</b> {{ tuTucReading.so_con.xu_huong }}<br>
+              <small>{{ (tuTucReading.so_con.yeu_to || []).join('; ') }}</small></li>
+            <li v-if="tuTucReading.phuc_con && tuTucReading.phuc_con.co"><b>Phúc con:</b> {{ tuTucReading.phuc_con.mo_ta }}</li>
+          </ul>
+          <p class="mc-det-caveat">⚖ {{ tuTucReading.caveat }}</p>
+        </div>
+
+        <!-- Bài đọc DETERMINISTIC: Tình duyên (đào hoa-cấu-trúc / độc thân / duyên xa) -->
+        <div v-if="phuTheSignals" class="mc-det-card">
+          <h5>💞 Tín hiệu tình duyên — đọc cấu trúc</h5>
+          <ul>
+            <li v-if="phuTheSignals.dao_hoa_field">
+              <b>Trường đào hoa ({{ phuTheSignals.dao_hoa_field.muc }}):</b> {{ phuTheSignals.dao_hoa_field.mo_ta }}<br>
+              <small>→ {{ phuTheSignals.dao_hoa_field.hanh_dong }}</small></li>
+            <li><b>Duyên đến muộn / độc thân:</b> {{ phuTheSignals.doc_than_risk.muc }}
+              <small v-if="(phuTheSignals.doc_than_risk.yeu_to || []).length">({{ phuTheSignals.doc_than_risk.yeu_to.join('; ') }})</small></li>
+            <li v-if="phuTheSignals.duyen_xa"><b>Duyên xa:</b> {{ phuTheSignals.duyen_xa.mo_ta }}</li>
+          </ul>
+          <p class="mc-det-caveat">⚖ {{ phuTheSignals.caveat }}</p>
+        </div>
+
         <!-- Sau khi nghe món tổng quan: 2 hành động đào sâu + soi mình -->
         <div v-if="chuDeText && !chuDeLoading" class="mc-actions">
           <button class="mc-deep-btn" :disabled="sauLoading" @click="loadChuDeSau(chuDeActive)">
@@ -337,7 +364,9 @@ const chuDeActive = ref(null)
 const chuDeText = ref(null)
 const chuDeTen = ref('')
 const chuDeLoading = ref(false)
-const chuDeCache = {}  // slug → narrative đã luận (đỡ gọi lại trong phiên)
+const tuTucReading = ref(null)    // bài đọc Con Cái deterministic (Gia đạo)
+const phuTheSignals = ref(null)   // tín hiệu Tình Duyên deterministic
+const chuDeCache = {}  // slug → {narrative, tuTuc, phuThe} đã luận (đỡ gọi lại trong phiên)
 
 async function loadChuDeList() {
   try {
@@ -430,7 +459,12 @@ async function loadChuDe(slug) {
   // reset món sâu + gia vị khi đổi món
   sauText.value = null; sauNguyenLieu.value = []; giaViList.value = []
   feedbackSent.value = {}; feedbackNeedLogin.value = false; traiNghiem.value = ''
-  if (chuDeCache[slug]) { chuDeText.value = chuDeCache[slug]; return }
+  tuTucReading.value = null; phuTheSignals.value = null
+  if (chuDeCache[slug]) {
+    const c = chuDeCache[slug]
+    chuDeText.value = c.narrative; tuTucReading.value = c.tuTuc; phuTheSignals.value = c.phuThe
+    return
+  }
   chuDeLoading.value = true
   chuDeText.value = null
   try {
@@ -445,7 +479,13 @@ async function loadChuDe(slug) {
       }),
     })
     const data = await res.json()
-    if (data.narrative) { chuDeText.value = data.narrative; chuDeCache[slug] = data.narrative }
+    // Bài đọc deterministic hiện độc lập với narrative LLM (kể cả khi LLM lỗi/rate-limit).
+    tuTucReading.value = data.tu_tuc_reading || null
+    phuTheSignals.value = data.phu_the_signals || null
+    if (data.narrative) chuDeText.value = data.narrative
+    if (data.narrative || tuTucReading.value || phuTheSignals.value) {
+      chuDeCache[slug] = { narrative: data.narrative || null, tuTuc: tuTucReading.value, phuThe: phuTheSignals.value }
+    }
   } catch { /* lỗi → để trống */ } finally {
     chuDeLoading.value = false
   }
@@ -915,6 +955,15 @@ h3 { margin-top: 0; }
 .mc-icon { font-size: 1.6em; }
 .mc-ten { font-size: 0.84em; font-weight: 500; text-align: center; line-height: 1.25; }
 .mc-text { background: #fffdf7; border-left: 3px solid #b8860b; padding: 14px 16px; border-radius: 6px; }
+.mc-det-card { margin: 12px 0; padding: 12px 14px; border-radius: 8px;
+  background: var(--read-surface, #faf7ef); border: 1px solid var(--read-border, #e6ddc4);
+  border-left: 3px solid #6b8e5a; }
+.mc-det-card h5 { margin: 0 0 8px; font-size: 14px; color: var(--read-text, #3a3320); }
+.mc-det-card ul { margin: 0; padding-left: 18px; }
+.mc-det-card li { margin: 5px 0; color: var(--read-text, #3a3320); font-size: 13.5px; line-height: 1.5; }
+.mc-det-card small { color: var(--read-text-faint, #8a7f60); }
+.mc-det-caveat { margin: 8px 0 0; padding-top: 8px; border-top: 1px dashed var(--read-border, #e6ddc4);
+  font-size: 12.5px; font-style: italic; color: var(--read-text-faint, #8a7f60); }
 .mc-actions { display: flex; flex-wrap: wrap; gap: 10px; margin: 14px 0; }
 .mc-deep-btn, .mc-quiz-btn { padding: 9px 16px; border-radius: 20px; border: 1.5px solid #b8860b; background: transparent; color: #8a6d1a; font: inherit; font-size: 0.9em; cursor: pointer; transition: all .15s; }
 .mc-deep-btn:hover:not(:disabled), .mc-quiz-btn:hover:not(:disabled) { background: #b8860b; color: #fff; }
