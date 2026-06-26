@@ -1,8 +1,15 @@
 """Sage narrate cho TÌNH DUYÊN nữ mệnh (chặng 3 của bookflow đọc đồng dạng).
 
 Engine `read_tinh_duyen` trả DỮ LIỆU CẤU TRÚC (deterministic, paradigm-safe). Lớp NÀY
-gọi LLM (sage 'tu_vi', model non-reasoning DeepSeek deepseek-chat — nhanh) để DIỄN ĐẠT
-dữ liệu đó thành lời cho user, ĐÚNG khẩu vị giao tiếp + đúng chặng tuổi.
+gọi LLM (model non-reasoning, nhanh) để DIỄN ĐẠT dữ liệu đó thành lời cho user, ĐÚNG
+khẩu vị giao tiếp + đúng chặng tuổi.
+
+CHẮC TAY (Pha A 2026-06-26): "lời thầy" là sản phẩm TRẢ PHÍ (30 xu) nên KHÔNG được
+phụ thuộc 1 provider — rớt 1 cái là mất lời thầy. Ta thử LẦN LƯỢT chuỗi provider
+[deepseek, minimax, gemini] (đều model non-reasoning, nhanh). MỖI provider đi qua ĐỦ
+guard sẵn có (chặn mock-leak '[MOCK', reframe_check → regenerate 1 lần với cảnh báo
+cứng). Provider nào cho kết quả SẠCH + non-empty đầu tiên → DÙNG luôn (thắng). Hết
+chuỗi vẫn fail → '' (UI fallback bản cấu trúc đã-sạch, an toàn như cũ).
 
 PARADIGM (Iron Rule #4/#6/#8): KHÔNG bói. Mệnh là động từ — "cấu trúc của em vận hành
 tốt nhất khi…". TUYỆT ĐỐI không phán 'khắc chồng / số cô quả / sẽ ly hôn'.
@@ -12,7 +19,17 @@ An toàn: mọi lỗi LLM/registry → trả '' (UI fallback về bản cấu tr
 from __future__ import annotations
 
 import json as _json
+import logging as _logging
 from typing import Any
+
+_log = _logging.getLogger(__name__)
+
+# Chuỗi provider thử lần lượt cho "lời thầy" tình duyên. ƯU TIÊN deepseek (giỏi Đông
+# phương + nhanh + tin cậy), rồi minimax (token plan), rồi gemini (free, dự phòng). Mỗi
+# provider sẽ được map sang model NHANH non-reasoning qua sage_model (prompt sage lớn →
+# model reasoning đốt token vào <think> → rỗng). mock KHÔNG nằm trong chuỗi (mock-leak
+# bị chặn ở _call).
+_NARRATE_PROVIDER_CHAIN: list[str] = ["deepseek", "minimax", "gemini"]
 
 
 def _quy_trinh_highlights(td: dict) -> tuple[str, list[str]]:
@@ -283,26 +300,27 @@ def _hard_guard_note(flags: list[str]) -> str:
 def narrate_tinh_duyen(person: dict, tinh_duyen_output: dict) -> str:
     """Diễn đạt output engine tình duyên thành lời sage (đúng khẩu vị + chặng tuổi).
 
-    PARADIGM ENFORCEMENT (Iron #4/#6/#8): output LLM free-form (temp 0.6) là tầng
-    rủi ro CAO NHẤT — LLM có thể bịa verdict định mệnh dù data gốc đã sạch. Vì thế
-    output BẮT BUỘC qua reframe_check (hermes_guard.paradigm_violations):
-      1) sạch → trả luôn.
-      2) dính → REGENERATE 1 lần với cảnh báo cứng liệt kê flags (đồng bộ chuẩn
-         hermes_service reject+regenerate).
-      3) vẫn dính → trả '' để UI fallback về bản cấu trúc ĐÃ-SẠCH (an toàn).
+    CHẮC TAY — CHUỖI FALLBACK PROVIDER (Pha A): thử lần lượt [deepseek, minimax, gemini]
+    (model non-reasoning, nhanh). MỖI provider đi qua ĐỦ guard 2-pass: pass-1 → nếu dính
+    paradigm thì regenerate 1 lần với cảnh báo cứng (pass-2). Provider cho kết quả SẠCH +
+    non-empty đầu tiên → DÙNG luôn. Provider trả rỗng / mock-leak / vi-phạm-không-cứu-được
+    → THỬ provider kế. Hết chuỗi vẫn fail → '' (UI fallback bản cấu trúc đã-sạch).
+
+    PARADIGM ENFORCEMENT (Iron #4/#6/#8): output LLM free-form (temp 0.6) là tầng rủi ro
+    CAO NHẤT — LLM có thể bịa verdict định mệnh dù data gốc đã sạch. Vì thế output BẮT
+    BUỘC qua reframe_check (hermes_guard.paradigm_violations) ở MỖI provider.
 
     An toàn tuyệt đối: bất kỳ lỗi nào (registry/provider/LLM) → trả '' (caller fallback
-    về bản cấu trúc). KHÔNG charge xu ở đây (đã charge ở run_tinh_duyen).
+    về bản cấu trúc). KHÔNG charge xu ở đây (đã charge ở run_tinh_duyen). Log provider
+    nào THẮNG để quan sát — KHÔNG lộ ra user.
     """
     td = tinh_duyen_output or {}
     try:
         from engine.ai.agents import run_agent
-        from engine.ai.council import _get_agent_provider, sage_model
+        from engine.ai.council import sage_model
+        from engine.ai.registry import get_registry
 
         from engine.cross_paradigm._common import reframe_check
-
-        provider, model = _get_agent_provider("tu_vi", prefer_reasoning=False)
-        model = sage_model(provider, fallback=model)
 
         base_system_prompt = _build_system_prompt(person, td)
         payload = _td_payload_for_llm(td)
@@ -322,7 +340,11 @@ def narrate_tinh_duyen(person: dict, tinh_duyen_output: dict) -> str:
             + _json.dumps(payload, ensure_ascii=False)
         )
 
-        def _call(system_prompt: str) -> str:
+        reg = get_registry()
+
+        def _call(provider, model, system_prompt: str) -> str:
+            """1 lần gọi LLM trên `provider`. Trả '' nếu rỗng HOẶC mock-leak (mock-fallback
+            khi thiếu key / lỗi tạm KHÔNG được lộ cho user trả phí)."""
             resp = run_agent(
                 agent_id="tu_vi",
                 provider=provider,
@@ -333,24 +355,47 @@ def narrate_tinh_duyen(person: dict, tinh_duyen_output: dict) -> str:
                 temperature=0.6,
             )
             content = (getattr(resp, "content", "") or "").strip()
-            # Provider mock-fallback (thiếu key / lỗi tạm) KHÔNG được lộ cho user trả phí.
             if "[MOCK" in content or "mock response" in content or "paste api key" in content.lower():
                 return ""
             return content
 
-        # Lần 1.
-        content = _call(base_system_prompt)
-        ok, flags = reframe_check(content)
-        if ok:
-            return content
+        def _try_provider(provider, model) -> str:
+            """Chạy ĐỦ guard 2-pass cho 1 provider. Trả lời SẠCH+non-empty hoặc ''."""
+            # Pass 1.
+            content = _call(provider, model, base_system_prompt)
+            if content:
+                ok, flags = reframe_check(content)
+                if ok:
+                    return content
+                # Pass 2 — regenerate với cảnh báo cứng (chuẩn reject+regenerate toàn hệ).
+                content = _call(provider, model, base_system_prompt + _hard_guard_note(flags))
+                if content:
+                    ok, _ = reframe_check(content)
+                    if ok:
+                        return content
+            return ""
 
-        # Lần 2 (regenerate với cảnh báo cứng) — chuẩn reject+regenerate toàn hệ.
-        content = _call(base_system_prompt + _hard_guard_note(flags))
-        ok, _ = reframe_check(content)
-        if ok:
-            return content
+        # ── CHUỖI FALLBACK ─────────────────────────────────────────────────────
+        for name in _NARRATE_PROVIDER_CHAIN:
+            try:
+                provider = reg.get(name)
+            except KeyError:
+                continue
+            # Bỏ qua provider chưa cấu hình hoặc đã đánh dấu unhealthy phiên này.
+            if not provider.is_configured or reg.is_unhealthy(name):
+                continue
+            model = sage_model(provider, fallback=provider.default_model)
+            try:
+                content = _try_provider(provider, model)
+            except Exception:
+                content = ""
+            if content:
+                _log.info("narrate_tinh_duyen: provider THẮNG = %s (model=%s)", name, model)
+                return content
+            _log.info("narrate_tinh_duyen: provider %s fail (rỗng/mock/vi-phạm) → thử kế", name)
 
-        # Vẫn vi phạm → KHÔNG leak. Trả '' để UI fallback bản cấu trúc đã-sạch.
+        # Hết chuỗi vẫn fail → KHÔNG leak. Trả '' để UI fallback bản cấu trúc đã-sạch.
+        _log.warning("narrate_tinh_duyen: hết chuỗi provider, fallback bản cấu trúc")
         return ""
     except Exception:
         return ""

@@ -211,6 +211,145 @@ PHRASE_FIXES = [
     (r"\bsông không tho\b", "sống không thọ"),
     (r"\blấychồng\b", "lấy chồng"),
     (r"\bcangdechialy\b", "càng dễ chia ly"),
+    (r"\bPhu Thé\b", "Phu Thê"),
+    (r"\bPhu thé\b", "Phu Thê"),
+    (r"\bPhuc\b", "Phúc"),
+    (r"\bHon nhẫn\b", "Hôn nhân"),
+    (r"\bhồn nhân\b", "hôn nhân"),
+    (r"\bhồn nhan\b", "hôn nhân"),
+    (r"\bsao doi\b", "sao đôi"),
+    (r"\bnay thi lam\b", "này thì làm"),
+    (r"\bcon lả\b", "con là"),
+    (r"\blả\b", "là"),
+    (r"\btải:\s*\.\s*lộc\b", "tài lộc"),
+    (r"\bThang nao nam nay\b", "Tháng nào năm nay"),
+    (r"\bhầu van va con cai\b", "hậu vận và con cái"),
+    (r"\bcon cai\b", "con cái"),
+    (r"\bthảnh công\b", "thành công"),
+    (r"\bNang khiéu bam h sinh\b", "Năng khiếu bẩm sinh"),
+    (r"\bNang khiéu bam sinh\b", "Năng khiếu bẩm sinh"),
+    (r"\bhơn kem\b", "hơn kém"),
+    (r"\bgiàu lam\b", "giàu lắm"),
+    (r"\bMenh\b", "Mệnh"),
+    (r"\bnền tránh xa\b", "nên tránh xa"),
+    (r"\bđảo hoa\b", "đào hoa"),
+    (r"\bchống qua\b", "chồng qua"),
+    (r"\bThiền Di\b", "Thiên Di"),
+    (r"\bit con\b", "ít con"),
+    (r"\btrồng ra sao\b", "trông ra sao"),
+    (r"\bvôchính\b", "vô chính"),
+    (r"\bco ý nghĩa\b", "có ý nghĩa"),
+    (r"\bco ÿ nghĩa\b", "có ý nghĩa"),
+    (r"\bso nhất sao gì\b", "sợ nhất sao gì"),
+    (r"\bchống it\b", "chồng ít"),
+    (r"\bit hay\b", "ít hay"),
+    (r"\bBan sẽ\b", "Bạn sẽ"),
+    (r"\bcảng\b", "càng"),
+    (r"\bSf\b", ""),
+    (r"\bchac chan\b", "chắc chắn"),
+    (r"\bsinh đổi kha\b", "sinh đời khá"),
+    (r"\bHe lo\b", "Hé lộ"),
+    (r"\bVị sao\b", "Vì sao"),
+    (r"\bsống gid\b", "sống giờ"),
+    (r"\bú bế\b", "u bế"),
+    (r"\bTỬ Vi\b", "Tử vi"),
+    (r"\bbe Biết\b", "biết"),
+    (r"\bcua con\b", "của con"),
+    (r"\bnhãn 3 chị em\b", "nhắn 3 chị em"),
+    (r"\bñ công danh\b", "công danh"),
+    (r"\bXem chống\b", "Xem chồng"),
+    (r"\be ave\b", ""),
+    (r"\bchống\b", "chồng"),
+    (r"\bChống\b", "Chồng"),
+    (r"\btỉnh yéu\b", "tình yêu"),
+    (r"\btỉnh yều\b", "tình yêu"),
+    (r"\btinh duyén\b", "tình duyên"),
+    (r"\bnhần duyên\b", "nhân duyên"),
+    (r"\bgia thé\b", "gia thế"),
+    (r"\bGia thé\b", "Gia thế"),
+    (r"\bnhư thé\b", "như thế"),
+    (r"\bcô của\b", "có của"),
+    (r"\bđầu Đắc loi ở dé\b", "đâu đắc lợi ở đó"),
+    (r"\bở đầu Đắc lợi ở\b", "ở đâu đắc lợi ở đó"),
+    (r"\bở đầu may mắn ở đó\b", "ở đâu may mắn ở đó"),
+    (r"\bở đầu Bổng lộc ở đó\b", "ở đâu bổng lộc ở đó"),
+    (r"\bở đầu hôn nhân ở đẩy\b", "ở đâu hôn nhân ở đấy"),
+    (r"\bở đầu\b", "ở đâu"),
+    (r"\bdé được\b", "dễ được"),
+    (r"\bdé lấy\b", "dễ lấy"),
+    (r"\bdé gặp\b", "dễ gặp"),
+    (r"\bdềgäp\b", "dễ gặp"),
+    (r"\bNữ Ménh\b", "Nữ mệnh"),
+    (r"\bMénh\b", "Mệnh"),
+    (r"\bNi mệnh\b", "Nữ mệnh"),
+    (r"\bNền lam\b", "nên làm"),
+    (r"\blam ăn\b", "làm ăn"),
+    (r"\bthưởng có\b", "thường có"),
+    (r"\btrén\b", "trên"),
+    (r"\bđất dai\b", "đất đai"),
+    (r"\bphụ tỉnh\b", "phụ tinh"),
+    (r"\bchính tỉnh\b", "chính tinh"),
+    (r"\bĐặc tinh\b", "Đặc tính"),
+    (r"\bChính tỉnh\b", "Chính tinh"),
+    (r"\bTỬ Vỉ\b", "Tử vi"),
+    (r"\bTỪ Vỉ\b", "Tử vi"),
+    (r"\bTử Vỉ\b", "Tử vi"),
+    (r"\bThất Sat\b", "Thất Sát"),
+    (r"\bThất Sắt\b", "Thất Sát"),
+    (r"\bThiền Tướng\b", "Thiên Tướng"),
+    (r"\bTuyệt đổi\b", "Tuyệt đối"),
+    (r"\bhôn nhần\b", "hôn nhân"),
+    (r"\btình trang\b", "tình trạng"),
+    (r"\bnước mắt chan cơm\b", "nước mắt chan cơm"),
+    (r"\bVảo tuổi bao nhiều\b", "vào tuổi bao nhiêu"),
+    (r"\bcó thé\b", "có thể"),
+    (r"\bmai mổi\b", "mai mối"),
+    (r"\bsau nay\b", "sau này"),
+    (r"\bthông mỉnh\b", "thông minh"),
+    (r"\bThỉ cử đồ đạt\b", "thi cử đỗ đạt"),
+    (r"\bđồ đạt\b", "đỗ đạt"),
+    (r"\bkhông hỏa thuận\b", "không hòa thuận"),
+    (r"\btruyền tỉnh\b", "truyền tinh"),
+    (r"\bchuyện be hy sự\b", "chuyện hỷ sự"),
+    (r"\bSự thật đắng sợ\b", "Sự thật đáng sợ"),
+    (r"\bNghiệp bảo\b", "Nghiệp báo"),
+    (r"\bQuy tỉnh\b", "Quý tinh"),
+    (r"\bBổng lộc\b", "Bổng lộc"),
+    (r"\bTải Bạch\b", "Tài Bạch"),
+    (r"\bNghéo\b", "Nghèo"),
+    (r"\bDự đoàn\b", "Dự đoán"),
+    (r"\bXÕ hơn\b", "vợ hơn"),
+    (r"\bLiệu chồng cô chung thủy\b", "Liệu chồng có chung thủy"),
+    (r"\bHình ảnh Ñ bản thân khi về gia\b", "Hình ảnh bản thân khi về già"),
+    (r"\blảm qu\b", "làm quý"),
+    (r"\bLy do\b", "Lý do"),
+    (r"\bnạp âm\b", "nạp âm"),
+    (r"\bTương Lai\b", "tương lai"),
+    (r"\bTương lai\b", "tương lai"),
+    (r"\btải:\s*\.\s*lộc\b", "tài lộc"),
+    (r"\bở cung dé\b", "ở cung đó"),
+    (r"\bliều có\b", "liệu có"),
+    (r"\btình k yều\b", "tình yêu"),
+    (r"\bhayĐẹp\b", "hay đẹp"),
+    (r"\blây 1 vải bải phú\b", "lấy 1 vài bài phú"),
+    (r"\bchắc ch\b", "chắc chắn"),
+    (r"\bphụ tinh cung Mệnh\b", "phụ tinh cung Mệnh"),
+    (r"\bcủa h mình\b", "của mình"),
+    (r"\bchính h tỉnh\b", "chính tinh"),
+    (r"\bvợ s chồng\b", "vợ chồng"),
+    (r"\bChồng bạn sau này là người thể nào\b", "Chồng bạn sau này là người thế nào"),
+    (r"\bhôn nhân Ñ dễ gặp\b", "hôn nhân dễ gặp"),
+    (r"\bÐ Bạn\b", "Bạn"),
+    (r"\bCách quý: Những sao lảm qu\b", "Cách quý: Những sao làm quý"),
+    (r"\bĐặc điểm của lá số 2 đời chồng\b", "Đặc điểm của lá số 2 đời chồng"),
+    (r"\bLuận đoán tương lai sự nghiệp\b", "Luận đoán tương lai sự nghiệp"),
+    (r"\bz k tính sổ\b", "tính số"),
+    (r"\btính sổ\b", "tính số"),
+    (r"\bSổ phận\b", "Số phận"),
+    (r"\bchỉ tiết\b", "chi tiết"),
+    (r"\bgặp j\s+\.", "gặp gì"),
+    (r"\bgặp j\.", "gặp gì"),
+    (r"\bTử vi Biết\b", "Tử vi biết"),
 ]
 
 BOILERPLATE_PATTERNS = [
@@ -254,6 +393,66 @@ DOMAIN_TERMS = [
     "triệt",
 ]
 
+OCR_TEXT_OVERRIDES = {
+    "7410699526715051282": "\n".join(
+        [
+            "Bảng nạp âm 1970-1982:",
+            "1970 Canh Tuất - Tự Quan Chi Cẩu - Chó nhà chùa",
+            "1971 Tân Hợi - Khuyên Dưỡng Chi Trư - Lợn nuôi nhốt",
+            "1972 Nhâm Tý - Sơn Thượng Chi Thử - Chuột trên núi",
+            "1973 Quý Sửu - Lan Ngoại Chi Ngưu - Trâu ngoài chuồng",
+            "1974 Giáp Dần - Lập Định Chi Hổ - Hổ tự lập",
+            "1975 Ất Mão - Đắc Đạo Chi Thố - Thỏ đắc đạo",
+            "1976 Bính Thìn - Thiên Thượng Chi Long - Rồng trên trời",
+            "1977 Đinh Tỵ - Đầm Nội Chi Xà - Rắn trong đầm",
+            "1978 Mậu Ngọ - Cứu Nội Chi Mã - Ngựa trong chuồng",
+            "1979 Kỷ Mùi - Thảo Dã Chi Dương - Dê đồng cỏ",
+            "1980 Canh Thân - Thực Quả Chi Hầu - Khỉ ăn quả",
+            "1981 Tân Dậu - Long Tàng Chi Kê - Gà trong lồng",
+            "1982 Nhâm Tuất - Cố Gia Chi Khuyển - Chó về nhà",
+        ]
+    ),
+    "7436684737382468872": "Hình Phạt nhà trời",
+    "7480028809857600786": "Sao này ở đâu may mắn tại đó",
+    "7548736991823744264": "Mẫu phụ nữ đức hạnh khéo chiều chồng, chăm con",
+    "7572497265516875028": "12 Cung khi vô chính diệu có ý nghĩa ra sao?",
+    "7576878902983953685": "Thiên Phạt của bạn",
+    "7585041433321622804": "Nữ mệnh càng lấy chồng sớm càng dễ chia ly",
+}
+
+OCR_LEADING_JUNK = re.compile(
+    r"^(?:"
+    r"[a-z]{1,3}\s+[a-z]{1,3}\s*:\s*|"
+    r"(?:nã|z\s+k|đ\s+CS\s+k|đ\s+7\s+k|ễ\s+6|k:|eae\s*:|NU|XÃ|N|SỈ|HP,|b|wh\s+ale\s*:|te\s+aft|ư|B|z|x|i\s+vn|ib\s+k|Ve|Vay|Ý|vee|hes|he\s+ụ|et\s+2\s+2\s+x|re\s+3|be\s+3|bu|VaR|k|ip|Vie|te|os|j|ì\s+3|g|NN|R|of|Va|xe|wit)\s+|"
+    r"vee\?\s+ras\s+\d+\s+"
+    r")",
+    re.IGNORECASE,
+)
+
+OCR_TRAILING_JUNK = re.compile(
+    r"(?:"
+    r"\s*:?\s*an|"
+    r"\s+geet\s+ye|"
+    r"\s+-\s+my|"
+    r"\s*,?\s*x\.\s*\.-\s*ˆ|"
+    r"\s+ay\s+eS|"
+    r"\s+ử(?:\s+es)?|"
+    r"\s+i\s+tu|"
+    r"\s+[Ỹy]|"
+    r"\s+ˆ(?:\s+xs|\s+ZR)?|"
+    r"\s+2\s+-ˆ|"
+    r"\s+Ề|"
+    r"\s+ế|"
+    r"\s+(?:lo|le|Ta|mm|ch|az|Ko|MA|CV|oy|SPR\s+elle|TMMMMA|w|ñ|q)|"
+    r"\s+/\.\s+7ˆ\.\s+4U|"
+    r"\s+B\.\s*,\s*sẽ|"
+    r"\s+rial|"
+    r"\s+h|"
+    r"\s+\.\s+az"
+    r")$",
+    re.IGNORECASE,
+)
+
 
 def load_manifest(channel_dir: Path) -> list[dict[str, Any]]:
     manifest = channel_dir / "text_manifest.jsonl"
@@ -296,7 +495,7 @@ def normalize_text(text: str, source: str = "") -> str:
         text = re.sub(pattern, " ", text, flags=re.IGNORECASE)
     for _ in range(2):
         for pattern, replacement in PHRASE_FIXES:
-            text = re.sub(pattern, replacement, text, flags=re.IGNORECASE if pattern.islower() else 0)
+            text = re.sub(pattern, replacement, text, flags=re.IGNORECASE)
     for wrong, right in COMMON_WORD_FIXES.items():
         text = re.sub(rf"\b{re.escape(wrong)}\b", right, text)
     text = re.sub(r"\b(à|ờ|ừ|ừm|ạ)\b\s*", "", text, flags=re.IGNORECASE)
@@ -308,6 +507,9 @@ def normalize_text(text: str, source: str = "") -> str:
     text = re.sub(r"([,.?!:;])([^\s])", r"\1 \2", text)
     text = re.sub(r"\s+", " ", text).strip()
     if source == "ocr_thumbnail":
+        for _ in range(3):
+            text = OCR_LEADING_JUNK.sub("", text).strip()
+            text = OCR_TRAILING_JUNK.sub("", text).strip()
         text = re.sub(r"[|_\\]+", " ", text)
         text = re.sub(r"\b(?:ey F|mực|ie|la|re 1|x1|lv|z1|A|Í|š|l|mo DĐ|mat at|eels|els|mm m|os m|HNMMWMAA|HNMWWMAA|TMMWWMAM|HN dV MẶ|HMWWEA|Ws|Vs|NÌ|NỈ|HP|Nee|Ne|NZ|NS|Nv|N|SỈ|NU|XÃ|eae|ae|th|ck a3|ad|ny|ial|ram rap|oe|DĐ)\b", " ", text, flags=re.IGNORECASE)
         text = re.sub(r"^[0-9\s%+.,;:/()\-]+", "", text).strip()
@@ -316,6 +518,9 @@ def normalize_text(text: str, source: str = "") -> str:
         text = re.sub(r"\s*[-–]\s*$", "", text).strip()
         text = re.sub(r"^[^A-Za-zÀ-ỹ0-9]+", "", text).strip()
         text = re.sub(r"\s+", " ", text).strip(" .,:;|-")
+        for _ in range(2):
+            text = OCR_LEADING_JUNK.sub("", text).strip()
+            text = OCR_TRAILING_JUNK.sub("", text).strip()
     text = re.sub(r"([.!?])\s+", r"\1\n\n", text)
     text = re.sub(r"\n{3,}", "\n\n", text)
     return text.strip()
@@ -342,6 +547,56 @@ def channel_name(rows: list[dict[str, Any]], fallback: str) -> str:
         if row.get("channel"):
             return str(row["channel"])
     return fallback
+
+
+def needs_review(record: dict[str, Any]) -> bool:
+    if not record["has_transcript"]:
+        return False
+    if record["transcript_source"] != "ocr_thumbnail":
+        return False
+    text = record["text"]
+    if record["video_id"] in OCR_TEXT_OVERRIDES:
+        return False
+    if len(text) < 10:
+        return True
+    suspicious_patterns = [
+        r"\b(?:omy|ounce|atin|eel|Buy|NLS|vee|ras|geet|rial|ale|aft|ave)\b",
+        r"[ˆÿñÐ]",
+        r"\.\s*,|\.\s*\.-",
+        r"\b(?:lả|Thé|Phuc|Thiền|chống|tải:\s*\.)\b",
+        r"^(?:he|et|wit|xe|ip|os|VaR|Vie|hes|bu|be)\b",
+        r"\s(?:lo|le|Ta|mm|ch|az|Ko|MA|CV|oy|SPR|elle)$",
+    ]
+    return any(re.search(pattern, text, flags=re.IGNORECASE) for pattern in suspicious_patterns)
+
+
+def write_quality_report(channel_slug: str, records: list[dict[str, Any]]) -> None:
+    final_dir = TRANSCRIPT_ROOT / channel_slug / "final"
+    review = [record for record in records if needs_review(record)]
+    missing = [record for record in records if not record["has_transcript"]]
+    lines = [
+        f"# Quality report - {channel_slug}",
+        "",
+        "Ghi chú: `review` là OCR poster có khả năng còn lỗi dấu/ký tự rác, nên kiểm ảnh gốc nếu dùng làm dữ liệu huấn luyện hoặc trích dẫn.",
+        "",
+        f"- ok: {len(records) - len(review) - len(missing)}",
+        f"- review: {len(review)}",
+        f"- missing: {len(missing)}",
+        "",
+        "## Review items",
+    ]
+    if review:
+        for record in review:
+            lines.append(
+                f"{record['idx']:03d}. {record['date']} | {record['video_id']} | {record['text']}"
+            )
+    else:
+        lines.append("Không còn mục OCR bị gắn cờ review theo bộ kiểm tra hiện tại.")
+    if missing:
+        lines.extend(["", "## Missing items"])
+        for record in missing:
+            lines.append(f"{record['idx']:03d}. {record['date']} | {record['video_id']} | {record['title']}")
+    (final_dir / "quality_report.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
 def build_clean_file(channel_slug: str, output_name: str | None = None) -> Path:
@@ -383,7 +638,10 @@ def build_clean_file(channel_slug: str, output_name: str | None = None) -> Path:
         parts.append("")
         clean_body = ""
         if text_path.exists():
-            clean_body = normalize_text(extract_body(text_path), source)
+            if source == "ocr_thumbnail" and row["id"] in OCR_TEXT_OVERRIDES:
+                clean_body = OCR_TEXT_OVERRIDES[row["id"]]
+            else:
+                clean_body = normalize_text(extract_body(text_path), source)
             if has_research_content(clean_body, source):
                 parts.append(clean_body)
             else:
@@ -427,6 +685,7 @@ def build_clean_file(channel_slug: str, output_name: str | None = None) -> Path:
             f"{record['idx']:03d}. {record['date']} | {record['duration']} | {record['title']} | {record['transcript_source']} | {record['video_id']}"
         )
     (final_dir / "index.md").write_text("\n".join(index_lines) + "\n", encoding="utf-8")
+    write_quality_report(channel_slug, video_records)
     print(f"Wrote {output_path} ({len(rows)} videos, missing text files: {missing})")
     return output_path
 
