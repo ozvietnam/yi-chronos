@@ -3068,6 +3068,45 @@ def hermes_council_job(job_id: str, http_request: Request) -> dict:
     return out
 
 
+class DeepReadingWebRequest(BaseModel):
+    person_key: str = "self"
+
+
+@app.post("/api/hermes/deep-reading/enqueue")
+def hermes_deep_reading_enqueue(req: DeepReadingWebRequest, http_request: Request) -> dict:
+    """Luận Sâu Trọn Đời ASYNC (web, login) — phê mệnh DeepSeek chạy ngầm 30-90s (99 xu).
+    Precheck (sync/giờ sinh/quyền) trả sớm → enqueue → job_id; frontend poll /job/{id}.
+    Mirror Hội Đồng nhưng KHÔNG có câu hỏi (luận trọn lá)."""
+    from api.auth import require_user
+    user = require_user(http_request)
+    from engine.deep_reading import precheck
+    pc = precheck(user_id=user["user_id"], person_key=req.person_key)
+    if not pc.get("ok"):
+        return {"status": pc.get("reason", "error"), "code": pc.get("code")}
+    try:
+        from engine.tasks.jobs import deepread_run
+        res = deepread_run.delay(user_id=user["user_id"], person_key=req.person_key)
+        return {"status": "processing", "job_id": res.id}
+    except Exception as e:
+        logging.getLogger(__name__).warning("deep-reading enqueue failed (broker?): %s", e)
+        raise HTTPException(503, "Luận Sâu tạm chưa sẵn sàng (hạ tầng async). Thử lại sau.")
+
+
+@app.get("/api/hermes/deep-reading/job/{job_id}")
+def hermes_deep_reading_job(job_id: str, http_request: Request) -> dict:
+    """Trạng thái job Luận Sâu (web, login). Poll tới state=SUCCESS → result (phe_menh)."""
+    from api.auth import require_user
+    require_user(http_request)
+    from engine.tasks.celery_app import celery_app
+    res = celery_app.AsyncResult(job_id)
+    out: dict = {"job_id": job_id, "state": res.state}
+    if res.successful():
+        out["result"] = res.result
+    elif res.failed():
+        out["error"] = str(res.result)[:300]
+    return out
+
+
 @app.get("/api/chan-dung")
 def chan_dung_get(http_request: Request, person_key: str = "self") -> dict:
     """Chân Dung khách hàng — tổng hợp DETERMINISTIC 'khách LÀ AI' từ 3 lá số (Bát Tự cốt cách +

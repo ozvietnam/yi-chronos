@@ -26,16 +26,20 @@ from engine.db import is_postgres, session_scope
 FEATURE = "tu_vi_phe_menh_sau"
 
 
-def _resolve(firebase_uid: str, person_key: str):
-    """(user_id, person_dict) hoặc (None, None) nếu chưa sync / không có person."""
+def _resolve(firebase_uid: str = "", person_key: str = "self", *,
+             user_id: Optional[int] = None):
+    """(user_id, person_dict) hoặc (None, None). Web truyền `user_id` trực tiếp (login
+    session); AppChat truyền `firebase_uid` → tra user_id."""
     with session_scope(service=True) as conn:
-        row = conn.execute(
-            text("SELECT user_id FROM users WHERE firebase_uid=:u"),
-            {"u": firebase_uid},
-        ).fetchone()
-        if not row:
-            return None, None
-        uid = row[0]
+        uid = user_id
+        if uid is None:
+            row = conn.execute(
+                text("SELECT user_id FROM users WHERE firebase_uid=:u"),
+                {"u": firebase_uid},
+            ).fetchone()
+            if not row:
+                return None, None
+            uid = row[0]
         p = conn.execute(
             text("""SELECT name, gender, birth_datetime_local, timezone
                     FROM user_persons WHERE user_id=:u AND person_key=:pk"""),
@@ -60,9 +64,10 @@ def _generate(person: dict, user_id: int) -> dict:
     return TuViAnalyzer(pp).phe_menh()
 
 
-def precheck(firebase_uid: str, person_key: str = "self") -> dict:
-    """Kiểm nhanh trước khi enqueue (cho endpoint trả 404/403 sớm)."""
-    uid, person = _resolve(firebase_uid, person_key)
+def precheck(firebase_uid: str = "", person_key: str = "self", *,
+             user_id: Optional[int] = None) -> dict:
+    """Kiểm nhanh trước khi enqueue (cho endpoint trả 404/403 sớm). Web truyền user_id."""
+    uid, person = _resolve(firebase_uid, person_key, user_id=user_id)
     if uid is None:
         return {"ok": False, "code": 404, "reason": "not_synced"}
     if not person or not person.get("birth_datetime_local"):
@@ -73,13 +78,14 @@ def precheck(firebase_uid: str, person_key: str = "self") -> dict:
     return {"ok": True, "user_id": uid}
 
 
-def run_deep_reading(firebase_uid: str, person_key: str = "self", *,
+def run_deep_reading(firebase_uid: str = "", person_key: str = "self", *,
+                     user_id: Optional[int] = None,
                      generate: Optional[Callable[[dict, int], dict]] = None) -> dict:
     """Chạy 1 lần luận sâu end-to-end. KHÔNG idempotent (mỗi lần gọi = 1 lần tốn
     tiền LLM + 1 lần trừ lượt) → task gọi nó phải at-most-once (xem deepread_run).
     Chỉ record_spend + consume_use khi generation + save THÀNH CÔNG."""
     generate = generate or _generate
-    uid, person = _resolve(firebase_uid, person_key)
+    uid, person = _resolve(firebase_uid, person_key, user_id=user_id)
     if uid is None:
         return {"status": "error", "reason": "not_synced"}
     if not person or not person.get("birth_datetime_local"):
@@ -143,5 +149,7 @@ def run_deep_reading(firebase_uid: str, person_key: str = "self", *,
     return {
         "status": "done", "casting_id": cid, "algo_version": av,
         "provider": result.get("provider"),
+        "phe_menh": result.get("phe_menh"),               # nội dung luận để frontend render
+        "paradigm_note": result.get("paradigm_note"),
         "remaining_uses": usage.get("remaining_uses") if usage.get("ok") else None,
     }

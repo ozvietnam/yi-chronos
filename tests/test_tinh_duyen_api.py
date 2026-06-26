@@ -86,16 +86,22 @@ def test_run_tinh_duyen_gioi_tinh_khac_co_note(monkeypatch):
 
 # ── 2) narrate (provider mock) ───────────────────────────────────────────────
 def test_narrate_chan_mock_khong_ro_ra_user(monkeypatch):
-    """Provider mock-fallback (thiếu key/lỗi tạm) KHÔNG được lộ '[MOCK…]' cho user trả phí
-    → narrate trả '' để UX fallback bản cấu trúc đã-sạch."""
-    from engine.ai.registry import get_registry
+    """Provider mock-fallback (thiếu key/lỗi tạm) KHÔNG được lộ '[MOCK…]' cho user trả phí.
+    MỌI provider trong chuỗi trả mock-content → bị chặn → '' (UX fallback bản cấu trúc).
+
+    Pha A: narrate đi qua CHUỖI fallback [deepseek, minimax, gemini] + import run_agent
+    bên trong (from engine.ai.agents import run_agent) → patch tại NGUỒN. Mock-content ở
+    mọi provider → guard mock-leak chặn từng cái → hết chuỗi → ''."""
+    import engine.ai.agents as A
     from engine.cross_paradigm import narrate as N
     from engine.tinh_duyen.reading import read_tinh_duyen
 
-    mock = get_registry().get("mock")
-    import engine.ai.council as C
-    monkeypatch.setattr(C, "_get_agent_provider",
-                        lambda agent_id, prefer_reasoning=False: (mock, "mock-v1"))
+    class _MockResp:
+        content = "[MOCK] Mock response — please paste api key in Settings."
+        provider = "mock"
+        model = "mock-v1"
+
+    monkeypatch.setattr(A, "run_agent", lambda **kw: _MockResp())
 
     td = read_tinh_duyen(birth_datetime_local=_BIRTH_NU, gender="nữ")
     profs = td["personality"]["profiles"]
@@ -145,14 +151,17 @@ def test_narrate_system_prompt_theo_khau_vi():
 
 
 def test_narrate_loi_llm_tra_chuoi_rong(monkeypatch):
-    """Lỗi LLM → narrate trả '' (không sập)."""
-    from engine.cross_paradigm import narrate as N
-    import engine.ai.council as C
+    """Lỗi bất kỳ (registry/provider/LLM) → narrate trả '' (không sập).
 
-    def boom(agent_id, prefer_reasoning=False):
+    Pha A: get_registry là điểm vào của chuỗi fallback → cho nó raise để mô phỏng lỗi
+    hạ tầng. narrate phải nuốt exception + trả '' (caller fallback bản cấu trúc)."""
+    from engine.cross_paradigm import narrate as N
+    import engine.ai.registry as R
+
+    def boom():
         raise RuntimeError("registry lỗi")
 
-    monkeypatch.setattr(C, "_get_agent_provider", boom)
+    monkeypatch.setattr(R, "get_registry", boom)
     txt = N.narrate_tinh_duyen(_PERSON, {"stage": {"tuoi": 30}, "personality": {}})
     assert txt == "", "lỗi LLM phải trả chuỗi rỗng, không raise"
 
