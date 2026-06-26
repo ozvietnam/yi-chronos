@@ -55,16 +55,17 @@ def _trim_to_last_sentence(text: str) -> str:
     # Đã kết câu sạch → khỏi cắt.
     if _SENTENCE_END_RE.search(s):
         return s
-    # Tìm vị trí dấu kết câu cuối cùng.
+    # Tìm vị trí dấu kết câu cuối cùng (gồm cả dấu đóng nháy/ngoặc liền sau).
     last = -1
-    for m in _re.finditer(r"[.!?…。！？]", s):
+    for m in _re.finditer(r"[.!?…。！？]+[”\"')\]]*", s):
         last = m.end()
     if last <= 0:
-        return s  # không có ranh giới câu → giữ nguyên
+        return s  # không có ranh giới câu nào → cả bài là 1 câu cụt, giữ nguyên
     head = s[:last].rstrip()
-    # Giữ phần đầu nếu nó còn đủ "dày" (≥60% bài) — tránh vứt gần hết bài chỉ vì
-    # đoạn cuối thiếu dấu. Nếu phần cắt quá ngắn so với bài → giữ nguyên cả bài.
-    if len(head) >= max(40, int(len(s) * 0.6)):
+    # Giữ phần ĐẦU (đã kết câu sạch) nếu nó đủ dày tối thiểu (≥40 ký tự = ít nhất 1
+    # câu thật). Bỏ phần đuôi cụt ('…nếu không sẽ tìm n'). Nếu head quá ngắn (cả bài
+    # gần như chỉ là 1 mệnh đề chưa xong) → giữ nguyên (thà có còn hơn mất).
+    if len(head) >= 40:
         return head
     return s
 
