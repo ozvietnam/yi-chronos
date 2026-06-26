@@ -25,6 +25,7 @@ SCHOOL_MAP = {
     "tu-vi-dau-so-toan-thu-zh": "tran_doan_zh",  # bản dịch Trung Q1 Phú + Q3 sao×cung
     "tuvi-bon-ba-tiktok": "tu_vi_bon_ba",        # hiện đại VN — quán chiếu Ngũ Uẩn (2026)
     "tu-vi-huy-tuan-tiktok": "tu_vi_huy_tuan",   # hiện đại VN — Trung Châu phái, kỹ thuật cách cục (2026)
+    "nguyet-do-so-menh-tiktok": "nguyet_do_so_menh",  # hiện đại VN — Tử Vi cách cục thực hành Phu Thê/Tử Tức (2026)
 }
 
 SCHOOL_NAMES = {

@@ -90,7 +90,8 @@ def build_mapping() -> dict:
             'tu-vi-ham-so',
             'tu-vi-dau-so-toan-thu-zh',
             'tuvi-bon-ba-tiktok',
-            'tu-vi-huy-tuan-tiktok'
+            'tu-vi-huy-tuan-tiktok',
+            'nguyet-do-so-menh-tiktok'
         )
         AND (a.extracted_by LIKE 'sub-agent%' OR a.extracted_by = 'legacy-q1q3-ingest')
         -- Kênh #2 Huy Tuấn: LOẠI vùng lá chắn đạo đức (anti_paradigm) + quan điểm chưa kiểm chứng
