@@ -651,6 +651,29 @@ _TONE_MAP = {
 }
 
 
+def _fmt_nguon(n) -> Optional[str]:
+    """Nguồn (dict/str/list) → chuỗi đọc được cho 'Căn cứ'. Bỏ path file nội bộ
+    (file=...); dict {sach,trang} → 'Sách (tr.X)'. Tránh render JSON thô ra UI."""
+    if not n:
+        return None
+    if isinstance(n, str):
+        return n.strip() or None
+    if isinstance(n, list):
+        parts = [_fmt_nguon(x) for x in n]
+        return "; ".join(p for p in parts if p) or None
+    if isinstance(n, dict):
+        sach = (n.get("sach") or n.get("nguon") or n.get("ten") or "").strip()
+        trang = n.get("trang")
+        if isinstance(trang, (list, tuple)):
+            trang = ", ".join(str(t) for t in trang if t not in (None, ""))
+        elif trang is not None:
+            trang = str(trang)
+        if sach and trang:
+            return f"{sach} (tr.{trang})"
+        return sach or (f"tr.{trang}" if trang else None)
+    return str(n)
+
+
 def _sec_cach_cuc(cc: list[dict]) -> Optional[dict]:
     """Cách cục — list (đã reframe đọc-đồng-dạng qua field bien_chinh)."""
     if not _nonempty(cc):
@@ -678,7 +701,7 @@ def _sec_cach_cuc(cc: list[dict]) -> Optional[dict]:
         can_cu.append({
             "ten_cach": c.get("ten_cach"),
             "han_tu": han_tu,
-            "_nguon": c.get("_nguon"),
+            "_nguon": _fmt_nguon(c.get("_nguon")),
         })
     if not items:
         return None

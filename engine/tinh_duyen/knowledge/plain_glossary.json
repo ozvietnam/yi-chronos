@@ -64,6 +64,7 @@
   "scrub_phrases_regex": {
     "_ghi_chu": "BUG4 — cụm jargon CÓ BIẾN THỂ (số thứ tự / hành / cách diễn đạt) nên KHÔNG liệt kê literal hết trong thay_the. Display._plain_one áp các regex này (sau strip Hán, trước cắt mệnh đề) để XOÁ sạch khỏi tom_tat. Mỗi item: pattern (Python re, đã lường biến thể) → thay bằng '' (bỏ) hoặc nghĩa thuần. Các cụm này là 'phân loại sao trong sách' (Nam/Bắc Đẩu đệ X tinh, hành âm-dương, 'X chi tinh', 'hóa khí vi Y') — vô nghĩa với người không học tử vi, đẩy hết khỏi KẾT QUẢ.",
     "patterns": [
+      {"pattern": "Cung bạn đời[^.]*\\ban\\s+tại\\s+(?:Tý|Sửu|Dần|Mão|Thìn|Tỵ|Ngọ|Mùi|Thân|Dậu|Tuất|Hợi)\\s*\\.\\s*", "thay": "", "vi_du": "Cung bạn đời của em an tại Tỵ. → (bỏ câu grounding-only, tránh để 'an.' cụt; router vẫn giữ chi cho test)"},
       {"pattern": "(?:Nam|Bắc)\\s*Đẩu\\s+(?:chủ tinh|đệ\\s+(?:nhất|nhị|tam|tứ|ngũ|lục|thất)\\s+tinh)", "thay": "", "vi_du": "Nam Đẩu đệ tứ tinh → (bỏ)"},
       {"pattern": "trong\\s+(?:Nam|Bắc)\\s*Đẩu", "thay": "", "vi_du": "hòa khí nhất trong Nam Đẩu → hòa khí nhất"},
       {"pattern": "[\\(\\（]\\s*(?:dương|âm)\\s+(?:thủy|mộc|hỏa|hoả|thổ|kim)[^\\)\\）]*[\\)\\）]", "thay": "", "vi_du": "(dương thủy) / (âm thổ, khí âm kim) → (bỏ)"},
