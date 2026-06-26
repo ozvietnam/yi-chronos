@@ -93,53 +93,76 @@ def _ans_chan_doan_cap_do(out: dict) -> str:
 
 
 def _ans_cung_phu_the(out: dict) -> str:
+    """BUG3 — ráp câu BỎ QUA field rỗng + KHÔNG prefix tên-sao-trần (jargon) lên
+    body, vì khi _plain_vi strip tên sao sẽ để lại ':' / '=' mồ côi
+    ('Tham Lang: …' → ': …'). Body 'tinh_chat_phoi_ngau' đã tự chứa chủ ngữ, không
+    cần nhãn tên sao. Cũng KHÔNG ghép 'Cung Phu Thê tại Tý, chính tinh: Tham Lang'
+    (tên cung + tên sao đều là jargon → _plain_vi strip để lại 'Cung … tại ,:.:')."""
     cpt = out.get("cung_phu_the_tuvi") or {}
     if not cpt:
         return ""
     parts = []
-    branch = cpt.get("phu_the_branch")
-    chinh = cpt.get("chinh_tinh") or []
-    if branch:
-        muon = " (mượn sao đối cung)" if cpt.get("muon_sao_doi_cung") else ""
-        parts.append(f"Cung Phu Thê tại {branch}{muon}"
-                     + (f", chính tinh: {', '.join(chinh)}." if chinh else "."))
+    # Mở bằng câu THUẦN nghĩa, KHÔNG nhồi tên cung/chi/sao (jargon) vào — tránh
+    # orphan ',:.:' sau khi _plain_vi strip. 'mượn sao đối cung' giữ vì là nghĩa.
+    if cpt.get("muon_sao_doi_cung"):
+        parts.append("Cung bạn đời mượn khí từ cung đối diện.")
     luan = cpt.get("chinh_tinh_luan") or []
     for item in luan[:2]:
-        tc = item.get("tinh_chat_phoi_ngau")
+        tc = (item.get("tinh_chat_phoi_ngau") or "").strip()
         if tc:
-            parts.append(f"{item.get('sao')}: {tc}")
-    if cpt.get("dao_hoa"):
-        parts.append(f"Đào hoa toạ Phu Thê: {', '.join(cpt['dao_hoa'])}.")
+            parts.append(tc)
+    dao = [s for s in (cpt.get("dao_hoa") or []) if (s or "").strip()]
+    if dao:
+        parts.append(f"Có sao đào hoa toạ cung bạn đời: {', '.join(dao)}.")
     parts.append("Đọc cấu trúc này như kiểu khí chất bạn đời cộng hưởng — vận hành tốt "
                  "nhất khi được ý thức, KHÔNG phán tốt/xấu cứng.")
-    return " ".join(p for p in parts if p)
+    return " ".join(p for p in parts if p and p.strip())
+
+
+def _fmt_van(x: dict) -> str:
+    return f"vận {x.get('branch')} (tuổi {x.get('start_age')}-{x.get('end_age')})"
 
 
 def _ans_dinh_thoi(out: dict) -> str:
+    """BUG1 — trả lời 'năm nào cưới được?' ƯU TIÊN cửa sổ ĐANG/SẮP TỚI (end_age >=
+    tuổi hiện tại). Nếu cửa sổ duyên chính đã trôi qua → nói TRUNG THỰC ('đã mở
+    quanh tuổi X') + trỏ giai đoạn kế, KHÔNG phán 'cưới lúc 2-11'. Giữ paradigm:
+    năm khí kích hoạt, KHÔNG tiên tri năm cứng (Iron Rule #4/#6)."""
     dt = out.get("dinh_thoi") or {}
     if not dt:
         return ""
     parts = []
-    kh = dt.get("nam_kich_hoat") or []
+    sap_toi = dt.get("cua_so_kich_hoat_sap_toi") or []
+    da_qua = dt.get("cua_so_kich_hoat_da_qua") or []
     gg = dt.get("nam_can_giu_gin") or []
-    if kh:
-        khoang = "; ".join(
-            f"vận {x.get('branch')} (tuổi {x.get('start_age')}-{x.get('end_age')})"
-            for x in kh[:2]
+
+    if sap_toi:
+        # Có cửa sổ phía trước (đang/sắp) → đó là câu trả lời chính.
+        khoang = "; ".join(_fmt_van(x) for x in sap_toi[:2])
+        parts.append(f"Cửa sổ khí duyên ĐANG/SẮP được KÍCH HOẠT: {khoang}.")
+    elif da_qua:
+        # Cửa sổ duyên CHÍNH đã trôi qua → nói thật, trỏ giai đoạn tới (không bịa
+        # 'cưới lúc 2-11' — đó là vận tuổi thơ đã qua).
+        khoang = "; ".join(_fmt_van(x) for x in da_qua[:2])
+        parts.append(
+            f"Cửa sổ khí duyên nổi rõ ở tầm đại vận đã MỞ QUANH {khoang} — giai đoạn "
+            "đó đã qua. Ở tầm đại vận phía trước chưa nổi thêm cửa sổ kích hoạt rõ; "
+            "giai đoạn TỚI duyên do em CHỦ ĐỘNG vun đắp (đào hoa lưu niên năm-tháng "
+            "soi kỹ hơn khi cần) — KHÔNG có 'năm cưới định sẵn'."
         )
-        parts.append(f"Cửa sổ khí duyên được KÍCH HOẠT: {khoang}.")
-    if gg:
-        khoang = "; ".join(
-            f"vận {x.get('branch')} (tuổi {x.get('start_age')}-{x.get('end_age')})"
-            for x in gg[:2]
-        )
-        parts.append(f"Giai đoạn cần GIỮ GÌN/chăm sóc quan hệ: {khoang}.")
-    if not parts:
-        parts.append("Trên cấu trúc hiện tại chưa nổi cửa sổ kích hoạt rõ ở tầm đại vận; "
-                     "đọc theo 'năm khí được kích hoạt', KHÔNG phải tiên tri năm cứng.")
     else:
-        parts.append("Đây là 'năm khí được kích hoạt / năm cần giữ gìn', KHÔNG phải "
-                     "lời tiên tri (Iron Rule #4/#6).")
+        parts.append("Ở tầm đại vận chưa nổi cửa sổ kích hoạt rõ; đọc theo 'năm khí "
+                     "được kích hoạt', duyên do em chủ động vun đắp, KHÔNG phải tiên tri "
+                     "năm cứng.")
+
+    # Giai đoạn giữ gìn: chỉ nêu cái ĐANG/SẮP (bỏ cái đã qua cho gọn, đỡ rối).
+    gg_sap = [x for x in gg if not x.get("da_qua")]
+    if gg_sap:
+        khoang = "; ".join(_fmt_van(x) for x in gg_sap[:2])
+        parts.append(f"Giai đoạn cần GIỮ GÌN/chăm sóc quan hệ: {khoang}.")
+
+    parts.append("Đây là 'năm khí được kích hoạt / năm cần giữ gìn', KHÔNG phải "
+                 "lời tiên tri (Iron Rule #4/#6).")
     return " ".join(parts)
 
 
@@ -165,25 +188,29 @@ def _ans_personality(out: dict) -> str:
 
 
 def _ans_batu_hon_nhan(out: dict) -> str:
+    """BUG3 — ráp BỎ field rỗng + KHÔNG nhồi nhãn jargon ('官杀 (sao chồng):',
+    '日支 Ngọ:') vào trước body. Body 'y_nghia' đã tự đủ nghĩa; nhãn jargon sau khi
+    _plain_vi strip Hán/can-chi sẽ để lại '(): ' mồ côi."""
     b = out.get("batu_hon_nhan") or {}
     if not b:
         return ""
     parts = []
     tt_luan = b.get("trang_thai_luan")
     if isinstance(tt_luan, dict):
-        mo_ta = tt_luan.get("y_nghia") or tt_luan.get("mo_ta") or ""
+        mo_ta = (tt_luan.get("y_nghia") or tt_luan.get("mo_ta") or "").strip()
         if mo_ta:
-            parts.append(f"Trạng thái 官杀 (sao chồng): {mo_ta}")
+            parts.append(mo_ta)
     png = b.get("phoi_ngau_cung_luan")
+    y = ""
     if isinstance(png, dict):
-        y = png.get("y_nghia") or png.get("mo_ta")
-        if y:
-            parts.append(f"Cung phối ngẫu (日支 {b.get('nhat_chi')}): {y}")
+        y = (png.get("y_nghia") or png.get("mo_ta") or "").strip()
     elif isinstance(png, str):
-        parts.append(f"Cung phối ngẫu ({b.get('nhat_chi')}): {png}")
+        y = png.strip()
+    if y:
+        parts.append(y)
     if not parts:
         parts.append("Đọc lực ngũ hành 官杀 + 日支 như cấu trúc khí hôn nhân, KHÔNG verdict.")
-    return " ".join(parts)
+    return " ".join(p for p in parts if p and p.strip())
 
 
 def _ans_song_phai_reconcile(out: dict) -> str:
@@ -224,12 +251,14 @@ def _ans_quy_trinh(out: dict, chi_tiet: str) -> str:
         if tong:
             return tong
         return ""
-    luan = target.get("luan") or ""
-    ten = target.get("ten_buoc") or ""
-    seg = (f"{ten}: " if ten else "") + luan
-    seg += (" Đọc cấu trúc cung này như 'duyên/tín hiệu cần để ý', KHÔNG phán có/không "
-            "hay số cứng (giọng nhẹ, gợi y học/chuyên môn khi cần).")
-    return seg
+    # BUG3 — KHÔNG prefix 'ten_buoc' (chứa số thứ tự + tên cung-Hán '7. Cung Tử Tức
+    # (子女宫) — …') vào trước luan: sau _plain_vi strip Hán/tên-cung sẽ để lại '7. — …:'
+    # mồ côi. luan đã tự nêu cung; chỉ trả luan + đuôi paradigm.
+    luan = (target.get("luan") or "").strip()
+    if not luan:
+        return ""
+    return (luan + " Đọc cấu trúc cung này như 'duyên/tín hiệu cần để ý', KHÔNG phán "
+            "có/không hay số cứng (giọng nhẹ, gợi y học/chuyên môn khi cần).")
 
 
 # Bộ trích theo section_nguon.

@@ -159,6 +159,69 @@ _JUNK_CLAUSE_RE = re.compile(
 )
 
 
+# Toán-tử ráp (label/định-vị) bị MỒ CÔI sau khi strip jargon. BUG3.
+# Định-vị treo: 'tại <chi/sao đã strip>' → còn 'tại' lơ lửng + (toán tử / ngoặc
+# rỗng / dấu câu / verb tiếp). Object định-vị LUÔN là jargon (chi/tên-sao) nên đã
+# bị strip; 'tại' còn trơ = rác. Bắt: locative + (toán tử '='/':') HOẶC + ngoặc
+# (sắp rỗng) HOẶC + dấu câu → bỏ cả locative.
+_ORPHAN_LOCATIVE_OP_RE = re.compile(
+    r"\b(?:tại|ở|nơi|vào|đóng|toạ|tọa|cư)\s*"
+    r"(?:[=:：]+|[\(\（][\s,，;；·、\-—]*[\)\）]|(?=[,，.。;；—]))",
+)
+# Locative + (đã mất noun-object) đứng trước VỊ-NGỮ thường (chữ thường tiếng Việt):
+# 'tại phản chiếu', 'tại giao hữu' → object (chi/sao Viết-HOA) đã strip nên 'tại'
+# trơ. Tên ĐỊA-DANH thật sau 'tại' luôn VIẾT HOA ('tại Hà Nội') nên KHÔNG khớp
+# (an toàn). Chỉ bỏ chữ định-vị, GIỮ vị-ngữ.
+_ORPHAN_LOCATIVE_VERB_RE = re.compile(
+    r"\b(?:tại|toạ|tọa|đóng|cư)\s+(?=[a-zà-ỹ])(?!sao\b|vì\b|đây\b|đó\b|chỗ\b|gia\b)",
+)
+# '=' mồ côi (không phải trong biểu thức số): bỏ, để space nối 2 vế.
+_ORPHAN_EQUALS_RE = re.compile(r"\s*=+\s*")
+# Cluster dấu câu trộn ':' '.' ',' ';' '…' liền nhau (>=2 dấu) → còn 1 dấu mạnh nhất.
+_PUNCT_CLUSTER_RE = re.compile(r"[\s]*[:：.,，;；…]{2,}[\s]*")
+# ':' / '：' mồ côi: đứng đầu cụm, hoặc ngay sau '(' / dấu phẩy, hoặc cuối cụm.
+_ORPHAN_COLON_RE = re.compile(
+    r"(^|[\(\（\[【「,，;；—\-])\s*[:：]+\s*"
+)
+_TRAILING_COLON_RE = re.compile(r"\s*[:：]+\s*$")
+
+
+def _strip_orphan_operators(s: str) -> str:
+    """Bỏ TOÁN-TỬ ráp mồ côi (':', '=', cluster ',:.:') còn lại sau khi strip
+    jargon. Vế dữ-liệu (label/tên-cung/tên-sao) đã bị xoá nên dấu nối thành rác.
+
+    KHÔNG đụng ':' HỢP LỆ (có chữ 2 bên, vd 'kết luận: ...') — chỉ bỏ khi 1 vế trống
+    (đầu/cuối cụm, sau '(' / dấu phẩy). Cluster (>=2 dấu trộn) → 1 dấu mạnh nhất."""
+    if not isinstance(s, str) or not s:
+        return s
+    # 1) Định-vị treo + toán tử ('tại =', 'ở :', 'tại ()') → bỏ cả cụm.
+    s = _ORPHAN_LOCATIVE_OP_RE.sub(" ", s)
+    # 1b) Định-vị treo trước vị-ngữ thường ('tại phản chiếu') → bỏ chữ định-vị.
+    s = _ORPHAN_LOCATIVE_VERB_RE.sub("", s)
+    # 1c) '/' mồ côi do strip 1 vế ('Tham Lang/đào hoa' → '/đào hoa'): bỏ slash treo.
+    s = re.sub(r"(^|[\s(（])/+\s*", r"\1", s)   # '/' đầu cụm / sau space
+    s = re.sub(r"\s*/+(?=[\s)）]|$)", "", s)     # '/' cuối cụm / trước space
+    # 2) Cluster dấu trộn ',:.:' / ': :' / '…:' → 1 dấu (ưu tiên kết câu '.' > ';' > ',').
+    def _pick_punct(m: "re.Match") -> str:
+        chunk = m.group(0)
+        for p in (".", "。"):
+            if p in chunk:
+                return p + " "
+        for p in (";", "；"):
+            if p in chunk:
+                return p + " "
+        if "," in chunk or "，" in chunk:
+            return ", "
+        return " "
+    s = _PUNCT_CLUSTER_RE.sub(_pick_punct, s)
+    # 3) ':' mồ côi (1 vế trống) → bỏ.
+    s = _ORPHAN_COLON_RE.sub(r"\1 ", s)
+    s = _TRAILING_COLON_RE.sub("", s)
+    # 4) '=' mồ côi còn sót → bỏ (nối 2 vế bằng space).
+    s = _ORPHAN_EQUALS_RE.sub(" ", s)
+    return s
+
+
 def _plain_one(s: str, glossary: dict, jargon: list[str]) -> str:
     """Thuần 1 chuỗi: strip Hán + bỏ con trỏ internal + áp thay_the (jargon→nghĩa
     đời thường hoặc bỏ) + xoá jargon còn sót + dọn mệnh đề rỗng + dấu mồ côi."""
@@ -228,6 +291,11 @@ def _plain_one(s: str, glossary: dict, jargon: list[str]) -> str:
         else:
             rebuilt += p
     out = rebuilt
+    # 3b) BUG3 — dọn DẤU MỒ CÔI để lại sau khi strip jargon (tên sao/cung/chi/Hán):
+    #     'Cung Nô Bộc tại Thân (…) =' → strip 'Thân'+'(…)' để lại 'tại =';
+    #     'Tham Lang: …' → ': …'; cluster ',:.:' / ': :'. Các dấu ':' '=' này là
+    #     TOÁN-TỬ ráp (label/định-vị) đã mất vế jargon → bỏ, KHÔNG để rác lên UI.
+    out = _strip_orphan_operators(out)
     # 4) Dọn ngoặc rỗng, space thừa, dấu mồ côi (tái dùng regex _strip_han).
     prev = None
     while prev != out:
@@ -241,6 +309,8 @@ def _plain_one(s: str, glossary: dict, jargon: list[str]) -> str:
     out = re.sub(r"\s+([,，.。;；:：!！?？])", r"\1", out)
     out = re.sub(r"^[\s,，;；·、\-—]+", "", out)
     out = re.sub(r"\s*[—\-]\s*$", "", out.strip())
+    # Quét dấu mồ côi 1 lần nữa sau khi gộp space (cluster có thể lộ ra).
+    out = _strip_orphan_operators(out)
     return out.strip()
 
 
@@ -517,6 +587,7 @@ def _sec_dinh_thoi(dt: dict) -> Optional[dict]:
             "mo_ta": kh.get("dien_dat") or "đại vận có khí hỉ sự / duyên được kích hoạt",
             "start_age": kh.get("start_age"), "end_age": kh.get("end_age"),
             "branch": kh.get("branch"),
+            "da_qua": bool(kh.get("da_qua")),
         })
     for gg in dt.get("nam_can_giu_gin") or []:
         items.append({
@@ -524,6 +595,7 @@ def _sec_dinh_thoi(dt: dict) -> Optional[dict]:
             "mo_ta": gg.get("dien_dat") or "năm cần giữ gìn / chăm sóc quan hệ",
             "start_age": gg.get("start_age"), "end_age": gg.get("end_age"),
             "branch": gg.get("branch"),
+            "da_qua": bool(gg.get("da_qua")),
         })
     if not items:
         return None

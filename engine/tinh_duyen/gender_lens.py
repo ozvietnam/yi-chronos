@@ -135,12 +135,17 @@ def co_than_qua_tu(gender: Optional[str]) -> str:
 # Thứ tự khai báo = thứ tự ưu tiên thay (DÀI trước NGẮN để 'người chồng' không
 # bị 'chồng' nuốt mất). apply_gender sort lại theo độ dài key giảm dần.
 _MALE_TERM_MAP: dict[str, str] = {
-    "người chồng": "người vợ",
     "người phụ nữ": "người đàn ông",
+    "hỗ trợ chồng và ích cho con": "cùng vợ vun vén và ích cho con",
+    "hỗ trợ chồng, ích con": "cùng vợ vun vén, ích con",
+    "hỗ trợ chồng ích con": "cùng vợ vun vén, ích con",
+    "hỗ trợ chồng": "cùng vợ vun vén",
+    "người chồng": "người vợ",
     "khắc chồng": "khắc vợ",
     "khắc phu": "khắc thê",
     "lấy chồng": "lấy vợ",
     "sao chồng": "sao vợ",
+    "nữ mệnh": "nam mệnh",
     "phu tinh": "thê tinh",
     "phụ nữ": "đàn ông",
     "đàn bà": "đàn ông",
@@ -196,9 +201,16 @@ def apply_gender(text: Optional[str], gender: Optional[str]) -> str:
 # Dấu hiệu chủ ngữ mệnh đề là NỮ TƯỜNG MINH (source citation Tử Vi / 女命骨髓赋).
 # Khi đọc cho NAM, các mệnh đề này là TRÍCH DẪN GỐC mô tả phái nữ — phải giữ
 # NGUYÊN VĂN nữ, KHÔNG masculinize (nếu không → 'nữ nên lấy vợ' = vỡ nghĩa).
+# CHỈ giữ marker là TRÍCH DẪN GỐC phái nữ tường minh:
+#   • '(nữ …)' parenthetical  — 'Thái Dương (nữ mệnh) → chồng là trụ cột'
+#   • '女命…'  Hán            — 女命骨髓赋
+#   • 'nữ nên …'             — 'nữ nên lấy chồng lớn tuổi' (lời khuyên gốc phái nữ)
+# KHÔNG còn match bare 'nữ mệnh' (vd 'nhập nữ mệnh', 'trong nữ mệnh') vì đó là
+# MÔ TẢ chung của cách-cục (cach_cuc.bien_chinh) — phải mirror sang 'nam mệnh' cho
+# nam (nếu giữ guard sẽ rò 'nữ mệnh' + 'hỗ trợ chồng' lên lá NAM — BUG2). term_map
+# đã thêm 'nữ mệnh'→'nam mệnh', 'hỗ trợ chồng'→'cùng vợ vun vén'.
 _FEMALE_MARKER = re.compile(
     r"\(\s*nữ[^)]*\)"          # '(nữ)', '(nữ mệnh)'
-    r"|nữ\s+mệnh"               # 'nữ mệnh'
     r"|nữ\s+nên"               # 'nữ nên lấy chồng …'
     r"|女命",                   # 女命骨髓赋 …
     re.IGNORECASE,

@@ -654,11 +654,44 @@ _DINH_THOI_TUOI_TRAN = 75
 
 
 def _trong_tam_huu_dung(dv: dict, age: int) -> bool:
-    """Chỉ giữ đại vận trong tầm hữu dụng: đã/đang/sắp tới (≤ age+30) và
-    bắt đầu trước trần tuổi đời người (~75). Tránh mốc tuổi 100+ vô nghĩa.
+    """Chỉ giữ đại vận trong tầm hữu dụng: bắt đầu trước trần tuổi đời người (~75)
+    và KHÔNG quá xa tương lai (≤ age+30). Cho phép cả đại vận ĐÃ QUA (end < age) lọt
+    vào để ta gắn cờ 'da_qua' + diễn đạt trung thực — KHÔNG loại âm thầm rồi bịa.
     """
     start = dv.get("start_age", 0)
     return start <= age + 30 and start <= _DINH_THOI_TUOI_TRAN
+
+
+def _phan_loai_cua_so(dv: dict, age: int) -> tuple[bool, bool, bool]:
+    """Phân loại 1 cửa sổ đại vận theo tuổi hiện tại `age` (as_of):
+    trả (da_qua, dang_dien_ra, sap_toi)."""
+    start = dv.get("start_age", 0)
+    end = dv.get("end_age", 0)
+    da_qua = end < age
+    dang_dien_ra = start <= age <= end
+    sap_toi = start > age
+    return da_qua, dang_dien_ra, sap_toi
+
+
+def _dien_dat_cua_so(da_qua: bool, dang: bool, nhan: str) -> str:
+    """Diễn đạt trung thực theo vị trí cửa sổ so với tuổi hiện tại (BUG1).
+
+    nhan = 'kich_hoat' | 'giu_gin'. KHÔNG phán tiên tri; chỉ nói cửa sổ đã/đang/sắp.
+    """
+    if nhan == "kich_hoat":
+        if da_qua:
+            return ("cửa sổ khí duyên này đã MỞ QUANH giai đoạn đó (đã qua) — đọc lại "
+                    "để hiểu nếp duyên cũ; giai đoạn TỚI nên chủ động vun đắp")
+        if dang:
+            return "đại vận ĐANG đi qua khí hỉ sự / duyên được kích hoạt"
+        return "đại vận SẮP TỚI có khí hỉ sự / duyên được kích hoạt"
+    # giu_gin
+    if da_qua:
+        return ("giai đoạn cần giữ gìn này đã qua — đọc để rút kinh nghiệm, "
+                "KHÔNG phải tiên tri")
+    if dang:
+        return "đại vận ĐANG ở giai đoạn cần GIỮ GÌN / chăm sóc quan hệ (không phải tiên tri ly tán)"
+    return "giai đoạn SẮP TỚI cần GIỮ GÌN / chăm sóc quan hệ (không phải tiên tri ly tán)"
 
 
 def _dinh_thoi(la_so: dict, age: int, phu_the_idx: int) -> dict:
@@ -675,13 +708,17 @@ def _dinh_thoi(la_so: dict, age: int, phu_the_idx: int) -> dict:
         bi = dv.get("branch_index")
         touched = [s for s, i in kich_hoat_sao.items() if i == bi]
         if touched:
+            da_qua, dang, sap = _phan_loai_cua_so(dv, age)
             nam_kich_hoat.append({
                 "cycle_index": dv.get("cycle_index"),
                 "branch": dv.get("branch"),
                 "start_age": dv.get("start_age"),
                 "end_age": dv.get("end_age"),
                 "sao_kich_hoat": touched,
-                "dien_dat": "đại vận có khí hỉ sự / duyên được kích hoạt",
+                "da_qua": da_qua,
+                "dang_dien_ra": dang,
+                "sap_toi": sap,
+                "dien_dat": _dien_dat_cua_so(da_qua, dang, "kich_hoat"),
             })
 
     # Năm CẦN GIỮ GÌN (mức đại-vận): đại vận đi qua cung Phu Thê mà nơi đó có
@@ -700,20 +737,47 @@ def _dinh_thoi(la_so: dict, age: int, phu_the_idx: int) -> dict:
             reasons.append("Kình Dương tại cung Phu Thê")
         # CHỈ báo khi có Kỵ/Kình thực sự (không fire chỉ vì index trùng cung Phu Thê).
         if reasons:
+            da_qua, dang, sap = _phan_loai_cua_so(dv, age)
             nam_giu_gin.append({
                 "cycle_index": dv.get("cycle_index"),
                 "branch": dv.get("branch"),
                 "start_age": dv.get("start_age"),
                 "end_age": dv.get("end_age"),
                 "ly_do": reasons,
-                "dien_dat": "năm cần GIỮ GÌN / chăm sóc quan hệ (không phải tiên tri ly tán)",
+                "da_qua": da_qua,
+                "dang_dien_ra": dang,
+                "sap_toi": sap,
+                "dien_dat": _dien_dat_cua_so(da_qua, dang, "giu_gin"),
             })
+
+    # BUG1 — ưu tiên cửa sổ ĐANG / SẮP TỚI (end_age >= age) lên đầu; cửa sổ đã qua
+    # đẩy xuống cuối (vẫn giữ để diễn đạt trung thực, KHÔNG xoá rồi bịa). Sắp theo
+    # start_age trong từng nhóm để mốc gần nhất nổi trước.
+    def _sap_xep(items: list[dict]) -> list[dict]:
+        return sorted(
+            items,
+            key=lambda x: (bool(x.get("da_qua")), x.get("start_age", 0)),
+        )
+
+    nam_kich_hoat = _sap_xep(nam_kich_hoat)
+    nam_giu_gin = _sap_xep(nam_giu_gin)
+
+    # Cửa sổ kích hoạt ĐANG/SẮP (end_age >= age) — dùng cho câu 'năm nào cưới được?'.
+    cua_so_sap_toi = [x for x in nam_kich_hoat if not x.get("da_qua")]
+    cua_so_da_qua = [x for x in nam_kich_hoat if x.get("da_qua")]
+    # Cờ: cửa sổ duyên CHÍNH (kích hoạt) đã trôi qua hết, không còn cửa nào phía trước.
+    cua_so_duyen_da_qua = bool(cua_so_da_qua) and not cua_so_sap_toi
 
     return {
         "muc_do": "dai_van",
         "dai_van_hien_tai": dv_hien_tai,
+        "tuoi_hien_tai": age,
         "nam_kich_hoat": nam_kich_hoat,
         "nam_can_giu_gin": nam_giu_gin,
+        # Tách rõ ĐANG/SẮP vs ĐÃ QUA để consumer ưu tiên cửa sổ phía trước (BUG1).
+        "cua_so_kich_hoat_sap_toi": cua_so_sap_toi,
+        "cua_so_kich_hoat_da_qua": cua_so_da_qua,
+        "cua_so_duyen_da_qua": cua_so_duyen_da_qua,
         "phuong_phap": tp_dinh.get("phuong_phap"),
         "bien_chinh_hien_dai": tp_dinh.get("bien_chinh_hien_dai"),
         "_nguon": tp_dinh.get("_ghi_chu"),
