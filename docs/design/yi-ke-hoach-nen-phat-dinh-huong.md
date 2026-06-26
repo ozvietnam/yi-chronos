@@ -37,7 +37,7 @@ wiki.sqlite3 (96MB): atomic_questions 17.793 · atom_commentaries 6.458 (V3) · 
 ## 4. KẾ HOẠCH 6 TẦNG
 Theo [[lo-trinh-nghien-cuu-tu-vi-ngu-uan]]: Tầng 0 Nền triết → **1 (14 chính tinh đủ 8 lớp, KỸ TRƯỚC)** → 2 (12 cung) → 3 (phụ tinh/Tứ Hóa) → 4 (miếu vượng hãm — tái dùng `mieu_ham_levels` có sẵn) → 5 (combo SUY RA, không tra bảng chết) → 6 (thời gian: đại vận→lưu niên→tháng→ngày, sau cùng).
 
-Cấu trúc chân dung **v3 (8 lớp)**: ① Âm Dương/Ngũ Hành (căn cơ — vì sao tạo hóa sinh ra tâm đó) → ② Gốc Tham → ③ Ngũ Uẩn (5 uẩn, tiến trình) → ④ Khí vượng/suy → ⑤ Theo đời người (nhỏ→già) → ⑥ Khe tỉnh thức + Đường ra (Bát Chánh Đạo) → ⑦ Ví dụ sống → ⑧ Căn cứ (phân tầng nguồn). *Tử Vi đã dựng mẫu đạt.*
+Cấu trúc chân dung **v3 (8 lớp)**: ① Âm Dương/Ngũ Hành (căn cơ — vì sao tạo hóa sinh ra tâm đó) → ② Gốc Tham → ③ Ngũ Uẩn (5 uẩn, tiến trình) → ④ Khí vượng/suy → ⑤ Theo đời người (nhỏ→già) → ⑥ Khe tỉnh thức + Hướng tu tập (Bát Chánh Đạo) → ⑦ Ví dụ sống → ⑧ Căn cứ (phân tầng nguồn). *Tử Vi đã dựng mẫu đạt.*
 
 ### Schema/Engine/UI cần đổi
 - **B1** mở schema dataset: thêm `am_duong_ngu_hanh / goc_tham / khi_vuong_suy / theo_doi_nguoi / khe_tinh_thuc / duong_ra / can_cu{nguon_noi,thu_thu_suy}` (giữ đúng 5 uẩn — KHÔNG thêm Xúc).

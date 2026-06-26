@@ -18,7 +18,7 @@ Mỗi **chính tinh / phụ tinh / cung** đi đủ 8 lớp, theo đúng thứ t
 | **3** | **Ngũ Uẩn — tiến trình tâm** | Cái khát chạy qua Sắc→Thọ→Tưởng→Hành→Thức ra sao? (Xúc là cửa vào, không phải uẩn; mỗi bước: mô tả + khí thuận + khí kẹt) |
 | **4** | **Khí vượng ↔ Khí suy** (miếu/vượng/đắc ↔ hãm) | Cùng bản tính ấy, khi đắc địa hiện thế nào, khi hãm địa hiện thế nào? |
 | **5** | **Theo đời người** | Cái tâm này biểu hiện/trưởng thành qua: khi nhỏ · thiếu niên · trung niên · về già |
-| **6** | **Khe tỉnh thức + Đường ra** | Khe Thọ→Hành cái khát hay chen vào; chánh niệm (Bát Chánh Đạo) → giữ tài, rụng khổ |
+| **6** | **Khe tỉnh thức + Hướng tu tập** | Khe Thọ→Hành cái khát hay chen vào; chánh niệm (Bát Chánh Đạo) → giữ tài, rụng khổ |
 | **7** | **Ví dụ sống** | 1 khoảnh khắc đời thường chạy đủ tiến trình |
 | **8** | **Căn cứ** *(ẩn)* | Trích Tổ sư các phái + nguyên lý; phân tầng nguồn-nói vs thủ-thư-suy |
 

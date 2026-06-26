@@ -13,7 +13,7 @@ Trước khi đi vào chi tiết, đây là cả tấm la-bàn gói trong một 
 
 > **ÂM DƯƠNG** (cái nhịp thu–phát của tạo hóa) → chia thô thành **NGŨ HÀNH** (năm thế khí sinh–khắc nhau) → khi nhịp ấy chạy trong một con người thì thành **NGŨ UẨN** (tiến trình tâm Sắc–Thọ–Tưởng–Hành–Thức) → và **BÁT CHÁNH ĐẠO** là cái đường để cái tiến trình ấy thôi quay trong khổ.
 
-Bốn tầng này **không phải bốn món rời** — chúng là **một dòng chảy nối nhau từ gốc tới ngọn**: từ *căn cơ vũ trụ* → xuống *thế khí* → vào *tâm người* → ra *con đường thoát*. Đọc một lá số = đi ngược dòng này: từ ngọn (một cái sao) truy về gốc (vì sao tạo hóa sinh ra cái tâm ấy), rồi chỉ ra đường ra.
+Bốn tầng này **không phải bốn món rời** — chúng là **một dòng chảy nối nhau từ gốc tới ngọn**: từ *căn cơ vũ trụ* → xuống *thế khí* → vào *tâm người* → ra *con đường thoát*. Đọc một lá số = đi ngược dòng này: từ ngọn (một cái sao) truy về gốc (vì sao tạo hóa sinh ra cái tâm ấy), rồi chỉ ra hướng tu tập.
 
 ---
 
@@ -127,7 +127,7 @@ Gốc khổ ("Tập") theo lời kinh là **ái** (taṇhā), gồm ba loại: *
 
 Bát Chánh Đạo (lời kinh — **Magga-vibhaṅga Sutta, SN 45.8**): **chánh kiến, chánh tư duy, chánh ngữ, chánh nghiệp, chánh mạng, chánh tinh tấn, chánh niệm, chánh định.** (Cách gom tám chi thành ba nhóm **Tuệ–Giới–Định** là diễn giải truyền thống được học giả công nhận, KHÔNG nằm nguyên văn trong SN 45.8.)
 
-Chi load-bearing cho hệ ta là **chánh niệm**: nó chính là sự tỉnh thức cắm đúng vào **khe Thọ→Ái** ở mục 3.3. Khi chánh niệm có mặt tại Thọ, tâm "thấy thọ chỉ là thọ" — cái khe mở ra, Ái không tự động khởi, vòng khổ không khép. **Đường ra (Đạo) gặp lại khe tỉnh thức (Ngũ Uẩn) đúng tại điểm này.** Đó là chỗ tầng 4 nối ngược về tầng 3.
+Chi load-bearing cho hệ ta là **chánh niệm**: nó chính là sự tỉnh thức cắm đúng vào **khe Thọ→Ái** ở mục 3.3. Khi chánh niệm có mặt tại Thọ, tâm "thấy thọ chỉ là thọ" — cái khe mở ra, Ái không tự động khởi, vòng khổ không khép. **Hướng tu tập (Đạo) gặp lại khe tỉnh thức (Ngũ Uẩn) đúng tại điểm này.** Đó là chỗ tầng 4 nối ngược về tầng 3.
 
 > ⚠️ **Căng thẳng nội tại (học giả ghi nhận, ta không tuyệt đối hóa):** kinh vừa nói Bát Chánh Đạo là *phương tiện* đạt giải thoát, vừa nói *tuệ giác về Tứ Đế tự nó* là giải thoát. Khi mượn khung này cho YI, giữ khiêm — đừng tuyệt đối hóa một vế.
 
@@ -135,7 +135,7 @@ Chi load-bearing cho hệ ta là **chánh niệm**: nó chính là sự tỉnh t
 
 ## 5. BỐN TẦNG NỐI NHAU THÀNH LĂNG KÍNH ĐỌC LÁ SỐ
 
-Đây là lý do cả tầng nền này tồn tại: bốn tầng không đứng rời, chúng xâu thành **một lăng kính ba nấc — căn cơ → tâm → đường ra** — để đọc bất kỳ cái sao, cái cung, cái quẻ nào.
+Đây là lý do cả tầng nền này tồn tại: bốn tầng không đứng rời, chúng xâu thành **một lăng kính ba nấc — căn cơ → tâm → hướng tu tập** — để đọc bất kỳ cái sao, cái cung, cái quẻ nào.
 
 ```
    ÂM DƯƠNG  ───►  NGŨ HÀNH  ───►  NGŨ UẨN  ───►  BÁT CHÁNH ĐẠO
@@ -154,11 +154,11 @@ Chi load-bearing cho hệ ta là **chánh niệm**: nó chính là sự tỉnh t
 | **① Căn cơ** | Sao này thuộc âm hay dương, hành gì? *Vì sao* tạo hóa lại sinh ra một bản tính như vậy? | Âm Dương + Ngũ Hành (mục 1–2) |
 | **② Gốc tham** | Từ căn cơ ấy, **cái khát cốt lõi** của tâm này là gì? (ham giữ / ham thành / ham chối bỏ — ba ái) | bắc cầu sang Ngũ Uẩn + Tập đế |
 | **③ Tiến trình tâm** | Cái khát ấy chạy qua **Thọ → Tưởng → Hành → Thức** ra sao? Khi khí thuận thì sao, khi khí kẹt thì sao? | Ngũ Uẩn (mục 3) |
-| **④ Khe + đường ra** | Cấu trúc này dễ "mua vào" cảm thọ nào nhất? **Khe Thọ→Ái** nằm ở đâu? Chánh niệm chen vào thế nào để bớt khổ? | khe tỉnh thức (3.3) + Bát Chánh Đạo (mục 4) |
+| **④ Khe + hướng tu tập** | Cấu trúc này dễ "mua vào" cảm thọ nào nhất? **Khe Thọ→Ái** nằm ở đâu? Chánh niệm chen vào thế nào để bớt khổ? | khe tỉnh thức (3.3) + Bát Chánh Đạo (mục 4) |
 
 → Kết quả: thay vì output **"năm 2030 anh giàu/nghèo"** (bói — Iron #9 cấm), output thành **"cấu trúc Thọ của anh thiên về [lạc/khổ] ở mảng X — đây là khe anh dễ sinh Ái/Thủ nhất; chánh niệm ngay tại sắc thái cảm nhận đó là chỗ bớt khổ."** Đọc lá số biến từ *predict (bói)* thành *diagnostic-of-mind (soi tâm)*.
 
-Đây cũng chính là **8 lớp của một chân dung v3** (xem `lo-trinh-nghien-cuu-tu-vi-ngu-uan.md`) nén lại: Lớp ① Âm Dương/Ngũ Hành = nấc Căn cơ; Lớp ② Gốc Tham = nấc ②; Lớp ③ Ngũ Uẩn = nấc Tâm; Lớp ⑥ Khe tỉnh thức + Đường ra = nấc ④. Tầng 0 này là **cái la-bàn**, các tầng 1–6 là **đi đường** bằng la-bàn ấy.
+Đây cũng chính là **8 lớp của một chân dung v3** (xem `lo-trinh-nghien-cuu-tu-vi-ngu-uan.md`) nén lại: Lớp ① Âm Dương/Ngũ Hành = nấc Căn cơ; Lớp ② Gốc Tham = nấc ②; Lớp ③ Ngũ Uẩn = nấc Tâm; Lớp ⑥ Khe tỉnh thức + Hướng tu tập = nấc ④. Tầng 0 này là **cái la-bàn**, các tầng 1–6 là **đi đường** bằng la-bàn ấy.
 
 ---
 

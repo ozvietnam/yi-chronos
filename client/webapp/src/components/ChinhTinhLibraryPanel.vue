@@ -270,7 +270,7 @@ function openOracle(card) {
           <!-- ☸ Quán chiếu Ngũ Uẩn — TÁCH LỚP (chân dung v3 8 lớp l1..l8):
                nguồn v3.l* trước, fallback ngu_uan cũ. tóm gọn nổi, chi tiết bung -->
           <div v-if="v3 || selected.ngu_uan" class="ctl-nu">
-            <!-- TÓM GỌN: Gốc Tham (mệnh đề định vị) + 1 dòng đường ra -->
+            <!-- TÓM GỌN: Gốc Tham (mệnh đề định vị) + 1 dòng hướng tu tập -->
             <div class="ctl-nu-summary">
               <p
                 v-if="v3?.l2_goc_tham || selected.ngu_uan?.goc_tham || selected.ngu_uan?.menh_de_dinh_vi"
@@ -283,7 +283,7 @@ function openOracle(card) {
                 v-if="v3?.l6_duong_ra || selected.ngu_uan?.duong_ra || selected.ngu_uan?.can_de_phat_huy"
                 class="ctl-nu-duongra"
               >
-                <span class="ctl-nu-lbl ctl-nu-lbl-out">Đường ra</span>
+                <span class="ctl-nu-lbl ctl-nu-lbl-out">Hướng tu tập</span>
                 {{ v3?.l6_duong_ra || selected.ngu_uan?.duong_ra || selected.ngu_uan?.can_de_phat_huy }}
               </p>
             </div>
@@ -390,12 +390,12 @@ function openOracle(card) {
               </div>
             </details>
 
-            <!-- LỚP 6 — Khe tỉnh thức + Đường ra -->
+            <!-- LỚP 6 — Khe tỉnh thức + Hướng tu tập -->
             <details
               v-if="v3?.l6_khe_tinh_thuc || v3?.l6_duong_ra || selected.ngu_uan?.khe_tinh_thuc || selected.ngu_uan?.duong_ra || selected.ngu_uan?.can_de_phat_huy"
               class="ctl-nu-layer"
             >
-              <summary><b>6.</b> Khe tỉnh thức + Đường ra</summary>
+              <summary><b>6.</b> Khe tỉnh thức + Hướng tu tập</summary>
               <div class="ctl-nu-body">
                 <p v-if="v3?.l6_khe_tinh_thuc || selected.ngu_uan?.khe_tinh_thuc" class="ctl-nu-khe">
                   ⟡ {{ v3?.l6_khe_tinh_thuc || selected.ngu_uan?.khe_tinh_thuc }}

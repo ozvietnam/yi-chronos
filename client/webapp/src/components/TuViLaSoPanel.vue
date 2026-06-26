@@ -644,7 +644,7 @@ async function loadCaseStudies() {
   }
 }
 
-// ☸ Ngũ Uẩn — chọn 1 dòng "đường ra" cho phần tóm gọn (v3 duong_ra → fallback v2)
+// ☸ Ngũ Uẩn — chọn 1 dòng "hướng tu tập" cho phần tóm gọn (v3 duong_ra → fallback v2)
 function nuDuongRa(nu) {
   if (!nu) return "";
   if (nu.duong_ra) return nu.duong_ra;
@@ -1414,14 +1414,14 @@ const grid = computed(() => {
             <div v-if="expandedPalace === r.palace_name && r.ngu_uan" class="ngu-uan-block" @click.stop>
               <h6 class="nu-title">☸ Quán chiếu Ngũ Uẩn <small>{{ r.ngu_uan.school }}</small></h6>
 
-              <!-- TÓM GỌN (mặc định hiện): Gốc Tham + 1 dòng đường ra -->
+              <!-- TÓM GỌN (mặc định hiện): Gốc Tham + 1 dòng hướng tu tập -->
               <div class="nu-summary">
                 <p v-if="r.ngu_uan.goc_tham || r.ngu_uan.boi_canh" class="nu-goctham">
                   <span class="nu-lbl">Gốc tham</span>
                   {{ r.ngu_uan.goc_tham || r.ngu_uan.boi_canh }}
                 </p>
                 <p v-if="nuDuongRa(r.ngu_uan)" class="nu-duongra">
-                  <span class="nu-lbl nu-lbl-out">Đường ra</span>
+                  <span class="nu-lbl nu-lbl-out">Hướng tu tập</span>
                   {{ nuDuongRa(r.ngu_uan) }}
                 </p>
               </div>
@@ -1476,9 +1476,9 @@ const grid = computed(() => {
                 </div>
               </details>
 
-              <!-- LỚP 6 — Khe tỉnh thức + Đường ra -->
+              <!-- LỚP 6 — Khe tỉnh thức + Hướng tu tập -->
               <details v-if="r.ngu_uan.khe_tinh_thuc || r.ngu_uan.duong_ra || (r.ngu_uan.can_de_phat_huy || []).length" class="nu-layer">
-                <summary><b>6.</b> Khe tỉnh thức + Đường ra</summary>
+                <summary><b>6.</b> Khe tỉnh thức + Hướng tu tập</summary>
                 <div class="nu-layer-body">
                   <p v-if="r.ngu_uan.khe_tinh_thuc" class="nu-khe">⟡ {{ r.ngu_uan.khe_tinh_thuc }}</p>
                   <p v-if="r.ngu_uan.duong_ra" class="nu-duongra-full">🚪 {{ r.ngu_uan.duong_ra }}</p>
@@ -2351,7 +2351,7 @@ const grid = computed(() => {
   margin-left: 6px;
 }
 
-/* TÓM GỌN — nổi bật, luôn hiện (gốc tham + 1 dòng đường ra) */
+/* TÓM GỌN — nổi bật, luôn hiện (gốc tham + 1 dòng hướng tu tập) */
 .nu-summary {
   margin: 0 0 8px 0;
   padding: 8px 10px;
