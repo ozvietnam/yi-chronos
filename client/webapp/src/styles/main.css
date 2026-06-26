@@ -351,10 +351,6 @@ textarea {
   background: var(--bg-card);
   backdrop-filter: blur(10px);
   min-width: 0;
-  /* backdrop-filter tạo stacking context → menu xổ con (z-index 60) bị nhốt trong nav,
-     content render SAU trong DOM sẽ đè lên. Nâng cả nav lên lớp trên content (dưới modal 1500). */
-  position: relative;
-  z-index: 100;
 }
 
 .tab-group {
