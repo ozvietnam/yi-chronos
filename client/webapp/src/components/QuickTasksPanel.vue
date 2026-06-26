@@ -10,6 +10,7 @@ import { ref, computed, onMounted, watch } from "vue";
 import LifeOverviewModal from "./LifeOverviewModal.vue";
 import BirthHourQuizV2 from "./BirthHourQuizV2.vue";
 import { activePerson } from "../stores/userDataStore.js";
+import { CalendarCheck, Clock, HeartHandshake, ScrollText, Flower } from "lucide-vue-next";
 
 const emit = defineEmits(["open-tab"]);
 
@@ -103,14 +104,14 @@ function closeTask() {
 <template>
   <div class="quick-tasks">
     <div class="qt-header">
-      <h3>🪷 Tác vụ nhanh — Thầy gửi đệ tử</h3>
+      <h3 class="qt-h3"><Flower :size="18" :stroke-width="2" color="#e8c95a" /> Tác vụ nhanh — Thầy gửi đệ tử</h3>
       <p class="qt-hint">Ba việc thường dùng nhất — click 1 cái để bắt đầu</p>
     </div>
 
     <div class="qt-grid">
       <!-- Card 1: Xem ngày giờ -->
       <div class="qt-card auspicious" @click="openTask('auspicious')">
-        <div class="qt-icon">📅</div>
+        <div class="qt-icon"><CalendarCheck :size="30" :stroke-width="2" color="#fbbf24" /></div>
         <div class="qt-body">
           <h4>Xem ngày giờ tốt xấu</h4>
           <p>Chọn ngày đẹp theo Bát Tự + Mai Hoa cho việc lớn: chuyển nhà, khai trương, hôn nhân, khởi công...</p>
@@ -120,7 +121,7 @@ function closeTask() {
 
       <!-- Card 2: Trắc nghiệm giờ sinh -->
       <div class="qt-card quiz" @click="openTask('quiz')">
-        <div class="qt-icon">⏰</div>
+        <div class="qt-icon"><Clock :size="30" :stroke-width="2" color="#a78bfa" /></div>
         <div class="qt-body">
           <h4>Trắc nghiệm xác định giờ sinh</h4>
           <p>Không nhớ giờ sinh? Trả lời 8 câu trắc nghiệm về tính cách + thói quen → đoán giờ sinh likely</p>
@@ -130,7 +131,7 @@ function closeTask() {
 
       <!-- Card 3: Hợp tuổi hôn nhân -->
       <div class="qt-card marriage" @click="openTask('marriage')">
-        <div class="qt-icon">💕</div>
+        <div class="qt-icon"><HeartHandshake :size="30" :stroke-width="2" color="#f472b6" /></div>
         <div class="qt-body">
           <h4>Hợp tuổi hôn nhân</h4>
           <p>Phân tích 2 người có hợp trong hôn nhân không? Xét Nạp âm + Lục Xung/Lục Hợp + Nhật chủ</p>
@@ -140,7 +141,7 @@ function closeTask() {
 
       <!-- Card 4: Tổng quan cuộc đời -->
       <div class="qt-card lifeoverview" @click="openTask('life')">
-        <div class="qt-icon">📖</div>
+        <div class="qt-icon"><ScrollText :size="30" :stroke-width="2" color="#34d399" /></div>
         <div class="qt-body">
           <h4>Tổng quan cuộc đời (~30 trang)</h4>
           <p>Báo cáo đầy đủ: Tứ Trụ + Dụng thần + Đại Vận + Hà Lạc + Sự nghiệp + Hôn nhân + Sức khoẻ + Phương hướng. <b>Có thể in / xuất PDF A4.</b></p>
@@ -250,6 +251,7 @@ function closeTask() {
 
 .qt-header { margin-bottom: 0.7rem; }
 .qt-header h3 { margin: 0 0 0.25rem; color: #fbbf24; font-size: 1rem; }
+.qt-h3 { display: flex; align-items: center; gap: 6px; }
 .qt-hint { margin: 0; font-size: 0.82rem; color: #94a3b8; }
 
 .qt-grid {
@@ -280,7 +282,7 @@ function closeTask() {
 .qt-card.quiz { border-left: 3px solid #a78bfa; }
 .qt-card.marriage { border-left: 3px solid #f472b6; }
 .qt-card.lifeoverview { border-left: 3px solid #34d399; }
-.qt-icon { font-size: 2rem; line-height: 1; flex-shrink: 0; }
+.qt-icon { line-height: 1; flex-shrink: 0; display: flex; align-items: center; }
 .qt-body { flex: 1; }
 .qt-body h4 { margin: 0 0 0.3rem; color: #fef3c7; font-size: 0.95rem; }
 .qt-body p { margin: 0 0 0.4rem; color: #cbd5e1; font-size: 0.8rem; line-height: 1.55; }
