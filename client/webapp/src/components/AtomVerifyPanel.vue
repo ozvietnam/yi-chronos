@@ -180,10 +180,13 @@ onMounted(() => { loadStats(); loadBooks(); });
         <p v-if="sid(a)" class="av-atom-sid">{{ sid(a) }}</p>
         <blockquote v-if="a.source_quote" class="av-atom-src">“{{ a.source_quote }}”
           <cite v-if="a.page_start">— tr.{{ a.page_start }}</cite></blockquote>
-        <details v-if="a.viet_thuan || a.vi_du_doi_song" class="av-atom-com">
-          <summary>diễn giải thuần Việt + ví dụ</summary>
-          <p v-if="a.viet_thuan">{{ a.viet_thuan }}</p>
-          <p v-if="a.vi_du_doi_song" class="av-atom-vd">Ví dụ: {{ a.vi_du_doi_song }}</p>
+        <p v-if="a.meta_note" class="av-atom-warn">🛈 {{ a.meta_note }}</p>
+        <details v-if="a.viet_thuan || a.nguyen_ly || a.vi_du_doi_song || a.cross_school_notes" class="av-atom-com" open>
+          <summary>Giải nghĩa chuyên gia{{ a.dang_son_applied ? " · neo nguyên lý Đằng Sơn" : "" }}</summary>
+          <p v-if="a.viet_thuan"><b>Nghĩa:</b> {{ a.viet_thuan }}</p>
+          <p v-if="a.nguyen_ly" class="av-atom-ly"><b>Nguyên lý:</b> {{ a.nguyen_ly }}</p>
+          <p v-if="a.cross_school_notes" class="av-atom-cs"><b>Đối chiếu phái:</b> {{ a.cross_school_notes }}</p>
+          <p v-if="a.vi_du_doi_song" class="av-atom-vd"><b>Ví dụ:</b> {{ a.vi_du_doi_song }}</p>
         </details>
         <p v-if="a.iron_rule_warning" class="av-atom-warn">⚠ {{ a.iron_rule_warning }}</p>
         <div class="av-atom-acts">
@@ -244,6 +247,8 @@ onMounted(() => { loadStats(); loadBooks(); });
 .av-atom-com summary { cursor: pointer; color: var(--read-muted, #888); }
 .av-atom-com p { line-height: 1.65; margin: .35rem 0; }
 .av-atom-vd { color: var(--read-muted, #777); font-style: italic; }
+.av-atom-ly { border-left: 2px solid var(--read-accent, #534AB7); padding-left: .55rem; }
+.av-atom-cs { color: var(--read-muted, #777); font-size: .85rem; }
 .av-atom-warn { font-size: .82rem; color: #c2410c; margin: .35rem 0; }
 .av-atom-acts { display: flex; gap: .5rem; margin-top: .6rem; }
 .av-ok, .av-no, .av-reset { padding: .4rem .9rem; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: .9rem;

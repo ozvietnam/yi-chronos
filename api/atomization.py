@@ -405,7 +405,9 @@ def section_atoms(book: str, section_id: str, include_chunk: bool = False) -> li
                    c.page_start, c.text as chunk_text, c.chunk_id,
                    cc.format_style, cc.is_chu_the, cc.is_cong_thuc,
                    cc.is_luan_giai, cc.is_to_hop, cc.is_kinh_nghiem,
-                   ac.viet_thuan, ac.vi_du_doi_song, ac.iron_rule_warning
+                   ac.viet_thuan, ac.vi_du_doi_song, ac.iron_rule_warning,
+                   ac.nguyen_ly, ac.cross_school_notes, ac.han_viet_explain,
+                   ac.meta_note, ac.dang_son_applied, ac.confidence AS comment_confidence
             FROM atomic_questions aq
             JOIN chunks_v2 c ON c.chunk_id = aq.chunk_id
             LEFT JOIN chunk_classifications cc ON cc.cc_id = aq.cc_id
