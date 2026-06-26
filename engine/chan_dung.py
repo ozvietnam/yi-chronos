@@ -73,6 +73,24 @@ def _tu_vi_menh(birth_iso: str, gender: str, tz: str) -> dict:
             except Exception:
                 return ""
 
+        # VÔ CHÍNH DIỆU cung Mệnh: không có chính tinh tọa thủ → mượn chính tinh ĐỐI
+        # CUNG (Thiên Di, index ±6) để đọc tính cách + KÈM lời giải cho người không
+        # chuyên (trước đây card chỉ trống, khách không hiểu vì sao Mệnh không có sao).
+        vo_chinh_dieu = not tai_menh
+        muon_doi_cung = []
+        vcd_note = ""
+        if vo_chinh_dieu:
+            doi_idx = (menh_idx + 6) % 12 if menh_idx is not None else None
+            muon_doi_cung = [s for s, idx in chinh.items() if idx == doi_idx]
+            vcd_note = (
+                "Cung Mệnh VÔ CHÍNH DIỆU — không có chính tinh tọa thủ. Đây KHÔNG phải "
+                "điều xấu: người vô chính diệu thường đa diện, mềm dẻo, dễ thích nghi, "
+                "'mượn' khí của các sao đối cung (cung Thiên Di) để định hình. Đọc đồng "
+                "dạng: tính cách chưa đóng khung cứng — cách bạn VẬN HÀNH nó (môi trường, "
+                "trải nghiệm, người xung quanh) định hình rõ hơn cả lá số."
+                + (f" Mượn sao đối cung: {', '.join(muon_doi_cung)}." if muon_doi_cung else "")
+            )
+
         # Cách cục NAMED + đại vận HIỆN TẠI (tinh hoa: engine đã tính, surface lên)
         cach_cuc, dai_van = [], None
         try:
@@ -91,6 +109,15 @@ def _tu_vi_menh(birth_iso: str, gender: str, tz: str) -> dict:
                     nghia = ((e or {}).get("y_nghia") or "")[:240]
                 except Exception:
                     pass
+                # Dict thiếu y_nghia cho cách này → KHÔNG để khách thấy tên cách trơ
+                # không lời giải. Đưa câu giải-thích-chung paradigm (đọc đồng dạng) thay
+                # vì chuỗi rỗng. (Cách cục = một CẤU TRÚC khí, không phải lời phán.)
+                if not nghia:
+                    nghia = (
+                        "Cách cục này là một CẤU TRÚC khí trên lá số (kho tri thức chưa "
+                        "có lời giải chi tiết). Đọc đồng dạng: nó gợi một thiên hướng, "
+                        "không phải lời phán định — xem luận sâu để hiểu cách vận hành."
+                    )
                 cach_cuc.append({"ten": ten, "loai": c.get("loai"),
                                  "dieu_kien": c.get("dieu_kien"), "y_nghia": nghia})
             dai_van = lsi.get("dai_van_hien_tai")
@@ -102,7 +129,14 @@ def _tu_vi_menh(birth_iso: str, gender: str, tz: str) -> dict:
             "cuc": ls.get("cuc_name"),
             "menh_chu": ls.get("menh_chu"),
             "than_chu": ls.get("than_chu"),
-            "chinh_tinh_tai_menh": [{"sao": s, "nghia": _nghia(s)} for s in tai_menh],
+            # VCD: surface sao mượn đối cung (Thiên Di) để card không rỗng + có nghĩa.
+            "chinh_tinh_tai_menh": (
+                [{"sao": s, "nghia": _nghia(s)} for s in tai_menh]
+                if not vo_chinh_dieu else
+                [{"sao": s, "nghia": _nghia(s), "muon_doi_cung": True} for s in muon_doi_cung]
+            ),
+            "vo_chinh_dieu": vo_chinh_dieu,
+            "vo_chinh_dieu_note": vcd_note,
             "tu_hoa": ls.get("tu_hoa") or {},
             "cach_cuc": cach_cuc,
             "dai_van_hien_tai": dai_van,
@@ -228,15 +262,39 @@ BEST_PRODUCTS = [
 ]
 
 
+def _norm_gender_tuvi(gender) -> str:
+    """Chuẩn hoá MỌI biến thể giới ('nu', 'F', 'female', 'M', 'nam'…) về đúng token
+    Tử Vi / Chiếu Đởm / Hà Lạc yêu cầu: 'nam' hoặc 'nữ' (CÓ DẤU).
+
+    Bug 2026-06-26: _tu_vi_menh/_noi_tam/_duyen truyền gender THÔ ('nu') vào
+    cast_la_so_from_birth → an_sao raise ValueError('gender must be nam or nữ') →
+    Mệnh Tử Vi + Tình Duyên + Nội Tâm RỖNG. Chuẩn hoá 1 lần tại biên build_chan_dung
+    để mọi sub-engine nhận token hợp lệ. Tái dùng gender_lens.is_male (Iron Rule #1)."""
+    from engine.tinh_duyen import gender_lens as GL
+    return "nam" if GL.is_male(gender) else "nữ"
+
+
+def _thieu_gio_sinh(birth: str) -> bool:
+    """True nếu input chỉ có NGÀY (không thành phần giờ) → các cung phụ thuộc giờ
+    (Mệnh, Thân…) đang được tính ngầm theo giờ Tý (00:00), độ tin cậy thấp.
+    Phải cảnh báo khách thay vì trả lá Mệnh 'có vẻ đúng' nhưng sai 100% nếu sinh
+    khác giờ Tý."""
+    s = (birth or "").strip()
+    return "T" not in s and ":" not in s
+
+
 def build_chan_dung(person: dict) -> dict:
     """Chân dung deterministic của 1 person. person cần birth_datetime_local + gender (+ name, timezone).
-    Trả {ok, name, birth, cot_cach, menh, noi_tam, products, paradigm_note}."""
+    Trả {ok, name, birth, gender, gio_sinh_thieu, canh_bao_gio, cot_cach, menh, noi_tam, ...}."""
     birth = (person or {}).get("birth_datetime_local")
     if not birth:
         return {"ok": False, "reason": "missing_birth"}
-    gender = (person or {}).get("gender") or "nam"
+    # Chuẩn hoá giới về token Tử Vi hợp lệ ('nam'/'nữ') NGAY tại biên — mọi sub-engine
+    # bên dưới (an_sao, chieu_dom, ha_lac, duyen) đều yêu cầu token có dấu.
+    gender = _norm_gender_tuvi((person or {}).get("gender"))
     tz = (person or {}).get("timezone") or "Asia/Ho_Chi_Minh"
     name = (person or {}).get("name") or "Quý khách"
+    gio_thieu = _thieu_gio_sinh(birth)
     import datetime
     try:
         age = datetime.datetime.now().year - int(birth[:4]) + 1   # tuổi mụ (cho Hà Lạc + duyên)
@@ -248,6 +306,13 @@ def build_chan_dung(person: dict) -> dict:
         "name": name,
         "birth": birth,
         "gender": gender,
+        # Cờ cảnh báo thiếu giờ sinh: UI phải báo "lá Mệnh đang giả định giờ Tý".
+        "gio_sinh_thieu": gio_thieu,
+        "canh_bao_gio": (
+            "Hồ sơ chưa có GIỜ sinh — các cung phụ thuộc giờ (Mệnh, Thân, cung Phu "
+            "Thê…) đang được tính tạm theo giờ Tý (00:00) và CÓ THỂ SAI. Bổ sung giờ "
+            "sinh ở tab Hồ sơ để chân dung chính xác."
+        ) if gio_thieu else None,
         "cot_cach": cot_cach,
         "menh": _tu_vi_menh(birth, gender, tz),
         "noi_tam": _noi_tam(birth, gender, tz),

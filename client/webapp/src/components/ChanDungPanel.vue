@@ -87,6 +87,9 @@ onMounted(load);
     <template v-else-if="cd && cd.ok">
       <p class="cd-intro">Tổng kết từ <b>3 trường phái chính</b> — bấm “Xem chi tiết” để vào trang chuyên gia luận sâu.</p>
 
+      <!-- Cảnh báo thiếu GIỜ sinh: lá Mệnh đang giả định giờ Tý → có thể sai -->
+      <p v-if="cd.gio_sinh_thieu" class="cd-warn-gio">⏰ {{ cd.canh_bao_gio }}</p>
+
       <!-- ══ 3 TRƯỜNG PHÁI CHÍNH (kết quả cuối) ══ -->
       <!-- 1. Bát Tự -->
       <section class="cd-card cd-cot cd-main">
@@ -110,8 +113,8 @@ onMounted(load);
         <button class="cd-detail" @click="emit('open-page', 'bat-tu')">Xem chi tiết ở trang Bát Tự →</button>
       </section>
 
-      <!-- 2. Tử Vi -->
-      <section class="cd-card cd-menh cd-main">
+      <!-- 2. Tử Vi (chỉ render khi engine trả lá Mệnh — tránh card rỗng treo) -->
+      <section v-if="cd.menh && cd.menh.menh_cung" class="cd-card cd-menh cd-main">
         <h3>🌌 Mệnh <small>— Tử Vi Đẩu Số</small></h3>
         <div class="cd-menh-top">
           <span class="cd-pill">Mệnh tại <b>{{ cd.menh.menh_cung }}</b></span>
@@ -119,8 +122,9 @@ onMounted(load);
           <span class="cd-pill">Mệnh chủ <b>{{ cd.menh.menh_chu }}</b></span>
           <span class="cd-pill">Thân chủ <b>{{ cd.menh.than_chu }}</b></span>
         </div>
+        <p v-if="cd.menh.vo_chinh_dieu && cd.menh.vo_chinh_dieu_note" class="cd-vcd-note">{{ cd.menh.vo_chinh_dieu_note }}</p>
         <div v-for="s in cd.menh.chinh_tinh_tai_menh" :key="s.sao" class="cd-sao">
-          <b>{{ s.sao }}</b><span v-if="s.nghia"> — {{ s.nghia }}</span>
+          <b>{{ s.sao }}</b><span v-if="s.muon_doi_cung" class="cd-sao-muon"> (mượn đối cung)</span><span v-if="s.nghia"> — {{ s.nghia }}</span>
         </div>
         <div v-if="cd.menh.tu_hoa" class="cd-tuhoa">
           <span v-for="(star, hoa) in cd.menh.tu_hoa" :key="hoa" class="cd-hoa">Hóa {{ hoa }}: <b>{{ star }}</b></span>
@@ -259,6 +263,9 @@ onMounted(load);
 .cd-pill { padding: .25rem .65rem; border-radius: 20px; font-size: .85rem;
   background: rgba(124,58,237,.1); border: 1px solid rgba(124,58,237,.25); }
 .cd-sao { line-height: 1.7; margin: .35rem 0; padding-left: .5rem; border-left: 2px solid var(--read-border, #ddd); }
+.cd-sao-muon { font-size: .8rem; color: var(--read-muted, #888); font-style: italic; }
+.cd-vcd-note { font-size: .9rem; line-height: 1.65; margin: .2rem 0 .6rem; padding: .5rem .7rem;
+  border-radius: 6px; background: rgba(124,58,237,.07); color: var(--read-fg, inherit); }
 .cd-tuhoa { display: flex; gap: .5rem; flex-wrap: wrap; margin-top: .6rem; }
 .cd-hoa { font-size: .82rem; color: var(--read-muted, #777); }
 .cd-daivan { margin-top: .6rem; font-size: .9rem; padding: .4rem .6rem; border-radius: 6px;
@@ -308,6 +315,8 @@ onMounted(load);
 .cd-dy-note { font-size: .88rem; font-style: italic; color: var(--read-muted, #777); margin-top: .4rem; }
 /* Trang Chân Dung = tóm kết quả cuối; 3 trường phái chính nổi + lăng kính phụ thu gọn */
 .cd-intro { font-size: .92rem; color: var(--read-muted, #777); margin: .2rem 0 1rem; line-height: 1.6; }
+.cd-warn-gio { font-size: .88rem; line-height: 1.6; color: #92400e; background: rgba(217,119,6,.1);
+  border: 1px solid rgba(217,119,6,.28); border-radius: 8px; padding: .55rem .8rem; margin: 0 0 1rem; }
 .cd-main { box-shadow: 0 2px 12px rgba(0,0,0,.07); }
 .cd-detail { margin-top: .85rem; display: inline-block; cursor: pointer; font-size: .86rem; font-weight: 600;
   padding: .42rem .85rem; border-radius: 8px; border: 1px solid var(--read-border, #ccc);

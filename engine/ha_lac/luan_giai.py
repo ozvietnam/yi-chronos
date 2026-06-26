@@ -63,17 +63,18 @@ METHOD_ID = "bat_tu_ha_lac_luan_giai_v1"
 SOURCE_REF = "Học Năng, _Bát Tự Hà Lạc Lược Khảo_, Saigon 1974."
 
 
-def _compose_overview(ha_lac_state: dict) -> str:
-    """Lead paragraph paradigm."""
+def _compose_overview(ha_lac_state: dict, address: str = "bạn") -> str:
+    """Lead paragraph paradigm. `address` = đại từ xưng hô (mặc định trung tính 'bạn'
+    cho mọi user; trang founder có thể truyền 'Anh')."""
     tien = ha_lac_state["tien_thien_quai"]
     hau = ha_lac_state["hau_thien_quai"]
     span = ha_lac_state["lifespan_span"]
     return (
         f"**Tiên Thiên Quái** = {tien['name_vi']} (quẻ {tien['king_wen_index']}, "
-        f"thượng {tien['upper_trigram']} / hạ {tien['lower_trigram']}) — **cốt mệnh** của Anh. "
+        f"thượng {tien['upper_trigram']} / hạ {tien['lower_trigram']}) — **cốt mệnh** của {address}. "
         f"**Hậu Thiên Quái** = {hau['name_vi']} (quẻ {hau['king_wen_index']}, "
         f"thượng {hau['upper_trigram']} / hạ {hau['lower_trigram']}) — **cách vận dụng** thực tế. "
-        f"Cuộc đời chia thành **12 hào** ~ {span['total_years']} năm (yang yao 9 năm, yin yao 6 năm). "
+        f"Cuộc đời chia thành **12 hào** ~ {span['total_years']} năm (hào dương 9 năm, hào âm 6 năm). "
         f"Mục đích Hà Lạc: KHÔNG dự đoán kết quả — phản chiếu cấu trúc 2 quẻ + đường đi 12 giai đoạn → tri mệnh."
     )
 
@@ -164,7 +165,7 @@ def _find_current_stage(trajectory: list[dict], current_age: int) -> dict | None
     return None
 
 
-def _luan_trajectory(ha_lac_state: dict, current_age: int | None) -> dict:
+def _luan_trajectory(ha_lac_state: dict, current_age: int | None, address: str = "bạn") -> dict:
     """Luận giải 12 hào trajectory."""
     traj = ha_lac_state["decade_trajectory"]
     nd_tien_line = ha_lac_state["tien_thien_quai"]["nguyen_duong_line"]
@@ -185,7 +186,7 @@ def _luan_trajectory(ha_lac_state: dict, current_age: int | None) -> dict:
         cur_label_set = TIEN_PHASE_LABELS if current["hexagram"] == "tien" else HAU_PHASE_LABELS
         current_phase_label = cur_label_set.get(current["line_position"], "")
         current_narrative = (
-            f"Tuổi {current_age} → Anh đang ở **giai đoạn {current['stage_index']}/12**: "
+            f"Tuổi {current_age} → {address} đang ở **giai đoạn {current['stage_index']}/12**: "
             f"{current['label']}. {current_phase_label}. "
             f"Khí của giai đoạn này = {('Dương dài 9 năm' if current['polarity'] == 'yang' else 'Âm ngắn 6 năm')}"
             + (". **Nguyên Đường** — giai đoạn chủ chốt!" if current["is_nguyen_duong"] else ".")
@@ -214,12 +215,12 @@ def _luan_trajectory(ha_lac_state: dict, current_age: int | None) -> dict:
     }
 
 
-def _bo_huong_for_stage(current_stage: dict | None, comparison: dict) -> str:
+def _bo_huong_for_stage(current_stage: dict | None, comparison: dict, address: str = "bạn") -> str:
     """Bổ hướng cho giai đoạn hiện tại."""
     if not current_stage:
         return (
             "Chưa xác định giai đoạn hiện tại. Nhìn vào quỹ đạo 12 hào, "
-            "xem hào nào sắp tới gần tuổi Anh."
+            f"xem hào nào sắp tới gần tuổi {address}."
         )
     is_tien = current_stage["hexagram"] == "tien"
     upper_el = comparison["tien_upper_el"] if is_tien else comparison["hau_upper_el"]
@@ -237,12 +238,17 @@ def _bo_huong_for_stage(current_stage: dict | None, comparison: dict) -> str:
     )
 
 
-def compose_ha_lac_luan_giai(ha_lac_state: dict, current_age: int | None = None) -> dict:
+def compose_ha_lac_luan_giai(ha_lac_state: dict, current_age: int | None = None,
+                             address: str = "bạn") -> dict:
     """Synthesize Bát Tự Hà Lạc analysis with paradigm-aligned narrative.
 
     Args:
         ha_lac_state: Output of `cast_ha_lac(...)`.
         current_age: Optional. Used to identify current stage in trajectory.
+        address: Đại từ xưng hô user (mặc định trung tính 'bạn' — đúng cho mọi giới
+            & tuổi trên surface đa-user như Chân Dung / API. Trang founder có thể
+            truyền 'Anh'. Bug 2026-06-26: trước đây hardcode 'Anh' → gọi bé gái 16t
+            là 'Anh' trên trang Chân Dung.)
 
     Returns:
         Structured dict for API + UI.
@@ -259,8 +265,8 @@ def compose_ha_lac_luan_giai(ha_lac_state: dict, current_age: int | None = None)
     comparison = _compare_tien_hau(
         ha_lac_state["tien_thien_quai"], ha_lac_state["hau_thien_quai"]
     )
-    trajectory_luan = _luan_trajectory(ha_lac_state, current_age)
-    bo_huong = _bo_huong_for_stage(trajectory_luan.get("current"), comparison)
+    trajectory_luan = _luan_trajectory(ha_lac_state, current_age, address)
+    bo_huong = _bo_huong_for_stage(trajectory_luan.get("current"), comparison, address)
 
     return {
         "method_id": METHOD_ID,
@@ -271,7 +277,7 @@ def compose_ha_lac_luan_giai(ha_lac_state: dict, current_age: int | None = None)
             "12 hào trajectory ~84-90 năm. Mục đích: tri mệnh, biết mình ở đâu "
             "trong tổng thể → chọn cách đi qua."
         ),
-        "overview": _compose_overview(ha_lac_state),
+        "overview": _compose_overview(ha_lac_state, address),
         "tien_thien_luan": tien_luan,
         "hau_thien_luan": hau_luan,
         "comparison": comparison,
