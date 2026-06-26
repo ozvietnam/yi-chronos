@@ -116,6 +116,15 @@ function clearNatal() {
   natalData.value = null;
 }
 const activeRuleset = ref(null);
+const SCHOOL_VI = { bac_phai: "Bắc phái", nam_phai: "Nam phái", trung_chau: "Trung Châu", dang_son: "Đằng Sơn", tu_vi_bon_ba: "Bôn Ba", tu_vi_huy_tuan: "Huy Tuấn" };
+// Nhãn pill phái: dịch + DEDUPE (school == ruleset_id thì hiện 1, tránh "bac_phai · bac_phai")
+const rulesetPill = computed(() => {
+  const r = activeRuleset.value;
+  if (!r || !r.ziwei_school) return "";
+  const school = SCHOOL_VI[r.ziwei_school] || r.ziwei_school;
+  const rid = r.ziwei_ruleset_id;
+  return rid && rid !== r.ziwei_school ? `${school} · ${rid}` : school;
+});
 const now = ref(new Date());
 const selectedTimeZone = ref("Asia/Ho_Chi_Minh");
 const activeMainTab = ref("profiles");
@@ -347,13 +356,11 @@ onBeforeUnmount(() => {
           <div class="brand-glyph">
             <SchoolIcon name="chronos" :size="22" />
           </div>
-          <div>
+          <div class="topbar-brand-text">
             <h1>YI-CHRONOS</h1>
             <p>
               Hệ mô hình hóa trạng thái thời gian
-              <span v-if="activeRuleset" class="ruleset-pill">
-                {{ activeRuleset.ziwei_school }} · {{ activeRuleset.ziwei_ruleset_id }}
-              </span>
+              <span v-if="rulesetPill" class="ruleset-pill">{{ rulesetPill }}</span>
             </p>
           </div>
         </div>

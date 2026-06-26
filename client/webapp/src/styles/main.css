@@ -240,6 +240,11 @@ textarea {
   gap: 12px;
 }
 
+/* Cho khối chữ brand CO lại + wrap trong cột grid (tránh subtitle + pill phái
+   tràn đè lên cụm đồng hồ/ngày khi cột bị ép). */
+.topbar-brand-text { min-width: 0; }
+.topbar-brand-text p { overflow-wrap: anywhere; }
+
 .brand-glyph {
   width: 42px;
   height: 42px;
