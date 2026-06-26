@@ -167,19 +167,25 @@ def _ans_dinh_thoi(out: dict) -> str:
 
 
 def _ans_personality(out: dict) -> str:
+    """BUG4 — câu trả lời TÍNH CÁCH user-facing phải SẠCH jargon (như Tử Vi).
+
+    'cach_yeu' là field đã DIỄN ĐẠT đời thường (cách yêu/cách thể hiện) — DÙNG làm
+    nội dung chính. 'khi_chat' là chân-dung-sao DÀY jargon (Nam/Bắc Đẩu đệ X tinh,
+    hóa khí vi…, hành âm-dương) → KHÔNG nhồi vào dap (nó tụt thẳng vào tom_tat, để
+    lại rác sau khi scrub). Chỉ fallback khi tuyệt nhiên không có cach_yeu, và khi
+    đó vẫn để _plain_vi (display) scrub jargon. KHÔNG prefix tên sao (jargon)."""
     p = out.get("personality") or {}
     profiles = p.get("profiles") or []
     parts = []
     for it in profiles[:2]:
-        kc = it.get("khi_chat")
-        cy = it.get("cach_yeu")
-        seg = it.get("sao", "")
-        if kc:
-            seg += f" — khí chất: {kc}"
+        cy = (it.get("cach_yeu") or "").strip()
         if cy:
-            seg += f"; cách yêu: {cy}"
-        if seg:
-            parts.append(seg)
+            parts.append(cy)
+        else:
+            # Không có cách-yêu sạch → fallback khí-chất (display._plain_vi sẽ scrub).
+            kc = (it.get("khi_chat") or "").strip()
+            if kc:
+                parts.append(kc)
     if not parts:
         return ("Cung Mệnh vô chính diệu / chưa đủ dữ liệu khẩu vị — đọc tính cách qua "
                 "đối chiếu Thập Thần Bát Tự (xem mục personality).")
