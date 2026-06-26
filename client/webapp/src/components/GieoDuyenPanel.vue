@@ -1149,8 +1149,11 @@ const rendered = computed(() => renderMarkdown(manuscript));
   --gd-purple: #6a4a9c; --gd-purple-bg: #f5f0fa; --gd-purple-border: #d8cce8;
   --gd-amber: #8a6d1a; --gd-blue-bg: #e6eef7; --gd-blue-text: #2c5a7d; --gd-err: #c0392b;
 }
-@media (prefers-color-scheme: dark) {
-  .gieo-duyen {
+/* App bật theme qua [data-reading] trên <html> (KHÔNG theo prefers-color-scheme):
+   default/:root + "dark" = nền TỐI, chỉ "paper" = nền SÁNG. Nên brand-token TỐI áp
+   cho MỌI theme TRỪ paper (sửa 2026-06-26: trước dùng @media hệ thống → sai, dark app
+   nhưng máy light thì panel giữ màu sáng → đọc không nổi). */
+:root:not([data-reading="paper"]) .gieo-duyen {
     --gd-accent: #e79ab4;
     --gd-accent-deep: #f0b6cb;
     --gd-accent-soft: #b06a82;
@@ -1171,7 +1174,6 @@ const rendered = computed(() => renderMarkdown(manuscript));
     --gd-card-bg: var(--read-surface, #2a2228);
     --gd-purple: #c3a6ec; --gd-purple-bg: rgba(106,74,156,0.18); --gd-purple-border: #4d4068;
     --gd-amber: #dcb466; --gd-blue-bg: rgba(44,90,125,0.25); --gd-blue-text: #9cc3e0; --gd-err: #f0928a;
-  }
 }
 .gieo-duyen { max-width: 760px; margin: 0 auto; padding: 16px; }
 .gd-hero { text-align: center; padding: 28px 16px 22px; background: var(--gd-hero-bg); border: 1px solid var(--gd-hero-border); border-radius: 16px; margin-bottom: 22px; }
