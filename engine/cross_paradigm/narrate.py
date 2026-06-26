@@ -73,7 +73,14 @@ def _trim_to_last_sentence(text: str) -> str:
 # provider sẽ được map sang model NHANH non-reasoning qua sage_model (prompt sage lớn →
 # model reasoning đốt token vào <think> → rỗng). mock KHÔNG nằm trong chuỗi (mock-leak
 # bị chặn ở _call).
-_NARRATE_PROVIDER_CHAIN: list[str] = ["deepseek", "minimax", "gemini"]
+# BUG6 — chuỗi DÀI hơn để 1 provider chết (key sai / 401 / treo) KHÔNG làm rỗng lời
+# thầy (sản phẩm 30 xu). Ưu tiên rẻ+nhanh trước (deepseek/minimax/gemini), rồi
+# escalate provider khác (zai/openrouter free, anthropic chất lượng) nếu nhóm đầu
+# fail. mock KHÔNG trong chuỗi (mock-leak bị chặn ở _call). Provider chưa cấu hình /
+# unhealthy bị skip ở vòng lặp → chuỗi tự co theo môi trường.
+_NARRATE_PROVIDER_CHAIN: list[str] = [
+    "deepseek", "minimax", "gemini", "zai", "openrouter", "anthropic",
+]
 
 
 def _quy_trinh_highlights(td: dict) -> tuple[str, list[str]]:
@@ -407,15 +414,22 @@ def narrate_tinh_duyen(person: dict, tinh_duyen_output: dict) -> str:
                 )
                 return (getattr(resp, "content", "") or "").strip()
 
+            # KHÔNG dùng `with ThreadPoolExecutor` (context-exit gọi shutdown(wait=True)
+            # → BLOCK chờ thread treo xong, vô hiệu hoá timeout). Tạo executor rời, khi
+            # timeout thì shutdown(wait=False) bỏ mặc thread chết nền (HTTP-timeout
+            # provider sẽ tự kết nó), narrate đi tiếp ngay.
+            ex = _futures.ThreadPoolExecutor(max_workers=1)
             try:
-                with _futures.ThreadPoolExecutor(max_workers=1) as ex:
-                    fut = ex.submit(_do)
-                    content = fut.result(timeout=_NARRATE_CALL_TIMEOUT_S)
+                fut = ex.submit(_do)
+                content = fut.result(timeout=_NARRATE_CALL_TIMEOUT_S)
+                ex.shutdown(wait=False)
             except _futures.TimeoutError:
+                ex.shutdown(wait=False, cancel_futures=True)
                 _log.warning("narrate_tinh_duyen: provider %s TIMEOUT >%.0fs → bỏ, thử kế",
                              getattr(provider, "name", "?"), _NARRATE_CALL_TIMEOUT_S)
                 return ""
             except Exception:
+                ex.shutdown(wait=False, cancel_futures=True)
                 return ""
             if not content:
                 return ""
