@@ -15,7 +15,7 @@ Mỗi **chính tinh / phụ tinh / cung** đi đủ 8 lớp, theo đúng thứ t
 |---|---|---|
 | **1** | **Căn cơ tạo hóa — Âm Dương / Ngũ Hành** | *Vì sao* tạo hóa sinh ra trạng thái sao này? (sao thuộc âm/dương + hành gì → bản tính nảy ra từ đó) |
 | **2** | **Gốc Tham** | Từ căn cơ ấy, cái khát cốt lõi là gì? |
-| **3** | **Ngũ Uẩn — tiến trình tâm** | Cái khát chạy qua Xúc→Thọ→Tưởng→Hành→Thức ra sao? (mỗi bước: mô tả + khí thuận + khí kẹt) |
+| **3** | **Ngũ Uẩn — tiến trình tâm** | Cái khát chạy qua Sắc→Thọ→Tưởng→Hành→Thức ra sao? (Xúc là cửa vào, không phải uẩn; mỗi bước: mô tả + khí thuận + khí kẹt) |
 | **4** | **Khí vượng ↔ Khí suy** (miếu/vượng/đắc ↔ hãm) | Cùng bản tính ấy, khi đắc địa hiện thế nào, khi hãm địa hiện thế nào? |
 | **5** | **Theo đời người** | Cái tâm này biểu hiện/trưởng thành qua: khi nhỏ · thiếu niên · trung niên · về già |
 | **6** | **Khe tỉnh thức + Đường ra** | Khe Thọ→Hành cái khát hay chen vào; chánh niệm (Bát Chánh Đạo) → giữ tài, rụng khổ |
@@ -29,7 +29,7 @@ Giọng xuyên suốt = **quán chiếu từ bi, ngôn từ dung dị của Ph�
 ## 📚 LỘ TRÌNH 6 TẦNG (mỗi tầng đứng trên tầng dưới)
 
 ### Tầng 0 — Nền triết (cái la-bàn, làm 1 lần)
-Âm Dương → Ngũ Hành (sinh–khắc–chế–hóa) → Ngũ Uẩn (tiến trình tâm) → Bát Chánh Đạo (đường thoát).
+Âm Dương → Ngũ Hành (sinh–khắc–chế–hóa) → Ngũ Uẩn (tiến trình tâm Sắc→Thọ→Tưởng→Hành→Thức) → Bát Chánh Đạo (đường thoát).
 *Đây là lăng kính. Mọi tầng trên đều soi bằng nó.* (Nguồn: ÂDNH Lê Văn Sửu, Đằng Sơn "ngũ hành = xấp xỉ âm dương", kinh điển Phật.)
 
 ### Tầng 1 — 14 CHÍNH TINH (LÀM KỸ TRƯỚC) ⭐
