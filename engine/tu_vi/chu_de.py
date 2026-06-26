@@ -92,11 +92,20 @@ def gom_chu_de(chu_de: str, la_so_input: dict, three_layer: dict) -> dict | None
     # Tứ Hóa rơi vào cung liên quan
     tu_hoa_lq = [t for t in (la_so_input.get("tu_hoa") or []) if t.get("palace_fn") in lq]
 
-    return {
+    out = {
         "slug": chu_de, "ten": spec["ten"], "icon": spec["icon"],
         "goc_nhin": spec["goc_nhin"],
         "cung_data": cung_data, "bo_phu_tinh": bo_lq[:6], "tu_hoa_lq": tu_hoa_lq,
     }
+    # Chủ đề có cung Tử Tức (Gia đạo) → kèm bài đọc CON CÁI deterministic (nam-đẩu/bắc-đẩu cổ điển)
+    # để ground LLM, tránh LLM tự đoán giới tính/số con. Kèm caveat 30/30/40 (không định mệnh).
+    if "tu_tuc" in lq:
+        try:
+            from engine.tu_vi.tu_tuc_reader import read_tu_tuc
+            out["tu_tuc_reading"] = read_tu_tuc(la_so_input)
+        except Exception:
+            pass
+    return out
 
 
 # ── MÓN SÂU: 2 trụ + xuất xứ (Anh chốt 2026-06-15 'đào sâu - ăn tiếp') ──
