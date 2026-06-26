@@ -52,6 +52,7 @@ const YiHermesChat = defineAsyncComponent(() => import("./components/YiHermesCha
 const HoiHermesPanel = defineAsyncComponent(() => import("./components/HoiHermesPanel.vue"));
 const ChanDungPanel = defineAsyncComponent(() => import("./components/ChanDungPanel.vue"));
 const DeepReadingPanel = defineAsyncComponent(() => import("./components/DeepReadingPanel.vue"));
+const AtomVerifyPanel = defineAsyncComponent(() => import("./components/AtomVerifyPanel.vue"));
 const LexiconPanel = defineAsyncComponent(() => import("./components/LexiconPanel.vue"));
 const SettingsPanel = defineAsyncComponent(() => import("./components/SettingsPanel.vue"));
 const ResearchPanel = defineAsyncComponent(() => import("./components/ResearchPanel.vue"));
@@ -540,6 +541,10 @@ onBeforeUnmount(() => {
               @click="activeMainTab = 'admin-hermes'">
               <span class="tab-icon">🛡️</span> Quản trị Hermes
             </button>
+            <button type="button" :class="{ active: activeMainTab === 'atom-verify' }"
+              @click="activeMainTab = 'atom-verify'">
+              <span class="tab-icon">📋</span> Duyệt Atoms
+            </button>
           </div>
         </template>
       </section>
@@ -1016,6 +1021,10 @@ onBeforeUnmount(() => {
 
       <section v-else-if="activeMainTab === 'admin-hermes'" class="single-column" aria-label="Phòng Quản Trị Hermes">
         <HermesAdminPanel />
+      </section>
+
+      <section v-else-if="activeMainTab === 'atom-verify'" class="single-column" aria-label="Bàn duyệt Atoms">
+        <AtomVerifyPanel />
       </section>
 
       <section v-else-if="activeMainTab === 'pytago'" class="maihoa-page" aria-label="Trang trường phái Pytago">

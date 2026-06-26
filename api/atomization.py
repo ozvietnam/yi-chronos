@@ -15,13 +15,19 @@ import sqlite3
 from pathlib import Path
 from typing import Any
 
-from fastapi import APIRouter, HTTPException, Query
+from fastapi import APIRouter, Depends, HTTPException, Query
 from pydantic import BaseModel, Field
+
+from api.auth import require_owner
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DB_PATH = PROJECT_ROOT / "data" / "yi_wiki" / "wiki.sqlite3"
 
-router = APIRouter(prefix="/api/atomization", tags=["atomization"])
+# OWNER-ONLY: workbench atomization + verify atoms sửa wiki (founder_verified +
+# confidence). Trước đây CHƯA gate → ai cũng đổi/đọc được. Gate cả router (frontend
+# chưa dùng namespace này nên không vỡ gì). 2026-06-26.
+router = APIRouter(prefix="/api/atomization", tags=["atomization"],
+                   dependencies=[Depends(require_owner)])
 
 
 # ─── Schemas ─────────────────────────────────────────────────────
