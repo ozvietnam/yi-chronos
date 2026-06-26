@@ -804,8 +804,11 @@ def build_display(reading_output: dict, gender: str = "nữ",
     ro = reading_output or {}
     inp = ro.get("input") or {}
 
-    # Giới: ưu tiên tham số; nếu không rõ → lấy từ input đã chuẩn hoá của engine.
-    g = gender if _nonempty(gender) else inp.get("gender")
+    # Giới (BUG2 defense): NGUỒN CHÂN LÝ là input.gender (engine đã chuẩn hoá +
+    # đã _apply_gender_tree theo nó). Tham số `gender` chỉ là fallback khi input
+    # thiếu — TRÁNH ca caller quên truyền gender (mặc định 'nữ') khiến lá NAM hiện
+    # 'chồng'/'người chồng' dù body đã đảo sang 'vợ'. input.gender luôn 'nam'/'nữ'.
+    g = inp.get("gender") if _nonempty(inp.get("gender")) else gender
     nu = _is_female(g)
     phoi_ngau = "chồng" if nu else "vợ"
     gender_token = "nữ" if nu else "nam"
