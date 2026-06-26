@@ -116,8 +116,105 @@ def get_star_profile(star_vi: str) -> dict | None:
     """Profile Ngũ Uẩn của một chính tinh (tên tiếng Việt, vd 'Thiên Cơ').
 
     Cung không có chính tinh → dùng 'Vô Chính Diệu'.
+
+    Trả NGUYÊN record (giữ tương thích web cũ — vẫn có ngu_uan dict 5 uẩn,
+    tom_gon, mieu_ham, ...). Schema v3 (am_duong_ngu_hanh, goc_tham,
+    khi_vuong_suy, theo_doi_nguoi, khe_tinh_thuc, duong_ra, vi_du_song,
+    can_cu, ngu_uan_v3) có mặt nếu dataset đã build v3; để đọc gọn 8 lớp đã
+    chọn-động nhánh đắc/hãm, dùng :func:`get_star_v3`.
     """
     return _index()["by_star"].get(_canon(star_vi))
+
+
+# ─── Schema v3: 8 lớp căn-cơ → ngọn ──────────────────────────────────────────
+# Mức miếu/vượng/đắc → đất THUẬN (nhánh dac_dia); lạc/hãm → đất NGHỊCH (ham_dia).
+# 'bình' = trung tính → không ép nhánh (để None, web cũ không vỡ).
+_LEVEL_DAC = {"miếu", "vượng", "đắc"}
+_LEVEL_HAM = {"lạc", "hãm"}
+
+
+def _resolve_khi_vuong_suy(
+    khi: dict | None, mieu_ham_level: str | None
+) -> dict | None:
+    """Lớp 4 — CHỌN ĐỘNG nhánh đắc-địa / hãm-địa theo mức miếu-hãm đã tính.
+
+    Args:
+        khi: field ``khi_vuong_suy`` của record = {dac_dia, ham_dia}.
+        mieu_ham_level: mức của sao TẠI CHI (từ interpretation.mieu_ham),
+            vd 'miếu' / 'vượng' / 'đắc' / 'bình' / 'lạc' / 'hãm'. None = chưa
+            biết vị trí (vd tra sao rời, không trong lá số).
+
+    Returns:
+        {dac_dia, ham_dia, active, active_text} hoặc None nếu thiếu dữ liệu.
+        - active: 'dac_dia' | 'ham_dia' | None (None khi bình/chưa biết)
+        - active_text: đoạn văn của nhánh đang ứng (tiện render thẳng)
+    """
+    if not khi:
+        return None
+    level = (mieu_ham_level or "").strip().lower()
+    if level in _LEVEL_DAC:
+        active = "dac_dia"
+    elif level in _LEVEL_HAM:
+        active = "ham_dia"
+    else:
+        active = None  # bình / chưa biết → giữ cả hai, không ép
+    return {
+        "dac_dia": khi.get("dac_dia"),
+        "ham_dia": khi.get("ham_dia"),
+        "active": active,
+        "active_text": khi.get(active) if active else None,
+    }
+
+
+def get_star_v3(star_vi: str, mieu_ham_level: str | None = None) -> dict | None:
+    """8 lớp chân dung v3 của 1 chính tinh — căn cơ → ngọn.
+
+    Lớp 4 (khí vượng/suy) tự CHỌN ĐỘNG nhánh đắc-địa hay hãm-địa theo
+    ``mieu_ham_level`` (mức miếu/hãm đã tính ở interpretation cho vị trí thật
+    của sao trong lá số). Không truyền → trả cả hai nhánh, active=None.
+
+    Trả None nếu record không có (dataset chưa build / sao không tồn tại) →
+    caller giữ fallback, web cũ KHÔNG vỡ.
+
+    Returns dict 8 lớp:
+        {
+          sao,
+          l1_am_duong_ngu_hanh, l2_goc_tham,
+          l3_ngu_uan (list 5-step dày, fallback dict 5 uẩn cũ nếu thiếu v3),
+          l4_khi_vuong_suy {dac_dia, ham_dia, active, active_text},
+          l5_theo_doi_nguoi {nho, thieu_nien, trung_nien, ve_gia},
+          l6_khe_tinh_thuc, l6_duong_ra,
+          l7_vi_du_song,
+          l8_can_cu,
+          _has_v3: bool  (record đã có nội dung v3 hay chưa)
+        }
+    """
+    rec = get_star_profile(star_vi)
+    if not rec:
+        return None
+
+    # Lớp 3: ưu tiên bản dày ngu_uan_v3 (5-step), fallback dict 5 uẩn cũ.
+    ngu_uan_v3 = rec.get("ngu_uan_v3")
+    if not ngu_uan_v3:
+        ngu_uan_v3 = rec.get("ngu_uan")  # dict 5 uẩn cũ — web cũ vẫn đọc được
+
+    has_v3 = bool(rec.get("am_duong_ngu_hanh"))
+
+    return {
+        "sao": rec.get("sao", star_vi),
+        "l1_am_duong_ngu_hanh": rec.get("am_duong_ngu_hanh"),
+        "l2_goc_tham": rec.get("goc_tham"),
+        "l3_ngu_uan": ngu_uan_v3,
+        "l4_khi_vuong_suy": _resolve_khi_vuong_suy(
+            rec.get("khi_vuong_suy"), mieu_ham_level
+        ),
+        "l5_theo_doi_nguoi": rec.get("theo_doi_nguoi"),
+        "l6_khe_tinh_thuc": rec.get("khe_tinh_thuc"),
+        "l6_duong_ra": rec.get("duong_ra"),
+        "l7_vi_du_song": rec.get("vi_du_song"),
+        "l8_can_cu": rec.get("can_cu"),
+        "_has_v3": has_v3,
+    }
 
 
 def get_palace_profile(palace_vi: str) -> dict | None:

@@ -471,7 +471,10 @@ def narrate_tinh_duyen(person: dict, tinh_duyen_output: dict) -> str:
                 content = ""
             if content:
                 _log.info("narrate_tinh_duyen: provider THẮNG = %s (model=%s)", name, model)
-                return content
+                # Iron #9 — gắn DISCLAIMER (Brahmajāla) vào lời thầy cuối. Idempotent
+                # (reframe_check đã chạy trên content SẠCH trước đó, không soi disclaimer).
+                from engine.hermes_guard import with_disclaimer
+                return with_disclaimer(content)
             _log.info("narrate_tinh_duyen: provider %s fail (rỗng/mock/vi-phạm) → thử kế", name)
 
         # Hết chuỗi vẫn fail → KHÔNG leak. Trả '' để UI fallback bản cấu trúc đã-sạch.

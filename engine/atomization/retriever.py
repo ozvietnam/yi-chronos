@@ -50,10 +50,13 @@ class AtomRetrievalInfo:
     founder_verified: int = 0
     archetype: dict[str, int] = field(default_factory=dict)
     format_style: str | None = None
+    # GAP-1: luận giải SÂU (atom_commentaries) — chỉ điền khi atom CÓ commentary
+    # founder_verified != -1 (Anh chưa bác). None nếu atom không có / bị bác.
+    commentary: dict[str, Any] | None = None
 
 
-def _open_db() -> sqlite3.Connection:
-    conn = sqlite3.connect(DB_PATH)
+def _open_db(db_path: Path | str = DB_PATH) -> sqlite3.Connection:
+    conn = sqlite3.connect(db_path)
     # Try load vec extension
     try:
         import sqlite_vec
@@ -128,11 +131,17 @@ class ChunkAtomRetriever:
                 c.text AS chunk_text, c.book_corpus_id, c.page_start, c.page_end,
                 cc.is_chu_the, cc.is_cong_thuc, cc.is_luan_giai,
                 cc.is_to_hop, cc.is_kinh_nghiem, cc.format_style,
+                -- GAP-1: luận giải SÂU. LOẠI commentary Anh đã bác (-1) ngay trong JOIN
+                -- → atom vẫn ra (source_quote thô), chỉ commentary bị bác mới NULL.
+                ac.han_viet_explain, ac.viet_thuan, ac.nguyen_ly,
+                ac.vi_du_doi_song, ac.cross_school_notes, ac.iron_rule_warning,
                 bm25(atomic_questions_fts) AS score
             FROM atomic_questions_fts
             JOIN atomic_questions aq ON aq.atom_id = atomic_questions_fts.rowid
             JOIN chunks_v2 c ON c.chunk_id = aq.chunk_id
             LEFT JOIN chunk_classifications cc ON cc.cc_id = aq.cc_id
+            LEFT JOIN atom_commentaries ac
+                   ON ac.atom_id = aq.atom_id AND ac.founder_verified >= 0
             WHERE atomic_questions_fts MATCH ?
               -- Iron #9 / M0-C: LOẠI atom Anh đã bác (founder_verified = -1) khỏi
               -- retrieval → council/sage KHÔNG dẫn tri thức đã bị bác. Giữ 0 (chưa
@@ -146,7 +155,7 @@ class ChunkAtomRetriever:
         sql += " ORDER BY score LIMIT ?"
         params.append(k)
 
-        conn = _open_db()
+        conn = _open_db(self.db_path)
         try:
             rows = conn.execute(sql, params).fetchall()
         except sqlite3.OperationalError as e:
@@ -169,6 +178,23 @@ class ChunkAtomRetriever:
                 "is_to_hop": r["is_to_hop"] or 0,
                 "is_kinh_nghiem": r["is_kinh_nghiem"] or 0,
             }
+            # GAP-1: gom luận giải sâu. Chỉ giữ field có nội dung thật (không rỗng).
+            # cross_school_notes là JSON → parse về list; lỗi parse thì giữ raw text.
+            comm: dict[str, Any] = {}
+            for fld in ("han_viet_explain", "viet_thuan", "nguyen_ly",
+                        "vi_du_doi_song", "iron_rule_warning"):
+                val = (r[fld] or "").strip() if r[fld] else ""
+                if val:
+                    comm[fld] = val
+            csn_raw = (r["cross_school_notes"] or "").strip() if r["cross_school_notes"] else ""
+            if csn_raw:
+                try:
+                    parsed = json.loads(csn_raw)
+                    comm["cross_school_notes"] = parsed if parsed else None
+                except (json.JSONDecodeError, TypeError):
+                    comm["cross_school_notes"] = csn_raw
+                if not comm.get("cross_school_notes"):
+                    comm.pop("cross_school_notes", None)
             results.append(AtomRetrievalInfo(
                 atom_id=r["atom_id"],
                 atom_query=query,
@@ -186,6 +212,7 @@ class ChunkAtomRetriever:
                 founder_verified=r["founder_verified"] or 0,
                 archetype=archetype,
                 format_style=r["format_style"],
+                commentary=comm or None,
             ))
         return results
 
@@ -207,7 +234,7 @@ class ChunkAtomRetriever:
             WHERE chunks_v2_fts MATCH ?
             ORDER BY score LIMIT ?
         """
-        conn = _open_db()
+        conn = _open_db(self.db_path)
         try:
             rows = conn.execute(sql, (safe_query, k)).fetchall()
         except sqlite3.OperationalError as e:

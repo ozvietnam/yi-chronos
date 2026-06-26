@@ -15,6 +15,12 @@ import pytest
 
 import engine.cross_paradigm.narrate as narrate_mod
 from engine.cross_paradigm.narrate import _NARRATE_PROVIDER_CHAIN, narrate_tinh_duyen
+from engine.hermes_guard import DISCLAIMER, with_disclaimer
+
+
+def _clean_with_disclaimer() -> str:
+    """Lời thầy sạch ĐÃ gắn DISCLAIMER Iron #9 (mọi output narrate cuối đều mang)."""
+    return with_disclaimer(_CLEAN)
 
 
 # ── Fakes ────────────────────────────────────────────────────────────────────
@@ -101,7 +107,7 @@ def test_provider1_mock_then_provider2_clean_is_used(monkeypatch):
     _patch(monkeypatch, run_agent_fn=fake_run_agent, registry=_FakeRegistry())
     out = narrate_tinh_duyen(_PERSON, _TD)
 
-    assert out == _CLEAN
+    assert out == _clean_with_disclaimer()
     # deepseek thử trước (rớt), minimax thắng. gemini KHÔNG được gọi.
     assert calls[0] == "deepseek"
     assert "minimax" in calls
@@ -119,7 +125,7 @@ def test_first_clean_provider_wins_no_further_calls(monkeypatch):
     _patch(monkeypatch, run_agent_fn=fake_run_agent, registry=_FakeRegistry())
     out = narrate_tinh_duyen(_PERSON, _TD)
 
-    assert out == _CLEAN
+    assert out == _clean_with_disclaimer()
     assert calls == ["deepseek"]  # thắng ngay, không thử tiếp
 
 
@@ -155,7 +161,7 @@ def test_unconfigured_and_unhealthy_providers_skipped(monkeypatch):
     _patch(monkeypatch, run_agent_fn=fake_run_agent, registry=reg)
     out = narrate_tinh_duyen(_PERSON, _TD)
 
-    assert out == _CLEAN
+    assert out == _clean_with_disclaimer()
     assert calls == ["gemini"]  # deepseek (chưa config) + minimax (unhealthy) bị skip
 
 
@@ -173,7 +179,7 @@ def test_violation_uncurable_falls_through_to_next(monkeypatch):
     _patch(monkeypatch, run_agent_fn=fake_run_agent, registry=_FakeRegistry())
     out = narrate_tinh_duyen(_PERSON, _TD)
 
-    assert out == _CLEAN
+    assert out == _clean_with_disclaimer()
     # deepseek gọi 2 lần (pass-1 + pass-2 regenerate), vẫn dính → minimax thắng.
     assert calls.count("deepseek") == 2
     assert "minimax" in calls
@@ -215,9 +221,10 @@ def test_narrate_trims_cutoff_output(monkeypatch):
 
     _patch(monkeypatch, run_agent_fn=fake_run_agent, registry=_FakeRegistry())
     out = narrate_tinh_duyen(_PERSON, _TD)
-    assert "sẽ tìm n" not in out               # đuôi cụt bị bỏ
-    assert out.endswith("không phải định mệnh.")  # cắt tại câu hoàn chỉnh cuối
-    assert out.rstrip()[-1] in ".!?…。！？"
+    assert "sẽ tìm n" not in out                         # đuôi cụt bị bỏ
+    assert "không phải định mệnh." in out                 # giữ câu hoàn chỉnh cuối (trim trước disclaimer)
+    # Iron #9: output cuối kết bằng DISCLAIMER (gắn SAU khi trim).
+    assert out.rstrip().endswith(DISCLAIMER)
 
 
 # ── BUG7: timeout mỗi lượt → provider treo bị bỏ, nhảy kế, không treo tổng ────
@@ -239,7 +246,7 @@ def test_hung_provider_times_out_and_next_wins(monkeypatch):
     out = narrate_tinh_duyen(_PERSON, _TD)
     elapsed = _t.time() - t0
 
-    assert out == _CLEAN
+    assert out == _clean_with_disclaimer()
     assert calls[0] == "deepseek"          # đã thử (và treo)
     assert "minimax" in calls              # nhảy sang provider kế
     assert elapsed < 4.0                   # KHÔNG chờ trọn 5s của deepseek

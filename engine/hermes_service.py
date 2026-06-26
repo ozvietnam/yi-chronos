@@ -262,8 +262,10 @@ def run_council(firebase_uid: str, question: str, person_key: str = "self", *,
     # "Một việc một lần" (Iron #4): cùng câu trong ngày → trả lại cũ, KHÔNG tốn LLM/tiền
     cid_c, cached = _cached(uid, "hermes_council", question)
     if cached:
+        # Iron #9 — disclaimer cũng bọc cache CŨ (row trước bản vá chưa có); idempotent.
         return {"status": "done", "cached": True, "casting_id": cid_c,
-                "synthesis": cached.get("synthesis"), "agents": cached.get("agents"),
+                "synthesis": guard.with_disclaimer(cached.get("synthesis") or ""),
+                "agents": cached.get("agents"),
                 "voices": cached.get("voices") or [],
                 "paradigm_ok": cached.get("paradigm_ok", True)}
 
@@ -296,9 +298,13 @@ def run_council(firebase_uid: str, question: str, person_key: str = "self", *,
             _refund()
             return {"status": "error", "reason": "council_failed"}
 
-        # post-filter paradigm: synthesis KHÔNG được mang giọng tiên tri
-        violations = guard.paradigm_violations(result.get("synthesis", ""))
+        # post-filter paradigm: synthesis KHÔNG được mang giọng tiên tri.
+        # Chạy guard TRƯỚC khi gắn disclaimer (để không soi nhầm vào chính disclaimer).
+        synthesis = result.get("synthesis", "")
+        violations = guard.paradigm_violations(synthesis)
         paradigm_ok = not violations
+        # Iron #9 — gắn DISCLAIMER (Brahmajāla) vào output cuối user thấy. Idempotent.
+        synthesis = guard.with_disclaimer(synthesis)
 
         av = algo_version("tu_vi")
         _raw = result.get("raw") if isinstance(result.get("raw"), dict) else {}
@@ -306,7 +312,7 @@ def run_council(firebase_uid: str, question: str, person_key: str = "self", *,
                    "content": v.get("content")}
                   for v in (_raw.get("round_1_outputs") or [])
                   if isinstance(v, dict) and v.get("content") and not v.get("error")]
-        payload = {"synthesis": result.get("synthesis"), "agents": result.get("agents"),
+        payload = {"synthesis": synthesis, "agents": result.get("agents"),
                    "voices": voices, "paradigm_ok": paradigm_ok, "violations": violations}
         res_expr = "CAST(:res AS JSONB)" if is_postgres() else ":res"
         with session_scope(service=True) as conn:
@@ -336,7 +342,7 @@ def run_council(firebase_uid: str, question: str, person_key: str = "self", *,
     return {
         "status": "done", "casting_id": cid, "algo_version": av, "tier": tier,
         "agents": result.get("agents"), "paradigm_ok": paradigm_ok,
-        "synthesis": result.get("synthesis"), "voices": voices,
+        "synthesis": synthesis, "voices": voices,
         "remaining_uses": usage.get("remaining_uses") if usage.get("ok") else None,
         "free_remaining": (ratelimit.remaining(f"council_free:{uid}", FREE_DAILY_COUNCIL, _DAY)
                            if tier == "free" else None),
@@ -403,8 +409,10 @@ def run_quick(firebase_uid: str, question: str, person_key: str = "self", *,
 
     cid_c, cached = _cached(uid, "hermes_quick", question)   # "một việc một lần" (Iron #4)
     if cached:
+        # Iron #9 — disclaimer bọc cả cache CŨ (row trước bản vá); idempotent.
         return {"status": "done", "cached": True, "casting_id": cid_c,
-                "sage": cached.get("sage"), "answer": cached.get("answer"),
+                "sage": cached.get("sage"),
+                "answer": guard.with_disclaimer(cached.get("answer") or ""),
                 "paradigm_ok": cached.get("paradigm_ok", True)}
 
     g = _gate(uid, "quick_free", FREE_DAILY_QUICK)
@@ -434,9 +442,12 @@ def run_quick(firebase_uid: str, question: str, person_key: str = "self", *,
             _refund()
             return {"status": "error", "reason": "answer_failed"}
 
-        violations = guard.paradigm_violations(result.get("answer", ""))
+        answer_txt = result.get("answer", "")
+        violations = guard.paradigm_violations(answer_txt)
+        # Iron #9 — gắn DISCLAIMER vào câu trả lời cuối (sau guard, idempotent).
+        answer_txt = guard.with_disclaimer(answer_txt)
         av = algo_version("tu_vi")
-        payload = {"answer": result.get("answer"), "sage": result.get("sage"),
+        payload = {"answer": answer_txt, "sage": result.get("sage"),
                    "paradigm_ok": not violations, "violations": violations}
         res_expr = "CAST(:res AS JSONB)" if is_postgres() else ":res"
         with session_scope(service=True) as conn:
@@ -478,7 +489,7 @@ def run_quick(firebase_uid: str, question: str, person_key: str = "self", *,
                                user_id=str(uid))
     return {
         "status": "done", "casting_id": cid, "tier": tier, "sage": result.get("sage"),
-        "paradigm_ok": not violations, "answer": result.get("answer"),
+        "paradigm_ok": not violations, "answer": answer_txt,
         "free_remaining": (ratelimit.remaining(f"quick_free:{uid}", FREE_DAILY_QUICK, _DAY)
                            if tier == "free" else None),
         "xu_cost": g.get("xu_cost") if tier == "xu" else None,

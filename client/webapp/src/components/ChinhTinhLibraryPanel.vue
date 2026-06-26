@@ -227,30 +227,79 @@ function openOracle(card) {
             </header>
           </div>
 
-          <p v-if="selected.ngu_uan?.menh_de_dinh_vi" class="ctl-dinh-vi">
-            {{ selected.ngu_uan.menh_de_dinh_vi }}
-          </p>
-          <p v-if="selected.sao_o_dau_thi" class="ctl-odau">☞ {{ selected.sao_o_dau_thi }}</p>
+          <!-- ☸ Quán chiếu Ngũ Uẩn — TÁCH LỚP (v3 8 lớp): tóm gọn nổi, chi tiết bung -->
+          <div v-if="selected.ngu_uan" class="ctl-nu">
+            <!-- TÓM GỌN: Gốc Tham (mệnh đề định vị) + 1 dòng đường ra -->
+            <div class="ctl-nu-summary">
+              <p v-if="selected.ngu_uan.goc_tham || selected.ngu_uan.menh_de_dinh_vi" class="ctl-nu-goctham">
+                <span class="ctl-nu-lbl">Gốc tham</span>
+                {{ selected.ngu_uan.goc_tham || selected.ngu_uan.menh_de_dinh_vi }}
+              </p>
+              <p v-if="selected.ngu_uan.duong_ra || selected.ngu_uan.can_de_phat_huy" class="ctl-nu-duongra">
+                <span class="ctl-nu-lbl ctl-nu-lbl-out">Đường ra</span>
+                {{ selected.ngu_uan.duong_ra || selected.ngu_uan.can_de_phat_huy }}
+              </p>
+            </div>
 
-          <!-- 5 uẩn -->
-          <dl v-if="selected.ngu_uan" class="ctl-uan">
-            <template v-for="key in UAN_KEYS" :key="key">
-              <template v-if="uanOf(selected, key)">
-                <dt>{{ UAN_LABELS[key] }}</dt>
-                <dd>
-                  {{ uanOf(selected, key).mo_ta }}
-                  <span v-if="uanOf(selected, key).khi_manh" class="ctl-manh">
-                    ▲ Khi mạnh: {{ uanOf(selected, key).khi_manh }}</span>
-                  <span v-if="uanOf(selected, key).khi_lech" class="ctl-lech">
-                    ▽ Khi lệch: {{ uanOf(selected, key).khi_lech }}</span>
-                </dd>
-              </template>
-            </template>
-          </dl>
+            <!-- LỚP 1 — Căn cơ Âm Dương / Ngũ Hành -->
+            <details v-if="selected.ngu_uan.am_duong_ngu_hanh" class="ctl-nu-layer">
+              <summary><b>1.</b> Căn cơ tạo hóa — Âm Dương / Ngũ Hành</summary>
+              <p class="ctl-nu-body">{{ selected.ngu_uan.am_duong_ngu_hanh }}</p>
+            </details>
 
-          <p v-if="selected.ngu_uan?.can_de_phat_huy" class="ctl-can">
-            ✦ Cần để phát huy: {{ selected.ngu_uan.can_de_phat_huy }}
-          </p>
+            <!-- LỚP 3 — Ngũ Uẩn tiến trình tâm (Sắc→Thọ→Tưởng→Hành→Thức) -->
+            <details class="ctl-nu-layer">
+              <summary><b>3.</b> Ngũ Uẩn — tiến trình tâm (Sắc→Thọ→Tưởng→Hành→Thức)</summary>
+              <dl class="ctl-uan ctl-nu-body">
+                <template v-for="key in UAN_KEYS" :key="key">
+                  <template v-if="uanOf(selected, key)">
+                    <dt>{{ UAN_LABELS[key] }}</dt>
+                    <dd>
+                      {{ uanOf(selected, key).mo_ta }}
+                      <span v-if="uanOf(selected, key).khi_manh" class="ctl-manh">
+                        ▲ Khi mạnh: {{ uanOf(selected, key).khi_manh }}</span>
+                      <span v-if="uanOf(selected, key).khi_lech" class="ctl-lech">
+                        ▽ Khi lệch: {{ uanOf(selected, key).khi_lech }}</span>
+                    </dd>
+                  </template>
+                </template>
+              </dl>
+            </details>
+
+            <!-- LỚP 4 — Khí vượng ↔ Khí suy -->
+            <details v-if="selected.ngu_uan.khi_vuong_suy || selected.sao_o_dau_thi" class="ctl-nu-layer">
+              <summary><b>4.</b> Khí vượng ↔ Khí suy</summary>
+              <div class="ctl-nu-body">
+                <p v-if="selected.ngu_uan.khi_vuong_suy" class="ctl-nu-kvs">{{ selected.ngu_uan.khi_vuong_suy }}</p>
+                <p v-if="selected.sao_o_dau_thi" class="ctl-odau">☞ {{ selected.sao_o_dau_thi }}</p>
+              </div>
+            </details>
+
+            <!-- LỚP 5 — Theo đời người -->
+            <details v-if="selected.ngu_uan.theo_doi_nguoi" class="ctl-nu-layer">
+              <summary><b>5.</b> Theo đời người</summary>
+              <div class="ctl-nu-body">
+                <template v-if="typeof selected.ngu_uan.theo_doi_nguoi === 'object'">
+                  <p v-for="(val, giai) in selected.ngu_uan.theo_doi_nguoi" :key="giai" class="ctl-nu-doinguoi">
+                    <span class="ctl-nu-lbl">{{ giai }}</span> {{ val }}
+                  </p>
+                </template>
+                <p v-else class="ctl-nu-doinguoi">{{ selected.ngu_uan.theo_doi_nguoi }}</p>
+              </div>
+            </details>
+
+            <!-- LỚP 6 — Khe tỉnh thức + Đường ra -->
+            <details v-if="selected.ngu_uan.khe_tinh_thuc || selected.ngu_uan.duong_ra || selected.ngu_uan.can_de_phat_huy" class="ctl-nu-layer">
+              <summary><b>6.</b> Khe tỉnh thức + Đường ra</summary>
+              <div class="ctl-nu-body">
+                <p v-if="selected.ngu_uan.khe_tinh_thuc" class="ctl-nu-khe">⟡ {{ selected.ngu_uan.khe_tinh_thuc }}</p>
+                <p v-if="selected.ngu_uan.duong_ra" class="ctl-nu-duongra-full">🚪 {{ selected.ngu_uan.duong_ra }}</p>
+                <p v-if="selected.ngu_uan.can_de_phat_huy" class="ctl-can">
+                  ✦ Cần để phát huy: {{ selected.ngu_uan.can_de_phat_huy }}
+                </p>
+              </div>
+            </details>
+          </div>
 
           <!-- Tích cực / tiêu cực cổ truyền -->
           <p v-if="selected.co_ban.tich_cuc" class="ctl-pos">✦ {{ selected.co_ban.tich_cuc }}</p>
@@ -315,12 +364,18 @@ function openOracle(card) {
             </span>
           </div>
 
-          <!-- Ẩn dụ + quotes gốc -->
-          <ul v-if="(selected.ngu_uan?.vi_du_an_du || []).length" class="ctl-andu">
-            <li v-for="(a, i) in selected.ngu_uan.vi_du_an_du" :key="i">🌿 {{ a }}</li>
-          </ul>
-          <blockquote v-for="(q, i) in (selected.ngu_uan?.quotes || []).slice(0, 3)" :key="'q' + i"
-            class="ctl-quote">“{{ q }}”</blockquote>
+          <!-- LỚP 7 — Ví dụ sống (ẩn dụ + quotes gốc) -->
+          <details v-if="(selected.ngu_uan?.vi_du_song || selected.ngu_uan?.vi_du_an_du || []).length || (selected.ngu_uan?.quotes || []).length"
+                   class="ctl-nu-layer">
+            <summary><b>7.</b> Ví dụ sống &amp; ẩn dụ</summary>
+            <div class="ctl-nu-body">
+              <ul v-if="(selected.ngu_uan.vi_du_song || selected.ngu_uan.vi_du_an_du || []).length" class="ctl-andu">
+                <li v-for="(a, i) in (selected.ngu_uan.vi_du_song || selected.ngu_uan.vi_du_an_du)" :key="i">🌿 {{ a }}</li>
+              </ul>
+              <blockquote v-for="(q, i) in (selected.ngu_uan.quotes || []).slice(0, 3)" :key="'q' + i"
+                class="ctl-quote">“{{ q }}”</blockquote>
+            </div>
+          </details>
         </article>
 
         <p v-if="paradigmNote" class="ctl-paradigm">{{ paradigmNote }}</p>
@@ -510,16 +565,78 @@ function openOracle(card) {
 }
 .ctl-dinh-vi { margin: 8px 0 4px 0; font-size: 13px; line-height: 1.6; color: var(--text-primary, rgba(230,238,245,0.92)); }
 .ctl-odau {
-  margin: 4px 0 8px 0; font-size: 12.5px; line-height: 1.55;
-  color: var(--text-primary, rgba(230,238,245,0.85));
-  border-left: 2px solid rgba(232, 201, 90, 0.4); padding-left: 8px;
+  margin: 4px 0 0 0; font-size: calc(12.5px * var(--reading-scale, 1)); line-height: 1.55;
+  color: var(--read-text, rgba(230,238,245,0.85));
+  border-left: 2px solid var(--read-rule, rgba(232, 201, 90, 0.4)); padding-left: 8px;
 }
-.ctl-uan { margin: 8px 0; }
-.ctl-uan dt { font-size: 11.5px; font-weight: 600; color: var(--accent-gold, #e8c95a); opacity: 0.85; margin-top: 7px; }
-.ctl-uan dd { margin: 2px 0 0 0; font-size: 12.5px; line-height: 1.6; color: var(--text-secondary, rgba(230,238,245,0.8)); }
+.ctl-uan { margin: 4px 0; }
+.ctl-uan dt { font-size: calc(11.5px * var(--reading-scale, 1)); font-weight: 600; color: var(--read-han, #e8c95a); opacity: 0.9; margin-top: 7px; }
+.ctl-uan dd { margin: 2px 0 0 0; font-size: calc(12.5px * var(--reading-scale, 1)); line-height: 1.6; color: var(--read-text-dim, rgba(230,238,245,0.8)); }
 .ctl-manh { display: block; margin-top: 3px; color: #88d39e; }
 .ctl-lech { display: block; margin-top: 2px; color: #f5b08c; }
-.ctl-can { margin: 8px 0 0 0; font-size: 12.5px; line-height: 1.55; color: var(--text-primary, rgba(230,238,245,0.88)); }
+.ctl-can { margin: 8px 0 0 0; font-size: 12.5px; line-height: 1.55; color: var(--read-text, rgba(230,238,245,0.88)); }
+
+/* ── ☸ Quán chiếu Ngũ Uẩn — TÁCH LỚP 8 lớp ── */
+.ctl-nu { margin: 10px 0 4px 0; }
+.ctl-nu-summary {
+  margin: 0 0 8px 0;
+  padding: 8px 10px;
+  background: var(--read-cite-bg, rgba(201, 161, 74, 0.10));
+  border-left: 2px solid var(--read-cite-accent, #d9b977);
+  border-radius: 4px;
+}
+.ctl-nu-goctham, .ctl-nu-duongra {
+  margin: 0;
+  font-size: calc(12.5px * var(--reading-scale, 1));
+  line-height: 1.55;
+  color: var(--read-text, rgba(230, 238, 245, 0.9));
+}
+.ctl-nu-duongra { margin-top: 5px; }
+.ctl-nu-lbl {
+  display: inline-block;
+  font-size: calc(10.5px * var(--reading-scale, 1));
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--read-han, #d9b977);
+  margin-right: 6px;
+}
+.ctl-nu-lbl-out { color: var(--read-note-accent, #a9c8a0); }
+.ctl-nu-layer {
+  margin: 5px 0;
+  border: 1px solid var(--read-border, rgba(232, 201, 90, 0.18));
+  border-radius: 5px;
+  background: var(--read-surface, rgba(0, 0, 0, 0.12));
+}
+.ctl-nu-layer > summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 7px 10px;
+  font-size: calc(12px * var(--reading-scale, 1));
+  font-weight: 600;
+  color: var(--read-heading, #f3e6c8);
+  user-select: none;
+}
+.ctl-nu-layer > summary::-webkit-details-marker { display: none; }
+.ctl-nu-layer > summary::after {
+  content: "▼";
+  float: right;
+  font-size: 9px;
+  opacity: 0.5;
+  transition: transform 0.15s ease;
+}
+.ctl-nu-layer[open] > summary::after { transform: rotate(180deg); }
+.ctl-nu-layer > summary b { color: var(--read-han, #d9b977); margin-right: 4px; }
+.ctl-nu-layer > summary:hover { background: var(--read-cite-bg, rgba(201, 161, 74, 0.08)); }
+.ctl-nu-body { padding: 2px 10px 9px 10px; }
+.ctl-nu-kvs, .ctl-nu-doinguoi, .ctl-nu-khe, .ctl-nu-duongra-full {
+  margin: 3px 0 0 0;
+  font-size: calc(12.5px * var(--reading-scale, 1));
+  line-height: 1.6;
+  color: var(--read-text-dim, rgba(230, 238, 245, 0.8));
+}
+.ctl-nu-doinguoi .ctl-nu-lbl { color: var(--read-note-accent, #a9c8a0); }
+
 .ctl-pos { margin: 6px 0 0 0; font-size: 12px; color: #88d39e; line-height: 1.5; }
 .ctl-neg { margin: 3px 0 0 0; font-size: 12px; color: #f5b08c; line-height: 1.5; }
 .ctl-mh { margin: 10px 0 0 0; display: flex; flex-wrap: wrap; gap: 5px; align-items: center; }
@@ -531,14 +648,14 @@ function openOracle(card) {
 .ctl-mh-chip.lv-thuan { border-color: rgba(90,176,122,0.5); color: #88d39e; }
 .ctl-mh-chip.lv-kha { border-color: rgba(192,168,120,0.55); color: #d9c08e; }
 .ctl-mh-chip.lv-kho { border-color: rgba(214,90,74,0.5); color: #f5a08c; }
-.ctl-andu { margin: 10px 0 0 0; padding-left: 4px; list-style: none; }
-.ctl-andu li { font-size: 12px; line-height: 1.55; color: var(--text-secondary, rgba(230,238,245,0.75)); }
+.ctl-andu { margin: 4px 0 0 0; padding-left: 4px; list-style: none; }
+.ctl-andu li { font-size: calc(12px * var(--reading-scale, 1)); line-height: 1.55; color: var(--read-text-dim, rgba(230,238,245,0.75)); }
 .ctl-quote {
   margin: 8px 0 0 0; padding: 6px 10px;
-  border-left: 2px solid rgba(232, 201, 90, 0.45);
-  background: rgba(232, 201, 90, 0.04);
-  font-size: 12px; font-style: italic; line-height: 1.55;
-  color: var(--text-primary, rgba(230,238,245,0.85));
+  border-left: 2px solid var(--read-cite-accent, rgba(232, 201, 90, 0.45));
+  background: var(--read-cite-bg, rgba(232, 201, 90, 0.04));
+  font-size: calc(12px * var(--reading-scale, 1)); font-style: italic; line-height: 1.55;
+  color: var(--read-text, rgba(230,238,245,0.85));
 }
 .ctl-paradigm {
   margin: 12px 0 0 0; font-size: 11.5px; font-style: italic;

@@ -644,6 +644,14 @@ async function loadCaseStudies() {
   }
 }
 
+// ☸ Ngũ Uẩn — chọn 1 dòng "đường ra" cho phần tóm gọn (v3 duong_ra → fallback v2)
+function nuDuongRa(nu) {
+  if (!nu) return "";
+  if (nu.duong_ra) return nu.duong_ra;
+  if ((nu.can_de_phat_huy || []).length) return nu.can_de_phat_huy.join(" ");
+  return nu.nhac_paradigm || "";
+}
+
 function formatSolarDateTime(iso) {
   if (!iso) return "";
   const [d, t] = iso.split("T");
@@ -1402,29 +1410,84 @@ const grid = computed(() => {
                 </p>
               </div>
             </div>
-            <!-- ☸ Quán chiếu Ngũ Uẩn — trường phái Tử Vi Bôn Ba (hiện đại VN) -->
+            <!-- ☸ Quán chiếu Ngũ Uẩn — TÁCH LỚP (v3 8 lớp): tóm gọn nổi, chi tiết bung -->
             <div v-if="expandedPalace === r.palace_name && r.ngu_uan" class="ngu-uan-block" @click.stop>
               <h6 class="nu-title">☸ Quán chiếu Ngũ Uẩn <small>{{ r.ngu_uan.school }}</small></h6>
-              <p v-if="r.ngu_uan.boi_canh" class="nu-boicanh">{{ r.ngu_uan.boi_canh }}</p>
-              <div v-for="sv in r.ngu_uan.sao_dinh_vi" :key="sv.sao" class="nu-sao">
-                <span class="nu-sao-name">{{ sv.sao }}</span>
-                <span v-if="sv.tom_gon && sv.tom_gon.length" class="nu-tomgon">{{ sv.tom_gon.join(' · ') }}</span>
-                <span v-if="sv.mieu_ham" class="nu-mieuham">thế {{ sv.mieu_ham }} — độ khó bài học</span>
-                <p v-if="sv.dinh_vi" class="nu-dinhvi">{{ sv.dinh_vi }}</p>
-                <p v-if="sv.o_dau_thi" class="nu-odauthi">{{ sv.o_dau_thi }}</p>
+
+              <!-- TÓM GỌN (mặc định hiện): Gốc Tham + 1 dòng đường ra -->
+              <div class="nu-summary">
+                <p v-if="r.ngu_uan.goc_tham || r.ngu_uan.boi_canh" class="nu-goctham">
+                  <span class="nu-lbl">Gốc tham</span>
+                  {{ r.ngu_uan.goc_tham || r.ngu_uan.boi_canh }}
+                </p>
+                <p v-if="nuDuongRa(r.ngu_uan)" class="nu-duongra">
+                  <span class="nu-lbl nu-lbl-out">Đường ra</span>
+                  {{ nuDuongRa(r.ngu_uan) }}
+                </p>
               </div>
-              <dl class="nu-uan-list">
-                <template v-for="u in r.ngu_uan.ngu_uan" :key="u.key">
-                  <dt>{{ u.label }}</dt>
-                  <dd>{{ u.text }}</dd>
-                </template>
-              </dl>
-              <p v-if="r.ngu_uan.thuan" class="nu-thuan">▲ Khi cấu trúc thuận: {{ r.ngu_uan.thuan }}</p>
-              <p v-if="r.ngu_uan.lech" class="nu-lech">▽ Khi bị lệch: {{ r.ngu_uan.lech }}</p>
-              <p v-for="(hn, hi) in (r.ngu_uan.hoa_notes || [])" :key="'hn' + hi" class="nu-hoa">✺ {{ hn }}</p>
-              <p v-if="r.ngu_uan.can_de_phat_huy && r.ngu_uan.can_de_phat_huy.length" class="nu-can">
-                ✦ Cần để phát huy: {{ r.ngu_uan.can_de_phat_huy.join(' ') }}
-              </p>
+
+              <!-- LỚP 1 — Căn cơ Âm Dương / Ngũ Hành -->
+              <details v-if="r.ngu_uan.am_duong_ngu_hanh" class="nu-layer">
+                <summary><b>1.</b> Căn cơ tạo hóa — Âm Dương / Ngũ Hành</summary>
+                <p class="nu-layer-body">{{ r.ngu_uan.am_duong_ngu_hanh }}</p>
+              </details>
+
+              <!-- LỚP 3 — Ngũ Uẩn tiến trình tâm (Sắc→Thọ→Tưởng→Hành→Thức) -->
+              <details v-if="(r.ngu_uan.ngu_uan || []).length" class="nu-layer">
+                <summary><b>3.</b> Ngũ Uẩn — tiến trình tâm (Sắc→Thọ→Tưởng→Hành→Thức)</summary>
+                <div class="nu-layer-body">
+                  <dl class="nu-uan-list">
+                    <template v-for="u in r.ngu_uan.ngu_uan" :key="u.key">
+                      <dt>{{ u.label }}</dt>
+                      <dd>{{ u.text }}</dd>
+                    </template>
+                  </dl>
+                  <p v-if="r.ngu_uan.thuan" class="nu-thuan">▲ Khi cấu trúc thuận: {{ r.ngu_uan.thuan }}</p>
+                  <p v-if="r.ngu_uan.lech" class="nu-lech">▽ Khi bị lệch: {{ r.ngu_uan.lech }}</p>
+                  <p v-for="(hn, hi) in (r.ngu_uan.hoa_notes || [])" :key="'hn' + hi" class="nu-hoa">✺ {{ hn }}</p>
+                </div>
+              </details>
+
+              <!-- LỚP 4 — Khí vượng ↔ Khí suy (miếu/vượng ↔ hãm) -->
+              <details v-if="r.ngu_uan.khi_vuong_suy || (r.ngu_uan.sao_dinh_vi || []).length" class="nu-layer">
+                <summary><b>4.</b> Khí vượng ↔ Khí suy</summary>
+                <div class="nu-layer-body">
+                  <p v-if="r.ngu_uan.khi_vuong_suy" class="nu-kvs">{{ r.ngu_uan.khi_vuong_suy }}</p>
+                  <div v-for="sv in (r.ngu_uan.sao_dinh_vi || [])" :key="sv.sao" class="nu-sao">
+                    <span class="nu-sao-name">{{ sv.sao }}</span>
+                    <span v-if="sv.tom_gon && sv.tom_gon.length" class="nu-tomgon">{{ sv.tom_gon.join(' · ') }}</span>
+                    <span v-if="sv.mieu_ham" class="nu-mieuham">thế {{ sv.mieu_ham }} — độ khó bài học</span>
+                    <p v-if="sv.dinh_vi" class="nu-dinhvi">{{ sv.dinh_vi }}</p>
+                    <p v-if="sv.o_dau_thi" class="nu-odauthi">{{ sv.o_dau_thi }}</p>
+                  </div>
+                </div>
+              </details>
+
+              <!-- LỚP 5 — Theo đời người (nhỏ · thiếu niên · trung niên · về già) -->
+              <details v-if="r.ngu_uan.theo_doi_nguoi" class="nu-layer">
+                <summary><b>5.</b> Theo đời người</summary>
+                <div class="nu-layer-body">
+                  <template v-if="typeof r.ngu_uan.theo_doi_nguoi === 'object'">
+                    <p v-for="(val, giai) in r.ngu_uan.theo_doi_nguoi" :key="giai" class="nu-doinguoi">
+                      <span class="nu-lbl">{{ giai }}</span> {{ val }}
+                    </p>
+                  </template>
+                  <p v-else class="nu-doinguoi">{{ r.ngu_uan.theo_doi_nguoi }}</p>
+                </div>
+              </details>
+
+              <!-- LỚP 6 — Khe tỉnh thức + Đường ra -->
+              <details v-if="r.ngu_uan.khe_tinh_thuc || r.ngu_uan.duong_ra || (r.ngu_uan.can_de_phat_huy || []).length" class="nu-layer">
+                <summary><b>6.</b> Khe tỉnh thức + Đường ra</summary>
+                <div class="nu-layer-body">
+                  <p v-if="r.ngu_uan.khe_tinh_thuc" class="nu-khe">⟡ {{ r.ngu_uan.khe_tinh_thuc }}</p>
+                  <p v-if="r.ngu_uan.duong_ra" class="nu-duongra-full">🚪 {{ r.ngu_uan.duong_ra }}</p>
+                  <p v-if="(r.ngu_uan.can_de_phat_huy || []).length" class="nu-can">
+                    ✦ Cần để phát huy: {{ r.ngu_uan.can_de_phat_huy.join(' ') }}
+                  </p>
+                </div>
+              </details>
+
               <p v-if="r.ngu_uan.cau_hoi_tu_soi" class="nu-cauhoi">Tự soi: {{ r.ngu_uan.cau_hoi_tu_soi }}</p>
               <p class="nu-nhac">{{ r.ngu_uan.nhac_paradigm }}</p>
             </div>
@@ -2266,80 +2329,137 @@ const grid = computed(() => {
 }
 .nh-hoagiai b { color: var(--text-primary, rgba(230, 238, 245, 0.95)); }
 .nh-hg-mota { display: block; margin-top: 2px; font-size: 11px; opacity: 0.8; }
-/* ── ☸ Khối Quán chiếu Ngũ Uẩn (Tử Vi Bôn Ba) ── */
+/* ── ☸ Khối Quán chiếu Ngũ Uẩn (Tử Vi Bôn Ba) — TÁCH LỚP 8 lớp ── */
 .ngu-uan-block {
   margin-top: 10px;
   padding: 10px 12px;
-  background: rgba(0, 0, 0, 0.22);
-  border: 1px solid rgba(232, 201, 90, 0.18);
+  background: var(--read-bg-soft, rgba(0, 0, 0, 0.22));
+  border: 1px solid var(--read-border, rgba(232, 201, 90, 0.18));
   border-radius: 6px;
   cursor: default;
+  color: var(--read-text, rgba(230, 238, 245, 0.9));
 }
 .nu-title {
-  margin: 0 0 6px 0;
-  font-size: 12.5px;
-  color: var(--accent-gold, #e8c95a);
+  margin: 0 0 8px 0;
+  font-size: calc(12.5px * var(--reading-scale, 1));
+  color: var(--read-han, #e8c95a);
   letter-spacing: 0.02em;
 }
 .nu-title small {
   font-weight: 400;
-  color: var(--text-secondary, rgba(230, 238, 245, 0.55));
+  color: var(--read-text-faint, rgba(230, 238, 245, 0.55));
   margin-left: 6px;
 }
-.nu-boicanh {
-  margin: 0 0 6px 0;
-  font-size: 12.5px;
-  line-height: 1.55;
-  color: var(--text-primary, rgba(230, 238, 245, 0.9));
+
+/* TÓM GỌN — nổi bật, luôn hiện (gốc tham + 1 dòng đường ra) */
+.nu-summary {
+  margin: 0 0 8px 0;
+  padding: 8px 10px;
+  background: var(--read-cite-bg, rgba(201, 161, 74, 0.10));
+  border-left: 2px solid var(--read-cite-accent, #d9b977);
+  border-radius: 4px;
 }
-.nu-sao { margin: 4px 0 6px 0; font-size: 12px; line-height: 1.5; }
-.nu-sao-name { font-weight: 600; color: var(--accent-gold, #e8c95a); margin-right: 6px; }
-.nu-tomgon { color: var(--text-secondary, rgba(230, 238, 245, 0.7)); font-style: italic; margin-right: 6px; }
+.nu-goctham, .nu-duongra {
+  margin: 0;
+  font-size: calc(12.5px * var(--reading-scale, 1));
+  line-height: 1.55;
+  color: var(--read-text, rgba(230, 238, 245, 0.9));
+}
+.nu-duongra { margin-top: 5px; }
+.nu-lbl {
+  display: inline-block;
+  font-size: calc(10.5px * var(--reading-scale, 1));
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--read-han, #d9b977);
+  margin-right: 6px;
+}
+.nu-lbl-out { color: var(--read-note-accent, #a9c8a0); }
+
+/* LỚP bung — <details> */
+.nu-layer {
+  margin: 5px 0;
+  border: 1px solid var(--read-border, rgba(232, 201, 90, 0.18));
+  border-radius: 5px;
+  background: var(--read-surface, rgba(0, 0, 0, 0.12));
+}
+.nu-layer > summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 7px 10px;
+  font-size: calc(12px * var(--reading-scale, 1));
+  font-weight: 600;
+  color: var(--read-heading, #f3e6c8);
+  user-select: none;
+}
+.nu-layer > summary::-webkit-details-marker { display: none; }
+.nu-layer > summary::after {
+  content: "▼";
+  float: right;
+  font-size: 9px;
+  opacity: 0.5;
+  transition: transform 0.15s ease;
+}
+.nu-layer[open] > summary::after { transform: rotate(180deg); }
+.nu-layer > summary b { color: var(--read-han, #d9b977); margin-right: 4px; }
+.nu-layer > summary:hover { background: var(--read-cite-bg, rgba(201, 161, 74, 0.08)); }
+.nu-layer-body {
+  padding: 2px 10px 9px 10px;
+  font-size: calc(12.5px * var(--reading-scale, 1));
+  line-height: 1.6;
+  color: var(--read-text-dim, rgba(230, 238, 245, 0.8));
+}
+
+.nu-sao { margin: 4px 0 6px 0; font-size: calc(12px * var(--reading-scale, 1)); line-height: 1.5; }
+.nu-sao-name { font-weight: 600; color: var(--read-han, #e8c95a); margin-right: 6px; }
+.nu-tomgon { color: var(--read-text-dim, rgba(230, 238, 245, 0.7)); font-style: italic; margin-right: 6px; }
 .nu-mieuham {
-  font-size: 11px;
+  font-size: calc(11px * var(--reading-scale, 1));
   padding: 1px 6px;
   border-radius: 999px;
-  background: rgba(232, 201, 90, 0.1);
-  color: var(--text-secondary, rgba(230, 238, 245, 0.75));
+  background: var(--read-cite-bg, rgba(232, 201, 90, 0.1));
+  color: var(--read-text-dim, rgba(230, 238, 245, 0.75));
 }
-.nu-dinhvi, .nu-odauthi {
+.nu-dinhvi, .nu-odauthi, .nu-kvs, .nu-doinguoi, .nu-khe, .nu-duongra-full {
   margin: 3px 0 0 0;
-  color: var(--text-secondary, rgba(230, 238, 245, 0.78));
+  color: var(--read-text-dim, rgba(230, 238, 245, 0.78));
 }
-.nu-uan-list { margin: 8px 0 6px 0; }
+.nu-doinguoi .nu-lbl { color: var(--read-note-accent, #a9c8a0); }
+.nu-uan-list { margin: 4px 0 6px 0; }
 .nu-uan-list dt {
-  font-size: 11.5px;
+  font-size: calc(11.5px * var(--reading-scale, 1));
   font-weight: 600;
-  color: var(--accent-gold, #e8c95a);
-  opacity: 0.85;
+  color: var(--read-han, #e8c95a);
+  opacity: 0.9;
   margin-top: 6px;
 }
 .nu-uan-list dd {
   margin: 2px 0 0 0;
-  font-size: 12.5px;
+  font-size: calc(12.5px * var(--reading-scale, 1));
   line-height: 1.6;
-  color: var(--text-secondary, rgba(230, 238, 245, 0.8));
+  color: var(--read-text-dim, rgba(230, 238, 245, 0.8));
 }
-.nu-thuan { color: #88d39e; }
+.nu-thuan { color: var(--read-note-accent, #88d39e); }
 .nu-lech { color: #f5b08c; }
 .nu-thuan, .nu-lech, .nu-hoa, .nu-can, .nu-cauhoi {
   margin: 5px 0 0 0;
-  font-size: 12px;
+  font-size: calc(12px * var(--reading-scale, 1));
   line-height: 1.55;
 }
-.nu-hoa { color: var(--text-secondary, rgba(230, 238, 245, 0.75)); }
-.nu-can { color: var(--text-primary, rgba(230, 238, 245, 0.88)); }
+.nu-hoa { color: var(--read-text-dim, rgba(230, 238, 245, 0.75)); }
+.nu-can { color: var(--read-text, rgba(230, 238, 245, 0.88)); }
 .nu-cauhoi {
   font-style: italic;
-  color: var(--text-primary, rgba(230, 238, 245, 0.85));
-  border-left: 2px solid rgba(232, 201, 90, 0.4);
+  color: var(--read-text, rgba(230, 238, 245, 0.85));
+  border-left: 2px solid var(--read-rule, rgba(232, 201, 90, 0.4));
   padding-left: 8px;
 }
 .nu-nhac {
   margin: 8px 0 0 0;
-  font-size: 11.5px;
+  font-size: calc(11.5px * var(--reading-scale, 1));
   font-style: italic;
-  color: var(--text-secondary, rgba(230, 238, 245, 0.55));
+  color: var(--read-text-faint, rgba(230, 238, 245, 0.55));
 }
 .interp-stardetails {
   margin-top: 8px;
