@@ -1,0 +1,762 @@
+[
+ {
+  "rel_id": 565,
+  "type": "định-bằng",
+  "from": {
+   "vi": "Bước 5: Ngày ứng nghiệm",
+   "hv": "應日 Ứng Nhật — Ứng 應 = ứng nghiệm; Nhật 日 = ngày. 'Ngày sự việc ứng nghiệm'.",
+   "tv": "Bước 5: định khi nào việc xảy ra. Mai Hoa căn theo ngũ hành quẻ ứng với ngày/can-chi, và theo tư thế người gieo lúc đó (ngồi=chậm, đi=vừa, chạy=nhanh, nằm=rất chậm) để đoán nhanh hay lâu mới ứng.",
+   "cat": null,
+   "school": "mai_hoa"
+  },
+  "to": {
+   "vi": "Thập nhị địa chi",
+   "hv": "十二地支 — Thập nhị 十二 = mười hai; Địa 地 = đất; Chi 支 = chi. 'Mười hai chi đất': Tý Sửu Dần Mão Thìn Tỵ Ngọ Mùi Thân Dậu Tuất Hợi.",
+   "tv": "Mười hai 'chi' của đất — bộ đếm thời gian/phương vị (12 con giáp, 12 giờ, 12 tháng). Đây chính là Địa Chi.",
+   "cat": null,
+   "school": "mai_hoa"
+  },
+  "note": "Ngày ứng nghiệm suy theo Địa Chi (can-chi) ứng với ngũ hành của quẻ."
+ },
+ {
+  "rel_id": 4260,
+  "type": "ứng-dụng-của",
+  "from": {
+   "vi": "Ngũ hành cung vị",
+   "hv": "Ngũ hành cung vị 五行宮位 — Ngũ hành 五行 = Kim Mộc Thủy Hỏa Thổ; Cung vị 宮位 = vị trí 12 cung. 'Ngũ hành của cung' = hành của từng cung định vinh khô.",
+   "tv": "Mỗi cung trong 12 cung mang một hành; tương sinh/khắc giữa hành cung và hành sao đóng tại đó quyết định vinh-khô (thịnh hay tàn) của một đời.",
+   "cat": "cung",
+   "school": "tu_vi"
+  },
+  "to": {
+   "vi": "Ngũ Hành",
+   "hv": "Ngũ Hành 五行 — Ngũ 五 = năm, Hành 行 = vận hành/đi. Năm-dòng-vận-động: Kim, Mộc, Thủy, Hỏa, Thổ.",
+   "tv": "Năm mô hình khí luân chuyển làm nên vạn vật, sinh và khắc nhau theo vòng — không phải 5 chất tĩnh mà 5 KIỂU vận động (quan sát qua 5 hành tinh + mùa + phương).",
+   "cat": "ngu_hanh",
+   "school": "mai_hoa"
+  },
+  "note": "Đây là Ngũ Hành áp vào hệ 12 cung Tử Vi — nối thẳng về nút gốc Ngũ Hành."
+ },
+ {
+  "rel_id": 5539,
+  "type": "trái-nghĩa",
+  "from": {
+   "vi": "Hạ cục",
+   "hv": "Hạ cục 下局 — Hạ 下 = thấp, dưới; Cục 局 = thế cờ, cách cục. 'Cục thấp' = cách cục xấu.",
+   "tv": "Cách cục xấu nhất — chủ nghèo hèn, bệnh tật, chết yểu. Bậc đáy của thang phân hạng cách cục.",
+   "cat": "thể loại",
+   "school": "tu_vi"
+  },
+  "to": {
+   "vi": "Thượng cục",
+   "hv": "Thượng cục 上局 — Thượng 上 = cao, trên; Cục 局 = cách cục. 'Cục cao' = cách cục tốt nhất.",
+   "tv": "Cách cục tốt nhất — chủ phú quý vinh hoa, công danh hiển đạt. Bậc đỉnh của thang phân hạng cách cục.",
+   "cat": "thể loại",
+   "school": "tu_vi"
+  },
+  "note": "Hạ cục đối cực với Thượng cục — đáy vs đỉnh của thang phân hạng cách cục."
+ },
+ {
+  "rel_id": 7390,
+  "type": "thao-tác-trên",
+  "from": {
+   "vi": "Tăng tăng giảm tự lý",
+   "hv": "增增減字理 'Tăng Tăng Giảm Tự Lý' — Tăng 增 = thêm; Giảm 減 = bớt; Tự 字 = chữ; Lý 理 = lẽ/phép. 'Phép thêm-bớt nét chữ'.",
+   "tv": "Phép suy luận bằng cách tăng hoặc giảm số nét của chữ để lấy ra quẻ, rồi xét cát hung — một kỹ thuật biến hóa khi chiết tự đoán chữ.",
+   "cat": "khác",
+   "school": "mai_hoa"
+  },
+  "to": {
+   "vi": "Nét chữ",
+   "hv": "Bút họa 笔画 — Bút 笔 = nét bút; Họa 画 = nét gạch. 'Các nét cấu thành chữ Hán'.",
+   "tv": "Những nét tạo nên chữ. Thừa hay thiếu nét, dài hay ngắn, đậm hay nhạt — mọi sai khác của nét đều có ý nghĩa khi bói chữ.",
+   "cat": null,
+   "school": "mai_hoa"
+  },
+  "note": "thao tác tăng/giảm số nét chữ"
+ },
+ {
+  "rel_id": 961,
+  "type": "đối-cặp-với",
+  "from": {
+   "vi": "Thiếu Âm",
+   "hv": "Thiếu Âm 少陰 — Thiếu 少 = non; Âm 陰 = tối. Âm còn non, đang lên.",
+   "tv": "Một trong bốn tượng: âm mới chớm tăng — ứng phương Tây, linh vật Bạch Hổ. Như buổi chiều, bóng tối bắt đầu dày lên.",
+   "cat": null,
+   "school": "mai_hoa"
+  },
+  "to": {
+   "vi": "Thiếu Dương",
+   "hv": "Thiếu Dương 少陽 — Thiếu 少 = ít/non; Dương 陽 = sáng. Dương còn non, đang lên.",
+   "tv": "Một trong bốn tượng: dương mới chớm tăng — ứng phương Đông, linh vật Thanh Long. Như buổi sáng sớm, sức dương đang nhú lên.",
+   "cat": null,
+   "school": "mai_hoa"
+  },
+  "note": "Thiếu Âm đối Thiếu Dương"
+ },
+ {
+  "rel_id": 1462,
+  "type": "có-lợi-cho",
+  "from": {
+   "vi": "Nghi Thần",
+   "hv": "宜神 — Nghi 宜 = nên, thích hợp; Thần 神 = thần. 'Thần có lợi cho một Lục Thân'.",
+   "tv": "Trong tướng chữ, Nghi Thần là thần/nét có lợi cho một quan hệ Lục Thân nào đó (cha, mẹ, vợ, con...), xét theo sinh khắc. Nét hợp Nghi Thần thì việc liên quan người đó thuận.",
+   "cat": null,
+   "school": "mai_hoa"
+  },
+  "to": {
+   "vi": "Lục thân",
+   "hv": "六親 — Lục 六 = sáu; Thân 親 = người thân. 'Sáu hạng thân thuộc' (phụ mẫu, huynh đệ, tử tôn, thê tài, quan quỷ + bản thân).",
+   "tv": "Sáu vai an vào quẻ theo quan hệ sinh-khắc Ngũ Hành (cha mẹ, anh em, con cháu, vợ-của-cải, quan-quỷ). Dùng để đọc việc liên quan ai/cái gì. Khác với Lục thần (6 con vật thần).",
+   "cat": null,
+   "school": "mai_hoa+tu_vi"
+  },
+  "note": "Nghi Thần xét lợi-hại theo từng Lục thân (17)."
+ },
+ {
+  "rel_id": 2018,
+  "type": "truyền",
+  "from": {
+   "vi": "Trần Đoàn",
+   "hv": "Trần Đoàn 陈抟 — họ Trần 陈, tên Đoàn 抟 (đạo sĩ, hiệu Hi Di tiên sinh / Phù Dao Tử). Tên người.",
+   "tv": "Đạo sĩ nổi tiếng đời Ngũ Đại - Bắc Tống, người truyền các đồ hình Tiên Thiên (Thái Cực Đồ, Tiên Thiên Bát Quái) — được coi là sư phụ gốc của dòng tượng số học mà Thiệu Ung kế thừa.",
+   "cat": null,
+   "school": "mai_hoa"
+  },
+  "to": {
+   "vi": "Thái Cực Đồ",
+   "hv": "Thái Cực Đồ 太極圖 — Đồ 圖 = hình vẽ. Hình vẽ diễn cái Thái Cực (vòng âm-dương ôm nhau).",
+   "tv": "Bức tranh vòng tròn âm-dương quấn lấy nhau, tương truyền Trần Đoàn vẽ, cho thấy âm và dương là một thể thống nhất, trong âm có dương trong dương có âm.",
+   "cat": null,
+   "school": "mai_hoa"
+  },
+  "note": "Trần Đoàn được coi là người truyền Thái Cực Đồ (3838)."
+ },
+ {
+  "rel_id": 4847,
+  "type": "xung-với",
+  "from": {
+   "vi": "Mão cung",
+   "hv": "Mão cung 卯宮 — Mão 卯 = chi thứ tư (thỏ); Cung 宮 = cung vị. Cung an tại địa chi Mão.",
+   "tv": "Vị trí cung trên địa bàn ứng với chi Mão (hướng chính Đông, hành Mộc). Một trong 12 cung địa chi để an sao.",
+   "cat": "cung",
+   "school": "tu_vi"
+  },
+  "to": {
+   "vi": "Dậu cung",
+   "hv": "Dậu cung 酉宮 — Dậu 酉 = chi thứ mười (gà); Cung 宮 = cung vị. Cung an tại địa chi Dậu.",
+   "tv": "Vị trí cung ứng với chi Dậu (hướng chính Tây, hành Kim). Một trong 12 cung địa chi.",
+   "cat": "cung",
+   "school": "tu_vi"
+  },
+  "note": "Mão và Dậu là cặp xung đối (trục Mão-Dậu) trên địa bàn."
+ },
+ {
+  "rel_id": 4288,
+  "type": "tạo-cách",
+  "from": {
+   "vi": "Tam Hóa",
+   "hv": "Tam Hóa 三化 — Tam 三 = ba; Hóa 化 = hóa tinh. 'Ba hóa cát' = Hóa Lộc + Hóa Quyền + Hóa Khoa (không kể Kỵ).",
+   "tv": "Bộ ba hóa tinh tốt: Lộc (tài) + Quyền (quyền) + Khoa (danh) — ba cái may. Là phần cát của Tứ Hóa (bỏ Hóa Kỵ).",
+   "cat": "hóa",
+   "school": "tu_vi"
+  },
+  "to": {
+   "vi": "Tam Hóa Liên Châu",
+   "hv": "Tam Hóa Liên Châu 三化連珠 — Tam Hóa 三化 = Lộc Quyền Khoa; Liên Châu 連珠 = chuỗi ngọc nối liền. 'Ba hóa xâu ngọc' = ba cát hóa tụ tam phương tứ chính.",
+   "tv": "Cách quý: Hóa Lộc + Hóa Quyền + Hóa Khoa cùng chiếu về tam phương tứ chính như chuỗi ngọc — chủ phú quý song toàn, công danh hanh thông.",
+   "cat": "biến cách",
+   "school": "tu_vi"
+  },
+  "note": "Tam Hóa tụ tam phương tứ chính thành cách Tam Hóa Liên Châu."
+ },
+ {
+  "rel_id": 551,
+  "type": "nguồn-từ",
+  "from": {
+   "vi": "Bước 2: Lời quẻ + hào",
+   "hv": "卦辭爻辭 Quái Từ Hào Từ — Quái Từ 卦辭 = lời quẻ; Hào Từ 爻辭 = lời hào. 'Lời quẻ và lời hào (của Chu Dịch)'.",
+   "tv": "Bước 2: lấy quẻ vừa lập đem đối chiếu lời 64 quẻ và 384 hào trong Chu Dịch để xem cát-hung, lời dạy. Đây là chỗ Mai Hoa cắm rễ vào Kinh Dịch — quẻ không tự nói, phải mượn lời thánh nhân.",
+   "cat": null,
+   "school": "mai_hoa"
+  },
+  "to": {
+   "vi": "Chu Văn Vương",
+   "hv": "周文王 — Chu Văn Vương. Chu 周 = nhà Chu; Văn Vương 文王 = vua Văn. Vị vua sáng nhà Chu.",
+   "tv": "Vua nhà Chu, khi bị vua Trụ giam ở ngục Dữu Lý đã sắp lại Hậu Thiên Bát Quái và soạn lời cho 64 quẻ Chu Dịch. Người đặt nền cho Dịch học thành văn.",
+   "cat": null,
+   "school": "mai_hoa"
+  },
+  "note": "Lời quẻ tương truyền do Chu Văn Vương soạn (Chu Dịch) — nguồn của bước này."
+ },
+ {
+  "rel_id": 5482,
+  "type": "đồng-nghĩa-cụm",
+  "from": {
+   "vi": "nhị sát",
+   "hv": "Nhị sát 二煞 — Nhị 二 = hai; Sát 煞 = sát tinh hung họa. 'Hai sao sát'.",
+   "tv": "Chỉ hai sát tinh đi cặp: thường là Kình Dương + Đà La, hoặc Hỏa Tinh + Linh Tinh. Cụm con của lục sát.",
+   "cat": "thể loại",
+   "school": "tu_vi"
+  },
+  "to": {
+   "vi": "Hỏa Linh",
+   "hv": "Hỏa 火 = lửa; Linh 鈴 = chuông nhỏ. Hỏa Linh = gọi gộp Hỏa Tinh và Linh Tinh, hai sát tinh hành Hỏa.",
+   "tv": "Tên gọi gộp cặp Hỏa Tinh + Linh Tinh — hai hung tinh nóng nảy, đột phát, chủ tai họa bất ngờ, hỏa hoạn, tính nóng. Nằm trong lục sát.",
+   "cat": "sao",
+   "school": "tu_vi"
+  },
+  "note": "Cặp Hỏa–Linh chính là 'Hỏa Linh' (5059) — nghĩa còn lại của nhị sát."
+ },
+ {
+  "rel_id": 2015,
+  "type": "truyền-từ",
+  "from": {
+   "vi": "Tượng Số Tiên Thiên",
+   "hv": "Tiên thiên tượng số 先天象数 — Tiên thiên 先天 = trước trời (bẩm sinh, có sẵn trước hiện tượng); Tượng 象 = hình tượng; Số 数 = con số. Học thuyết tượng-số bẩm-nguyên.",
+   "tv": "Học thuyết cốt lõi của Thiệu Ung: Số, Tượng, Khí đều do Thái Cực sinh ra theo trật tự 'tiên thiên' (có sẵn trong cấu trúc vũ trụ), dùng để giải thích cách trời đất vận hành.",
+   "cat": null,
+   "school": "mai_hoa"
+  },
+  "to": {
+   "vi": "Trần Đoàn",
+   "hv": "Trần Đoàn 陈抟 — họ Trần 陈, tên Đoàn 抟 (đạo sĩ, hiệu Hi Di tiên sinh / Phù Dao Tử). Tên người.",
+   "tv": "Đạo sĩ nổi tiếng đời Ngũ Đại - Bắc Tống, người truyền các đồ hình Tiên Thiên (Thái Cực Đồ, Tiên Thiên Bát Quái) — được coi là sư phụ gốc của dòng tượng số học mà Thiệu Ung kế thừa.",
+   "cat": null,
+   "school": "mai_hoa"
+  },
+  "note": "Đồ hình tiên thiên gốc do Trần Đoàn (4271) truyền cho Thiệu Ung."
+ },
+ {
+  "rel_id": 7261,
+  "type": "đồng-môn-với",
+  "from": {
+   "vi": "Tượng quái",
+   "hv": "Tượng quái 象卦 — Tượng 象 = hình tượng; Quái 卦 = quẻ. Hình tượng của quẻ dùng để suy diễn.",
+   "tv": "Lấy hình tượng mà quẻ gợi ra (Càn = trời/cha/vàng, Khảm = nước/hiểm...) để suy diễn sự vật cụ thể. Cốt lõi của 'quan tượng' Mai Hoa.",
+   "cat": "khái niệm",
+   "school": "mai_hoa"
+  },
+  "to": {
+   "vi": "Chiết tự",
+   "hv": "Chiết tự 拆字 — Chiết 拆 = tách, mở ra; Tự 字 = chữ. Tách chữ Hán ra các bộ phận để đoán.",
+   "tv": "Phép đoán mệnh bằng cách tách chữ Hán thành các bộ phận, rồi đọc quan hệ giữa chúng (cộng/tách/ẩn chữ) để luận cát hung. Một trụ lớn của Mai Hoa cạnh quan-tượng.",
+   "cat": "khái niệm",
+   "school": "mai_hoa"
+  },
+  "note": "Quan-tượng (đọc tượng quẻ) và chiết-tự (đọc tượng chữ) là hai lối 'đọc đồng dạng' của Mai Hoa."
+ },
+ {
+  "rel_id": 147,
+  "type": "vận-hành-bằng",
+  "from": {
+   "vi": "Ngũ Hành",
+   "hv": "Ngũ Hành 五行 — Ngũ 五 = năm, Hành 行 = vận hành/đi. Năm-dòng-vận-động: Kim, Mộc, Thủy, Hỏa, Thổ.",
+   "tv": "Năm mô hình khí luân chuyển làm nên vạn vật, sinh và khắc nhau theo vòng — không phải 5 chất tĩnh mà 5 KIỂU vận động (quan sát qua 5 hành tinh + mùa + phương).",
+   "cat": "ngu_hanh",
+   "school": "mai_hoa"
+  },
+  "to": {
+   "vi": "Sinh Khắc",
+   "hv": "Sinh Khắc 生克 — Sinh 生 = nuôi, làm nảy; Khắc 克 = chế ngự, hại. Quan hệ nuôi/chế giữa các hành.",
+   "tv": "Hai quẻ (hay hai hành) đối nhau: bên này nuôi bên kia (sinh) hay chế ngự bên kia (khắc) — đây là chìa khóa định lành dữ trong Mai Hoa.",
+   "cat": null,
+   "school": "mai_hoa"
+  },
+  "note": "Ngũ Hành vận hành qua quan hệ Sinh-Khắc (id3953)."
+ },
+ {
+  "rel_id": 5554,
+  "type": "đồng-nghĩa-rút-gọn",
+  "from": {
+   "vi": "Tử Phủ",
+   "hv": "Tử Phủ 紫府 — Tử 紫 = Tử Vi; Phủ 府 = Thiên Phủ. 'Hai sao chủ tể Tử Vi + Thiên Phủ'.",
+   "tv": "Tên rút gọn chỉ bộ đôi Tử Vi và Thiên Phủ — hai sao chủ tể, tượng trưng quyền quý, là lõi của hàng loạt cách cục Tử-Phủ.",
+   "cat": "sao",
+   "school": "tu_vi"
+  },
+  "to": {
+   "vi": "Tử Phủ Đồng Cung",
+   "hv": "Tử Phủ Đồng Cung 紫府同宮 — Tử 紫 = Tử Vi; Phủ 府 = Thiên Phủ; Đồng 同 = cùng; Cung 宮 = cung. 'Tử Vi và Thiên Phủ cùng một cung'.",
+   "tv": "Cách cục hai sao chủ Tử Vi + Thiên Phủ đứng chung một cung (xảy ra ở Dần/Thân), tạo thế vững chắc, quyền quý. Là một biến cách ghép sao.",
+   "cat": "biến cách",
+   "school": "tu_vi"
+  },
+  "note": "'Tử Phủ Đồng Cung' (6267) là bộ đôi này khi đứng chung cung — cùng thực thể."
+ },
+ {
+  "rel_id": 2013,
+  "type": "khởi-từ",
+  "from": {
+   "vi": "Tượng Số Tiên Thiên",
+   "hv": "Tiên thiên tượng số 先天象数 — Tiên thiên 先天 = trước trời (bẩm sinh, có sẵn trước hiện tượng); Tượng 象 = hình tượng; Số 数 = con số. Học thuyết tượng-số bẩm-nguyên.",
+   "tv": "Học thuyết cốt lõi của Thiệu Ung: Số, Tượng, Khí đều do Thái Cực sinh ra theo trật tự 'tiên thiên' (có sẵn trong cấu trúc vũ trụ), dùng để giải thích cách trời đất vận hành.",
+   "cat": null,
+   "school": "mai_hoa"
+  },
+  "to": {
+   "vi": "Thái Cực",
+   "hv": "Thái Cực 太極 — Thái 太 = cùng cực/tột bậc, Cực 極 = nóc/mối khởi. Cái-Một tột cùng trước khi phân âm dương.",
+   "tv": "Trạng thái hỗn độn 'một khối' trước khi trời đất khai mở, chưa chia Âm-Dương — cội nguồn sinh ra vạn vật. Như hạt mầm còn nguyên chưa nảy.",
+   "cat": null,
+   "school": "mai_hoa+tu_vi"
+  },
+  "note": "Thuyết cho rằng Số-Tượng-Khí đều do Thái Cực (109) sinh ra."
+ },
+ {
+  "rel_id": 1999,
+  "type": "dùng-để-định",
+  "from": {
+   "vi": "Càn Long Thông Bảo",
+   "hv": "Càn Long Thông Bảo 乾隆通寶 — Càn Long 乾隆 = niên hiệu vua Càn Long nhà Thanh; Thông Bảo 通寶 = 'tiền lưu thông' (chữ đúc trên tiền). Đồng tiền đời Càn Long.",
+   "tv": "Đồng tiền xu cổ đúc thời vua Càn Long, được người xưa khuyên dùng làm 'tiền bói' khi gieo quẻ bằng đồng xu (vì khí dày, mặt rõ).",
+   "cat": null,
+   "school": "mai_hoa"
+  },
+  "to": {
+   "vi": "Lão Dương",
+   "hv": "Lão dương 老陽 — Lão 老 = già, đến cực; Dương 陽 = khí dương. Dương đã già tới cực.",
+   "tv": "Vạch dương ở mức cực điểm (số 9), 'già' nên sắp chuyển hóa thành âm — đây là hào ĐỘNG. Khi gieo 3 đồng xu, lão dương là cả 3 đều ngửa.",
+   "cat": null,
+   "school": "mai_hoa"
+  },
+  "note": "Ba đồng xu cùng ngửa cho Lão Dương (4265) — đồng xu là phương tiện đọc lão-thiếu."
+ },
+ {
+  "rel_id": 575,
+  "type": "chứa",
+  "from": {
+   "vi": "Quan Mai Số Quyết",
+   "hv": "觀梅數訣 Quan Mai Số Quyết — Quan Mai 觀梅 = xem mai; Số 數 = thuật số; Quyết 訣 = bí quyết. 'Bí quyết thuật số xem hoa mai'.",
+   "tv": "Tên gốc của Quyển 3 và cũng là một tên gọi của cả môn Mai Hoa Dịch Số — 'bí quyết bấm số khi xem hoa mai'. Gắn trực tiếp với ca khai môn Quan Mai Hoa chiêm.",
+   "cat": null,
+   "school": "mai_hoa"
+  },
+  "to": {
+   "vi": "Chiêm bốc tổng quyết",
+   "hv": "占卜總訣 Chiêm Bốc Tổng Quyết — Chiêm Bốc 占卜 = bói toán; Tổng 總 = tóm chung; Quyết 訣 = bí quyết. 'Bí quyết tổng quát về việc bói'.",
+   "tv": "Bản tóm 5 bước chiêm chính thống của Mai Hoa: (1) thành quẻ, (2) tra lời quẻ + lời hào Chu Dịch, (3) xét Thể-Dụng sinh khắc, (4) xem khắc ứng ngoại cảnh, (5) định ngày ứng nghiệm theo tư thế. Là xương sống quy trình đoán quẻ.",
+   "cat": null,
+   "school": "mai_hoa"
+  },
+  "note": "Bộ Quan Mai Số Quyết chứa các tổng quyết chiêm bốc 5 bước."
+ },
+ {
+  "rel_id": 1009,
+  "type": "tượng-trưng",
+  "from": {
+   "vi": "Cỏ thi",
+   "hv": "Cỏ Thi 蓍草 — Thi 蓍 = cỏ thi (loài cỏ thiêng); Thảo 草 = cỏ. Cọng cỏ dùng bói.",
+   "tv": "Loài cỏ dùng trong phép Thệ; tượng trưng cho 'Số'. Người xưa lấy 50 cọng, bỏ 1, còn 49 để chia-đếm lập quẻ.",
+   "cat": null,
+   "school": "mai_hoa"
+  },
+  "to": {
+   "vi": "Số",
+   "hv": "Số 數 — Số 數 = con số/đếm. Mặt số học của Dịch.",
+   "tv": "Cái 'số' của Dịch: số chỉ tính chất hào, thứ tự vị trí hào, và cách tính-đếm khi bói. Cặp với Tượng. Là một trong bốn cột Tượng-Số-Nghĩa-Lý.",
+   "cat": null,
+   "school": "mai_hoa"
+  },
+  "note": "cỏ thi tượng trưng cho Số"
+ },
+ {
+  "rel_id": 2016,
+  "type": "là-thầy-của",
+  "from": {
+   "vi": "Trần Đoàn",
+   "hv": "Trần Đoàn 陈抟 — họ Trần 陈, tên Đoàn 抟 (đạo sĩ, hiệu Hi Di tiên sinh / Phù Dao Tử). Tên người.",
+   "tv": "Đạo sĩ nổi tiếng đời Ngũ Đại - Bắc Tống, người truyền các đồ hình Tiên Thiên (Thái Cực Đồ, Tiên Thiên Bát Quái) — được coi là sư phụ gốc của dòng tượng số học mà Thiệu Ung kế thừa.",
+   "cat": null,
+   "school": "mai_hoa"
+  },
+  "to": {
+   "vi": "Thiệu Ung",
+   "hv": "邵雍 Thiệu Ung — tên thật của Thiệu Khang Tiết (tự Nghiêu Phu, hiệu An Lạc tiên sinh).",
+   "tv": "Nhà triết học Bắc Tống, tổ sư Mai Hoa Dịch Số và học thuyết Tiên Thiên Tượng Số. Chính là Thiệu Khang Tiết (cùng một người, alias xác nhận).",
+   "cat": null,
+   "school": "mai_hoa"
+  },
+  "note": "Trần Đoàn truyền đồ hình tiên thiên cho dòng học của Thiệu Ung (3888)."
+ },
+ {
+  "rel_id": 4885,
+  "type": "liên-đới-với",
+  "from": {
+   "vi": "nhập chuế",
+   "hv": "Nhập chuế 入贅 — Nhập 入 = vào; Chuế 贅 = ở rể (gửi thân nhà vợ). Lấy vợ rồi sống bên nhà vợ, theo họ vợ.",
+   "tv": "Cảnh ở rể: về sống bên nhà vợ, đôi khi con theo họ mẹ. Một dạng lìa tổ tông gốc của người đàn ông.",
+   "cat": "thể loại",
+   "school": "tu_vi"
+  },
+  "to": {
+   "vi": "nhị tính",
+   "hv": "Nhị tính 二姓 — Nhị 二 = hai; Tính 姓 = họ. Mang hai họ / đổi sang họ khác.",
+   "tv": "Cảnh người mang hai họ (đổi họ, theo họ mẹ hoặc họ cha nuôi) — thường đi cùng diên sinh để tránh hình khắc, nuôi cho thọ.",
+   "cat": "thể loại",
+   "school": "tu_vi"
+  },
+  "note": "Ở rể thường kéo theo nhị tính (con mang hai họ / theo họ mẹ)."
+ },
+ {
+  "rel_id": 2034,
+  "type": "đặt-ra-cặp",
+  "from": {
+   "vi": "Huyền học thời Ngụy Tấn",
+   "hv": "Ngụy Tấn Huyền học 魏晉玄學 — Ngụy Tấn 魏晉 = hai triều Ngụy và Tấn; Huyền 玄 = sâu kín, huyền diệu; Học 學 = học thuyết. Học thuyết huyền diệu thời Ngụy-Tấn.",
+   "tv": "Trào lưu triết học thời Ngụy-Tấn, dùng 'Tam Huyền' (Lão Tử, Trang Tử, Chu Dịch) để bàn lại lý luận Nho gia — chuyển hướng từ kinh học sang siêu hình học, dung hợp Nho và Đạo.",
+   "cat": null,
+   "school": "mai_hoa"
+  },
+  "to": {
+   "vi": "Danh giáo",
+   "hv": "Danh giáo 名教 — Danh 名 = tên gọi, danh phận; Giáo 教 = lời dạy, giáo hóa. 'Giáo hóa bằng danh phận' = hệ luân lý theo tên-vị.",
+   "tv": "Hệ thống quy phạm đạo đức Nho gia dựa trên danh phận (vua-tôi, cha-con, lễ nghĩa). Trong Huyền học, đây là vế đối lập với 'tự nhiên' — cuộc tranh luận lớn là điều hòa lễ giáo nhân tạo với bản tính tự nhiên.",
+   "cat": null,
+   "school": "mai_hoa"
+  },
+  "note": "Huyền học nêu cặp đối Danh giáo (4277) vs Tự nhiên."
+ },
+ {
+  "rel_id": 506,
+  "type": "nhân-vật-trong",
+  "from": {
+   "vi": "Tư Mã Quang",
+   "hv": "司馬光 Tư Mã Quang — họ Tư Mã 司馬, tên Quang 光 (= ánh sáng). Tên riêng một danh nhân.",
+   "tv": "Tư Mã Quang (1019-1086): sử gia, tể tướng Bắc Tống, soạn 'Tư Trị Thông Giám', bạn cùng thời Thiệu Khang Tiết. Trong sách Mai Hoa, ông là chủ nhà có hoa mẫu đơn ở case Mẫu Đơn chiêm.",
+   "cat": null,
+   "school": "mai_hoa"
+  },
+  "to": {
+   "vi": "Mẫu Đơn chiêm",
+   "hv": "牡丹占 Mẫu Đơn Chiêm — Mẫu Đơn 牡丹 = hoa mẫu đơn; Chiêm 占 = bói. 'Bói về khóm hoa mẫu đơn'.",
+   "tv": "Case 2: Thiệu xem khóm mẫu đơn ở nhà Tư Mã Quang, gieo quẻ đoán ngày giờ hoa sẽ bị ngựa giẫm nát — sau đúng. Minh họa việc đọc điềm từ cảnh vật trước mắt rồi định thời ứng nghiệm.",
+   "cat": null,
+   "school": "mai_hoa"
+  },
+  "note": "Tư Mã Quang là chủ nhà có vườn hoa mẫu đơn trong câu chuyện Mẫu Đơn chiêm."
+ },
+ {
+  "rel_id": 6010,
+  "type": "bổ-trợ",
+  "from": {
+   "vi": "Hổ biến",
+   "hv": "Hổ biến 互變: Hổ 互 = lẫn nhau (quẻ hỗ); Biến 變 = biến đổi (quẻ biến do hào động). Hổ biến = quẻ Hỗ và quẻ Biến.",
+   "tv": "Hai quẻ phụ trợ khi luận: quẻ Hỗ (rút từ hào giữa) cho biết diễn biến giữa chừng, quẻ Biến (do hào động đổi) cho biết kết cục. Mai Hoa luận đủ cả Thể-Dụng-Hỗ-Biến.",
+   "cat": "khái niệm",
+   "school": "mai_hoa"
+  },
+  "to": {
+   "vi": "Thể - Dụng",
+   "hv": "Thể 體 = thân/chủ; Dụng 用 = việc/khách. Thể-Dụng 體用: quẻ Thể = bản thân người hỏi, quẻ Dụng = việc đang xem; xét Ngũ Hành sinh-khắc-hòa giữa hai bên đoán cát hung.",
+   "tv": "Trục xương sống của đoán Mai Hoa: chia quẻ thành 'mình' (Thể) và 'việc' (Dụng), rồi xem hai bên sinh nhau / khắc nhau / hòa nhau theo Ngũ Hành. Là BƯỚC 2 trong 4 bước đoán quẻ.",
+   "cat": null,
+   "school": "mai_hoa"
+  },
+  "note": "Hổ biến là hai quẻ phụ bổ sung cho cặp Thể-Dụng khi đoán."
+ },
+ {
+  "rel_id": 1763,
+  "type": "cặp-đối",
+  "from": {
+   "vi": "Đồ hình phương viên 64 quẻ Tiên Thiên",
+   "hv": "Đồ hình phương viên 64 quẻ Tiên Thiên 先天六十四卦方圆图 — Phương 方 = vuông; Viên 圆 = tròn. Sơ đồ 64 quẻ vòng ngoài tròn, lõi vuông, theo Tiên Thiên.",
+   "tv": "Sơ đồ 64 quẻ xếp lớp ngoài hình tròn, lớp trong hình vuông theo trật tự Tiên Thiên (Phục Hy); phản ánh quy luật biến hóa tổng thể từ âm sang dương tuần hoàn.",
+   "cat": null,
+   "school": "mai_hoa"
+  },
+  "to": {
+   "vi": "Đồ hình phương viên 64 quẻ Hậu Thiên",
+   "hv": "Đồ hình phương viên 64 quẻ Hậu Thiên 后天六十四卦方圆图 — bản phương viên theo trật tự Hậu Thiên.",
+   "tv": "Sơ đồ 64 quẻ vuông-tròn theo trật tự Hậu Thiên; phản ánh quy luật biến hóa cụ thể: âm dương bổ trợ, vật cực tất phản.",
+   "cat": null,
+   "school": "mai_hoa"
+  },
+  "note": "Cặp với phiên bản Hậu Thiên (4175)."
+ },
+ {
+  "rel_id": 8528,
+  "type": "có-tâm-pháp",
+  "from": {
+   "vi": "Kiền",
+   "hv": "乾 — Kiền/Càn 乾 = trời, khô, kiện hành. Quẻ thuần Dương.",
+   "tv": "Quẻ Kiền (Càn) — gốc Dương thuần, mang bốn đức Nguyên-Hanh-Lợi-Trinh, sáu hào là sáu cảnh giới đời quân tử (từ rồng ẩn dưới vực tới rồng bay trên trời). Đây là góc đọc của Kinh Dịch Ngô Tất Tố.",
+   "cat": "que",
+   "school": "kinh-dich"
+  },
+  "to": {
+   "vi": "Nguyen hanh loi trinh",
+   "hv": "元亨利貞 — Nguyên 元 = khởi đầu, gốc lớn; Hanh 亨 = thông suốt; Lợi 利 = lợi ích, thuận; Trinh 貞 = bền chính, giữ vững. Bốn đức của quẻ Kiền.",
+   "tv": "Bốn đức của quẻ Kiền: Nguyên (mở đầu, sinh ra), Hanh (hanh thông, trôi chảy), Lợi (đem lợi, hợp nghĩa), Trinh (bền vững, chính đáng). Như một vòng sinh trưởng: nảy mầm → lớn → kết quả → giữ hạt. Đây là khuôn đức của đạo trời.",
+   "cat": "tam_phap",
+   "school": "kinh-dich"
+  },
+  "note": "Nguyên-Hanh-Lợi-Trinh là tứ đức / routing key của quẻ Kiền."
+ },
+ {
+  "rel_id": 86,
+  "type": "đối-nghĩa-với",
+  "from": {
+   "vi": "Trùng quái / Biệt quái",
+   "hv": "Trùng quái 重卦 — Trùng 重 = chồng/lặp, Quái 卦 = quẻ; quẻ-chồng. Biệt quái 別卦 — Biệt 別 = riêng/phân, quẻ-phân-biệt (đối với kinh quái).",
+   "tv": "Quẻ 6 vạch: lấy 2 quẻ đơn 3 vạch chồng lên nhau thành 1 quẻ kép, đủ 8×8 = 64 quẻ. 'Biệt' vì để phân biệt với quẻ gốc 3 vạch.",
+   "cat": null,
+   "school": "mai_hoa"
+  },
+  "to": {
+   "vi": "Kinh quái",
+   "hv": "Kinh quái 經卦 — Kinh 經 = sợi dọc/gốc/chuẩn mực, Quái 卦 = quẻ. Quẻ-gốc 3 vạch, làm nền cho 64 quẻ.",
+   "tv": "Quẻ gốc 3 vạch — tám quẻ nền (bát quái). 'Kinh' nghĩa gốc/chuẩn, vì chúng là sợi dọc dệt nên mọi quẻ kép.",
+   "cat": null,
+   "school": "mai_hoa"
+  },
+  "note": "Trùng quái (6 vạch) đối với kinh quái/đơn quái (3 vạch) — cùng cặp khái niệm phân tầng quẻ."
+ },
+ {
+  "rel_id": 7393,
+  "type": "là-một-tướng-của",
+  "from": {
+   "vi": "Chữ tháp long xà",
+   "hv": "字塔龍蛇 'Chữ Tháp Long Xà' — Long 龍 = rồng; Xà 蛇 = rắn. Nét chữ uốn lượn như rồng rắn.",
+   "tv": "Khi nét chữ uốn lượn mềm mại như rồng rắn — tướng chữ này ứng đường công danh quý hiển, người viết có tiền đồ sang quý.",
+   "cat": "khác",
+   "school": "mai_hoa"
+  },
+  "to": {
+   "vi": "Tướng chữ",
+   "hv": "相字 Tướng Chữ — Tướng 相 = xem tướng, quan sát; Tự/Chữ 字 = chữ viết. 'Xem tướng chữ'.",
+   "tv": "Phương pháp xem vận mệnh qua hình dạng, nét bút, thần thái chữ viết. Đây CHÍNH LÀ phép Đoán Chữ (測字) nhìn từ góc 'tướng' (quan sát thần-hình) — alias gồm 'Chiết tự', 'Đoán chữ'. Là một mảnh/tên gọi khác của nút Đoán Chữ.",
+   "cat": null,
+   "school": "mai_hoa"
+  },
+  "note": "là một tướng chữ cụ thể (hình nét) dùng để đoán vận"
+ },
+ {
+  "rel_id": 5402,
+  "type": "đối-cung-với",
+  "from": {
+   "vi": "Thiên Hỷ",
+   "hv": "Thiên Hỷ 天喜 — Thiên 天 = trời; Hỷ 喜 = mừng, vui. 'Niềm vui trời ban' = sao hỉ sự, cưới hỏi sinh con.",
+   "tv": "Sao chủ chuyện vui (cưới hỏi, sinh nở), luôn nằm đối cung với Hồng Loan — cặp đào hoa/hỉ khánh.",
+   "cat": "sao",
+   "school": "tu_vi"
+  },
+  "to": {
+   "vi": "Hồng Loan",
+   "hv": "Hồng 紅 = đỏ; Loan 鸞 = chim loan. Hồng Loan = 'chim loan đỏ', sao đào hoa hôn nhân.",
+   "tv": "Sao Hồng Loan — hành Thủy, chủ đào hoa, hôn nhân, hỷ sự, tình duyên. Thường đi đối xứng với Thiên Hỷ.",
+   "cat": "sao",
+   "school": "tu_vi"
+  },
+  "note": "Thiên Hỷ và Hồng Loan luôn an ở hai cung xung chiếu nhau, cùng chủ hỉ sự đào hoa."
+ },
+ {
+  "rel_id": 2062,
+  "type": "khởi-đầu",
+  "from": {
+   "vi": "Thuyết Thái Cực Đồ",
+   "hv": "Thái Cực Đồ Thuyết 太极图说 — Thái Cực Đồ 太极图 = đồ hình Thái Cực; Thuyết 说 = lời bàn giải. Bài luận về đồ hình Thái Cực.",
+   "tv": "Trước tác ngắn của Chu Đôn Di, được coi là cột mốc khởi đầu Lý học. Nêu chuỗi sinh hóa 'Vô Cực → Thái Cực → Âm Dương → Ngũ Hành → vạn vật', trong đó con người nhận phần tinh túy nhất của trời đất.",
+   "cat": null,
+   "school": "mai_hoa"
+  },
+  "to": {
+   "vi": "Lý học thời Tống - Minh",
+   "hv": "Tống Minh lý học 宋明理学 — Tống Minh 宋明 = đời Tống và Minh; Lý 理 = lẽ/nguyên lý; Học 学 = học thuyết. Học thuyết về Lý đời Tống-Minh.",
+   "tv": "Trào lưu Tân Nho gia (còn gọi Đạo học) từ Bắc Tống tới nhà Minh, hấp thu cả Phật và Đạo để dựng lại Nho học trên nền 'Lý' (nguyên lý vũ trụ). Đây là khung lớn chứa các phái Trình-Chu, Tâm học, Khí học.",
+   "cat": null,
+   "school": "mai_hoa"
+  },
+  "note": "Đánh dấu khởi điểm của Lý học Tống-Minh (4281)."
+ },
+ {
+  "rel_id": 6041,
+  "type": "là-thành-viên-của",
+  "from": {
+   "vi": "Bỉ",
+   "hv": "Bỉ 否: tên quẻ — Thiên Địa Bĩ ䷋ (trên Càn dưới Khôn). Bĩ 否 = bế tắc, không thông.",
+   "tv": "Quẻ Thiên Địa Bĩ: trời đất chia lìa không giao → tối tăm bế tắc. Mai Hoa đoán thời tiết: trời đất u ám. Một quẻ trong 64 quẻ. (chữ Hán đúng là 否, đọc 'Bĩ').",
+   "cat": "quái",
+   "school": "mai_hoa"
+  },
+  "to": {
+   "vi": "64 quẻ",
+   "hv": "六十四卦 Lục Thập Tứ Quái (64 quẻ) — Lục thập tứ 六十四 = sáu mươi tư; Quái 卦 = quẻ.",
+   "tv": "64 quẻ kép (mỗi quẻ sáu vạch) tạo ra khi chồng hai trong tám quẻ đơn lên nhau. Đây là nội dung cốt lõi của Kinh Dịch, mỗi quẻ một tình huống/đạo lý.",
+   "cat": null,
+   "school": "mai_hoa"
+  },
+  "note": "Bĩ là quẻ 12 trong 64 quẻ."
+ },
+ {
+  "rel_id": 2064,
+  "type": "đề-xuất-bởi",
+  "from": {
+   "vi": "Nhân Cực",
+   "hv": "Nhân cực 人极 — Nhân 人 = người; Cực 极 = chuẩn mực tột cùng, cái nóc. 'Chuẩn mực tột cùng của con người'.",
+   "tv": "Cảnh giới đạo đức cao nhất mà thánh nhân lập ra cho loài người, mô phỏng theo Thái Cực của vũ trụ — đồng nghĩa với chữ 'Thành' (chân thật trọn vẹn). Con người 'lập nhân cực' tức nên thánh.",
+   "cat": null,
+   "school": "mai_hoa"
+  },
+  "to": {
+   "vi": "Thuyết Thái Cực Đồ",
+   "hv": "Thái Cực Đồ Thuyết 太极图说 — Thái Cực Đồ 太极图 = đồ hình Thái Cực; Thuyết 说 = lời bàn giải. Bài luận về đồ hình Thái Cực.",
+   "tv": "Trước tác ngắn của Chu Đôn Di, được coi là cột mốc khởi đầu Lý học. Nêu chuỗi sinh hóa 'Vô Cực → Thái Cực → Âm Dương → Ngũ Hành → vạn vật', trong đó con người nhận phần tinh túy nhất của trời đất.",
+   "cat": null,
+   "school": "mai_hoa"
+  },
+  "note": "Khái niệm Nhân Cực do Thuyết Thái Cực Đồ (4283) của Chu Đôn Di nêu ra."
+ },
+ {
+  "rel_id": 7351,
+  "type": "là-trạng-thái-của",
+  "from": {
+   "vi": "Lục thần bất động",
+   "hv": "六神不動 Lục Thần Bất Động — Lục 六 = sáu; Thần 神; Bất 不 = chẳng; Động 動. 'Sáu thần không lay'.",
+   "tv": "Khi sáu thần (Thanh long, Bạch hổ, Chu tước, Câu trần, Đằng xà, Huyền vũ) đều yên không động — vạn sự bình ổn, không biến cố.",
+   "cat": "thần sát",
+   "school": "mai_hoa"
+  },
+  "to": {
+   "vi": "Lục thần",
+   "hv": "Lục Thần 六神 — Lục 六 = sáu; Thần 神 = thần. Sáu thần linh vật.",
+   "tv": "Sáu thần Thanh Long, Chu Tước, Câu Trần, Đằng Xà, Bạch Hổ, Huyền Vũ — dùng trong phép xem chữ (chiết tự) và bốc dịch, gán theo Ngũ Hành của nét cuối chữ. Bốn trong số đó trùng linh vật của Tứ Tượng.",
+   "cat": null,
+   "school": "mai_hoa"
+  },
+  "note": "mô tả trạng thái tĩnh của Lục thần (3876)"
+ },
+ {
+  "rel_id": 1881,
+  "type": "phát-sinh-từ",
+  "from": {
+   "vi": "Cửu Cung",
+   "hv": "九宮 Cửu Cung — Cửu 九 = chín; Cung 宮 = ô/cung. Chín ô phương vị (theo Lạc Thư).",
+   "tv": "Cửu Cung: chín ô phương vị xếp theo số Lạc Thư (1-9), nền tảng đặt bàn cho Thái Ất/Kỳ Môn và các thuật phi tinh.",
+   "cat": null,
+   "school": "mai_hoa"
+  },
+  "to": {
+   "vi": "Lạc Thư",
+   "hv": "Lạc Thư 洛書 — Lạc 洛 = sông Lạc; Thư 書 = chữ/sách. Bức hình trên lưng rùa thần từ sông Lạc.",
+   "tv": "Bức đồ chứa thế đối lập âm-dương theo phương vị và con số (ma phương cộng hàng cộng cột đều bằng 15), thuộc Hậu Thiên. Cặp với Hà Đồ.",
+   "cat": null,
+   "school": "mai_hoa"
+  },
+  "note": "Chín cung lấy số từ đồ Lạc Thư (3859)."
+ },
+ {
+  "rel_id": 911,
+  "type": "là-cách-sắp-của",
+  "from": {
+   "vi": "Hậu Thiên Bát Quái",
+   "hv": "后天八卦 Hậu Thiên Bát Quái — Hậu Thiên 后天 = sau khi sinh (cõi hiện tượng); Bát Quái 八卦 = tám quẻ.",
+   "tv": "Cách sắp tám quẻ theo Văn Vương, dùng cho cõi hiện tượng/ứng dụng: Khảm 1, Khôn 2, Chấn 3, Tốn 4, (Trung 5), Càn 6, Đoài 7, Cấn 8, Ly 9. Đây là số dùng khi khởi quẻ theo thời gian trong Mai Hoa.",
+   "cat": null,
+   "school": "mai_hoa"
+  },
+  "to": {
+   "vi": "Bát Quái",
+   "hv": "八卦 Bát Quái — Bát 八 = tám; Quái 卦 = quẻ; nghĩa: tám quẻ đơn cơ bản.",
+   "tv": "Tám quẻ ba vạch cơ bản, mỗi quẻ tượng một hiện tượng thiên nhiên: Càn (trời), Khôn (đất), Khảm (nước), Ly (lửa), Chấn (sấm), Cấn (núi), Tốn (gió), Đoài (đầm). Là viên gạch dựng nên 64 quẻ.",
+   "cat": null,
+   "school": "mai_hoa"
+  },
+  "note": "Hậu Thiên là một cách sắp thứ tự/phương vị của Bát Quái (3820)."
+ },
+ {
+  "rel_id": 3193,
+  "type": "đối-chiếu",
+  "from": {
+   "vi": "Thuận",
+   "hv": "Thuận 顺/順 — thuận: xuôi, thuận theo (川 xuyên + 頁 hiệt/đầu).",
+   "tv": "Ví dụ + quy tắc nét: chữ có nhiều nét sổ thẳng đứng (như chữ 'Thuận') → người viết tay nghề tinh xảo, thuận lợi làm nên sự nghiệp.",
+   "cat": null,
+   "school": "mai_hoa"
+  },
+  "to": {
+   "vi": "Nét sổ thẳng",
+   "hv": "Trực thụ 直豎 — Trực 直 = thẳng; Thụ 豎 = nét sổ đứng.",
+   "tv": "Quy tắc nét: nét sổ kéo thẳng xuống tận đáy chữ → dự báo người thân gặp nguy hiểm.",
+   "cat": null,
+   "school": "mai_hoa"
+  },
+  "note": "Cùng xét nét sổ thẳng nhưng kết luận khác (4716 hại người thân ↔ 4725 thuận nghề) — phải đặt trong cả chữ."
+ },
+ {
+  "rel_id": 8440,
+  "type": "quy-chiếu-về",
+  "from": {
+   "vi": "Lục Thân",
+   "hv": "六親 — Lục 六 = sáu; Thân 親 = người thân. 'Sáu mối thân' — quan hệ ruột thịt.",
+   "tv": "Cách quy Thập Thần ra người thân: Tỷ/Kiếp = anh em; Thực/Thương = con cái/cấp dưới; Chính Tài = vợ chính (nam); Thiên Tài = cha; Chính Quan = chồng (nữ); Thất Sát = quyền/đối thủ; Chính Ấn = mẹ ruột; Thiên Ấn = mẹ kế/quý nhân ngầm.",
+   "cat": "concept",
+   "school": "tu_binh_ba_tu"
+  },
+  "to": {
+   "vi": "Nhật Chủ",
+   "hv": "日主 — Nhật 日 = ngày, Mặt Trời; Chủ 主 = chủ, người làm chủ. 'Chủ của ngày' = Thiên Can ngày sinh.",
+   "tv": "Thiên Can của Trụ Ngày — chính là BẢN THÂN người được xem. Mọi phép tính Thập Thần, Dụng Thần, Cách Cục đều lấy Nhật Chủ làm gốc quy chiếu (ta là ai, các thứ khác sinh-khắc ta thế nào).",
+   "cat": "concept",
+   "school": "tu_binh_ba_tu"
+  },
+  "note": "Người thân được tính tương đối với Nhật Chủ (cái gì khắc/sinh ta → ai)."
+ },
+ {
+  "rel_id": 359,
+  "type": "thuộc-hành",
+  "from": {
+   "vi": "Quẻ Khôn",
+   "hv": "坤卦 — Quẻ Khôn. Khôn 坤 = đất, thuận tải vạn vật. ☷ lục đoạn, ba hào âm.",
+   "tv": "Quẻ Đất — sáu đoạn đứt, toàn âm, mềm thuận, chứa đựng. Trong nhà tượng người Mẹ; hành Thổ âm; Hậu Thiên ở Tây Nam.",
+   "cat": null,
+   "school": "mai_hoa"
+  },
+  "to": {
+   "vi": "Thổ",
+   "hv": "Thổ 土 — đất. Hành trung-hòa: nuôi chứa, ở giữa điều hòa bốn hành; ứng cuối mỗi mùa (Thìn-Tuất-Sửu-Mùi), trung ương, can Mậu-Kỷ.",
+   "tv": "Khí dung hòa, chứa nuôi, ở trung tâm điều hòa bốn hành kia như đất; tính 'gieo trồng', vững chắc dày dặn, sinh sôi vạn vật.",
+   "cat": null,
+   "school": "mai_hoa"
+  },
+  "note": "Khôn thuộc hành Thổ (âm)."
+ },
+ {
+  "rel_id": 7399,
+  "type": "trạng-thái-của",
+  "from": {
+   "vi": "Thuỷ lạnh Kim lạnh",
+   "hv": "水冷金寒 Thủy Lạnh Kim Lạnh — Thủy 水 = nước; Kim 金; Lãnh/Hàn = lạnh. 'Nước lạnh kim lạnh'.",
+   "tv": "Trạng thái Thủy và Kim đều suy yếu, lạnh lẽo — trong luận quẻ/chữ ứng với sự lạnh nhạt, xa cách, tình cảm nguội lạnh hoặc việc đình trệ.",
+   "cat": "ngũ hành",
+   "school": "mai_hoa"
+  },
+  "to": {
+   "vi": "Thuỷ",
+   "hv": "Thủy 水 — nước. Hành thấm-xuống: lạnh, ẩn tàng, chảy xuôi; ứng mùa Đông, phương Bắc, can Nhâm-Quý.",
+   "tv": "Khí chảy xuống, thấm, lạnh, tàng ẩn như nước. Tương sinh Kim→Thủy→Mộc; khắc Hỏa. Một trong năm hành.",
+   "cat": null,
+   "school": "mai_hoa"
+  },
+  "note": "mô tả Thủy suy yếu (lạnh)"
+ },
+ {
+  "rel_id": 8494,
+  "type": "đồng-tên-khác-nghĩa",
+  "from": {
+   "vi": "Thiên Số",
+   "hv": "天數 — Thiên 天 = trời; Số 數 = số. 'Số trời' — bể số dương lấy từ Tứ Trụ.",
+   "tv": "Trong Hà Lạc: tổng các số dương rút từ Thiên Can + Địa Chi (sinh số nhỏ) của Tứ Trụ, rút gọn (trừ 25 nếu lớn hơn) còn 1-9 (hoặc 5 trung cung), rồi tra Lạc Thư ra 1 trigram. (Engine number_pools.py.)",
+   "cat": "ha_lac_core",
+   "school": "bat_tu_ha_lac"
+  },
+  "to": {
+   "vi": "Số trời",
+   "hv": "Thiên số 天數 — Thiên 天 = trời, Số 數 = số. Số-của-trời: các số lẻ 1,3,5,7,9 (tổng 25), thuộc Dương, biểu thị bằng chấm trắng.",
+   "tv": "Số lẻ 1,3,5,7,9 — gọi là 'số trời', mang tính Dương, vẽ bằng chấm trắng trong Hà Đồ/Lạc Thư. Tổng cộng 25.",
+   "cat": null,
+   "school": "mai_hoa"
+  },
+  "note": "Cùng tên 'Số trời / 天數' với khái niệm Mai Hoa (id 90) nhưng ở Hà Lạc là bể số kỹ thuật cụ thể rút từ Tứ Trụ — ghi nhận để không nhầm là một."
+ }
+]

@@ -1,0 +1,86 @@
+{
+  "_meta": {
+    "ten": "Định nghĩa sao CÓ NGUỒN (sourced star-definitions)",
+    "nguyen_tac": "QUOTE-OR-SILENCE. Mỗi claim phân loại THẬT (có quote đích danh + tác giả + corpus + trang) / ẢO (thường nói nhưng KHÔNG có nguồn trong kho → để trống, không phán) / CHÂN LÝ (luật áp mọi lá số). Mỗi quote đã grep xác nhận TỒN TẠI + ĐÚNG SAO (không gán nhầm).",
+    "corpus_goc": "tuvi-toan-thu-lht-zh (Tử Vi Đẩu Số Toàn Thư, bản La Hồng Tiên hiệu đính — giản thể)",
+    "verify": "workflow chem-la-so-founder-co-nguon (34 agent, mỗi sao 1 thợ tra + 1 thợ grep phản biện). 17/17 đơn vị có nguồn; 0 trống.",
+    "phat_hien": "Toàn Thư có entry ĐÍCH DANH cho cả 14 chính tinh (bác bỏ phán cũ của em 'chỉ 14 có nền, ~80 sao trống' — đó là kiểm cạn). Sao lẻ Lộc Tồn/Bác Sĩ/Thất Sát cũng có entry; Cô Thần đích danh vẫn mỏng.",
+    "ngay": "2026-06-27"
+  },
+  "sao": {
+    "Thiên Tướng": {
+      "ten_zh": "天相", "trang_thai": "co_nguon", "verdict": "đã sửa theo phản biện",
+      "nguon": [
+        {"tac_gia": "Trần Đoàn (Hi Di) — Chư Tinh Vấn Đáp", "corpus": "tuvi-toan-thu-lht-zh", "trang": 20,
+         "quote_han": "天相属水，南斗第五星也。为司爵之宿，化气曰印…若人命逢之，言语诚实，事不虚伪；见人难有恻隐之心，见人恶抱不平之气…化气为印，主人衣食丰足，昌曲左右相会位至公卿。",
+         "quote_dich": "Thiên Tướng thuộc Thủy, Nam Đẩu đệ ngũ, sao coi tước, hóa khí là ẤN… Mệnh gặp: lời thành thật, việc không hư ngụy; thấy người nạn có lòng trắc ẩn, thấy điều ác ôm khí bất bình… hóa Ấn, chủ y-thực phong túc, hội Xương-Khúc Tả-Hữu thì vị tới công khanh."},
+        {"tac_gia": "Toàn Thư — ca quyết", "corpus": "tuvi-toan-thu-lht-zh", "trang": 21,
+         "quote_han": "天相原属水，化印主官禄，身命二宫逢，定主多财福，形体又肥满，语言不轻渎，出仕主飞腾，居家主财谷，二限若逢之，百事看充足。",
+         "quote_dich": "Thiên Tướng thuộc Thủy, hóa Ấn chủ Quan Lộc; HAI cung Thân-Mệnh gặp thì định chủ nhiều tài phúc; hình thể đầy đặn, lời không buông tuồng; ra làm quan thì thăng tiến, ở nhà chủ tài cốc."},
+        {"tac_gia": "Toàn Thư — Định thập nhị cung lạc nhàn", "corpus": "tuvi-toan-thu-lht-zh", "trang": 59,
+         "quote_han": "天相在辰戌为闲宫。", "quote_dich": "Thiên Tướng chỉ NHÀN cung tại Thìn/Tuất."}
+      ],
+      "dinh_tinh_THAT": [
+        "hóa khí = ẤN (印, con dấu quyền), chủ Quan Lộc — p20/21",
+        "Mệnh gặp: thành thật, không hư ngụy, trắc ẩn, bất bình trước cái ác — p20",
+        "身命二宫逢定主多财福 (Thân-Mệnh đồng cung → nhiều tài phúc) — p21, TRÚNG ĐÍCH founder Mệnh-Thân đồng cung Tỵ",
+        "府相朝垣命必荣 (Phủ-Tướng triều viên thì Mệnh tất vinh) — p38"
+      ],
+      "AO_khong_phan": [
+        "KHÔNG có entry prose '問天相所主' dài — mọi mô tả tính cách ngoài p20/21/38/44 là ẢO, không phán",
+        "'Thiên Tướng ĐẮC tại Tỵ' (nhãn engine) KHÔNG có quote miếu/vượng khẳng định; chỉ có loại trừ 'nhàn tại Thìn/Tuất' (p59) → Tỵ KHÔNG nhàn, nhưng mức 'đắc' là định-cung, không nâng thành quote"
+      ],
+      "ung_la_so_founder": "Mệnh & Thân founder ĐỒNG CUNG Thiên Tướng tại Tỵ → trúng đích clause '身命二宫逢定主多财福'. Cấu trúc Ấn vận hành tốt nhất khi đứng vai CẦM ẤN (điều phối, giữ trật tự, phụ tá đắc lực), không phải xông pha đơn độc. ⚠️ Cách tốt '财荫夹印' (p45, cần Vũ Khúc+Thiên Lương kẹp Mệnh) KHÔNG thành ở lá số Anh (Vũ Khúc ở Thiên Di, không kẹp). Cách xấu '刑囚夹印' (Hình+Liêm kẹp) cũng không thành (Liêm ở Phúc Đức). → Mệnh Tướng đứng nền tốt nhưng KHÔNG được cách giáp nâng."
+    },
+    "Thiên Phủ": {
+      "ten_zh": "天府", "trang_thai": "co_nguon", "verdict": "đạt (clean)",
+      "nguon": [
+        {"tac_gia": "Trần Đoàn (Hi Di) — Chư Tinh Vấn Đáp", "corpus": "tuvi-toan-thu-lht-zh", "trang": 19,
+         "quote_han": "天府属土，南斗主令第一星也。为财帛之主宰…天府乃南斗延寿解厄之星，又曰司命。上相镇国之星…职掌财帛田宅衣禄之神。为帝之佐贰，能制羊陀为从，能化火铃为福。主人相貌清奇，禀性温良端雅。",
+         "quote_dich": "Thiên Phủ thuộc Thổ, Nam Đẩu chủ-lệnh đệ nhất; là CHỦ TỂ Tài Bạch… sao duyên-thọ giải-ách, lại gọi Tư Mệnh. Thượng-tướng trấn-quốc… cai quản Tài-Điền-Y-Lộc. Làm phó tá đế tinh; CHẾ được Dương-Đà thành tùy, HÓA được Hỏa-Linh thành phúc. Tướng mạo thanh kỳ, bẩm tính ôn-lương đoan-nhã."},
+        {"tac_gia": "Toàn Thư — bảng miếu vượng", "corpus": "tuvi-toan-thu-lht-zh", "trang": 76,
+         "quote_han": "天府 庙子丑未寅辰戌 旺午酉 地卯巳申亥 无陷", "quote_dich": "Thiên Phủ MIẾU tại Tý-Sửu-Mùi-Dần-Thìn-Tuất; vượng Ngọ-Dậu; bình Mão-Tỵ-Thân-Hợi; KHÔNG cung nào hãm."}
+      ],
+      "dinh_tinh_THAT": [
+        "Chủ tể Tài Bạch, kho lộc; chế Dương-Đà, hóa Hỏa-Linh thành phúc — p19",
+        "Tướng mạo thanh kỳ, tính ôn-lương đoan-nhã — p19",
+        "MIẾU tại Sửu — p76 → Tài Bạch founder ở Sửu = MIẾU (đắc cao nhất)"
+      ],
+      "ung_la_so_founder": "Thiên Phủ founder tọa Tài Bạch/Sửu = MIẾU — đúng chỗ sách định mạnh nhất. Vận hành tốt nhất ở vai 'kho lộc / tá nhị': tích trữ, ổn định, điều độ tài nguyên. Cùng Thiên Tướng (Mệnh) tạo cách Phủ-Tướng triều viên."
+    },
+    "Lộc Tồn": {
+      "ten_zh": "祿存", "trang_thai": "co_nguon", "verdict": "đã sửa (re-source: corpus CÓ entry đích danh p27, bác bỏ phán cũ 'chưa có nguồn')",
+      "nguon": [
+        {"tac_gia": "Trần Đoàn (Hi Di) — Chư Tinh Vấn Đáp", "corpus": "tuvi-toan-thu-lht-zh", "trang": 27,
+         "quote_han": "禄存北斗第三星，真人之宿，主人贵爵，掌人寿基…守身命主人慈厚信直，通文济楚…若独守命而无吉化，乃看财奴耳…最嫌落于陷空不能为福，更凑火铃空劫，巧艺安身。",
+         "quote_dich": "Lộc Tồn Bắc Đẩu đệ tam, tú của chân nhân, chủ tước quý, nắm nền thọ… thủ Thân/Mệnh khiến người TỪ HẬU TÍN TRỰC (nhân hậu, thành tín, ngay thẳng), văn vẻ tề chỉnh… NHƯNG nếu độc thủ Mệnh mà không có cát-hóa thì chỉ là kẻ GIỮ CỦA; kỵ nhất rơi hãm/Không, gặp thêm Hỏa-Linh-Không-Kiếp thì NƯƠNG NGHỀ KHÉO MÀ SỐNG (xảo nghệ an thân)."},
+        {"tac_gia": "Toàn Thư — cát hung quyết", "corpus": "tuvi-toan-thu-lht-zh", "trang": 64,
+         "quote_han": "人生若遇禄存星，性格刚强百事成…禄存守命莫逢冲，陀火交加福不全，天机空劫忌相会。",
+         "quote_dich": "Người gặp Lộc Tồn, tính cách CƯƠNG CƯỜNG trăm việc nên… NHƯNG Lộc Tồn thủ Mệnh CHỚ GẶP XUNG; Đà-Hỏa giao thêm thì phúc không trọn; kỵ hội Thiên Cơ-Không-Kiếp."}
+      ],
+      "dinh_tinh_THAT": [
+        "thủ Mệnh: từ hậu tín trực, cương cường, trăm việc nên — p27/64",
+        "CẢNH BÁO vị trí: độc thủ vô cát-hóa = kẻ giữ của; gặp Không-Kiếp = xảo nghệ an thân; KỴ bị xung — p27/64"
+      ],
+      "ung_la_so_founder": "Lộc Tồn TỌA CHÍNH Mệnh/Tỵ founder → nền 'từ hậu tín trực, cương cường' có thật. NHƯNG Mệnh Tỵ bị Thiên Di/Hợi (Vũ Khúc-Phá Quân-Địa Không-Địa Kiếp-Hồng Loan) XUNG mạnh → ứng ĐÚNG 2 clause cảnh báo: '莫逢冲' (chớ gặp xung) + '更凑火铃空劫巧艺安身' (gặp Không-Kiếp → nương nghề khéo). Đọc động-từ: cấu trúc này vận hành tốt nhất khi KHÔNG để cái cương-trực-giữ-lộc thành cô-độc-giữ-của, mà dồn vào MỘT nghề khéo/kỹ thuật chuyên sâu (xảo nghệ an thân) — hợp với lực phá-tán từ Thiên Di."
+    }
+  },
+  "registry_14_chinh_tinh": {
+    "ghi_chu": "Cả 14 đều CÓ entry đích danh trong tuvi-toan-thu-lht-zh (verify workflow). Trang chính + 1 dòng định-tính lõi. Bản đầy đủ trong output workflow, sẽ mở rộng dần vào 'sao' với quote full.",
+    "Tử Vi": "đế tinh, chủ tể (p~16) — đạt", "Thiên Cơ": "益算善星, linh cơ ứng biến, cao nghệ tùy thân (p16) — sửa (phồn/giản + gán nhầm cung Tử Tức→Phu Thê)",
+    "Thái Dương": "quý tinh, 科名陷于凶神苗而不秀 nếu Hóa Khoa hãm (p89) — sửa (bổ Hóa Khoa hãm)", "Vũ Khúc": "北斗化财 为财帛主, 心直无毒, 寡宿; 平巳亥无失陷 (p9/64/81) — sửa (chuyển 'hóa Tài' ẢO→THẬT)",
+    "Thiên Đồng": "福德主, 化福 (p18) — sửa (Tứ Hóa Mậu Khoa=Hữu Bật theo engine, không phải Dương)", "Liêm Trinh": "次桃花/囚, 化气曰囚 (p~) — sửa",
+    "Thiên Phủ": "财帛主宰, chế Dương-Đà hóa Hỏa-Linh (p19) — đạt", "Thái Âm": "田宅主, mẫu tinh thê tú, 有辉为福失陷必凶 (p20) — đạt",
+    "Tham Lang": "北斗解厄, 化桃花, họa-phúc lưỡng diện (p20/64) — sửa", "Cự Môn": "暗星, thị phi khẩu thiệt (p~) — sửa",
+    "Thiên Tướng": "印, 身命二宫逢定主多财福 (p20/21) — sửa (đã xử lý ở trên)", "Thiên Lương": "荫/寿, 父母主, hóa bạo lệ thành tường (p21) — sửa",
+    "Thất Sát": "上将, 成败之孤辰, 其性若清凉 (p22) — đạt", "Phá Quân": "化气曰耗, 在迁移奔走无力, 武破巳亥东来西去 (p354) — sửa"
+  },
+  "chan_ly_pho_quat": {
+    "ghi_chu": "Luật áp MỌI lá số — neo Toàn Thư p4/p8 + verify máy (engine/tu_vi/dang_son_verify.py).",
+    "thu_tu_luan": "10 bước (Toàn Thư p8): định giờ→khởi bát tự→lập cách cục→an sao→ĐỊNH CUNG MỆNH→đại vận→đại hạn→Tứ Hóa→hỉ kỵ→cát hung. Cung Mệnh = fix(2+M−H).",
+    "tam_hop_ngu_hanh_sinh": "tam hợp = chuỗi ngũ-hành-SINH (verify 100%): Liêm(hỏa)→Tử(thổ)→Vũ(kim); Sát(kim)→Phá(thủy)→Tham(mộc). Nền: Toàn Thư 'Luận tinh thần sinh khắc chế hóa' (p4).",
+    "tu_hoa_walk": "Hóa Lộc/Quyền đi trên chính tinh theo can (verify 10/10). Phủ-Tướng-Sát KHÔNG bao giờ hóa; Tử Vi-Thiên Lương KHÔNG bao giờ Hóa Kỵ.",
+    "cat_hung_dieu_kien_hoa": "Toàn Thư p8: cát-hung KHÔNG cố định ở vị trí/độ sáng đơn lẻ — do sinh-khắc-chế-hóa quyết. 'Chư tinh cát phùng hung dã cát, chư tinh hung phùng cát dã hung.'",
+    "do_sang_gioi_han": "độ sáng miếu/vượng/hãm là bảng cố định theo địa-chi (luật), NHƯNG tương quan với ngũ-hành-sinh-khắc chỉ r≈0.20 (verify) → phần lớn là di sản truyền thống, KHÔNG suy ra hết được = biên giới khoa học."
+  }
+}

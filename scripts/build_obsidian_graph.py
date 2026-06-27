@@ -616,7 +616,9 @@ def main():
         "select concept_id, canonical_vi, canonical_zh, aliases, mentioned_in_passages, "
         "short_note, first_seen_corpus, first_seen_page, corpora, school, category, "
         "han_viet_giai, thuan_viet_giai "
-        "from concept_index").fetchall()
+        "from concept_index "
+        # ĐÁ MÀI 2026-06-27: bỏ nút rác đã gắn nhãn (trùng-y-hệt + câu-phú). Giữ case_study (nội dung thật).
+        "where category is null or category not in ('dup_merged','rac_caudaphu')").fetchall()
     concept_title = {}
     concept_passages = {}   # title -> set(passage)
     concept_tokens = {}     # cid -> (vi, zh, [aliases]) cho matcher toạ-độ
