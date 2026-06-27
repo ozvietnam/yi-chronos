@@ -614,7 +614,8 @@ def main():
     # ===== 4. 3641 CONCEPT (concept_index) =====
     concept_rows = con.execute(
         "select concept_id, canonical_vi, canonical_zh, aliases, mentioned_in_passages, "
-        "short_note, first_seen_corpus, first_seen_page, corpora, school, category "
+        "short_note, first_seen_corpus, first_seen_page, corpora, school, category, "
+        "han_viet_giai, thuan_viet_giai "
         "from concept_index").fetchall()
     concept_title = {}
     concept_passages = {}   # title -> set(passage)
@@ -629,6 +630,17 @@ def main():
         body = []
         if r["short_note"]:
             body.append(r["short_note"])
+        # SONG NGỮ: hiện giải nghĩa Hán-Việt (chiết tự) + thuần-Việt (đời thường) NGAY TRONG
+        # note (nguồn: concept_index.han_viet_giai / thuan_viet_giai — đã neo canon). Đặt sau
+        # short_note để người mở note đọc thẳng được nghĩa, không phải tra ngược DB.
+        hvg = _as_text(r["han_viet_giai"])
+        if hvg:
+            body.append("")
+            body.append(f"**Hán-Việt (chiết tự):** {hvg}")
+        tvg = _as_text(r["thuan_viet_giai"])
+        if tvg:
+            body.append("")
+            body.append(f"**Thuần-Việt (đời thường):** {tvg}")
         # disambig by concept_id so case-insensitive FS collisions keep distinct nodes
         rec = V.add(vi, f"{F_CONCEPT}/{r['school'] or 'khac'}", ntype="khai-niem",
                     school=r["school"], category=r["category"], aliases=al,
@@ -767,6 +779,61 @@ def main():
                     hits += 1
             if hits >= 5:
                 break
+
+    # ============================================================
+    #  E9. SYNAPSE THẬT — atom_relations (bảng quan-hệ ngữ-nghĩa đã đổ, wiki_connect_v1)
+    # ============================================================
+    #  Mỗi hàng atom_relations là 1 quan-hệ giữa 2 KHÁI NIỆM (from_concept_id → to_concept_id),
+    #  do pipeline wiki_connect_v1 trích + neo bằng câu rationale (truy về short_note nguồn).
+    #  Nhãn cạnh = 'liên-kết-nghĩa' (gộp mọi relation_type của bảng — thuộc-về / giải-thích-bằng
+    #  / là-loại-của / sinh / khắc …). Cạnh THẬT, KHÔNG bịa: chỉ vẽ khi CẢ HAI concept có node
+    #  trong vault. Dedupe theo cặp không hướng (mỗi cặp 1 cạnh, giữ relation_type đầu tiên để
+    #  ghi nguồn). Lưu rationale + relation_type vào comment HTML body (verify, không nhiễu graph).
+    relrows = con.execute(
+        "select from_concept_id, to_concept_id, relation_type, rationale, confidence "
+        "from atom_relations "
+        "where from_concept_id is not null and to_concept_id is not null "
+        "and from_concept_id != to_concept_id "
+        "order by rel_id").fetchall()
+    synapse_pairs = set()        # frozenset(a,b) đã vẽ (không hướng) → dedupe
+    synapse_edge_count = 0
+    synapse_skipped_no_node = 0
+    synapse_prov = {}            # title -> list[comment] (gom nguồn để append 1 lần)
+    for rr in relrows:
+        a, b = rr["from_concept_id"], rr["to_concept_id"]
+        ta = concept_title.get(a)
+        tb = concept_title.get(b)
+        if not ta or not tb:
+            synapse_skipped_no_node += 1
+            continue
+        key = frozenset((ta, tb))
+        if key in synapse_pairs:
+            continue
+        synapse_pairs.add(key)
+        rec_a = V.notes.get(ta)
+        rec_b = V.notes.get(tb)
+        if not rec_a or not rec_b:
+            synapse_skipped_no_node += 1
+            continue
+        # cạnh 2 chiều (reciprocal) để graph nối chắc + không node nào thiếu out-edge
+        ok1 = V.link(rec_a, tb, "liên-kết-nghĩa")
+        ok2 = V.link(rec_b, ta, "liên-kết-nghĩa")
+        if ok1 or ok2:
+            synapse_edge_count += 1
+            rt = (rr["relation_type"] or "?").strip()
+            rationale = _as_text(rr["rationale"])[:240]
+            comment = (f"<!-- liên-kết-nghĩa ({rt}) ↔ [[{tb if ok1 else ta}]] · "
+                       f"nguồn (atom_relations.rationale): \"{rationale}\" -->")
+            synapse_prov.setdefault(ta, []).append(comment)
+    # append provenance comments (cap 6/note để body không phình)
+    for title, comments in synapse_prov.items():
+        rec = V.notes.get(title)
+        if not rec:
+            continue
+        for c in comments[:6]:
+            if c not in rec["body"]:
+                rec["body"].append("")
+                rec["body"].append(c)
 
     # ============================================================
     #  (A) PROVENANCE BẮT BUỘC — diệt cô đơn: MỌI node có ≥1 [[Phái·]] / [[Sách·]]
@@ -1387,6 +1454,9 @@ def main():
         "so_note": n_notes,
         "so_link": n_links,
         "so_co_don": so_co_don,
+        "so_canh_synapse_atom_relations": synapse_edge_count,
+        "synapse_pairs_distinct": len(synapse_pairs),
+        "synapse_skipped_no_node": synapse_skipped_no_node,
         "so_canh_toa_do": coord_edge_count,
         "so_canh_hanh_grounded": hanh_edge_count,
         "so_concept_hanh_grounded": hanh_concepts,
@@ -1453,6 +1523,10 @@ def build_readme(V) -> str:
         "- **sinh → / khắc →**: vòng Ngũ Hành cổ điển (deterministic).",
         "- **sao cấu thành**: cách cục → chính tinh xuất hiện trong tên/điều kiện.",
         "- **gốc-tham nhắc**: sao → concept có tên khớp nguyên văn trong trường `goc_tham`.",
+        "- **liên-kết-nghĩa**: SYNAPSE THẬT từ bảng `atom_relations` (wiki_connect_v1) — mỗi hàng "
+        "là 1 quan-hệ ngữ-nghĩa giữa 2 khái niệm (from_concept_id ↔ to_concept_id), neo bằng câu "
+        "`rationale` (truy về short_note nguồn). Gộp mọi relation_type (thuộc-về / giải-thích-bằng "
+        "/ là-loại-của / sinh / khắc …); rationale + loại gốc giữ trong comment HTML note để verify.",
         "- **nền triết nội bộ**: Ngũ Uẩn→5 uẩn, khe Thọ→Hành, Bát Chánh Đạo→Tứ Diệu Đế…",
         "",
         "### Cạnh toạ-độ gốc (B) — từ `ontology_nen.json` (canonical, KHỚP CHÍNH XÁC)",
