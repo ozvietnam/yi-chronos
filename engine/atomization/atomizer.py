@@ -209,6 +209,9 @@ class Atomizer:
         if name == "ollama":
             from engine.ai.providers.ollama import OllamaProvider
             return OllamaProvider()
+        if name in ("lm_studio", "lmstudio"):
+            from engine.ai.providers.lm_studio import LMStudioProvider
+            return LMStudioProvider()  # local :1234, no key
         # Add more providers as needed
         raise ValueError(f"Unsupported provider: {name}")
 
@@ -218,6 +221,8 @@ class Atomizer:
             "minimax": "MiniMax-M2",
             "deepseek": "deepseek-chat",
             "gemini": "gemini-2.5-flash",
+            "lm_studio": "qwen3-coder-30b-a3b-instruct-mlx",
+            "lmstudio": "qwen3-coder-30b-a3b-instruct-mlx",
         }.get(provider_name, "")
 
     def _open_db(self) -> sqlite3.Connection:
