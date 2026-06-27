@@ -617,8 +617,9 @@ def main():
         "short_note, first_seen_corpus, first_seen_page, corpora, school, category, "
         "han_viet_giai, thuan_viet_giai "
         "from concept_index "
-        # ĐÁ MÀI 2026-06-27: bỏ nút rác đã gắn nhãn (trùng-y-hệt + câu-phú). Giữ case_study (nội dung thật).
-        "where category is null or category not in ('dup_merged','rac_caudaphu')").fetchall()
+        # ĐÁ MÀI 2026-06-27: bỏ nút rác/không-phải-khái-niệm đã gắn nhãn (trùng-y-hệt + câu-phú + quái/hào/phú-văn cổ).
+        # Giữ case_study + mọi category nội-dung-thật (tam_phap, phú, phrase, sao, quái...).
+        "where category is null or category not in ('dup_merged','rac_caudaphu','kinh_phu_van')").fetchall()
     concept_title = {}
     concept_passages = {}   # title -> set(passage)
     concept_tokens = {}     # cid -> (vi, zh, [aliases]) cho matcher toạ-độ
