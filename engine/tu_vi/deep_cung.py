@@ -66,7 +66,11 @@ def _grounded_block(birth: str, gender: str, cung_vi: str) -> tuple[str, int]:
     LLM chỉ được BIÊN TẬP từ block này, cấm sinh nghĩa ngoài nguồn → hết "gieo rác".
     """
     from engine.tu_vi.doc_tien_trinh import doc_mot_cung
-    r = doc_mot_cung(birth, gender, cung_vi)
+    try:
+        r = doc_mot_cung(birth, gender, cung_vi)
+    except Exception as e:  # kho nguồn (sao_noi_dung) chưa sync/lỗi → degrade êm, KHÔNG gieo rác
+        logger.warning("deep_cung grounded: kho nguồn lỗi (%s) → trả rỗng, hoàn xu", str(e)[:100])
+        return "", 0
     if not r.get("ok"):
         return "", 0
     lines: list[str] = []
