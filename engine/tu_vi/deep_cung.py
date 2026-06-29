@@ -128,7 +128,13 @@ def _generate(person: dict, cung_key: str) -> str:
     resp = run_agent(agent_id="tu_vi", provider=provider, model=model, question=q,
                      chart_data={"birth_datetime_local": birth, "gender": gender, "timezone": tz},
                      round_label="deep_cung", challenges=None, max_tokens=1500)
-    return resp.content or ""
+    return _strip_scaffold(resp.content or "")
+
+
+def _strip_scaffold(text: str) -> str:
+    """Bỏ header khung 'round' của run_agent rò ra đầu bài (vd '## READ')."""
+    import re
+    return re.sub(r"^\s*#{1,4}\s*(READ|REACT|REVISE|ĐỌC)\s*\n+", "", text or "", flags=re.IGNORECASE)
 
 
 def deep_cung_reading(user_id: int, person: dict, cung_key: str) -> dict:
