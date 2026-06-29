@@ -59,20 +59,49 @@ def _store(user_id: int, cung_key: str, interp: str) -> None:
              "av": algo_version("tu_vi"), "now": int(time.time())})
 
 
+def _grounded_block(birth: str, gender: str, cung_vi: str) -> tuple[str, int]:
+    """Dựng block NGUỒN cho 1 cung từ engine grounded doc_mot_cung (quote-or-silence).
+
+    Trả (block_text, n_co_nguon). n_co_nguon=0 → cung chưa đủ nguồn để luận (caller hoàn xu).
+    LLM chỉ được BIÊN TẬP từ block này, cấm sinh nghĩa ngoài nguồn → hết "gieo rác".
+    """
+    from engine.tu_vi.doc_tien_trinh import doc_mot_cung
+    r = doc_mot_cung(birth, gender, cung_vi)
+    if not r.get("ok"):
+        return "", 0
+    lines: list[str] = []
+    if r["lop1_tinh_chat_sao"]:
+        lines.append("### Tính chất từng sao (trích kho sách — CÓ NGUỒN):")
+        for x in r["lop1_tinh_chat_sao"]:
+            n = x["nguon"][0]
+            lines.append(f"- {x['sao']}: {n['dich']} (nguồn: {n['nguon_book']})")
+    if r["lop2_sao_tren_cung"]:
+        lines.append(f"\n### Sao khi an tại {cung_vi} (CÓ NGUỒN):")
+        for x in r["lop2_sao_tren_cung"]:
+            n = x["nguon"][0]
+            lines.append(f"- {x['sao']} @ {cung_vi}: {n['dich']} (nguồn: {n['nguon_book']})")
+    if r["lop3_combo_ket_khoi"]:
+        lines.append("\n### Cách cục ĐÃ KẾT KHỐI (combo THẬT — được phép luận):")
+        for c in r["lop3_combo_ket_khoi"]:
+            lines.append(f"- {c.get('ten')}: {c.get('dieu_kien', '')}")
+    if r["gaps"]:
+        lines.append("\n### CHƯA CÓ NGUỒN trong kho — TUYỆT ĐỐI KHÔNG luận, KHÔNG bịa:")
+        lines.append("- " + "; ".join(r["gaps"]))
+    return "\n".join(lines), r["n_co_nguon"]
+
+
 def _generate(person: dict, cung_key: str) -> str:
-    """Sinh luận sâu 1 cung qua LLM (deepseek-chat) — bám sao thực tế trong cung + đọc đồng dạng."""
+    """Luận sâu 1 cung — GROUNDED: LLM chỉ biên tập từ nguồn đã tra (sao_noi_dung),
+    cấm sinh nghĩa ngoài nguồn. Engine tất định lo phần TRA; LLM lo phần CÂU CHỮ."""
     from engine.ai.agents import run_agent
     from engine.ai.council import _get_agent_provider
-    from engine.tu_vi.from_birth import cast_la_so_from_birth
-    from engine.tu_vi.per_cung_reading import per_cung_star_reading
     birth = person["birth_datetime_local"]
     tz = person.get("timezone") or "Asia/Ho_Chi_Minh"
     gender = person.get("gender") or "nam"
     cung_vi = CUNG_KEYS[cung_key]
-    ls = cast_la_so_from_birth(birth_datetime_local=birth, timezone=tz, gender=gender)
-    this_cung = next((c for c in per_cung_star_reading(ls) if c["cung"] == cung_vi), None)
-    chart = {"birth_datetime_local": birth, "gender": gender, "timezone": tz,
-             "tu_vi_cung_can_luan": this_cung, "menh_cung": ls.get("menh_branch")}
+    block, n_src = _grounded_block(birth, gender, cung_vi)
+    if n_src == 0:
+        return ""  # chưa đủ nguồn → deep_cung_reading hoàn xu, KHÔNG gieo rác
     provider, model = _get_agent_provider("tu_vi")
     try:
         from engine.ai.council import sage_model
@@ -80,12 +109,21 @@ def _generate(person: dict, cung_key: str) -> str:
     except Exception:
         from engine.ai.council import _SAGE_FAST_MODEL
         model = _SAGE_FAST_MODEL.get(provider.name, model)
-    q = (f"Luận SÂU cung {cung_vi} cho người này (các sao thực tế trong cung đã cho ở chart). "
-         f"Nêu: ý nghĩa tổ hợp sao trong cung, cung này VẬN HÀNH thế nào trong đời (mệnh là động từ — "
-         f"cách dùng cái tính, không phải án định), gợi mở + lời khuyên thực tế. Đọc đồng dạng, KHÔNG "
-         f"phán trước cát/hung cứng. ~250–400 chữ, văn xuôi tiếng Việt.")
+    q = (
+        f"Bạn là người BIÊN TẬP luận Tử Vi, KHÔNG phải người sáng tác nghĩa. Dưới đây là các nhận "
+        f"định CÓ NGUỒN (trích kho sách) về các sao trong cung {cung_vi} của người này:\n\n{block}\n\n"
+        f"NHIỆM VỤ: dệt các ý CÓ NGUỒN ở trên thành một đoạn luận sâu về cung {cung_vi}, mạch lạc, đời "
+        f"thường, ĐỌC ĐỒNG DẠNG (mệnh là động từ — cách VẬN HÀNH cái tính, không án định số phận).\n"
+        f"LUẬT BẮT BUỘC (vi phạm = hỏng):\n"
+        f"1. CHỈ dùng ý trong nguồn cho sẵn — TUYỆT ĐỐI không thêm nghĩa từ kiến thức ngoài.\n"
+        f"2. Sao ở mục 'CHƯA CÓ NGUỒN' → KHÔNG luận; nếu cần chỉ nói gọn 'phần này kho sách chưa có'.\n"
+        f"3. Chỉ luận combo/cách khi nó nằm ở mục 'ĐÃ KẾT KHỐI'; không tự ghép bộ sao chưa kết khối.\n"
+        f"4. Không phán cát/hung cứng, không tiên tri năm-tháng.\n"
+        f"~250–400 chữ, văn xuôi tiếng Việt, có thể nhắc tên sách nguồn cho tự nhiên."
+    )
     resp = run_agent(agent_id="tu_vi", provider=provider, model=model, question=q,
-                     chart_data=chart, round_label="deep_cung", challenges=None, max_tokens=1500)
+                     chart_data={"birth_datetime_local": birth, "gender": gender, "timezone": tz},
+                     round_label="deep_cung", challenges=None, max_tokens=1500)
     return resp.content or ""
 
 
