@@ -199,6 +199,9 @@ function normalizeOraclePalaceName(value) {
 const oracleCardsByTitle = computed(() => {
   return new Map(oracleCards.value.map((card) => [normalizeOracleTitle(card.title), card]));
 });
+const oracleCardsBySlug = computed(() => {
+  return new Map(oracleCards.value.map((card) => [card.slug, card]));
+});
 
 const oracleCardsByType = computed(() => {
   return oracleCards.value.reduce((acc, card) => {
@@ -229,9 +232,30 @@ function tuHoaForStar(starName) {
 }
 
 function oracleCardForStarName(starName) {
-  const title = ORACLE_TITLE_BY_STAR[starName];
-  if (!title) return null;
+  const title = ORACLE_TITLE_BY_STAR[starName] || starName;
   return oracleCardsByTitle.value.get(normalizeOracleTitle(title)) ?? null;
+}
+
+const ORACLE_SLUG_BY_GROUP_STAR = {
+  thai_tue: {
+    "Quan Phù": "quan-phu-tue-tien",
+    "Phúc Đức": "phuc-duc-tue-tien",
+  },
+  bac_si: {
+    "Đại Hao": "dai-hao-bac-si-belt",
+    "Quan Phù": "quan-phu-bac-si-belt",
+  },
+  tuong_tinh: {
+    "Tướng Tinh": "tuong-tinh-belt",
+  },
+};
+
+function oracleCardForPlacedStar(star) {
+  const name = typeof star === "string" ? star : star?.name;
+  const group = typeof star === "string" ? "" : star?.group;
+  const slug = ORACLE_SLUG_BY_GROUP_STAR[group]?.[name];
+  if (slug) return oracleCardsBySlug.value.get(slug) ?? null;
+  return oracleCardForStarName(name);
 }
 
 function contextOracleCardsForPalace(reading) {
@@ -680,7 +704,20 @@ const thienMaBranch = computed(() => {
 const cellByBranch = computed(() => {
   if (!data.value) return {};
   const out = {};
-  for (let i = 0; i < 12; i++) out[i] = { palace: null, chinh: [], phu: [], sat: [], hoa: [] };
+  for (let i = 0; i < 12; i++) {
+    out[i] = {
+      palace: null,
+      chinh: [],
+      phu: [],
+      sat: [],
+      q2: [],
+      bacSi: [],
+      tuongTinh: [],
+      saoLe: [],
+      khongVong: [],
+      hoa: [],
+    };
+  }
 
   // Palace assignment.
   for (const p of data.value.palaces) {
@@ -715,8 +752,6 @@ const cellByBranch = computed(() => {
   }
 
   // Q2 sao bộ — thâm nhuần Quyển 2 (12 sao Thái Tuế + 10 sao phụ)
-  // Init q2 array per cell
-  for (let i = 0; i < 12; i++) out[i].q2 = out[i].q2 || [];
   const thaiTueBelt = data.value.thai_tue_belt || {};
   for (const [name, idx] of Object.entries(thaiTueBelt)) {
     out[idx].q2.push({ name, group: "thai_tue" });
@@ -724,6 +759,24 @@ const cellByBranch = computed(() => {
   const saoQ2 = data.value.sao_q2 || {};
   for (const [name, idx] of Object.entries(saoQ2)) {
     out[idx].q2.push({ name, group: "phu_q2" });
+  }
+
+  // Q3 sao bộ — vòng Bác Sĩ, vòng Tướng Tinh, sao lẻ và Không Vong.
+  // Các nhóm này có nhiều ảnh đang/chuẩn bị vẽ; chỉ hiện trong cung mà sao thật sự an tới.
+  for (const [name, idx] of Object.entries(data.value.bac_si_belt || {})) {
+    out[idx]?.bacSi.push({ name, group: "bac_si" });
+  }
+  for (const [name, idx] of Object.entries(data.value.tuong_tinh_belt || {})) {
+    out[idx]?.tuongTinh.push({ name, group: "tuong_tinh" });
+  }
+  for (const [name, idx] of Object.entries(data.value.sao_le || {})) {
+    out[idx]?.saoLe.push({ name, group: "sao_le" });
+  }
+  for (const idx of data.value.triet || []) {
+    out[idx]?.khongVong.push({ name: "Triệt", group: "triet" });
+  }
+  for (const idx of data.value.tuan || []) {
+    out[idx]?.khongVong.push({ name: "Tuần", group: "tuan" });
   }
 
   return out;
@@ -875,6 +928,15 @@ const grid = computed(() => {
               <ul class="stars chinh">
                 <li v-for="s in cell.chinh" :key="s.name" class="star chinh-tinh"
                     :style="{ color: ELEMENT_COLOR[CHINH_TINH_HANH[s.name]] || '#f5e6b1' }">
+                  <button
+                    v-if="oracleCardForPlacedStar(s)"
+                    type="button"
+                    class="star-art-mini"
+                    :aria-label="`Mở ảnh ${s.name}`"
+                    @click.stop="openOracleCard(oracleCardForPlacedStar(s))"
+                  >
+                    <img :src="oracleCardForPlacedStar(s).image" :alt="`Ảnh ${s.name}`" loading="lazy" />
+                  </button>
                   {{ s.name }}
                   <span v-if="s.hoa" class="hoa-badge"
                     :style="{ background: HOA_COLOR[s.hoa] + '33', color: HOA_COLOR[s.hoa], borderColor: HOA_COLOR[s.hoa] }">
@@ -886,6 +948,15 @@ const grid = computed(() => {
               <!-- Phụ tinh + sát tinh + q2 — nhỏ hơn, gộp nhau -->
               <ul v-if="cell.phu.length" class="stars phu">
                 <li v-for="s in cell.phu" :key="s.name" class="star phu-tinh">
+                  <button
+                    v-if="oracleCardForPlacedStar(s)"
+                    type="button"
+                    class="star-art-mini"
+                    :aria-label="`Mở ảnh ${s.name}`"
+                    @click.stop="openOracleCard(oracleCardForPlacedStar(s))"
+                  >
+                    <img :src="oracleCardForPlacedStar(s).image" :alt="`Ảnh ${s.name}`" loading="lazy" />
+                  </button>
                   {{ s.name }}
                   <span v-if="s.hoa" class="hoa-badge"
                     :style="{ background: HOA_COLOR[s.hoa] + '33', color: HOA_COLOR[s.hoa] }">
@@ -896,12 +967,76 @@ const grid = computed(() => {
               <ul v-if="cell.sat.length" class="stars sat">
                 <li v-for="s in cell.sat" :key="s.name" class="star sat-tinh"
                     :class="{ 'loc-ton': s.name === 'Lộc Tồn', 'thien-ma': s.name === 'Thiên Mã' }">
+                  <button
+                    v-if="oracleCardForPlacedStar(s)"
+                    type="button"
+                    class="star-art-mini"
+                    :aria-label="`Mở ảnh ${s.name}`"
+                    @click.stop="openOracleCard(oracleCardForPlacedStar(s))"
+                  >
+                    <img :src="oracleCardForPlacedStar(s).image" :alt="`Ảnh ${s.name}`" loading="lazy" />
+                  </button>
                   {{ s.name }}
                 </li>
               </ul>
               <ul v-if="cell.q2?.length" class="stars q2">
                 <li v-for="s in cell.q2" :key="s.name"
                     :class="['star','q2-tinh', s.group === 'thai_tue' ? 'thai-tue' : 'phu-q2']">
+                  <button
+                    v-if="oracleCardForPlacedStar(s)"
+                    type="button"
+                    class="star-art-mini"
+                    :aria-label="`Mở ảnh ${s.name}`"
+                    @click.stop="openOracleCard(oracleCardForPlacedStar(s))"
+                  >
+                    <img :src="oracleCardForPlacedStar(s).image" :alt="`Ảnh ${s.name}`" loading="lazy" />
+                  </button>
+                  {{ s.name }}
+                </li>
+              </ul>
+              <ul v-if="cell.bacSi?.length" class="stars q3 bac-si">
+                <li v-for="s in cell.bacSi" :key="s.name" class="star q3-tinh bac-si-tinh">
+                  <button
+                    v-if="oracleCardForPlacedStar(s)"
+                    type="button"
+                    class="star-art-mini"
+                    :aria-label="`Mở ảnh ${s.name}`"
+                    @click.stop="openOracleCard(oracleCardForPlacedStar(s))"
+                  >
+                    <img :src="oracleCardForPlacedStar(s).image" :alt="`Ảnh ${s.name}`" loading="lazy" />
+                  </button>
+                  {{ s.name }}
+                </li>
+              </ul>
+              <ul v-if="cell.tuongTinh?.length" class="stars q3 tuong-tinh">
+                <li v-for="s in cell.tuongTinh" :key="s.name" class="star q3-tinh tuong-tinh-tinh">
+                  <button
+                    v-if="oracleCardForPlacedStar(s)"
+                    type="button"
+                    class="star-art-mini"
+                    :aria-label="`Mở ảnh ${s.name}`"
+                    @click.stop="openOracleCard(oracleCardForPlacedStar(s))"
+                  >
+                    <img :src="oracleCardForPlacedStar(s).image" :alt="`Ảnh ${s.name}`" loading="lazy" />
+                  </button>
+                  {{ s.name }}
+                </li>
+              </ul>
+              <ul v-if="cell.saoLe?.length || cell.khongVong?.length" class="stars q3 sao-le">
+                <li
+                  v-for="s in [...(cell.saoLe || []), ...(cell.khongVong || [])]"
+                  :key="`${s.group}-${s.name}`"
+                  :class="['star', 'q3-tinh', 'sao-le-tinh', `group-${s.group}`]"
+                >
+                  <button
+                    v-if="oracleCardForPlacedStar(s)"
+                    type="button"
+                    class="star-art-mini"
+                    :aria-label="`Mở ảnh ${s.name}`"
+                    @click.stop="openOracleCard(oracleCardForPlacedStar(s))"
+                  >
+                    <img :src="oracleCardForPlacedStar(s).image" :alt="`Ảnh ${s.name}`" loading="lazy" />
+                  </button>
                   {{ s.name }}
                 </li>
               </ul>
@@ -1426,67 +1561,12 @@ const grid = computed(() => {
                 </p>
               </div>
 
-              <!-- LỚP 1 — Căn cơ Âm Dương / Ngũ Hành -->
-              <details v-if="r.ngu_uan.am_duong_ngu_hanh" class="nu-layer">
-                <summary><b>1.</b> Căn cơ tạo hóa — Âm Dương / Ngũ Hành</summary>
-                <p class="nu-layer-body">{{ r.ngu_uan.am_duong_ngu_hanh }}</p>
-              </details>
-
-              <!-- LỚP 3 — Ngũ Uẩn tiến trình tâm (Sắc→Thọ→Tưởng→Hành→Thức) -->
-              <details v-if="(r.ngu_uan.ngu_uan || []).length" class="nu-layer">
-                <summary><b>3.</b> Ngũ Uẩn — tiến trình tâm (Sắc→Thọ→Tưởng→Hành→Thức)</summary>
-                <div class="nu-layer-body">
-                  <dl class="nu-uan-list">
-                    <template v-for="u in r.ngu_uan.ngu_uan" :key="u.key">
-                      <dt>{{ u.label }}</dt>
-                      <dd>{{ u.text }}</dd>
-                    </template>
-                  </dl>
-                  <p v-if="r.ngu_uan.thuan" class="nu-thuan">▲ Khi cấu trúc thuận: {{ r.ngu_uan.thuan }}</p>
-                  <p v-if="r.ngu_uan.lech" class="nu-lech">▽ Khi bị lệch: {{ r.ngu_uan.lech }}</p>
-                  <p v-for="(hn, hi) in (r.ngu_uan.hoa_notes || [])" :key="'hn' + hi" class="nu-hoa">✺ {{ hn }}</p>
-                </div>
-              </details>
-
-              <!-- LỚP 4 — Khí vượng ↔ Khí suy (miếu/vượng ↔ hãm) -->
-              <details v-if="r.ngu_uan.khi_vuong_suy || (r.ngu_uan.sao_dinh_vi || []).length" class="nu-layer">
-                <summary><b>4.</b> Khí vượng ↔ Khí suy</summary>
-                <div class="nu-layer-body">
-                  <p v-if="r.ngu_uan.khi_vuong_suy" class="nu-kvs">{{ r.ngu_uan.khi_vuong_suy }}</p>
-                  <div v-for="sv in (r.ngu_uan.sao_dinh_vi || [])" :key="sv.sao" class="nu-sao">
-                    <span class="nu-sao-name">{{ sv.sao }}</span>
-                    <span v-if="sv.tom_gon && sv.tom_gon.length" class="nu-tomgon">{{ sv.tom_gon.join(' · ') }}</span>
-                    <span v-if="sv.mieu_ham" class="nu-mieuham">thế {{ sv.mieu_ham }} — độ khó bài học</span>
-                    <p v-if="sv.dinh_vi" class="nu-dinhvi">{{ sv.dinh_vi }}</p>
-                    <p v-if="sv.o_dau_thi" class="nu-odauthi">{{ sv.o_dau_thi }}</p>
-                  </div>
-                </div>
-              </details>
-
-              <!-- LỚP 5 — Theo đời người (nhỏ · thiếu niên · trung niên · về già) -->
-              <details v-if="r.ngu_uan.theo_doi_nguoi" class="nu-layer">
-                <summary><b>5.</b> Theo đời người</summary>
-                <div class="nu-layer-body">
-                  <template v-if="typeof r.ngu_uan.theo_doi_nguoi === 'object'">
-                    <p v-for="(val, giai) in r.ngu_uan.theo_doi_nguoi" :key="giai" class="nu-doinguoi">
-                      <span class="nu-lbl">{{ giai }}</span> {{ val }}
-                    </p>
-                  </template>
-                  <p v-else class="nu-doinguoi">{{ r.ngu_uan.theo_doi_nguoi }}</p>
-                </div>
-              </details>
-
-              <!-- LỚP 6 — Khe tỉnh thức + Hướng tu tập -->
-              <details v-if="r.ngu_uan.khe_tinh_thuc || r.ngu_uan.duong_ra || (r.ngu_uan.can_de_phat_huy || []).length" class="nu-layer">
-                <summary><b>6.</b> Khe tỉnh thức + Hướng tu tập</summary>
-                <div class="nu-layer-body">
-                  <p v-if="r.ngu_uan.khe_tinh_thuc" class="nu-khe">⟡ {{ r.ngu_uan.khe_tinh_thuc }}</p>
-                  <p v-if="r.ngu_uan.duong_ra" class="nu-duongra-full">🚪 {{ r.ngu_uan.duong_ra }}</p>
-                  <p v-if="(r.ngu_uan.can_de_phat_huy || []).length" class="nu-can">
-                    ✦ Cần để phát huy: {{ r.ngu_uan.can_de_phat_huy.join(' ') }}
-                  </p>
-                </div>
-              </details>
+              <!-- Chi tiết 8 lớp DỒN VỀ thư viện (feedback Anh 2026-07-01: lá số
+                   nhiều chữ nhỏ nhiều chiều đọc mệt — cung chỉ giữ tóm gọn) -->
+              <p class="nu-more">
+                ☸ Chân dung đầy đủ 8 lớp của {{ (r.ngu_uan.sao_dinh_vi || []).map(sv => sv.sao).join(', ') || 'sao tại cung này' }}
+                — xem mục <b>📚 thư viện 14 chính tinh</b> cuối trang.
+              </p>
 
               <p v-if="r.ngu_uan.cau_hoi_tu_soi" class="nu-cauhoi">Tự soi: {{ r.ngu_uan.cau_hoi_tu_soi }}</p>
               <p class="nu-nhac">{{ r.ngu_uan.nhac_paradigm }}</p>
@@ -1874,13 +1954,35 @@ const grid = computed(() => {
 .stars { list-style: none; margin: 0; padding: 0; }
 .star {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: 3px;
   line-height: 1.35;
   font-size: 11.5px;
+  min-width: 0;
 }
 .chinh-tinh { font-weight: 800; font-size: 12px; line-height: 1.4; }
 .phu-tinh { color: #7dd3fc; font-size: 10.5px; }
+.star-art-mini {
+  width: 16px;
+  height: 22px;
+  flex: 0 0 16px;
+  padding: 0;
+  border: 1px solid rgba(232, 201, 90, 0.34);
+  border-radius: 3px;
+  background: rgba(3, 7, 18, 0.7);
+  overflow: hidden;
+  cursor: zoom-in;
+}
+.star-art-mini img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.star-art-mini:hover {
+  border-color: rgba(232, 201, 90, 0.72);
+  transform: translateY(-1px);
+}
 .stars.sat { display: flex; flex-wrap: wrap; gap: 2px; margin-top: 2px; }
 .sat-tinh {
   color: #fca5a5; font-size: 9.5px;
@@ -1911,6 +2013,45 @@ const grid = computed(() => {
 }
 .q2-tinh.phu-q2 {
   background: rgba(34, 211, 238, 0.15); color: #67e8f9;
+}
+.stars.q3 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  margin-top: 2px;
+}
+.q3-tinh {
+  font-size: 8.8px;
+  padding: 1px 4px;
+  border-radius: 2px;
+  color: rgba(230, 238, 245, 0.78);
+  background: rgba(148, 163, 184, 0.11);
+  border: 1px solid rgba(148, 163, 184, 0.16);
+}
+.bac-si-tinh {
+  color: #a7f3d0;
+  background: rgba(16, 185, 129, 0.12);
+  border-color: rgba(16, 185, 129, 0.22);
+}
+.tuong-tinh-tinh {
+  color: #fcd34d;
+  background: rgba(245, 158, 11, 0.12);
+  border-color: rgba(245, 158, 11, 0.22);
+}
+.sao-le-tinh {
+  color: #c4b5fd;
+  background: rgba(139, 92, 246, 0.12);
+  border-color: rgba(139, 92, 246, 0.22);
+}
+.sao-le-tinh.group-triet {
+  color: #fecaca;
+  background: rgba(239, 68, 68, 0.14);
+  border-color: rgba(239, 68, 68, 0.28);
+}
+.sao-le-tinh.group-tuan {
+  color: #fed7aa;
+  background: rgba(249, 115, 22, 0.13);
+  border-color: rgba(249, 115, 22, 0.25);
 }
 
 .hoa-badge {
@@ -2460,6 +2601,11 @@ const grid = computed(() => {
   font-size: calc(11.5px * var(--reading-scale, 1));
   font-style: italic;
   color: var(--read-text-faint, rgba(230, 238, 245, 0.55));
+}
+.nu-more {
+  margin: 6px 0 0 0;
+  font-size: calc(12.5px * var(--reading-scale, 1));
+  color: var(--read-text-muted, rgba(230, 238, 245, 0.7));
 }
 .interp-stardetails {
   margin-top: 8px;
