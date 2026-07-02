@@ -3211,6 +3211,16 @@ def wallet_redeem(req: PromoRedeemRequest, http_request: Request) -> dict:
     return {"status": "ok", **r}
 
 
+@app.get("/api/wallet/transactions")
+def wallet_me_transactions(http_request: Request, limit: int = 30) -> dict:
+    """Lịch sử cộng/trừ xu (sổ cái riêng) của USER WEB đang đăng nhập."""
+    from api.auth import require_user
+    user = require_user(http_request)
+    from engine import xu_wallet
+    return {"status": "ok",
+            "transactions": xu_wallet.recent_ledger(user["user_id"], limit=min(int(limit), 100))}
+
+
 # ─── Phòng Quản Trị Hermes (owner-only console — plan 2026-06-18) ────────────
 class _SoulEditReq(BaseModel):
     content: str

@@ -6,6 +6,7 @@
 import { ref } from "vue";
 import { sessionToken } from "../stores/authStore.js";
 
+const emit = defineEmits(["redeemed"]);  // báo cha (WalletModal) refresh số dư sau khi đổi mã
 const code = ref("");
 const busy = ref(false);
 const msg = ref("");
@@ -33,6 +34,7 @@ async function redeem() {
       ok.value = true;
       msg.value = `🎉 +${d.xu} xu! Số dư: ${d.balance} xu.`;
       code.value = "";
+      emit("redeemed", d);
     } else {
       msg.value = REASON[d.reason] || `Không đổi được mã (${d.reason || "lỗi"}).`;
     }

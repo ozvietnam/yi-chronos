@@ -9,11 +9,12 @@
  *     - Đăng xuất
  * - Owner sees extra "Quản lý user" item
  */
-import { ref, computed } from "vue";
+import { ref, computed, onMounted, watch } from "vue";
 import {
-  currentUser, currentPerson, isAuthenticated, isOwner,
+  currentUser, currentPerson, isAuthenticated, isOwner, sessionToken,
   logout, listPersons, switchPerson, listUsers, changePassword, registerUser, login, signup,
 } from "../stores/authStore.js";
+import WalletModal from "./WalletModal.vue";
 
 const showLogin = ref(false);
 const loginTab = ref("login"); // 'login' | 'signup'
@@ -24,6 +25,18 @@ const showMenu = ref(false);
 const showPasswordModal = ref(false);
 const showUsersModal = ref(false);
 const showSwitchPersonModal = ref(false);
+const showWallet = ref(false);
+const walletBalance = ref(null);   // số dư hiện trên chip (at-a-glance)
+async function loadWalletBalance() {
+  if (!isAuthenticated.value) { walletBalance.value = null; return; }
+  try {
+    const h = {}; if (sessionToken.value) h["X-Session-Token"] = sessionToken.value;
+    const r = await fetch("/api/wallet", { headers: h, credentials: "include" });
+    if (r.ok) { const d = await r.json(); walletBalance.value = d.balance ?? null; }
+  } catch (e) { /* im lặng — chip không có xu thì thôi */ }
+}
+onMounted(loadWalletBalance);
+watch(isAuthenticated, loadWalletBalance);
 
 // IMPORTANT: do NOT pre-fill with anh's own email. Previously this was
 // `ceo@ngantin.vn` as a dev convenience — meant every visitor clicking
@@ -194,6 +207,7 @@ async function submitChangePassword() {
         <span class="ub-avatar">👤</span>
         <span class="ub-name">{{ displayName }}</span>
         <span class="ub-role" :class="{ 'is-owner': isOwner }">{{ userRole }}</span>
+        <span v-if="walletBalance !== null" class="ub-xu" title="Ví xu của tôi">🪙 {{ walletBalance }}</span>
         <span class="ub-caret">▾</span>
       </button>
       <div v-if="showMenu" class="ub-menu" @click.stop>
@@ -207,6 +221,7 @@ async function submitChangePassword() {
           <small>{{ currentPerson.birth_datetime_local }}</small>
         </div>
         <button v-if="isOwner" class="ub-item" @click="openSwitchPerson">🔄 Chuyển hồ sơ</button>
+        <button class="ub-item" @click="showWallet = true; showMenu = false">🪙 Ví xu của tôi<span v-if="walletBalance !== null" class="ub-item-bal">{{ walletBalance }} xu</span></button>
         <button class="ub-item" @click="showPasswordModal = true; showMenu = false">🔐 Đổi mật khẩu</button>
         <button v-if="isOwner" class="ub-item" @click="openUsers">👥 Quản lý user</button>
         <button class="ub-item ub-danger" @click="handleLogout">⎋ Đăng xuất</button>
@@ -221,6 +236,8 @@ async function submitChangePassword() {
     </template>
 
     <!-- Login / Signup modal -->
+    <Teleport to="body"><WalletModal v-if="showWallet" @close="showWallet = false; loadWalletBalance()" /></Teleport>
+
     <Teleport to="body"><div v-if="showLogin" class="ub-modal-backdrop" @click.self="showLogin = false">
       <div class="ub-modal">
         <div class="ub-tabs">
@@ -438,7 +455,9 @@ async function submitChangePassword() {
 .ub-menu-person strong { color: #fde68a; }
 .ub-menu-person small { color: #94a3b8; }
 .ub-item {
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 6px;
   width: 100%;
   text-align: left;
   background: none;
@@ -450,8 +469,21 @@ async function submitChangePassword() {
   border-radius: 3px;
 }
 .ub-item:hover { background: #1e293b; color: #f1f5f9; }
+.ub-item-bal { margin-left: auto; font-size: 0.78rem; font-weight: 600; color: #e8c95a; }
 .ub-danger { color: #fca5a5; }
 .ub-danger:hover { background: rgba(239, 68, 68, 0.15); }
+
+/* Số dư xu trên chip header (at-a-glance) */
+.ub-xu {
+  font-size: 0.74rem;
+  font-weight: 600;
+  padding: 1px 7px;
+  border-radius: 999px;
+  white-space: nowrap;
+  color: #e8c95a;
+  background: rgba(232, 201, 90, 0.16);
+  border: 1px solid rgba(232, 201, 90, 0.4);
+}
 
 .ub-modal-backdrop {
   position: fixed; inset: 0;
