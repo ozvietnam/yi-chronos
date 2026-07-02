@@ -61,34 +61,52 @@ const UAN_LABELS = {
 };
 const UAN_KEYS = ["sac", "tho", "tuong", "hanh", "thuc"];
 
-async function toggle() {
-  open.value = !open.value;
-  if (open.value && !profiles.value.length && !loading.value) {
-    loading.value = true;
-    error.value = "";
-    try {
-      const [profileResp, cardResp] = await Promise.all([
-        fetch("/api/tu-vi/star-profiles"),
-        fetch("/oracle-cards/tu-vi/cards.json"),
-      ]);
-      const d = await profileResp.json();
-      if (d.status !== "ok") throw new Error("API trả " + d.status);
-      nenTang.value = d.nen_tang;
-      profiles.value = d.profiles || [];
-      paradigmNote.value = d.paradigm_note || "";
-      disclaimer.value = d.disclaimer || "";
-      selected.value = profiles.value[0] || null;
-      if (cardResp.ok) {
-        const manifest = await cardResp.json();
-        oracleCards.value = manifest.cards || [];
-      }
-    } catch (e) {
-      error.value = "Không tải được hồ sơ sao: " + (e?.message || e);
-    } finally {
-      loading.value = false;
+async function ensureLoaded() {
+  if (profiles.value.length || loading.value) return;
+  loading.value = true;
+  error.value = "";
+  try {
+    const [profileResp, cardResp] = await Promise.all([
+      fetch("/api/tu-vi/star-profiles"),
+      fetch("/oracle-cards/tu-vi/cards.json"),
+    ]);
+    const d = await profileResp.json();
+    if (d.status !== "ok") throw new Error("API trả " + d.status);
+    nenTang.value = d.nen_tang;
+    profiles.value = d.profiles || [];
+    paradigmNote.value = d.paradigm_note || "";
+    disclaimer.value = d.disclaimer || "";
+    selected.value = profiles.value[0] || null;
+    if (cardResp.ok) {
+      const manifest = await cardResp.json();
+      oracleCards.value = manifest.cards || [];
     }
+  } catch (e) {
+    error.value = "Không tải được hồ sơ sao: " + (e?.message || e);
+  } finally {
+    loading.value = false;
   }
 }
+
+async function toggle() {
+  open.value = !open.value;
+  if (open.value) await ensureLoaded();
+}
+
+const rootEl = ref(null);
+
+// Cho lá số gọi thẳng (nút "☸ xem đầy đủ trong thư viện"): mở + chọn đúng sao + cuộn tới.
+async function openToStar(saoVi) {
+  open.value = true;
+  await ensureLoaded();
+  const hit = profiles.value.find(
+    (p) => p?.co_ban?.ten_vi === saoVi || p?.ten_vi === saoVi || p?.sao === saoVi,
+  );
+  if (hit) selected.value = hit;
+  rootEl.value?.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+defineExpose({ openToStar });
 
 function uanOf(profile, key) {
   const u = profile?.ngu_uan?.ngu_uan?.[key];
@@ -146,7 +164,7 @@ function openOracle(card) {
 </script>
 
 <template>
-  <section class="ctl-block">
+  <section ref="rootEl" class="ctl-block">
     <button type="button" class="ctl-toggle" @click="toggle">
       <span>📖 Hồ sơ 14 Chính Tinh — kiến thức nền Âm Dương Ngũ Hành</span>
       <small>{{ open ? "thu gọn ▲" : "mở ra ▼" }}</small>

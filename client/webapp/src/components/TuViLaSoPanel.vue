@@ -25,6 +25,12 @@ import TuViPersonSwitcher from "./TuViPersonSwitcher.vue";
 import TuVi3LayerPanel from "./TuVi3LayerPanel.vue";
 import ChinhTinhLibraryPanel from "./ChinhTinhLibraryPanel.vue";
 
+// Nút "☸ xem đầy đủ" trong từng cung → mở thư viện + chọn đúng sao + cuộn tới
+const libraryRef = ref(null);
+function moThuVienSao(saoVi) {
+  libraryRef.value?.openToStar(saoVi);
+}
+
 const inputBirth = ref("");
 const inputGender = ref("nam");
 const inputTimezone = ref("Asia/Ho_Chi_Minh");
@@ -815,7 +821,7 @@ const grid = computed(() => {
 
     <!-- 📖 Thư viện hồ sơ 14 chính tinh + kiến thức nền âm dương ngũ hành
          (xem được cả khi chưa lập lá số) -->
-    <ChinhTinhLibraryPanel />
+    <ChinhTinhLibraryPanel ref="libraryRef" />
 
     <div class="tvls-form">
       <label>
@@ -1564,8 +1570,14 @@ const grid = computed(() => {
               <!-- Chi tiết 8 lớp DỒN VỀ thư viện (feedback Anh 2026-07-01: lá số
                    nhiều chữ nhỏ nhiều chiều đọc mệt — cung chỉ giữ tóm gọn) -->
               <p class="nu-more">
-                ☸ Chân dung đầy đủ 8 lớp của {{ (r.ngu_uan.sao_dinh_vi || []).map(sv => sv.sao).join(', ') || 'sao tại cung này' }}
-                — xem mục <b>📚 thư viện 14 chính tinh</b> cuối trang.
+                ☸ Chân dung đầy đủ 8 lớp:
+                <button
+                  v-for="sv in (r.ngu_uan.sao_dinh_vi || [])"
+                  :key="'lib' + sv.sao"
+                  type="button"
+                  class="nu-more-btn"
+                  @click.stop="moThuVienSao(sv.sao)"
+                >📖 {{ sv.sao }}</button>
               </p>
 
               <p v-if="r.ngu_uan.cau_hoi_tu_soi" class="nu-cauhoi">Tự soi: {{ r.ngu_uan.cau_hoi_tu_soi }}</p>
@@ -2606,6 +2618,22 @@ const grid = computed(() => {
   margin: 6px 0 0 0;
   font-size: calc(12.5px * var(--reading-scale, 1));
   color: var(--read-text-muted, rgba(230, 238, 245, 0.7));
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+.nu-more-btn {
+  font-size: calc(12.5px * var(--reading-scale, 1));
+  padding: 3px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--read-border, rgba(230, 238, 245, 0.25));
+  background: transparent;
+  color: var(--read-accent, #7ec8e3);
+  cursor: pointer;
+}
+.nu-more-btn:hover {
+  border-color: var(--read-accent, #7ec8e3);
 }
 .interp-stardetails {
   margin-top: 8px;
