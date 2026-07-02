@@ -39,7 +39,9 @@ def _mk_user(user_id: int, created_at: int) -> None:
 def test_constants_match_appchat(temp_db):
     from engine import xu_wallet as w
     assert w.XU_COST == {"quick": 1, "council": 5, "deep": 99}
-    assert w.FREE_QUICK_PER_DAY == 3
+    # Anh chốt 2026-06-19 (spec §9.1): free quick 10/ngày — YI là nguồn chân lý,
+    # áp cho cả AppChat (số 3 cũ phía AppChat không còn hiệu lực).
+    assert w.FREE_QUICK_PER_DAY == 10
     assert w.DAILY_BONUS_XU == 10
     assert w.WELCOME_WINDOW_DAYS == 30
     assert w.XU_VND == 1000

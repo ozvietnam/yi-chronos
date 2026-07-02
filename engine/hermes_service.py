@@ -29,7 +29,9 @@ from engine.deep_reading import _resolve  # tái dùng uid→(user_id, person)
 
 FEATURE = "hermes_council"
 FREE_DAILY_COUNCIL = 3          # FREE tier: council 3 lượt/ngày (premium đa-sage)
-FREE_DAILY_QUICK = 10           # FREE tier: trả lời nhanh 1-sage 10 lượt/ngày (rẻ, hằng ngày)
+# FREE tier: trả lời nhanh 1-sage 10 lượt/ngày — MỘT nguồn với xu_wallet để
+# wallet API (free_quick_remaining/free_quick_per_day) không lệch gate thật.
+FREE_DAILY_QUICK = xu_wallet.FREE_QUICK_PER_DAY
 QUICK_EST_USD = 0.01            # 1 lần gọi LLM 1 sage — rẻ hơn council nhiều
 _DAY = 86400
 # Chi phí xu theo loại (ví TRUNG TÂM ở YI — khớp AppChat). Sau khi hết free/ngày

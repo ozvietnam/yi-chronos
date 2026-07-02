@@ -34,7 +34,7 @@ def test_balance_zero_then_grant(client):
     r = c.get(f"/api/sync/wallet/{UID}", headers=H).json()
     assert r["found"] is True and r["balance"] == 0
     assert r["xu_cost"] == {"quick": 1, "council": 5, "deep": 99}
-    assert r["free_quick_per_day"] == 3
+    assert r["free_quick_per_day"] == 10
 
     g = c.post("/api/sync/wallet/grant",
                json={"firebase_uid": UID, "amount": 100, "reason": "topup", "ref": "rc_1"},
