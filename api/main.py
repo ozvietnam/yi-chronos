@@ -3170,6 +3170,7 @@ def wallet_me(http_request: Request) -> dict:
     user = require_user(http_request)
     from engine import ratelimit, xu_wallet
     uid = user["user_id"]
+    daily = xu_wallet.daily_bonus_peek(uid)
     return {
         "balance": xu_wallet.get_balance(uid),
         "xu_cost": xu_wallet.XU_COST,
@@ -3177,6 +3178,9 @@ def wallet_me(http_request: Request) -> dict:
             f"quick_free:{uid}", xu_wallet.FREE_QUICK_PER_DAY, 86400),
         "free_quick_per_day": xu_wallet.FREE_QUICK_PER_DAY,
         "daily_bonus_xu": xu_wallet.DAILY_BONUS_XU,
+        "daily_bonus_available": daily["available"],   # hết cửa sổ welcome → False (ẩn nút)
+        "daily_bonus_days_left": daily["days_left"],
+        "daily_bonus_claimed_today": daily["reason"] == "already_claimed",
     }
 
 

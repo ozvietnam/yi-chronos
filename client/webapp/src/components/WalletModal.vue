@@ -100,10 +100,18 @@ onMounted(load);
           <span class="wm-hint"> · luận sâu 1 lượt = {{ wallet.xu_cost ?? 30 }} xu</span>
         </div>
 
-        <!-- Điểm danh -->
-        <button class="wm-claim" :disabled="claimBusy" @click="claimDaily">
-          {{ claimBusy ? "…" : `🎁 Điểm danh nhận ${wallet.daily_bonus_xu || ''} xu` }}
-        </button>
+        <!-- Điểm danh — chỉ hiện khi CÒN nhận được (tài khoản cũ hết cửa sổ welcome → ẩn) -->
+        <template v-if="wallet.daily_bonus_available">
+          <button class="wm-claim" :disabled="claimBusy" @click="claimDaily">
+            {{ claimBusy ? "…" : `🎁 Điểm danh nhận ${wallet.daily_bonus_xu || ''} xu` }}
+          </button>
+          <p v-if="wallet.daily_bonus_days_left" class="wm-claim-note">
+            Còn {{ wallet.daily_bonus_days_left }} ngày trong tuần chào mừng.
+          </p>
+        </template>
+        <p v-else-if="wallet.daily_bonus_claimed_today" class="wm-claim-note">
+          ✓ Hôm nay Anh đã điểm danh — mai quay lại nhận tiếp nhé.
+        </p>
         <p v-if="claimMsg" class="wm-claim-msg" :class="{ ok: claimOk }">{{ claimMsg }}</p>
 
         <!-- Nhập mã quà (tái dùng widget sẵn) -->
@@ -157,6 +165,7 @@ onMounted(load);
 .wm-claim:disabled { opacity: 0.6; cursor: wait; }
 .wm-claim-msg { margin: 0 0 0.7rem; font-size: 0.85rem; text-align: center; color: var(--read-text-dim, #b8c2cc); }
 .wm-claim-msg.ok { color: #86efac; font-weight: 600; }
+.wm-claim-note { margin: 0 0 0.7rem; font-size: 0.8rem; text-align: center; color: var(--read-text-faint, #9aa); }
 
 .wm-tx-head { font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.5px;
   color: var(--read-text-faint, #9aa); margin: 0.6rem 0 0.4rem; font-weight: 700; }

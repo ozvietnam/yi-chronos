@@ -287,6 +287,29 @@ def daily_bonus_decision(*, created_at_ms: int, now_ms: int,
     return {"grant": True, "amount": bonus_xu, "reason": "ok", "days_left": days_left}
 
 
+def daily_bonus_peek(user_id: int, *, now_ms: Optional[int] = None) -> dict:
+    """PEEK (chỉ đọc, KHÔNG tặng) — hôm nay user có nhận được xu đăng nhập không.
+    Để UI ẩn/hiện nút Điểm danh (tài khoản cũ hết cửa sổ welcome → available=False).
+    Trả {available, amount, days_left, reason}."""
+    now_ms = now_ms if now_ms is not None else int(time.time() * 1000)
+    today = datetime.fromtimestamp(now_ms / 1000, _TZ).strftime("%Y-%m-%d")
+    with session_scope(service=True) as conn:
+        _ensure(conn)
+        acct = conn.execute(
+            text("SELECT created_at FROM users WHERE user_id=:u"), {"u": int(user_id)},
+        ).fetchone()
+        created_at_ms = int(acct[0]) * 1000 if acct and acct[0] else now_ms
+        wrow = conn.execute(
+            text("SELECT daily_last_claim FROM xu_wallet WHERE user_id=:u"),
+            {"u": int(user_id)},
+        ).fetchone()
+        last_claim = wrow[0] if wrow else None
+    d = daily_bonus_decision(created_at_ms=created_at_ms, now_ms=now_ms,
+                             last_claim_date=last_claim, today_date=today)
+    return {"available": bool(d["grant"]), "amount": d["amount"],
+            "days_left": d["days_left"], "reason": d["reason"]}
+
+
 def claim_daily(user_id: int, *, now_ms: Optional[int] = None) -> dict:
     """Tặng xu đăng nhập 1 lần/ngày (giờ VN) trong cửa sổ welcome kể từ
     users.created_at. Idempotent. Trả {claimed, xu, days_left, reason}."""
