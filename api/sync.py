@@ -908,6 +908,44 @@ def wallet_grant(
     return {"status": "ok", "balance": bal}
 
 
+class XuDeductRequest(BaseModel):
+    firebase_uid: str
+    amount: int
+    reason: str = "spend"
+    ref: Optional[str] = None   # idempotency key (vd hongBaoId) — cùng ref KHÔNG trừ 2 lần
+
+
+@router.post("/wallet/deduct")
+def wallet_deduct(
+    req: XuDeductRequest,
+    x_api_key: Optional[str] = Header(None, alias="X-API-Key"),
+):
+    """Trừ xu (PRVchat lì xì / hong bao) — đối xứng /wallet/grant. IDEMPOTENT theo `ref`.
+    200 {balance} · 402 {error:insufficient_funds, balance} · 404 {error:user_not_found}
+    · 400 {error:invalid_request, message}. `ref`=hongBaoId để Cloud Function retry (timeout)
+    KHÔNG trừ trùng tiền. Xu là ví TRUNG TÂM chung với web → trừ ở đây web thấy ngay."""
+    _require_service_key(x_api_key)
+    _ensure_schema()
+    from engine import xu_wallet
+    if not isinstance(req.amount, int) or isinstance(req.amount, bool) or req.amount <= 0:
+        return JSONResponse(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            content={"error": "invalid_request", "message": "amount must be positive"})
+    with session_scope(service=True) as conn:
+        user_id = _user_id_for_uid(conn, req.firebase_uid)
+    if user_id is None:
+        return JSONResponse(
+            status_code=status.HTTP_404_NOT_FOUND,
+            content={"error": "user_not_found"})
+    r = xu_wallet.spend(user_id, req.amount, req.reason or "spend",
+                        ref=req.ref, idempotent=True)
+    if not r["ok"]:
+        return JSONResponse(
+            status_code=status.HTTP_402_PAYMENT_REQUIRED,
+            content={"error": "insufficient_funds", "balance": r["balance"]})
+    return {"balance": r["balance"]}
+
+
 class PromoRedeemBridgeRequest(BaseModel):
     firebase_uid: str
     code: str

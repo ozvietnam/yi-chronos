@@ -113,6 +113,39 @@ def test_ledger_records_each_move(temp_db):
     assert rows[0][3] == "rc_txn_1" and rows[1][3] == "cast_42"
 
 
+# ── spend idempotent (PRVchat lì xì / hong bao — chống double-charge) ──────────
+def test_spend_idempotent_by_ref(temp_db):
+    """Cloud Function retry cùng ref → CHỈ trừ 1 lần. Người gửi lì xì không mất 2 lần xu."""
+    from engine import xu_wallet as w
+    w.grant(11, 100, "topup")
+    r1 = w.spend(11, 50, "hong_bao_send", ref="hongBao_xyz", idempotent=True)
+    assert r1["ok"] is True and r1["balance"] == 50 and not r1.get("idempotent_hit")
+    r2 = w.spend(11, 50, "hong_bao_send", ref="hongBao_xyz", idempotent=True)  # retry
+    assert r2["ok"] is True and r2["balance"] == 50 and r2["idempotent_hit"] is True
+    assert w.get_balance(11) == 50            # trừ đúng 1 lần
+    r3 = w.spend(11, 20, "hong_bao_send", ref="hongBao_abc", idempotent=True)  # ref khác
+    assert r3["ok"] is True and r3["balance"] == 30
+    assert w.get_balance(11) == 30
+
+
+def test_spend_idempotent_off_by_default(temp_db):
+    """KHÔNG bật idempotent → cùng ref VẪN trừ mỗi lần (giữ nguyên hành vi caller cũ, vd cross_paradigm)."""
+    from engine import xu_wallet as w
+    w.grant(12, 100, "topup")
+    assert w.spend(12, 10, "council", ref="cast_1")["balance"] == 90
+    assert w.spend(12, 10, "council", ref="cast_1")["balance"] == 80  # trừ lại
+    assert w.get_balance(12) == 80
+
+
+def test_spend_idempotent_still_blocks_insufficient(temp_db):
+    """ref mới nhưng không đủ xu → vẫn 402-path (ok=False), KHÔNG ghi sổ."""
+    from engine import xu_wallet as w
+    w.grant(13, 20, "topup")
+    r = w.spend(13, 50, "hong_bao_send", ref="hb_new", idempotent=True)
+    assert r["ok"] is False and r["reason"] == "insufficient_xu"
+    assert w.get_balance(13) == 20
+
+
 # ── daily bonus (pure) ────────────────────────────────────────────────────────
 def test_daily_bonus_decision_ok(temp_db):
     from engine import xu_wallet as w

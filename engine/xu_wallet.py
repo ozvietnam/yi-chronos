@@ -248,16 +248,31 @@ def grant(user_id: int, amount: int, reason: str, ref: Optional[str] = None) -> 
         return new
 
 
-def spend(user_id: int, amount: int, reason: str, ref: Optional[str] = None) -> dict:
+def spend(user_id: int, amount: int, reason: str, ref: Optional[str] = None,
+          idempotent: bool = False) -> dict:
     """Trừ xu nguyên tử. Trả {ok, balance, need, have}.
 
     ok=False (reason=insufficient_xu) nếu không đủ — caller mời nạp (KHÔNG ghi sổ).
-    Lỗi hạ tầng KHÔNG nuốt (tiền): exception nổi lên → caller coi như chưa tiêu."""
+    Lỗi hạ tầng KHÔNG nuốt (tiền): exception nổi lên → caller coi như chưa tiêu.
+
+    idempotent=True + ref: nếu đã tồn tại 1 dòng sổ TRỪ (delta<0) cùng (user_id, ref)
+    → KHÔNG trừ lại, trả số dư hiện tại (idempotent_hit=True). Đối xứng grant(); bảo vệ
+    webhook / Cloud Function retry (vd PRVchat lì xì) không trừ trùng tiền."""
     if amount <= 0:
         raise ValueError("spend: amount phải > 0")
     with session_scope(service=True) as conn:
         _ensure(conn)
         _lock(conn, user_id)
+        if idempotent and ref is not None:
+            dup = conn.execute(
+                text("""SELECT 1 FROM xu_ledger
+                        WHERE user_id=:u AND ref=:r AND delta<0 LIMIT 1"""),
+                {"u": int(user_id), "r": ref},
+            ).fetchone()
+            if dup:
+                bal = _read_balance(conn, user_id)   # đã trừ trước đó → no-op
+                return {"ok": True, "balance": bal, "need": int(amount), "have": bal,
+                        "idempotent_hit": True}
         have = _read_balance(conn, user_id)
         if have < amount:
             return {"ok": False, "balance": have, "need": int(amount), "have": have,
