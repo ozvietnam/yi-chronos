@@ -741,9 +741,10 @@ const cellByBranch = computed(() => {
     starHoa[star] = hoa;
   }
 
+  const doSang = data.value.do_sang || {};
   for (const [name, idx] of Object.entries(stars)) {
     const hoa = starHoa[name];
-    out[idx].chinh.push({ name, hoa });
+    out[idx].chinh.push({ name, hoa, ds: doSang[name] || null });
   }
   for (const [name, idx] of Object.entries(phu)) {
     const hoa = starHoa[name];
@@ -917,7 +918,9 @@ const grid = computed(() => {
                               borderColor: ELEMENT_COLOR[BRANCH_ELEMENT[cell.branchIndex]] + '60' }">
                     {{ BRANCH_ELEMENT[cell.branchIndex][0] }}
                   </span>
-                  <span class="cell-branch">{{ BRANCH_NAMES[cell.branchIndex] }}</span>
+                  <span class="cell-branch">
+                    <span v-if="cell.palace?.can" class="cell-can">{{ cell.palace.can }}</span>{{ BRANCH_NAMES[cell.branchIndex] }}
+                  </span>
                 </div>
                 <span class="cell-palace"
                   :class="{ 'is-menh-label': cell.palace?.name === 'Mệnh',
@@ -944,6 +947,8 @@ const grid = computed(() => {
                     <img :src="oracleCardForPlacedStar(s).image" :alt="`Ảnh ${s.name}`" loading="lazy" />
                   </button>
                   {{ s.name }}
+                  <span v-if="s.ds" class="ds-badge" :style="{ color: s.ds.color, borderColor: s.ds.color }"
+                    :title="s.ds.label">{{ s.ds.abbrev }}</span>
                   <span v-if="s.hoa" class="hoa-badge"
                     :style="{ background: HOA_COLOR[s.hoa] + '33', color: HOA_COLOR[s.hoa], borderColor: HOA_COLOR[s.hoa] }">
                     {{ s.hoa[0] }}
@@ -1936,6 +1941,24 @@ const grid = computed(() => {
   color: rgba(230, 238, 245, 0.45);
   font-weight: 700;
   letter-spacing: 0.3px;
+}
+/* Can cung (Ngũ Hổ Độn) — "Đinh" trước địa chi → can-chi đầy đủ */
+.cell-can {
+  color: rgba(232, 201, 90, 0.5);
+  margin-right: 2px;
+  font-weight: 600;
+}
+/* Độ sáng chính tinh (Miếu/Vượng/Đắc/Bình/Lạc/Hãm) — badge (H)/(Đ) cạnh tên sao */
+.ds-badge {
+  font-size: 8px;
+  font-weight: 800;
+  border: 1px solid;
+  border-radius: 2px;
+  padding: 0 2px;
+  margin-left: 2px;
+  line-height: 1.35;
+  vertical-align: middle;
+  opacity: 0.92;
 }
 .cell-palace {
   flex: 1;

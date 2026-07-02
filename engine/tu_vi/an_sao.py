@@ -961,4 +961,28 @@ def cast_la_so(
     #   Giải Thần: engine khởi Tuất nghịch tháng (→Mùi); tuvi.vn để Ngọ (khởi Dậu?)
     #   Thiên Hỉ: engine đối xung Hồng Loan (→Tỵ); tuvi.vn để Tý
 
+    # ── GIẢI MÃ ĐỊA BÀN: độ sáng chính tinh (Miếu/Vượng/Đắc/Bình/Lạc/Hãm) ──────────
+    # Bảng mieu_vuong_ham chuẩn (14 chính tinh). Gắn vào output để UI/PDF hiện badge
+    # (H)/(Đ)… ngay trên tên sao (trước chỉ tính được, chưa hiển thị trên lá số).
+    from . import mieu_vuong_ham as _mvh
+    _DS_ABBREV = {"miếu": "M", "vượng": "V", "đắc": "Đ", "bình": "B", "lạc": "L", "hãm": "H"}
+    do_sang: dict = {}
+    for _name, _idx in out["chinh_tinh"].items():
+        _lv = _mvh.level_at(_name, BRANCHES_TVI[_idx])
+        if _lv:
+            do_sang[_name] = {"level": _lv, "abbrev": _DS_ABBREV.get(_lv, _lv[:1].upper()),
+                              "label": _mvh.level_label(_lv), "color": _mvh.level_color(_lv)}
+    out["do_sang"] = do_sang
+
+    # ── GIẢI MÃ ĐỊA BÀN: thiên can mỗi cung (Ngũ Hổ Độn) → "Đinh Tỵ" ──────────────
+    # Khởi can tại cung Dần theo can năm (五虎遁), thuận theo địa chi. Cho "vị trí cung"
+    # đầy đủ can-chi thay vì chỉ địa chi.
+    _CAN10 = ["Giáp", "Ất", "Bính", "Đinh", "Mậu", "Kỷ", "Canh", "Tân", "Nhâm", "Quý"]
+    from .luu_nguyet import _NGU_HO_DON
+    _dan_can = _CAN10.index(_NGU_HO_DON[year_stem])   # can tại cung Dần (địa chi index 2)
+    for _p in out["palaces"]:
+        _can = _CAN10[(_dan_can + ((_p["branch_index"] - 2) % 12)) % 10]
+        _p["can"] = _can
+        _p["can_chi"] = f"{_can} {_p['branch']}"
+
     return out
