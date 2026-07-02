@@ -1037,6 +1037,15 @@ def read_tinh_duyen(
         _item["tra_loi"] = _scrub_tree(_item.get("tra_loi"), _n)
     scrubbed_count = _n[0]
 
+    # KEY MỚI 2026-07-02: nữ mệnh cổ thư (女命骨髓賦 Toàn Thư + 王亭之 深造讲义) —
+    # match deterministic theo lá, mỗi câu có nguyên văn + nguồn + biện chính
+    # (Anh giao chuyên sâu hôn nhân nữ mệnh). Lỗi kho → {} , KHÔNG sập reading.
+    try:
+        from engine.tinh_duyen.nu_menh_co_van import doc_nu_menh_co_van
+        nu_menh_co_van = doc_nu_menh_co_van(la_so, gender)
+    except Exception:  # noqa: BLE001
+        nu_menh_co_van = {}
+
     return {
         "method_id": METHOD_ID,
         "input": {
@@ -1049,6 +1058,8 @@ def read_tinh_duyen(
             "menh_branch": la_so.get("menh_branch"),
             "phu_the_branch": _BRANCHES[phu_the_idx],
         },
+        # KEY MỚI: nữ mệnh cổ thư + biện chính (nguồn đích danh, quote-or-silence).
+        "nu_menh_co_van": nu_menh_co_van,
         "stage": stage,
         "personality": personality,
         "cung_phu_the_tuvi": cung_phu_the,

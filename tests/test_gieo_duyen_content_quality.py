@@ -154,3 +154,64 @@ def test_phac_hoa_khuon_mat_dan_nhan_lop(chart_nu):
     if "—" in km:
         assert ("pha nét" in km) or ("thần thái" in km), f"lớp pha không nhãn: {km[:120]}"
     assert "; " not in km.split("—")[0], "tả chủ đạo không được là chuỗi nối ';'"
+
+
+# ── Nữ mệnh cổ thư (女命骨髓賦 × 王亭之) — quote-or-silence + biện chính ─────────
+
+def test_nu_menh_co_van_match_theo_la_va_co_bien_chinh():
+    from engine.tinh_duyen.reading import read_tinh_duyen
+    out = read_tinh_duyen(birth_datetime_local=NU_1992["birth_datetime_local"],
+                          gender="nữ", timezone=NU_1992["timezone"], as_of_year=None)
+    nm = out.get("nu_menh_co_van") or {}
+    assert nm.get("method_id") == "nu_menh_co_van_v1"
+    # lá này Phu Thê Tử Vi + Thất Sát → phải có rule 王亭之 đúng sao đó
+    saos = {w["sao"] for w in nm.get("wang_tingzhi") or []}
+    assert saos & {"Tử Vi", "Thất Sát"}, f"wang rules không đúng sao Phu Thê: {saos}"
+    # MỌI entry đều có nguyên văn (quote-or-silence)
+    for w in nm.get("wang_tingzhi") or []:
+        assert w.get("nguyen_van"), "rule 王亭之 thiếu nguyên văn"
+    for m in nm.get("cot_tuy_phu") or []:
+        assert m.get("nguyen_van") and m.get("han_viet")
+        if m.get("tone") == "hung_co":
+            bc = m.get("bien_chinh") or {}
+            assert bc.get("giai") and bc.get("nguon"), \
+                "câu HUNG cổ bắt buộc kèm biện chính có nguồn — không đổ định kiến cổ lên user"
+
+
+def test_nu_menh_vcd_muon_doi_cung_va_khong_ap_rule_sinh_dem_cho_sinh_ngay():
+    """Lá nữ 1995 06:00 (giờ Mão = sinh NGÀY, Phu Thê vô chính diệu)."""
+    from engine.tinh_duyen.reading import read_tinh_duyen
+    out = read_tinh_duyen(birth_datetime_local="1995-01-10T06:00:00",
+                          gender="nữ", timezone="Asia/Ho_Chi_Minh", as_of_year=None)
+    nm = out.get("nu_menh_co_van") or {}
+    assert nm.get("phu_the_muon_doi_cung") is True, "VCD phải mượn đối cung"
+    ids = {w["id"] for w in nm.get("wang_tingzhi") or []}
+    assert "w-thaiduong-3" not in ids, \
+        "rule 夜生人 (sinh đêm) KHÔNG được áp cho lá sinh 06:00 sáng"
+    # ctp-15 (vô chính diệu) phải match + có biện chính
+    ctp_ids = {m["id"] for m in nm.get("cot_tuy_phu") or []}
+    assert "ctp-15" in ctp_ids
+
+
+def test_nu_menh_display_section_co_nguyen_van_trong_can_cu():
+    from engine.tinh_duyen.display import build_display
+    from engine.tinh_duyen.reading import read_tinh_duyen
+    out = read_tinh_duyen(birth_datetime_local=NU_1992["birth_datetime_local"],
+                          gender="nữ", timezone=NU_1992["timezone"], as_of_year=None)
+    disp = build_display(out, "nữ")
+    secs = [s for s in disp["sections"] if s.get("id") == "nu_menh_co_van"]
+    assert secs, "thiếu section nữ mệnh cổ thư trong display"
+    s = secs[0]
+    assert s["items"] and s.get("can_cu")
+    blob = json.dumps(s["can_cu"], ensure_ascii=False)
+    assert "深造讲义" in blob or "女命骨髓賦" in blob, "can_cu phải mang nguyên văn + nguồn"
+
+
+def test_nu_menh_rule_gioi_tinh_khong_ap_cheo():
+    """Nam mệnh: rule dành riêng nữ (w-tuvi-2) không hiện; rule nam (w-tuvi-1) được phép."""
+    from engine.tinh_duyen.reading import read_tinh_duyen
+    out = read_tinh_duyen(birth_datetime_local=NU_1992["birth_datetime_local"],
+                          gender="nam", timezone=NU_1992["timezone"], as_of_year=None)
+    nm = out.get("nu_menh_co_van") or {}
+    ids = {w["id"] for w in nm.get("wang_tingzhi") or []}
+    assert "w-tuvi-2" not in ids, "rule nữ-mệnh không được áp cho nam"

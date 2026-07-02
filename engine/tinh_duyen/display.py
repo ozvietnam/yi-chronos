@@ -612,6 +612,62 @@ def _sec_song_phai(rec: list[dict]) -> Optional[dict]:
     }
 
 
+def _sec_nu_menh_co_van(nm: dict, phoi_ngau: str) -> Optional[dict]:
+    """Nữ mệnh cổ thư & biện chính — 女命骨髓賦 (Toàn Thư) × 王亭之 (prose_list).
+
+    Nguyên văn Hán + nguồn vào can_cu (auto-hide); items = dịch + biện chính
+    (đọc đồng dạng). Chỉ render khi lá THẬT match kho (quote-or-silence).
+    """
+    if not _nonempty(nm):
+        return None
+    ctp = nm.get("cot_tuy_phu") or []
+    wang = nm.get("wang_tingzhi") or []
+    nts = nm.get("nguyen_tac") or []
+    if not (ctp or wang):
+        return None
+    items, tom_tat, can_cu = [], [], []
+
+    import re as _re
+
+    def _thuan(dich: str) -> str:
+        """tom_tat = lớp THUẦN nghĩa: lột ngoặc dẫn '(Cổ thư)' + khung biện-chính
+        (2 thứ đó thuộc lớp items/can_cu, không thuộc lớp người-thường)."""
+        s = _re.sub(r"^\s*[\(（][^)）]*[\)）]\s*", "", dich or "")
+        return s.split(" — [nhãn cổ thư")[0].strip()
+
+    for e in ctp:
+        tone_tag = "cát thư" if e.get("tone") == "cat" else "nhãn cổ + biện chính"
+        bc = e.get("bien_chinh") or {}
+        noi_dung = e.get("dich") or ""
+        if e.get("doc_dong_dang"):
+            noi_dung += f" — {e['doc_dong_dang']}"
+        if bc.get("giai"):
+            noi_dung += f" ⚖️ Biện chính (Vương Đình Chi): {bc['giai']}"
+        items.append({"ten": f"Cốt Tủy Phú ({tone_tag})", "noi_dung": noi_dung})
+        tom_tat.append({"noi_dung": _plain_vi(_thuan(e.get("dich") or ""))})
+        cc = f"《女命骨髓賦》: {e.get('nguyen_van')} ({e.get('han_viet')})"
+        if bc.get("nguyen_van") and bc["nguyen_van"] != "—":
+            cc += f" · Biện chính [{bc.get('nguon')}]: {bc['nguyen_van']}"
+        can_cu.append(cc)
+
+    for r in wang:
+        muon = " (Phu Thê vô chính diệu — mượn đối cung)" if r.get("muon_doi_cung") else ""
+        items.append({"ten": f"{r.get('sao')} tại Phu Thê{muon}",
+                      "noi_dung": r.get("dich_y") or ""})
+        tom_tat.append({"noi_dung": _plain_vi(r.get("dich_y") or "")})
+        can_cu.append(f"王亭之《深造讲义》(chương Phu Thê): {r.get('nguyen_van')}")
+
+    for n in nts:
+        items.append({"ten": f"Nguyên tắc: {n.get('ten')}", "noi_dung": n.get("giai") or ""})
+        can_cu.append(f"[{n.get('nguon')}]: {n.get('nguyen_van')}")
+
+    return {
+        "id": "nu_menh_co_van", "icon": "scroll", "title": "Nữ mệnh — cổ thư & biện chính",
+        "kind": "prose_list", "items": items,
+        "tom_tat": tom_tat or None, "can_cu": can_cu or None, "mac_dinh_an": False,
+    }
+
+
 def _sec_dinh_thoi(dt: dict) -> Optional[dict]:
     """Định thời — timeline (năm kích hoạt / năm cần giữ gìn)."""
     if not _nonempty(dt):
@@ -870,6 +926,7 @@ def build_display(reading_output: dict, gender: str = "nữ",
         _sec_cap_do(ro.get("chan_doan_cap_do") or {}),
         _sec_hoi_dap(ro.get("cau_hoi_tuoi") or []),
         _sec_cung_phu_the(ro.get("cung_phu_the_tuvi") or {}, phoi_ngau),
+        _sec_nu_menh_co_van(ro.get("nu_menh_co_van") or {}, phoi_ngau),
         _sec_song_phai(ro.get("song_phai_reconcile") or []),
         _sec_dinh_thoi(ro.get("dinh_thoi") or {}),
         _sec_cach_cuc(ro.get("cach_cuc") or []),

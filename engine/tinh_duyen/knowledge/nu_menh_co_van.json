@@ -1,0 +1,256 @@
+{
+  "_nguon": {
+    "cot_tuy_phu": "女命骨髓賦 — Tử Vi Đẩu Số Toàn Thư (bản TUVIFULL 'Tử Vi Đẩu Số Toàn Thư-1-2.docx', song ngữ Hán + phiên âm Hán-Việt in kèm trong bản). Nguyên văn giản thể theo bản khắc; trích TRỌN 15 khối câu, không lược.",
+    "wang_tingzhi": "中州派紫微斗数深造讲义 — 王亭之 (Vương Đình Chi), bản docx 412K ký tự (GitHub Copoet/md, đã catalog books.json 'trung-chau-phai-tu-vi-tham-tao-giang-nghia'). Chương 夫妻宫 (14 chính tinh) + các đoạn luận nữ mệnh rải chương sao. Bản OCR — lỗi ký tự hiển nhiên đã chỉnh khi trích (vd 太旧→太阳), có ghi [sic] nếu giữ.",
+    "ky_luat": "Quote-or-silence: mỗi entry có nguyên văn + nguồn; engine CHỈ hiện entry khi điều kiện match lá thật. Câu HUNG cổ BẮT BUỘC đi kèm biện chính (không đổ định kiến cổ lên user). Iron #4/#6/#8: đọc đồng dạng, mệnh là động từ, không phán bản án.",
+    "ngay_trich": "2026-07-02"
+  },
+
+  "cot_tuy_phu": [
+    {
+      "id": "ctp-01", "tone": "cat",
+      "nguyen_van": "府相之星女命躔, 必当子贵与夫贤.",
+      "han_viet": "Phủ tương chi tinh nữ mệnh triền, tất đương tử quý dữ phu hiền.",
+      "dich": "Thiên Phủ hoặc Thiên Tướng tọa mệnh nữ — cấu trúc 'con quý, chồng hiền'.",
+      "doc_dong_dang": "Khí Phủ/Tướng là khí giữ gìn – bồi đắp: vận hành tốt nhất khi bạn làm điểm tựa ổn định, gia đạo quanh bạn dễ nên nếp.",
+      "dieu_kien": {"cung": "Mệnh", "sao_bat_ky": ["Thiên Phủ", "Thiên Tướng"]}
+    },
+    {
+      "id": "ctp-02", "tone": "cat",
+      "nguyen_van": "廉贞清白能相守, 更有天同理亦然.",
+      "han_viet": "Liêm trinh thanh bạch năng tương thủ, canh hữu thiên đồng lý diệc nhiên.",
+      "dich": "Liêm Trinh giữ được nết thanh bạch thì vợ chồng bền giữ nhau; Thiên Đồng cùng lý ấy.",
+      "doc_dong_dang": "Chữ 'thanh bạch' là ĐỘNG TỪ: cấu trúc này bền khi bạn chủ động giữ ranh giới rõ ràng trong quan hệ.",
+      "dieu_kien": {"cung": "Mệnh", "sao_bat_ky": ["Liêm Trinh", "Thiên Đồng"]}
+    },
+    {
+      "id": "ctp-03", "tone": "cat",
+      "nguyen_van": "端正紫微太阳星, 早遇贤夫性可凭.",
+      "han_viet": "Đoan chính tử vi thái dương tinh, tảo ngộ hiền phu tính khả bằng.",
+      "dich": "Tử Vi hoặc Thái Dương đoan chính tọa mệnh nữ — sớm gặp người bạn đời hiền, tính tình đáng nương cậy.",
+      "doc_dong_dang": "Khí 'đoan chính' phát huy khi bạn sống thẳng vai chính đời mình — người tương xứng nhận ra bạn sớm.",
+      "dieu_kien": {"cung": "Mệnh", "sao_bat_ky": ["Tử Vi", "Thái Dương"]}
+    },
+    {
+      "id": "ctp-04", "tone": "cat",
+      "nguyen_van": "太阳寅到午, 遇吉终是福.",
+      "han_viet": "Thái dương dần đáo ngọ, ngộ cát chung thị phúc.",
+      "dich": "Thái Dương từ cung Dần đến Ngọ (vòng ban ngày, sáng), gặp cát tinh — sau cùng là phúc.",
+      "doc_dong_dang": "Thái Dương sáng = khí cho đi, chiếu rọi; gặp trợ lực thì càng cho càng về.",
+      "dieu_kien": {"cung": "Mệnh", "sao_bat_ky": ["Thái Dương"], "branch_in": ["Dần", "Mão", "Thìn", "Tỵ", "Ngọ"]}
+    },
+    {
+      "id": "ctp-05", "tone": "cat",
+      "nguyen_van": "左辅天魁为福寿, 左弼天相福相临.",
+      "han_viet": "Tả phụ thiên khôi vi phúc thọ, tả bật thiên tương phúc tương lâm.",
+      "dich": "Tả Phụ, Thiên Khôi tọa mệnh nữ chủ phúc thọ; Hữu Bật, Thiên Tướng — phúc kéo đến.",
+      "ghi_chu_ban_khac": "Bản TUVIFULL in 左弼 (tả bật); nhiều bản khác in 右弼 (Hữu Bật) — engine match Hữu Bật, giữ nguyên văn bản gốc ở đây.",
+      "doc_dong_dang": "Bộ sao phụ tá = khí 'được người nâng'; phát huy khi bạn cũng làm phụ tá tốt cho người khác.",
+      "dieu_kien": {"cung": "Mệnh", "sao_bat_ky": ["Tả Phù", "Thiên Khôi", "Hữu Bật", "Thiên Tướng"]}
+    },
+    {
+      "id": "ctp-06", "tone": "cat",
+      "nguyen_van": "禄存厚重多衣食, 府相朝垣命必荣.",
+      "han_viet": "Lộc tồn hậu trọng đa y thực, phủ tương triêu viên mệnh tất vinh.",
+      "dich": "Lộc Tồn dày dặn — no đủ áo cơm; Phủ Tướng chầu về cung mệnh — mệnh ắt vinh.",
+      "doc_dong_dang": "Khí Lộc Tồn = tích chứa; vận hành tốt khi bạn quản trị nguồn lực đều tay, không phung không bủn.",
+      "dieu_kien": {"cung": "Mệnh", "sao_bat_ky": ["Lộc Tồn"]}
+    },
+    {
+      "id": "ctp-07", "tone": "cat",
+      "nguyen_van": "紫府巳亥相互辅, 左右扶持福必生.",
+      "han_viet": "Tử phủ tị hợi tương hỗ phụ, tả hữu phù trì phúc tất sinh.",
+      "dich": "Tử Vi – Thiên Phủ ở Tỵ/Hợi hỗ trợ nhau, thêm Tả Hữu phù trì — phúc ắt sinh.",
+      "dieu_kien": {"cung": "Mệnh", "sao_bat_ky": ["Tử Vi", "Thiên Phủ"], "branch_in": ["Tỵ", "Hợi"], "can_them_sao": ["Tả Phù", "Hữu Bật"]}
+    },
+    {
+      "id": "ctp-08", "tone": "cat",
+      "nguyen_van": "十干化禄最荣昌, 女命逢之大吉昌. 更得禄存相凑合, 旺夫益子受恩光.",
+      "han_viet": "Thập kiền hóa lộc tối vinh xương, nữ mệnh phùng chi đại cát xương. Canh đắc lộc tồn tương thấu hợp, vượng phu ích tử thụ ân quang.",
+      "dich": "Hóa Lộc tọa mệnh nữ — vinh xương bậc nhất; thêm Lộc Tồn hội hợp — vượng phu ích tử, hưởng ân quang.",
+      "doc_dong_dang": "Song Lộc = khí sinh sôi hai nguồn; phát huy khi bạn là người 'làm nở' tài nguyên chung của gia đình.",
+      "dieu_kien": {"cung": "Mệnh", "hoa_tai_menh": "Lộc"}
+    },
+    {
+      "id": "ctp-09", "tone": "hung_co",
+      "nguyen_van": "巨门天机为破荡. 天梁月曜女命贫.",
+      "han_viet": "Cự môn thiên ky vi phá đãng. Thiên lương nguyệt diệu nữ mệnh bần.",
+      "dich": "(Cổ thư) Cự Môn – Thiên Cơ gọi là 'phá đãng'; Thiên Lương gặp Thái Âm — nữ mệnh bần.",
+      "bien_chinh": {
+        "nguon": "王亭之 深造讲义 — chương Phu Thê, mục Thiên Cơ",
+        "nguyen_van": "天机在夫妻宫最不喜天同或巨门化忌，均主感情困扰，古代以此为婢妾女命。",
+        "giai": "Vương Đình Chi chỉ rõ: nhãn 'phá đãng/婢妾' là khung xã hội CỔ (nữ không có sự nghiệp riêng). Cơ–Cự = khí biến động + khẩu thiệt: thời nay chính là năng lực xoay chuyển, phản biện, truyền thông. Chỉ khi Hóa Kỵ + sát tinh hội mới thành 'cảm tình khốn nhiễu' — và đó là tín hiệu CẦN CHĂM đối thoại, không phải bản án."
+      },
+      "dieu_kien": {"cung": "Mệnh", "sao_bat_ky": ["Cự Môn", "Thiên Cơ"]}
+    },
+    {
+      "id": "ctp-10", "tone": "hung_co",
+      "nguyen_van": "擎羊火星为下贱. 文昌文曲福不全.",
+      "han_viet": "Kình dương hỏa tinh vi hạ tiện. Văn xương văn khúc phúc bất toàn.",
+      "dich": "(Cổ thư) Kình Dương – Hỏa Tinh gọi là 'hạ tiện'; Văn Xương Văn Khúc — phúc không trọn.",
+      "bien_chinh": {
+        "nguon": "王亭之 深造讲义 — chương Hỏa Linh (luận nữ mệnh)",
+        "nguyen_van": "女命见火铃，古人认为凌夫克子，人缘不足，性格刚强，尤以火星为甚，谓为内心狼毒。此论仍应详命宫正曜星系而定，不可贸贸然推断。",
+        "giai": "Chính Vương Đình Chi cảnh cáo: 'phải xét kỹ chính diệu cung mệnh, KHÔNG được đoán ẩu'. Kình/Hỏa = khí sắc bén, bứt phá — thời nay là lực cạnh tranh, dám làm. Chữ 'hạ tiện' là định kiến giai cấp cổ, bỏ."
+      },
+      "dieu_kien": {"cung": "Mệnh", "sao_bat_ky": ["Kình Dương", "Hỏa Tinh"]}
+    },
+    {
+      "id": "ctp-11", "tone": "hung_co",
+      "nguyen_van": "武曲之宿为寡宿. 破军一曜性难明.",
+      "han_viet": "Vũ khúc chi túc vi quả túc. Phá quân nhất diệu tính nan minh.",
+      "dich": "(Cổ thư) Vũ Khúc gọi là 'quả tú' (sao góa); Phá Quân — tính khó lường.",
+      "bien_chinh": {
+        "nguon": "王亭之 深造讲义 — chương Vũ Khúc",
+        "nguyen_van": "凡刚烈之星，一定不利六亲，盖刚烈必同时带孤克之性。所以推断武曲在命盘中的吉凶，常因宫垣不同而评价不同。在财帛宫、事业宫，甚至在福德宫，都不忌武曲之刚烈。… 古代社会女子无事业，嫁夫之后即以丈夫的事业为事业，因此便最嫌武曲坐夫妻宫，古人称之为[寡宿]。",
+        "giai": "Vương Đình Chi phân tích tận gốc: 'quả tú' sinh ra từ bối cảnh nữ xưa KHÔNG có sự nghiệp riêng. Vũ Khúc = khí hành động, giỏi tiền bạc — ở Tài/Quan/Phúc còn là ĐẮC dụng. Thời nay nữ Vũ Khúc là mẫu tự lập; bài toán duy nhất: đừng đem 'kỷ luật công việc' nguyên khối về áp vào quan hệ."
+      },
+      "dieu_kien": {"cung": "Mệnh", "sao_bat_ky": ["Vũ Khúc", "Phá Quân"]}
+    },
+    {
+      "id": "ctp-12", "tone": "hung_co",
+      "nguyen_van": "贪狼内狠多淫佚. 七杀沉吟福不荣.",
+      "han_viet": "Tham lang nội ngoan đa dâm dật. Thất sát trầm ngâm phúc bất vinh.",
+      "dich": "(Cổ thư) Tham Lang trong lòng quyết liệt, nhiều ham thích; Thất Sát trầm ngâm — phúc không vinh.",
+      "bien_chinh": {
+        "nguon": "王亭之 深造讲义 — chương Phu Thê mục Tham Lang + chương Thất Sát",
+        "nguyen_van": "在现代，上述观点应略作修正。现代无纳妾… 现代妇女开放，故往往主离而再嫁。 ／ 评定七杀坐命的吉凶休咎，须注意其刚克的程度如何，尤其是女命，太刚克则必刑夫克子，人生未免孤寂。",
+        "giai": "Tham Lang = khí ham sống, sức hút — thời nay là năng lực xã giao, thẩm mỹ; cần bến đỗ minh bạch chứ không phải nhãn 'dâm dật'. Thất Sát: Vương Đình Chi dạy đọc theo MỨC ĐỘ cương khắc (không phải hễ Sát là cô quạnh) — quá cương thì tự mình vất vả, biết 'hạ kiếm' đúng lúc trong nhà là hóa giải."
+      },
+      "dieu_kien": {"cung": "Mệnh", "sao_bat_ky": ["Tham Lang", "Thất Sát"]}
+    },
+    {
+      "id": "ctp-13", "tone": "hung_co",
+      "nguyen_van": "火铃羊陀及巨门, 天空地劫又相临. 贪狼七杀廉贞宿, 武曲加临克害侵.",
+      "han_viet": "Hỏa linh dương đà cập cự môn, thiên không địa kiếp hựu tương lâm. Tham lang thất sát liêm trinh túc, vũ khúc gia lâm khắc hại xâm.",
+      "dich": "(Cổ thư) Sát tinh (Hỏa Linh Kình Đà) + Cự Môn + Không Kiếp hội; lại thêm bộ Tham–Sát–Liêm–Vũ gia lâm — khắc hại xâm nhập.",
+      "bien_chinh": {
+        "nguon": "王亭之 深造讲义 — nguyên tắc xuyên suốt chương Phu Thê",
+        "nguyen_van": "此论仍应详命宫正曜星系而定，不可贸贸然推断。(+ mô típ trợ giải lặp khắp chương: 必须迟婚／年龄有差距／婚前曾经波折，然后可免)",
+        "giai": "Nhiều sát tinh hội = quan hệ NHIỀU MA SÁT — cổ thư phán 'khắc hại', Vương Đình Chi đưa cách VẬN HÀNH: cưới muộn hơn, chấp nhận lệch tuổi, xem sóng gió trước hôn nhân là bộ lọc. Sát tinh nhiều mà biết dùng = lực bứt phá sự nghiệp."
+      },
+      "dieu_kien": {"cung": "Mệnh", "min_sat_tinh": 3}
+    },
+    {
+      "id": "ctp-14", "tone": "hung_co",
+      "nguyen_van": "三方四正嫌逢杀, 更在夫宫祸患深.",
+      "han_viet": "Tam phương tứ chính hiềm phùng sát, canh tại phu cung họa hoạn thâm.",
+      "dich": "(Cổ thư) Tam phương tứ chính gặp sát đã ngại; sát đóng ngay cung Phu (Phu Thê) — họa hoạn càng sâu.",
+      "bien_chinh": {
+        "nguon": "王亭之 深造讲义 — chương Phu Thê (mô típ trợ giải chung)",
+        "nguyen_van": "一般以迟婚为宜。／ 以年龄有差距…始能偕白首。／ 以婚前饱经挫折…者为佳。",
+        "giai": "Sát đóng Phu Thê = khu vực quan hệ cần CHĂM CHỦ ĐỘNG nhất của lá — không phải án 'họa'. Ba phép trợ giải kinh điển của Trung Châu: cưới muộn, chấp nhận lệch tuổi, để tình cảm được thử lửa trước khi ký kết."
+      },
+      "dieu_kien": {"cung": "Phu Thê", "min_sat_tinh": 1}
+    },
+    {
+      "id": "ctp-15", "tone": "hung_co",
+      "nguyen_van": "若是本宫无正曜, 必主生离克害真.",
+      "han_viet": "Nhược thị bản cung vô chính diệu, tất chủ sinh ly khắc hại chân.",
+      "dich": "(Cổ thư) Bản cung (Phu Thê) vô chính diệu — chủ sinh ly khắc hại.",
+      "bien_chinh": {
+        "nguon": "Phép mượn đối cung (chuẩn Trung Châu — chiêm Phu Thê v4 rule 5 của hệ đã mã hóa)",
+        "nguyen_van": "—",
+        "giai": "Vô chính diệu KHÔNG phải 'trống số phận': phép chuẩn là mượn chính tinh đối cung mà đọc — nghĩa là hình mẫu quan hệ của bạn chịu ảnh hưởng mạnh từ môi trường/đối tác. Chủ động chọn môi trường lành là cách vận hành cấu trúc này."
+      },
+      "dieu_kien": {"cung": "Phu Thê", "vo_chinh_dieu": true}
+    }
+  ],
+
+  "wang_phu_the_14_sao": [
+    {"sao": "Tử Vi", "rules": [
+      {"id": "w-tuvi-1", "nguyen_van": "男命夫妻宫见紫微者，不论在何宫度，皆宜妻子有事业。若作家庭主妇，即多将其领导力发挥于家庭，甚至变成控制丈夫。", "dich_y": "Nam mệnh Phu Thê có Tử Vi: nên để vợ có sự nghiệp riêng — năng lực lãnh đạo của cô ấy cần đất dụng; dồn hết vào nhà sẽ thành kiểm soát.", "ap_dung": {"gender": "nam"}},
+      {"id": "w-tuvi-2", "nguyen_van": "女命夫妻宫见紫微者，若『在野』或『无道』，必须迟至三十岁后始可发展感情，若早婚，反易生挫折，且会受拖累。见[百官朝拱]而无『单星』，始主丈夫得志。", "dich_y": "Nữ mệnh Phu Thê có Tử Vi mà thiếu bộ phụ tá (cô quân): nên phát triển tình cảm sau 30 tuổi — sớm dễ lận đận; có đủ 'bách quan triều củng' (phụ tá đủ đôi) thì chồng đắc chí.", "ap_dung": {"gender": "nữ"}}
+    ]},
+    {"sao": "Thiên Cơ", "rules": [
+      {"id": "w-thienco-1", "nguyen_van": "天机在夫妻宫者，基本上不利。唯与太阴相对或同度的情形下，见吉曜，然后始主谐美。", "dich_y": "Thiên Cơ ở Phu Thê vốn nhiều biến động; chỉ khi đi cùng/đối Thái Âm + cát tinh mới chủ hài hòa — quan hệ cần được 'neo' bằng nếp sinh hoạt ổn định.", "ap_dung": {}},
+      {"id": "w-thienco-2", "nguyen_van": "天机在夫妻宫最不喜天同或巨门化忌，均主感情困扰。", "dich_y": "Kỵ nhất Thiên Đồng hoặc Cự Môn Hóa Kỵ hội — cảm tình dễ rối; đó là tín hiệu cần đối thoại sớm, đừng để việc nhỏ hoá to.", "ap_dung": {"hoa_ky_in": ["Thiên Đồng", "Cự Môn"]}}
+    ]},
+    {"sao": "Thái Dương", "rules": [
+      {"id": "w-thaiduong-1", "nguyen_van": "一般而言，凡太阳在夫妻宫，最不喜化忌，无论男女，均主与原配生离死别。", "dich_y": "Thái Dương ở Phu Thê ngại nhất Hóa Kỵ — quan hệ với 'người đầu' nhiều sóng; biết vậy để chăm kênh tôn trọng-công nhận (khí Thái Dương = được nhìn nhận).", "ap_dung": {"hoa_ky_in": ["Thái Dương"]}},
+      {"id": "w-thaiduong-2", "nguyen_van": "凡太阳在夫妻宫见火铃，初时感情深厚，久后即如水火。", "dich_y": "Thái Dương + Hỏa/Linh: đầu nồng sau dễ 'nước lửa' — nhiệt cần được điều tiết thành ấm bền, không để bùng rồi tắt.", "ap_dung": {"sat_in_cung": ["Hỏa Tinh", "Linh Tinh"]}},
+      {"id": "w-thaiduong-3", "nguyen_van": "女命夜生人一般不宜夫妻宫见太阳。虽吉亦虚，稍带桃花，夫婿即易生异心。", "dich_y": "Nữ sinh ban đêm, Phu Thê Thái Dương: hào quang bề ngoài của đối phương dễ 'hư' — nhìn người bằng việc làm thật, không bằng ánh sáng sân khấu.", "ap_dung": {"gender": "nữ", "sinh_dem": true}}
+    ]},
+    {"sao": "Vũ Khúc", "rules": [
+      {"id": "w-vukhuc-1", "nguyen_van": "凡武在夫妻宫，文曲化忌同度，皆主无正式婚礼。若成[铃昌陀武]格局者，则婚姻必主破裂。", "dich_y": "Vũ Khúc Phu Thê + Văn Khúc Hóa Kỵ: dễ 'về chung nhà không cỗ cưới'; tổ hợp Linh-Xương-Đà-Vũ là cấu trúc căng nhất — nhận diện sớm để không cộng dồn hiểu lầm tiền bạc.", "ap_dung": {"hoa_ky_in": ["Văn Khúc"]}},
+      {"id": "w-vukhuc-2", "nguyen_van": "古代社会女子无事业…因此便最嫌武曲坐夫妻宫，古人称之为[寡宿]。至于男命，则不过嫌其[妇夺夫权]而已。", "dich_y": "Nhãn 'quả tú' của Vũ Khúc Phu Thê là định kiến cổ; nay đọc là: bạn đời kiểu hành-động-giỏi-tiền — phân vai tài chính rõ thì nhà yên (nam mệnh: vợ nắm quyền là bình thường mới).", "ap_dung": {}}
+    ]},
+    {"sao": "Thiên Đồng", "rules": [
+      {"id": "w-thiendong-1", "nguyen_van": "天同主白手兴家…故天同在夫妻宫者多主纳妾(古)。在现代，往往为婚前曾与人同居或热恋，离散后再成婚嫔。必须了解此重意义，然后始可作细节推断。", "dich_y": "Thiên Đồng Phu Thê = mô típ 'bỏ nếp cũ tự dựng nếp mới': thời nay thường là từng sống thử/yêu sâu rồi tan, sau đó mới thành hôn bền. Mối trước không phải thất bại — là bước dựng.", "ap_dung": {}},
+      {"id": "w-thiendong-2", "nguyen_van": "凡天同在夫妻宫，皆主配年少之妻，或年长之夫，以年龄相差八年为准。此为趋避之道。", "dich_y": "Phép trợ giải kinh điển: lệch tuổi (chuẩn cổ ~8 năm) — nghĩa hiện đại: chênh lệch độ chín giữa hai người là CHẤT KEO của cấu trúc này, đừng tìm bản sao đồng trang lứa.", "ap_dung": {}}
+    ]},
+    {"sao": "Liêm Trinh", "rules": [
+      {"id": "w-liemtrinh-1", "nguyen_van": "廉贞守夫妻宫，绝非善星，唯主生离多于死别。夫妻不和而能偕老，已经可算是良好的结果。", "dich_y": "Liêm Trinh Phu Thê: sóng thiên về 'xa nhau' hơn mất mát; 'bất hòa mà vẫn bạc đầu' đã là thắng — hạ chuẩn hoàn hảo xuống, nâng chuẩn kiên trì lên.", "ap_dung": {}},
+      {"id": "w-liemtrinh-2", "nguyen_van": "廉贞在夫妻宫，男命宜配年少之妻，女命宜配年长之夫。年龄差距由六年至十二年不等。", "dich_y": "Trợ giải: lệch tuổi 6–12 năm — cần một người 'nhịp chậm hơn' để trung hòa cường độ cảm xúc Liêm Trinh.", "ap_dung": {}}
+    ]},
+    {"sao": "Thiên Phủ", "rules": [
+      {"id": "w-thienphu-1", "nguyen_van": "天府躔夫妻宫，称为善曜，即使会星曜恶，一般亦仅主生离，不生死别。倘星曜吉凶交集，即使生离亦不决绝，仍带藕断丝连。", "dich_y": "Thiên Phủ Phu Thê = sao lành của hôn nhân: xấu lắm cũng chỉ 'xa tạm', và thường 'ngó sen đứt tơ còn vương' — quan hệ có khả năng tự vá.", "ap_dung": {}},
+      {"id": "w-thienphu-2", "nguyen_van": "凡府库空露者，均主婚姻不良…故男命宜配年少之妻，女命宜配年长之夫，即可趋避。", "dich_y": "Chỉ ngại 'kho trống lộ' (Phủ không Lộc, gặp Không Kiếp): sự ổn định thiếu 'vốn' — bù bằng minh bạch tài chính + lệch tuổi.", "ap_dung": {"sat_in_cung": ["Địa Không", "Địa Kiếp"]}}
+    ]},
+    {"sao": "Thái Âm", "rules": [
+      {"id": "w-thaiam-1", "nguyen_van": "太阴守夫妻宫，文昌文曲同度相会，主夫凭妻贵。亦主妻子貌美贤慧。有禄同度者，主因妻得财。", "dich_y": "Thái Âm Phu Thê + Xương/Khúc: 'chồng nhờ vợ quý' — bạn đời tinh tế, có gu; thêm Lộc thì nên để người ấy tham gia quản tài chính.", "ap_dung": {"phu_in_cung": ["Văn Xương", "Văn Khúc"]}},
+      {"id": "w-thaiam-2", "nguyen_van": "太阴守夫妻宫，不宜见火铃，主生离。", "dich_y": "Thái Âm kỵ Hỏa/Linh đóng cùng — khí dịu bị hun nóng, dễ xa nhau; giữ 'nhiệt độ thấp' trong tranh luận là phép dưỡng.", "ap_dung": {"sat_in_cung": ["Hỏa Tinh", "Linh Tinh"]}},
+      {"id": "w-thaiam-3", "nguyen_van": "女命太阴化权，主御夫有术，虽驾御丈夫，而在他人眼中尚不觉其驾御，只觉其贤淑。", "dich_y": "Nữ mệnh Thái Âm Hóa Quyền: 'khéo điều phối chồng' — người ngoài chỉ thấy hiền thục. Đây là năng lực quản trị mềm, dùng cho việc chung thì cả nhà thắng.", "ap_dung": {"gender": "nữ", "hoa_quyen_in": ["Thái Âm"]}}
+    ]},
+    {"sao": "Tham Lang", "rules": [
+      {"id": "w-thamlang-1", "nguyen_van": "贪狼守夫妻宫，见煞，一般主刑克…必须迟婚，且婚前曾经波折，然后可免。", "dich_y": "Tham Lang Phu Thê gặp sát: cưới muộn + tình đã qua thử lửa là phép giải — sức hút lớn cần thời gian lắng thành lựa chọn.", "ap_dung": {"min_sat_in_cung": 1}},
+      {"id": "w-thamlang-2", "nguyen_van": "贪狼化忌于夫妻宫，主为人夺爱，所以婚前多波折，则婚后反佳；若恋爱婚姻顺利，则婚后反易滋生事端。", "dich_y": "Tham Lang Hóa Kỵ: 'trắc trở trước cưới = vốn cho sau cưới' — cấu trúc nghịch: đường tình quá mượt trước hôn nhân lại cần cảnh giác sau hôn nhân.", "ap_dung": {"hoa_ky_in": ["Tham Lang"]}},
+      {"id": "w-thamlang-3", "nguyen_van": "在现代，上述观点应略作修正。现代无纳妾，故主有外遇…现代妇女开放，故往往主离而再嫁。", "dich_y": "Vương Đình Chi tự tay biện chính mục Tham Lang cho thời nay: bài toán là ranh giới minh bạch, không phải nhãn đạo đức cổ.", "ap_dung": {}}
+    ]},
+    {"sao": "Cự Môn", "rules": [
+      {"id": "w-cumon-1", "nguyen_van": "天梁需用太阳解其孤克，巨门需太阳解其刑忌之性，所以当巨门守夫妻宫时，必须太阳庙旺，且躔吉曜，然后天梁、巨门的性质才能同时改善，这是推断的重点。", "dich_y": "Cự Môn Phu Thê: chìa khóa là THÁI DƯƠNG sáng (miếu vượng) — nghĩa vận hành: quan hệ này sống bằng sự minh bạch, nói rõ giữa ban ngày; úp mở là tự đầu độc.", "ap_dung": {}},
+      {"id": "w-cumon-2", "nguyen_van": "巨门最不喜与陀罗同躔，主夫妻自找麻烦，往往小事化为大事。", "dich_y": "Cự Môn + Đà La: 'tự tìm phiền' — việc bé xé to; luật nhà nên có: chuyện hôm nay nói hết hôm nay.", "ap_dung": {"sat_in_cung": ["Đà La"]}},
+      {"id": "w-cumon-3", "nguyen_van": "巨门守夫妻宫，女命以配年长之夫为宜，男命亦宜与比自己大一两年之妻。则夫妻易于彼此迁就。此为趋避之道。", "dich_y": "Trợ giải Cự Môn: chọn người nhỉnh tuổi/độ chín hơn — dễ nhường nhịn nhau.", "ap_dung": {}}
+    ]},
+    {"sao": "Thiên Tướng", "rules": [
+      {"id": "w-thientuong-1", "nguyen_van": "天相坐夫妻宫，古人有『亲上加亲』的说法。在现代，则为由同学、同事、街坊关系变成夫妇。又或为旧相识…重逢后再发生感情。", "dich_y": "Thiên Tướng Phu Thê: duyên 'người quen cũ' — bạn học, đồng nghiệp, hàng xóm, tái ngộ; đừng tìm người lạ hoàn hảo, hãy nhìn lại vòng quen.", "ap_dung": {}},
+      {"id": "w-thientuong-2", "nguyen_van": "天相坐夫妻宫，又为[夫唱妇随]，宜夫妻合作共事。", "dich_y": "Hợp mô hình 'phu xướng phụ tùy' hiện đại = làm chung dự án/sự nghiệp — cùng việc thì cùng nhịp.", "ap_dung": {}},
+      {"id": "w-thientuong-3", "nguyen_van": "天相在夫妻宫，最忌火铃同度，主孤独。或为夫妻情缘不投，或主离异。", "dich_y": "Kỵ Hỏa/Linh đồng cung — khí lễ độ bị đốt; giữ nghi thức nhỏ hằng ngày (bữa cơm, lời chào) là thuốc dưỡng cấu trúc này.", "ap_dung": {"sat_in_cung": ["Hỏa Tinh", "Linh Tinh"]}}
+    ]},
+    {"sao": "Thiên Lương", "rules": [
+      {"id": "w-thienluong-1", "nguyen_van": "一般来说，天梁在夫妻宫，多主初恋失败；更见煞，则终身对此未能忘情…由于婚姻曾经波折，所以天梁坐夫妻宫的人，往往婚后情缘更高笃。", "dich_y": "Thiên Lương Phu Thê: mô típ 'mối đầu dang dở' — nhưng chính vì từng sóng gió, hôn nhân sau đó thường sâu bền hơn. Vết cũ là gốc rễ, không phải vết nhơ.", "ap_dung": {}},
+      {"id": "w-thienluong-2", "nguyen_van": "天梁在夫妻宫，主夫妻年龄有差距。男命，宜妻长三年，或比自己年少八岁以上。女命，宜夫长八年以上。见天寿同度，差距更大。", "dich_y": "Cấu trúc 'che chở' cần lệch thế hệ nhẹ: nữ hợp chồng hơn ~8 tuổi trở lên — người đủ từng trải để làm mái hiên.", "ap_dung": {}}
+    ]},
+    {"sao": "Thất Sát", "rules": [
+      {"id": "w-thatsat-1", "nguyen_van": "七杀临夫妻宫，若会照吉化，且见辅佐诸曜，则宜配偶各有独立事业。若共事，男命主妻夺夫权。", "dich_y": "Thất Sát Phu Thê + cát: hai người NÊN có sự nghiệp độc lập — cấu trúc 'hai tướng' không hợp chung một trận địa mỗi ngày.", "ap_dung": {}},
+      {"id": "w-thatsat-2", "nguyen_van": "七杀临夫妻宫，一般以迟婚为宜。见火铃照会，或羊陀照会者，则不但早婚不利，而且早年恋爱亦多波折。", "dich_y": "Trợ giải: cưới muộn; gặp sát chiếu thì tình đầu nhiều sóng — cứ để tuổi trẻ thử lửa, đừng chốt sớm.", "ap_dung": {"min_sat_in_cung": 1}}
+    ]},
+    {"sao": "Phá Quân", "rules": [
+      {"id": "w-phaquan-1", "nguyen_van": "破军在夫妻宫并非善曜，即使破军化禄，亦主婚前多波折，引起争夺。凡破军在夫妻宫，男女皆有驾御配偶的倾向，所以见煞即易分离。", "dich_y": "Phá Quân Phu Thê: cả hai đều muốn 'cầm lái' — bài học của cấu trúc này là luân phiên tay lái; giành cùng lúc là gãy.", "ap_dung": {}},
+      {"id": "w-phaquan-2", "nguyen_van": "破军与禄存同度，主配偶自私。更见煞曜，则主婚姻受家庭阻力，或配偶与家庭不和。", "dich_y": "Phá Quân + Lộc Tồn: bạn đời giữ của riêng; thêm sát: sức ép từ gia đình hai bên — lập 'vùng đệm' rõ giữa nhà mình và nhà lớn.", "ap_dung": {"sat_in_cung": ["Lộc Tồn"]}}
+    ]}
+  ],
+
+  "nguyen_tac_doc": [
+    {
+      "id": "nt-1", "ten": "Cương liệt tuỳ cung — không phán một nhát",
+      "nguyen_van": "凡刚烈之星，一定不利六亲，盖刚烈必同时带孤克之性。…在财帛宫、事业宫，甚至在福德宫，都不忌武曲之刚烈。可是在命宫、父母宫、兄弟宫、夫妻宫、子女宫，以及交友宫，却嫌武曲的孤克。",
+      "nguon": "王亭之 深造讲义 — chương Vũ Khúc",
+      "giai": "Sao cương (Vũ/Sát/Phá/Hỏa/Linh) chỉ 'kỵ' ở các cung LỤC THÂN; ở Tài/Quan/Phúc lại là lực đắc dụng. Đọc nữ mệnh phải soi VỊ TRÍ trước khi soi tên sao."
+    },
+    {
+      "id": "nt-2", "ten": "Thời nay nữ mệnh dễ phấn phát",
+      "nguyen_van": "这组星系结构，以今日社会言，女命反易奋发，男命则易得异性垂青。",
+      "nguon": "王亭之 深造讲义 — chương Thiên Đồng (cụm Đồng Âm Tý/Ngọ hóa Lộc)",
+      "giai": "Câu biện chính mẫu mực: cùng một cấu trúc, xã hội đổi thì cách vận hành đổi — nhiều cấu trúc cổ thư chê ở nữ mệnh, nay lại là cấu trúc TỰ LẬP, THÀNH ĐẠT. Hệ đọc theo tinh thần này cho mọi câu cổ."
+    },
+    {
+      "id": "nt-3", "ten": "Thiên Đồng nữ mệnh — gỡ nhãn 'tuy mỹ nhi dâm'",
+      "nguyen_van": "古人不喜天同坐女命…天同既耽享受，又浪费，但却软弱，于是变为精神空虚，在古代便恰恰是妾侍的本质。[虽美而淫]，则是古人对天同坐女命的普遍评价。",
+      "nguon": "王亭之 深造讲义 — chương Thiên Đồng",
+      "giai": "Vương Đình Chi chỉ rõ nhãn cổ sinh từ chế độ thiếp thị. Thiên Đồng = khí hưởng-thụ-tình-cảm; thời nay bài toán là cho nó MỤC TIÊU (nghề sáng tạo, chăm sóc, dịch vụ) để khỏi rơi vào trống rỗng — không phải phán hạnh kiểm."
+    },
+    {
+      "id": "nt-4", "ten": "Xét kèm Nhật–Nguyệt miếu hãm khi đọc hôn nhân",
+      "nguyen_van": "视婚姻，除[夫妻宫]外，亦须兼视太阴太阳之庙旺利陷。",
+      "nguon": "王亭之 深造讲义 — chương Phu Thê mục Vũ Khúc (卯酉 [武杀])",
+      "giai": "Đọc hôn nhân không chỉ nhìn cung Phu Thê: Thái Dương (biểu tượng chồng/dương) và Thái Âm (vợ/âm) sáng hay tối trên toàn lá bổ chính kết luận."
+    },
+    {
+      "id": "nt-5", "ten": "Ba phép trợ giải kinh điển",
+      "nguyen_van": "一般以迟婚为宜 ／ 夫妻年龄有差距…始能偕白首 ／ 以婚前饱经挫折，或婚前有风波阻碍者为佳。",
+      "nguon": "王亭之 深造讲义 — mô típ lặp xuyên chương Phu Thê",
+      "giai": "Cưới muộn · lệch tuổi · tình qua thử lửa — ba 'van xả' Trung Châu dùng thay cho phán hung. Mọi cảnh báo của hệ đi kèm ít nhất một van xả áp dụng được."
+    }
+  ]
+}
