@@ -423,6 +423,33 @@ def dai_van_trajectory(
     return out
 
 
+# ─── Vòng Trường Sinh (12 sao) ───────────────────────────────────────────────
+# 长生十二神 an lên địa bàn. Tử Vi khởi Trường Sinh theo CỤC (ngũ hành cục):
+#   Thủy nhị → Thân · Mộc tam → Hợi · Kim tứ → Tỵ · Thổ ngũ → Thân · Hỏa lục → Dần
+# ⚠️ Thổ khởi THÂN (水土同宫) — KHÁC Bát Tự (火土同宫, Thổ khởi Dần). Chiều thuận
+# (Dương nam/Âm nữ) hoặc nghịch — cùng luật đại vận (dai_van_direction). Verify:
+# ảnh giáo cụ Thủy-nhị-cục nghịch → Mệnh Tỵ = Lâm Quan (khớp).
+_CUC_TRUONG_SINH_START: dict[int, str] = {
+    2: "Thân", 3: "Hợi", 4: "Tỵ", 5: "Thân", 6: "Dần",
+}
+_TRUONG_SINH_12: tuple[str, ...] = (
+    "Trường Sinh", "Mộc Dục", "Quan Đới", "Lâm Quan", "Đế Vượng", "Suy",
+    "Bệnh", "Tử", "Mộ", "Tuyệt", "Thai", "Dưỡng",
+)
+_TRUONG_SINH_TAG: dict[str, str] = {
+    "Trường Sinh": "TS", "Mộc Dục": "MD", "Quan Đới": "QĐ", "Lâm Quan": "LQ",
+    "Đế Vượng": "ĐV", "Suy": "Suy", "Bệnh": "Bệnh", "Tử": "Tử", "Mộ": "Mộ",
+    "Tuyệt": "Tuyệt", "Thai": "Thai", "Dưỡng": "Dưỡng",
+}
+
+
+def vong_trang_sinh(cuc: int, year_stem: str, gender: str) -> dict:
+    """An vòng Trường Sinh 12 sao. Trả {star_name: branch_index} (bijection 12 cung)."""
+    start = B[_CUC_TRUONG_SINH_START[cuc]]
+    direction = dai_van_direction(year_stem, gender)
+    return {name: _fix(start + direction * i) for i, name in enumerate(_TRUONG_SINH_12)}
+
+
 # ─── 10. Tiểu Hạn ─────────────────────────────────────────────────────────────
 
 
@@ -984,5 +1011,8 @@ def cast_la_so(
         _can = _CAN10[(_dan_can + ((_p["branch_index"] - 2) % 12)) % 10]
         _p["can"] = _can
         _p["can_chi"] = f"{_can} {_p['branch']}"
+
+    # ── GIẢI MÃ ĐỊA BÀN: vòng Trường Sinh 12 sao (khởi theo Cục, thuận/nghịch) ────
+    out["trang_sinh"] = vong_trang_sinh(cuc, year_stem, gender)
 
     return out

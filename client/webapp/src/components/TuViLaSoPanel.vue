@@ -722,6 +722,7 @@ const cellByBranch = computed(() => {
       saoLe: [],
       khongVong: [],
       hoa: [],
+      trangSinh: null,
     };
   }
 
@@ -784,6 +785,11 @@ const cellByBranch = computed(() => {
   }
   for (const idx of data.value.tuan || []) {
     out[idx]?.khongVong.push({ name: "Tuần", group: "tuan" });
+  }
+
+  // Vòng Trường Sinh — 1 sao/cung (Trường Sinh, Mộc Dục, … Dưỡng)
+  for (const [name, idx] of Object.entries(data.value.trang_sinh || {})) {
+    if (out[idx]) out[idx].trangSinh = name;
   }
 
   return out;
@@ -1058,6 +1064,8 @@ const grid = computed(() => {
                 <span v-if="cell.branchIndex === data.than_index && cell.palace?.name !== 'Mệnh'" class="than-mark">身 THÂN</span>
                 <span v-if="cell.branchIndex === data.dau_quan_index" class="dauquan-mark"
                       title="Đẩu Quân — sao tháng sinh">斗</span>
+                <span v-if="cell.trangSinh" class="trangsinh-mark"
+                      title="Vòng Trường Sinh">{{ cell.trangSinh }}</span>
               </div>
             </template>
             <template v-else-if="cell.type === 'center-tl'">
@@ -2115,6 +2123,18 @@ const grid = computed(() => {
 .menh-mark  { background: rgba(232, 201, 90, 0.2); color: #e8c95a; }
 .than-mark  { background: rgba(214, 90, 120, 0.2); color: #f5a5b5; }
 .dauquan-mark { background: rgba(56, 189, 248, 0.15); color: #7dd3fc; font-family: "Songti SC", serif; }
+/* Vòng Trường Sinh — đẩy về phải đáy ô (như giáo cụ địa bàn) */
+.trangsinh-mark {
+  margin-left: auto;
+  font-size: 8.5px;
+  font-weight: 700;
+  padding: 1px 4px;
+  border-radius: 2px;
+  line-height: 14px;
+  background: rgba(91, 229, 211, 0.14);
+  color: #7fd8cb;
+  white-space: nowrap;
+}
 
 /* ── Center cells ── */
 .center-info {
