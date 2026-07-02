@@ -42,14 +42,19 @@ from engine.ai.providers.minimax import MiniMaxProvider  # noqa: E402
 
 DB_PATH = PROJECT_ROOT / "data" / "yi_wiki" / "wiki.sqlite3"
 
-PROMPT_VERSION = "v2.1"  # bump khi đổi prompt — track trong extraction_runs
+PROMPT_VERSION = "v2.2"  # bump khi đổi prompt — track trong extraction_runs
+# v2.2 (2026-07-01): truyền {book_label} thay hard-code "Tử Vi/Bát Tự/Kinh Dịch" —
+# audit LMX grind phát hiện ~21% atom mai-hoa gắn nhầm phái ("trong Bát Tự" cho sách
+# Mai Hoa/trắc tự) vì prompt ép khung 3 môn. + cấm câu hỏi phụ thuộc ngữ cảnh.
 
 # ═══════════════════════════════════════════════════════════════
 # PROMPTS (port từ poc_atomize_v2.py + tinh chỉnh production)
 # ═══════════════════════════════════════════════════════════════
 PASS1_PROMPT = """# Nhiệm vụ Pass 1
-Đọc đoạn văn dưới đây từ sách Tử Vi/Bát Tự/Kinh Dịch. Phân loại + ĐỀ XUẤT câu hỏi mặc định
-PHÙ HỢP RIÊNG cho nội dung đoạn này.
+Đọc đoạn văn dưới đây trích từ sách «{book_label}» (mệnh học / dịch học Đông phương).
+Phân loại + ĐỀ XUẤT câu hỏi mặc định PHÙ HỢP RIÊNG cho nội dung đoạn này.
+LƯU Ý: bám đúng MÔN của sách này — KHÔNG đóng khung câu hỏi vào môn khác
+(vd không hỏi "trong Tử Vi/Bát Tự" nếu sách không phải môn đó).
 
 # Bước 1 — Phân loại ARCHETYPE (boolean, overlap được)
 
@@ -100,8 +105,10 @@ có thể answer được bằng đoạn văn dưới.
 QUY TẮC BẮT BUỘC:
 1. Atomic Q nêu RÕ tên sao, cung, chi cụ thể. TUYỆT ĐỐI tránh đại từ.
 2. Mỗi atomic Q PHẢI có source_quote = trích nguyên văn đoạn chứa câu trả lời.
-3. KHÔNG bịa, không suy đoán. Bám đoạn 100%.
+3. KHÔNG bịa, không suy đoán. Bám đoạn 100%. Đoạn RỖNG/chỉ có marker trang → trả atomic_questions rỗng.
 4. Tránh trùng lặp.
+5. Câu hỏi phải TỰ ĐỨNG ĐƯỢC ngoài ngữ cảnh: CẤM các cụm "theo đoạn văn", "trong đoạn này",
+   "theo tác giả". CẤM gắn tên môn phái khác vào câu hỏi — sách này là «{book_label}».
 
 # Output JSON STRICT (KHÔNG markdown fence)
 {
@@ -337,7 +344,10 @@ class Atomizer:
         total_duration = 0.0
 
         # ── PASS 1 ────────────────────────────────────────────────
-        p1_prompt = PASS1_PROMPT.replace("{content}", text)
+        book_label = book_corpus_id.replace("-", " ")
+        p1_prompt = (PASS1_PROMPT
+                     .replace("{book_label}", book_label)
+                     .replace("{content}", text))
         p1_parsed, p1_resp, p1_err, p1_run = self._llm_call_with_retry(
             prompt=p1_prompt, max_tokens=4000, temperature=0.7,
             run_type="pass1", book_corpus_id=book_corpus_id, chunk_id=chunk_id,
@@ -356,6 +366,7 @@ class Atomizer:
         # ── PASS 2 ────────────────────────────────────────────────
         p2_prompt = (
             PASS2_PROMPT
+            .replace("{book_label}", book_label)
             .replace("{pass1_output}", json.dumps(p1_parsed, ensure_ascii=False, indent=2))
             .replace("{content}", text)
         )
