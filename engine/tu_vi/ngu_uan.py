@@ -205,6 +205,7 @@ def get_star_v3(star_vi: str, mieu_ham_level: str | None = None) -> dict | None:
         "l1_am_duong_ngu_hanh": rec.get("am_duong_ngu_hanh"),
         "l2_goc_tham": rec.get("goc_tham"),
         "l3_ngu_uan": ngu_uan_v3,
+        "l3_atoms_nguon": get_atoms_for_uan(star_vi),
         "l4_khi_vuong_suy": _resolve_khi_vuong_suy(
             rec.get("khi_vuong_suy"), mieu_ham_level
         ),
@@ -215,6 +216,45 @@ def get_star_v3(star_vi: str, mieu_ham_level: str | None = None) -> dict | None:
         "l8_can_cu": rec.get("can_cu"),
         "_has_v3": has_v3,
     }
+
+
+_UAN_LOP_LABELS = {"sac": "Sắc", "tho": "Thọ", "tuong": "Tưởng",
+                   "hanh": "Hành", "thuc": "Thức"}
+
+
+def get_atoms_for_uan(sao_vi: str, per_lop: int = 3) -> dict | None:
+    """B4 — quote nguồn chống lưng mỗi uẩn (bảng atom_ngu_uan_map, quote-or-silence).
+
+    Trả {lop: [{atom_id, quote, nguon, do_tin}]} — mỗi uẩn tối đa per_lop atom
+    do_tin cao nhất, founder_verified>=0 cả map lẫn atom. None nếu bảng chưa có /
+    sao chưa map → caller/UI bỏ qua êm (chân dung 13 sao chưa map không vỡ).
+    """
+    import os
+    import sqlite3 as _sq
+    db = os.path.join(os.path.dirname(__file__), "..", "..", "data", "yi_wiki", "wiki.sqlite3")
+    try:
+        conn = _sq.connect(f"file:{os.path.abspath(db)}?mode=ro", uri=True)
+        rows = conn.execute(
+            """SELECT m.lop, m.atom_id, aq.source_quote, c2.book_corpus_id, m.do_tin
+               FROM atom_ngu_uan_map m
+               JOIN atomic_questions aq ON aq.atom_id = m.atom_id AND aq.founder_verified >= 0
+               LEFT JOIN chunks_v2 c2 ON c2.chunk_id = aq.chunk_id
+               WHERE m.sao = ? AND m.founder_verified >= 0
+               ORDER BY m.lop, m.do_tin DESC""", (sao_vi,)).fetchall()
+        conn.close()
+    except Exception:
+        return None
+    if not rows:
+        return None
+    out: dict[str, list] = {}
+    for lop, aid, quote, book, do_tin in rows:
+        bucket = out.setdefault(lop, [])
+        if len(bucket) >= per_lop or not (quote or "").strip():
+            continue
+        bucket.append({"atom_id": aid, "quote": quote.strip()[:220],
+                       "nguon": book, "do_tin": do_tin,
+                       "lop_label": _UAN_LOP_LABELS.get(lop, lop)})
+    return out or None
 
 
 def get_palace_profile(palace_vi: str) -> dict | None:
