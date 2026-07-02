@@ -24,6 +24,21 @@ const selected = ref(null);
 const selectedOracleCard = ref(null);
 const showCung12 = ref(false);
 
+// Tách thẻ: 14 Chính Tinh (+ Vô Chính Diệu) vs Phụ Tinh — 2 tầng khác bản chất
+// (chính tinh = "một cái tâm" độc lập; phụ tinh = gia vị bám chính tinh), không
+// trộn chung 1 lưới kẻo khó thấy phần vừa thêm (Anh phản hồi 2026-07-02).
+const activeTier = ref("chinh");
+const chinhTinhProfiles = computed(() => profiles.value.filter((p) => !p.co_ban?.is_phu_tinh));
+const phuTinhProfiles = computed(() => profiles.value.filter((p) => p.co_ban?.is_phu_tinh));
+const visibleProfiles = computed(() =>
+  activeTier.value === "phu" ? phuTinhProfiles.value : chinhTinhProfiles.value,
+);
+function chonTang(tier) {
+  activeTier.value = tier;
+  const list = tier === "phu" ? phuTinhProfiles.value : chinhTinhProfiles.value;
+  if (list.length && !list.includes(selected.value)) selected.value = list[0];
+}
+
 // Chân dung v3 8 lớp của sao đang chọn (l1..l8). null nếu API chưa trả v3.
 const v3 = computed(() => selected.value?.v3 || null);
 
@@ -111,7 +126,10 @@ async function openToStar(saoVi) {
   const hit = profiles.value.find(
     (p) => p?.co_ban?.ten_vi === saoVi || p?.ten_vi === saoVi || p?.sao === saoVi,
   );
-  if (hit) selected.value = hit;
+  if (hit) {
+    activeTier.value = hit.co_ban?.is_phu_tinh ? "phu" : "chinh";
+    selected.value = hit;
+  }
   rootEl.value?.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
@@ -239,10 +257,30 @@ function openOracle(card) {
           <NguHanhDoHinh />
         </div>
 
+        <!-- ── Tách thẻ: 14 Chính Tinh vs Phụ Tinh (2 tầng khác bản chất) ── -->
+        <div class="ctl-tier-tabs">
+          <button
+            type="button"
+            class="ctl-tier-tab"
+            :class="{ active: activeTier === 'chinh' }"
+            @click="chonTang('chinh')"
+          >⭐ 14 Chính Tinh</button>
+          <button
+            type="button"
+            class="ctl-tier-tab"
+            :class="{ active: activeTier === 'phu' }"
+            @click="chonTang('phu')"
+          >🌶️ Phụ Tinh <small>({{ phuTinhProfiles.length }}/14)</small></button>
+        </div>
+        <p v-if="activeTier === 'phu'" class="ctl-tier-note">
+          Phụ tinh là "gia vị" — chỉ có nghĩa khi ghép với chính tinh, không tự đứng làm 1 nhân cách riêng
+          (nên không có mục "theo đời người" như chính tinh, xem lớp 5 "Biểu hiện tùy chính tinh ghép").
+        </p>
+
         <!-- ── Lưới chọn sao ── -->
         <div class="ctl-grid">
           <button
-            v-for="p in profiles" :key="p.co_ban.ten_vi"
+            v-for="p in visibleProfiles" :key="p.co_ban.ten_vi"
             type="button"
             class="ctl-chip"
             :class="{ active: selected === p }"
@@ -646,6 +684,36 @@ function openOracle(card) {
 .ctl-vong { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; margin: 5px 0; }
 .ctl-vong-label { font-size: 11.5px; color: var(--text-secondary, rgba(230,238,245,0.6)); margin-right: 4px; }
 .ctl-arrow { font-size: 11px; color: var(--text-secondary, rgba(230,238,245,0.55)); }
+
+.ctl-tier-tabs {
+  display: flex;
+  gap: 6px;
+  margin: 10px 0 6px 0;
+  border-bottom: 1px solid var(--read-border, rgba(230, 238, 245, 0.15));
+  padding-bottom: 8px;
+}
+.ctl-tier-tab {
+  padding: 6px 14px;
+  border-radius: var(--border-radius-lg, 12px);
+  border: 1px solid var(--read-border, rgba(230, 238, 245, 0.2));
+  background: transparent;
+  color: var(--read-text-muted, rgba(230, 238, 245, 0.7));
+  font-size: calc(13px * var(--reading-scale, 1));
+  cursor: pointer;
+}
+.ctl-tier-tab small { opacity: 0.75; margin-left: 2px; }
+.ctl-tier-tab.active {
+  background: var(--read-accent-bg, rgba(126, 200, 227, 0.15));
+  border-color: var(--read-accent, #7ec8e3);
+  color: var(--read-accent, #7ec8e3);
+  font-weight: 500;
+}
+.ctl-tier-note {
+  font-style: italic;
+  font-size: calc(12px * var(--reading-scale, 1));
+  color: var(--read-text-faint, rgba(230, 238, 245, 0.55));
+  margin: 0 0 10px 0;
+}
 
 .ctl-grid {
   display: grid;
