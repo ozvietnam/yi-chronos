@@ -139,6 +139,13 @@ const l5Entries = computed(() => {
     .map((k) => ({ label: L5_LABELS[k], text: l5[k] }));
 });
 
+// Phụ tinh: không có tiểu sử nhỏ→già (nó là "gia vị" bám chính tinh, không tự
+// đứng làm 1 nhân cách riêng) — lớp 5 thay bằng list biểu hiện tùy sao ghép.
+const l5Combos = computed(() => {
+  const c = v3.value?.l5_bieu_hien_ghep;
+  return Array.isArray(c) ? c : [];
+});
+
 // Lớp 7 — v3 trả string; rec cũ trả array vi_du_song/quotes.
 const l7Examples = computed(() => {
   const e = v3.value?.l7_vi_du_song;
@@ -414,7 +421,7 @@ function openOracle(card) {
               </div>
             </details>
 
-            <!-- LỚP 5 — Theo đời người (v3.l5 = dict {nho, thieu_nien, trung_nien, ve_gia}) -->
+            <!-- LỚP 5 — Theo đời người (chính tinh: v3.l5 = dict {nho, thieu_nien, trung_nien, ve_gia}) -->
             <details
               v-if="l5Entries.length || selected.ngu_uan?.theo_doi_nguoi"
               class="ctl-nu-layer"
@@ -432,6 +439,21 @@ function openOracle(card) {
                   </p>
                 </template>
                 <p v-else class="ctl-nu-doinguoi">{{ selected.ngu_uan?.theo_doi_nguoi }}</p>
+              </div>
+            </details>
+
+            <!-- LỚP 5 (phụ tinh) — Biểu hiện tùy chính tinh ghép, KHÔNG phải
+                 tiểu sử độc lập: phụ tinh là "gia vị" bám chính tinh (lộ trình
+                 dòng 43), không tự đứng làm 1 nhân cách có đời sống riêng. -->
+            <details v-if="l5Combos.length" class="ctl-nu-layer">
+              <summary><b>5.</b> Biểu hiện tùy chính tinh ghép</summary>
+              <div class="ctl-nu-body">
+                <p class="ctl-nu-ghichu">
+                  Đây không phải "sao" tự đứng — nó là gia vị làm lệch/trợ cái tâm của chính tinh đi cùng.
+                </p>
+                <p v-for="c in l5Combos" :key="c.chinh_tinh" class="ctl-nu-doinguoi">
+                  <span class="ctl-nu-lbl">{{ c.chinh_tinh }}</span> {{ c.mo_ta }}
+                </p>
               </div>
             </details>
 
@@ -788,6 +810,12 @@ function openOracle(card) {
   margin-right: 6px;
 }
 .ctl-nu-lbl-out { color: var(--read-note-accent, #a9c8a0); }
+.ctl-nu-ghichu {
+  font-style: italic;
+  font-size: calc(11.5px * var(--reading-scale, 1));
+  color: var(--read-text-faint, rgba(230, 238, 245, 0.55));
+  margin: 0 0 8px 0;
+}
 .ctl-nu-layer {
   margin: 5px 0;
   border: 1px solid var(--read-border, rgba(232, 201, 90, 0.18));

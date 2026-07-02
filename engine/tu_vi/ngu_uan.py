@@ -220,6 +220,12 @@ def get_star_v3(star_vi: str, mieu_ham_level: str | None = None) -> dict | None:
             rec.get("khi_vuong_suy"), mieu_ham_level
         ),
         "l5_theo_doi_nguoi": rec.get("theo_doi_nguoi"),
+        # Phụ tinh KHÔNG có tiểu sử riêng (nó là "gia vị" bám chính tinh, không
+        # phải "một cái tâm" độc lập trưởng thành theo tuổi — xem lo-trinh-
+        # nghien-cuu-tu-vi-ngu-uan.md:43 vs :20, Anh chốt 2026-07-02 sau khi
+        # thấy bản Kình Dương/Lộc Tồn viết tiểu sử độc lập bị sai bản chất).
+        # Lớp 5 của phụ tinh thay bằng list combo {chinh_tinh, mo_ta}.
+        "l5_bieu_hien_ghep": rec.get("bieu_hien_theo_ghep"),
         "l6_khe_tinh_thuc": rec.get("khe_tinh_thuc"),
         "l6_duong_ra": rec.get("duong_ra"),
         "l7_vi_du_song": rec.get("vi_du_song"),
