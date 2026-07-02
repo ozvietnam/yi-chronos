@@ -61,6 +61,15 @@ const UAN_LABELS = {
 };
 const UAN_KEYS = ["sac", "tho", "tuong", "hanh", "thuc"];
 
+// B4 — trích sách CÓ NGUỒN chống lưng từng uẩn (bảng atom_ngu_uan_map, đã verify).
+// l3Steps 5 bước theo đúng thứ tự UAN_KEYS → bước i lấy quotes của lớp UAN_KEYS[i].
+function quotesForUan(key) {
+  return v3.value?.l3_atoms_nguon?.[key] || [];
+}
+function tenNguon(book) {
+  return (book || "").replace(/^tuvifull-/, "").replace(/-/g, " ");
+}
+
 async function ensureLoaded() {
   if (profiles.value.length || loading.value) return;
   loading.value = true;
@@ -323,7 +332,17 @@ function openOracle(card) {
                 <dl v-if="l3Steps" class="ctl-uan">
                   <template v-for="(step, i) in l3Steps" :key="'l3' + i">
                     <dt>{{ step.buoc }}</dt>
-                    <dd>{{ step.mo_ta }}</dd>
+                    <dd>
+                      {{ step.mo_ta }}
+                      <span
+                        v-for="q in quotesForUan(UAN_KEYS[i])"
+                        :key="'q' + q.atom_id"
+                        class="ctl-quote"
+                      >
+                        「{{ q.quote }}」
+                        <small class="ctl-quote-src">— {{ tenNguon(q.nguon) }}</small>
+                      </span>
+                    </dd>
                   </template>
                 </dl>
                 <!-- fallback: dict 5 uẩn cũ -->
@@ -337,6 +356,14 @@ function openOracle(card) {
                           ▲ Khi mạnh: {{ uanOf(selected, key).khi_manh }}</span>
                         <span v-if="uanOf(selected, key).khi_lech" class="ctl-lech">
                           ▽ Khi lệch: {{ uanOf(selected, key).khi_lech }}</span>
+                        <span
+                          v-for="q in quotesForUan(key)"
+                          :key="'qf' + q.atom_id"
+                          class="ctl-quote"
+                        >
+                          「{{ q.quote }}」
+                          <small class="ctl-quote-src">— {{ tenNguon(q.nguon) }}</small>
+                        </span>
                       </dd>
                     </template>
                   </template>
@@ -717,6 +744,21 @@ function openOracle(card) {
 .ctl-uan dt { font-size: calc(11.5px * var(--reading-scale, 1)); font-weight: 600; color: var(--read-han, #e8c95a); opacity: 0.9; margin-top: 7px; }
 .ctl-uan dd { margin: 2px 0 0 0; font-size: calc(12.5px * var(--reading-scale, 1)); line-height: 1.6; color: var(--read-text-dim, rgba(230,238,245,0.8)); }
 .ctl-manh { display: block; margin-top: 3px; color: #88d39e; }
+.ctl-quote {
+  display: block;
+  margin-top: 5px;
+  padding-left: 10px;
+  border-left: 2px solid var(--read-border, rgba(230, 238, 245, 0.25));
+  font-style: italic;
+  color: var(--read-text-muted, rgba(230, 238, 245, 0.75));
+  font-size: calc(12.5px * var(--reading-scale, 1));
+}
+.ctl-quote-src {
+  display: block;
+  font-style: normal;
+  color: var(--read-text-faint, rgba(230, 238, 245, 0.5));
+  font-size: calc(11px * var(--reading-scale, 1));
+}
 .ctl-lech { display: block; margin-top: 2px; color: #f5b08c; }
 .ctl-can { margin: 8px 0 0 0; font-size: 12.5px; line-height: 1.55; color: var(--read-text, rgba(230,238,245,0.88)); }
 
