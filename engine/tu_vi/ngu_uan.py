@@ -394,7 +394,7 @@ def compose_palace_ngu_uan(
 
     reminder = PARADIGM_REMINDERS[reminder_seed % len(PARADIGM_REMINDERS)]
 
-    return {
+    out = {
         "available": True,
         "school": SCHOOL_LABEL,
         "do_kho": do_kho_label(polarity_tag),
@@ -407,6 +407,61 @@ def compose_palace_ngu_uan(
         "can_de_phat_huy": can_phat_huy,
         "cau_hoi_tu_soi": cau_hoi,
         "nhac_paradigm": reminder,
+    }
+    out.update(_merge_v3_flat(star_names, mieu_ham_levels))
+    return out
+
+
+def _merge_v3_flat(star_names: list[str], mieu_ham_levels: dict[str, str]) -> dict:
+    """Gộp các lớp v3 (căn cơ/gốc tham/khí vượng-suy/theo đời/khe tỉnh thức/đường ra)
+    của các sao trong cung thành key PHẲNG cho UI lá số (TuViLaSoPanel accordion
+    8 lớp đã chờ sẵn các key này — trước đây data không tới nên im lặng).
+    Đa sao đồng cung → nối text gắn nhãn tên sao. Sao chưa có v3 → bỏ qua êm."""
+    v3s = []
+    for s in star_names:
+        v3 = get_star_v3(s, mieu_ham_levels.get(s))
+        if v3 and v3.get("_has_v3"):
+            v3s.append((s, v3))
+    if not v3s:
+        return {}
+    many = len(v3s) > 1
+
+    def _join(key: str) -> str | None:
+        parts = []
+        for s, v3 in v3s:
+            t = v3.get(key)
+            if t:
+                parts.append(f"{s}: {t}" if many else str(t))
+        return "\n\n".join(parts) or None
+
+    # Lớp 4: dùng nhánh active đã resolve theo miếu-hãm thật của lá số
+    kvs_parts = []
+    for s, v3 in v3s:
+        k = v3.get("l4_khi_vuong_suy") or {}
+        t = k.get("active_text") if isinstance(k, dict) else None
+        if t:
+            lbl = f" (thế {k.get('active')})" if k.get("active") else ""
+            kvs_parts.append(f"{s}{lbl}: {t}" if many else f"{t}")
+    # Lớp 5: 1 sao giữ object {giai: val}; đa sao → gộp key "Sao — giai"
+    theo_doi: dict | None = None
+    if not many:
+        theo_doi = v3s[0][1].get("l5_theo_doi_nguoi") or None
+    else:
+        theo_doi = {}
+        for s, v3 in v3s:
+            td = v3.get("l5_theo_doi_nguoi") or {}
+            if isinstance(td, dict):
+                for giai, val in td.items():
+                    theo_doi[f"{s} — {giai}"] = val
+        theo_doi = theo_doi or None
+
+    return {
+        "am_duong_ngu_hanh": _join("l1_am_duong_ngu_hanh"),
+        "goc_tham": _join("l2_goc_tham"),
+        "khi_vuong_suy": "\n\n".join(kvs_parts) or None,
+        "theo_doi_nguoi": theo_doi,
+        "khe_tinh_thuc": _join("l6_khe_tinh_thuc"),
+        "duong_ra": _join("l6_duong_ra"),
     }
 
 
