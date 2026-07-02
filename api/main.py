@@ -2641,6 +2641,21 @@ def tu_vi_cast(request: TuViCastRequest, caller: dict = Depends(require_caller))
             birth_year=birth_year,
         )
 
+    # ── GIẢI MÃ ĐỊA BÀN: nguyệt vận (lưu nguyệt) per-cung ────────────────────────
+    # Lưu nguyệt cần 1 lưu niên → mặc định NĂM HIỆN TẠI (target_year ghi đè). Tháng 1
+    # khởi Đẩu Quân lưu niên, thuận. Hiện "T.x" mỗi ô như giáo cụ địa bàn.
+    try:
+        from datetime import datetime as _dt2
+        from engine.tu_vi.an_sao import nguyet_van_per_cung
+        from engine.tu_vi.luu_tru import year_to_ganzhi
+        _nv_year = request.target_year or _dt2.now().year
+        _, _ln_branch = year_to_ganzhi(_nv_year)
+        result["nguyet_van"] = nguyet_van_per_cung(
+            _ln_branch, result["lunar_month"], result["hour_branch"])
+        result["nguyet_van_year"] = _nv_year
+    except Exception:
+        pass   # nguyệt vận là lớp phụ trợ — lỗi KHÔNG chặn lá số chính
+
     return response
 
 

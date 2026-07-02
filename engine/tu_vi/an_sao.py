@@ -468,6 +468,26 @@ def tieu_han_for_age(year_branch: str, gender: str, age: int) -> int:
     return _fix(start + direction * (age - 1))
 
 
+def tieu_van_per_cung(year_branch: str, gender: str) -> dict:
+    """Nhãn NĂM TIỂU VẬN mỗi cung (địa chi) — GIẢI MÃ ĐỊA BÀN.
+    Tiểu Hạn ↔ năm-chi là song ánh: mỗi cung ứng đúng 1 địa chi năm (tiểu hạn rơi vào
+    cung này ở những năm mang chi đó). Tĩnh, không cần chọn năm. Trả {branch_index: năm-chi}."""
+    out: dict = {}
+    for age in range(1, 13):
+        nam_chi = BRANCHES_TVI[_fix(B[year_branch] + (age - 1))]   # chi của năm ở tuổi này
+        out[tieu_han_for_age(year_branch, gender, age)] = nam_chi
+    return out
+
+
+def nguyet_van_per_cung(luu_nien_branch: str, lunar_month: int, hour_branch: str) -> dict:
+    """Nhãn NGUYỆT VẬN (lưu nguyệt) mỗi cung cho 1 lưu niên — GIẢI MÃ ĐỊA BÀN ("T.9").
+    Tháng 1 lưu nguyệt khởi tại Đẩu Quân lưu niên (Q2 p88), thuận 1 cung/tháng. Động theo
+    lưu niên. Trả {branch_index: tháng (1-12)}."""
+    from .dau_quan import compute_dau_quan_for_months
+    months = compute_dau_quan_for_months(luu_nien_branch, lunar_month, hour_branch)
+    return {m["dau_quan_branch_index"]: m["luu_nguyet_month"] for m in months}
+
+
 # ─── 10b. Mệnh chủ, Thân chủ, Đẩu Quân ──────────────────────────────────────
 # Source: Tử Vi Đẩu Số Toàn Thư (Trần Đoàn), Quyển 2:
 #   "An Mệnh chủ · An Thân chủ · An Đẩu Quân quyết"
@@ -1014,5 +1034,7 @@ def cast_la_so(
 
     # ── GIẢI MÃ ĐỊA BÀN: vòng Trường Sinh 12 sao (khởi theo Cục, thuận/nghịch) ────
     out["trang_sinh"] = vong_trang_sinh(cuc, year_stem, gender)
+    # ── GIẢI MÃ ĐỊA BÀN: năm tiểu vận per-cung (tĩnh, năm-chi ↔ cung) ─────────────
+    out["tieu_van"] = tieu_van_per_cung(year_branch, gender)
 
     return out

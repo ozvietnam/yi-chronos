@@ -723,6 +723,8 @@ const cellByBranch = computed(() => {
       khongVong: [],
       hoa: [],
       trangSinh: null,
+      tieuVan: null,
+      nguyetVan: null,
     };
   }
 
@@ -790,6 +792,13 @@ const cellByBranch = computed(() => {
   // Vòng Trường Sinh — 1 sao/cung (Trường Sinh, Mộc Dục, … Dưỡng)
   for (const [name, idx] of Object.entries(data.value.trang_sinh || {})) {
     if (out[idx]) out[idx].trangSinh = name;
+  }
+  // Năm tiểu vận (năm-chi) + nguyệt vận (tháng lưu nguyệt) — {branch_index: value}
+  for (const [idx, chi] of Object.entries(data.value.tieu_van || {})) {
+    if (out[idx]) out[idx].tieuVan = chi;
+  }
+  for (const [idx, month] of Object.entries(data.value.nguyet_van || {})) {
+    if (out[idx]) out[idx].nguyetVan = month;
   }
 
   return out;
@@ -1060,12 +1069,16 @@ const grid = computed(() => {
 
               <!-- Footer badges -->
               <div class="cell-foot">
+                <span v-if="cell.tieuVan" class="tieuvan-mark"
+                      title="Năm tiểu vận (tiểu hạn ở những năm mang chi này)">{{ cell.tieuVan }}</span>
                 <span v-if="cell.palace?.name === 'Mệnh'" class="menh-mark">★ MỆNH</span>
                 <span v-if="cell.branchIndex === data.than_index && cell.palace?.name !== 'Mệnh'" class="than-mark">身 THÂN</span>
                 <span v-if="cell.branchIndex === data.dau_quan_index" class="dauquan-mark"
                       title="Đẩu Quân — sao tháng sinh">斗</span>
                 <span v-if="cell.trangSinh" class="trangsinh-mark"
                       title="Vòng Trường Sinh">{{ cell.trangSinh }}</span>
+                <span v-if="cell.nguyetVan" class="nguyetvan-mark"
+                      :title="`Nguyệt vận (lưu nguyệt ${data.nguyet_van_year || ''})`">T.{{ cell.nguyetVan }}</span>
               </div>
             </template>
             <template v-else-if="cell.type === 'center-tl'">
@@ -2112,6 +2125,28 @@ const grid = computed(() => {
   display: flex;
   gap: 4px;
   padding-top: 2px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+/* Năm tiểu vận — địa chi nhỏ, đáy trái (như giáo cụ) */
+.tieuvan-mark {
+  font-size: 8.5px;
+  font-weight: 700;
+  padding: 1px 4px;
+  border-radius: 2px;
+  line-height: 14px;
+  background: rgba(148, 163, 184, 0.12);
+  color: #aab6c4;
+}
+/* Nguyệt vận — tháng lưu nguyệt, đáy phải */
+.nguyetvan-mark {
+  font-size: 8.5px;
+  font-weight: 700;
+  padding: 1px 4px;
+  border-radius: 2px;
+  line-height: 14px;
+  background: rgba(124, 132, 248, 0.14);
+  color: #a5abf5;
 }
 .menh-mark, .than-mark, .dauquan-mark {
   font-size: 8.5px;

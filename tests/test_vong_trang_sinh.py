@@ -57,3 +57,26 @@ def test_giao_cu_thuy_nhi_nghich_menh_ty_lam_quan():
     """Ảnh 'GIẢI MÃ ĐỊA BÀN': Thủy nhị cục (gốc đại vận=2), đi nghịch → Mệnh Tỵ = Lâm Quan."""
     ts = vong_trang_sinh(2, "Ất", "nam")   # âm nam → nghịch
     assert _by_branch(ts)["Tỵ"] == "Lâm Quan"
+
+
+# ── Năm tiểu vận + nguyệt vận (2 lớp cuối GIẢI MÃ ĐỊA BÀN) ────────────────────
+def test_tieu_van_bijection_va_founder():
+    """Năm tiểu vận: song ánh năm-chi ↔ cung. Founder (Thìn, nam) → Mệnh Tỵ = năm Hợi."""
+    from engine.tu_vi.an_sao import tieu_van_per_cung
+    tv = tieu_van_per_cung("Thìn", "nam")
+    assert len(tv) == 12 and len(set(tv.values())) == 12       # 12 cung ↔ 12 chi
+    assert tv[5] == "Hợi"                                       # cung Tỵ (idx5) → năm Hợi (khớp ảnh)
+
+
+def test_nguyet_van_bijection_va_dau_quan_2026():
+    """Nguyệt vận: song ánh tháng ↔ cung. 2026 (Ngọ) founder tháng4 giờ Tý → cung Hợi = T.9."""
+    from engine.tu_vi.an_sao import nguyet_van_per_cung
+    nv = nguyet_van_per_cung("Ngọ", 4, "Tý")
+    assert len(nv) == 12 and len(set(nv.values())) == 12       # 12 tháng phân biệt
+    assert nv[11] == 9                                          # cung Hợi (idx11) → T.9 (khớp ảnh)
+
+
+def test_cast_output_co_tieu_van():
+    """Cast base LUÔN kèm tieu_van (tĩnh, không cần chọn năm)."""
+    r = cast_la_so_from_birth(birth_datetime_local="1988-06-05T23:30:00", gender="nam")
+    assert "tieu_van" in r and len(r["tieu_van"]) == 12
