@@ -130,7 +130,11 @@ def test_narrate_passthrough_text_sach(monkeypatch):
     monkeypatch.setattr(A, "run_agent", lambda **kw: _Resp())
     td = read_tinh_duyen(birth_datetime_local=_BIRTH_NU, gender="nữ")
     txt = N.narrate_tinh_duyen(_PERSON, td)
-    assert txt == clean, "text LLM sạch phải được narrate trả nguyên văn"
+    # Text sạch giữ NGUYÊN VĂN phần đầu; narrate ĐƯỢC PHÉP nối disclaimer Iron #9
+    # ("...không thay tu học hay y tế") — hành vi đúng đạo, test cũ viết trước disclaimer.
+    assert txt.startswith(clean), "text LLM sạch phải được narrate giữ nguyên văn phần đầu"
+    assert txt == clean or "tu học" in txt or "y tế" in txt, \
+        "phần nối thêm (nếu có) phải là disclaimer Iron #9"
 
 
 def test_narrate_system_prompt_theo_khau_vi():

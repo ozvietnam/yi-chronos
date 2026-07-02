@@ -617,6 +617,17 @@ def _sec_dinh_thoi(dt: dict) -> Optional[dict]:
     if not _nonempty(dt):
         return None
     items = []
+    # Lưu niên GẦN đứng ĐẦU timeline — user thấy năm cụ thể trước mắt (2026, 2028...)
+    # thay vì chỉ cửa đại vận xa. note của marker đã kèm điều kiện "cần chính diệu cát".
+    for ln in dt.get("luu_nien_gan") or []:
+        items.append({
+            "loai": "lưu niên gần",
+            "mo_ta": ln.get("note") or (f"Năm {ln.get('year')}: "
+                                        + ", ".join(ln.get("triggers") or [])),
+            "year": ln.get("year"),
+            "branch": ln.get("year_branch"),
+            "da_qua": False,
+        })
     for kh in dt.get("nam_kich_hoat") or []:
         items.append({
             "loai": "kích hoạt",

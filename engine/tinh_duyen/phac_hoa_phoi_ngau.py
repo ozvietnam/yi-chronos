@@ -232,12 +232,13 @@ def lap_ho_so_tuong_mao(la_so: dict,
         chieu_cao = base.get("chieu_cao_nam" if gioi_phoi == "nam" else "chieu_cao_nu") \
             or base.get("chieu_cao_nam") or "chưa rõ"
 
-    # khuôn mặt: chính tinh chủ + tinh chỉnh ngũ hành.
+    # khuôn mặt: 1 tả CHỦ ĐẠO (chính tinh chủ cung) + lớp pha DÁN NHÃN rõ —
+    # trước đây 3 tả nối "; " đọc như 3 khuôn mặt mâu thuẫn (polish 2026-07-02).
     khuon_mat = (base or {}).get("khuon_mat", "ngũ quan hài hoà, nét dễ nhìn")
     if nh and nh.get("mat_khuon"):
-        khuon_mat = f"{khuon_mat}; {nh['mat_khuon']}"
+        khuon_mat = f"{khuon_mat} — pha nét hành {hanh}: {nh['mat_khuon']}"
     if noi_bat.get("goi_y_prompt"):
-        khuon_mat = f"{khuon_mat}; {noi_bat['goi_y_prompt']}"
+        khuon_mat = f"{khuon_mat} — thần thái: {noi_bat['goi_y_prompt']}"
 
     da = (nh or {}).get("da", "da sáng tự nhiên")
     dang_nguoi = (base or {}).get("dang_nguoi", "vóc cân đối")

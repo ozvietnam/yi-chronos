@@ -762,6 +762,17 @@ def _dinh_thoi(la_so: dict, age: int, phu_the_idx: int) -> dict:
     nam_kich_hoat = _sap_xep(nam_kich_hoat)
     nam_giu_gin = _sap_xep(nam_giu_gin)
 
+    # Lưu niên GẦN (năm nay → +3): Hồng Loan/Thiên Hỉ bay đến Mệnh/Phu Thê theo NĂM —
+    # vá gap "người 33 tuổi chỉ thấy cửa đại vận 63-72" (tái dùng công thức Trung Châu
+    # trong dai_van_luu_nien_phu_the, Iron #1 — không chép lại công thức).
+    luu_nien_gan: list[dict] = []
+    try:
+        from engine.tu_vi.dai_van_luu_nien_phu_the import luu_nien_phu_the_markers
+        cur_year = datetime.now().year
+        luu_nien_gan = luu_nien_phu_the_markers(la_so, year_range=(cur_year, cur_year + 3))
+    except Exception:  # noqa: BLE001 — thiếu module/field không được sập định thời
+        luu_nien_gan = []
+
     # Cửa sổ kích hoạt ĐANG/SẮP (end_age >= age) — dùng cho câu 'năm nào cưới được?'.
     cua_so_sap_toi = [x for x in nam_kich_hoat if not x.get("da_qua")]
     cua_so_da_qua = [x for x in nam_kich_hoat if x.get("da_qua")]
@@ -772,6 +783,7 @@ def _dinh_thoi(la_so: dict, age: int, phu_the_idx: int) -> dict:
         "muc_do": "dai_van",
         "dai_van_hien_tai": dv_hien_tai,
         "tuoi_hien_tai": age,
+        "luu_nien_gan": luu_nien_gan,
         "nam_kich_hoat": nam_kich_hoat,
         "nam_can_giu_gin": nam_giu_gin,
         # Tách rõ ĐANG/SẮP vs ĐÃ QUA để consumer ưu tiên cửa sổ phía trước (BUG1).
