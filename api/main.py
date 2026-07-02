@@ -2495,6 +2495,28 @@ def tu_vi_star_profiles() -> dict[str, object]:
             "sao_o_dau_thi": ngu_uan_mod.sao_o_dau_thi("Vô Chính Diệu"),
             "mieu_ham_12_chi": {},
         })
+    # Phụ tinh có chân dung v3 (Kình Dương, Văn Xương, Lộc Tồn...) — tự động
+    # theo dataset (list_phu_tinh_with_v3), KHÔNG hard-code tên. Không có bảng
+    # miếu-vượng-hãm 12 chi trong engine (đúng bản chất: phụ tinh an theo năm/
+    # giờ sinh, không theo cục như chính tinh) → mieu_ham_12_chi rỗng, khí
+    # vượng/suy nằm trong v3.khi_vuong_suy (dẫn nguồn sách, xem doc ngu_uan.py).
+    from engine.tu_vi.concept_dict import lookup as _concept_lookup
+    for ten in ngu_uan_mod.list_phu_tinh_with_v3():
+        pv3 = ngu_uan_mod.get_star_v3(ten)
+        raw = ngu_uan_mod.get_star_profile(ten) or {}
+        cd = _concept_lookup(ten) or {}
+        profiles.append({
+            "co_ban": {"ten_vi": ten, "ten_zh": None,
+                       "ngu_hanh": None, "am_duong": None,
+                       "hoa_khi": cd.get("definition"),
+                       "keywords": raw.get("tom_gon") or [],
+                       "tich_cuc": None, "tieu_cuc": None, "chu_ve": [],
+                       "is_phu_tinh": True},
+            "ngu_uan": raw,
+            "v3": pv3,
+            "sao_o_dau_thi": ngu_uan_mod.sao_o_dau_thi(ten),
+            "mieu_ham_12_chi": {},
+        })
     from engine.hermes_guard import DISCLAIMER
     return {
         "status": "ok",

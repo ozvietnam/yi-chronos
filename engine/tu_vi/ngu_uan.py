@@ -88,7 +88,7 @@ def _index() -> dict:
         return idx
     for rec in ds.get("records", []):
         t = rec.get("type")
-        if t == "chinh_tinh" and rec.get("sao"):
+        if t in ("chinh_tinh", "phu_tinh") and rec.get("sao"):
             idx["by_star"][_canon(rec["sao"])] = rec
         elif t == "cung" and rec.get("cung"):
             idx["by_palace"][_canon(rec["cung"])] = rec
@@ -110,6 +110,16 @@ def _index() -> dict:
 
 def dataset_available() -> bool:
     return bool(_index()["by_star"])
+
+
+def list_phu_tinh_with_v3() -> list[str]:
+    """Tên (tiếng Việt) các phụ tinh đã có chân dung v3 trong dataset — tự động
+    theo dữ liệu thật (KHÔNG hard-code), để route API tự nhận khi thêm sao mới."""
+    ds = _load_dataset()
+    if not ds:
+        return []
+    return [rec["sao"] for rec in ds.get("records", [])
+            if rec.get("type") == "phu_tinh" and rec.get("sao")]
 
 
 def get_star_profile(star_vi: str) -> dict | None:
