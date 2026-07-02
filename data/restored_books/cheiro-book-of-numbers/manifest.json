@@ -9,9 +9,14 @@
   "language_orig": "en",
   "public_domain": true,
   "source_of_record": "https://archive.org/details/cheirosbookofnumbers",
-  "acquisition": "Public-domain text (Archive.org). WebFetch bị chặn trong môi trường ephemeral → nội dung cốt lõi compiled qua khảo nguồn + đối chiếu chéo; bản PDF gốc đính kèm sau (Stage 1 hoàn tất khi attach PDF).",
-  "bookflow_stage": "2-6 draft. Core restored EN→VI + Stage 6 PDF DRAFT (reportlab fallback vì env thiếu pandoc/WeasyPrint).",
-  "published_pdf": "data/published/cheiro-book-of-numbers-core-v0.1.pdf (6 trang A5, reportlab + DejaVuSans). DRAFT — chưa qua design pass WeasyPrint của project.",
+  "acquisition": "PDF gốc + OCR attach 2026-07-02: archive.org item 'cheirosbookofnumbers' (mạng VN chặn archive.org → tải qua VPS Hostinger relay, scp về). source/: scan 10.6MB + textlayer 3.5MB (194 trang, pdfinfo verify) + OCR djvu.txt 311KB. 2 file PDF nguồn gitignored (**/*.pdf) — bản local; OCR txt tracked.",
+  "bookflow_stage": "1 ✅ (PDF gốc attached) · 2-6 core v0.2: re-render WeasyPrint design pass chuẩn nhà (pandoc 3.9 → HTML5 → WeasyPrint 68.1, CSS sách + TOC + số trang). Restore ĐẦY ĐỦ 194 trang (số kép 33-52...) = việc mở rộng, nguồn OCR đã sẵn.",
+  "published_pdf": "data/published/cheiro-book-of-numbers-core-v0.2.pdf (7 trang A5, WeasyPrint 68.1, 191KB, design chuẩn nhà). v0.1 reportlab giữ làm lịch sử.",
   "paradigm": "Đọc đồng dạng (Iron Rule #4/#6) — KHÔNG predict. 'May/cảnh báo' của Cheiro = sắc thái cấu trúc cần quan-sát.",
-  "ts": 1780617600
+  "ts": 1780617600,
+  "source_files": [
+    "source/cheiro-book-of-numbers-scan.pdf (10.6MB, scan gốc — local, gitignored)",
+    "source/cheiro-book-of-numbers-textlayer.pdf (3.5MB, 194tr text-layer — local, gitignored)",
+    "source/cheiro-book-of-numbers-ocr.txt (311KB OCR — tracked)"
+  ]
 }
