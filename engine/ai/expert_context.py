@@ -85,7 +85,9 @@ def _fmt_commentary(comm: dict) -> str:
 def _fmt(atoms, limit: int) -> str:
     out, seen = [], set()
     for a in atoms:
-        q = (getattr(a, "question_text", "") or "").strip()
+        # dataclass AtomRetrievalInfo đặt tên field là atom_question (bug cũ đọc
+        # question_text → q luôn rỗng, block mất dòng câu hỏi dẫn đầu)
+        q = (getattr(a, "atom_question", "") or "").strip()
         src = (getattr(a, "source_quote", None) or getattr(a, "chunk_text", "") or "").strip()
         deep = _fmt_commentary(getattr(a, "commentary", None) or {})
         # Bỏ atom rỗng hoàn toàn (không trích, không luận giải)
@@ -109,8 +111,19 @@ def _fmt(atoms, limit: int) -> str:
     return "\n".join(out)
 
 
+# Commentary chỉ phủ ~10% kho → tối thiểu 2/limit slot dành cho atom CÓ luận sâu
+_MIN_COMMENTARY_SLOTS = 2
+# Hard-cap block (chart đã chiếm ~6k trong prompt sage; block phình quá → loãng/timeout)
+_MAX_BLOCK_CHARS = 6000
+
+
 def build_expert_context(question: str, agent_id: str, *, limit: int = 4) -> str:
-    """Block 'TRI THỨC SÂU TỪ SÁCH' cho 1 sage trả lời câu hỏi này. '' nếu không có gì."""
+    """Block 'TRI THỨC SÂU TỪ SÁCH' cho 1 sage trả lời câu hỏi này. '' nếu không có gì.
+
+    2-pass quota: pass 1 lấy top-k thường; nếu <2 atom trong top mang commentary
+    (luận sâu) → pass 2 fetch chủ đích atom-có-commentary và dành 2 slot cuối cho
+    chúng — không thì 6.458 luận sâu gần như không bao giờ lọt top-4 (~10% kho).
+    """
     if not question or not question.strip():
         return ""
     try:
@@ -122,9 +135,30 @@ def build_expert_context(question: str, agent_id: str, *, limit: int = 4) -> str
         atoms = r.search_atom_fts(question, limit=fetch, school=corpus) if corpus else []
         if not atoms:
             atoms = r.search_atom_fts(question, limit=fetch)   # fallback: không lọc phái
+
+        # Pass 2 (quota): top-limit hiện tại có mấy atom mang luận sâu?
+        n_comm_top = sum(1 for a in atoms[:limit] if getattr(a, "commentary", None))
+        if n_comm_top < _MIN_COMMENTARY_SLOTS:
+            try:
+                extra = r.search_atom_fts(question, limit=_MIN_COMMENTARY_SLOTS * 2,
+                                          school=corpus, require_commentary=True)
+                if not extra and corpus:
+                    extra = r.search_atom_fts(question, limit=_MIN_COMMENTARY_SLOTS * 2,
+                                              require_commentary=True)
+                seen_ids = {getattr(a, "atom_id", None) for a in atoms[:limit]}
+                extra = [a for a in extra if getattr(a, "atom_id", None) not in seen_ids]
+                if extra:
+                    need = _MIN_COMMENTARY_SLOTS - n_comm_top
+                    # giữ (limit - need) atom liên quan nhất + chèn atom luận sâu vào cuối
+                    atoms = atoms[:max(limit - need, 0)] + extra[:need] + atoms[max(limit - need, 0):]
+            except Exception:
+                pass   # pass 2 best-effort — lỗi thì giữ nguyên pass 1
+
         body = _fmt(atoms, limit)
         if not body:
             return ""
+        if len(body) > _MAX_BLOCK_CHARS:
+            body = body[:_MAX_BLOCK_CHARS].rsplit("\n", 1)[0]
         return ("## TRI THỨC SÂU TỪ SÁCH (trích nguyên văn + LUẬN GIẢI SÂU đã thẩm — "
                 "luận BÁM vào đây, DẪN tên cách/sao/nguyên lý cụ thể, vận dụng phần "
                 "'Việt thuần / Nguyên lý / Đối chiếu phái', KHÔNG nói chung chung)\n" + body)

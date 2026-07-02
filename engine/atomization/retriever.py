@@ -99,10 +99,14 @@ class ChunkAtomRetriever:
         query: str,
         limit: int | None = None,
         school: str | None = None,
+        require_commentary: bool = False,
     ) -> list[AtomRetrievalInfo]:
         """FTS5 keyword search trên atomic_questions_fts.
 
         Dùng cho MVP khi chưa có embedding. Khi có embedding → swap với atom_vec.
+        require_commentary: chỉ trả atom CÓ luận giải sâu (atom_commentaries) —
+        dùng cho pass-2 quota của expert_context (commentary chỉ phủ ~10% kho
+        nên top-k thường không dính, phải fetch chủ đích).
         """
         k = limit or self.atom_retrieve_k
         # "Một fact nhiều tên gọi" (Anh chốt 2026-06-11): expand biệt danh qua wiki
@@ -152,6 +156,9 @@ class ChunkAtomRetriever:
         if school:
             sql += " AND c.book_corpus_id LIKE ?"
             params.append(f"%{school}%")
+        if require_commentary:
+            # viet_thuan là field lõi (6.456/6.458 commentary có) → proxy "có luận sâu"
+            sql += " AND ac.viet_thuan IS NOT NULL"
         sql += " ORDER BY score LIMIT ?"
         params.append(k)
 

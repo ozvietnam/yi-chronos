@@ -203,3 +203,88 @@ def test_commentary_rejected_minus1_excluded(tmp_path):
     # atom 2: commentary -1 → bị loại, atom vẫn ra với trích thô
     assert hits[2].commentary is None, "commentary -1 bị rò vào retrieval"
     assert hits[2].source_quote == "TRICH THO HAI"
+
+
+# ─────────────────────────────────────────────────────────────
+# P1 (2026-07-01): quota 2-pass — commentary phải LỌT vào block
+# ─────────────────────────────────────────────────────────────
+
+def _mini_db(tmp_path):
+    """DB tối thiểu: 3 atom khớp FTS 'tuvi'; chỉ atom 3 (rank thấp nhất) có commentary."""
+    import sqlite3
+    db = tmp_path / "mini2.sqlite3"
+    conn = sqlite3.connect(str(db))
+    conn.executescript(
+        """
+        CREATE TABLE chunks_v2 (
+            chunk_id INTEGER PRIMARY KEY, text TEXT, book_corpus_id TEXT,
+            page_start INTEGER, page_end INTEGER, atom_q_str TEXT
+        );
+        CREATE TABLE atomic_questions (
+            atom_id INTEGER PRIMARY KEY, question_text TEXT, chunk_id INTEGER,
+            subject_identifiers TEXT, from_category TEXT, source_quote TEXT,
+            confidence REAL, founder_verified INTEGER, cc_id INTEGER
+        );
+        CREATE TABLE chunk_classifications (
+            cc_id INTEGER PRIMARY KEY, is_chu_the INTEGER, is_cong_thuc INTEGER,
+            is_luan_giai INTEGER, is_to_hop INTEGER, is_kinh_nghiem INTEGER,
+            format_style TEXT
+        );
+        CREATE TABLE atom_commentaries (
+            commentary_id INTEGER PRIMARY KEY, atom_id INTEGER UNIQUE,
+            han_viet_explain TEXT, viet_thuan TEXT, nguyen_ly TEXT,
+            vi_du_doi_song TEXT, cross_school_notes TEXT, iron_rule_warning TEXT,
+            extracted_by TEXT, confidence REAL, founder_verified INTEGER
+        );
+        CREATE VIRTUAL TABLE atomic_questions_fts USING fts5(question_text);
+        """
+    )
+    conn.execute("INSERT INTO chunks_v2 VALUES (1,'chunk','tuvi-book',1,1,'')")
+    conn.execute(
+        "INSERT INTO atomic_questions VALUES "
+        "(1,'tuvi tuvi tuvi cau mot',1,'{}','cat','QUOTE MOT',0.9,0,NULL),"
+        "(2,'tuvi tuvi tuvi cau hai',1,'{}','cat','QUOTE HAI',0.9,0,NULL),"
+        "(3,'tuvi cau ba',1,'{}','cat','QUOTE BA',0.9,0,NULL)"
+    )
+    conn.execute(
+        "INSERT INTO atom_commentaries (atom_id,viet_thuan,founder_verified) "
+        "VALUES (3,'LUAN SAU CUA BA',0)"
+    )
+    conn.execute(
+        "INSERT INTO atomic_questions_fts(rowid,question_text) VALUES "
+        "(1,'tuvi tuvi tuvi cau mot'),(2,'tuvi tuvi tuvi cau hai'),(3,'tuvi cau ba')"
+    )
+    conn.commit()
+    conn.close()
+    return db
+
+
+def test_require_commentary_filter(tmp_path):
+    """require_commentary=True chỉ trả atom CÓ luận sâu (pass 2 của quota)."""
+    from engine.atomization.retriever import ChunkAtomRetriever
+    r = ChunkAtomRetriever(_mini_db(tmp_path))
+    hits = r.search_atom_fts("tuvi", limit=10, require_commentary=True)
+    assert [h.atom_id for h in hits] == [3], "phải chỉ ra atom có commentary"
+    assert hits[0].commentary.get("viet_thuan") == "LUAN SAU CUA BA"
+
+
+def test_fmt_shows_atom_question(tmp_path):
+    """Fix bug field name: block phải chứa CÂU HỎI atom (trước đọc question_text → mất)."""
+    from engine.ai.expert_context import _fmt
+    from engine.atomization.retriever import ChunkAtomRetriever
+    r = ChunkAtomRetriever(_mini_db(tmp_path))
+    hits = r.search_atom_fts("tuvi", limit=10)
+    body = _fmt(hits, limit=3)
+    assert "tuvi" in body and "cau" in body, f"câu hỏi atom mất khỏi block: {body!r}"
+    assert not any(ln.strip() == "-" for ln in body.splitlines()), "dòng '-' trần = bug field name quay lại"
+
+
+@pytest.mark.skipif(not _WIKI_DB.exists(), reason="cần wiki.sqlite3 (integration)")
+def test_expert_context_quota_pulls_commentary():
+    """Query mà top-k thường KHÔNG dính commentary (baseline đo 2026-07-01: 'hôn nhân
+    phu thê' → 0/12) — sau quota 2-pass block PHẢI có nhãn luận sâu."""
+    block = build_expert_context("hôn nhân phu thê", "tu_vi")
+    assert block, "context rỗng"
+    assert any(label in block for label in (
+        "Việt thuần:", "Nguyên lý:", "Hán-Việt cốt:", "Ví dụ đời sống:",
+    )), "quota 2-pass không kéo được commentary vào block"
