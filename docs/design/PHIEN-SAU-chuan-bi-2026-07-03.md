@@ -30,7 +30,16 @@ Chi tiết: memory `tu_vi_dia_ban_hien_thi_day_du`, `tu_vi_than_cu_surfacing`, `
 
 ## ⬜ CHƯA LÀM → YÊU CẦU PHIÊN SAU (ưu tiên P0→P2)
 
-### P0 — Mở rộng Thư viện Tử Vi (đang làm dở, làm tiếp liền mạch)
+### ✅ P0 ĐÃ XONG (phiên nối 2026-07-03, sau bàn giao) — B2 + B3 + B4
+- **B2 Ngũ Cục** (commit d95d469b): `than_cu.list_cuc` → `/api/tu-vi/cuc-list` → `NguCucLibraryPanel.vue`. 5 cục hành nền + vai trò cơ học; "chất người" để trống (chưa nguồn).
+- **B3 Thân-Mệnh** (76a04229): `than_cu.list_than_menh` → `/api/tu-vi/than-menh` → `ThanMenhLibraryPanel.vue`. Đồng cung (nguyên tắc Vũ Tài Lục + 8 luận Nghiệm Lý) · khác cung (6 Thân cư). ⚠️ thực tế **22 atom** (không phải 28).
+- **B4 vòng sao** (a8a877c2): **Anh chốt "em DUYỆT ĐỐI KHÁNG trước".** Pipeline `scripts/verify_sao_noi_dung.py` (provenance quote-trong-sách + LLM qwen3-30b local bắt bịa-dịch) duyệt lớp def: **452 duyệt · 33 loại · 190 treo · 103/104 sao**. `vong_sao.list_vong_sao` → `/api/tu-vi/vong-sao` → `VongSaoLibraryPanel.vue` (89 phụ/vòng sao, chỉ fv=1, kèm nguồn + quote gốc mở đối chiếu).
+
+**⬜ CÒN NỢ (phiên sau):** (1) **Deploy** — 3 commit ở nhánh `claude/vibrant-elbakyan-fb6277`, CHƯA merge main/push. (2) **Prod DB sync** — founder_verified ghi wiki.sqlite3 LOCAL; prod chưa có → B4 prod RỖNG tới khi surgical-sync bảng `sao_noi_dung` (SSH `root@187.127.98.35`, backup + tránh clobber sqlite-vec, memory `live_deploy_infra`). Backup local `/tmp/wiki_backup_before_b4.sqlite3`. (3) **Duyệt tiếp lớp `cung` (1063) + `ket_hop` (865)** (mới xong def): `verify_sao_noi_dung.py --lop cung/ket_hop --cache <json>` (LM Studio phải UP).
+
+---
+
+### (tham chiếu gốc) P0 — Mở rộng Thư viện Tử Vi
 Anh giao "trong thư viện > tử vi > bổ sung **Mệnh / Cục / vòng sao đầy đủ**". Đã xong 2 sub-tab (B1). Còn:
 
 - **[B2] Cục (5 cục)** — thêm section/tier "Cục" vào `ChinhTinhLibraryPanel.vue` (tab Tử Vi). Data grounded SẴN: `engine/tu_vi/than_cu.doc_cuc` (5 item = ngũ hành nền `HANH_VAN_DONG`, nguồn Lê Văn Sửu "khớp cổ thư"). Nên thêm endpoint nhỏ `/api/tu-vi/cuc-list` (5 item + nature + source) rồi panel fetch.
