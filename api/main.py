@@ -2426,6 +2426,18 @@ def tu_vi_chinh_tinh_detail(star_id: str) -> dict[str, object]:
     return {"status": "ok", "star": s.to_dict()}
 
 
+@app.get("/api/tu-vi/cuc-list")
+def tu_vi_cuc_list() -> dict[str, object]:
+    """5 Cục (Thủy 2 · Mộc 3 · Kim 4 · Thổ 5 · Hỏa 6) cho Thư viện Tử Vi.
+
+    GROUNDED (quote-or-silence): hành nền + tính chất element (Lê Văn Sửu) + vai
+    trò cơ học dẫn-xuất-được. "Chất người từng cục" CHƯA có nguồn → chua_co_nguon.
+    """
+    from engine.tu_vi.than_cu import list_cuc
+
+    return {"status": "ok", **list_cuc()}
+
+
 @app.get("/api/tu-vi/do-hinh-co")
 def tu_vi_do_hinh_co() -> dict[str, object]:
     """4 đồ hình âm dương cổ (Thái cực · Tiên thiên · Hậu thiên · Hà Đồ) cho

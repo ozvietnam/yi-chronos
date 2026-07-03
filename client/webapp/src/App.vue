@@ -45,6 +45,7 @@ const HealthPanel = defineAsyncComponent(() => import("./components/HealthPanel.
 const KyMonPanel = defineAsyncComponent(() => import("./components/KyMonPanel.vue"));
 const HoangCucPanel = defineAsyncComponent(() => import("./components/HoangCucPanel.vue"));
 const ChinhTinhLibraryPanel = defineAsyncComponent(() => import("./components/ChinhTinhLibraryPanel.vue"));
+const NguCucLibraryPanel = defineAsyncComponent(() => import("./components/NguCucLibraryPanel.vue"));
 const TuViLaSoPanel = defineAsyncComponent(() => import("./components/TuViLaSoPanel.vue"));
 const DangSonPanel = defineAsyncComponent(() => import("./components/DangSonPanel.vue"));
 const CungPhuTheBacPhaiPanel = defineAsyncComponent(() => import("./components/CungPhuTheBacPhaiPanel.vue"));
@@ -945,6 +946,7 @@ onBeforeUnmount(() => {
         <div v-show="libSubTab === 'tu-vi'">
           <h3 class="schema-divider">🔯 Thư viện Tử Vi (Bắc Phái) — 14 chính tinh · phụ tinh · Cục · Thân-Mệnh · vòng sao</h3>
           <ChinhTinhLibraryPanel ref="tuviLibRef" />
+          <NguCucLibraryPanel />
         </div>
 
         <div v-show="libSubTab === 'sach'">

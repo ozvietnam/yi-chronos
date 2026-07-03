@@ -3,7 +3,9 @@
 Kỷ luật quote-or-silence (Iron #9): CHỈ trả atom đã duyệt + nguồn; vị trí không có
 nguồn → chua_co_nguon (KHÔNG bịa). Vị trí phải ĐÚNG (than_index) + nghĩa KHÔNG lẫn chéo.
 """
-from engine.tu_vi.than_cu import doc_than_cu, doc_cuc, _retrieve, _PALACE_KEY, _CUC_ELEMENT
+from engine.tu_vi.than_cu import (
+    doc_than_cu, doc_cuc, list_cuc, _retrieve, _PALACE_KEY, _CUC_ELEMENT,
+)
 from engine.tu_vi.from_birth import cast_la_so_from_birth
 
 
@@ -65,6 +67,25 @@ def test_5_cuc_deu_co_nature():
     for cuc in _CUC_ELEMENT:
         c = doc_cuc({"cuc": cuc, "cuc_name": "X"})
         assert c["available"] and c["element"] and c["nature"]
+
+
+def test_list_cuc_thu_vien_du_5_grounded():
+    """B2 Thư viện: list_cuc() trả đủ 5 cục (2..6), mỗi cục có tên + hành + nature.
+
+    Tầng 'chất người' để TRỐNG + chua_co_nguon=True (quote-or-silence, không bịa).
+    """
+    d = list_cuc()
+    items = d["items"]
+    assert len(items) == 5
+    assert [i["cuc"] for i in items] == [2, 3, 4, 5, 6]
+    names = [i["cuc_name"] for i in items]
+    assert names == ["Thủy Nhị Cục", "Mộc Tam Cục", "Kim Tứ Cục",
+                     "Thổ Ngũ Cục", "Hỏa Lục Cục"]
+    for i in items:
+        assert i["element"] and i["nature"] and i["element_key"]
+        assert i["chat_nguoi"] == "" and i["chua_co_nguon"] is True  # không bịa
+    assert d["vai_tro"] and "KHÔNG đoán" in d["vai_tro"]             # không predict
+    assert "cổ thư" in d["source"] or "Ngũ hành" in d["source"]
 
 
 def test_menh_than_axis_grounded():

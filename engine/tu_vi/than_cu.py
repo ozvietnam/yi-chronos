@@ -176,3 +176,49 @@ def doc_cuc(la_so: dict) -> dict:
         "nature": nature,               # "ổn định — nuôi giữ, chuyển hóa" (grounded)
         "source": "Ngũ hành nền (Lê Văn Sửu — khớp cổ thư)",
     }
+
+
+# Vai trò CƠ HỌC của Cục — dẫn-xuất-được từ phép an sao (memory
+# cach_an_sao_nguyen_ly_dan_xuat), KHÔNG phải diễn giải "chất người" (cái đó
+# thiếu nguồn → để bookflow đọc sách sau, quote-or-silence).
+_CUC_VAI_TRO = (
+    "Cục = con số nền của lá số: (1) định TUỔI KHỞI đại vận (Thủy 2 → khởi vận "
+    "sớm, Hỏa 6 → muộn hơn), (2) định vị trí an sao Tử Vi trên địa bàn, (3) định "
+    "vòng Trường Sinh. Cục KHÔNG đoán tốt-xấu — nó là hành NỀN mà mệnh vận hành trên đó."
+)
+_CUC_NGUON = "Ngũ hành nền (Lê Văn Sửu — khớp cổ thư)"
+
+
+def list_cuc() -> dict:
+    """Liệt kê 5 Cục (Thủy 2 · Mộc 3 · Kim 4 · Thổ 5 · Hỏa 6) cho THƯ VIỆN.
+
+    GROUNDED: chỉ trả hành nền + tính chất element (HANH_VAN_DONG, Lê Văn Sửu) +
+    vai trò cơ học (dẫn-xuất-được từ phép an sao). KHÔNG bịa "chất người từng cục"
+    (thiếu nguồn cổ thư → chua_co_nguon=True, để bookflow đọc sách sau).
+    """
+    try:
+        from engine.tu_vi.an_sao import CUC_NAMES
+    except Exception:
+        CUC_NAMES = {2: "Thủy Nhị Cục", 3: "Mộc Tam Cục", 4: "Kim Tứ Cục",
+                     5: "Thổ Ngũ Cục", 6: "Hỏa Lục Cục"}
+    try:
+        from engine.tu_vi.ngu_hanh_nen import HANH_VAN_DONG
+    except Exception:
+        HANH_VAN_DONG = {}
+    items = []
+    for cuc in (2, 3, 4, 5, 6):
+        ekey, evi = _CUC_ELEMENT[cuc]
+        items.append({
+            "cuc": cuc,
+            "cuc_name": CUC_NAMES.get(cuc, ""),
+            "element": evi,                        # "Thổ"
+            "element_key": ekey,                   # "thổ" (cho badge màu)
+            "nature": HANH_VAN_DONG.get(ekey, ""),  # "ổn định — nuôi giữ, chuyển hóa"
+            "chat_nguoi": "",                      # "chất người từng cục" — CHƯA có nguồn
+            "chua_co_nguon": True,                 # → UI nói rõ tầng nghĩa sâu chờ đọc sách
+        })
+    return {
+        "items": items,
+        "vai_tro": _CUC_VAI_TRO,
+        "source": _CUC_NGUON,
+    }
