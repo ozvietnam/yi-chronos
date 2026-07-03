@@ -49,3 +49,13 @@ def test_quote_or_silence_vi_tri_khong_phai_than_cu():
     """Cung KHÔNG thuộc 6 vị trí Thân cư (vd Điền Trạch) → không có key → [] (không bịa)."""
     assert _retrieve("Điền Trạch", 2) == []
     assert _retrieve("Tật Ách", 2) == []
+
+
+def test_loc_chat_luong_khong_lot_mau_sai_hay_asr_tho():
+    """6 vị trí: KHÔNG lọt atom META (Mẫu SAI — dạy tránh nói) hay bản ASR thô ('số N…')."""
+    for p in _PALACE_KEY:
+        for y in _retrieve(p, 3):
+            t = y["text"].strip().lower()
+            assert not t.startswith("mẫu sai"), f"{p}: lọt Mẫu SAI"
+            assert "mẫu sai" not in t[:40], f"{p}: lọt Mẫu SAI"
+            assert not t.startswith("số "), f"{p}: lọt ASR thô"

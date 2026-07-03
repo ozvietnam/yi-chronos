@@ -71,18 +71,41 @@ def _retrieve(palace: str, limit: int) -> list[dict]:
         ).fetchall()
     except Exception:
         return []
+    # Ưu tiên bản SẠCH: câu hoàn chỉnh (viết hoa đầu) > mảnh giữa-câu (thường) > bản ASR thô.
+    rows = sorted(rows, key=lambda r: (_is_raw(r[0] or ""), (r[0] or "").strip()[:1].islower()))
     out: list[dict] = []
-    seen: set[str] = set()
+    wordsets: list[set] = []
     for quote, corpus in rows:
         q = (quote or "").strip()
-        sig = q[:60].lower()
-        if not q or sig in seen:
+        if not q or _is_meta(q):     # bỏ atom dạy-sage-tránh-nói (Mẫu SAI…) — không hiện cho user
             continue
-        seen.add(sig)
+        w = _words(q)
+        # bỏ nghĩa TRÙNG nội dung (cùng ý, khác cách chép) — overlap-coefficient > 0.6.
+        if any(len(w & ws) / max(1, min(len(w), len(ws))) > 0.6 for ws in wordsets):
+            continue
+        wordsets.append(w)
         out.append({"text": q, "source": _CORPUS_LABEL.get(corpus, corpus or "wiki")})
         if len(out) >= limit:
             break
     return out
+
+
+def _is_raw(text: str) -> bool:
+    """Bản chép giọng nói thô (ASR) — bắt đầu 'số N …' hoặc nhiều tiếng đệm ' à '."""
+    t = (text or "").strip().lower()
+    return t[:4].startswith("số ") or t.count(" à ") >= 3
+
+
+def _is_meta(text: str) -> bool:
+    """Atom META dạy sage TRÁNH nói (mẫu sai / cách nói sai) — KHÔNG phải nghĩa user-facing."""
+    t = (text or "").strip().lower()
+    return (t.startswith("mẫu sai") or t.startswith("sai:") or t.startswith("cách nói sai")
+            or "mẫu sai" in t[:40] or "tránh khẳng định" in t or "không nên nói" in t)
+
+
+def _words(text: str) -> set:
+    import re
+    return set(re.sub(r"[^\w\s]", " ", (text or "").lower()).split())
 
 
 def doc_than_cu(la_so: dict, *, limit: int = 3) -> dict:
