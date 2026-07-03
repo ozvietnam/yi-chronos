@@ -2656,6 +2656,13 @@ def tu_vi_cast(request: TuViCastRequest, caller: dict = Depends(require_caller))
     except Exception:
         pass   # nguyệt vận là lớp phụ trợ — lỗi KHÔNG chặn lá số chính
 
+    # ── Thân cư (cung an Thân đóng đâu → trọng tâm & hậu vận) — GROUNDED, có nguồn ─
+    try:
+        from engine.tu_vi.than_cu import doc_than_cu
+        response["than_cu"] = doc_than_cu(result, limit=2)
+    except Exception:
+        pass
+
     return response
 
 

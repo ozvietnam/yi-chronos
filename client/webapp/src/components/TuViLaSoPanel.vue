@@ -38,6 +38,7 @@ const inputTargetYear = ref(new Date().getFullYear());
 const data = ref(null);
 const interpretation = ref(null);
 const luuTru = ref(null);
+const thanCu = ref(null);   // Thân cư (đóng cung nào → trọng tâm/hậu vận, grounded có nguồn)
 const cungReading = ref(null);  // ⭐ Q1 Phú + Q3 sao×cung per palace
 const cungLoading = ref(false);
 const caseStudies = ref(null);   // ⭐ Lá số mẫu lịch sử Q3+Q4
@@ -227,6 +228,10 @@ function palaceStarNamesForReading(reading) {
     ...(cell?.phu || []).map((s) => s.name),
     ...(cell?.sat || []).map((s) => s.name),
     ...(cell?.q2 || []).map((s) => s.name),
+    ...(cell?.bacSi || []).map((s) => s.name),
+    ...(cell?.tuongTinh || []).map((s) => s.name),
+    ...(cell?.saoLe || []).map((s) => s.name),
+    ...(cell?.khongVong || []).map((s) => s.name),
   ]);
 }
 
@@ -264,17 +269,53 @@ function oracleCardForPlacedStar(star) {
   return oracleCardForStarName(name);
 }
 
+function palaceCellByName(palaceName) {
+  return Object.values(cellByBranch.value || {}).find((cell) => cell?.palace?.name === palaceName) || null;
+}
+
+function starNamesForPalaceName(palaceName) {
+  const cell = palaceCellByName(palaceName);
+  return new Set([
+    ...(cell?.chinh || []).map((s) => s.name),
+    ...(cell?.phu || []).map((s) => s.name),
+    ...(cell?.sat || []).map((s) => s.name),
+    ...(cell?.q2 || []).map((s) => s.name),
+    ...(cell?.bacSi || []).map((s) => s.name),
+    ...(cell?.tuongTinh || []).map((s) => s.name),
+    ...(cell?.saoLe || []).map((s) => s.name),
+    ...(cell?.khongVong || []).map((s) => s.name),
+  ]);
+}
+
 function contextOracleCardsForPalace(reading) {
   const palace = String(reading?.palace_name || "");
   const branch = String(reading?.branch || "");
   const stars = palaceStarNamesForReading(reading);
+  const phuTheStars = palace === "Phu Thê" ? stars : starNamesForPalaceName("Phu Thê");
+  const phucDucStars = starNamesForPalaceName("Phúc Đức");
+  const phuTheHasTaHuu = ["Tả Phù", "Hữu Bật"].some((s) => phuTheStars.has(s) || phucDucStars.has(s));
   const candidates = oracleCards.value.filter((card) => {
-    return ["TOA_CUNG", "TU_HOA"].includes(card.card_type) || [31, 32, 33].includes(card.id);
+    return ["TOA_CUNG", "TU_HOA", "BAC_PHAI_PHU_THE"].includes(card.card_type) || [31, 32, 33].includes(card.id);
   });
 
   return candidates.filter((card) => {
     const star = String(card.main_star || card.title_ascii || "").replaceAll("Thien", "Thiên");
     const context = String(card.palace_context || "");
+    if (card.slug === "phu-the-tu-tham-hoa-loc-trung-chau") {
+      return palace === "Phu Thê"
+        && phuTheStars.has("Tử Vi")
+        && phuTheStars.has("Tham Lang")
+        && tuHoaForStar("Tham Lang") === "Lộc";
+    }
+    if (card.slug === "phu-the-ta-huu-phuc-duc-hoi-chieu") {
+      return palace === "Phu Thê" && phuTheHasTaHuu;
+    }
+    if (card.slug === "phu-the-quan-loc-doi-cung") {
+      return palace === "Phu Thê";
+    }
+    if (card.slug === "phu-the-vu-khuc-menh-chu-can-bang") {
+      return palace === "Phu Thê" && data.value?.menh_chu === "Vũ Khúc";
+    }
     if (card.id === 31) {
       return stars.has("Thiên Lương") && palace === "Thiên Di" && branch === "Hợi";
     }
@@ -387,6 +428,7 @@ async function castChart() {
     data.value = resp.la_so;
     interpretation.value = resp.interpretation || null;
     luuTru.value = resp.luu_tru_year || null;
+    thanCu.value = resp.than_cu || null;
 
     // ⭐ Load Q1 Phú + Q3 sao×cung passages (background, non-blocking)
     loadCungReading();
@@ -421,6 +463,7 @@ function reset() {
   data.value = null;
   interpretation.value = null;
   luuTru.value = null;
+  thanCu.value = null;
   cungReading.value = null;
   expandedPalace.value = null;
   errorMsg.value = "";
@@ -1100,6 +1143,11 @@ const grid = computed(() => {
                   <span class="ci-label">Thân chủ</span>
                   <b>{{ data.than_chu }}</b>
                 </div>
+                <div class="ct-row" v-if="thanCu?.than_cung"
+                     :title="thanCu.menh_than_dong_cung ? 'Mệnh – Thân đồng cung' : 'Thân đóng tại cung ' + thanCu.than_cung">
+                  <span class="ci-label">Thân cư</span>
+                  <b>{{ thanCu.than_cung }}<span v-if="thanCu.menh_than_dong_cung" class="tc-dong" title="Mệnh–Thân đồng cung">⊙</span></b>
+                </div>
               </div>
             </template>
             <template v-else-if="cell.type === 'center-tr'">
@@ -1299,6 +1347,27 @@ const grid = computed(() => {
           </div>
         </section>
       </template>
+
+      <!-- ── Thân cư (đóng cung nào → trọng tâm & hậu vận — GROUNDED, có nguồn) ── -->
+      <section v-if="data && thanCu?.available" class="than-cu-block">
+        <header class="tcb-head">
+          <h4>🪞 Thân cư {{ thanCu.than_cung }} — trọng tâm &amp; hậu vận</h4>
+          <small v-if="thanCu.menh_than_dong_cung" class="tcb-dong">⊙ Mệnh – Thân đồng cung: bản chất &amp; hậu vận nhất quán</small>
+        </header>
+        <p class="tcb-intro">
+          Thân an tại cung <b>{{ thanCu.than_cung }}</b> ({{ thanCu.than_branch }}) —
+          <i>"Thân đóng ở đâu thì trọng tâm cuộc đời, đặc biệt hậu vận, dồn về đó."</i>
+        </p>
+        <ul v-if="thanCu.y_nghia?.length" class="tcb-list">
+          <li v-for="(y, i) in thanCu.y_nghia" :key="i" class="tcb-item">
+            <p class="tcb-text">{{ y.text }}</p>
+            <span class="tcb-src">— nguồn: {{ y.source }}</span>
+          </li>
+        </ul>
+        <p v-else class="tcb-empty">
+          Thư viện chưa có nguồn đã duyệt cho vị trí này — sẽ bổ sung khi đọc thêm sách. (Không suy diễn.)
+        </p>
+      </section>
 
       <!-- ── Phê Mệnh (Q4 Khang Tiết Edition — phú thi + "mỗ" pattern) ── -->
       <section class="phe-menh-block">
@@ -3158,6 +3227,24 @@ const grid = computed(() => {
 }
 .pm-head { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
 .pm-head h4 { margin: 0; color: #c4b5fd; font-size: 14px; }
+/* Thân cư — trọng tâm & hậu vận (grounded, có nguồn) */
+.than-cu-block {
+  margin: 18px 0;
+  padding: 16px 18px;
+  background: linear-gradient(180deg, rgba(232, 201, 90, 0.06), rgba(20, 30, 45, 0.4));
+  border: 1px solid rgba(232, 201, 90, 0.3);
+  border-radius: 8px;
+}
+.tcb-head { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+.tcb-head h4 { margin: 0; color: #e8c95a; font-size: 14px; }
+.tcb-dong { font-size: 11.5px; color: #86efac; font-weight: 600; }
+.tcb-intro { margin: 0 0 12px; font-size: 13px; color: rgba(230, 238, 245, 0.72); line-height: 1.55; }
+.tcb-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+.tcb-item { padding-left: 12px; border-left: 2px solid rgba(232, 201, 90, 0.4); }
+.tcb-text { margin: 0 0 4px; font-size: 13.5px; line-height: 1.6; color: rgba(230, 238, 245, 0.92); }
+.tcb-src { font-size: 11px; color: rgba(230, 238, 245, 0.45); font-style: italic; }
+.tcb-empty { margin: 0; font-size: 12.5px; color: rgba(230, 238, 245, 0.5); font-style: italic; }
+.tc-dong { color: #86efac; margin-left: 2px; }
 .pm-actions { display: flex; align-items: center; gap: 8px; }
 .pm-meta { font-size: 10.5px; color: rgba(230, 238, 245, 0.5); font-style: italic; }
 .pm-btn {

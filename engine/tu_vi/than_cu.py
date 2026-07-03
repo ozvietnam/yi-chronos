@@ -1,0 +1,104 @@
+"""Thân cư — cung an Thân đóng ở đâu → trọng tâm & hậu vận đời người.
+
+Thân luôn đóng ở 1 trong 6 cung (Mệnh/Phúc Đức/Quan Lộc/Thiên Di/Tài Bạch/Phu Thê).
+"Thân đóng ở đâu thì trọng tâm cuộc đời, đặc biệt hậu vận, dồn về đó." Mỗi vị trí một
+nghĩa khác — trước đây lá số CHỈ hiện chữ 'Thân' + sao Thân-chủ, KHÔNG nói Thân cư đâu.
+
+GROUNDED (Iron #9 quote-or-silence): CHỈ trả atom ĐÃ DUYỆT (founder_verified=1) trong
+wiki.sqlite3, kèm NGUỒN. Vị trí nào không có nguồn → để trống (chua_co_nguon), KHÔNG bịa.
+Deterministic: than_index → cung → kéo atom 'Thân cư X'.
+"""
+from __future__ import annotations
+
+import sqlite3
+from functools import lru_cache
+from pathlib import Path
+
+_WIKI_DB = "data/yi_wiki/wiki.sqlite3"
+
+# Tên rút gọn khớp question_text của atom (vd cung "Phúc Đức" → atom ghi "Thân cư Phúc").
+_PALACE_KEY = {
+    "Mệnh": "Thân cư Mệnh",
+    "Phúc Đức": "Thân cư Phúc",
+    "Quan Lộc": "Thân cư Quan",
+    "Thiên Di": "Thân cư Thiên Di",
+    "Tài Bạch": "Thân cư Tài",
+    "Phu Thê": "Thân cư Phu",
+}
+# corpus → nhãn nguồn thân thiện (attribution minh bạch cho người xem).
+_CORPUS_LABEL = {
+    "tuvi-bon-ba-tiktok": "Tử Vi Bôn Ba",
+    "nguyet-do-so-menh-tiktok": "Nguyệt Đồ Số Mệnh",
+    "tu-vi-huy-tuan-tiktok": "Huy Tuấn Tử Vi",
+    "tu-vi-nghiem-ly-toan-thu-thien-luong": "Nghiệm Lý Toàn Thư (Thiên Lương)",
+    "tu-vi-dau-so-toan-thu-zh": "Tử Vi Đẩu Số Toàn Thư (cổ văn)",
+}
+
+
+@lru_cache(maxsize=1)
+def _db() -> "sqlite3.Connection | None":
+    p = Path(_WIKI_DB)
+    if not p.exists():
+        return None
+    try:
+        return sqlite3.connect(f"file:{p}?mode=ro", uri=True, check_same_thread=False)
+    except Exception:
+        return None
+
+
+def _retrieve(palace: str, limit: int) -> list[dict]:
+    """Kéo atom 'nghĩa' của Thân cư <palace> — đã duyệt, có nguồn. [] nếu không có."""
+    conn = _db()
+    key = _PALACE_KEY.get(palace)
+    if conn is None or not key:
+        return []
+    like = f"%{key}%"
+    try:
+        # CHỈ khớp question_text (định danh CHỦ ĐỀ atom) — tránh atom nhắc-lướt vị trí
+        # khác trong source_quote (vd atom liệt kê cả 6 vị trí → nhiễu chéo).
+        rows = conn.execute(
+            """SELECT a.source_quote, c.book_corpus_id
+               FROM atomic_questions a LEFT JOIN chunks_v2 c ON a.chunk_id = c.chunk_id
+               WHERE a.founder_verified = 1
+                 AND a.question_text LIKE ?
+                 AND (a.question_text LIKE '%nói gì%' OR a.question_text LIKE '%hậu vận%'
+                      OR a.question_text LIKE '%kiểu người%' OR a.question_text LIKE '%trọng tâm%'
+                      OR a.question_text LIKE '%luận%')
+                 AND length(a.source_quote) > 60
+               ORDER BY a.confidence DESC, length(a.source_quote) DESC
+               LIMIT 12""",
+            (like,),
+        ).fetchall()
+    except Exception:
+        return []
+    out: list[dict] = []
+    seen: set[str] = set()
+    for quote, corpus in rows:
+        q = (quote or "").strip()
+        sig = q[:60].lower()
+        if not q or sig in seen:
+            continue
+        seen.add(sig)
+        out.append({"text": q, "source": _CORPUS_LABEL.get(corpus, corpus or "wiki")})
+        if len(out) >= limit:
+            break
+    return out
+
+
+def doc_than_cu(la_so: dict, *, limit: int = 3) -> dict:
+    """Đọc Thân cư từ lá số. Trả khối grounded {than_cung, than_branch, y_nghia[], …}."""
+    than_idx = la_so.get("than_index")
+    palaces = la_so.get("palaces") or []
+    palace = next((p for p in palaces if p.get("branch_index") == than_idx), None)
+    if palace is None:
+        return {"available": False}
+    name = palace["name"]
+    y_nghia = _retrieve(name, limit)
+    return {
+        "available": True,
+        "than_cung": name,
+        "than_branch": palace.get("branch"),
+        "menh_than_dong_cung": la_so.get("menh_index") == than_idx,
+        "y_nghia": y_nghia,                    # [{text, source}] — có nguồn
+        "chua_co_nguon": len(y_nghia) == 0,    # True → UI hiện "chưa có nguồn", KHÔNG bịa
+    }
