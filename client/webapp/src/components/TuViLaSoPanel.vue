@@ -913,10 +913,8 @@ const grid = computed(() => {
           {{ loading ? "Đang an sao..." : "An sao lá số" }}
         </button>
         <button v-if="data" class="secondary-btn" @click="reset" type="button">✕ An lại</button>
-        <button class="phu-btn" type="button" @click="showPhuThaiVi = true"
-                title="Đọc Phú Thái Vi — nền tảng học thuyết Tử Vi Đẩu Số (Trần Đoàn)">
-          📜 Phú Thái Vi
-        </button>
+        <!-- "📜 Phú Thái Vi" (sách học thuyết chung) DỜI khỏi header lá số — mở qua nút
+             nối trong bung-cung / Thư viện (Anh chốt: lá số chỉ giữ kết quả). -->
         <button class="cach-cuc-btn" type="button" @click="showCachCuc = true"
                 title="Cách cục lá số anh + đối chiếu vợ chồng — phân tích đọc sâu">
           🪐 Cách cục đọc sâu
@@ -1718,44 +1716,10 @@ const grid = computed(() => {
               <p v-if="r.ngu_uan.cau_hoi_tu_soi" class="nu-cauhoi">Tự soi: {{ r.ngu_uan.cau_hoi_tu_soi }}</p>
               <p class="nu-nhac">{{ r.ngu_uan.nhac_paradigm }}</p>
             </div>
-            <div v-if="expandedPalace === r.palace_name && r.star_details.length" class="interp-stardetails">
-              <div v-for="sd in r.star_details" :key="sd.ten_vi" class="sd-card">
-                <button
-                  v-if="oracleCardForStarName(sd.ten_vi)"
-                  type="button"
-                  class="sd-card-art"
-                  :aria-label="`Mở ảnh ${sd.ten_vi}`"
-                  @click.stop="openOracleCard(oracleCardForStarName(sd.ten_vi))"
-                >
-                  <img :src="oracleCardForStarName(sd.ten_vi).image" :alt="`Thẻ ${sd.ten_vi}`" loading="lazy" />
-                </button>
-                <div class="sd-card-copy">
-                  <h6>{{ sd.ten_vi }} ({{ sd.ten_zh }}) · {{ sd.ngu_hanh }}</h6>
-                  <p class="sd-kw">{{ sd.keywords.join(' · ') }}</p>
-                  <p class="sd-pos">✦ {{ sd.tich_cuc }}</p>
-                  <p class="sd-neg">⚠ {{ sd.tieu_cuc }}</p>
-                </div>
-              </div>
-            </div>
-            <div v-if="expandedPalace === r.palace_name && contextOracleCardsForPalace(r).length"
-                 class="interp-context-cards"
-                 @click.stop>
-              <button
-                v-for="card in contextOracleCardsForPalace(r)"
-                :key="card.id"
-                type="button"
-                class="context-oracle-card"
-                @click="openOracleCard(card)"
-              >
-                <img :src="card.image" :alt="card.title" loading="lazy" />
-                <span>
-                  <b>{{ card.title }}</b>
-                  <small>{{ card.system_name || card.card_type }}</small>
-                </span>
-              </button>
-            </div>
-            <!-- Kiến thức nền (trích Phú Thái Vi / sao×cung) DỜI SANG THƯ VIỆN
-                 (Anh chốt 2026-07-03: lá số chỉ giữ KẾT QUẢ, học thuật để thư viện). -->
+            <!-- star_details (nghĩa sao chung) + ảnh context DỜI SANG THƯ VIỆN
+                 (Anh chốt 2026-07-03 "làm triệt để": bung-cung chỉ giữ chân dung Ngũ Uẩn
+                 RIÊNG của lá số + nút nối; nghĩa sao chung + ảnh xem ở Thư viện sao.) -->
+            <!-- Kiến thức nền (trích Phú Thái Vi / sao×cung) DỜI SANG THƯ VIỆN. -->
             <p v-if="expandedPalace === r.palace_name
                      && (cungReading?.palaces?.[r.palace_name]?.q1_passages?.length
                          || cungReading?.palaces?.[r.palace_name]?.q3_passages?.length)"
