@@ -32,6 +32,8 @@ _CORPUS_LABEL = {
     "tu-vi-huy-tuan-tiktok": "Huy Tuấn Tử Vi",
     "tu-vi-nghiem-ly-toan-thu-thien-luong": "Nghiệm Lý Toàn Thư (Thiên Lương)",
     "tu-vi-dau-so-toan-thu-zh": "Tử Vi Đẩu Số Toàn Thư (cổ văn)",
+    "tu-vi-dau-so-toan-thu-vu-tai-luc": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục)",
+    "trung-chau-tu-vi-dau-so-2": "Trung Châu Tử Vi Đẩu Số",
 }
 
 
@@ -222,3 +224,78 @@ def list_cuc() -> dict:
         "vai_tro": _CUC_VAI_TRO,
         "source": _CUC_NGUON,
     }
+
+
+# ── Thân-Mệnh: đồng cung vs khác cung (B3 Thư viện) ────────────────────────────
+# ⚠️ "Mệnh" ở đây = QUAN HỆ Thân↔Mệnh (đồng/khác cung), KHÔNG phải tên 12 cung.
+# Đồng cung: dùng 22 atom ĐÃ DUYỆT (nguyên tắc Vũ Tài Lục + luận sâu Nghiệm Lý).
+# Khác cung: tái dùng 6 vị trí Thân cư (_retrieve) — Thân đóng đâu trọng tâm về đó.
+_TM_INTRO_KHAC = (
+    "Khi Thân KHÁC cung Mệnh: Mệnh là gốc bẩm sinh (nửa đời trước), Thân đóng ở 1 "
+    "trong 6 cung (Mệnh/Phúc/Quan/Thiên Di/Tài/Phu Thê) → trọng tâm & hậu vận dồn "
+    "về cung đó. Xem chi tiết ở mục 'Thân cư' của từng lá số."
+)
+
+
+def list_than_menh(*, limit_luan: int = 8, limit_vitri: int = 2) -> dict:
+    """Quan hệ Thân↔Mệnh cho THƯ VIỆN (grounded, quote-or-silence).
+
+    dong_cung: {nguyen_tac{text,source}, luan[{q,text,source}]} — nguyên tắc chung
+      (Vũ Tài Lục) + luận sâu theo tuổi/vị trí (Nghiệm Lý). Dedup + lọc META.
+    khac_cung: {intro, vi_tri[{palace, y_nghia[{text,source}]}]} — 6 vị trí Thân cư.
+    """
+    dong = _retrieve_than_menh_dong_cung(limit_luan)
+    khac = []
+    for palace in _PALACE_KEY:
+        ys = _retrieve(palace, limit_vitri)
+        khac.append({"palace": palace, "y_nghia": ys, "chua_co_nguon": len(ys) == 0})
+    return {
+        "dong_cung": dong,
+        "khac_cung": {"intro": _TM_INTRO_KHAC, "vi_tri": khac},
+    }
+
+
+def _retrieve_than_menh_dong_cung(limit: int) -> dict:
+    """Kéo atom đã duyệt về 'Thân Mệnh đồng cung'. Tách nguyên-tắc-chung ↔ luận-sâu."""
+    conn = _db()
+    if conn is None:
+        return {"nguyen_tac": None, "luan": []}
+    try:
+        rows = conn.execute(
+            """SELECT a.question_text, a.source_quote, c.book_corpus_id
+               FROM atomic_questions a LEFT JOIN chunks_v2 c ON a.chunk_id = c.chunk_id
+               WHERE a.founder_verified = 1
+                 AND (a.question_text LIKE '%Thân Mệnh đồng cung%'
+                      OR a.question_text LIKE '%Mệnh Thân đồng cung%')
+                 AND length(a.source_quote) > 20
+               ORDER BY a.confidence DESC, length(a.source_quote) DESC""",
+        ).fetchall()
+    except Exception:
+        return {"nguyen_tac": None, "luan": []}
+    def _is_principle(qt: str) -> bool:
+        return "tăng tốt" in qt and "càng xấu" in qt
+
+    # PASS 1: câu nguyên tắc CHUNG (Vũ Tài Lục) ngắn → nằm cuối ORDER length DESC,
+    # nên phải quét TOÀN BỘ rows riêng (không để break của luan chặn mất nó).
+    nguyen_tac = None
+    for q, quote, corpus in rows:
+        quote = (quote or "").strip()
+        if quote and not _is_meta(quote) and _is_principle(quote):
+            nguyen_tac = {"text": quote, "source": _CORPUS_LABEL.get(corpus, corpus or "wiki")}
+            break
+    # PASS 2: luận sâu theo tuổi/vị trí (dài) — bỏ META, bỏ lặp nguyên tắc, dedup nội dung.
+    luan: list[dict] = []
+    seen: list[set] = []
+    for q, quote, corpus in rows:
+        quote = (quote or "").strip()
+        if not quote or _is_meta(quote) or _is_principle(quote):
+            continue
+        w = _words(quote)
+        if any(len(w & ws) / max(1, min(len(w), len(ws))) > 0.6 for ws in seen):
+            continue
+        seen.append(w)
+        luan.append({"q": (q or "").strip(), "text": quote,
+                     "source": _CORPUS_LABEL.get(corpus, corpus or "wiki")})
+        if len(luan) >= limit:
+            break
+    return {"nguyen_tac": nguyen_tac, "luan": luan}

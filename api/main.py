@@ -2438,6 +2438,18 @@ def tu_vi_cuc_list() -> dict[str, object]:
     return {"status": "ok", **list_cuc()}
 
 
+@app.get("/api/tu-vi/than-menh")
+def tu_vi_than_menh() -> dict[str, object]:
+    """Quan hệ Thân↔Mệnh (đồng cung vs khác cung) cho Thư viện Tử Vi.
+
+    ⚠️ "Mệnh" = QUAN HỆ Thân-Mệnh, KHÔNG phải tên 12 cung. GROUNDED: dùng atom ĐÃ
+    DUYỆT (đồng cung = nguyên tắc Vũ Tài Lục + luận Nghiệm Lý; khác cung = 6 Thân cư).
+    """
+    from engine.tu_vi.than_cu import list_than_menh
+
+    return {"status": "ok", **list_than_menh()}
+
+
 @app.get("/api/tu-vi/do-hinh-co")
 def tu_vi_do_hinh_co() -> dict[str, object]:
     """4 đồ hình âm dương cổ (Thái cực · Tiên thiên · Hậu thiên · Hà Đồ) cho

@@ -4,7 +4,8 @@ Kỷ luật quote-or-silence (Iron #9): CHỈ trả atom đã duyệt + nguồn;
 nguồn → chua_co_nguon (KHÔNG bịa). Vị trí phải ĐÚNG (than_index) + nghĩa KHÔNG lẫn chéo.
 """
 from engine.tu_vi.than_cu import (
-    doc_than_cu, doc_cuc, list_cuc, _retrieve, _PALACE_KEY, _CUC_ELEMENT,
+    doc_than_cu, doc_cuc, list_cuc, list_than_menh,
+    _retrieve, _PALACE_KEY, _CUC_ELEMENT,
 )
 from engine.tu_vi.from_birth import cast_la_so_from_birth
 
@@ -86,6 +87,33 @@ def test_list_cuc_thu_vien_du_5_grounded():
         assert i["chat_nguoi"] == "" and i["chua_co_nguon"] is True  # không bịa
     assert d["vai_tro"] and "KHÔNG đoán" in d["vai_tro"]             # không predict
     assert "cổ thư" in d["source"] or "Ngũ hành" in d["source"]
+
+
+def test_list_than_menh_dong_cung_co_nguyen_tac():
+    """B3: đồng cung có nguyên tắc chung (Vũ Tài Lục 'tốt càng tốt, xấu càng xấu').
+
+    Bug đã sửa: câu nguyên tắc NGẮN nằm cuối ORDER length DESC → phải quét riêng
+    kẻo luận-sâu (dài) lấp đầy 'luan' rồi break mất nó.
+    """
+    d = list_than_menh()
+    nt = d["dong_cung"]["nguyen_tac"]
+    assert nt and nt["text"] and nt["source"]
+    assert "tăng tốt" in nt["text"] and "càng xấu" in nt["text"]
+    assert "Vũ Tài Lục" in nt["source"]
+    # luận sâu KHÔNG lặp lại câu nguyên tắc + mỗi trích có nguồn
+    for x in d["dong_cung"]["luan"]:
+        assert not ("tăng tốt" in x["text"] and "càng xấu" in x["text"])
+        assert x["text"] and x["source"]
+
+
+def test_list_than_menh_khac_cung_6_vi_tri():
+    """B3: khác cung = đủ 6 vị trí Thân cư; có intro nói rõ 'không phải tên cung'."""
+    d = list_than_menh()
+    kc = d["khac_cung"]
+    assert kc["intro"] and "hậu vận" in kc["intro"]
+    palaces = [v["palace"] for v in kc["vi_tri"]]
+    assert set(palaces) == set(_PALACE_KEY)
+    assert len(palaces) == 6
 
 
 def test_menh_than_axis_grounded():
