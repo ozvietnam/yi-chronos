@@ -40,6 +40,9 @@ const interpretation = ref(null);
 const luuTru = ref(null);
 const thanCu = ref(null);   // Thân cư (đóng cung nào → trọng tâm/hậu vận, grounded có nguồn)
 const cucLuan = ref(null);  // Cục = ngũ hành nền của Mệnh (grounded)
+// Redesign 2026-07-03 (Anh chốt "gọn ngoài, sâu trong"):
+const chartMode = ref("co_ban");   // "co_ban" (gọn: chính tinh+Tứ Hóa) | "nang_cao" (đủ 9 lớp)
+const showDeepRead = ref(false);   // khối luận sâu — mặc định ẩn, bấm "Đọc sâu" mới hiện
 const cungReading = ref(null);  // ⭐ Q1 Phú + Q3 sao×cung per palace
 const cungLoading = ref(false);
 const caseStudies = ref(null);   // ⭐ Lá số mẫu lịch sử Q3+Q4
@@ -956,7 +959,19 @@ const grid = computed(() => {
         </span>
       </div>
 
-      <div class="laso-grid">
+      <!-- Chế độ hiển thị địa bàn: Cơ bản (gọn) ↔ Nâng cao (đủ 9 lớp) -->
+      <div class="chart-mode-bar">
+        <span class="cmb-label">Địa bàn:</span>
+        <div class="cmb-toggle">
+          <button :class="{ on: chartMode === 'co_ban' }" @click="chartMode = 'co_ban'"
+                  title="Gọn: chính tinh + Tứ Hóa + Mệnh/Thân">Cơ bản</button>
+          <button :class="{ on: chartMode === 'nang_cao' }" @click="chartMode = 'nang_cao'"
+                  title="Đủ: + độ sáng, phụ/sát tinh, Trường Sinh, tiểu/nguyệt vận, thần sát">Nâng cao</button>
+        </div>
+        <span class="cmb-hint">{{ chartMode === 'co_ban' ? 'chỉ 14 chính tinh + Tứ Hóa (dễ nhìn)' : 'hiện đủ mọi lớp sao & vận' }}</span>
+      </div>
+
+      <div class="laso-grid" :class="{ 'mode-co-ban': chartMode === 'co_ban' }">
         <template v-for="(row, r) in grid" :key="r">
           <div
             v-for="(cell, c) in row"
@@ -1008,7 +1023,7 @@ const grid = computed(() => {
                     <img :src="oracleCardForPlacedStar(s).image" :alt="`Ảnh ${s.name}`" loading="lazy" />
                   </button>
                   {{ s.name }}
-                  <span v-if="s.ds" class="ds-badge" :style="{ color: s.ds.color, borderColor: s.ds.color }"
+                  <span v-if="chartMode === 'nang_cao' && s.ds" class="ds-badge" :style="{ color: s.ds.color, borderColor: s.ds.color }"
                     :title="s.ds.label">{{ s.ds.abbrev }}</span>
                   <span v-if="s.hoa" class="hoa-badge"
                     :style="{ background: HOA_COLOR[s.hoa] + '33', color: HOA_COLOR[s.hoa], borderColor: HOA_COLOR[s.hoa] }">
@@ -1017,8 +1032,8 @@ const grid = computed(() => {
                 </li>
               </ul>
 
-              <!-- Phụ tinh + sát tinh + q2 — nhỏ hơn, gộp nhau -->
-              <ul v-if="cell.phu.length" class="stars phu">
+              <!-- Phụ tinh + sát tinh + q2 — CHỈ chế độ Nâng cao (gọn ở Cơ bản) -->
+              <ul v-if="chartMode === 'nang_cao' && cell.phu.length" class="stars phu">
                 <li v-for="s in cell.phu" :key="s.name" class="star phu-tinh">
                   <button
                     v-if="oracleCardForPlacedStar(s)"
@@ -1036,7 +1051,7 @@ const grid = computed(() => {
                   </span>
                 </li>
               </ul>
-              <ul v-if="cell.sat.length" class="stars sat">
+              <ul v-if="chartMode === 'nang_cao' && cell.sat.length" class="stars sat">
                 <li v-for="s in cell.sat" :key="s.name" class="star sat-tinh"
                     :class="{ 'loc-ton': s.name === 'Lộc Tồn', 'thien-ma': s.name === 'Thiên Mã' }">
                   <button
@@ -1051,7 +1066,7 @@ const grid = computed(() => {
                   {{ s.name }}
                 </li>
               </ul>
-              <ul v-if="cell.q2?.length" class="stars q2">
+              <ul v-if="chartMode === 'nang_cao' && cell.q2?.length" class="stars q2">
                 <li v-for="s in cell.q2" :key="s.name"
                     :class="['star','q2-tinh', s.group === 'thai_tue' ? 'thai-tue' : 'phu-q2']">
                   <button
@@ -1066,7 +1081,7 @@ const grid = computed(() => {
                   {{ s.name }}
                 </li>
               </ul>
-              <ul v-if="cell.bacSi?.length" class="stars q3 bac-si">
+              <ul v-if="chartMode === 'nang_cao' && cell.bacSi?.length" class="stars q3 bac-si">
                 <li v-for="s in cell.bacSi" :key="s.name" class="star q3-tinh bac-si-tinh">
                   <button
                     v-if="oracleCardForPlacedStar(s)"
@@ -1080,7 +1095,7 @@ const grid = computed(() => {
                   {{ s.name }}
                 </li>
               </ul>
-              <ul v-if="cell.tuongTinh?.length" class="stars q3 tuong-tinh">
+              <ul v-if="chartMode === 'nang_cao' && cell.tuongTinh?.length" class="stars q3 tuong-tinh">
                 <li v-for="s in cell.tuongTinh" :key="s.name" class="star q3-tinh tuong-tinh-tinh">
                   <button
                     v-if="oracleCardForPlacedStar(s)"
@@ -1094,7 +1109,7 @@ const grid = computed(() => {
                   {{ s.name }}
                 </li>
               </ul>
-              <ul v-if="cell.saoLe?.length || cell.khongVong?.length" class="stars q3 sao-le">
+              <ul v-if="chartMode === 'nang_cao' && (cell.saoLe?.length || cell.khongVong?.length)" class="stars q3 sao-le">
                 <li
                   v-for="s in [...(cell.saoLe || []), ...(cell.khongVong || [])]"
                   :key="`${s.group}-${s.name}`"
@@ -1115,15 +1130,15 @@ const grid = computed(() => {
 
               <!-- Footer badges -->
               <div class="cell-foot">
-                <span v-if="cell.tieuVan" class="tieuvan-mark"
+                <span v-if="chartMode === 'nang_cao' && cell.tieuVan" class="tieuvan-mark"
                       title="Năm tiểu vận (tiểu hạn ở những năm mang chi này)">{{ cell.tieuVan }}</span>
                 <span v-if="cell.palace?.name === 'Mệnh'" class="menh-mark">★ MỆNH</span>
                 <span v-if="cell.branchIndex === data.than_index && cell.palace?.name !== 'Mệnh'" class="than-mark">身 THÂN</span>
-                <span v-if="cell.branchIndex === data.dau_quan_index" class="dauquan-mark"
+                <span v-if="chartMode === 'nang_cao' && cell.branchIndex === data.dau_quan_index" class="dauquan-mark"
                       title="Đẩu Quân — sao tháng sinh">斗</span>
-                <span v-if="cell.trangSinh" class="trangsinh-mark"
+                <span v-if="chartMode === 'nang_cao' && cell.trangSinh" class="trangsinh-mark"
                       title="Vòng Trường Sinh">{{ cell.trangSinh }}</span>
-                <span v-if="cell.nguyetVan" class="nguyetvan-mark"
+                <span v-if="chartMode === 'nang_cao' && cell.nguyetVan" class="nguyetvan-mark"
                       :title="`Nguyệt vận (lưu nguyệt ${data.nguyet_van_year || ''})`">T.{{ cell.nguyetVan }}</span>
               </div>
             </template>
@@ -1388,8 +1403,14 @@ const grid = computed(() => {
         </p>
       </section>
 
+      <!-- ── Cổng "Đọc sâu": gom các khối luận NẶNG (mặc định ẩn — "gọn ngoài, sâu trong") ── -->
+      <button class="deep-read-toggle" @click="showDeepRead = !showDeepRead">
+        <span v-if="!showDeepRead">🔎 Đọc sâu lá số — phê mệnh · luận 12 cung · cách cục · 3 tầng ▾</span>
+        <span v-else>▴ Thu gọn phần đọc sâu</span>
+      </button>
+
       <!-- ── Phê Mệnh (Q4 Khang Tiết Edition — phú thi + "mỗ" pattern) ── -->
-      <section class="phe-menh-block">
+      <section v-show="showDeepRead" class="phe-menh-block">
         <header class="pm-head">
           <h4>📜 Phê mệnh phú thi (Q4 Khang Tiết Edition)</h4>
           <div class="pm-actions">
@@ -1440,7 +1461,7 @@ const grid = computed(() => {
       </section>
 
       <!-- ── Luận giải SÂU (VIP1 DeepSeek Pro — 10 sections theo 10 bước) ── -->
-      <section class="phe-menh-sau-block">
+      <section v-show="showDeepRead" class="phe-menh-sau-block">
         <header class="pms-head">
           <h4>🌟 Luận giải SÂU — VIP DeepSeek Pro · 10 bước Trần Đoàn</h4>
           <div class="pms-status">
@@ -1539,7 +1560,7 @@ const grid = computed(() => {
 
       <!-- ── Case Studies — Lá số anh có nét giống ai (Q3+Q4) ──────── -->
       <template v-if="caseStudies && caseStudies.matches?.length">
-        <section class="case-studies-block">
+        <section v-show="showDeepRead" class="case-studies-block">
           <h4 class="section-h">
             🏛️ Lá số anh có nét giống ai trong lịch sử
             <small class="case-paradigm-tag">Q3+Q4 — dẫn chứng phê mệnh</small>
@@ -1611,7 +1632,7 @@ const grid = computed(() => {
       </template>
 
       <!-- ── Interpretation — 12 cung readings ───────────────────── -->
-      <template v-if="interpretation">
+      <template v-if="interpretation && showDeepRead">
         <h4 class="section-h">
           Luận giải 12 cung
           <small class="interp-summary"
@@ -1775,7 +1796,7 @@ const grid = computed(() => {
 
     <!-- ── ⭐ Luận giải 3-Layer × 4 hệ phái (atoms bám sách) ──────── -->
     <template v-if="data">
-      <section class="three-layer-block">
+      <section v-show="showDeepRead" class="three-layer-block">
         <h4 class="section-h" style="cursor:pointer" @click="show3Layer = !show3Layer">
           📚 Luận giải 4 hệ phái — 3 Layer
           <small style="opacity:.7">(Trung Châu · Trần Đoàn · Thiên Lương · Hàm Số — 9.671 atoms bám sách · 5 hệ phái)</small>
@@ -1989,6 +2010,22 @@ const grid = computed(() => {
 /* Modal styles — removed (moved to non-scoped block below to work with Teleport-to-body) */
 
 /* ── 4×4 lá số grid ────────────────────────────────────────────────────── */
+/* Chế độ hiển thị địa bàn (Cơ bản gọn / Nâng cao đủ) */
+.chart-mode-bar { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin: 4px 0 8px; }
+.cmb-label { font-size: 12px; color: rgba(230,238,245,0.6); font-weight: 600; }
+.cmb-toggle { display: inline-flex; border: 1px solid rgba(232,201,90,0.35); border-radius: 8px; overflow: hidden; }
+.cmb-toggle button { padding: 5px 14px; font-size: 12.5px; font-weight: 600; border: none; cursor: pointer;
+  background: transparent; color: rgba(230,238,245,0.55); }
+.cmb-toggle button.on { background: rgba(232,201,90,0.18); color: #e8c95a; }
+.cmb-hint { font-size: 11px; color: rgba(230,238,245,0.4); font-style: italic; }
+
+/* Cổng "Đọc sâu" — mở các khối luận nặng */
+.deep-read-toggle { display: block; width: 100%; margin: 14px 0; padding: 12px; border-radius: 10px;
+  font-size: 13.5px; font-weight: 700; cursor: pointer; text-align: center;
+  background: linear-gradient(180deg, rgba(124,58,237,0.12), rgba(20,30,45,0.4));
+  border: 1px solid rgba(167,139,250,0.35); color: #c4b5fd; transition: background 0.15s; }
+.deep-read-toggle:hover { background: rgba(124,58,237,0.2); }
+
 .laso-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -2000,6 +2037,8 @@ const grid = computed(() => {
   border: 1px solid rgba(232, 201, 90, 0.25);
   box-shadow: 0 0 0 3px rgba(232, 201, 90, 0.04), inset 0 0 40px rgba(0,0,0,0.3);
 }
+/* Cơ bản: ít sao → ô thấp hơn, địa bàn gọn hơn */
+.laso-grid.mode-co-ban { grid-template-rows: repeat(4, minmax(100px, auto)); }
 
 .laso-cell {
   background: rgba(12, 18, 28, 0.75);
