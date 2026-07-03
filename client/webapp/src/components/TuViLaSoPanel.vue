@@ -1754,41 +1754,15 @@ const grid = computed(() => {
                 </span>
               </button>
             </div>
-            <!-- ⭐ Q1 Phú + Q3 sao×cung passages từ sách cổ -->
-            <div v-if="expandedPalace === r.palace_name && cungReading?.palaces?.[r.palace_name]"
-                 class="cung-book-passages" @click.stop>
-              <div v-if="cungReading.palaces[r.palace_name].q1_passages?.length" class="cbp-section">
-                <h6 class="cbp-head">📚 Q1 Phú Thái Vi ({{ cungReading.palaces[r.palace_name].q1_passages.length }} câu)</h6>
-                <div v-for="(p, i) in cungReading.palaces[r.palace_name].q1_passages" :key="'q1-'+i"
-                     class="cbp-card cbp-q1">
-                  <div class="cbp-meta">trang {{ p.page }} · score {{ p.score }}</div>
-                  <div class="cbp-hv">{{ p.hanviet }}</div>
-                  <div class="cbp-lg">{{ p.luangiai }}</div>
-                  <div v-if="p.reasons?.length" class="cbp-reasons">
-                    🎯 {{ p.reasons.slice(0, 3).join(' · ') }}
-                  </div>
-                </div>
-              </div>
-              <div v-if="cungReading.palaces[r.palace_name].q3_passages?.length" class="cbp-section">
-                <h6 class="cbp-head">📖 Q3 Diễn Giải sao×cung ({{ cungReading.palaces[r.palace_name].q3_passages.length }} dòng)</h6>
-                <div v-for="(p, i) in cungReading.palaces[r.palace_name].q3_passages" :key="'q3-'+i"
-                     class="cbp-card cbp-q3"
-                     :class="{ 'cbp-combo': p.match_type === 'combo_universal' }">
-                  <div class="cbp-meta">
-                    trang {{ p.page }} · [{{ p.matched_stars?.join(', ') || '' }}]
-                    <span v-if="p.match_type === 'combo_universal'" class="cbp-tag cbp-tag-combo">combo</span>
-                    <span v-else class="cbp-tag cbp-tag-anchor">cung</span>
-                  </div>
-                  <div class="cbp-hv">{{ p.hanviet }}</div>
-                  <div v-if="p.luangiai" class="cbp-lg">{{ p.luangiai }}</div>
-                </div>
-              </div>
-              <div v-if="!cungReading.palaces[r.palace_name].q1_passages?.length
-                        && !cungReading.palaces[r.palace_name].q3_passages?.length"
-                   class="cbp-empty">
-                _Chưa tìm thấy đoạn trong Q1/Q3 đề cập trực tiếp cung này._
-              </div>
-            </div>
+            <!-- Kiến thức nền (trích Phú Thái Vi / sao×cung) DỜI SANG THƯ VIỆN
+                 (Anh chốt 2026-07-03: lá số chỉ giữ KẾT QUẢ, học thuật để thư viện). -->
+            <p v-if="expandedPalace === r.palace_name
+                     && (cungReading?.palaces?.[r.palace_name]?.q1_passages?.length
+                         || cungReading?.palaces?.[r.palace_name]?.q3_passages?.length)"
+               class="cung-lib-link" @click.stop>
+              📚 Kiến thức gốc cung này (Phú Thái Vi · nghĩa sao×cung) —
+              <button type="button" class="cung-lib-btn" @click="showPhuThaiVi = true">đọc trong Thư viện →</button>
+            </p>
           </li>
         </ul>
       </template>
@@ -3033,6 +3007,12 @@ const grid = computed(() => {
 }
 
 /* Q1 Phú + Q3 passages per palace */
+/* Nút nối kiến thức nền → Thư viện (thay tường trích sách Q1/Q3 cũ) */
+.cung-lib-link { margin: 8px 0 0; font-size: 12px; color: rgba(230,238,245,0.6); }
+.cung-lib-btn { background: none; border: none; padding: 0; cursor: pointer;
+  color: #8fb0d0; font-size: 12px; font-weight: 600; text-decoration: underline; }
+.cung-lib-btn:hover { color: #b9d3ea; }
+
 .cung-book-passages {
   margin-top: 10px;
   padding-top: 8px;
