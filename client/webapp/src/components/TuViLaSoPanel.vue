@@ -1843,6 +1843,10 @@ const grid = computed(() => {
           <figcaption>
             <strong>{{ selectedOracleCard.title }}</strong>
             <span>{{ selectedOracleCard.interpretation }}</span>
+            <button type="button" class="tv-oracle-lib-btn"
+              @click="moThuVienSao(selectedOracleCard.title); selectedOracleCard = null">
+              📚 Xem {{ selectedOracleCard.title }} trong Thư viện (nghĩa · nguồn · Ngũ Uẩn) →
+            </button>
           </figcaption>
         </figure>
       </div>
@@ -2969,6 +2973,12 @@ const grid = computed(() => {
   font-size: 14px;
   line-height: 1.65;
 }
+.tv-oracle-lib-btn {
+  display: inline-block; margin-top: 12px; padding: 8px 16px; border-radius: 8px;
+  font-size: 13px; font-weight: 600; cursor: pointer;
+  background: rgba(143, 176, 208, 0.14); border: 1px solid rgba(143, 176, 208, 0.4); color: #b9d3ea;
+}
+.tv-oracle-lib-btn:hover { background: rgba(143, 176, 208, 0.24); }
 
 @media (max-width: 920px) {
   .laso-grid { grid-template-rows: repeat(4, minmax(120px, auto)); }

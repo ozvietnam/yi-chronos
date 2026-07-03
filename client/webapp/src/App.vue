@@ -760,8 +760,17 @@ onBeforeUnmount(() => {
             :person-key="activePerson?.person_key || ''"
           />
 
-          <h3 class="schema-divider">📚 Bắc Phái — thư viện 14 chính tinh</h3>
-          <ChinhTinhGallery />
+          <!-- Thư viện 14 chính tinh DỜI sang tab Thư viện (Anh chốt 2026-07-03:
+               lá số chỉ giữ kết quả, kiến thức/ảnh sang thư viện độc lập). -->
+          <button
+            type="button"
+            style="display:block;width:100%;margin-top:14px;padding:12px;border-radius:10px;
+                   font-size:13.5px;font-weight:700;cursor:pointer;color:#b9d3ea;
+                   background:rgba(143,176,208,0.12);border:1px solid rgba(143,176,208,0.35);"
+            @click="activeMainTab = 'library'"
+          >
+            📚 Thư viện 14 chính tinh (ảnh · nghĩa · nguồn) → mở tab Thư viện
+          </button>
         </template>
 
         <template v-else-if="activeTuViSchool === 'chieu-dom'">
@@ -916,6 +925,8 @@ onBeforeUnmount(() => {
             'Mỗi đêm sau khi pipeline phục chế xong thêm sách → CI deploy → auto hiện trên đây.'
           ]"
         />
+        <h3 class="schema-divider">🔯 Thư viện 14 chính tinh Tử Vi (Bắc Phái) — ảnh · nghĩa · nguồn</h3>
+        <ChinhTinhGallery />
         <RestoredLibrary />
       </section>
 
