@@ -47,6 +47,7 @@ const HoangCucPanel = defineAsyncComponent(() => import("./components/HoangCucPa
 const ChinhTinhLibraryPanel = defineAsyncComponent(() => import("./components/ChinhTinhLibraryPanel.vue"));
 const NguCucLibraryPanel = defineAsyncComponent(() => import("./components/NguCucLibraryPanel.vue"));
 const ThanMenhLibraryPanel = defineAsyncComponent(() => import("./components/ThanMenhLibraryPanel.vue"));
+const VongSaoLibraryPanel = defineAsyncComponent(() => import("./components/VongSaoLibraryPanel.vue"));
 const TuViLaSoPanel = defineAsyncComponent(() => import("./components/TuViLaSoPanel.vue"));
 const DangSonPanel = defineAsyncComponent(() => import("./components/DangSonPanel.vue"));
 const CungPhuTheBacPhaiPanel = defineAsyncComponent(() => import("./components/CungPhuTheBacPhaiPanel.vue"));
@@ -949,6 +950,7 @@ onBeforeUnmount(() => {
           <ChinhTinhLibraryPanel ref="tuviLibRef" />
           <NguCucLibraryPanel />
           <ThanMenhLibraryPanel />
+          <VongSaoLibraryPanel />
         </div>
 
         <div v-show="libSubTab === 'sach'">

@@ -2450,6 +2450,18 @@ def tu_vi_than_menh() -> dict[str, object]:
     return {"status": "ok", **list_than_menh()}
 
 
+@app.get("/api/tu-vi/vong-sao")
+def tu_vi_vong_sao() -> dict[str, object]:
+    """Vòng sao / phụ tinh (roster đầy đủ) cho Thư viện Tử Vi — B4.
+
+    Nguồn = sao_noi_dung lớp 'def', CHỈ dòng đã DUYỆT ĐỐI KHÁNG (founder_verified=1):
+    quote có trong sách + dịch không bịa ý. Loại 14 chính tinh (đã có panel riêng).
+    """
+    from engine.tu_vi.vong_sao import list_vong_sao
+
+    return {"status": "ok", **list_vong_sao()}
+
+
 @app.get("/api/tu-vi/do-hinh-co")
 def tu_vi_do_hinh_co() -> dict[str, object]:
     """4 đồ hình âm dương cổ (Thái cực · Tiên thiên · Hậu thiên · Hà Đồ) cho
