@@ -1,5 +1,5 @@
 <script setup>
-import { computed, defineAsyncComponent, onBeforeUnmount, onMounted, ref, watch } from "vue";
+import { computed, defineAsyncComponent, nextTick, onBeforeUnmount, onMounted, ref, watch } from "vue";
 import { Activity, Database, RotateCcw, Send, ShieldCheck } from "lucide-vue-next";
 import SchoolIcon from "./components/SchoolIcon.vue";
 import NavDropdown from "./components/NavDropdown.vue";
@@ -44,7 +44,7 @@ const BatTuPanel = defineAsyncComponent(() => import("./components/BatTuPanel.vu
 const HealthPanel = defineAsyncComponent(() => import("./components/HealthPanel.vue"));
 const KyMonPanel = defineAsyncComponent(() => import("./components/KyMonPanel.vue"));
 const HoangCucPanel = defineAsyncComponent(() => import("./components/HoangCucPanel.vue"));
-const ChinhTinhGallery = defineAsyncComponent(() => import("./components/ChinhTinhGallery.vue"));
+const ChinhTinhLibraryPanel = defineAsyncComponent(() => import("./components/ChinhTinhLibraryPanel.vue"));
 const TuViLaSoPanel = defineAsyncComponent(() => import("./components/TuViLaSoPanel.vue"));
 const DangSonPanel = defineAsyncComponent(() => import("./components/DangSonPanel.vue"));
 const CungPhuTheBacPhaiPanel = defineAsyncComponent(() => import("./components/CungPhuTheBacPhaiPanel.vue"));
@@ -131,6 +131,20 @@ const rulesetPill = computed(() => {
 const now = ref(new Date());
 const selectedTimeZone = ref("Asia/Ho_Chi_Minh");
 const activeMainTab = ref("profiles");
+
+// Hợp nhất 1 nơi tra sao: lá số bấm "📖 sao" → chuyển tab Thư viện + mở đúng sao.
+const tuviLibRef = ref(null);
+async function openLibraryStar(sao) {
+  activeMainTab.value = "library";
+  await nextTick();
+  let tries = 0;
+  const tryOpen = () => {
+    if (tuviLibRef.value?.openToStar) tuviLibRef.value.openToStar(sao);
+    else if (tries++ < 20) setTimeout(tryOpen, 80);   // chờ async component render
+  };
+  tryOpen();
+}
+
 // Cấu trúc nav — gom mỗi nhóm vào 1 dropdown (menu xổ). Data-driven cho gọn.
 const NAV_GROUPS = [
   { label: "Dữ liệu", tabs: [
@@ -749,7 +763,7 @@ onBeforeUnmount(() => {
               'Bảng 14 chính tinh bên dưới là thư viện ảnh và schema tham chiếu của riêng Bắc Phái.'
             ]"
           />
-          <TuViLaSoPanel />
+          <TuViLaSoPanel @open-library-star="openLibraryStar" />
 
           <!-- Feature flagship cho bạn trẻ: Cung Phu Thê Bắc phái Trung Châu -->
           <h3 class="schema-divider">💑 Luận Cung Phu Thê — Bắc Phái Trung Châu</h3>
@@ -925,8 +939,8 @@ onBeforeUnmount(() => {
             'Mỗi đêm sau khi pipeline phục chế xong thêm sách → CI deploy → auto hiện trên đây.'
           ]"
         />
-        <h3 class="schema-divider">🔯 Thư viện 14 chính tinh Tử Vi (Bắc Phái) — ảnh · nghĩa · nguồn</h3>
-        <ChinhTinhGallery />
+        <h3 class="schema-divider">🔯 Thư viện 14 chính tinh Tử Vi (Bắc Phái) — ảnh · nghĩa · nguồn · Ngũ Uẩn</h3>
+        <ChinhTinhLibraryPanel ref="tuviLibRef" />
         <RestoredLibrary />
       </section>
 

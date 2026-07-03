@@ -23,12 +23,11 @@ import LuuNienPanel from "./LuuNienPanel.vue";
 import TuViVsCDKCompare from "./TuViVsCDKCompare.vue";
 import TuViPersonSwitcher from "./TuViPersonSwitcher.vue";
 import TuVi3LayerPanel from "./TuVi3LayerPanel.vue";
-import ChinhTinhLibraryPanel from "./ChinhTinhLibraryPanel.vue";
-
-// Nút "☸ xem đầy đủ" trong từng cung → mở thư viện + chọn đúng sao + cuộn tới
-const libraryRef = ref(null);
+// Nút "📖 xem sao" → CHUYỂN sang tab Thư viện + mở đúng sao (App xử lý). Hợp nhất
+// 1 nơi tra sao duy nhất (bỏ drawer nhúng cũ — kiến-thức-trên-chart, Anh chốt tách sạch).
+const emit = defineEmits(["open-library-star"]);
 function moThuVienSao(saoVi) {
-  libraryRef.value?.openToStar(saoVi);
+  emit("open-library-star", saoVi);
 }
 
 const inputBirth = ref("");
@@ -883,10 +882,6 @@ const grid = computed(() => {
     </p>
 
     <TuViPersonSwitcher />
-
-    <!-- 📖 Thư viện hồ sơ 14 chính tinh + kiến thức nền âm dương ngũ hành
-         (xem được cả khi chưa lập lá số) -->
-    <ChinhTinhLibraryPanel ref="libraryRef" />
 
     <div class="tvls-form">
       <label>
