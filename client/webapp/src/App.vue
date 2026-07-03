@@ -132,10 +132,13 @@ const now = ref(new Date());
 const selectedTimeZone = ref("Asia/Ho_Chi_Minh");
 const activeMainTab = ref("profiles");
 
+// Thư viện chia 2 sub-tab song song: 🔯 Tử Vi (sao/cung/cục) ⟷ 📚 Sách phục chế.
+const libSubTab = ref("tu-vi");
 // Hợp nhất 1 nơi tra sao: lá số bấm "📖 sao" → chuyển tab Thư viện + mở đúng sao.
 const tuviLibRef = ref(null);
 async function openLibraryStar(sao) {
   activeMainTab.value = "library";
+  libSubTab.value = "tu-vi";   // mở đúng sub-tab Tử Vi
   await nextTick();
   let tries = 0;
   const tryOpen = () => {
@@ -926,22 +929,38 @@ onBeforeUnmount(() => {
         <ResearchPanel />
       </section>
 
-      <!-- Tab Thư viện: phục chế sách Việt Đông phương (OCR + cleanup local) -->
-      <section v-else-if="activeMainTab === 'library'" class="single-column" aria-label="Thư viện phục chế">
-        <TabIntro
-          icon="lexicon"
-          title="📚 Thư viện phục chế — Sách Việt Đông phương"
-          purpose="Sách Tứ Trụ / Tử Vi / Chu Dịch / Bát Tự / Bốc Phệ tiếng Việt — đã phục chế từ PDF scan qua Tesseract OCR + Gemma 4 cleanup, hoặc trực tiếp text-layer qua MarkItDown. Tất cả publish-ready markdown, đọc trực tiếp trên web. Anh đọc, tham chiếu, search full-text trên toàn bộ corpus."
-          :steps="[
-            'Sidebar trái: 14+ sách grouped 8 categories (Kinh Điển / Tứ Trụ / Tử Vi / Bốc Phệ / Chu Dịch / Dịch Số / Chuyên Đề / Lịch).',
-            'Click 1 sách → render markdown, paginate 20K chars/trang để load nhanh.',
-            'Search bar: full-text trên 12.5M chars — gõ thuật ngữ (Thiên Can, Dụng Thần, Tả Phụ, ...) → click hit → mở đúng sách.',
-            'Mỗi đêm sau khi pipeline phục chế xong thêm sách → CI deploy → auto hiện trên đây.'
-          ]"
-        />
-        <h3 class="schema-divider">🔯 Thư viện 14 chính tinh Tử Vi (Bắc Phái) — ảnh · nghĩa · nguồn · Ngũ Uẩn</h3>
-        <ChinhTinhLibraryPanel ref="tuviLibRef" />
-        <RestoredLibrary />
+      <!-- Tab Thư viện: 2 sub-tab SONG SONG — 🔯 Tử Vi (sao/cung/cục) ⟷ 📚 Sách phục chế -->
+      <section v-else-if="activeMainTab === 'library'" class="single-column" aria-label="Thư viện">
+        <nav class="tuvi-school-tabs" aria-label="Thư viện: 2 mảng">
+          <button type="button" :class="{ active: libSubTab === 'tu-vi' }" @click="libSubTab = 'tu-vi'">
+            <span class="school-mark">🔯</span>
+            <span><b>Tử Vi</b><small>sao · cung · cục · Thân-Mệnh · vòng sao</small></span>
+          </button>
+          <button type="button" :class="{ active: libSubTab === 'sach' }" @click="libSubTab = 'sach'">
+            <span class="school-mark">📚</span>
+            <span><b>Sách phục chế</b><small>corpus sách Việt Đông phương · search full-text</small></span>
+          </button>
+        </nav>
+
+        <div v-show="libSubTab === 'tu-vi'">
+          <h3 class="schema-divider">🔯 Thư viện Tử Vi (Bắc Phái) — 14 chính tinh · phụ tinh · Cục · Thân-Mệnh · vòng sao</h3>
+          <ChinhTinhLibraryPanel ref="tuviLibRef" />
+        </div>
+
+        <div v-show="libSubTab === 'sach'">
+          <TabIntro
+            icon="lexicon"
+            title="📚 Thư viện phục chế — Sách Việt Đông phương"
+            purpose="Sách Tứ Trụ / Tử Vi / Chu Dịch / Bát Tự / Bốc Phệ tiếng Việt — đã phục chế từ PDF scan qua Tesseract OCR + Gemma 4 cleanup, hoặc trực tiếp text-layer qua MarkItDown. Tất cả publish-ready markdown, đọc trực tiếp trên web. Anh đọc, tham chiếu, search full-text trên toàn bộ corpus."
+            :steps="[
+              'Sidebar trái: 14+ sách grouped 8 categories (Kinh Điển / Tứ Trụ / Tử Vi / Bốc Phệ / Chu Dịch / Dịch Số / Chuyên Đề / Lịch).',
+              'Click 1 sách → render markdown, paginate 20K chars/trang để load nhanh.',
+              'Search bar: full-text trên 12.5M chars — gõ thuật ngữ (Thiên Can, Dụng Thần, Tả Phụ, ...) → click hit → mở đúng sách.',
+              'Mỗi đêm sau khi pipeline phục chế xong thêm sách → CI deploy → auto hiện trên đây.'
+            ]"
+          />
+          <RestoredLibrary />
+        </div>
       </section>
 
       <section v-else-if="activeMainTab === 'wiki'" class="single-column" aria-label="Wiki Tổ sư - Đệ tử">
