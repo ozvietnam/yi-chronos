@@ -108,6 +108,30 @@ def _words(text: str) -> set:
     return set(re.sub(r"[^\w\s]", " ", (text or "").lower()).split())
 
 
+def _menh_than_axis() -> "dict | None":
+    """Trục Mệnh→Thân (tiên/hậu thiên) — kéo atom NGUYÊN TẮC đã duyệt. None nếu không có."""
+    conn = _db()
+    if conn is None:
+        return None
+    try:
+        row = conn.execute(
+            """SELECT a.source_quote, c.book_corpus_id
+               FROM atomic_questions a LEFT JOIN chunks_v2 c ON a.chunk_id = c.chunk_id
+               WHERE a.founder_verified = 1 AND a.source_quote LIKE '%điều khiển nửa đời trước%'
+               ORDER BY length(a.source_quote) LIMIT 1""",
+        ).fetchone()
+    except Exception:
+        return None
+    if not row or not row[0]:
+        return None
+    txt = row[0].strip()
+    # cắt phần caveat "Tuy nhiên..." (giữ nguyên tắc gọn), nhưng KHÔNG bịa thêm.
+    cut = txt.find("Tuy nhiên")
+    if cut > 40:
+        txt = txt[:cut].strip().rstrip(". ") + "."
+    return {"text": txt, "source": _CORPUS_LABEL.get(row[1], row[1] or "wiki")}
+
+
 def doc_than_cu(la_so: dict, *, limit: int = 3) -> dict:
     """Đọc Thân cư từ lá số. Trả khối grounded {than_cung, than_branch, y_nghia[], …}."""
     than_idx = la_so.get("than_index")
@@ -124,4 +148,31 @@ def doc_than_cu(la_so: dict, *, limit: int = 3) -> dict:
         "menh_than_dong_cung": la_so.get("menh_index") == than_idx,
         "y_nghia": y_nghia,                    # [{text, source}] — có nguồn
         "chua_co_nguon": len(y_nghia) == 0,    # True → UI hiện "chưa có nguồn", KHÔNG bịa
+        "menh_than_axis": _menh_than_axis(),   # #3: trục Mệnh nửa-đầu → Thân nửa-sau (có nguồn)
+    }
+
+
+# ── Cục = ngũ hành NỀN của Mệnh (neo vào ngu_hanh_nen, "khớp cổ thư") ──────────
+_CUC_ELEMENT = {2: ("thủy", "Thủy"), 3: ("mộc", "Mộc"), 4: ("kim", "Kim"),
+                5: ("thổ", "Thổ"), 6: ("hỏa", "Hỏa")}
+
+
+def doc_cuc(la_so: dict) -> dict:
+    """Đọc ý nghĩa Cục = ngũ hành NỀN của Mệnh (tính chất element grounded, không bịa).
+    Cục quyết định cơ học (đại vận/Trường Sinh/vị trí Tử Vi) + là hành nền của mệnh."""
+    ekey_vi = _CUC_ELEMENT.get(la_so.get("cuc"))
+    if not ekey_vi:
+        return {"available": False}
+    ekey, evi = ekey_vi
+    try:
+        from engine.tu_vi.ngu_hanh_nen import HANH_VAN_DONG
+        nature = HANH_VAN_DONG.get(ekey, "")
+    except Exception:
+        nature = ""
+    return {
+        "available": True,
+        "cuc_name": la_so.get("cuc_name"),
+        "element": evi,                 # "Thổ"
+        "nature": nature,               # "ổn định — nuôi giữ, chuyển hóa" (grounded)
+        "source": "Ngũ hành nền (Lê Văn Sửu — khớp cổ thư)",
     }

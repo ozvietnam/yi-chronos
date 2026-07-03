@@ -3,7 +3,7 @@
 Kỷ luật quote-or-silence (Iron #9): CHỈ trả atom đã duyệt + nguồn; vị trí không có
 nguồn → chua_co_nguon (KHÔNG bịa). Vị trí phải ĐÚNG (than_index) + nghĩa KHÔNG lẫn chéo.
 """
-from engine.tu_vi.than_cu import doc_than_cu, _retrieve, _PALACE_KEY
+from engine.tu_vi.than_cu import doc_than_cu, doc_cuc, _retrieve, _PALACE_KEY, _CUC_ELEMENT
 from engine.tu_vi.from_birth import cast_la_so_from_birth
 
 
@@ -49,6 +49,31 @@ def test_quote_or_silence_vi_tri_khong_phai_than_cu():
     """Cung KHÔNG thuộc 6 vị trí Thân cư (vd Điền Trạch) → không có key → [] (không bịa)."""
     assert _retrieve("Điền Trạch", 2) == []
     assert _retrieve("Tật Ách", 2) == []
+
+
+def test_cuc_la_ngu_hanh_nen_grounded():
+    """#2: Cục = ngũ hành nền. Founder Thổ Ngũ → hành Thổ + nature grounded (không rỗng)."""
+    r = cast_la_so_from_birth(birth_datetime_local="1988-06-05T23:30:00", gender="nam")
+    c = doc_cuc(r)
+    assert c["available"] and c["element"] == "Thổ"
+    assert c["nature"] and "ổn định" in c["nature"]
+    assert "cổ thư" in c["source"] or "Ngũ hành" in c["source"]
+
+
+def test_5_cuc_deu_co_nature():
+    """Cả 5 cục (2..6) đều ra ngũ hành nền + nature không rỗng."""
+    for cuc in _CUC_ELEMENT:
+        c = doc_cuc({"cuc": cuc, "cuc_name": "X"})
+        assert c["available"] and c["element"] and c["nature"]
+
+
+def test_menh_than_axis_grounded():
+    """#3: trục Mệnh→Thân có nguồn — 'Mệnh nửa đời trước, Thân nửa đời sau'."""
+    r = cast_la_so_from_birth(birth_datetime_local="1988-06-05T23:30:00", gender="nam")
+    ax = doc_than_cu(r)["menh_than_axis"]
+    assert ax and ax["text"] and ax["source"]
+    assert "nửa đời" in ax["text"]
+    assert "Tuy nhiên" not in ax["text"]         # caveat đã cắt gọn
 
 
 def test_loc_chat_luong_khong_lot_mau_sai_hay_asr_tho():

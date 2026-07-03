@@ -39,6 +39,7 @@ const data = ref(null);
 const interpretation = ref(null);
 const luuTru = ref(null);
 const thanCu = ref(null);   // Thân cư (đóng cung nào → trọng tâm/hậu vận, grounded có nguồn)
+const cucLuan = ref(null);  // Cục = ngũ hành nền của Mệnh (grounded)
 const cungReading = ref(null);  // ⭐ Q1 Phú + Q3 sao×cung per palace
 const cungLoading = ref(false);
 const caseStudies = ref(null);   // ⭐ Lá số mẫu lịch sử Q3+Q4
@@ -429,6 +430,7 @@ async function castChart() {
     interpretation.value = resp.interpretation || null;
     luuTru.value = resp.luu_tru_year || null;
     thanCu.value = resp.than_cu || null;
+    cucLuan.value = resp.cuc_luan || null;
 
     // ⭐ Load Q1 Phú + Q3 sao×cung passages (background, non-blocking)
     loadCungReading();
@@ -464,6 +466,7 @@ function reset() {
   interpretation.value = null;
   luuTru.value = null;
   thanCu.value = null;
+  cucLuan.value = null;
   cungReading.value = null;
   expandedPalace.value = null;
   errorMsg.value = "";
@@ -1349,23 +1352,39 @@ const grid = computed(() => {
       </template>
 
       <!-- ── Thân cư (đóng cung nào → trọng tâm & hậu vận — GROUNDED, có nguồn) ── -->
-      <section v-if="data && thanCu?.available" class="than-cu-block">
+      <section v-if="data && (thanCu?.available || cucLuan?.available)" class="than-cu-block">
         <header class="tcb-head">
-          <h4>🪞 Thân cư {{ thanCu.than_cung }} — trọng tâm &amp; hậu vận</h4>
-          <small v-if="thanCu.menh_than_dong_cung" class="tcb-dong">⊙ Mệnh – Thân đồng cung: bản chất &amp; hậu vận nhất quán</small>
+          <h4>🪞 Nền mệnh — Cục · Thân cư<span v-if="thanCu?.than_cung"> {{ thanCu.than_cung }}</span></h4>
+          <small v-if="thanCu?.menh_than_dong_cung" class="tcb-dong">⊙ Mệnh – Thân đồng cung</small>
         </header>
-        <p class="tcb-intro">
-          Thân an tại cung <b>{{ thanCu.than_cung }}</b> ({{ thanCu.than_branch }}) —
-          <i>"Thân đóng ở đâu thì trọng tâm cuộc đời, đặc biệt hậu vận, dồn về đó."</i>
+
+        <!-- Cục = ngũ hành nền của Mệnh -->
+        <p v-if="cucLuan?.available" class="tcb-cuc">
+          <b>Cục nền:</b> {{ cucLuan.cuc_name }} — hành <b>{{ cucLuan.element }}</b>: {{ cucLuan.nature }}
+          <span class="tcb-srcinline" :title="'nguồn: ' + cucLuan.source">ⓘ</span>
         </p>
-        <ul v-if="thanCu.y_nghia?.length" class="tcb-list">
-          <li v-for="(y, i) in thanCu.y_nghia" :key="i" class="tcb-item">
-            <p class="tcb-text">{{ y.text }}</p>
-            <span class="tcb-src">— nguồn: {{ y.source }}</span>
-          </li>
-        </ul>
-        <p v-else class="tcb-empty">
-          Thư viện chưa có nguồn đã duyệt cho vị trí này — sẽ bổ sung khi đọc thêm sách. (Không suy diễn.)
+
+        <!-- Thân cư -->
+        <template v-if="thanCu?.available">
+          <p class="tcb-intro">
+            Thân an tại cung <b>{{ thanCu.than_cung }}</b> ({{ thanCu.than_branch }}) —
+            <i>"Thân đóng ở đâu thì trọng tâm cuộc đời, đặc biệt hậu vận, dồn về đó."</i>
+          </p>
+          <ul v-if="thanCu.y_nghia?.length" class="tcb-list">
+            <li v-for="(y, i) in thanCu.y_nghia" :key="i" class="tcb-item">
+              <p class="tcb-text">{{ y.text }}</p>
+              <span class="tcb-src">— nguồn: {{ y.source }}</span>
+            </li>
+          </ul>
+          <p v-else class="tcb-empty">
+            Thư viện chưa có nguồn đã duyệt cho vị trí này — sẽ bổ sung khi đọc thêm sách. (Không suy diễn.)
+          </p>
+        </template>
+
+        <!-- Trục Mệnh → Thân (tiên/hậu thiên) -->
+        <p v-if="thanCu?.menh_than_axis" class="tcb-axis">
+          <b>Mệnh → Thân:</b> {{ thanCu.menh_than_axis.text }}
+          <span class="tcb-src">— nguồn: {{ thanCu.menh_than_axis.source }}</span>
         </p>
       </section>
 
@@ -3239,6 +3258,14 @@ const grid = computed(() => {
 .tcb-head h4 { margin: 0; color: #e8c95a; font-size: 14px; }
 .tcb-dong { font-size: 11.5px; color: #86efac; font-weight: 600; }
 .tcb-intro { margin: 0 0 12px; font-size: 13px; color: rgba(230, 238, 245, 0.72); line-height: 1.55; }
+.tcb-cuc { margin: 0 0 12px; padding: 8px 10px; font-size: 13px; line-height: 1.5;
+  color: rgba(230, 238, 245, 0.85); background: rgba(232, 201, 90, 0.05);
+  border-radius: 6px; border-left: 2px solid rgba(232, 201, 90, 0.5); }
+.tcb-cuc b { color: #e8c95a; }
+.tcb-srcinline { cursor: help; color: rgba(230, 238, 245, 0.4); font-size: 11px; margin-left: 4px; }
+.tcb-axis { margin: 12px 0 0; padding-top: 10px; font-size: 12.5px; line-height: 1.55;
+  color: rgba(230, 238, 245, 0.7); border-top: 1px dashed rgba(255, 255, 255, 0.1); }
+.tcb-axis b { color: #c4b5fd; }
 .tcb-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
 .tcb-item { padding-left: 12px; border-left: 2px solid rgba(232, 201, 90, 0.4); }
 .tcb-text { margin: 0 0 4px; font-size: 13.5px; line-height: 1.6; color: rgba(230, 238, 245, 0.92); }
