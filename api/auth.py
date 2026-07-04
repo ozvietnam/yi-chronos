@@ -286,6 +286,20 @@ def _init_schema(db: sqlite3.Connection) -> None:
             FOREIGN KEY(publication_id) REFERENCES user_publications(id) ON DELETE CASCADE
         );
         CREATE INDEX IF NOT EXISTS idx_share_token ON publication_shares(token);
+
+        -- 🔑 Password reset tokens — "quên mật khẩu" gửi qua email.
+        -- 1 token = 1 lần dùng (used=1 sau khi đổi mật khẩu thành công), TTL ngắn
+        -- (RESET_TOKEN_TTL_SECONDS). KHÔNG lưu mật khẩu mới ở đây — chỉ là vé vào cửa.
+        CREATE TABLE IF NOT EXISTS password_reset_tokens (
+            token           TEXT PRIMARY KEY,
+            user_id         INTEGER NOT NULL,
+            created_at      INTEGER NOT NULL,
+            expires_at      INTEGER NOT NULL,
+            used            INTEGER NOT NULL DEFAULT 0,
+            used_at         INTEGER,
+            FOREIGN KEY(user_id) REFERENCES users(user_id) ON DELETE CASCADE
+        );
+        CREATE INDEX IF NOT EXISTS idx_reset_token_user ON password_reset_tokens(user_id);
     """)
     db.commit()
 
@@ -550,6 +564,15 @@ class SetupProfileRequest(BaseModel):
 
 class ChangePasswordRequest(BaseModel):
     current_password: str
+    new_password: str
+
+
+class ForgotPasswordRequest(BaseModel):
+    email: str
+
+
+class ResetPasswordRequest(BaseModel):
+    token: str
     new_password: str
 
 
@@ -927,6 +950,114 @@ def change_password(req: ChangePasswordRequest, request: Request) -> dict:
         db.close()
     _record_audit("change_password", user_id=user["user_id"], target_email=user["email"], request=request)
     return {"status": "ok", "message": "Mật khẩu đã được cập nhật"}
+
+
+RESET_TOKEN_TTL_SECONDS = 30 * 60  # 30 phút — đủ ngắn để giảm rủi ro nếu email bị chặn/đọc trộm
+
+# Thông điệp CỐ ĐỊNH trả về dù email có tồn tại hay không — tránh lộ danh sách
+# email đã đăng ký qua cách "response khác nhau tuỳ email tìm thấy hay không"
+# (user enumeration). Đây là lỗ hổng kinh điển của tính năng forgot-password.
+_FORGOT_PASSWORD_GENERIC_MSG = (
+    "Nếu email này đã đăng ký, một liên kết đặt lại mật khẩu vừa được gửi tới. "
+    "Kiểm tra hộp thư (và mục spam) trong vài phút."
+)
+
+
+@router.post("/forgot-password")
+def forgot_password(req: ForgotPasswordRequest, request: Request) -> dict:
+    """Quên mật khẩu — gửi link reset qua email (Resend). KHÔNG bao giờ tiết lộ
+    qua response liệu email có tồn tại trong hệ thống hay không (chống dò email)."""
+    from engine import ratelimit
+
+    email = req.email.lower().strip()
+
+    # Rate-limit theo email (không theo IP) — người dò email thay đổi IP dễ,
+    # nhưng phải cố định email mục tiêu, nên khoá theo email chặn đúng kiểu tấn
+    # công "spam gửi email tới 1 nạn nhân" hiệu quả hơn khoá theo IP.
+    if not ratelimit.allow(f"forgot_password:{email}", limit=3, window_sec=3600):
+        _record_audit("forgot_password_rate_limited", target_email=email, request=request)
+        # Vẫn trả message giống hệt case bình thường — không lộ có bị rate-limit hay không.
+        return {"status": "ok", "message": _FORGOT_PASSWORD_GENERIC_MSG}
+
+    db = _connect()
+    try:
+        row = db.execute(
+            "SELECT user_id, display_name, COALESCE(is_suspended, 0) FROM users WHERE email = ?",
+            (email,),
+        ).fetchone()
+    finally:
+        db.close()
+
+    if row and not row[2]:  # tồn tại + chưa bị suspend
+        user_id, display_name = row[0], row[1]
+        token = secrets.token_urlsafe(32)
+        now = int(time.time())
+        db = _connect()
+        try:
+            db.execute(
+                "INSERT INTO password_reset_tokens (token, user_id, created_at, expires_at) VALUES (?, ?, ?, ?)",
+                (token, user_id, now, now + RESET_TOKEN_TTL_SECONDS),
+            )
+            db.commit()
+        finally:
+            db.close()
+
+        from engine.email.resend_client import send_password_reset_email
+        result = send_password_reset_email(to_email=email, display_name=display_name, token=token)
+        _record_audit(
+            "forgot_password_request", user_id=user_id, target_email=email, request=request,
+            details={"email_sent": result["ok"]},
+        )
+        if not result["ok"]:
+            logger.warning(f"forgot-password: gửi email thất bại cho user_id={user_id}: {result['error']}")
+    else:
+        # Email không tồn tại (hoặc bị suspend) — vẫn audit log để phát hiện dò quét,
+        # nhưng KHÔNG gửi email, KHÔNG tạo token.
+        _record_audit("forgot_password_unknown_email", target_email=email, request=request)
+
+    return {"status": "ok", "message": _FORGOT_PASSWORD_GENERIC_MSG}
+
+
+@router.post("/reset-password")
+def reset_password(req: ResetPasswordRequest, request: Request) -> dict:
+    """Đặt mật khẩu mới bằng token nhận qua email. Token dùng 1 lần, hết hạn sau
+    30 phút. Sau khi đổi, XOÁ TOÀN BỘ session hiện tại của user (đăng xuất mọi
+    nơi) — phòng trường hợp máy/session cũ đã bị lộ cùng lúc với mật khẩu."""
+    if len(req.new_password) < 8:
+        raise HTTPException(status_code=400, detail="Mật khẩu mới phải ≥ 8 ký tự")
+
+    now = int(time.time())
+    db = _connect()
+    try:
+        row = db.execute("""
+            SELECT user_id, expires_at, used FROM password_reset_tokens WHERE token = ?
+        """, (req.token,)).fetchone()
+    finally:
+        db.close()
+
+    if not row or row[2] or row[1] < now:
+        _record_audit("reset_password_invalid_token", request=request)
+        raise HTTPException(status_code=400, detail="Liên kết không hợp lệ hoặc đã hết hạn")
+
+    user_id = row[0]
+    new_hash, new_salt = _hash_password(req.new_password)
+    db = _connect()
+    try:
+        db.execute(
+            "UPDATE users SET password_hash=?, password_salt=?, must_change_password=0 WHERE user_id=?",
+            (new_hash, new_salt, user_id),
+        )
+        db.execute(
+            "UPDATE password_reset_tokens SET used=1, used_at=? WHERE token=?",
+            (now, req.token),
+        )
+        db.execute("DELETE FROM sessions WHERE user_id=?", (user_id,))
+        db.commit()
+    finally:
+        db.close()
+
+    _record_audit("reset_password_ok", user_id=user_id, request=request)
+    return {"status": "ok", "message": "Mật khẩu đã được đặt lại. Vui lòng đăng nhập lại."}
 
 
 @router.post("/switch-person")

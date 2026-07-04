@@ -9,19 +9,33 @@
  *     - Đăng xuất
  * - Owner sees extra "Quản lý user" item
  */
-import { ref, computed, onMounted, watch } from "vue";
+import { ref, computed, onMounted, onBeforeUnmount, watch } from "vue";
 import {
   currentUser, currentPerson, isAuthenticated, isOwner, sessionToken,
   logout, listPersons, switchPerson, listUsers, changePassword, registerUser, login, signup,
+  forgotPassword, resetPassword,
 } from "../stores/authStore.js";
 import WalletModal from "./WalletModal.vue";
 
 const showLogin = ref(false);
-const loginTab = ref("login"); // 'login' | 'signup'
+const loginTab = ref("login"); // 'login' | 'signup' | 'forgot'
+const forgotForm = ref({ email: "" });
+const forgotError = ref("");
+const forgotSuccess = ref("");
+const forgotBusy = ref(false);
+
+// Đặt lại mật khẩu — kích hoạt khi URL có ?reset_token=... (link trong email).
+const showResetModal = ref(false);
+const resetToken = ref("");
+const resetForm = ref({ next: "", confirm: "" });
+const resetError = ref("");
+const resetSuccess = ref("");
+const resetBusy = ref(false);
 const signupForm = ref({ email: "", display_name: "", password: "", confirm: "" });
 const signupError = ref("");
 const signupBusy = ref(false);
 const showMenu = ref(false);
+const rootBadge = ref(null); // gốc .user-badge — dùng để phát hiện click ra ngoài menu 👤
 const showPasswordModal = ref(false);
 const showUsersModal = ref(false);
 const showSwitchPersonModal = ref(false);
@@ -37,6 +51,42 @@ async function loadWalletBalance() {
 }
 onMounted(loadWalletBalance);
 watch(isAuthenticated, loadWalletBalance);
+
+// Link trong email "quên mật khẩu" trỏ về /?reset_token=xxx — bắt token ngay
+// khi trang tải, mở modal đặt lại mật khẩu, rồi xoá param khỏi URL (đừng để
+// f5/share link vô tình dùng lại token cũ hoặc lộ token trong lịch sử trình duyệt).
+onMounted(() => {
+  const params = new URLSearchParams(window.location.search);
+  const token = params.get("reset_token");
+  if (token) {
+    resetToken.value = token;
+    showResetModal.value = true;
+    params.delete("reset_token");
+    const rest = params.toString();
+    const cleanUrl = window.location.pathname + (rest ? `?${rest}` : "") + window.location.hash;
+    window.history.replaceState({}, "", cleanUrl);
+  }
+});
+
+// Menu 👤 (showMenu) trước đây KHÔNG tự ẩn khi bấm ra ngoài — chỉ đóng khi bấm
+// đúng 1 trong các item bên trong. Thêm click-ra-ngoài + Esc, cùng pattern với
+// NavDropdown.vue (menu "Trường phái" đã làm đúng, dùng lại ở đây cho nhất quán).
+function onDocClickCloseMenu(e) {
+  if (!showMenu.value) return;
+  if (rootBadge.value && rootBadge.value.contains(e.target)) return;
+  showMenu.value = false;
+}
+function onEscCloseMenu(e) {
+  if (e.key === "Escape") showMenu.value = false;
+}
+onMounted(() => {
+  document.addEventListener("click", onDocClickCloseMenu);
+  document.addEventListener("keydown", onEscCloseMenu);
+});
+onBeforeUnmount(() => {
+  document.removeEventListener("click", onDocClickCloseMenu);
+  document.removeEventListener("keydown", onEscCloseMenu);
+});
 
 // IMPORTANT: do NOT pre-fill with anh's own email. Previously this was
 // `ceo@ngantin.vn` as a dev convenience — meant every visitor clicking
@@ -54,6 +104,14 @@ const newUserForm = ref({
 });
 const newUserError = ref("");
 const newUserSuccess = ref("");
+
+// Nút hiện/ẩn mật khẩu — 1 cờ show/hide riêng cho mỗi ô password trong file.
+const showPw = ref({
+  login: false, signupPw: false, signupConfirm: false,
+  pwCurrent: false, pwNext: false, pwConfirm: false, newUserPw: false,
+  resetNext: false, resetConfirm: false,
+});
+function togglePw(key) { showPw.value[key] = !showPw.value[key]; }
 
 const displayName = computed(() => currentUser.value?.display_name || "Khách");
 const userRole = computed(() => currentUser.value?.role === "owner" ? "Chủ" : "User");
@@ -104,6 +162,56 @@ async function handleSignup() {
     }
   } finally {
     signupBusy.value = false;
+  }
+}
+
+async function handleForgotPassword() {
+  forgotError.value = ""; forgotSuccess.value = "";
+  if (!forgotForm.value.email) {
+    forgotError.value = "Vui lòng nhập email";
+    return;
+  }
+  forgotBusy.value = true;
+  try {
+    const r = await forgotPassword(forgotForm.value.email);
+    if (r.ok) {
+      forgotSuccess.value = r.message || "Nếu email này đã đăng ký, liên kết đặt lại mật khẩu vừa được gửi.";
+      forgotForm.value.email = "";
+    } else {
+      forgotError.value = r.error || "Gửi yêu cầu thất bại";
+    }
+  } finally {
+    forgotBusy.value = false;
+  }
+}
+
+async function handleResetPassword() {
+  resetError.value = ""; resetSuccess.value = "";
+  if (resetForm.value.next.length < 8) {
+    resetError.value = "Mật khẩu mới phải ≥ 8 ký tự";
+    return;
+  }
+  if (resetForm.value.next !== resetForm.value.confirm) {
+    resetError.value = "Mật khẩu xác nhận không khớp";
+    return;
+  }
+  resetBusy.value = true;
+  try {
+    const r = await resetPassword(resetToken.value, resetForm.value.next);
+    if (r.ok) {
+      resetSuccess.value = "✓ Đã đặt lại mật khẩu. Đăng nhập lại với mật khẩu mới.";
+      resetForm.value = { next: "", confirm: "" };
+      setTimeout(() => {
+        showResetModal.value = false;
+        resetSuccess.value = "";
+        showLogin.value = true;
+        loginTab.value = "login";
+      }, 1800);
+    } else {
+      resetError.value = r.error || "Liên kết không hợp lệ hoặc đã hết hạn";
+    }
+  } finally {
+    resetBusy.value = false;
   }
 }
 
@@ -200,7 +308,7 @@ async function submitChangePassword() {
 </script>
 
 <template>
-  <div class="user-badge">
+  <div class="user-badge" ref="rootBadge">
     <!-- Logged-in state -->
     <template v-if="isAuthenticated">
       <button class="ub-pill" @click="showMenu = !showMenu" :title="personLabel">
@@ -251,18 +359,41 @@ async function submitChangePassword() {
             <input v-model="loginForm.email" type="email" autofocus required />
           </label>
           <label>Mật khẩu
-            <input v-model="loginForm.password" type="password" required />
+            <div class="ub-pw-wrap">
+              <input v-model="loginForm.password" :type="showPw.login ? 'text' : 'password'" required />
+              <button type="button" class="ub-pw-toggle" @click="togglePw('login')"
+                      :aria-label="showPw.login ? 'Ẩn mật khẩu' : 'Hiện mật khẩu'">{{ showPw.login ? '🙈' : '👁️' }}</button>
+            </div>
           </label>
           <p v-if="loginError" class="ub-error">{{ loginError }}</p>
-          <p class="ub-hint">Chưa có tài khoản? Bấm tab <b>Đăng ký</b> bên trên.</p>
+          <p class="ub-hint">
+            <a href="#" class="ub-link" @click.prevent="loginTab = 'forgot'; forgotError = ''; forgotSuccess = ''">Quên mật khẩu?</a>
+            · Chưa có tài khoản? Bấm tab <b>Đăng ký</b> bên trên.
+          </p>
           <div class="ub-modal-actions">
             <button type="button" class="ub-btn-secondary" @click="showLogin = false">Huỷ</button>
             <button type="submit" class="ub-btn-primary">Đăng nhập</button>
           </div>
         </form>
 
+        <!-- Forgot password form -->
+        <form v-else-if="loginTab === 'forgot'" @submit.prevent="handleForgotPassword">
+          <label>Email tài khoản
+            <input v-model="forgotForm.email" type="email" autofocus required placeholder="email@example.com" />
+          </label>
+          <p v-if="forgotError" class="ub-error">{{ forgotError }}</p>
+          <p v-if="forgotSuccess" class="ub-success">{{ forgotSuccess }}</p>
+          <p class="ub-hint">Liên kết đặt lại mật khẩu sẽ được gửi qua email, hết hạn sau 30 phút.</p>
+          <div class="ub-modal-actions">
+            <button type="button" class="ub-btn-secondary" @click="loginTab = 'login'">← Quay lại đăng nhập</button>
+            <button type="submit" class="ub-btn-primary" :disabled="forgotBusy">
+              {{ forgotBusy ? "⏳ Đang gửi..." : "Gửi liên kết" }}
+            </button>
+          </div>
+        </form>
+
         <!-- Signup form -->
-        <form v-else @submit.prevent="handleSignup">
+        <form v-else-if="loginTab === 'signup'" @submit.prevent="handleSignup">
           <label>Email
             <input v-model="signupForm.email" type="email" autofocus required placeholder="email@example.com" />
           </label>
@@ -270,10 +401,18 @@ async function submitChangePassword() {
             <input v-model="signupForm.display_name" type="text" required placeholder="Nguyễn Văn A" />
           </label>
           <label>Mật khẩu
-            <input v-model="signupForm.password" type="password" required minlength="6" placeholder="≥ 6 ký tự" />
+            <div class="ub-pw-wrap">
+              <input v-model="signupForm.password" :type="showPw.signupPw ? 'text' : 'password'" required minlength="6" placeholder="≥ 6 ký tự" />
+              <button type="button" class="ub-pw-toggle" @click="togglePw('signupPw')"
+                      :aria-label="showPw.signupPw ? 'Ẩn mật khẩu' : 'Hiện mật khẩu'">{{ showPw.signupPw ? '🙈' : '👁️' }}</button>
+            </div>
           </label>
           <label>Xác nhận mật khẩu
-            <input v-model="signupForm.confirm" type="password" required minlength="6" />
+            <div class="ub-pw-wrap">
+              <input v-model="signupForm.confirm" :type="showPw.signupConfirm ? 'text' : 'password'" required minlength="6" />
+              <button type="button" class="ub-pw-toggle" @click="togglePw('signupConfirm')"
+                      :aria-label="showPw.signupConfirm ? 'Ẩn mật khẩu' : 'Hiện mật khẩu'">{{ showPw.signupConfirm ? '🙈' : '👁️' }}</button>
+            </div>
           </label>
           <p v-if="signupError" class="ub-error">{{ signupError }}</p>
           <p class="ub-hint">Đăng ký miễn phí, không cần xác thực email. Bạn sẽ tự động đăng nhập.</p>
@@ -296,19 +435,62 @@ async function submitChangePassword() {
         </p>
         <form @submit.prevent="submitChangePassword">
           <label>Mật khẩu hiện tại
-            <input v-model="passwordForm.current" type="password" required />
+            <div class="ub-pw-wrap">
+              <input v-model="passwordForm.current" :type="showPw.pwCurrent ? 'text' : 'password'" required />
+              <button type="button" class="ub-pw-toggle" @click="togglePw('pwCurrent')"
+                      :aria-label="showPw.pwCurrent ? 'Ẩn mật khẩu' : 'Hiện mật khẩu'">{{ showPw.pwCurrent ? '🙈' : '👁️' }}</button>
+            </div>
           </label>
           <label>Mật khẩu mới (≥ 8 ký tự)
-            <input v-model="passwordForm.next" type="password" minlength="8" required />
+            <div class="ub-pw-wrap">
+              <input v-model="passwordForm.next" :type="showPw.pwNext ? 'text' : 'password'" minlength="8" required />
+              <button type="button" class="ub-pw-toggle" @click="togglePw('pwNext')"
+                      :aria-label="showPw.pwNext ? 'Ẩn mật khẩu' : 'Hiện mật khẩu'">{{ showPw.pwNext ? '🙈' : '👁️' }}</button>
+            </div>
           </label>
           <label>Xác nhận mật khẩu mới
-            <input v-model="passwordForm.confirm" type="password" required />
+            <div class="ub-pw-wrap">
+              <input v-model="passwordForm.confirm" :type="showPw.pwConfirm ? 'text' : 'password'" required />
+              <button type="button" class="ub-pw-toggle" @click="togglePw('pwConfirm')"
+                      :aria-label="showPw.pwConfirm ? 'Ẩn mật khẩu' : 'Hiện mật khẩu'">{{ showPw.pwConfirm ? '🙈' : '👁️' }}</button>
+            </div>
           </label>
           <p v-if="passwordError" class="ub-error">{{ passwordError }}</p>
           <p v-if="passwordSuccess" class="ub-success">{{ passwordSuccess }}</p>
           <div class="ub-modal-actions">
             <button type="button" class="ub-btn-secondary" @click="showPasswordModal = false">Đóng</button>
             <button type="submit" class="ub-btn-primary">Đổi mật khẩu</button>
+          </div>
+        </form>
+      </div>
+    </div></Teleport>
+
+    <!-- Reset password modal — mở khi URL có ?reset_token=... (link trong email) -->
+    <Teleport to="body"><div v-if="showResetModal" class="ub-modal-backdrop" @click.self="showResetModal = false">
+      <div class="ub-modal">
+        <h3>🔑 Đặt lại mật khẩu</h3>
+        <form @submit.prevent="handleResetPassword">
+          <label>Mật khẩu mới (≥ 8 ký tự)
+            <div class="ub-pw-wrap">
+              <input v-model="resetForm.next" :type="showPw.resetNext ? 'text' : 'password'" minlength="8" required autofocus />
+              <button type="button" class="ub-pw-toggle" @click="togglePw('resetNext')"
+                      :aria-label="showPw.resetNext ? 'Ẩn mật khẩu' : 'Hiện mật khẩu'">{{ showPw.resetNext ? '🙈' : '👁️' }}</button>
+            </div>
+          </label>
+          <label>Xác nhận mật khẩu mới
+            <div class="ub-pw-wrap">
+              <input v-model="resetForm.confirm" :type="showPw.resetConfirm ? 'text' : 'password'" required />
+              <button type="button" class="ub-pw-toggle" @click="togglePw('resetConfirm')"
+                      :aria-label="showPw.resetConfirm ? 'Ẩn mật khẩu' : 'Hiện mật khẩu'">{{ showPw.resetConfirm ? '🙈' : '👁️' }}</button>
+            </div>
+          </label>
+          <p v-if="resetError" class="ub-error">{{ resetError }}</p>
+          <p v-if="resetSuccess" class="ub-success">{{ resetSuccess }}</p>
+          <div class="ub-modal-actions">
+            <button type="button" class="ub-btn-secondary" @click="showResetModal = false">Đóng</button>
+            <button type="submit" class="ub-btn-primary" :disabled="resetBusy">
+              {{ resetBusy ? "⏳ Đang xử lý..." : "Đặt lại mật khẩu" }}
+            </button>
           </div>
         </form>
       </div>
@@ -364,7 +546,13 @@ async function submitChangePassword() {
         <form class="ub-newuser-form" @submit.prevent="submitNewUser">
           <label>Email <input v-model="newUserForm.email" type="email" required /></label>
           <label>Tên hiển thị <input v-model="newUserForm.display_name" /></label>
-          <label>Password (≥ 8 ký tự) <input v-model="newUserForm.password" type="password" minlength="8" required /></label>
+          <label>Password (≥ 8 ký tự)
+            <div class="ub-pw-wrap">
+              <input v-model="newUserForm.password" :type="showPw.newUserPw ? 'text' : 'password'" minlength="8" required />
+              <button type="button" class="ub-pw-toggle" @click="togglePw('newUserPw')"
+                      :aria-label="showPw.newUserPw ? 'Ẩn mật khẩu' : 'Hiện mật khẩu'">{{ showPw.newUserPw ? '🙈' : '👁️' }}</button>
+            </div>
+          </label>
           <label>Role
             <select v-model="newUserForm.role">
               <option value="user">User</option>
@@ -551,6 +739,17 @@ async function submitChangePassword() {
   font-size: 0.9rem;
 }
 .ub-modal label input:focus { outline: none; border-color: #60a5fa; }
+
+/* Nút hiện/ẩn mật khẩu (👁️/🙈) — icon tuyệt đối bên phải ô input */
+.ub-pw-wrap { position: relative; }
+.ub-pw-wrap input { padding-right: 2.1rem; }
+.ub-pw-toggle {
+  position: absolute; right: 0.35rem; top: 50%; transform: translateY(-50%);
+  background: none; border: none; cursor: pointer;
+  font-size: 0.95rem; line-height: 1; padding: 2px 4px;
+  opacity: 0.75;
+}
+.ub-pw-toggle:hover { opacity: 1; }
 .ub-modal-actions {
   display: flex;
   justify-content: flex-end;
@@ -580,6 +779,8 @@ async function submitChangePassword() {
 .ub-warn { background: #78350f; border: 1px solid #f59e0b; color: #fde68a; padding: 0.4rem 0.6rem; border-radius: 3px; font-size: 0.78rem; margin: 0 0 0.6rem 0; }
 .ub-hint { color: #94a3b8; font-size: 0.72rem; line-height: 1.5; }
 .ub-hint code { background: #1e293b; padding: 1px 4px; border-radius: 2px; }
+.ub-link { color: #60a5fa; text-decoration: none; }
+.ub-link:hover { text-decoration: underline; }
 
 .ub-person-list { list-style: none; padding: 0; margin: 0.5rem 0; max-height: 50vh; overflow-y: auto; }
 .ub-person-list li { margin-bottom: 0.3rem; }

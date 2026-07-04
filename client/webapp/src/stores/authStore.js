@@ -228,6 +228,40 @@ export async function signup(email, displayName, password) {
   }
 }
 
+export async function forgotPassword(email) {
+  /* Public — không cần đăng nhập. Backend luôn trả message giống nhau dù email
+     có tồn tại hay không (chống dò email), nên "ok: true" không có nghĩa là
+     email chắc chắn tồn tại. */
+  try {
+    const r = await fetch("/api/auth/forgot-password", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email: email.trim().toLowerCase() }),
+    });
+    const d = await r.json();
+    if (!r.ok) return { ok: false, error: d?.detail || "Gửi yêu cầu thất bại" };
+    return { ok: true, message: d.message };
+  } catch (err) {
+    return { ok: false, error: err?.message || String(err) };
+  }
+}
+
+export async function resetPassword(token, newPassword) {
+  /* Public — token đến từ link trong email, không cần session. */
+  try {
+    const r = await fetch("/api/auth/reset-password", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ token, new_password: newPassword }),
+    });
+    const d = await r.json();
+    if (!r.ok) return { ok: false, error: d?.detail || "Đặt lại mật khẩu thất bại" };
+    return { ok: true, message: d.message };
+  } catch (err) {
+    return { ok: false, error: err?.message || String(err) };
+  }
+}
+
 // Bootstrap on import
 (function bootstrap() {
   const saved = _load();

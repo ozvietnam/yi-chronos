@@ -6,6 +6,9 @@ import {
   setProviderNotes,
   testProvider,
   resetProviderHealth,
+  getResendStatus,
+  setResendKey,
+  testResendEmail,
   PLAN_TYPE_LABEL,
   PROVIDER_DISPLAY
 } from "../composables/useSettings.js";
@@ -135,7 +138,50 @@ async function resetHealthClick() {
   setTimeout(() => { message.value = ""; }, 4000);
 }
 
-onMounted(load);
+// ── Resend (email gửi link "quên mật khẩu") ─────────────────────────────────
+const resendConfigured = ref(false);
+const resendKeyInput = ref("");
+const resendSaving = ref(false);
+const resendTesting = ref(false);
+const resendTestResult = ref(null);
+
+async function loadResendStatus() {
+  try {
+    const r = await getResendStatus();
+    resendConfigured.value = !!r.configured;
+  } catch (e) { /* owner-only endpoint — guest 403 im lặng bỏ qua */ }
+}
+
+async function saveResendKey() {
+  const key = resendKeyInput.value.trim();
+  if (!key) return;
+  resendSaving.value = true;
+  try {
+    await setResendKey(key);
+    resendKeyInput.value = "";
+    message.value = "✓ Đã lưu Resend API key";
+    await loadResendStatus();
+  } catch (e) {
+    error.value = String(e.message || e);
+  } finally {
+    resendSaving.value = false;
+    setTimeout(() => { message.value = ""; }, 4000);
+  }
+}
+
+async function runResendTest() {
+  resendTesting.value = true;
+  resendTestResult.value = null;
+  try {
+    resendTestResult.value = await testResendEmail();
+  } catch (e) {
+    resendTestResult.value = { status: "error", detail: String(e.message || e) };
+  } finally {
+    resendTesting.value = false;
+  }
+}
+
+onMounted(() => { load(); if (isOwner.value) loadResendStatus(); });
 </script>
 
 <template>
@@ -316,6 +362,58 @@ onMounted(load);
           </div>
         </article>
       </div>
+    </section>
+
+    <!-- ───────── Owner-only section — Resend (email "quên mật khẩu") ───────── -->
+    <section v-if="isOwner" class="section">
+      <header><h3>📧 Email (Resend) — gửi link đặt lại mật khẩu</h3></header>
+      <p class="hint">
+        Dùng để gửi email "Quên mật khẩu" cho user. Đăng ký tài khoản miễn phí tại
+        <a href="https://resend.com" target="_blank">resend.com</a>
+        (100 email/ngày · 3000/tháng free), lấy API key rồi dán vào đây.
+      </p>
+
+      <article class="provider-card" :class="{ configured: resendConfigured }">
+        <header class="pc-head">
+          <div class="pc-title"><strong>Resend</strong></div>
+          <div class="pc-status">
+            <span v-if="resendConfigured" class="badge ok">✓ Configured</span>
+            <span v-else class="badge off">✗ Chưa configure</span>
+          </div>
+        </header>
+
+        <div class="pc-row">
+          <label>
+            <span>API Key {{ resendConfigured ? "(đã có — nhập để thay)" : "" }}:</span>
+            <div class="key-row">
+              <input
+                v-model="resendKeyInput"
+                type="password"
+                placeholder="re_..."
+                autocomplete="off"
+              />
+              <button class="btn-primary" :disabled="!resendKeyInput.trim() || resendSaving"
+                      @click="saveResendKey">
+                Lưu key
+              </button>
+            </div>
+            <small>Lấy key tại: <a href="https://resend.com/api-keys" target="_blank">resend.com/api-keys</a></small>
+          </label>
+        </div>
+
+        <div class="pc-row test-row">
+          <button class="btn-test" :disabled="resendTesting || !resendConfigured" @click="runResendTest">
+            {{ resendTesting ? "Đang gửi..." : "🧪 Gửi email test tới tôi" }}
+          </button>
+          <div v-if="resendTestResult" class="test-result"
+               :class="resendTestResult.status === 'ok' ? 'tr-ok' : 'tr-error'">
+            <span v-if="resendTestResult.status === 'ok'">
+              ✓ Đã gửi — kiểm tra hộp thư {{ currentUser?.email }}
+            </span>
+            <span v-else>✗ {{ resendTestResult.detail || 'Gửi thất bại' }}</span>
+          </div>
+        </div>
+      </article>
     </section>
   </div>
 </template>

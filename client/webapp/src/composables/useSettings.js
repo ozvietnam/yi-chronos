@@ -48,6 +48,19 @@ export async function resetProviderHealth() {
   return jpost("/api/ai/providers/reset-health");
 }
 
+// Resend (dịch vụ gửi email — quên mật khẩu)
+export async function getResendStatus() {
+  return jget("/api/email/resend/status");
+}
+
+export async function setResendKey(apiKey) {
+  return jpost("/api/email/resend/key", { api_key: apiKey });
+}
+
+export async function testResendEmail() {
+  return jpost("/api/email/resend/test");
+}
+
 // Plan-type labels for UI
 export const PLAN_TYPE_LABEL = {
   coding_plan: {

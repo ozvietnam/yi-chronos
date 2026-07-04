@@ -259,6 +259,18 @@ CREATE TABLE IF NOT EXISTS publication_shares (
 );
 CREATE INDEX IF NOT EXISTS idx_share_token ON publication_shares(token);
 
+-- 🔑 Password reset tokens — "quên mật khẩu" gửi qua email. Server-internal
+-- (như sessions/audit_log) — không cần RLS, chỉ code auth.py chạm tới.
+CREATE TABLE IF NOT EXISTS password_reset_tokens (
+    token       TEXT PRIMARY KEY,
+    user_id     BIGINT NOT NULL REFERENCES users(user_id) ON DELETE CASCADE,
+    created_at  BIGINT NOT NULL,
+    expires_at  BIGINT NOT NULL,
+    used        INTEGER NOT NULL DEFAULT 0,
+    used_at     BIGINT
+);
+CREATE INDEX IF NOT EXISTS idx_reset_token_user ON password_reset_tokens(user_id);
+
 -- RLS: auth/admin truy cập qua service-mode (bypass) — bật để phòng thủ chiều sâu.
 ALTER TABLE sessions           ENABLE ROW LEVEL SECURITY;  ALTER TABLE sessions           FORCE ROW LEVEL SECURITY;
 ALTER TABLE audit_log          ENABLE ROW LEVEL SECURITY;  ALTER TABLE audit_log          FORCE ROW LEVEL SECURITY;

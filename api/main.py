@@ -2748,6 +2748,40 @@ def ai_reset_provider_health(http_request: Request) -> dict:
     return {"status": "ok"}
 
 
+@app.get("/api/email/resend/status")
+def email_resend_status(http_request: Request) -> dict:
+    """Resend (dịch vụ gửi email reset mật khẩu) đã cấu hình API key chưa? Owner-only."""
+    from api.auth import require_owner
+    require_owner(http_request)
+    from engine.email.resend_client import is_configured
+    return {"status": "ok", "configured": is_configured()}
+
+
+@app.post("/api/email/resend/key")
+def email_resend_set_key(req: AiProviderKeyRequest, http_request: Request) -> dict:
+    """Lưu Resend API key (data/service_keys.json, gitignored, chmod 600). Owner-only."""
+    from api.auth import require_owner
+    require_owner(http_request)
+    from engine.email.resend_client import set_api_key
+    set_api_key(req.api_key)
+    return {"status": "ok"}
+
+
+@app.post("/api/email/resend/test")
+def email_resend_test(http_request: Request) -> dict:
+    """Gửi thử 1 email tới chính email của owner đang đăng nhập — verify key hoạt động
+    thật (thay vì chỉ 'đã lưu key', không biết Resend có chấp nhận key/domain hay không)."""
+    from api.auth import require_owner
+    owner = require_owner(http_request)
+    from engine.email.resend_client import send_email
+    result = send_email(
+        to=owner["email"],
+        subject="✅ Test Resend — YI-CHRONOS",
+        html="<p>Nếu Anh nhận được email này, Resend đã cấu hình đúng — sẵn sàng gửi link đặt lại mật khẩu.</p>",
+    )
+    return {"status": "ok" if result["ok"] else "error", "detail": result.get("error")}
+
+
 @app.post("/api/ai/providers/{name}/notes")
 def ai_set_provider_notes(name: str, req: AiProviderNotesRequest, http_request: Request) -> dict:
     """Update notes + plan_type cho provider. Owner-only.

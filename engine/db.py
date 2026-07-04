@@ -125,7 +125,10 @@ def healthcheck() -> dict:
 import re as _re
 
 # pk dùng cho RETURNING theo bảng (mặc định 'id'; None = không có serial pk).
-_TABLE_PK = {"users": "user_id", "sessions": None, "audit_log": "id"}
+_TABLE_PK = {
+    "users": "user_id", "sessions": None, "audit_log": "id",
+    "password_reset_tokens": None,  # TEXT PK (token) như sessions, không có serial id
+}
 
 
 def _qmark_to_named(sql: str):
