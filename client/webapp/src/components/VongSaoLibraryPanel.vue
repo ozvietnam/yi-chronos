@@ -26,6 +26,15 @@ const filtered = computed(() => {
   );
 });
 
+const selectedTotalCount = computed(() => {
+  if (!selected.value) return 0;
+  return (
+    (selected.value.items?.length || 0) +
+    (selected.value.cung_items?.length || 0) +
+    (selected.value.ket_hop_items?.length || 0)
+  );
+});
+
 async function ensureLoaded() {
   if (loaded.value || loading.value) return;
   loading.value = true;
@@ -82,18 +91,50 @@ async function toggle() {
           <h5>
             {{ selected.sao_vi }}
             <span v-if="selected.sao_zh" class="vsl-zh">{{ selected.sao_zh }}</span>
-            <small>{{ selected.items.length }} trích có nguồn</small>
+            <small>{{ selectedTotalCount }} trích có nguồn</small>
           </h5>
-          <div v-for="(it, i) in selected.items" :key="i" class="vsl-item">
-            <p class="vsl-dich">{{ it.dich }}</p>
-            <div class="vsl-meta">
-              <span class="vsl-src">📖 {{ it.nguon }}</span>
-              <details v-if="it.quote_goc" class="vsl-quote">
-                <summary>quote gốc</summary>
-                <p>{{ it.quote_goc }}</p>
-              </details>
+
+          <template v-if="selected.items.length">
+            <h6 class="vsl-sub">Định nghĩa chung</h6>
+            <div v-for="(it, i) in selected.items" :key="'d' + i" class="vsl-item">
+              <p class="vsl-dich">{{ it.dich }}</p>
+              <div class="vsl-meta">
+                <span class="vsl-src">📖 {{ it.nguon }}</span>
+                <details v-if="it.quote_goc" class="vsl-quote">
+                  <summary>quote gốc</summary>
+                  <p>{{ it.quote_goc }}</p>
+                </details>
+              </div>
             </div>
-          </div>
+          </template>
+
+          <template v-if="selected.cung_items.length">
+            <h6 class="vsl-sub">Theo cung an</h6>
+            <div v-for="(it, i) in selected.cung_items" :key="'c' + i" class="vsl-item">
+              <p class="vsl-dich"><span class="vsl-cung-tag">{{ it.cung }}</span>{{ it.dich }}</p>
+              <div class="vsl-meta">
+                <span class="vsl-src">📖 {{ it.nguon }}</span>
+                <details v-if="it.quote_goc" class="vsl-quote">
+                  <summary>quote gốc</summary>
+                  <p>{{ it.quote_goc }}</p>
+                </details>
+              </div>
+            </div>
+          </template>
+
+          <template v-if="selected.ket_hop_items.length">
+            <h6 class="vsl-sub">Kết hợp với sao khác</h6>
+            <div v-for="(it, i) in selected.ket_hop_items" :key="'k' + i" class="vsl-item">
+              <p class="vsl-dich">{{ it.dich }}</p>
+              <div class="vsl-meta">
+                <span class="vsl-src">📖 {{ it.nguon }}</span>
+                <details v-if="it.quote_goc" class="vsl-quote">
+                  <summary>quote gốc</summary>
+                  <p>{{ it.quote_goc }}</p>
+                </details>
+              </div>
+            </div>
+          </template>
         </article>
       </template>
       <p v-else class="vsl-note">Chưa có phụ/vòng sao nào đã duyệt.</p>
@@ -158,6 +199,18 @@ async function toggle() {
 .vsl-detail h5 small {
   margin-left: auto; font-weight: 400;
   font-size: calc(11px * var(--reading-scale, 1)); color: var(--read-text-faint, rgba(230, 238, 245, 0.5));
+}
+.vsl-sub {
+  margin: 14px 0 4px; font-size: calc(11px * var(--reading-scale, 1)); font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.04em;
+  color: var(--read-accent, #7ec8e3);
+}
+.vsl-sub:first-of-type { margin-top: 0; }
+.vsl-cung-tag {
+  display: inline-block; margin-right: 7px; padding: 1px 8px; border-radius: 999px;
+  font-size: calc(10px * var(--reading-scale, 1)); font-weight: 600;
+  background: var(--read-accent-bg, rgba(126, 200, 227, 0.15));
+  color: var(--read-accent, #7ec8e3); vertical-align: middle;
 }
 .vsl-item {
   padding: 9px 0; border-top: 1px solid var(--read-border, rgba(230, 238, 245, 0.1));

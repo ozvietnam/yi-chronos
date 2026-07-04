@@ -49,11 +49,24 @@ def test_list_vong_sao_loai_chinh_tinh_va_co_nguon():
     # KHÔNG lẫn 14 chính tinh
     for s in d["stars"]:
         assert s["sao_vi"] not in CHINH_TINH
-        assert s["items"], "sao hiện ra phải có ≥1 trích"
-        for it in s["items"]:
+        all_items = s["items"] + s["cung_items"] + s["ket_hop_items"]
+        assert all_items, "sao hiện ra phải có ≥1 trích (ở bất kỳ lớp nào)"
+        for it in all_items:
             assert it["dich"] and it["nguon"]          # mỗi trích PHẢI có nguồn
+        for it in s["cung_items"]:
+            assert it["cung"], "trích lớp cung phải gắn tên cung"
     assert d["total"] == len(d["stars"])
     assert d["disclaimer"]
+
+
+def test_list_vong_sao_gom_ca_3_lop():
+    d = list_vong_sao()
+    if not d["stars"]:
+        return
+    has_cung = any(s["cung_items"] for s in d["stars"])
+    has_ket_hop = any(s["ket_hop_items"] for s in d["stars"])
+    assert has_cung, "phải có ít nhất 1 sao lộ nghĩa theo-cung (lớp 'cung')"
+    assert has_ket_hop, "phải có ít nhất 1 sao lộ nghĩa kết-hợp (lớp 'ket_hop')"
 
 
 def test_book_label_friendly():

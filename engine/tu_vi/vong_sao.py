@@ -66,44 +66,59 @@ def _words(s: str) -> set:
     return set(re.sub(r"[^\w\s]", " ", (s or "").lower()).split())
 
 
-def list_vong_sao(*, per_star: int = 4) -> dict:
-    """Roster phụ/vòng sao có nội dung ĐÃ DUYỆT. Mỗi sao ≤ per_star trích (dedup)."""
+def _dedup_add(bucket: list, seen: list, dich: str, quote: str, book: str, cap: int, *, cung: str | None = None) -> bool:
+    """Thêm 1 trích vào bucket nếu chưa TRÙNG nội dung (overlap>0.6) và chưa đầy cap."""
+    if len(bucket) >= cap:
+        return False
+    w = _words(dich)
+    if any(len(w & ws) / max(1, min(len(w), len(ws))) > 0.6 for ws in seen):
+        return False
+    seen.append(w)
+    item = {"dich": dich, "quote_goc": (quote or "").strip(), "nguon": _book_label(book)}
+    if cung is not None:
+        item["cung"] = cung
+    bucket.append(item)
+    return True
+
+
+def list_vong_sao(*, per_star: int = 4, per_star_cung: int = 16, per_star_ket_hop: int = 6) -> dict:
+    """Roster phụ/vòng sao có nội dung ĐÃ DUYỆT, gộp 3 lớp: def (định nghĩa chung),
+    cung (nghĩa theo TỪNG cung an — cột `cung`), ket_hop (nghĩa khi kết hợp sao khác).
+    Mỗi lớp dedup theo overlap nội dung (>0.6 coi là trùng) + cap riêng."""
     conn = _db()
     if conn is None:
         return {"stars": [], "total": 0, "disclaimer": _DISCLAIMER}
     try:
         rows = conn.execute(
-            """SELECT sao_vi, sao_zh, quote_goc, dich_thuan_viet, nguon_book
+            """SELECT sao_vi, sao_zh, lop, cung, quote_goc, dich_thuan_viet, nguon_book
                FROM sao_noi_dung
-               WHERE lop='def' AND founder_verified=1
-               ORDER BY sao_vi, length(dich_thuan_viet) DESC""",
+               WHERE lop IN ('def', 'cung', 'ket_hop') AND founder_verified=1
+               ORDER BY sao_vi, lop, length(dich_thuan_viet) DESC""",
         ).fetchall()
     except Exception:
         return {"stars": [], "total": 0, "disclaimer": _DISCLAIMER}
 
     by_sao: dict[str, dict] = {}
-    seen_words: dict[str, list[set]] = {}
-    for sao_vi, sao_zh, quote, dich, book in rows:
+    seen_words: dict[str, dict[str, list]] = {}
+    for sao_vi, sao_zh, lop, cung, quote, dich, book in rows:
         if sao_vi in CHINH_TINH:                 # chính tinh có panel riêng → bỏ khỏi vòng sao
             continue
         dich = (dich or "").strip()
         if not dich:
             continue
-        entry = by_sao.setdefault(sao_vi, {"sao_vi": sao_vi, "sao_zh": sao_zh or "", "items": []})
-        if len(entry["items"]) >= per_star:
-            continue
-        w = _words(dich)
-        # bỏ trích TRÙNG nội dung (overlap > 0.6) — giữ mỗi sao vài nét khác nhau.
-        if any(len(w & ws) / max(1, min(len(w), len(ws))) > 0.6 for ws in seen_words.get(sao_vi, [])):
-            continue
-        seen_words.setdefault(sao_vi, []).append(w)
-        entry["items"].append({
-            "dich": dich,
-            "quote_goc": (quote or "").strip(),
-            "nguon": _book_label(book),
+        entry = by_sao.setdefault(sao_vi, {
+            "sao_vi": sao_vi, "sao_zh": sao_zh or "",
+            "items": [], "cung_items": [], "ket_hop_items": [],
         })
+        seen = seen_words.setdefault(sao_vi, {"def": [], "cung": [], "ket_hop": []})
+        if lop == "def":
+            _dedup_add(entry["items"], seen["def"], dich, quote, book, per_star)
+        elif lop == "cung":
+            _dedup_add(entry["cung_items"], seen["cung"], dich, quote, book, per_star_cung, cung=cung)
+        elif lop == "ket_hop":
+            _dedup_add(entry["ket_hop_items"], seen["ket_hop"], dich, quote, book, per_star_ket_hop)
 
-    stars = [s for s in by_sao.values() if s["items"]]
+    stars = [s for s in by_sao.values() if s["items"] or s["cung_items"] or s["ket_hop_items"]]
     stars.sort(key=lambda s: s["sao_vi"])
     return {
         "stars": stars,
