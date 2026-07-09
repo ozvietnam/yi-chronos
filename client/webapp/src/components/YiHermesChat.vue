@@ -505,10 +505,23 @@ export default { methods: { renderMarkdown } };
 @media (max-width: 480px) {
   .hermes-overlay {
     width: calc(100vw - 16px);
-    bottom: 16px;
-    right: 8px;
+    bottom: calc(14px + env(safe-area-inset-bottom, 0px));
+    right: calc(8px + env(safe-area-inset-right, 0px));
+    max-height: calc(100vh - 24px - env(safe-area-inset-bottom, 0px));
   }
-  .hermes-fab { bottom: 16px; right: 16px; padding: 10px 14px; }
+  .hermes-panel {
+    max-height: min(78vh, calc(100vh - 80px - env(safe-area-inset-bottom, 0px)));
+  }
+  .hermes-fab {
+    bottom: calc(14px + env(safe-area-inset-bottom, 0px));
+    right: calc(14px + env(safe-area-inset-right, 0px));
+    padding: 12px 14px;
+    min-width: 48px;
+    min-height: 48px;
+  }
   .fab-text { display: none; }
+  .hermes-input-row {
+    padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+  }
 }
 </style>

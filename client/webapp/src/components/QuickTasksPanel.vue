@@ -449,4 +449,46 @@ function closeTask() {
 .m-bless h5 { color: #6ee7b7; margin: 0 0 0.3rem; font-size: 0.85rem; }
 .m-warn h5 { color: #fca5a5; margin: 0 0 0.3rem; font-size: 0.85rem; }
 .m-bless ul, .m-warn ul { margin: 0; padding-left: 1.2rem; font-size: 0.82rem; line-height: 1.6; }
+
+@media (max-width: 640px) {
+  .quick-tasks {
+    margin: 0.75rem 0 1rem;
+  }
+  .qt-header h3 {
+    font-size: 0.92rem;
+  }
+  .qt-hint {
+    font-size: 0.78rem;
+  }
+  .qt-card {
+    padding: 0.75rem 0.85rem;
+  }
+  .qt-body h4 {
+    font-size: 0.9rem;
+  }
+  .qt-body p {
+    font-size: 0.78rem;
+  }
+  .qt-modal {
+    padding: 0.75rem;
+    align-items: flex-end;
+  }
+  .qt-modal-content {
+    padding: 1rem 1.1rem;
+    max-height: 92vh;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .m-form {
+    grid-template-columns: 1fr;
+  }
+  .m-pillars {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+  }
+  .m-vs {
+    font-size: 1.2rem;
+    padding: 0.2rem 0;
+  }
+}
 </style>

@@ -23,16 +23,19 @@ function position() {
   if (!trg) return;
   const r = trg.getBoundingClientRect();
   const gap = 6, margin = 10;
+  const isMobile = window.innerWidth <= 560;
+  const menuWidth = isMobile ? Math.min(window.innerWidth - 16, 320) : 204;
   const spaceBelow = window.innerHeight - r.bottom - margin;
   const spaceAbove = r.top - margin;
-  const left = `${Math.max(8, Math.min(Math.round(r.left), window.innerWidth - 204))}px`;
-  // mặc định xổ XUỐNG; nếu dưới chật (<200px) mà trên rộng hơn thì LẬT LÊN.
-  // maxHeight = khoảng trống bên đó → menu dài (10 phái) tự cuộn trong, không tràn khuất mép màn.
+  const left = isMobile
+    ? `${Math.max(8, Math.round((window.innerWidth - menuWidth) / 2))}px`
+    : `${Math.max(8, Math.min(Math.round(r.left), window.innerWidth - menuWidth))}px`;
   const flipUp = spaceBelow < 200 && spaceAbove > spaceBelow;
   const space = Math.max(140, Math.round(flipUp ? spaceAbove : spaceBelow));
+  const width = `${menuWidth}px`;
   menuStyle.value = flipUp
-    ? { left, bottom: `${Math.round(window.innerHeight - r.top + gap)}px`, maxHeight: `${space}px` }
-    : { left, top: `${Math.round(r.bottom + gap)}px`, maxHeight: `${space}px` };
+    ? { left, bottom: `${Math.round(window.innerHeight - r.top + gap)}px`, maxHeight: `${space}px`, width }
+    : { left, top: `${Math.round(r.bottom + gap)}px`, maxHeight: `${space}px`, width };
 }
 
 async function toggle() {
@@ -179,5 +182,29 @@ onBeforeUnmount(() => {
   background: rgba(232, 201, 90, 0.16);
   color: var(--accent-gold);
   border-color: var(--border-accent);
+}
+
+@media (max-width: 560px) {
+  .nav-dd-trigger {
+    min-height: 44px;
+    padding: 8px 12px;
+    font-size: 12.5px;
+  }
+  .nav-dd-text {
+    max-width: 9.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .nav-dd-menu {
+    min-width: 0;
+    border-radius: 12px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .nav-dd-item {
+    min-height: 44px;
+    padding: 10px 12px;
+    white-space: normal;
+    line-height: 1.35;
+  }
 }
 </style>

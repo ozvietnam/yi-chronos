@@ -144,4 +144,22 @@ const THEME_OPTS = [
 .rc-theme.active { border-color: var(--accent-gold, #e8c95a); border-width: 1.5px; }
 .rc-theme-dot { width: 12px; height: 12px; border-radius: 50%; flex: none; box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.15); }
 .rc-theme-lbl { font-size: 13px; color: #fff; text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6); }
+
+@media (max-width: 560px) {
+  .rc-root {
+    left: calc(14px + env(safe-area-inset-left, 0px));
+    right: auto;
+    bottom: calc(14px + env(safe-area-inset-bottom, 0px));
+  }
+  .rc-fab {
+    width: 48px;
+    height: 48px;
+  }
+  .rc-panel {
+    left: 0;
+    right: auto;
+    width: min(260px, calc(100vw - 28px));
+    bottom: 56px;
+  }
+}
 </style>
