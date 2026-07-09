@@ -290,11 +290,11 @@ onMounted(loadList);
 .depth-warn { background: var(--read-cite-bg); color: var(--read-text-dim); padding: .35rem .55rem; border-left: 3px solid var(--read-cite-accent); font-size: calc(13px * var(--reading-scale)); border-radius: 0 6px 6px 0; }
 
 /* Markdown content — the actual hexagram reading text (16px base, generous leading) */
-.drawer-markdown { font-size: calc(16px * var(--reading-scale)); line-height: 1.78; color: var(--read-text); }
+.drawer-markdown { font-size: calc(16px * var(--reading-scale)); line-height: var(--reading-line-height, 1.78); color: var(--read-text); }
 .drawer-markdown :deep(h1) { font-size: calc(24px * var(--reading-scale)); color: var(--read-heading); margin: 1.2rem 0 .5rem; line-height: 1.3; }
 .drawer-markdown :deep(h2) { font-size: calc(20px * var(--reading-scale)); color: var(--read-heading); margin: 1.2rem 0 .5rem; border-bottom: 1px solid var(--read-border); padding-bottom: .2rem; line-height: 1.3; }
 .drawer-markdown :deep(h3) { font-size: calc(17.5px * var(--reading-scale)); color: var(--read-han); margin: 1rem 0 .4rem; }
-.drawer-markdown :deep(p) { font-size: calc(16px * var(--reading-scale)); line-height: 1.78; color: var(--read-text); margin: .5rem 0; }
+.drawer-markdown :deep(p) { font-size: calc(16px * var(--reading-scale)); line-height: var(--reading-line-height, 1.78); color: var(--read-text); margin: .5rem 0; }
 .drawer-markdown :deep(blockquote) {
   background: var(--read-cite-bg); border-left: 3px solid var(--read-cite-accent); padding: .6rem .9rem;
   margin: .7rem 0; font-style: italic; color: var(--read-text-dim); line-height: 1.7; border-radius: 0 6px 6px 0;
@@ -315,7 +315,39 @@ onMounted(loadList);
 
 /* Mobile */
 @media (max-width: 768px) {
-  .kdb-drawer { width: 100%; max-width: none; }
+  .kdb { padding: 0.75rem; border-radius: 10px; }
+  .kdb-drawer {
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+    z-index: 200;
+    border-left: 0;
+  }
+  .drawer-head {
+    padding: calc(0.55rem + env(safe-area-inset-top, 0px)) 0.85rem 0.55rem;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+  }
+  .drawer-body {
+    padding: 1rem 1rem calc(1.5rem + env(safe-area-inset-bottom, 0px));
+  }
+  .drawer-meta {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .drawer-markdown {
+    font-size: calc(17px * var(--reading-scale));
+  }
+  .drawer-markdown :deep(p) {
+    font-size: calc(17px * var(--reading-scale));
+    line-height: var(--reading-line-height, 1.92);
+    margin: 0.7rem 0;
+  }
+  .drawer-close {
+    min-height: 44px;
+    min-width: 44px;
+  }
   .kdb-grid { font-size: .7rem; }
   .cell-inner { padding: .15rem .05rem; }
   .cell-name { font-size: calc(10px * var(--reading-scale)); }

@@ -1204,7 +1204,22 @@ const relation = computed(() => {
   border-radius: 6px;
   border: 1px solid rgba(167,139,250,0.2);
 }
-.interp-block h3 { margin: 0 0 0.6rem; color: #c4b5fd; font-size: 0.95rem; }
+.interp-block h3 { margin: 0 0 0.6rem; color: #c4b5fd; font-size: calc(0.95rem * var(--reading-scale)); }
+@media (max-width: 560px) {
+  .interp-block {
+    padding: 0.75rem;
+    margin-top: 0.75rem;
+  }
+  .step {
+    padding: 0.65rem 0.75rem;
+  }
+  .step-body p {
+    font-size: calc(0.94rem * var(--reading-scale));
+  }
+  .overall-block p {
+    font-size: calc(0.95rem * var(--reading-scale));
+  }
+}
 .step {
   margin-bottom: 0.6rem;
   background: rgba(15,23,42,0.5);
@@ -1212,7 +1227,7 @@ const relation = computed(() => {
   padding: 0.5rem 0.7rem;
 }
 .step-head { font-size: 0.83rem; color: #fbbf24; margin-bottom: 0.3rem; }
-.step-body p { margin: 0.2rem 0; font-size: 0.85rem; color: #cbd5e1; }
+.step-body p { margin: 0.25rem 0; font-size: calc(0.88rem * var(--reading-scale)); color: #cbd5e1; line-height: var(--reading-line-height, 1.78); }
 .step-body .hint { color: #94a3b8; font-size: 0.78rem; font-style: italic; }
 .trace-mini {
   background: rgba(0,0,0,0.3);
@@ -1275,7 +1290,7 @@ const relation = computed(() => {
 
 .overall-block { margin-top: 0.6rem; padding: 0.7rem 0.85rem; border-radius: 5px; }
 .overall-block h4 { margin: 0 0 0.4rem; font-size: 0.9rem; color: #fef3c7; }
-.overall-block p { margin: 0; font-size: 0.86rem; line-height: 1.6; color: #cbd5e1; }
+.overall-block p { margin: 0; font-size: calc(0.9rem * var(--reading-scale)); line-height: var(--reading-line-height, 1.78); color: #cbd5e1; }
 
 /* Hexagram grid */
 .hex-grid {

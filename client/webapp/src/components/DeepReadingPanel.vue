@@ -146,9 +146,9 @@ onUnmounted(stopTimers);
         {{ result.reason || result.status }}
       </p>
       <template v-else>
-        <section v-for="(s, i) in sections" :key="i" class="dr-sec">
+        <section v-for="(s, i) in sections" :key="i" class="dr-sec reading-surface">
           <h3>{{ s.label }}</h3>
-          <div class="dr-sec-body">{{ s.text }}</div>
+          <div class="dr-sec-body reading-prose">{{ s.text }}</div>
         </section>
         <p v-if="!sections.length" class="dr-note">Đã luận xong (lá #{{ result.casting_id }}) nhưng nội dung trống — thử lại sau.</p>
         <p v-if="result.paradigm_note" class="dr-paradigm">{{ result.paradigm_note }}</p>
@@ -175,7 +175,15 @@ onUnmounted(stopTimers);
 .dr-sec { border: 1px solid var(--read-border, #ddd); border-left: 3px solid #b45309;
   border-radius: 0 8px 8px 0; padding: .7rem 1rem; margin-bottom: .7rem; background: var(--read-bg, transparent); }
 .dr-sec h3 { margin: 0 0 .45rem; font-size: 1.05rem; }
-.dr-sec-body { white-space: pre-wrap; line-height: 1.75; font-size: 1rem; }
-.dr-paradigm { margin-top: .8rem; font-size: .82rem; font-style: italic; color: var(--read-muted, #999);
-  line-height: 1.6; border-top: 1px solid var(--read-border, #eee); padding-top: .6rem; }
+.dr-sec-body { white-space: pre-wrap; line-height: var(--reading-line-height, 1.78); font-size: calc(1rem * var(--reading-scale)); }
+.dr-paradigm { margin-top: .8rem; font-size: calc(0.82rem * var(--reading-scale)); font-style: italic; color: var(--read-muted, #999);
+  line-height: var(--reading-line-height, 1.78); border-top: 1px solid var(--read-border, #eee); padding-top: .6rem; }
+
+@media (max-width: 560px) {
+  .deep-reading { padding-inline: 2px; }
+  .dr-run { width: 100%; min-height: 48px; }
+  .dr-sec { padding: 0.85rem 0.9rem; }
+  .dr-sec h3 { font-size: calc(1.02rem * var(--reading-scale)); }
+  .dr-sec-body { font-size: calc(17px * var(--reading-scale)); }
+}
 </style>

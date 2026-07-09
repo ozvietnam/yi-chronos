@@ -34,6 +34,7 @@
      reading. The cosmic app SHELL keeps its own --bg/--text tokens above; only
      READING panes (.reading-surface) consume the --read-* tokens. */
   --reading-scale: 1;
+  --reading-line-height: 1.92;
   --read-bg: #1d1813;
   --read-bg-soft: #241d16;
   --read-surface: #221b14;
@@ -94,7 +95,11 @@
   background: var(--read-bg);
   color: var(--read-text);
   font-size: calc(16px * var(--reading-scale));
-  line-height: 1.78;
+  line-height: var(--reading-line-height, 1.78);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 .reading-surface h1 { font-size: calc(26px * var(--reading-scale)); }
 .reading-surface h2 { font-size: calc(22px * var(--reading-scale)); }
@@ -104,18 +109,62 @@
 .reading-surface h3,
 .reading-surface h4 {
   color: var(--read-heading);
-  line-height: 1.3;
+  line-height: 1.35;
 }
 .reading-surface p,
 .reading-surface li {
   font-size: calc(16px * var(--reading-scale));
-  line-height: 1.78;
+  line-height: var(--reading-line-height, 1.78);
+  margin: 0.65em 0;
 }
+.reading-surface p:first-child { margin-top: 0; }
+.reading-surface p:last-child { margin-bottom: 0; }
 .reading-surface a { color: var(--read-link); }
 .reading-surface .han,
 .reading-surface .zh { color: var(--read-han); }
 /* Comfortable measure (line length) for prose blocks opting in */
-.reading-prose { max-width: 70ch; }
+.reading-prose {
+  max-width: 70ch;
+  margin-inline: auto;
+  padding-inline: clamp(0px, 2vw, 12px);
+}
+/* Scrollable reading pane — momentum scroll on iOS */
+.reading-pane {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  scroll-padding-top: 12px;
+  scroll-padding-bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+}
+
+/* Reading focus — giảm chrome khi đọc dài */
+html[data-reading-focus] .quick-tasks,
+html[data-reading-focus] .url-birth-banner {
+  display: none;
+}
+html[data-reading-focus] .topbar-clocks .clock-chip.secondary {
+  display: none;
+}
+html[data-reading-focus] .topbar-v2 {
+  padding-block: 8px;
+}
+html[data-reading-focus] .main-tabs {
+  opacity: 0.92;
+}
+
+@media (max-width: 560px) {
+  .reading-surface {
+    font-size: calc(17px * var(--reading-scale));
+  }
+  .reading-surface p,
+  .reading-surface li {
+    font-size: calc(17px * var(--reading-scale));
+  }
+  .reading-prose {
+    max-width: none;
+    padding-inline: 2px;
+  }
+}
 
 /* ─── Unified citation (📚 Nguồn) + study note (💡 Ghi chú) ──────────────── */
 .ref-cite,
