@@ -749,6 +749,72 @@ def sync_deep_cung(req: DeepCungRequest,
     return {"interpretation": r["interpretation"], "xu_balance": r["xu_balance"], "cached": r["cached"]}
 
 
+# ─── Vận hạn Tử Vi (Đại Vận / Lưu Niên / Lưu Nguyệt / Tuần) cho AppChat ──────
+
+class VanHanSyncRequest(BaseModel):
+    """Cầu AppChat cho engine van_han (P1 2026-07-14). Thiếu year/month/tuan →
+    tự lấy kỳ HIỆN TẠI giờ VN — AppChat hỏi 'nguyệt vận bây giờ' không cần tự tính."""
+    firebase_uid: str
+    person_key: str = "self"
+    tang: str = "luu_nguyet"            # dai_van | luu_nien | luu_nguyet | tuan
+    cycle_index: Optional[int] = None   # dai_van (1..12) — bắt buộc cho tầng này
+    year: Optional[int] = None          # luu_nien | luu_nguyet | tuan
+    month: Optional[int] = None         # luu_nguyet | tuan
+    tuan: Optional[int] = None          # tuan: 1 thượng · 2 trung · 3 hạ
+    want_llm: bool = False              # mặc định block tất định (nhanh/free); LLM = opt-in
+
+
+@router.post("/tu-vi/van-han")
+def sync_tu_vi_van_han(req: VanHanSyncRequest,
+                       x_api_key: Optional[str] = Header(None, alias="X-API-Key")) -> dict:
+    """Vận hạn GROUNDED 1 tầng cho AppChat — mirror POST /api/tu-vi/van-han (web).
+
+    Trả block tất định (Thể-Dụng + Tứ Hóa rọi cung + sao founder_verified, quote-or-
+    silence) + narrative LLM biên-tập-từ-nguồn khi want_llm=True (per-user 30/h như
+    web). Đọc đồng dạng, KHÔNG predict. Phục vụ lá số AppChat + nhắc Lưu Niên
+    (prvchat#46 C2: 'cung nào được kích hoạt kỳ này')."""
+    _require_service_key(x_api_key)
+    _ensure_schema()
+    from engine.hermes_service import _person_of
+    with session_scope(service=True) as conn:
+        user_id = _user_id_for_uid(conn, req.firebase_uid)
+    if user_id is None:
+        raise HTTPException(status.HTTP_404_NOT_FOUND, "not_synced")
+    person = _person_of(user_id, req.person_key)
+    if not person or not person.get("birth_datetime_local"):
+        raise HTTPException(status.HTTP_422_UNPROCESSABLE_ENTITY, "missing_birth")
+
+    from datetime import datetime
+    from zoneinfo import ZoneInfo
+    now = datetime.now(ZoneInfo("Asia/Ho_Chi_Minh"))
+    kw: dict = {}
+    if req.tang == "dai_van":
+        if req.cycle_index is None:
+            raise HTTPException(status.HTTP_400_BAD_REQUEST, "dai_van cần cycle_index (1..12)")
+        kw["cycle_index"] = req.cycle_index
+    elif req.tang in ("luu_nien", "luu_nguyet", "tuan"):
+        kw["year"] = req.year if req.year is not None else now.year
+        if req.tang in ("luu_nguyet", "tuan"):
+            kw["month"] = req.month if req.month is not None else now.month
+        if req.tang == "tuan":
+            kw["tuan"] = req.tuan if req.tuan is not None else (
+                1 if now.day <= 10 else (2 if now.day <= 20 else 3))
+    else:
+        raise HTTPException(status.HTTP_400_BAD_REQUEST, f"tang không hợp lệ: {req.tang}")
+
+    if req.want_llm:                      # parity web: tuvi_llm 30/h, nhưng theo TỪNG user
+        from engine import ratelimit
+        if not ratelimit.allow(f"tuvi_llm_sync:{user_id}", 30, 3600):
+            raise HTTPException(status.HTTP_429_TOO_MANY_REQUESTS, "tuvi_llm rate limit")
+
+    from engine.tu_vi import van_han as vh
+    try:
+        out = vh.van_han_luan(person, req.tang, want_llm=req.want_llm, **kw)
+    except (ValueError, KeyError) as e:
+        raise HTTPException(status.HTTP_400_BAD_REQUEST, str(e)[:120])
+    return out
+
+
 # ─── H6.0: Trả lời nhanh 1-sage (async qua q_hermes) ────────────────────────
 
 class HermesQuickRequest(BaseModel):
