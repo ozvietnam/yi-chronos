@@ -20,6 +20,7 @@ import PhuThaiViModal from "./PhuThaiViModal.vue";
 import CachCucPanel from "./CachCucPanel.vue";
 import DaiVanPanel from "./DaiVanPanel.vue";
 import LuuNienPanel from "./LuuNienPanel.vue";
+import VanHanPanel from "./VanHanPanel.vue";
 import TuViVsCDKCompare from "./TuViVsCDKCompare.vue";
 import TuViPersonSwitcher from "./TuViPersonSwitcher.vue";
 import TuVi3LayerPanel from "./TuVi3LayerPanel.vue";
@@ -63,6 +64,7 @@ const showCachCuc = ref(false);    // Cách cục đọc sâu modal
 const showDaiVan = ref(false);     // 12 Đại Vận modal
 const showCompare = ref(false);    // So sánh TVĐS vs CDK modal
 const showLuuNien = ref(false);    // Lưu Niên 2026-2030 modal
+const showVanHan = ref(false);     // Vận hạn grounded tháng/tuần modal
 const show3Layer = ref(false);     // ⭐ Luận giải 3-Layer × 4 hệ phái (9671 atoms)
 const oracleCards = ref([]);
 const selectedOracleCard = ref(null);
@@ -922,6 +924,11 @@ const grid = computed(() => {
                 title="Vận năm 2026-2030 chi tiết (Đại Vận + Tiểu Hạn kết hợp)">
           📅 Lưu Niên 5 năm
         </button>
+        <button class="luu-nien-btn" type="button" @click="showVanHan = true"
+                title="Vận hạn theo tháng/tuần — đọc Thể-Dụng + Tứ Hóa rọi cung, luận CÓ NGUỒN"
+                style="background: linear-gradient(135deg, rgba(126,200,227,0.16), rgba(90,176,122,0.16));">
+          🗓️ Vận hạn tháng/tuần
+        </button>
         <button class="dai-van-btn" type="button" @click="showCompare = true"
                 title="So sánh chéo Bắc Phái TVĐS vs Chiếu Đởm Kinh — 2 paradigm song hành"
                 style="background: linear-gradient(135deg, rgba(252,211,77,0.16), rgba(196,181,253,0.16));">
@@ -1773,6 +1780,16 @@ const grid = computed(() => {
         <div class="cc-modal">
           <button class="cc-modal-close" @click="showLuuNien = false">✕</button>
           <LuuNienPanel />
+        </div>
+      </div>
+    </Teleport>
+
+    <!-- Vận hạn grounded (tháng/tuần) modal -->
+    <Teleport to="body">
+      <div v-if="showVanHan" class="cc-modal-backdrop" @click.self="showVanHan = false">
+        <div class="cc-modal">
+          <button class="cc-modal-close" @click="showVanHan = false">✕</button>
+          <VanHanPanel />
         </div>
       </div>
     </Teleport>
