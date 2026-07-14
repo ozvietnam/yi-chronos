@@ -51,15 +51,18 @@ def _stars_per_cung(la_so: dict) -> dict:
 
 
 def _pull(cur, sao: str, lop: str, cung: Optional[str] = None) -> list[dict]:
+    # CHỈ nội dung ĐÃ DUYỆT ĐỐI KHÁNG (founder_verified=1): quote có trong sách + dịch
+    # không bịa (pipeline verify_sao_noi_dung.py). Chặn 84 dòng fabricated (fv=-1) +
+    # dòng treo (fv=0) khỏi route trả phí — quote-or-silence, thiếu → gaps/hoàn xu.
     if lop == "def":
         rows = cur.execute(
             "SELECT dich_thuan_viet, quote_goc, nguon_book, nguon_loc "
-            "FROM sao_noi_dung WHERE sao_vi=? AND lop='def' "
+            "FROM sao_noi_dung WHERE sao_vi=? AND lop='def' AND founder_verified=1 "
             "AND dich_thuan_viet IS NOT NULL AND dich_thuan_viet!='' LIMIT 2", (sao,)).fetchall()
     else:
         rows = cur.execute(
             "SELECT dich_thuan_viet, quote_goc, nguon_book, nguon_loc "
-            "FROM sao_noi_dung WHERE sao_vi=? AND lop='cung' AND cung=? "
+            "FROM sao_noi_dung WHERE sao_vi=? AND lop='cung' AND cung=? AND founder_verified=1 "
             "AND dich_thuan_viet IS NOT NULL AND dich_thuan_viet!='' LIMIT 2", (sao, cung)).fetchall()
     return [{"dich": r[0], "quote_goc": r[1], "nguon_book": r[2], "nguon_loc": r[3]} for r in rows]
 
