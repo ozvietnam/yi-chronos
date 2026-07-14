@@ -132,9 +132,11 @@ def build_expert_context(question: str, agent_id: str, *, limit: int = 4) -> str
             return ""
         corpus = _CORPUS_BY_AGENT.get(agent_id)
         fetch = limit * 3   # lấy dư để sau dedup vẫn đủ
-        atoms = r.search_atom_fts(question, limit=fetch, school=corpus) if corpus else []
+        # P6 (issue #61): hybrid FTS+vector KNN + lan-cạnh thay FTS thuần.
+        # Tự rớt về FTS nếu LM Studio embed không sẵn (prod) → an toàn.
+        atoms = r.search_atom_hybrid(question, limit=fetch, school=corpus) if corpus else []
         if not atoms:
-            atoms = r.search_atom_fts(question, limit=fetch)   # fallback: không lọc phái
+            atoms = r.search_atom_hybrid(question, limit=fetch)   # fallback: không lọc phái
 
         # Pass 2 (quota): top-limit hiện tại có mấy atom mang luận sâu?
         n_comm_top = sum(1 for a in atoms[:limit] if getattr(a, "commentary", None))
