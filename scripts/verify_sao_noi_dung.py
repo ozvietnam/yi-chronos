@@ -43,6 +43,8 @@ LM_MODEL = "qwen3-30b-a3b-instruct-2507-mlx"
 PROV_THRESH = 0.85          # shingle-coverage tối thiểu coi là "quote có trong sách"
 PROV_ABSENT = 0.15          # nguồn ĐỦ DÀY mà dưới mức này = quote gần như VẮNG → loại
 MIN_SOURCE = 20000          # ký tự tối thiểu để coi nguồn "đủ dày để kết luận vắng/có"
+RECOVER_PROV = 0.30         # --recover: quote khớp MỘT PHẦN (paraphrase có cấu trúc, chứa
+                            # '...'/'|' làm vỡ verbatim NHƯNG nội dung có trong sách) → grounded-đủ
 RESTORED_DIR = Path("data/restored_books")
 
 _VN = ("àáảãạăắằẳẵặâấầẩẫậèéẻẽẹêếềểễệìíỉĩịòóỏõọôốồổỗộơớờởỡợùúủũụưứừửữựỳýỷỹỵđ")
@@ -161,6 +163,9 @@ def main() -> int:
     ap.add_argument("--commit", action="store_true")
     ap.add_argument("--no-llm", action="store_true", help="chỉ chạy lớp provenance")
     ap.add_argument("--cache", default="", help="đường dẫn json cache verdict LLM (tái dùng qua lần chạy)")
+    ap.add_argument("--recover", action="store_true",
+                    help="CỨU dòng TREO (fv=0): hạ ngưỡng provenance→0.30 (nhận paraphrase grounded), "
+                         "vẫn qua LLM judge. CHỈ nâng 0→1, KHÔNG đụng ±1 sẵn có.")
     args = ap.parse_args()
 
     import hashlib
@@ -178,12 +183,18 @@ def main() -> int:
 
     db = sqlite3.connect(DB)
     db.row_factory = sqlite3.Row
-    where = "" if args.lop == "all" else "WHERE lop=?"
-    params = () if args.lop == "all" else (args.lop,)
+    if args.recover:
+        # CỨU: chỉ dòng TREO (fv=0), mọi lớp.
+        where, params = "WHERE founder_verified=0", ()
+    elif args.lop == "all":
+        where, params = "", ()
+    else:
+        where, params = "WHERE lop=?", (args.lop,)
     q = f"SELECT id, sao_vi, lop, quote_goc, dich_thuan_viet, nguon_book FROM sao_noi_dung {where} ORDER BY id"
     rows = db.execute(q, params).fetchall()
     if args.limit:
         rows = rows[:args.limit]
+    llm_gate = RECOVER_PROV if args.recover else PROV_THRESH
 
     counts = {"approve": 0, "reject": 0, "hold": 0}
     reject_log, approve_by_sao = [], {}
@@ -191,8 +202,8 @@ def main() -> int:
     for i, r in enumerate(rows):
         prov, src, slen = provenance(r["quote_goc"], r["nguon_book"])
         verdict, reason = ("skip", "no-llm")
-        # LLM chỉ chạy khi provenance đủ mạnh để có thể DUYỆT (tiết kiệm) + có bản dịch
-        if not args.no_llm and prov >= PROV_THRESH and (r["dich_thuan_viet"] or "").strip():
+        # LLM chỉ chạy khi provenance đủ ngưỡng (tiết kiệm) + có bản dịch
+        if not args.no_llm and prov >= llm_gate and (r["dich_thuan_viet"] or "").strip():
             ck = _ckey(r["id"], r["quote_goc"], r["dich_thuan_viet"])
             if ck in cache:
                 verdict, reason = cache[ck]["verdict"], cache[ck]["reason"]
@@ -206,7 +217,11 @@ def main() -> int:
             eff = "drift"                           # không kiểm được dịch → treo (nếu prov không loại)
         else:
             eff = verdict
-        fv = decide(prov, slen, eff)
+        if args.recover:
+            # CỨU: nội dung có-mặt (prov>=0.30) + dịch không bịa → nâng 0→1; còn lại GIỮ treo.
+            fv = 1 if (prov >= RECOVER_PROV and eff in ("faithful", "drift")) else 0
+        else:
+            fv = decide(prov, slen, eff)
         if fv == 1:
             counts["approve"] += 1
             approve_by_sao[r["sao_vi"]] = approve_by_sao.get(r["sao_vi"], 0) + 1

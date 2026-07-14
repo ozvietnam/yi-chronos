@@ -42,13 +42,13 @@ def main() -> int:
         atoms.setdefault(r["source_quote"] or "", []).append(
             (r["atom_id"], (r["question_text"] or "").lower()))
 
-    # sao_noi_dung rows CẦN đổi (fv != 1 — bịa hoặc treo)
+    # MIRROR toàn bộ: atom.fv = sao_noi_dung.fv của dòng nguồn (idempotent — dòng đã
+    # khớp sẵn thì UPDATE no-op). Xử tất cả để cứu-rồi (0→1) cũng đồng bộ xuống atom.
     rows = db.execute(
-        "SELECT quote_goc, dich_thuan_viet, founder_verified FROM sao_noi_dung "
-        "WHERE founder_verified != 1").fetchall()
+        "SELECT quote_goc, dich_thuan_viet, founder_verified FROM sao_noi_dung").fetchall()
 
     updates: list[tuple] = []
-    stats = {"matched": 0, "ambiguous": 0, "no_atom": 0, "to_-1": 0, "to_0": 0}
+    stats = {"matched": 0, "ambiguous": 0, "no_atom": 0, "to_-1": 0, "to_0": 0, "to_1": 0}
     for r in rows:
         cands = atoms.get(r["quote_goc"] or "", [])
         if not cands:
@@ -65,12 +65,12 @@ def main() -> int:
                 stats["ambiguous"] += 1
                 continue
         updates.append((r["founder_verified"], hits[0]))
+        stats[{1: "to_1", 0: "to_0", -1: "to_-1"}[r["founder_verified"]]] += 1
         stats["matched"] += 1
-        stats["to_-1" if r["founder_verified"] == -1 else "to_0"] += 1
 
-    print("=== TRUYỀN verdict sao_noi_dung → atom RAG ===")
-    print(f"  rows cần đổi (fv!=1): {len(rows)}")
-    print(f"  khớp atom duy nhất:   {stats['matched']}  (→ -1: {stats['to_-1']} bịa · → 0: {stats['to_0']} treo)")
+    print("=== MIRROR verdict sao_noi_dung → atom RAG ===")
+    print(f"  sao_noi_dung rows: {len(rows)}")
+    print(f"  khớp atom duy nhất: {stats['matched']}  (→1: {stats['to_1']} · →0: {stats['to_0']} · →-1: {stats['to_-1']})")
     print(f"  nhập nhằng (bỏ qua):  {stats['ambiguous']}")
     print(f"  không thấy atom:      {stats['no_atom']}")
 
