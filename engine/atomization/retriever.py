@@ -172,56 +172,77 @@ class ChunkAtomRetriever:
         finally:
             conn.close()
 
-        results = []
-        for r in rows:
+        # bm25 âm → flip dương (score cao = liên quan hơn)
+        return [self._map_row(r, query, -float(r["score"])) for r in rows]
+
+    # Cột + join DÙNG CHUNG cho FTS / vector KNN / lan-cạnh → cùng shape _map_row.
+    _ATOM_COLS = """
+        aq.atom_id, aq.question_text, aq.chunk_id,
+        aq.subject_identifiers, aq.from_category, aq.source_quote,
+        aq.confidence, aq.founder_verified,
+        c.text AS chunk_text, c.book_corpus_id, c.page_start, c.page_end,
+        cc.is_chu_the, cc.is_cong_thuc, cc.is_luan_giai,
+        cc.is_to_hop, cc.is_kinh_nghiem, cc.format_style,
+        ac.han_viet_explain, ac.viet_thuan, ac.nguyen_ly,
+        ac.vi_du_doi_song, ac.cross_school_notes, ac.iron_rule_warning
+    """
+    _ATOM_JOINS = """
+        FROM atomic_questions aq
+        JOIN chunks_v2 c ON c.chunk_id = aq.chunk_id
+        LEFT JOIN chunk_classifications cc ON cc.cc_id = aq.cc_id
+        LEFT JOIN atom_commentaries ac
+               ON ac.atom_id = aq.atom_id AND ac.founder_verified >= 0
+    """
+
+    @staticmethod
+    def _map_row(r, query: str, score: float) -> AtomRetrievalInfo:
+        """Row (đủ _ATOM_COLS) → AtomRetrievalInfo. Dùng cho MỌI đường truy xuất."""
+        try:
+            ids = json.loads(r["subject_identifiers"] or "{}")
+        except (json.JSONDecodeError, TypeError):
+            ids = {}
+        archetype = {
+            "is_chu_the": r["is_chu_the"] or 0,
+            "is_cong_thuc": r["is_cong_thuc"] or 0,
+            "is_luan_giai": r["is_luan_giai"] or 0,
+            "is_to_hop": r["is_to_hop"] or 0,
+            "is_kinh_nghiem": r["is_kinh_nghiem"] or 0,
+        }
+        # GAP-1: gom luận giải sâu (chỉ field có nội dung thật).
+        comm: dict[str, Any] = {}
+        for fld in ("han_viet_explain", "viet_thuan", "nguyen_ly",
+                    "vi_du_doi_song", "iron_rule_warning"):
+            val = (r[fld] or "").strip() if r[fld] else ""
+            if val:
+                comm[fld] = val
+        csn_raw = (r["cross_school_notes"] or "").strip() if r["cross_school_notes"] else ""
+        if csn_raw:
             try:
-                ids = json.loads(r["subject_identifiers"] or "{}")
-            except json.JSONDecodeError:
-                ids = {}
-            archetype = {
-                "is_chu_the": r["is_chu_the"] or 0,
-                "is_cong_thuc": r["is_cong_thuc"] or 0,
-                "is_luan_giai": r["is_luan_giai"] or 0,
-                "is_to_hop": r["is_to_hop"] or 0,
-                "is_kinh_nghiem": r["is_kinh_nghiem"] or 0,
-            }
-            # GAP-1: gom luận giải sâu. Chỉ giữ field có nội dung thật (không rỗng).
-            # cross_school_notes là JSON → parse về list; lỗi parse thì giữ raw text.
-            comm: dict[str, Any] = {}
-            for fld in ("han_viet_explain", "viet_thuan", "nguyen_ly",
-                        "vi_du_doi_song", "iron_rule_warning"):
-                val = (r[fld] or "").strip() if r[fld] else ""
-                if val:
-                    comm[fld] = val
-            csn_raw = (r["cross_school_notes"] or "").strip() if r["cross_school_notes"] else ""
-            if csn_raw:
-                try:
-                    parsed = json.loads(csn_raw)
-                    comm["cross_school_notes"] = parsed if parsed else None
-                except (json.JSONDecodeError, TypeError):
-                    comm["cross_school_notes"] = csn_raw
-                if not comm.get("cross_school_notes"):
-                    comm.pop("cross_school_notes", None)
-            results.append(AtomRetrievalInfo(
-                atom_id=r["atom_id"],
-                atom_query=query,
-                atom_question=r["question_text"],
-                chunk_id=r["chunk_id"],
-                chunk_text=r["chunk_text"],
-                source_book=r["book_corpus_id"],
-                page_start=r["page_start"],
-                page_end=r["page_end"],
-                retrieval_score=-float(r["score"]),  # bm25 negative, flip
-                subject_identifiers=ids,
-                from_category=r["from_category"],
-                source_quote=r["source_quote"],
-                confidence=r["confidence"] or 0.85,
-                founder_verified=r["founder_verified"] or 0,
-                archetype=archetype,
-                format_style=r["format_style"],
-                commentary=comm or None,
-            ))
-        return results
+                parsed = json.loads(csn_raw)
+                comm["cross_school_notes"] = parsed if parsed else None
+            except (json.JSONDecodeError, TypeError):
+                comm["cross_school_notes"] = csn_raw
+            if not comm.get("cross_school_notes"):
+                comm.pop("cross_school_notes", None)
+        return AtomRetrievalInfo(
+            atom_id=r["atom_id"],
+            atom_query=query,
+            atom_question=r["question_text"],
+            chunk_id=r["chunk_id"],
+            chunk_text=r["chunk_text"],
+            source_book=r["book_corpus_id"],
+            page_start=r["page_start"],
+            page_end=r["page_end"],
+            retrieval_score=score,
+            subject_identifiers=ids,
+            from_category=r["from_category"],
+            source_quote=r["source_quote"],
+            confidence=r["confidence"] or 0.85,
+            founder_verified=r["founder_verified"] or 0,
+            archetype=archetype,
+            format_style=r["format_style"],
+            commentary=comm or None,
+        )
 
     def search_chunk_fts(
         self,
@@ -279,6 +300,139 @@ class ChunkAtomRetriever:
             return '""'
         # OR-join → match any
         return " OR ".join(quoted)
+
+    # ─────────────────────────────────────────────────────────────
+    # P6 (issue #61): Vector KNN + Hybrid RRF + lan-cạnh (atom_relations)
+    # Biến 66k vector + 107k cạnh nằm chết thành giá trị truy xuất cho Council.
+    # ─────────────────────────────────────────────────────────────
+    # Cạnh MẠNH có ngữ nghĩa — BỎ 'nói-về' (92.677 = 87% nhiễu chủ-đề-lỏng, issue #61).
+    _STRONG_RELS = (
+        "làm-rõ-sao", "thuộc-về", "làm-rõ", "giải-thích-bằng", "là-loại-của",
+        "cho-ví-dụ", "là-mảnh-của", "đồng-nghĩa-phái-khác", "dẫn-chứng", "mở-rộng",
+    )
+
+    def _embed_query(self, query: str):
+        """Embed query bge-m3 1024. None nếu embedder/LM Studio không sẵn (prod) → caller rớt FTS."""
+        if self.embedder is not None:
+            try:
+                return self.embedder(query)
+            except Exception:
+                return None
+        try:
+            from engine.yi_wiki.embeddings import embed_one
+            return embed_one(query)
+        except Exception:
+            return None
+
+    def _fetch_by_ids(self, atom_ids, query, scores=None, school=None):
+        """Lấy đầy đủ info cho list atom_id (GIỮ thứ tự input — KNN/relation đã rank)."""
+        ids = [i for i in atom_ids if i and i > 0]
+        if not ids:
+            return []
+        ph = ",".join("?" * len(ids))
+        sql = f"SELECT {self._ATOM_COLS} {self._ATOM_JOINS} WHERE aq.atom_id IN ({ph}) AND aq.founder_verified >= 0"
+        params: list[Any] = list(ids)
+        if school:
+            sql += " AND c.book_corpus_id LIKE ?"
+            params.append(school)
+        conn = _open_db(self.db_path)
+        try:
+            rows = conn.execute(sql, params).fetchall()
+        except sqlite3.OperationalError as e:
+            print(f"  ⚠ fetch_by_ids error: {e}")
+            return []
+        finally:
+            conn.close()
+        by_id = {r["atom_id"]: r for r in rows}
+        scores = scores or {}
+        out = []
+        for aid in ids:
+            r = by_id.get(aid)
+            if r is not None:
+                out.append(self._map_row(r, query, scores.get(aid, 0.0)))
+        return out
+
+    def search_atom_vec(self, query, limit=None, school=None):
+        """KNN ngữ nghĩa trên atom_vec (bge-m3 1024). [] nếu embed không sẵn (→ hybrid rớt FTS)."""
+        vec = self._embed_query(query)
+        if not vec:
+            return []
+        k = limit or self.atom_retrieve_k
+        conn = _open_db(self.db_path)
+        try:
+            import sqlite_vec
+            qv = sqlite_vec.serialize_float32(vec)
+            rows = conn.execute(
+                "SELECT atom_id, distance FROM atom_vec WHERE embedding MATCH ? AND k = ? ORDER BY distance",
+                (qv, k * 4),  # lấy dư để lọc phái/founder sau
+            ).fetchall()
+        except Exception as e:
+            print(f"  ⚠ vec KNN error: {str(e)[:80]}")
+            return []
+        finally:
+            conn.close()
+        scores = {r["atom_id"]: 1.0 / (1.0 + float(r["distance"])) for r in rows}  # gần→điểm cao
+        infos = self._fetch_by_ids([r["atom_id"] for r in rows], query, scores, school=school)
+        return infos[:k]
+
+    def expand_via_relations(self, seed_atom_ids, query, limit=4, school=None):
+        """Lan 1 bước theo cạnh MẠNH (2 chiều) từ seed atoms → atoms liên đới có ngữ nghĩa."""
+        seeds = [i for i in seed_atom_ids if i and i > 0][:12]
+        if not seeds:
+            return []
+        sph = ",".join("?" * len(seeds))
+        rph = ",".join("?" * len(self._STRONG_RELS))
+        sql = (
+            f"SELECT to_atom_id AS nb FROM atom_relations "
+            f"WHERE from_atom_id IN ({sph}) AND relation_type IN ({rph}) "
+            f"UNION SELECT from_atom_id AS nb FROM atom_relations "
+            f"WHERE to_atom_id IN ({sph}) AND relation_type IN ({rph})"
+        )
+        conn = _open_db(self.db_path)
+        try:
+            rows = conn.execute(
+                sql, seeds + list(self._STRONG_RELS) + seeds + list(self._STRONG_RELS)
+            ).fetchall()
+        except sqlite3.OperationalError as e:
+            print(f"  ⚠ expand error: {e}")
+            return []
+        finally:
+            conn.close()
+        seed_set = set(seeds)
+        nb_ids = [r["nb"] for r in rows if r["nb"] and r["nb"] not in seed_set][: limit * 3]
+        return self._fetch_by_ids(nb_ids, query, school=school)[:limit]
+
+    def search_atom_hybrid(self, query, limit=None, school=None, expand=True):
+        """FTS + vector KNN hợp nhất (RRF) + lan-cạnh. RỚT về FTS nếu vector không sẵn (prod)."""
+        k = limit or self.atom_retrieve_k
+        fts = self.search_atom_fts(query, limit=k * 2, school=school)
+        vec = self.search_atom_vec(query, limit=k * 2, school=school)
+        if not vec:
+            return fts[:k]  # graceful degrade: không LM Studio → FTS thuần (prod)
+        # Reciprocal Rank Fusion: score = Σ 1/(C+rank) qua 2 danh sách (C=60 chuẩn)
+        C = 60
+        rrf: dict[int, float] = {}
+        info_by_id: dict[int, AtomRetrievalInfo] = {}
+        for lst in (fts, vec):
+            for rank, a in enumerate(lst):
+                if a.atom_id <= 0:
+                    continue
+                rrf[a.atom_id] = rrf.get(a.atom_id, 0.0) + 1.0 / (C + rank)
+                info_by_id.setdefault(a.atom_id, a)
+        ranked = sorted(rrf, key=lambda i: rrf[i], reverse=True)
+        fused = []
+        for i in ranked:
+            a = info_by_id[i]
+            a.retrieval_score = rrf[i]
+            fused.append(a)
+        top = fused[:k]
+        if expand and top:
+            have = {a.atom_id for a in top}
+            extra = [a for a in self.expand_via_relations(
+                        [a.atom_id for a in top[:6]], query, limit=max(2, k // 4), school=school)
+                     if a.atom_id not in have]
+            top = top + extra
+        return top
 
     # ─────────────────────────────────────────────────────────────
     # Combined retrieval (3-level fallback PIKE-RAG)
