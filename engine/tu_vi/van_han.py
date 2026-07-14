@@ -259,3 +259,106 @@ def tuan_block(la_so: dict, year: int, month: int, tuan: int) -> dict:
                         "mỏng, nên đây là DẪN XUẤT (cung động + Tứ Hóa tháng + sao đã "
                         "duyệt), KHÔNG phán ngày/việc cụ thể."),
     }
+
+
+# ── Dựng block cho 1 tầng bất kỳ (dispatch) ───────────────────────────────────
+def build_block(la_so: dict, tang: str, **kw) -> dict:
+    """Dispatch: tang ∈ {dai_van, luu_nien, luu_nguyet, tuan}."""
+    if tang == "dai_van":
+        return dai_van_block(la_so, int(kw["cycle_index"]))
+    if tang == "luu_nien":
+        return luu_nien_block(la_so, int(kw["year"]))
+    if tang == "luu_nguyet":
+        return luu_nguyet_block(la_so, int(kw["year"]), int(kw["month"]))
+    if tang == "tuan":
+        return tuan_block(la_so, int(kw["year"]), int(kw["month"]), int(kw["tuan"]))
+    raise ValueError(f"tang không hợp lệ: {tang}")
+
+
+def block_to_source_text(blk: dict) -> str:
+    """Ép khối grounded thành TEXT NGUỒN cho LLM biên tập (giống deep_cung).
+
+    LLM CHỈ được dệt từ text này; không thêm nghĩa ngoài. Trả "" nếu không đủ nguồn.
+    """
+    if not blk.get("available"):
+        return ""
+    lines: list[str] = []
+    tang_vi = {"dai_van": "Đại Vận", "luu_nien": "Lưu Niên (năm)",
+               "luu_nguyet": "Lưu Nguyệt (tháng)", "tuan": "Tuần (10 ngày)"}.get(blk["tang"], blk["tang"])
+    lines.append(f"### TẦNG: {tang_vi} — an Mệnh tại cung {blk['vi_tri']}")
+    lines.append(f"### THỂ-DỤNG: {blk['dien_giai_the_dung']}")
+    lines.append(f"### Nguyên tắc (nguồn {blk['nguyen_tac']['nguon']}): {blk['nguyen_tac']['text']}")
+    if blk.get("sao_nguon"):
+        lines.append("### Sao tại cung vận Mệnh — nội dung CÓ NGUỒN (chỉ dùng ý này):")
+        for s in blk["sao_nguon"]:
+            lines.append(f"- {s['sao']}: {s['dich']} (nguồn: {s['nguon']})")
+    else:
+        lines.append("### Sao tại cung vận Mệnh: CHƯA CÓ NGUỒN trong kho — KHÔNG luận, không bịa.")
+    lit = [h for h in blk.get("tu_hoa_van", []) if not h["cung"].startswith("(")]
+    if lit:
+        lines.append("### Tứ Hóa của tầng rọi vào cung (sân khấu MỜI QUAN-SÁT, không phán cát/hung):")
+        for h in lit:
+            lines.append(f"- {h['hoa']} ({h['sao']}) → cung {h['cung']}: {h['nghia']}")
+    if blk.get("luu_y_vi_mo"):
+        lines.append(f"### Lưu ý: {blk['luu_y_vi_mo']}")
+    return "\n".join(lines)
+
+
+def van_han_luan(person: dict, tang: str, *, want_llm: bool = True, **kw) -> dict:
+    """Luận 1 tầng vận hạn GROUNDED. Trả {block, source_text, luan?}.
+
+    block = khối tất định (luôn có). luan = narrative LLM biên-tập-từ-nguồn (nếu want_llm
+    + đủ nguồn + provider sẵn). Thiếu nguồn → luan="" + reason, KHÔNG bịa.
+    """
+    from engine.tu_vi.from_birth import cast_la_so_from_birth
+    birth = person["birth_datetime_local"]
+    gender = person.get("gender") or "nam"
+    la_so = cast_la_so_from_birth(birth_datetime_local=birth, gender=gender)
+    blk = build_block(la_so, tang, **kw)
+    if not blk.get("available"):
+        return {"available": False}
+    src = block_to_source_text(blk)
+    out = {"available": True, "block": blk, "source_text": src, "luan": "", "grounded": not blk["chua_co_nguon"]}
+    if not want_llm or blk["chua_co_nguon"]:
+        return out
+    try:
+        out["luan"] = _luan_llm(person, tang, src)
+    except Exception as e:  # LLM lỗi → vẫn trả block tất định, KHÔNG chặn
+        out["luan_error"] = str(e)[:120]
+    return out
+
+
+def _luan_llm(person: dict, tang: str, source_text: str) -> str:
+    """LLM biên tập vận hạn CHỈ từ source_text (edit-only, cấm sinh nghĩa ngoài)."""
+    from engine.ai.agents import run_agent
+    from engine.ai.council import _get_agent_provider
+    provider, model = _get_agent_provider("tu_vi")
+    try:
+        from engine.ai.council import sage_model
+        model = sage_model(provider, model)
+    except Exception:
+        from engine.ai.council import _SAGE_FAST_MODEL
+        model = _SAGE_FAST_MODEL.get(provider.name, model)
+    tang_vi = {"dai_van": "Đại Vận (10 năm)", "luu_nien": "Lưu Niên (năm)",
+               "luu_nguyet": "Lưu Nguyệt (tháng)", "tuan": "Tuần (10 ngày)"}.get(tang, tang)
+    q = (
+        f"Bạn là người BIÊN TẬP luận vận hạn Tử Vi, KHÔNG phải người sáng tác nghĩa. Dưới đây "
+        f"là dữ kiện CÓ NGUỒN về tầng {tang_vi} của người này:\n\n{source_text}\n\n"
+        f"NHIỆM VỤ: dệt các ý CÓ NGUỒN thành đoạn luận {tang_vi} mạch lạc, đời thường, theo "
+        f"paradigm ĐỌC ĐỒNG DẠNG (mệnh là ĐỘNG TỪ — cách VẬN HÀNH cái tính qua thời gian, "
+        f"KHÔNG án định số phận).\n"
+        f"LUẬT BẮT BUỘC (vi phạm = hỏng):\n"
+        f"1. CHỈ dùng ý trong nguồn cho sẵn — TUYỆT ĐỐI không thêm nghĩa từ kiến thức ngoài.\n"
+        f"2. Đọc theo THỂ-DỤNG: cái tính gốc (Thể) VẬN HÀNH thế nào trong tầng này (Dụng).\n"
+        f"3. Tứ Hóa rọi cung = MỜI QUAN-SÁT lĩnh vực đó, KHÔNG phán cát/hung, KHÔNG tiên tri việc cụ thể.\n"
+        f"4. Sao 'CHƯA CÓ NGUỒN' → không luận. Tầng tuần → nói rõ là quan-sát vi mô.\n"
+        f"~200–350 chữ, văn xuôi tiếng Việt, có thể nhắc tên sách nguồn cho tự nhiên."
+    )
+    tz = person.get("timezone") or "Asia/Ho_Chi_Minh"
+    resp = run_agent(agent_id="tu_vi", provider=provider, model=model, question=q,
+                     chart_data={"birth_datetime_local": person["birth_datetime_local"],
+                                 "gender": person.get("gender") or "nam", "timezone": tz},
+                     round_label="van_han", challenges=None, max_tokens=1200)
+    import re
+    return re.sub(r"^\s*#{1,4}\s*(READ|REACT|REVISE|ĐỌC)\s*\n+", "", resp.content or "",
+                  flags=re.IGNORECASE)

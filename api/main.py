@@ -2462,6 +2462,44 @@ def tu_vi_vong_sao() -> dict[str, object]:
     return {"status": "ok", **list_vong_sao()}
 
 
+class TuViVanHanRequest(BaseModel):
+    """Vận hạn grounded — 1 tầng thời gian."""
+    birth_datetime_local: str
+    gender: str = "nam"
+    timezone: str = "Asia/Ho_Chi_Minh"
+    tang: str  # dai_van | luu_nien | luu_nguyet | tuan
+    cycle_index: Optional[int] = None   # dai_van
+    year: Optional[int] = None          # luu_nien | luu_nguyet | tuan
+    month: Optional[int] = None         # luu_nguyet | tuan
+    tuan: Optional[int] = None          # tuan (1 thượng · 2 trung · 3 hạ)
+    want_llm: bool = True               # có sinh narrative grounded không
+
+
+@app.post("/api/tu-vi/van-han")
+def tu_vi_van_han(request: TuViVanHanRequest, caller: dict = Depends(require_caller)) -> dict[str, object]:
+    """Luận vận hạn 1 tầng (Đại Vận/Lưu Niên/Lưu Nguyệt/Tuần) — GROUNDED.
+
+    Trả block tất định (Thể-Dụng + Tứ Hóa rọi cung + sao có nguồn) + narrative LLM
+    CHỈ biên tập từ nguồn (không bịa). Thiếu nguồn → luận rỗng, KHÔNG gieo rác.
+    """
+    from engine.tu_vi import van_han as vh
+
+    kw: dict = {}
+    for k in ("cycle_index", "year", "month", "tuan"):
+        v = getattr(request, k)
+        if v is not None:
+            kw[k] = v
+    if request.want_llm:
+        rate_limit_caller(caller, bucket="tuvi_llm", limit=30, window_sec=3600)
+    person = {"birth_datetime_local": request.birth_datetime_local,
+              "gender": request.gender, "timezone": request.timezone}
+    try:
+        out = vh.van_han_luan(person, request.tang, want_llm=request.want_llm, **kw)
+    except (ValueError, KeyError) as e:
+        return {"status": "error", "reason": str(e)}
+    return {"status": "ok", **out}
+
+
 @app.get("/api/tu-vi/do-hinh-co")
 def tu_vi_do_hinh_co() -> dict[str, object]:
     """4 đồ hình âm dương cổ (Thái cực · Tiên thiên · Hậu thiên · Hà Đồ) cho
