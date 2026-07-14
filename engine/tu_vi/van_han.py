@@ -1,0 +1,261 @@
+"""Vận hạn GROUNDED — đọc Đại Vận / Lưu Niên (năm) / Lưu Nguyệt (tháng) / Tuần theo
+phương pháp cổ THỂ-DỤNG + Tứ Hóa rọi cung, LUẬN chỉ từ NGUỒN đã duyệt (Anh giao
+2026-07-14: "vận hạn theo tuần/tháng, làm kỹ, dùng sách/thư viện/công thức").
+
+═══ PHƯƠNG PHÁP (grounded, Trung Châu — Vương Đình Chi, đã phục chế) ═══
+  • Mỗi tầng thời gian có 12 cung RIÊNG dịch chuyển; đọc theo THỂ-DỤNG:
+    "lấy Cung X của nguyên cục làm tính chất (THỂ), cung X của đại vận/lưu niên/lưu
+     nguyệt làm phản ứng của tính chất (DỤNG)" — Trung Châu Tử Vi Đẩu Số.
+  • Tứ Hóa của TẦNG (Lộc/Quyền/Khoa/Kỵ theo can của tầng) rọi vào cung chức nào →
+    đó là "sân khấu" tầng đó MỜI QUAN-SÁT (Iron #4/#6/#8: đọc đồng dạng, KHÔNG predict).
+  • Fine-grained: Đại Vận(10n) → Lưu Niên(năm) → Lưu Nguyệt(tháng, Đẩu Quân) → Tuần
+    (thượng/trung/hạ = 3×10 ngày trong tháng) → Lưu Nhật(ngày).
+
+Iron #9 quote-or-silence: nội dung SAO chỉ lấy từ sao_noi_dung founder_verified=1 (kho
+đã duyệt đối kháng). Cung/sao KHÔNG có nguồn → để trống (chua_co_nguon), KHÔNG bịa.
+Engine 0-LLM (xương tất định); LLM chỉ BIÊN TẬP block này ở tầng analyzer.
+"""
+from __future__ import annotations
+
+import sqlite3
+from functools import lru_cache
+from pathlib import Path
+from typing import Optional
+
+from engine.tu_vi.an_sao import BRANCHES_TVI, TU_HOA_TABLE
+
+_WIKI_DB = "data/yi_wiki/wiki.sqlite3"
+
+# Nguyên tắc THỂ-DỤNG có nguồn (không bịa) — nền mọi tầng vận hạn.
+THE_DUNG_PRINCIPLE = {
+    "text": ("Cung nguyên cục là TÍNH CHẤT gốc (Thể); cung cùng tên của đại vận / lưu "
+             "niên / lưu nguyệt là PHẢN ỨNG của tính chất đó trong tầng thời gian ấy "
+             "(Dụng). Vận hạn = cách cái Thể bẩm sinh VẬN HÀNH qua thời gian, không "
+             "phải bản án cát-hung định sẵn."),
+    "nguon": "Trung Châu Tử Vi Đẩu Số (Vương Đình Chi)",
+}
+
+_HOA_NGHIA = {
+    "Lộc": "được nuôi dưỡng, thuận lợi, có lộc",
+    "Quyền": "được trao quyền, chủ động, có lực đẩy",
+    "Khoa": "được soi sáng, danh tiếng, quý nhân",
+    "Kỵ": "vướng mắc, cần cẩn trọng, chỗ hao tâm",
+}
+
+
+@lru_cache(maxsize=1)
+def _db() -> "sqlite3.Connection | None":
+    p = Path(_WIKI_DB)
+    if not p.exists():
+        return None
+    try:
+        return sqlite3.connect(f"file:{p}?mode=ro", uri=True, check_same_thread=False)
+    except Exception:
+        return None
+
+
+def _grounded_sao(sao: str, cung: Optional[str] = None, limit: int = 2) -> list[dict]:
+    """Nội dung sao ĐÃ DUYỆT (founder_verified=1). Ưu tiên lớp 'cung' nếu có tên cung,
+    fallback 'def'. [] nếu không có nguồn (quote-or-silence)."""
+    conn = _db()
+    if conn is None:
+        return []
+    out: list[dict] = []
+    try:
+        if cung:
+            rows = conn.execute(
+                "SELECT dich_thuan_viet, nguon_book FROM sao_noi_dung "
+                "WHERE sao_vi=? AND lop='cung' AND cung=? AND founder_verified=1 "
+                "AND dich_thuan_viet!='' LIMIT ?", (sao, cung, limit)).fetchall()
+            out += [{"sao": sao, "dich": r[0], "nguon": r[1], "lop": "cung"} for r in rows]
+        if len(out) < limit:
+            rows = conn.execute(
+                "SELECT dich_thuan_viet, nguon_book FROM sao_noi_dung "
+                "WHERE sao_vi=? AND lop='def' AND founder_verified=1 "
+                "AND dich_thuan_viet!='' LIMIT ?", (sao, limit - len(out))).fetchall()
+            out += [{"sao": sao, "dich": r[0], "nguon": r[1], "lop": "def"} for r in rows]
+    except Exception:
+        return []
+    return out
+
+
+def _palace_at(la_so: dict, branch_index: int) -> "dict | None":
+    for p in la_so.get("palaces", []):
+        if p.get("branch_index") == branch_index:
+            return p
+    return None
+
+
+def _stars_at(la_so: dict, branch_index: int) -> list[str]:
+    """Chính tinh (+ Vô Chính Diệu nếu rỗng) đóng tại 1 branch."""
+    br = BRANCHES_TVI[branch_index]
+    stars = [s for s, idx in la_so.get("chinh_tinh", {}).items() if idx == branch_index]
+    return stars
+
+
+def _hoa_lit(hoa_stem: str, la_so: dict) -> list[dict]:
+    """Tứ Hóa của 1 tầng (theo can) rọi vào cung chức nào của nguyên cục.
+
+    star (được hóa) → branch nó đậu ở natal → cung chức đó. Trả [{hoa, sao, cung, nghia}].
+    """
+    star_to_branch = {s: idx for s, idx in la_so.get("chinh_tinh", {}).items()}
+    star_to_branch.update({s: idx for s, idx in la_so.get("phu_tinh", {}).items()})
+    branch_to_palace = {p["branch_index"]: p["name"] for p in la_so.get("palaces", [])}
+    out: list[dict] = []
+    for hoa, star in TU_HOA_TABLE.get(hoa_stem, {}).items():
+        bi = star_to_branch.get(star)
+        palace = branch_to_palace.get(bi) if bi is not None else None
+        out.append({
+            "hoa": hoa, "sao": star,
+            "cung": palace or "(phụ tinh — ngoài 14 chính tinh)",
+            "nghia": _HOA_NGHIA[hoa],
+        })
+    return out
+
+
+def _the_dung_block(la_so: dict, active_branch_index: int, tang: str) -> dict:
+    """Khối THỂ-DỤNG cho 1 tầng: cung nguyên cục tại vị trí vận Mệnh (Thể) + sao + nguồn.
+
+    Vô Chính Diệu (cung không chính tinh) → MƯỢN SAO cung xung chiếu (đối diện +6), cổ pháp.
+    """
+    natal_palace = _palace_at(la_so, active_branch_index)
+    palace_name = natal_palace["name"] if natal_palace else "?"
+    stars = _stars_at(la_so, active_branch_index)
+    borrowed = False
+    if not stars:                                    # Vô Chính Diệu → mượn sao cung xung
+        stars = _stars_at(la_so, (active_branch_index + 6) % 12)
+        borrowed = bool(stars)
+    sao_grounded: list[dict] = []
+    for st in stars:
+        sao_grounded.extend(_grounded_sao(st, cung=palace_name))
+    dg = (f"{tang} an Mệnh tại {BRANCHES_TVI[active_branch_index]} — trùng cung "
+          f"{palace_name} của nguyên cục. Tầng này VẬN HÀNH chất '{palace_name}' "
+          f"(Thể) theo cách của {tang} (Dụng).")
+    if borrowed:
+        dg += " Cung Vô Chính Diệu — mượn sao cung xung chiếu (đối diện) để luận."
+    return {
+        "vi_tri": BRANCHES_TVI[active_branch_index],
+        "cung_the": palace_name,          # cung nguyên cục = THỂ
+        "sao": stars,                     # sao đóng tại vị trí vận Mệnh (hoặc mượn xung)
+        "sao_muon_xung": borrowed,        # True = Vô Chính Diệu, sao mượn
+        "sao_nguon": sao_grounded,        # nội dung sao đã duyệt (có thể rỗng)
+        "chua_co_nguon": len(sao_grounded) == 0,
+        "dien_giai_the_dung": dg,
+    }
+
+
+# ── ĐẠI VẬN ───────────────────────────────────────────────────────────────────
+def dai_van_block(la_so: dict, cycle_index: int) -> dict:
+    """Khối grounded 1 Đại Vận (10 năm). cycle_index: 1..12."""
+    dv = next((d for d in la_so.get("dai_van", []) if d["cycle_index"] == cycle_index), None)
+    if dv is None:
+        return {"available": False}
+    bi = dv["branch_index"]
+    natal_palace = _palace_at(la_so, bi)
+    dv_can = natal_palace.get("can") if natal_palace else None   # can cung → Tứ Hóa đại vận
+    block = _the_dung_block(la_so, bi, "Đại Vận")
+    return {
+        "available": True,
+        "tang": "dai_van",
+        "cycle_index": cycle_index,
+        "khoang_tuoi": [dv["start_age"], dv["end_age"]],
+        **block,
+        "tu_hoa_van": _hoa_lit(dv_can, la_so) if dv_can else [],
+        "tu_hoa_can": dv_can,
+        "nguyen_tac": THE_DUNG_PRINCIPLE,
+    }
+
+
+# ── LƯU NIÊN (năm) ────────────────────────────────────────────────────────────
+def _year_stem_branch(year: int) -> tuple[str, str]:
+    """(can, chi) năm dương theo chu kỳ 60 (mốc 1984 = Giáp Tý)."""
+    can = ("Giáp", "Ất", "Bính", "Đinh", "Mậu", "Kỷ", "Canh", "Tân", "Nhâm", "Quý")
+    chi = BRANCHES_TVI
+    return can[(year - 1984) % 10], chi[(year - 1984) % 12]
+
+
+def luu_nien_block(la_so: dict, year: int) -> dict:
+    """Khối grounded 1 Lưu Niên. Lưu niên Mệnh = cung tại chi năm (Thái Tuế)."""
+    y_can, y_chi = _year_stem_branch(year)
+    bi = BRANCHES_TVI.index(y_chi)
+    block = _the_dung_block(la_so, bi, "Lưu Niên")
+    return {
+        "available": True,
+        "tang": "luu_nien",
+        "year": year,
+        "year_can_chi": f"{y_can} {y_chi}",
+        **block,
+        "tu_hoa_van": _hoa_lit(y_can, la_so),   # Tứ Hóa lưu niên theo can năm
+        "tu_hoa_can": y_can,
+        "nguyen_tac": THE_DUNG_PRINCIPLE,
+    }
+
+
+# ── LƯU NGUYỆT (tháng) ────────────────────────────────────────────────────────
+_NGU_HO_DON = {"Giáp": "Bính", "Kỷ": "Bính", "Ất": "Mậu", "Canh": "Mậu",
+               "Bính": "Canh", "Tân": "Canh", "Đinh": "Nhâm", "Nhâm": "Nhâm",
+               "Mậu": "Giáp", "Quý": "Giáp"}
+_CAN = ("Giáp", "Ất", "Bính", "Đinh", "Mậu", "Kỷ", "Canh", "Tân", "Nhâm", "Quý")
+
+
+def _month_can(year_can: str, month: int) -> str:
+    """Can tháng âm (1..12) theo Ngũ Hổ Độn (Giêng=Dần, thuận +1 can)."""
+    gieng = _NGU_HO_DON[year_can]
+    return _CAN[(_CAN.index(gieng) + (month - 1)) % 10]
+
+
+def luu_nguyet_block(la_so: dict, year: int, month: int) -> dict:
+    """Khối grounded 1 Lưu Nguyệt. Lưu nguyệt Mệnh khởi từ Đẩu Quân lưu niên (Q2 p88):
+    Đẩu Quân lưu niên = cung tại chi năm → tháng Giêng; thuận 1 cung/tháng."""
+    if not 1 <= month <= 12:
+        raise ValueError("month 1..12")
+    y_can, y_chi = _year_stem_branch(year)
+    dau_quan_bi = BRANCHES_TVI.index(y_chi)                 # Đẩu Quân lưu niên tại chi năm
+    lnm_bi = (dau_quan_bi + (month - 1)) % 12               # lưu nguyệt Mệnh, thuận
+    m_can = _month_can(y_can, month)
+    block = _the_dung_block(la_so, lnm_bi, "Lưu Nguyệt")
+    return {
+        "available": True,
+        "tang": "luu_nguyet",
+        "year": year, "month": month,
+        "month_can": m_can,
+        **block,
+        "tu_hoa_van": _hoa_lit(m_can, la_so),   # Tứ Hóa tháng theo can tháng
+        "tu_hoa_can": m_can,
+        "nguyen_tac": THE_DUNG_PRINCIPLE,
+    }
+
+
+# ── TUẦN (thượng/trung/hạ — 3×10 ngày trong tháng) ────────────────────────────
+_TUAN_LABEL = {1: "Thượng tuần (ngày 1-10)", 2: "Trung tuần (ngày 11-20)",
+               3: "Hạ tuần (ngày 21-cuối)"}
+
+
+def tuan_block(la_so: dict, year: int, month: int, tuan: int) -> dict:
+    """Khối grounded 1 Tuần (旬 = 10 ngày). tuan: 1 thượng · 2 trung · 3 hạ.
+
+    Cổ pháp (Trung Châu): trong lưu nguyệt, mỗi tuần dịch cung Mệnh thuận 1 bước từ lưu
+    nguyệt Mệnh (thượng=lưu nguyệt Mệnh, trung +1, hạ +2) — đọc tiếp tục Thể-Dụng nhỏ hơn.
+    ⚠️ Nội dung tuần MỎNG trong sách → chủ yếu DẪN XUẤT (cung động + Tứ Hóa + sao đã duyệt),
+    nói rõ tầng này 'quan-sát vi mô', không phán ngày cụ thể.
+    """
+    if tuan not in (1, 2, 3):
+        raise ValueError("tuan 1|2|3")
+    lng = luu_nguyet_block(la_so, year, month)
+    lnm_bi = BRANCHES_TVI.index(lng["vi_tri"])
+    tuan_bi = (lnm_bi + (tuan - 1)) % 12
+    block = _the_dung_block(la_so, tuan_bi, "Tuần")
+    return {
+        "available": True,
+        "tang": "tuan",
+        "year": year, "month": month, "tuan": tuan,
+        "tuan_label": _TUAN_LABEL[tuan],
+        **block,
+        "tu_hoa_van": lng["tu_hoa_van"],        # tuần dùng Tứ Hóa của tháng chứa nó
+        "tu_hoa_can": lng["month_can"],
+        "luu_nguyet_me": lng["vi_tri"],
+        "nguyen_tac": THE_DUNG_PRINCIPLE,
+        "luu_y_vi_mo": ("Tầng tuần là quan-sát VI MÔ trong tháng — kho sách cổ về tuần "
+                        "mỏng, nên đây là DẪN XUẤT (cung động + Tứ Hóa tháng + sao đã "
+                        "duyệt), KHÔNG phán ngày/việc cụ thể."),
+    }
