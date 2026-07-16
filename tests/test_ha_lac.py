@@ -286,3 +286,75 @@ def test_cast_ha_lac_tc4_nguyet_lenh_has_lunar_month():
     tc4 = mhc["breakdown"]["tc4_nguyet_lenh"]
     assert "Thiếu tháng âm lịch" not in tc4["reason"]
     assert "tháng 4" in tc4["reason"] or "Nguyệt Lệnh" in tc4["reason"]
+
+
+# ─── Lời hào injection (v3 roadmap #5, seed Xuân Cang) ────────────────────────
+
+
+def test_loi_hao_lookup_covered_and_uncovered():
+    from engine.ha_lac.loi_hao import coverage, get_loi_hao
+
+    cov = coverage()
+    assert cov["n_hao"] >= 12                    # seed hiện có Càn + Khôn
+    assert "Càn" in cov["quai_covered"]
+    rec = get_loi_hao("Càn", 1)
+    assert rec is not None and "Tiềm long" in rec["loi_kinh"]
+    # Quẻ chưa phủ → None (quote-or-silence, không bịa)
+    assert get_loi_hao("Tiệm", 1) is None
+    assert get_loi_hao("Càn", 99) is None
+
+
+def test_trajectory_stages_carry_loi_hao_field():
+    """Mọi stage đều có key loi_hao; quẻ trong seed → record, chưa phủ → None."""
+    r = cast_ha_lac(birth_datetime_local="1985-08-15T10:30:00", gender="nam")
+    stages = r["decade_trajectory"]
+    assert all("loi_hao" in s for s in stages)
+    covered = [s for s in stages if s["loi_hao"]]
+    for s in covered:
+        assert s["loi_hao"]["loi_kinh"]
+        assert s["loi_hao"]["source"]            # citation đích danh
+        assert "van_nam" in s["loi_hao"]
+
+
+def test_tc3_scores_with_citation_when_seed_covers():
+    """Quẻ Tiên Thiên trong seed → TC3 chấm thật theo 6 cấp + citation.
+
+    Case Càn: tìm 1 ngày sinh cho quẻ TT = Càn khó cố định, nên test trực tiếp
+    evaluate_menh_hop_cach với record seed thật.
+    """
+    from engine.ha_lac.loi_hao import get_loi_hao
+    from engine.ha_lac.menh_hop_cach import evaluate_menh_hop_cach
+
+    rec = get_loi_hao("Càn", 5)                  # "Phi long tại thiên" — cấp Tốt
+    result = evaluate_menh_hop_cach(
+        source_quai_name="Càn",
+        upper_trigram="Càn", lower_trigram="Càn",
+        binary_top_down="111111",
+        nguyen_duong_line=5,
+        year_polarity="dương",
+        so_duong=25, so_am=30,
+        season_key="xuan",
+        loi_hao_nd=rec,
+    )
+    tc3 = result.breakdown["tc3_loi_hao_nd"]
+    assert "TODO" not in tc3["reason"]
+    assert tc3.get("source")
+    assert "cap_do" in tc3
+
+
+def test_tc3_silent_when_seed_missing():
+    from engine.ha_lac.menh_hop_cach import evaluate_menh_hop_cach
+
+    result = evaluate_menh_hop_cach(
+        source_quai_name="Tiệm",
+        upper_trigram="Tốn", lower_trigram="Cấn",
+        binary_top_down="110100",
+        nguyen_duong_line=2,
+        year_polarity="dương",
+        so_duong=25, so_am=30,
+        season_key="xuan",
+        loi_hao_nd=None,
+    )
+    tc3 = result.breakdown["tc3_loi_hao_nd"]
+    assert tc3["score"] == 0
+    assert "không bịa" in tc3["reason"] or "Chưa có" in tc3["reason"]

@@ -373,6 +373,7 @@ def evaluate_menh_hop_cach(
     season_key: str,                 # "xuan"|"ha"|"thu"|"dong"
     birth_month_amlich: int | None = None,
     mang_nap_am: str | None = None,  # "Kim"|"Mộc"|"Thủy"|"Hỏa"|"Thổ"
+    loi_hao_nd: dict | None = None,  # record seed lời hào của (quẻ TT, hào NĐ)
 ) -> MenhHopCachResult:
     """Compute Mệnh Hợp Cách score (0-10).
 
@@ -395,8 +396,30 @@ def evaluate_menh_hop_cach(
     breakdown["tc2_vi_tri_nd"] = {"score": s2, "reason": r2}
     total += s2
 
-    # TC3 — Lời hào NĐ (cần wiki citation, để TODO)
-    breakdown["tc3_loi_hao_nd"] = {"score": 0, "reason": "TODO: cần wiki Hà Lạc citation cho 384 hào"}
+    # TC3 — Lời hào NĐ: chấm theo 6 cấp Xuân Cang p.73-74 (classify_loi_hao).
+    # Chỉ chấm khi seed CÓ lời hào (quote-or-silence — seed chưa đủ 384 hào).
+    if loi_hao_nd and loi_hao_nd.get("loi_kinh"):
+        from .danh_gia_cap_do import classify_loi_hao
+        ev = classify_loi_hao(loi_hao_nd["loi_kinh"])
+        s3 = 1 if ev.cap_do == "tot" else 0
+        breakdown["tc3_loi_hao_nd"] = {
+            "score": s3,
+            "reason": (
+                f"Lời hào NĐ ({source_quai_name} hào {nguyen_duong_line}): "
+                f"\"{loi_hao_nd['loi_kinh']}\" → cấp {ev.label}"
+            ),
+            "cap_do": ev.to_dict(),
+            "source": loi_hao_nd.get("source") or "seed hexagram_lines_ha_lac",
+        }
+        total += s3
+    else:
+        breakdown["tc3_loi_hao_nd"] = {
+            "score": 0,
+            "reason": (
+                f"Chưa có lời hào {source_quai_name} hào {nguyen_duong_line} "
+                "trong seed (chưa đủ 384 hào) — không chấm, không bịa"
+            ),
+        }
 
     # TC4 — Nguyệt lệnh
     if birth_month_amlich:
