@@ -63,12 +63,20 @@ def cast_than_so(
     if include_chaldean and system != "chaldean":
         # Đối chiếu chéo — chỉ các số TÊN khác nhau giữa 2 phái (số ngày sinh giống nhau).
         chaldean_core = compute_core(name, d.day, d.month, d.year, system="chaldean")
+        # Số KÉP Cheiro (mặt huyền/tinh thần) theo tổng CHƯA rút gọn — nối
+        # master chaldean_compound_numbers.json (2026-07-16). Ngoài bảng → bỏ key.
+        from .chaldean_compound import compound_info
+        _compounds = {
+            k: compound_info(chaldean_core[k]["raw"])
+            for k in ("expression", "soul_urge", "personality")
+        }
         result["cross_reference"] = {
             "system": "chaldean",
             "note": "Đối chiếu Chaldean (Iron Rule #3 — đa phái). Số từ ngày sinh giống nhau; chỉ số TÊN khác.",
             "expression": chaldean_core["expression"]["value"],
             "soul_urge": chaldean_core["soul_urge"]["value"],
             "personality": chaldean_core["personality"]["value"],
+            "compound_numbers": {k: v for k, v in _compounds.items() if v},
         }
 
     if include_dong_phuong:

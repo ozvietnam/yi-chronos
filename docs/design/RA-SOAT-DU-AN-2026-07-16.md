@@ -37,7 +37,7 @@
 | Môn | UI trộn kiến thức chung? | Data hút-chưa-nối? | Mức |
 |---|---|---|---|
 | **Mai Hoa** | Không | ~~`tuong_loai_van_vat.json` 0-ref~~ **ĐÃ NỐI 2026-07-16**; còn 3 seed (`mai_hoa_18_van_de`, `the_sinh_khac_8_que`, `bat_quai_64_que_gieo_que`) + 2 module chết `engine/mai_hoa/` | CAO → còn vừa |
-| Thần Số | Không | CÓ — `chaldean_compound_numbers.json` (số kép Cheiro) + `cycles.json` (ý nghĩa Đỉnh Vận/Thử Thách) 0-ref; `cast.py cross_reference` chỉ trả số trần | Vừa |
+| Thần Số | Không | ~~chaldean_compound + cycles 0-ref~~ **ĐÃ NỐI 2026-07-16** (số kép Cheiro vào cross_reference + meta chu kỳ vào pinnacles) | Vừa → OK |
 | Kỳ Môn | Không (intro tách) | CÓ — `deep_readings.py` (MON/TINH/THAN_DEEP + 14 combo) chỉ lộ qua endpoint tra cứu, `interpret_personal_chart` KHÔNG dệt vào luận cá nhân | Vừa |
 | Lục Hào | Không (sạch) | Nhẹ — seed thần sát/nạp giáp (`than_sat_7_sao`, `nap_giap_8_que`...) chưa surface | Nhẹ-vừa |
 | Bát Tự | Không (RefBlock grounded) | Engine hardcoded; ❓cần wiki.sqlite3 để chốt | Nhẹ |

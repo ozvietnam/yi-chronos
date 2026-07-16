@@ -2,10 +2,23 @@
 
 Tương ứng Đại Vận / Lưu Niên của Tử Vi (Iron Rule #6 CƠ+BIẾN).
 Công thức: worldnumerology.com (Decoz) + affinitynumerology.
+Ý nghĩa/timing từng chu kỳ: nạp từ master cycles.json (nối 2026-07-16 —
+trước đây chỉ tính số, không mang nghĩa).
 """
 from __future__ import annotations
 
+from functools import lru_cache
+
+from .constants import _load_json
 from .core_numbers import reduce_number
+
+
+@lru_cache(maxsize=1)
+def _cycles_meta() -> dict:
+    try:
+        return _load_json("cycles.json")
+    except Exception:
+        return {}
 
 
 def _abs_challenge(a: int, b: int) -> int:
@@ -30,6 +43,9 @@ def pinnacles_and_challenges(day: int, month: int, year: int) -> dict:
     c4 = _abs_challenge(m, y)
 
     first_end_age = 36 - life_path
+    meta = _cycles_meta()
+    p_meta = meta.get("pinnacles", {})
+    c_meta = meta.get("challenges", {})
     return {
         "pinnacles": [
             {"index": 1, "value": p1, "age_range": f"0–{first_end_age}"},
@@ -43,6 +59,13 @@ def pinnacles_and_challenges(day: int, month: int, year: int) -> dict:
             {"index": 3, "value": c3, "main": True},
             {"index": 4, "value": c4},
         ],
+        # Ý nghĩa + paradigm từ master cycles.json ({} nếu file thiếu — không bịa)
+        "meta": {
+            "pinnacles": {k: p_meta.get(k) for k in ("name_vi", "doc", "timing") if p_meta.get(k)},
+            "challenges": {k: c_meta.get(k) for k in ("name_vi", "doc", "note") if c_meta.get(k)},
+            "paradigm_note": meta.get("paradigm_note"),
+            "source": meta.get("doc"),
+        } if meta else {},
     }
 
 
