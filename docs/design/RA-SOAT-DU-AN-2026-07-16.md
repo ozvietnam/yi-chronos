@@ -16,7 +16,11 @@
 ## II. VIỆC DANG DỞ (theo khu vực, ưu tiên từ bàn giao gần nhất)
 
 ### A. Tử Vi — khối lớn nhất
-- **P0 — B4 vòng sao còn nợ deploy**: 3 commit nhánh `claude/vibrant-elbakyan-fb6277` chưa merge/push; prod chưa sync bảng `sao_noi_dung` → B4 prod RỖNG (cần surgical-sync, tránh clobber sqlite-vec). Nguồn: `docs/design/PHIEN-SAU-chuan-bi-2026-07-03.md`.
+- **P0 — B4 vòng sao còn nợ deploy** (cập nhật 2026-07-16 sau khi verify):
+  - ~~(1) Merge 3 commit nhánh `claude/vibrant-elbakyan-fb6277`~~ → **ĐÃ XONG từ trước**: `d95d469b` (B2) + `76a04229` (B3) + `a8a877c2` (B4) đều đã nằm trong `origin/main`, endpoint `/api/tu-vi/vong-sao` có trong main. Nhánh kia đã bị xóa khỏi origin. File bàn giao 2026-07-03 chưa kịp cập nhật mục này.
+  - (2) **Prod DB sync bảng `sao_noi_dung` — VẪN NỢ** (cần SSH VPS, chỉ chạy được từ Mac của Anh): dùng script mới `scripts/sync-sao-noi-dung-to-vps.sh` (surgical — chỉ thay 1 bảng, KHÔNG đè cả wiki.sqlite3 như `sync-atoms-to-vps.sh` nên không clobber sqlite-vec; có backup + verify + dry-run).
+  - (3) **Duyệt đối kháng lớp `cung` (1063) + `ket_hop` (865) — VẪN NỢ** (cần LM Studio local UP): `scripts/verify_sao_noi_dung.py --lop cung/ket_hop`.
+  Nguồn: `docs/design/PHIEN-SAU-chuan-bi-2026-07-03.md`.
 - Duyệt đối kháng tiếp lớp `cung` (1063) + `ket_hop` (865) — mới xong lớp `def` (452).
 - Gap-analysis "nhai gọn" phần lớn chưa wire: Paradigm Engine 6 hàm (blocker), mapping CUNG_SAO 14/168, CrossSchoolOrchestrator, OutputFillerV2 chưa wire LLM, founder-verify 2700 atoms.
 - `than_cu.py:219` "chất người từng Cục" trống — cần đọc sách lấy nguồn (P1).
