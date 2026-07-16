@@ -722,6 +722,105 @@ def add_mapping(
         return _row_to_mapping(row)
 
 
+def find_mapping(
+    concept_id: int,
+    dim_type: str,
+    dim_value: str,
+    *,
+    school: str = "common",
+) -> Mapping | None:
+    """Tìm mapping đã tồn tại — cùng logic dedup với `add_mapping`
+    (case-insensitive trên dim_value). Dùng để biết add_mapping sẽ tạo mới
+    hay trả về bản cũ (YOLO merge cần biết ownership để rollback đúng)."""
+    bootstrap_db()
+    norm_value = _normalize_dim_value(dim_value)
+    with _conn() as c:
+        candidates = c.execute(
+            "SELECT * FROM mappings WHERE concept_id=? AND dim_type=? AND school=?",
+            (concept_id, dim_type, school),
+        ).fetchall()
+    for row in candidates:
+        if _normalize_dim_value(row["dim_value"]) == norm_value:
+            return _row_to_mapping(row)
+    return None
+
+
+def delete_mapping(mapping_id: int) -> bool:
+    """Xoá 1 mapping (rollback YOLO merge bị reject).
+
+    Nếu mapping thuộc conflict_group và sau khi xoá group chỉ còn ≤1 thành viên
+    → clear conflict_flag thành viên còn lại + đóng group (hết mâu thuẫn).
+    """
+    bootstrap_db()
+    now = int(time.time())
+    with _conn() as c:
+        row = c.execute(
+            "SELECT * FROM mappings WHERE mapping_id=?", (mapping_id,)
+        ).fetchone()
+        if not row:
+            return False
+        group_id = _row_get(row, "conflict_group_id", None)
+        c.execute("DELETE FROM mappings WHERE mapping_id=?", (mapping_id,))
+        if group_id:
+            members = c.execute(
+                "SELECT mapping_id FROM mappings WHERE conflict_group_id=?",
+                (group_id,),
+            ).fetchall()
+            if len(members) <= 1:
+                for m in members:
+                    c.execute(
+                        "UPDATE mappings SET conflict_flag=0, conflict_group_id=NULL "
+                        "WHERE mapping_id=?",
+                        (m["mapping_id"],),
+                    )
+                c.execute(
+                    "UPDATE conflict_groups SET status='dismissed', resolved_at=?, "
+                    "anh_note=COALESCE(anh_note,'') || ' [auto: rollback distill reject]' "
+                    "WHERE conflict_group_id=? AND status='open'",
+                    (now, group_id),
+                )
+    return True
+
+
+def delete_concept_if_orphan(concept_id: int) -> bool:
+    """Xoá concept CHỈ KHI không còn mapping/contextual_meaning nào tham chiếu.
+
+    Dùng khi rollback YOLO merge: concept do LLM tạo mới mà mọi mapping của nó
+    đã bị gỡ → gỡ luôn concept (kèm dòng FTS) để lexicon sạch như trước merge.
+    """
+    bootstrap_db()
+    with _conn() as c:
+        row = c.execute(
+            "SELECT * FROM concepts WHERE concept_id=?", (concept_id,)
+        ).fetchone()
+        if not row:
+            return False
+        n_map = c.execute(
+            "SELECT COUNT(*) FROM mappings WHERE concept_id=?", (concept_id,)
+        ).fetchone()[0]
+        n_cm = c.execute(
+            "SELECT COUNT(*) FROM contextual_meanings WHERE primary_concept_id=?",
+            (concept_id,),
+        ).fetchone()[0]
+        if n_map or n_cm:
+            return False
+        # FTS5 external-content: phải insert lệnh 'delete' với giá trị dòng cũ
+        c.execute(
+            "INSERT INTO concepts_fts(concepts_fts, rowid, canonical_vi, canonical_zh, "
+            "canonical_en, aliases_json, notes) VALUES('delete', ?, ?, ?, ?, ?, ?)",
+            (
+                concept_id,
+                row["canonical_vi"],
+                row["canonical_zh"] or "",
+                row["canonical_en"] or "",
+                row["aliases_json"],
+                row["notes"] or "",
+            ),
+        )
+        c.execute("DELETE FROM concepts WHERE concept_id=?", (concept_id,))
+    return True
+
+
 def mappings_for(concept_id: int, *, school: str | None = None) -> list[Mapping]:
     bootstrap_db()
     with _conn() as c:
@@ -1246,17 +1345,123 @@ def get_distill_queue(*, status: str | None = None, limit: int = 100) -> list[Di
     ]
 
 
-def resolve_distill_item(item_id: int, *, status: str, reviewer_note: str = "") -> bool:
-    """Mark a distill item as approved/rejected. Status must be 'approved' or 'rejected'."""
+def get_distill_item(item_id: int) -> DistillItem | None:
+    bootstrap_db()
+    with _conn() as c:
+        r = c.execute(
+            "SELECT * FROM distill_queue WHERE item_id=?", (item_id,)
+        ).fetchone()
+    if not r:
+        return None
+    return DistillItem(
+        item_id=r["item_id"], kind=r["kind"],
+        payload=json.loads(r["payload_json"] or "{}"),
+        source=r["source"], confidence=r["confidence"], status=r["status"],
+        created_at=r["created_at"], reviewed_at=r["reviewed_at"],
+        reviewer_note=r["reviewer_note"],
+    )
+
+
+def review_distill_item(item_id: int, *, status: str, reviewer_note: str = "") -> dict:
+    """Duyệt 1 distill item — ĐÓNG VÒNG YOLO end-to-end.
+
+    YOLO mode auto-merge concept/mapping vào lexicon TRƯỚC, anh duyệt SAU.
+    Vòng chỉ khép khi duyệt có tác dụng thật lên lexicon:
+
+    - 'approved' → mark verified_by_anh=1 cho các mapping item này đã tạo
+    - 'rejected' → ROLLBACK: gỡ các mapping item này đã tạo khỏi lexicon;
+      nếu concept do item tạo mới và không còn mapping/contextual nào khác
+      tham chiếu → gỡ luôn concept.
+
+    Ownership lấy từ `payload['_merged']` (ghi bởi `_merge_extracted` v3).
+    Item cũ không có `_merged` → chỉ đổi status (rollback bất khả, ghi warning).
+
+    Returns dict:
+        found, item_id, status,
+        verified_mapping_ids  (approve),
+        rolled_back {mapping_ids, concept_deleted}  (reject),
+        warnings [..]
+    """
     if status not in ("approved", "rejected"):
         raise ValueError("status must be 'approved' or 'rejected'")
     bootstrap_db()
-    with _conn() as c:
-        cur = c.execute(
-            "UPDATE distill_queue SET status=?, reviewed_at=?, reviewer_note=? WHERE item_id=?",
-            (status, int(time.time()), reviewer_note, item_id),
+
+    item = get_distill_item(item_id)
+    result: dict = {
+        "found": item is not None,
+        "item_id": item_id,
+        "status": status,
+        "verified_mapping_ids": [],
+        "rolled_back": {"mapping_ids": [], "concept_deleted": False},
+        "warnings": [],
+    }
+    if item is None:
+        return result
+
+    merged = item.payload.get("_merged") if isinstance(item.payload, dict) else None
+    payload = dict(item.payload) if isinstance(item.payload, dict) else {}
+
+    if merged:
+        mapping_ids = [m for m in merged.get("mapping_ids", []) if isinstance(m, int)]
+        concept_id = merged.get("concept_id")
+        if status == "rejected":
+            if payload.get("_review", {}).get("rolled_back"):
+                result["warnings"].append("already rolled back — nothing to undo")
+            else:
+                for mid in mapping_ids:
+                    if delete_mapping(mid):
+                        result["rolled_back"]["mapping_ids"].append(mid)
+                if merged.get("concept_created") and concept_id:
+                    result["rolled_back"]["concept_deleted"] = (
+                        delete_concept_if_orphan(concept_id)
+                    )
+                payload["_review"] = {
+                    "rolled_back": True,
+                    "mapping_ids": result["rolled_back"]["mapping_ids"],
+                    "concept_deleted": result["rolled_back"]["concept_deleted"],
+                }
+        else:  # approved
+            if payload.get("_review", {}).get("rolled_back"):
+                result["warnings"].append(
+                    "item was rejected + rolled back earlier — approve only flips "
+                    "status, data NOT restored (re-ingest to restore)"
+                )
+            elif mapping_ids:
+                with _conn() as c:
+                    for mid in mapping_ids:
+                        cur = c.execute(
+                            "UPDATE mappings SET verified_by_anh=1 WHERE mapping_id=?",
+                            (mid,),
+                        )
+                        if cur.rowcount:
+                            result["verified_mapping_ids"].append(mid)
+                payload["_review"] = {
+                    "verified_mapping_ids": result["verified_mapping_ids"],
+                }
+    else:
+        result["warnings"].append(
+            "legacy item (no _merged ownership) — status updated, lexicon untouched"
         )
-        return cur.rowcount > 0
+
+    with _conn() as c:
+        c.execute(
+            "UPDATE distill_queue SET status=?, reviewed_at=?, reviewer_note=?, "
+            "payload_json=? WHERE item_id=?",
+            (status, int(time.time()), reviewer_note,
+             json.dumps(payload, ensure_ascii=False), item_id),
+        )
+    return result
+
+
+def resolve_distill_item(item_id: int, *, status: str, reviewer_note: str = "") -> bool:
+    """Mark a distill item as approved/rejected (wrapper giữ API cũ).
+
+    v3: gọi `review_distill_item` — approve/reject giờ TÁC ĐỘNG THẬT lên lexicon
+    (verify / rollback), không chỉ đổi status như trước.
+    """
+    return review_distill_item(
+        item_id, status=status, reviewer_note=reviewer_note
+    )["found"]
 
 
 # ─── Stats ───────────────────────────────────────────────────────────────────

@@ -4120,9 +4120,11 @@ def yi_lexicon_distill_queue(status: str | None = None, limit: int = 100) -> dic
 
 @app.post("/api/yi-lexicon/distill-queue/{item_id}/resolve")
 def yi_lexicon_resolve_distill(item_id: int, req: LexiconResolveItemRequest) -> dict:
-    from engine.yi_lexicon import resolve_distill_item
-    ok = resolve_distill_item(item_id, status=req.status, reviewer_note=req.reviewer_note)
-    return {"status": "ok" if ok else "not_found"}
+    """Duyệt distill item — vòng YOLO khép: approve → verify mappings,
+    reject → rollback (gỡ mapping/concept đã auto-merge khỏi lexicon)."""
+    from engine.yi_lexicon import review_distill_item
+    result = review_distill_item(item_id, status=req.status, reviewer_note=req.reviewer_note)
+    return {"status": "ok" if result["found"] else "not_found", "review": result}
 
 
 # ─── Lexicon conflict resolver (anh arbiter) ─────────────────────────────────

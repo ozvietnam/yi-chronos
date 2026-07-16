@@ -11,8 +11,10 @@ Anh, 2026-05-12:
 2. `ingest_corpus(corpus_id)` reads file in chunks (~2000 tokens each)
 3. For each chunk → LLM prompt: "extract Yi-related concepts + mappings"
 4. LLM returns JSON: list of {canonical_vi, concept_type, mappings: [{dim_type, dim_value, reasoning_vi}]}
-5. YOLO mode: auto-merge into lexicon (queue as 'auto_accepted')
-6. Anh review queue later to reject low-quality entries
+5. YOLO mode: auto-merge into lexicon (queue as 'auto_accepted', payload mang
+   `_merged` ownership: concept_id + mapping_ids do merge này tạo)
+6. Anh review queue later: approve → mark verified_by_anh; reject → ROLLBACK
+   (gỡ mapping/concept đã merge khỏi lexicon — vòng YOLO khép end-to-end)
 
 ## v1 scope
 
@@ -34,6 +36,8 @@ from .store import (
     add_distill_item,
     add_mapping,
     bootstrap_db,
+    find_mapping,
+    get_concept,
 )
 
 _CORPORA_DIR = Path(__file__).resolve().parent.parent.parent / "data" / "yi_lexicon" / "corpora"
@@ -204,20 +208,30 @@ def _merge_extracted(
 
     for cdata in extracted.get("concepts", []):
         try:
+            concept_type = cdata.get("concept_type", "other")
+            # Ownership tracking (v3, đóng vòng YOLO): biết chính xác concept/mapping
+            # nào do merge NÀY tạo mới → reject trong distill queue rollback được.
+            pre_existing = get_concept(
+                canonical_vi=cdata["canonical_vi"], concept_type=concept_type,
+            )
             concept = add_concept(
                 canonical_vi=cdata["canonical_vi"],
                 canonical_zh=cdata.get("canonical_zh"),
                 canonical_en=cdata.get("canonical_en"),
-                concept_type=cdata.get("concept_type", "other"),
+                concept_type=concept_type,
                 aliases=cdata.get("aliases", []),
                 schools=cdata.get("schools", ["common"]),
                 source=source_tag,
                 confidence=cdata.get("confidence", 0.6),
             )
             n_concepts += 1
+            new_mapping_ids: list[int] = []
             for mdata in cdata.get("mappings", []):
                 try:
-                    add_mapping(
+                    mapping_existed = find_mapping(
+                        concept.concept_id, mdata["dim_type"], mdata["dim_value"],
+                    ) is not None
+                    m = add_mapping(
                         concept_id=concept.concept_id,
                         dim_type=mdata["dim_type"],
                         dim_value=mdata["dim_value"],
@@ -232,12 +246,22 @@ def _merge_extracted(
                         source_quote=mdata.get("source_quote"),
                     )
                     n_mappings += 1
+                    if not mapping_existed:
+                        new_mapping_ids.append(m.mapping_id)
                 except Exception:
                     continue
-            # Also enqueue distill item for traceability
+            # Enqueue distill item — payload mang `_merged` (ownership) để
+            # anh reject là rollback được đúng phần merge này tạo ra.
             add_distill_item(
                 kind="new_concept",
-                payload=cdata,
+                payload={
+                    **cdata,
+                    "_merged": {
+                        "concept_id": concept.concept_id,
+                        "concept_created": pre_existing is None,
+                        "mapping_ids": new_mapping_ids,
+                    },
+                },
                 source=source_tag,
                 confidence=cdata.get("confidence", 0.6),
                 status="auto_accepted",
@@ -248,7 +272,6 @@ def _merge_extracted(
     for cmdata in extracted.get("contextual_meanings", []):
         try:
             # Resolve primary concept by canonical_vi (skip if not found)
-            from .store import get_concept
             primary = get_concept(canonical_vi=cmdata.get("primary_concept_vi", ""))
             if not primary:
                 continue
