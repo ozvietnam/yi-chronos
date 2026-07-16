@@ -37,7 +37,7 @@
 |---|---|---|---|
 | **Mai Hoa** | Không | ~~`tuong_loai_van_vat.json` 0-ref~~ **ĐÃ NỐI 2026-07-16**; còn 3 seed (`mai_hoa_18_van_de`, `the_sinh_khac_8_que`, `bat_quai_64_que_gieo_que`) + 2 module chết `engine/mai_hoa/` | CAO → còn vừa |
 | Thần Số | Không | ~~chaldean_compound + cycles 0-ref~~ **ĐÃ NỐI 2026-07-16** (số kép Cheiro vào cross_reference + meta chu kỳ vào pinnacles) | Vừa → OK |
-| Kỳ Môn | Không (intro tách) | CÓ — `deep_readings.py` (MON/TINH/THAN_DEEP + 14 combo) chỉ lộ qua endpoint tra cứu, `interpret_personal_chart` KHÔNG dệt vào luận cá nhân | Vừa |
+| Kỳ Môn | Không (intro tách) | ~~deep_readings không dệt vào luận cá nhân~~ **ĐÃ NỐI 2026-07-16** (insight có cung → attach `cell_deep` = môn+tinh+thần tại cung đó) | Vừa → OK |
 | Lục Hào | Không (sạch) | ~~thần sát chưa surface~~ **ĐÃ NỐI 2026-07-16** (7 thần sát tra can/chi ngày → đánh dấu hào trúng, field `than_sat`); còn `nap_giap_8_que` + 2 seed lục thân | Nhẹ-vừa → nhẹ |
 | Bát Tự | Không (RefBlock grounded) | Engine hardcoded; ❓cần wiki.sqlite3 để chốt | Nhẹ |
 | Hoàng Cực | Nhẹ nhưng atoms đã-nối (FTS theo hội-chi) | Không | OK |
