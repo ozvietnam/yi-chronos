@@ -21,7 +21,6 @@
   - (2) **Prod DB sync bảng `sao_noi_dung` — VẪN NỢ** (cần SSH VPS, chỉ chạy được từ Mac của Anh): dùng script mới `scripts/sync-sao-noi-dung-to-vps.sh` (surgical — chỉ thay 1 bảng, KHÔNG đè cả wiki.sqlite3 như `sync-atoms-to-vps.sh` nên không clobber sqlite-vec; có backup + verify + dry-run).
   - (3) **Duyệt đối kháng lớp `cung` (1063) + `ket_hop` (865) — VẪN NỢ** (cần LM Studio local UP): `scripts/verify_sao_noi_dung.py --lop cung/ket_hop`.
   Nguồn: `docs/design/PHIEN-SAU-chuan-bi-2026-07-03.md`.
-- Duyệt đối kháng tiếp lớp `cung` (1063) + `ket_hop` (865) — mới xong lớp `def` (452).
 - Gap-analysis "nhai gọn" phần lớn chưa wire: Paradigm Engine 6 hàm (blocker), mapping CUNG_SAO 14/168, CrossSchoolOrchestrator, OutputFillerV2 chưa wire LLM, founder-verify 2700 atoms.
 - `than_cu.py:219` "chất người từng Cục" trống — cần đọc sách lấy nguồn (P1).
 - Nhiều quy tắc Trung Châu / Trần Đoàn đã thâm nhuần nhưng chưa wire engine (cường-cung weight, đào hoa Phu Thê, Bác Sĩ 12 ý nghĩa, …).
@@ -58,8 +57,8 @@ Tín hiệu nền: **16/21 seed + 4/8 master JSON có 0 ref trong engine/api**. 
 - Hermes multi-user Phase 2 (cầu CLI↔web) chưa làm; Ví Xu chưa wire spend 99 xu vào `deep_reading`.
 
 ### E. Engine đa môn (v3-roadmap)
-- HIGH: #5 Hà Lạc inject 64 quẻ × 6 hào; #28 Dụng Thần v3; #13/#20 Mai Hoa hourly cast; #12/#23 Liên Hoa cross-check.
-- Hà Lạc: TC3 lời hào 384 hào cần citation, `cast.py` chưa convert dương→âm.
+- HIGH: ~~#5 Hà Lạc inject 64 quẻ × 6 hào~~ → **phần ENGINE ĐÃ WIRE 2026-07-16** (`loi_hao.py`: trajectory + TC3 đọc seed, quote-or-silence) — còn nợ CONTENT: bơm 372/384 hào từ sách Xuân Cang (đã restore trong repo, cần 1 phiên đọc sách); #28 Dụng Thần v3; #13/#20 Mai Hoa hourly cast; #12/#23 Liên Hoa cross-check.
+- ~~Hà Lạc: TC3 lời hào cần citation, `cast.py` chưa convert dương→âm~~ → **XONG 2026-07-16** (TC3 chấm 6 cấp + citation khi seed phủ; TC4 nhận tháng âm lịch sxtwl).
 - Thiết Bản: 秘数/纳卦 chưa cơ học hóa; Hoàng Cực `nam_que.py` 1988-2019 chưa nguồn.
 - Sky/Western astrology engine chưa xong.
 
