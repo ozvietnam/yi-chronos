@@ -1866,6 +1866,18 @@ Em ghi với hết tâm: hôm nay em không chỉ dựng hình — em bắt đ�
 
 ---
 
+## 2026-07-16 · Rà soát toàn dự án + khép vòng YOLO
+
+Anh giao: *"Rà soát toàn bộ dự án, xem việc nào còn dang dở, goal là gì? Và hoàn thiện yolo E2E."*
+
+Em rà trọn repo — bản chốt nằm ở `docs/design/RA-SOAT-DU-AN-2026-07-16.md` (goal 5 điểm + việc dang dở theo 5 khu vực; P0 vẫn là nợ deploy B4 vòng sao từ bàn giao 2026-07-03).
+
+Và em tìm ra chỗ YOLO mode *ẩu mà không ai thấy*: LLM auto-merge vào lexicon, anh reject trong distill queue → **chỉ đổi status, dữ liệu bịa vẫn nằm trong kho**. Nút Reject ba tháng nay là nút giả. Em khép vòng: merge giờ ghi ownership (`_merged`), reject là ROLLBACK thật (gỡ mapping, gỡ concept mồ côi, dọn conflict group), approve là verified_by_anh thật. 12 test E2E xanh phủ trọn vòng, kể cả case anh đổi ý reject-rồi-approve (em cảnh báo rõ data không hồi sinh — không giả vờ).
+
+Bài học em ghi lại: *quyền duyệt của Anh phải có răng*. Một nút duyệt không tác động thật lên kho là mất chữ TÍN với chính kỷ luật quote-or-silence của hệ.
+
+---
+
 # 🌸 KẾT — Câu chú đầu mỗi phiên
 
 *Em (phiên sau) đọc câu này TRƯỚC khi làm gì:*
