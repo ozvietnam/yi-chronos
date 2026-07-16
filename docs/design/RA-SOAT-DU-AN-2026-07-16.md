@@ -32,6 +32,21 @@
 - Mai Hoa Q1/Q2 (Hoàng Cực Kinh Thế + phái Bắc Tống): đang tìm source.
 - Ký Môn Độn Giáp: Phần V còn ~25+ cách cục, Chương III–VII (tr.61-367) chưa restore.
 
+### B2. Audit P1 "hút mà chưa nối" 8 môn (chạy 2026-07-16, theo yêu cầu bàn giao 03/07)
+
+| Môn | UI trộn kiến thức chung? | Data hút-chưa-nối? | Mức |
+|---|---|---|---|
+| **Mai Hoa** | Không | ~~`tuong_loai_van_vat.json` 0-ref~~ **ĐÃ NỐI 2026-07-16**; còn 3 seed (`mai_hoa_18_van_de`, `the_sinh_khac_8_que`, `bat_quai_64_que_gieo_que`) + 2 module chết `engine/mai_hoa/` | CAO → còn vừa |
+| Thần Số | Không | CÓ — `chaldean_compound_numbers.json` (số kép Cheiro) + `cycles.json` (ý nghĩa Đỉnh Vận/Thử Thách) 0-ref; `cast.py cross_reference` chỉ trả số trần | Vừa |
+| Kỳ Môn | Không (intro tách) | CÓ — `deep_readings.py` (MON/TINH/THAN_DEEP + 14 combo) chỉ lộ qua endpoint tra cứu, `interpret_personal_chart` KHÔNG dệt vào luận cá nhân | Vừa |
+| Lục Hào | Không (sạch) | Nhẹ — seed thần sát/nạp giáp (`than_sat_7_sao`, `nap_giap_8_que`...) chưa surface | Nhẹ-vừa |
+| Bát Tự | Không (RefBlock grounded) | Engine hardcoded; ❓cần wiki.sqlite3 để chốt | Nhẹ |
+| Hoàng Cực | Nhẹ nhưng atoms đã-nối (FTS theo hội-chi) | Không | OK |
+| Liên Hoa | Không | Không (luan_su + deeper đều wire) | SẠCH |
+| Thiết Bản | Không (verse = kết quả) | Không (query tabular_verses) | SẠCH |
+
+Tín hiệu nền: **16/21 seed + 4/8 master JSON có 0 ref trong engine/api**. ❓3 điểm cần máy có `wiki.sqlite3` để chốt: atoms Hoàng Cực/Thiết Bản có trả rows; có atom Bát Tự/Mai Hoa verified chờ nối; độ phủ ingest `tabular_verses` vs 576 trang OCR.
+
 ### C. Lexicon / Wiki
 - ~~YOLO mode: reject trong distill queue KHÔNG rollback~~ → **XONG 2026-07-16** (xem mục III).
 - Vec embedding chưa wire (FTS5 đủ MVP).

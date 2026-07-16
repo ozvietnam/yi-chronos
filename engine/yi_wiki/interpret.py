@@ -14,7 +14,10 @@ Anh là người ra quyết định cuối.
 """
 from __future__ import annotations
 
+import json
 from dataclasses import dataclass, field
+from functools import lru_cache
+from pathlib import Path
 from typing import Optional
 
 from engine.yi_wiki.cast import CastResult
@@ -44,7 +47,32 @@ QUAI_GIA_DINH = {
     "Tốn": "Trưởng nữ", "Ly": "Trung nữ", "Đoài": "Thiếu nữ",
 }
 
-# Bát Quái Vận Vật (rút gọn từ trang 60-61, dành cho diễn giải nhanh)
+# Bảng TƯỢNG LOẠI VẠN VẬT đầy đủ (Thiệu Vĩ Hoa p45-60, 8 quẻ × 28 thuộc tính)
+# từ seed — nối 2026-07-16 (audit "hút mà chưa nối": seed tồn tại mà engine
+# chỉ dùng bản rút gọn QUAI_VAN_VAT bên dưới).
+_TUONG_LOAI_SEED = (
+    Path(__file__).resolve().parent.parent.parent
+    / "data" / "seeds" / "mai_hoa_tuong_loai_van_vat.json"
+)
+
+
+@lru_cache(maxsize=1)
+def _load_tuong_loai() -> dict:
+    """Load seed tượng loại vạn vật. Seed hỏng/thiếu → dict rỗng (không bịa)."""
+    try:
+        return json.loads(_TUONG_LOAI_SEED.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+
+
+def get_tuong_loai_van_vat(que: str) -> dict | None:
+    """Record tượng loại đầy đủ của 1 quẻ (thiên thời/địa lý/nhân vật/tính cách/
+    thân thể/động vật/tĩnh vật/nhà cửa...) hoặc None nếu seed chưa có."""
+    return _load_tuong_loai().get("quẻ", {}).get(que)
+
+
+# Bát Quái Vận Vật (rút gọn từ trang 60-61, dành cho diễn giải nhanh 1 dòng;
+# bảng ĐẦY ĐỦ dùng get_tuong_loai_van_vat / field tuong_loai_van_vat)
 QUAI_VAN_VAT = {
     "Càn": "vàng, ngọc, vật tròn, đầu, ngựa, cha, vua quan, vật cứng",
     "Khôn": "đất, vải bố, bụng, trâu, mẹ, dân thường, vật vuông",
@@ -309,6 +337,10 @@ class InterpretationResult:
 
     # ⭐ Quy trình 4 bước hoàn chỉnh — flag cho UI
     four_steps_complete: bool = False    # True nếu đầy đủ 4 bước
+
+    # ⭐ Tượng loại vạn vật ĐẦY ĐỦ (Thiệu Vĩ Hoa p45-60) cho các quẻ xuất hiện
+    # trong Chính/Hỗ/Biến — {"source": str, "que": {tên quẻ: record 28 thuộc tính}}
+    tuong_loai_van_vat: dict = field(default_factory=dict)
 
     # ⭐ Cảnh báo từ cast (Hỗ Thuần Càn/Khôn)
     ho_warning: str = ""
@@ -1127,6 +1159,23 @@ def analyze(cast: CastResult, month: Optional[int] = None,
         "Anh là người ra quyết định cuối — vũ trụ chỉ nói, Anh chọn phản hồi."
     )
 
+    # ── Tượng loại vạn vật đầy đủ cho các quẻ trong lượt gieo này ──
+    _tl_raw = _load_tuong_loai()
+    _distinct_que = {
+        cast.chinh_quai.upper_que, cast.chinh_quai.lower_que,
+        cast.ho_quai.upper_que, cast.ho_quai.lower_que,
+        cast.bien_quai.upper_que, cast.bien_quai.lower_que,
+    }
+    _tl_records = {
+        q: _tl_raw.get("quẻ", {}).get(q)
+        for q in sorted(_distinct_que)
+        if _tl_raw.get("quẻ", {}).get(q)
+    }
+    tuong_loai_van_vat = (
+        {"source": _tl_raw.get("_meta", {}).get("source"), "que": _tl_records}
+        if _tl_records else {}
+    )
+
     return InterpretationResult(
         cast=cast,
         cast_summary=(
@@ -1134,6 +1183,7 @@ def analyze(cast: CastResult, month: Optional[int] = None,
             f"Biến {cast.bien_quai.name} (hào {moving}) | "
             f"Hỗ {cast.ho_quai.name}"
         ),
+        tuong_loai_van_vat=tuong_loai_van_vat,
         chu_dich_hint=(
             f"Lời quẻ Chu Dịch cho '{cast.chinh_quai.name}' — chưa link Kinh Dịch. "
             f"Anh có thể tham khảo bản Ngô Tất Tố trong thư viện."

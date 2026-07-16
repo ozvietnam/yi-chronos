@@ -5900,6 +5900,9 @@ def yi_wiki_interpret(req: MaiHoaInterpretRequest) -> dict:
             "note": r.posture_note,
         },
         "four_steps_complete": r.four_steps_complete,
+        # ⭐ Tượng loại vạn vật ĐẦY ĐỦ (Thiệu Vĩ Hoa p45-60, seed đã-nối 2026-07-16)
+        # cho các quẻ trong Chính/Hỗ/Biến — {} nếu seed thiếu
+        "tuong_loai_van_vat": r.tuong_loai_van_vat,
         # ⭐ Tam yếu (Mai Hoa Q1 thâm nhuần) — 3 yếu cốt lõi + verdict
         "tam_yeu": _build_tam_yeu_summary(r),
         # ⭐ 11 chiêm chuyên đề (Mai Hoa Q2 thâm nhuần) — route theo intent / question
