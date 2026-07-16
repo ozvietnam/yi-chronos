@@ -268,3 +268,21 @@ def test_api_ha_lac_endpoint():
     assert "hau_thien_quai" in state
     assert "decade_trajectory" in state
     assert len(state["decade_trajectory"]) == 12
+
+
+def test_cast_ha_lac_tc4_nguyet_lenh_has_lunar_month():
+    """TC4 Nguyệt lệnh nhận tháng ÂM LỊCH thật (fix TODO 2026-07-16).
+
+    1988-06-05 dương = tháng 4 âm (Mậu Thìn) — theo docstring lich_conversion.
+    Trước fix: birth_month_amlich luôn None → TC4 luôn 'Thiếu tháng âm lịch'.
+    """
+    r = cast_ha_lac(
+        birth_datetime_local="1988-06-05T10:30:00",
+        timezone="Asia/Ho_Chi_Minh",
+        gender="nam",
+    )
+    mhc = r["menh_hop_cach"]
+    assert mhc is not None and "_error" not in mhc
+    tc4 = mhc["breakdown"]["tc4_nguyet_lenh"]
+    assert "Thiếu tháng âm lịch" not in tc4["reason"]
+    assert "tháng 4" in tc4["reason"] or "Nguyệt Lệnh" in tc4["reason"]

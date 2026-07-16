@@ -63,6 +63,14 @@ def _compute_menh_hop_cach(birth_dt_str, tu_tru, tien_thien, nd_tien, pools, yea
                 mang = k
                 break
         year_polarity = "dương" if year_stem in ("Giáp", "Bính", "Mậu", "Canh", "Nhâm") else "âm"
+        # Tháng ÂM LỊCH cho TC4 Nguyệt lệnh (sxtwl, cùng converter Tử Vi dùng).
+        # Convert fail → None, TC4 tự ghi "Thiếu tháng âm lịch" (quote-or-silence).
+        birth_month_amlich = None
+        try:
+            from engine.yi_wiki.lich_conversion import parse_solar_string, solar_to_lunar
+            birth_month_amlich = solar_to_lunar(parse_solar_string(birth_dt_str)).lunar_month
+        except Exception:
+            pass
         result = evaluate_menh_hop_cach(
             source_quai_name=tien_thien.name_vi,
             upper_trigram=tien_thien.upper_trigram,
@@ -73,7 +81,7 @@ def _compute_menh_hop_cach(birth_dt_str, tu_tru, tien_thien, nd_tien, pools, yea
             so_duong=pools.tien_raw,
             so_am=pools.dia_raw,
             season_key=season,
-            birth_month_amlich=None,  # TODO: convert dương→âm lịch
+            birth_month_amlich=birth_month_amlich,
             mang_nap_am=mang,
         )
         return result.to_dict()
