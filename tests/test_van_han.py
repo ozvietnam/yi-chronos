@@ -85,6 +85,28 @@ def test_luu_nhat_block_lich_am_va_tu_hoa_ngay():
     assert vh.build_block(r, "luu_nhat", year=2026, month=9, day=15)["vi_tri"] == b["vi_tri"]
 
 
+def test_cung_van_nghia_grounded_hoac_none():
+    """#3: nguyên tắc đọc-cung-theo-vận CÓ NGUỒN cho cung đã trích; cung chưa trích → None
+    (quote-or-silence, không bịa)."""
+    r = _founder()
+    from engine.tu_vi.van_han import _CUNG_VAN_NGHIA, _the_dung_block
+    from engine.tu_vi.an_sao import BRANCHES_TVI as B
+    # mọi rule đã curate PHẢI có nguồn
+    for cung, v in _CUNG_VAN_NGHIA.items():
+        assert v["rule"] and v["nguon"]
+    # block: cung có trong dict → cung_van_nghia có nguồn; ngoài dict → None
+    seen_some = False
+    for bi in range(12):
+        blk = _the_dung_block(r, bi, "Test")
+        cvn = blk.get("cung_van_nghia")
+        if blk["cung_the"] in _CUNG_VAN_NGHIA:
+            assert cvn and cvn["nguon"]
+            seen_some = True
+        else:
+            assert cvn is None       # KHÔNG bịa cung chưa trích
+    assert seen_some
+
+
 def test_month_out_of_range():
     r = _founder()
     import pytest

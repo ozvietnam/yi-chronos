@@ -42,6 +42,40 @@ _HOA_NGHIA = {
     "Kỵ": "vướng mắc, cần cẩn trọng, chỗ hao tâm",
 }
 
+# Nguyên tắc ĐỌC CUNG khi nó là cung VẬN (Thể-Dụng per-cung) — TRÍCH có nguồn từ sách
+# phục chế Trung Châu phái (#3 dày kho fine-grained, 2026-07-14). Cung CHƯA có trích rõ
+# → KHÔNG bịa (quote-or-silence): engine để trống, tầng LLM không luận thêm.
+_CUNG_VAN_NGHIA = {
+    "Thiên Di": {
+        "rule": "Cung Thiên Di của vận tốt → nên tìm cơ hội xuất ngoại / đổi chỗ ở / đổi "
+                "việc để phát triển; kỳ này quan-sát việc đi lại, dời chuyển hoàn cảnh.",
+        "nguon": "Trung Châu phái (Vương Đình Chi)"},
+    "Tật Ách": {
+        "rule": "Cung Tật Ách của lưu niên/đại vận gặp Thiên Hình + Lưu Dương xung → đề "
+                "phòng phẫu thuật; ưa gặp Thiên Thọ → dù bệnh nặng cũng dễ gặp thầy giỏi, chữa khỏi.",
+        "nguon": "Trung Châu phái (Vương Đình Chi)"},
+    "Tài Bạch": {
+        "rule": "Gặp sát-kỵ ở cung Tài Bạch của vận, CHỚ vội võ đoán tài vận xấu — phải xét "
+                "kỹ tổ hợp; ứng nghiệm có khi là thu nhập tăng nhưng tiền lời đến chậm.",
+        "nguon": "Trung Châu phái (Vương Đình Chi)"},
+    "Điền Trạch": {
+        "rule": "Hồng Loan / Thiên Hỉ đến cung Điền Trạch lưu niên → thêm nhân khẩu (sinh "
+                "con, người đến ở); gặp thêm Tả Phụ, Hữu Bật → có khách đến tá túc.",
+        "nguon": "Trung Châu phái (Vương Đình Chi)"},
+    "Tử Tức": {
+        "rule": "Lưu niên gặp Lưu Xương - Lưu Khúc hội chiếu + cung Tử Tức lưu niên cát lợi "
+                "→ thuận việc sinh nở (mẹ tròn con vuông).",
+        "nguon": "Trung Châu phái (Vương Đình Chi)"},
+    "Nô Bộc": {
+        "rule": "Cung Giao Hữu (Nô Bộc) của vận cát → người dưới quyền đồng cam cộng khổ, "
+                "chung mục tiêu; gặp sát-kỵ → tranh chấp, bất hòa trong công việc.",
+        "nguon": "Trung Châu phái (Vương Đình Chi)"},
+    "Phụ Mẫu": {
+        "rule": "Bạch Hổ ở cung Phụ Mẫu của lưu niên → chủ hung tang (tang chế); kỳ này "
+                "quan-sát sức khỏe / quan hệ với bậc trên.",
+        "nguon": "Trung Châu phái (Vương Đình Chi)"},
+}
+
 
 @lru_cache(maxsize=1)
 def _db() -> "sqlite3.Connection | None":
@@ -141,6 +175,8 @@ def _the_dung_block(la_so: dict, active_branch_index: int, tang: str) -> dict:
         "sao_nguon": sao_grounded,        # nội dung sao đã duyệt (có thể rỗng)
         "chua_co_nguon": len(sao_grounded) == 0,
         "dien_giai_the_dung": dg,
+        # #3: nguyên tắc đọc cung này khi là cung VẬN — có nguồn (None nếu chưa trích).
+        "cung_van_nghia": _CUNG_VAN_NGHIA.get(palace_name),
     }
 
 
@@ -371,6 +407,9 @@ def block_to_source_text(blk: dict) -> str:
     lines.append(f"### TẦNG: {tang_vi} — an Mệnh tại cung {blk['vi_tri']}")
     lines.append(f"### THỂ-DỤNG: {blk['dien_giai_the_dung']}")
     lines.append(f"### Nguyên tắc (nguồn {blk['nguyen_tac']['nguon']}): {blk['nguyen_tac']['text']}")
+    cvn = blk.get("cung_van_nghia")
+    if cvn:
+        lines.append(f"### Đọc cung {blk['cung_the']} khi là cung vận (nguồn {cvn['nguon']}): {cvn['rule']}")
     if blk.get("sao_nguon"):
         lines.append("### Sao tại cung vận Mệnh — nội dung CÓ NGUỒN (chỉ dùng ý này):")
         for s in blk["sao_nguon"]:

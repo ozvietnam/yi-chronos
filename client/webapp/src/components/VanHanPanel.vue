@@ -141,6 +141,12 @@ async function toggle() {
           <p>{{ block.dien_giai_the_dung }}</p>
         </div>
 
+        <!-- #3: nguyên tắc đọc cung này khi là cung vận (có nguồn) -->
+        <div v-if="block.cung_van_nghia" class="vh-cungrule">
+          <p>📐 <b>Đọc cung {{ block.cung_the }} theo vận:</b> {{ block.cung_van_nghia.rule }}</p>
+          <span class="vh-src">📖 {{ block.cung_van_nghia.nguon }}</span>
+        </div>
+
         <!-- Tứ Hóa rọi cung -->
         <div v-if="litHoa.length" class="vh-hoa-group">
           <h6 class="vh-sub">Tứ Hóa của tầng rọi vào cung — sân khấu MỜI QUAN-SÁT (không phán cát/hung)</h6>
@@ -227,6 +233,8 @@ async function toggle() {
 .vh-thedung { margin-bottom: 12px; }
 .vh-vitri { font-size: calc(13px * var(--reading-scale, 1)); color: var(--read-accent, #7ec8e3); }
 .vh-thedung p { margin: 4px 0 0; font-size: calc(13px * var(--reading-scale, 1)); line-height: 1.6; color: var(--read-text, rgba(230, 238, 245, 0.88)); }
+.vh-cungrule { margin-bottom: 12px; padding: 8px 11px; border-radius: 8px; border-left: 3px solid var(--read-rule, rgba(232, 201, 90, 0.5)); background: var(--read-surface, rgba(255, 255, 255, 0.02)); }
+.vh-cungrule p { margin: 0; font-size: calc(12.5px * var(--reading-scale, 1)); line-height: 1.6; color: var(--read-text-dim, rgba(230, 238, 245, 0.82)); }
 .vh-sub { margin: 0 0 6px; font-size: calc(12px * var(--reading-scale, 1)); font-weight: 600; color: var(--read-han, #e8c95a); opacity: 0.9; }
 .vh-hoa-group { margin-bottom: 12px; }
 .vh-hoa-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 8px; }

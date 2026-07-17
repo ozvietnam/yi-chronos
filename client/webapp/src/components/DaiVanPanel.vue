@@ -112,6 +112,7 @@ onMounted(loadOverview);
           <p v-if="expanded[c.cycle_index].error" class="dv-error">{{ expanded[c.cycle_index].error }}</p>
           <template v-else>
             <p class="dv-thedung">{{ expanded[c.cycle_index].dien_giai_the_dung }}</p>
+            <p v-if="expanded[c.cycle_index].cung_van_nghia" class="dv-cungrule">📐 <b>Đọc theo vận:</b> {{ expanded[c.cycle_index].cung_van_nghia.rule }} <span class="dv-src">📖 {{ expanded[c.cycle_index].cung_van_nghia.nguon }}</span></p>
             <div v-if="litHoa(expanded[c.cycle_index]).length" class="dv-hoa-grid">
               <div v-for="h in litHoa(expanded[c.cycle_index])" :key="h.hoa" class="dv-hoa" :data-hoa="HOA_COLOR[h.hoa]">
                 <b>{{ h.hoa }}</b> {{ h.sao }} → {{ h.cung }}<small>{{ h.nghia }}</small>
@@ -163,7 +164,8 @@ onMounted(loadOverview);
 .dv-empty-star { color: var(--read-text-faint, #64748b); font-size: 0.72rem; font-style: italic; }
 .dv-toggle { color: var(--read-text-muted, #94a3b8); font-size: 0.85rem; }
 .dv-body { padding: 0.8rem 0.9rem 1rem; border-top: 1px solid var(--read-border, #1e293b); background: rgba(0,0,0,0.12); }
-.dv-thedung { margin: 0 0 0.7rem; font-size: 0.9rem; line-height: 1.6; color: var(--read-text-dim, #cbd5e1); }
+.dv-thedung { margin: 0 0 0.5rem; font-size: 0.9rem; line-height: 1.6; color: var(--read-text-dim, #cbd5e1); }
+.dv-cungrule { margin: 0 0 0.7rem; padding: 6px 9px; border-left: 3px solid var(--read-rule, rgba(232,201,90,0.5)); border-radius: 6px; font-size: 0.82rem; line-height: 1.55; color: var(--read-text-dim, #cbd5e1); background: rgba(0,0,0,0.12); }
 .dv-hoa-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 6px; margin-bottom: 0.7rem; }
 .dv-hoa { border: 1px solid var(--read-border, rgba(230,238,245,0.16)); border-left-width: 3px; border-radius: 6px; padding: 5px 9px; font-size: 0.78rem; color: var(--read-text-dim, #cbd5e1); }
 .dv-hoa small { display: block; color: var(--read-text-faint, #64748b); margin-top: 2px; }
