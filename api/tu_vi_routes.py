@@ -120,9 +120,10 @@ class TuViVanHanRequest(BaseModel):
     birth_datetime_local: str
     gender: str = "nam"
     timezone: str = "Asia/Ho_Chi_Minh"
-    tang: str  # dai_van | luu_nien | luu_nguyet | tuan
+    tang: str  # dai_van | luu_nien | luu_nguyet | tuan | dai_van_overview | luu_nien_overview
     cycle_index: Optional[int] = None   # dai_van
-    year: Optional[int] = None          # luu_nien | luu_nguyet | tuan
+    year: Optional[int] = None          # luu_nien | luu_nguyet | tuan | overview start
+    year_end: Optional[int] = None      # luu_nien_overview
     month: Optional[int] = None         # luu_nguyet | tuan
     tuan: Optional[int] = None          # tuan (1 thượng · 2 trung · 3 hạ)
     want_llm: bool = True               # có sinh narrative grounded không
@@ -136,6 +137,19 @@ def tu_vi_van_han(request: TuViVanHanRequest, caller: dict = Depends(require_cal
     CHỈ biên tập từ nguồn (không bịa). Thiếu nguồn → luận rỗng, KHÔNG gieo rác.
     """
     from engine.tu_vi import van_han as vh
+
+    # Overview skeleton (tất định, 0-LLM) — thay nguồn cached-analyzer ungrounded của UI cũ.
+    if request.tang in ("dai_van_overview", "luu_nien_overview"):
+        from engine.tu_vi.from_birth import cast_la_so_from_birth
+        try:
+            la_so = cast_la_so_from_birth(birth_datetime_local=request.birth_datetime_local,
+                                          gender=request.gender)
+            if request.tang == "dai_van_overview":
+                return {"status": "ok", **vh.dai_van_overview(la_so)}
+            start = request.year or 2026
+            return {"status": "ok", **vh.luu_nien_overview(la_so, start, request.year_end or start + 4)}
+        except (ValueError, KeyError) as e:
+            return {"status": "error", "reason": str(e)}
 
     kw: dict = {}
     for k in ("cycle_index", "year", "month", "tuan"):

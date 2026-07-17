@@ -261,6 +261,50 @@ def tuan_block(la_so: dict, year: int, month: int, tuan: int) -> dict:
     }
 
 
+# ── Overview (skeleton tất định — thay nguồn cached-analyzer ungrounded) ───────
+def dai_van_overview(la_so: dict) -> dict:
+    """12 Đại Vận skeleton tất định: cycle, tuổi, vị trí, cung Thể, sao. 0-LLM, 0 bịa."""
+    cycles = []
+    for dv in la_so.get("dai_van", []):
+        bi = dv["branch_index"]
+        pal = _palace_at(la_so, bi)
+        stars = _stars_at(la_so, bi)
+        borrowed = False
+        if not stars:
+            stars = _stars_at(la_so, (bi + 6) % 12)
+            borrowed = bool(stars)
+        cycles.append({
+            "cycle_index": dv["cycle_index"],
+            "start_age": dv["start_age"], "end_age": dv["end_age"],
+            "branch": BRANCHES_TVI[bi],
+            "cung_the": pal["name"] if pal else "?",
+            "sao": stars, "sao_muon_xung": borrowed,
+        })
+    return {"cycles": cycles}
+
+
+def luu_nien_overview(la_so: dict, start_year: int, end_year: int) -> dict:
+    """Skeleton Lưu Niên nhiều năm (tất định): mỗi năm can-chi, vị trí, cung Thể, sao."""
+    if end_year < start_year or end_year - start_year > 30:
+        raise ValueError("khoảng năm không hợp lệ (≤30 năm)")
+    years = []
+    for y in range(start_year, end_year + 1):
+        y_can, y_chi = _year_stem_branch(y)
+        bi = BRANCHES_TVI.index(y_chi)
+        pal = _palace_at(la_so, bi)
+        stars = _stars_at(la_so, bi)
+        borrowed = False
+        if not stars:
+            stars = _stars_at(la_so, (bi + 6) % 12)
+            borrowed = bool(stars)
+        years.append({
+            "year": y, "year_can_chi": f"{y_can} {y_chi}", "branch": y_chi,
+            "cung_the": pal["name"] if pal else "?",
+            "sao": stars, "sao_muon_xung": borrowed,
+        })
+    return {"years": years}
+
+
 # ── Dựng block cho 1 tầng bất kỳ (dispatch) ───────────────────────────────────
 def build_block(la_so: dict, tang: str, **kw) -> dict:
     """Dispatch: tang ∈ {dai_van, luu_nien, luu_nguyet, tuan}."""

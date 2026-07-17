@@ -56,6 +56,21 @@ def test_grounded_chi_lay_founder_verified_1():
         assert blk["chua_co_nguon"] == (len(blk["sao_nguon"]) == 0)
 
 
+def test_overview_skeleton_tat_dinh():
+    """Overview 12 đại vận + N năm — skeleton tất định (0 LLM), khớp lá số founder."""
+    r = _founder()
+    dv = vh.dai_van_overview(r)
+    assert len(dv["cycles"]) == len(r["dai_van"])
+    assert dv["cycles"][0]["start_age"] == r["dai_van"][0]["start_age"]
+    for c in dv["cycles"]:
+        assert c["cung_the"] and c["branch"] in BRANCHES_TVI
+    ln = vh.luu_nien_overview(r, 2026, 2030)
+    assert len(ln["years"]) == 5
+    assert ln["years"][0]["year"] == 2026 and ln["years"][0]["year_can_chi"] == "Bính Ngọ"
+    for y in ln["years"]:
+        assert y["cung_the"]
+
+
 def test_month_out_of_range():
     r = _founder()
     import pytest
