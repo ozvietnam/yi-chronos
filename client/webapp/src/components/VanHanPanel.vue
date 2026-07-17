@@ -149,6 +149,18 @@ async function toggle() {
           </p>
         </div>
 
+        <!-- Tam phương tứ chính hội chiếu (cổ pháp không đọc cung lẻ) -->
+        <div v-if="(block.hoi_chieu || []).length" class="vh-hoichieu">
+          <h6 class="vh-sub">Tam phương tứ chính hội chiếu vào cung vận</h6>
+          <div class="vh-hc-grid">
+            <div v-for="(h, i) in block.hoi_chieu" :key="i" class="vh-hc">
+              <span class="vh-hc-qh">{{ h.quan_he }}</span>
+              <span class="vh-hc-cung">{{ h.cung }} ({{ h.vi_tri }})</span>
+              <small>{{ (h.sao || []).join(', ') || 'Vô Chính Diệu' }}</small>
+            </div>
+          </div>
+        </div>
+
         <!-- Tứ Hóa rọi cung -->
         <div v-if="litHoa.length" class="vh-hoa-group">
           <h6 class="vh-sub">Tứ Hóa của tầng rọi vào cung — sân khấu MỜI QUAN-SÁT (không phán cát/hung)</h6>
@@ -239,6 +251,12 @@ async function toggle() {
 .vh-cungrule-head { margin: 0 0 3px; font-size: calc(12.5px * var(--reading-scale, 1)); color: var(--read-text, rgba(230, 238, 245, 0.9)); }
 .vh-cungrule-item { margin: 3px 0 0; font-size: calc(12px * var(--reading-scale, 1)); line-height: 1.55; color: var(--read-text-dim, rgba(230, 238, 245, 0.8)); }
 .vh-sub { margin: 0 0 6px; font-size: calc(12px * var(--reading-scale, 1)); font-weight: 600; color: var(--read-han, #e8c95a); opacity: 0.9; }
+.vh-hoichieu { margin-bottom: 12px; }
+.vh-hc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; }
+.vh-hc { border: 1px solid var(--read-border, rgba(230,238,245,0.14)); border-radius: 8px; padding: 6px 9px; font-size: calc(11.5px * var(--reading-scale, 1)); }
+.vh-hc-qh { color: var(--read-text-faint, rgba(230,238,245,0.55)); }
+.vh-hc-cung { display: block; color: var(--read-accent, #7ec8e3); font-weight: 600; margin: 1px 0; }
+.vh-hc small { color: var(--read-text-dim, rgba(230,238,245,0.78)); }
 .vh-hoa-group { margin-bottom: 12px; }
 .vh-hoa-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 8px; }
 .vh-hoa { border: 1px solid var(--read-border, rgba(230, 238, 245, 0.16)); border-left-width: 3px; border-radius: 8px; padding: 7px 10px; font-size: calc(12px * var(--reading-scale, 1)); }

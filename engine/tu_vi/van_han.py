@@ -172,8 +172,25 @@ def _hoa_lit(hoa_stem: str, la_so: dict) -> list[dict]:
     return out
 
 
+def _tam_phuong(la_so: dict, i: int) -> list[dict]:
+    """Tam phương tứ chính HỘI CHIẾU vào cung i: đối cung (xung, +6) + 2 cung tam hợp
+    (±4). Trả [{quan_he, cung, vi_tri, sao}]. Cổ pháp: cung vận không đọc lẻ."""
+    out = []
+    for off, qh in ((6, "đối cung (xung chiếu)"), (4, "tam hợp"), (8, "tam hợp")):
+        bi = (i + off) % 12
+        p = _palace_at(la_so, bi)
+        out.append({
+            "quan_he": qh,
+            "cung": p["name"] if p else "?",
+            "vi_tri": BRANCHES_TVI[bi],
+            "sao": _stars_at(la_so, bi),
+        })
+    return out
+
+
 def _the_dung_block(la_so: dict, active_branch_index: int, tang: str) -> dict:
-    """Khối THỂ-DỤNG cho 1 tầng: cung nguyên cục tại vị trí vận Mệnh (Thể) + sao + nguồn.
+    """Khối THỂ-DỤNG cho 1 tầng: cung nguyên cục tại vị trí vận Mệnh (Thể) + sao + nguồn
+    + TAM PHƯƠNG TỨ CHÍNH hội chiếu (cổ pháp: không đọc cung lẻ).
 
     Vô Chính Diệu (cung không chính tinh) → MƯỢN SAO cung xung chiếu (đối diện +6), cổ pháp.
     """
@@ -200,6 +217,9 @@ def _the_dung_block(la_so: dict, active_branch_index: int, tang: str) -> dict:
         "sao_nguon": sao_grounded,        # nội dung sao đã duyệt (có thể rỗng)
         "chua_co_nguon": len(sao_grounded) == 0,
         "dien_giai_the_dung": dg,
+        # TAM PHƯƠNG TỨ CHÍNH (cổ pháp "còn phải xem lục xung tam hợp chiếu"): đối cung
+        # (xung) + 2 cung tam hợp HỘI CHIẾU vào cung vận — không đọc cung lẻ.
+        "hoi_chieu": _tam_phuong(la_so, active_branch_index),
         # #3: nguyên tắc đọc cung này khi là cung VẬN — LIST có nguồn (rỗng nếu chưa trích).
         "cung_van_rules": _cung_van_rules(palace_name, _TANG_KEY.get(tang, "all")),
     }
@@ -432,6 +452,12 @@ def block_to_source_text(blk: dict) -> str:
     lines.append(f"### TẦNG: {tang_vi} — an Mệnh tại cung {blk['vi_tri']}")
     lines.append(f"### THỂ-DỤNG: {blk['dien_giai_the_dung']}")
     lines.append(f"### Nguyên tắc (nguồn {blk['nguyen_tac']['nguon']}): {blk['nguyen_tac']['text']}")
+    hc = blk.get("hoi_chieu") or []
+    if hc:
+        lines.append("### Tam phương tứ chính HỘI CHIẾU (cổ pháp — xét cả chòm, không đọc cung lẻ):")
+        for h in hc:
+            sao = ", ".join(h["sao"]) or "Vô Chính Diệu"
+            lines.append(f"- {h['quan_he']}: cung {h['cung']} ({h['vi_tri']}) — {sao}")
     cvr = blk.get("cung_van_rules") or []
     if cvr:
         lines.append(f"### Đọc cung {blk['cung_the']} khi là cung vận (nguyên tắc CÓ NGUỒN):")

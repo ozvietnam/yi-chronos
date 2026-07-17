@@ -107,6 +107,22 @@ def test_cung_van_rules_grounded_list():
         assert x["tang"] in ("all", "luu_nien")
 
 
+def test_tam_phuong_tu_chinh_hoi_chieu():
+    """Cổ pháp 'còn phải xem lục xung tam hợp chiếu': mỗi block có hoi_chieu = đối cung
+    (xung +6) + 2 cung tam hợp (±4), KHÔNG đọc cung lẻ."""
+    r = _founder()
+    for blk in [vh.dai_van_block(r, 4), vh.luu_nien_block(r, 2026),
+                vh.luu_nguyet_block(r, 2026, 9), vh.tuan_block(r, 2026, 9, 2)]:
+        hc = blk["hoi_chieu"]
+        assert len(hc) == 3
+        i = BRANCHES_TVI.index(blk["vi_tri"])
+        offs = sorted((BRANCHES_TVI.index(h["vi_tri"]) - i) % 12 for h in hc)
+        assert offs == [4, 6, 8]                     # 2 tam hợp + 1 xung
+        assert any("xung" in h["quan_he"] for h in hc)
+        for h in hc:
+            assert h["cung"] and isinstance(h["sao"], list)
+
+
 def test_month_out_of_range():
     r = _founder()
     import pytest
