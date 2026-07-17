@@ -924,11 +924,6 @@ const grid = computed(() => {
                 title="Vận năm 2026-2030 chi tiết (Đại Vận + Tiểu Hạn kết hợp)">
           📅 Lưu Niên 5 năm
         </button>
-        <button class="luu-nien-btn" type="button" @click="showVanHan = true"
-                title="Vận hạn theo tháng/tuần — đọc Thể-Dụng + Tứ Hóa rọi cung, luận CÓ NGUỒN"
-                style="background: linear-gradient(135deg, rgba(126,200,227,0.16), rgba(90,176,122,0.16));">
-          🗓️ Vận hạn tháng/tuần
-        </button>
         <button class="dai-van-btn" type="button" @click="showCompare = true"
                 title="So sánh chéo Bắc Phái TVĐS vs Chiếu Đởm Kinh — 2 paradigm song hành"
                 style="background: linear-gradient(135deg, rgba(252,211,77,0.16), rgba(196,181,253,0.16));">
@@ -1365,6 +1360,15 @@ const grid = computed(() => {
           </div>
         </section>
       </template>
+
+      <!-- ── 🗓️ VẬN HẠN — CTA nổi bật ngay dưới lá số (mở VanHanPanel: đủ mọi tầng) ── -->
+      <button v-if="data" type="button" class="van-han-cta" @click="showVanHan = true">
+        <span class="vhc-icon">🗓️</span>
+        <span class="vhc-text">
+          <b>Xem Vận Hạn theo thời gian →</b>
+          <small>Đại Vận (10 năm) · Lưu Niên (năm) · Lưu Nguyệt (tháng) · Tuần · Lưu Nhật — đọc Thể-Dụng + tam phương tứ chính, luận CÓ NGUỒN</small>
+        </span>
+      </button>
 
       <!-- ── Thân cư (đóng cung nào → trọng tâm & hậu vận — GROUNDED, có nguồn) ── -->
       <section v-if="data && (thanCu?.available || cucLuan?.available)" class="than-cu-block">
@@ -1926,6 +1930,20 @@ const grid = computed(() => {
 }
 
 /* Đại Vận button */
+.van-han-cta {
+  display: flex; align-items: center; gap: 14px; width: 100%;
+  margin: 16px 0; padding: 14px 18px; cursor: pointer; text-align: left;
+  border-radius: 12px;
+  border: 1px solid rgba(126, 200, 227, 0.4);
+  background: linear-gradient(135deg, rgba(126, 200, 227, 0.14), rgba(90, 176, 122, 0.12));
+  transition: transform 0.12s, box-shadow 0.12s;
+}
+.van-han-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(126, 200, 227, 0.18); border-color: rgba(126, 200, 227, 0.7); }
+.vhc-icon { font-size: 1.9rem; line-height: 1; }
+.vhc-text { display: flex; flex-direction: column; gap: 3px; }
+.vhc-text b { font-size: 1.02rem; color: var(--read-accent, #7ec8e3); }
+.vhc-text small { font-size: 0.8rem; color: var(--read-text-muted, #94a3b8); line-height: 1.5; }
+
 .dai-van-btn {
   background: linear-gradient(135deg, #6d28d9, #4c1d95);
   color: #c4b5fd;

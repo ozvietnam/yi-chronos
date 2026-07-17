@@ -7,7 +7,7 @@ AppChat KHÔNG còn tự trừ ở Firestore — chỉ hiển thị + mở luồ
 THẬT nằm ở đây để không double-charge / lệch số dư.
 
 Hằng số KHỚP AppChat (prvchat `functions/src/xu/xuLedger.ts`):
-  1 xu = 1.000₫ · quick 1 / council 5 / deep 99 · free quick 3/ngày ·
+  1 xu = 1.000₫ · quick 1 / council 5 / deep 99 · free quick 10/ngày (spec §9.1) ·
   login +10 xu/ngày trong cửa sổ welcome 30 ngày (tính từ users.created_at).
 
 Hiện thực mirror `engine.llm_spend.try_charge`: MỘT transaction có khoá
@@ -38,7 +38,10 @@ XU_COST = {
     "council": 5,  # Hội Đồng đa-sage
     "deep": 99,    # Luận sâu trọn lá số (DeepSeek)
 }
-FREE_QUICK_PER_DAY = 3   # Hỏi nhanh miễn phí mỗi ngày (rồi mới tiêu xu)
+# Anh chốt 2026-06-19 (spec §9.1): GIỮ 10/ngày — YI là nguồn chân lý, áp cho CẢ
+# kênh AppChat. Phải KHỚP gate thật (hermes_service.FREE_DAILY_QUICK dùng chung
+# hằng số này) — trước đây lệch 3 vs 10 làm wallet API báo sai lượt free còn lại.
+FREE_QUICK_PER_DAY = 10  # Hỏi nhanh miễn phí mỗi ngày (rồi mới tiêu xu)
 DAILY_BONUS_XU = 10      # Tặng khi đăng nhập, trong cửa sổ welcome
 WELCOME_WINDOW_DAYS = 30  # Cửa sổ tặng xu đăng nhập kể từ khi tạo tài khoản
 

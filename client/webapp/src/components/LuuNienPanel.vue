@@ -1,614 +1,205 @@
 <script setup>
 /**
- * LuuNienPanel — vận năm chi tiết 2026-2030 cho anh.
- *
- * Source: /api/yi-publishing/luu-nien/founder
- * Mỗi năm kết hợp: Đại Vận (10 năm) + Tiểu Hạn (vận năm).
+ * LuuNienPanel — Lưu Niên (năm) + Lưu Nguyệt (tháng) GROUNDED (2026-07-14: chuyển từ
+ * luận-DeepSeek-ungrounded sang /api/tu-vi/van-han — Thể-Dụng + Tứ Hóa + sao CÓ NGUỒN).
+ * Banner Đẩu Quân (Q2 p0088) giữ nguyên — tất định. Khung năm/tháng = van-han overview.
  */
 import { ref, onMounted, computed, watch } from "vue";
-import WikiText from "./WikiText.vue";
-import { tuviPersonKey, tuviPersonName, fetchCachedAnalysis, runAnalysis } from "../stores/tuviPersonStore.js";
+import { tuviPersonKey, tuviPersonBirth, tuviPersonGender, tuviPersonName } from "../stores/tuviPersonStore.js";
 
-const data = ref(null);
-const monthlyData = ref(null);
-const dauQuanData = ref(null);  // ⭐ Đẩu Quân (Q2 p0088 + Q3 p0157)
-const loading = ref(false);
-const running = ref(false);
-const error = ref("");
+const viewMode = ref("year");      // 'year' | 'month'
 const activeYear = ref(2026);
-const viewMode = ref("year"); // 'year' | 'monthly'
 const activeMonth = ref(1);
+const years = ref([]);             // luu_nien_overview
+const dauQuanData = ref(null);
+const block = ref(null);           // grounded block cho năm/tháng đang chọn
+const luan = ref("");
+const loading = ref(false);
+const luanBusy = ref(false);
+const error = ref("");
+
+const HOA_COLOR = { "Lộc": "loc", "Quyền": "quyen", "Khoa": "khoa", "Kỵ": "ky" };
+const litHoa = computed(() => (block.value?.tu_hoa_van || []).filter((h) => !h.cung.startsWith("(")));
+
+function reqBase() {
+  return { birth_datetime_local: tuviPersonBirth.value, gender: tuviPersonGender.value || "nam" };
+}
+async function vanHan(payload) {
+  const r = await fetch("/api/tu-vi/van-han", {
+    method: "POST", headers: { "Content-Type": "application/json" }, credentials: "include",
+    body: JSON.stringify({ ...reqBase(), ...payload }),
+  });
+  return r.json();
+}
 
 async function loadDauQuan() {
   try {
-    const pk = tuviPersonKey.value;
     const resp = await fetch("/api/tu-vi/dau-quan", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      credentials: "include",
-      body: JSON.stringify({ person_key: pk, luu_nguyet_year: activeYear.value }),
+      method: "POST", headers: { "Content-Type": "application/json" }, credentials: "include",
+      body: JSON.stringify({ person_key: tuviPersonKey.value, luu_nguyet_year: activeYear.value }),
     }).then((r) => r.json());
     if (resp.status === "ok") dauQuanData.value = resp;
   } catch (e) { /* silent */ }
 }
 
-async function load() {
-  loading.value = true; error.value = "";
-  data.value = null; monthlyData.value = null; dauQuanData.value = null;
+async function loadYears() {
+  if (!tuviPersonBirth.value) { error.value = "Chưa có ngày giờ sinh — chọn người ở tab Hồ sơ."; return; }
+  error.value = "";
+  const d = await vanHan({ tang: "luu_nien_overview", year: 2026, year_end: 2030 });
+  if (d.status === "ok") years.value = d.years || [];
+}
+
+async function loadBlock() {
+  if (!tuviPersonBirth.value) return;
+  loading.value = true; luan.value = ""; block.value = null;
   try {
-    const pk = tuviPersonKey.value;
-    loadDauQuan();  // background
-    // luu_nien is stored as luu_nien_{start}_{end}.json by analyzer; default 2026-2030
-    const ynRes = await fetchCachedAnalysis(pk, "luu_nien_2026_2030");
-    const lnRes = await fetchCachedAnalysis(pk, "luu_nien"); // legacy
-    const yn = ynRes.status === "ok" ? ynRes : lnRes;
-    if (yn.status === "ok") { data.value = yn; }
-
-    const lngRes = await fetchCachedAnalysis(pk, "luu_nguyet_2026");
-    const lngLegacy = await fetchCachedAnalysis(pk, "luu_nguyet");
-    const lng = lngRes.status === "ok" ? lngRes : lngLegacy;
-    if (lng.status === "ok") { monthlyData.value = lng; }
-
-    if (!data.value && !monthlyData.value) {
-      error.value = `Chưa có Lưu Niên / Lưu Nguyệt cho ${tuviPersonName.value}. Nhấn "Phân tích ngay".`;
-    }
-  } catch (e) { error.value = e.message; }
+    const payload = viewMode.value === "year"
+      ? { tang: "luu_nien", year: activeYear.value, want_llm: false }
+      : { tang: "luu_nguyet", year: activeYear.value, month: activeMonth.value, want_llm: false };
+    const d = await vanHan(payload);
+    if (d.status !== "ok") throw new Error(d.reason || d.status);
+    block.value = d.block;
+  } catch (e) { error.value = "Không tải được: " + (e?.message || e); }
   finally { loading.value = false; }
 }
 
-async function runNow() {
-  if (running.value) return;
-  running.value = true; error.value = "";
+async function genLuan() {
+  luanBusy.value = true; luan.value = "";
   try {
-    const pk = tuviPersonKey.value;
-    const [yn, lng] = await Promise.all([
-      runAnalysis(pk, "luu_nien", { luu_nien_start: 2026, luu_nien_end: 2030 }),
-      runAnalysis(pk, "luu_nguyet", { luu_nguyet_year: 2026 }),
-    ]);
-    if (yn.status === "ok") data.value = yn;
-    if (lng.status === "ok") monthlyData.value = lng;
-  } catch (e) { error.value = e.message; }
-  finally { running.value = false; }
+    const payload = viewMode.value === "year"
+      ? { tang: "luu_nien", year: activeYear.value, want_llm: true }
+      : { tang: "luu_nguyet", year: activeYear.value, month: activeMonth.value, want_llm: true };
+    const d = await vanHan(payload);
+    luan.value = d.luan || "(kho sách chưa đủ nguồn để luận — không suy đoán)";
+  } catch (e) { luan.value = "Lỗi: " + e.message; }
+  finally { luanBusy.value = false; }
 }
 
-watch(tuviPersonKey, () => load());
-watch(activeYear, () => loadDauQuan());
-
-const dauQuanByMonth = computed(() => {
-  const out = {};
-  for (const m of dauQuanData.value?.dau_quan_months || []) {
-    out[m.luu_nguyet_month] = m;
-  }
-  return out;
-});
-
-const months = computed(() => monthlyData.value?.months || []);
-const currentMonth = computed(() =>
-  months.value.find((m) => m.thang_am === activeMonth.value) || months.value[0],
-);
-
-// Verdict-color helpers removed — Iron Rule #6 (#21): vận-hạn is read as đồng dạng
-// (quan_sat), not labelled cát/hung. The engine no longer emits cat_hung*.
-
-const years = computed(() => data.value?.years || []);
-const currentYearData = computed(() =>
-  years.value.find((y) => y.year === activeYear.value) || years.value[0],
-);
-
-onMounted(load);
+async function init() { await Promise.all([loadYears(), loadDauQuan()]); await loadBlock(); }
+watch(tuviPersonBirth, init);
+watch([viewMode, activeYear, activeMonth], loadBlock);
+watch(activeYear, loadDauQuan);
+onMounted(init);
 </script>
 
 <template>
   <div class="ln-wrap">
     <header class="ln-head">
       <div>
-        <h2>📅 Lưu Niên — {{ tuviPersonName }} (2026-2030)</h2>
-        <p>
-          5 năm gần nhất, kết hợp Đại Vận (chu kỳ 10 năm) + Tiểu Hạn (vận từng năm).
-        </p>
+        <h2>📅 Lưu Niên · Lưu Nguyệt — {{ tuviPersonName }}</h2>
+        <p>Đọc theo <b>Thể-Dụng</b>: cung nguyên cục VẬN HÀNH thế nào trong năm/tháng ấy. Nội dung <b>có nguồn</b>, không bịa.</p>
       </div>
-      <button class="ln-refresh" @click="load" :disabled="loading">{{ loading ? "⏳" : "🔄" }}</button>
+      <button class="ln-refresh" @click="init" :disabled="loading">{{ loading ? "⏳" : "🔄" }}</button>
     </header>
 
-    <div v-if="loading" class="ln-loading">Đang tải...</div>
-    <div v-if="error" class="ln-error">
-      <p>{{ error }}</p>
-      <button v-if="!data && !running" class="ln-run-btn" @click="runNow">⚡ Phân tích ngay</button>
-      <p v-if="running" class="ln-running">⏳ Đang chạy lưu niên + lưu nguyệt (~20s)...</p>
-    </div>
+    <p v-if="error" class="ln-error">{{ error }}</p>
 
-    <!-- ⭐ Đẩu Quân banner (Q2 p0088 + Q3 p0157) -->
-    <div v-if="dauQuanData" class="dau-quan-banner">
+    <!-- Đẩu Quân banner (tất định) -->
+    <div v-if="dauQuanData" class="dq-banner">
       <div class="dq-head">
         <span class="dq-title">⭐ Đẩu Quân (斗君) năm {{ dauQuanData.year }} ({{ dauQuanData.year_branch }})</span>
-        <span class="dq-source">Q2 p0088 · Q3 p0157</span>
+        <span class="dq-source">Q2 p0088</span>
       </div>
-      <div class="dq-body">
-        <p>
-          Đẩu Quân năm tại <b>{{ dauQuanData.dau_quan_year.dau_quan_branch }}</b>
-          (cung <b>{{ dauQuanData.dau_quan_year.palace }}</b>) — toàn bộ năm 2026
-          chịu ảnh hưởng cát/hung của cung này.
-        </p>
-        <details class="dq-trace">
-          <summary>Cách tính (Q2 p0088)</summary>
-          <ol>
-            <li v-for="(t, i) in dauQuanData.dau_quan_year.trace" :key="i">{{ t }}</li>
-          </ol>
-        </details>
-        <p class="dq-paradigm">💡 {{ dauQuanData.paradigm_note }}</p>
+      <p>Đẩu Quân năm tại <b>{{ dauQuanData.dau_quan_year.dau_quan_branch }}</b>
+        (cung <b>{{ dauQuanData.dau_quan_year.palace }}</b>) — mốc khởi lưu nguyệt.</p>
+      <details v-if="dauQuanData.dau_quan_year.trace" class="dq-trace">
+        <summary>Cách tính</summary>
+        <ol><li v-for="(t, i) in dauQuanData.dau_quan_year.trace" :key="i">{{ t }}</li></ol>
+      </details>
+    </div>
+
+    <!-- Chọn năm / tháng -->
+    <div class="ln-toggle">
+      <button :class="{ active: viewMode === 'year' }" @click="viewMode = 'year'">Vận Năm</button>
+      <button :class="{ active: viewMode === 'month' }" @click="viewMode = 'month'">Vận Tháng</button>
+    </div>
+    <div class="ln-picker">
+      <div class="ln-years">
+        <button v-for="y in years" :key="y.year" class="ln-yr" :class="{ active: activeYear === y.year }"
+          @click="activeYear = y.year" :title="`${y.year_can_chi} · cung ${y.cung_the}`">
+          {{ y.year }}<small>{{ y.branch }}</small>
+        </button>
+      </div>
+      <div v-if="viewMode === 'month'" class="ln-months">
+        <button v-for="m in 12" :key="m" class="ln-mo" :class="{ active: activeMonth === m }" @click="activeMonth = m">T{{ m }}</button>
       </div>
     </div>
 
-    <!-- View mode toggle -->
-    <div v-if="years.length || months.length" class="ln-view-toggle">
-      <button :class="{ active: viewMode === 'year' }" @click="viewMode = 'year'">
-        📅 Lưu Niên 5 năm
-      </button>
-      <button :class="{ active: viewMode === 'monthly' }" @click="viewMode = 'monthly'"
-              :disabled="!months.length">
-        📆 Lưu Nguyệt 12 tháng âm 2026
-      </button>
-    </div>
-
-    <!-- Year tabs -->
-    <div v-if="viewMode === 'year' && years.length" class="ln-year-tabs">
-      <button v-for="y in years" :key="y.year"
-              :class="{ active: y.year === activeYear }"
-              @click="activeYear = y.year">
-        <strong>{{ y.year }}</strong>
-        <small>tuổi {{ y.age_lunar }}</small>
-      </button>
-    </div>
-
-    <!-- Monthly tabs -->
-    <div v-if="viewMode === 'monthly' && months.length" class="ln-month-tabs">
-      <button v-for="m in months" :key="m.thang_am"
-              :class="{ active: m.thang_am === activeMonth,
-                        'is-menh': m.palace === 'Mệnh',
-                        'is-phu-the': m.palace === 'Phu Thê' }"
-              @click="activeMonth = m.thang_am">
-        <strong>T{{ m.thang_am }}</strong>
-        <small>{{ m.branch }}</small>
-        <em>{{ m.palace }}</em>
-        <span v-if="dauQuanByMonth[m.thang_am]" class="dq-month-badge"
-              :title="`Đẩu Quân tại ${dauQuanByMonth[m.thang_am].dau_quan_branch} (${dauQuanByMonth[m.thang_am].palace})`">
-          ⭐{{ dauQuanByMonth[m.thang_am].palace.slice(0, 4) }}
-        </span>
-      </button>
-    </div>
-
-    <!-- Đẩu Quân monthly detail (when monthly view + month active) -->
-    <div v-if="viewMode === 'monthly' && dauQuanByMonth[activeMonth]" class="dq-month-detail">
-      <h4>⭐ Đẩu Quân tháng {{ activeMonth }}</h4>
-      <div class="dq-md-row">
-        <span class="dq-md-label">Vị trí:</span>
-        <b>{{ dauQuanByMonth[activeMonth].dau_quan_branch }}</b>
-        (cung <b>{{ dauQuanByMonth[activeMonth].palace }}</b>)
+    <!-- Block grounded -->
+    <div v-if="loading" class="ln-loading">Đang tra nguồn…</div>
+    <div v-else-if="block" class="ln-result">
+      <p v-if="block.bao_tram_dai_van" class="ln-baotram">🌗 <b>Trong Đại Vận V{{ block.bao_tram_dai_van.cycle_index }}</b> (tuổi {{ block.bao_tram_dai_van.khoang_tuoi[0] }}–{{ block.bao_tram_dai_van.khoang_tuoi[1] }}) — cung {{ block.bao_tram_dai_van.cung }}<span v-if="block.bao_tram_dai_van.sao.length"> ({{ block.bao_tram_dai_van.sao.join(', ') }})</span>. Tầng này là một bước trong đại vận đó.</p>
+      <p class="ln-thedung"><b>an Mệnh tại {{ block.vi_tri }}</b> — {{ block.dien_giai_the_dung }}</p>
+      <div v-if="(block.cung_van_rules || []).length" class="ln-cungrule">
+        <b>📐 Đọc cung {{ block.cung_the }} theo vận:</b>
+        <p v-for="(r, i) in block.cung_van_rules" :key="i">• {{ r.rule }} <span class="ln-src">📖 {{ r.nguon }}</span></p>
       </div>
-      <div class="dq-md-interp">
-        <div class="dq-md-cat">
-          <small>Nếu cát:</small> {{ dauQuanByMonth[activeMonth].interp_cat }}
-        </div>
-        <div class="dq-md-hung">
-          <small>Nếu hung:</small> {{ dauQuanByMonth[activeMonth].interp_hung }}
+      <div v-if="litHoa.length" class="ln-hoa-grid">
+        <div v-for="h in litHoa" :key="h.hoa" class="ln-hoa" :data-hoa="HOA_COLOR[h.hoa]">
+          <b>{{ h.hoa }}</b> {{ h.sao }} → {{ h.cung }}<small>{{ h.nghia }}</small>
         </div>
       </div>
-      <p class="dq-md-source">Nguồn: {{ dauQuanByMonth[activeMonth].source_ref }}</p>
-    </div>
-
-    <!-- Active year detail -->
-    <div v-if="viewMode === 'year' && currentYearData" class="ln-detail">
-      <!-- Cung context -->
-      <div class="ln-cung-grid">
-        <div class="ln-cung-card">
-          <h4>🌗 Đại Vận V{{ currentYearData.dai_van_cycle }}</h4>
-          <div class="ln-cung-branch">{{ currentYearData.dai_van_branch }}</div>
-          <div class="ln-cung-palace">{{ currentYearData.dai_van_palace }}</div>
-          <div class="ln-stars">
-            <span v-for="s in currentYearData.dai_van_stars" :key="s" class="ln-star ln-star-dv">{{ s }}</span>
-            <span v-if="!currentYearData.dai_van_stars?.length" class="ln-empty">(vô chính tinh)</span>
+      <div class="ln-sao">
+        <template v-if="block.sao_nguon?.length">
+          <div v-for="(s, i) in block.sao_nguon" :key="i" class="ln-sao-item">
+            <p><b>{{ s.sao }}:</b> {{ s.dich }}</p><span class="ln-src">📖 {{ s.nguon }}</span>
           </div>
-        </div>
-        <div class="ln-cung-card ln-cung-th">
-          <h4>📅 Tiểu Hạn {{ currentYearData.year }}</h4>
-          <div class="ln-cung-branch">{{ currentYearData.tieu_han_branch }}</div>
-          <div class="ln-cung-palace">{{ currentYearData.tieu_han_palace }}</div>
-          <div class="ln-stars">
-            <span v-for="s in currentYearData.tieu_han_stars" :key="s" class="ln-star ln-star-th">{{ s }}</span>
-            <span v-if="!currentYearData.tieu_han_stars?.length" class="ln-empty">(vô chính tinh)</span>
-          </div>
-        </div>
+        </template>
+        <p v-else class="ln-chuanguon">Kho sách chưa có nội dung đã duyệt cho cung này — để trống, không suy đoán.</p>
       </div>
-
-      <!-- Analysis -->
-      <template v-if="currentYearData.analysis">
-        <div class="ln-block ln-chu-de">
-          <h3>{{ currentYearData.analysis.chu_de }}</h3>
-          <span v-if="currentYearData.analysis.quan_sat" class="ln-quan-sat">
-            👁 {{ currentYearData.analysis.quan_sat }}
-          </span>
-        </div>
-
-        <div class="ln-block">
-          <h4>📖 Tổng quan</h4>
-          <p><WikiText :text="currentYearData.analysis.tong_quan" /></p>
-        </div>
-
-        <div class="ln-grid-2">
-          <div class="ln-block ln-bright">
-            <h4>🎯 Lĩnh vực quan tâm</h4>
-            <ul>
-              <li v-for="(item, i) in currentYearData.analysis.linh_vuc_quan_tam" :key="i">
-                <WikiText :text="item" />
-              </li>
-            </ul>
-          </div>
-
-          <div class="ln-block ln-warning">
-            <h4>⏰ Thời điểm cần chú ý</h4>
-            <ul>
-              <li v-for="(item, i) in currentYearData.analysis.thoi_diem_can_chu_y" :key="i">
-                <WikiText :text="item" />
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="ln-block ln-apply">
-          <h4>💡 Lời khuyên</h4>
-          <p><WikiText :text="currentYearData.analysis.loi_khuyen" /></p>
-        </div>
-      </template>
-    </div>
-
-    <!-- Monthly detail -->
-    <div v-if="viewMode === 'monthly' && currentMonth" class="ln-detail">
-      <div class="ln-cung-card ln-cung-month">
-        <h4>📆 Tháng {{ currentMonth.thang_am }} âm (DL {{ currentMonth.solar_range }})</h4>
-        <div class="ln-cung-branch">{{ currentMonth.branch }}</div>
-        <div class="ln-cung-palace">{{ currentMonth.palace }}</div>
-        <div class="ln-stars">
-          <span v-for="s in currentMonth.stars" :key="s" class="ln-star ln-star-th">{{ s }}</span>
-          <span v-if="!currentMonth.stars?.length" class="ln-empty">(vô chính tinh)</span>
-        </div>
-        <small v-if="currentMonth.palace === 'Mệnh'" class="ln-flag">⭐ Lưu nguyệt VỀ MỆNH</small>
-        <small v-else-if="currentMonth.palace === 'Phu Thê'" class="ln-flag ln-flag-warn">⚠️ Vào Phu Thê — đề phòng</small>
+      <div class="ln-luan-zone">
+        <button v-if="!luan && !block.chua_co_nguon" class="ln-luan-btn" :disabled="luanBusy" @click="genLuan">
+          {{ luanBusy ? "Đang dệt luận…" : "✍️ Luận từ nguồn" }}
+        </button>
+        <div v-if="luan" class="ln-luan">{{ luan }}</div>
       </div>
-
-      <template v-if="currentMonth.analysis">
-        <div class="ln-block ln-chu-de">
-          <h3>{{ currentMonth.analysis.chu_de }}</h3>
-          <span v-if="currentMonth.analysis.quan_sat" class="ln-quan-sat">
-            👁 {{ currentMonth.analysis.quan_sat }}
-          </span>
-        </div>
-
-        <div class="ln-block">
-          <h4>🔍 Tính chất</h4>
-          <p><WikiText :text="currentMonth.analysis.tinh_chat" /></p>
-        </div>
-
-        <div class="ln-grid-2">
-          <div class="ln-block ln-bright">
-            <h4>✅ Nên làm</h4>
-            <ul>
-              <li v-for="(x, i) in currentMonth.analysis.viec_lam" :key="i">
-                <WikiText :text="x" />
-              </li>
-            </ul>
-          </div>
-          <div class="ln-block ln-warning">
-            <h4>🚫 Nên tránh</h4>
-            <ul>
-              <li v-for="(x, i) in currentMonth.analysis.viec_tranh" :key="i">
-                <WikiText :text="x" />
-              </li>
-            </ul>
-          </div>
-        </div>
-      </template>
     </div>
-
-    <footer v-if="data" class="ln-foot">
-      <small>
-        Generated {{ new Date(data.generated_at * 1000).toLocaleString('vi') }} ·
-        Cost ${{ data.cost_usd?.toFixed(4) }}
-      </small>
-    </footer>
   </div>
 </template>
 
 <style scoped>
-.ln-wrap {
-  padding: 1rem 1.5rem; max-width: 980px; margin: 0 auto;
-  color: #e2e8f0; font-family: "Charter", "Iowan Old Style", Georgia, serif;
-}
-.ln-head {
-  display: flex; justify-content: space-between; align-items: flex-start;
-  border-bottom: 1px solid #334155; padding-bottom: 0.7rem; margin-bottom: 1rem;
-}
-.ln-head h2 { margin: 0 0 0.2rem 0; color: #fde68a; font-size: 1.3rem; }
-.ln-head p { margin: 0; font-size: 0.85rem; color: #94a3b8; line-height: 1.5; }
-.ln-head small { color: #64748b; font-size: 0.72rem; }
-.ln-refresh {
-  background: #334155; border: 1px solid #475569; color: #cbd5e1;
-  padding: 0.4rem 0.7rem; border-radius: 4px; cursor: pointer;
-}
-
-.ln-loading { text-align: center; padding: 2rem; color: #94a3b8; }
+.ln-wrap { padding: 1rem 1.5rem; max-width: 980px; margin: 0 auto; color: var(--read-text, #e2e8f0); }
+.ln-head { display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 1px solid var(--read-border, #334155); padding-bottom: 0.7rem; margin-bottom: 1rem; }
+.ln-head h2 { margin: 0 0 0.2rem; color: var(--read-han, #fde68a); font-size: 1.3rem; }
+.ln-head p { margin: 0; font-size: 0.85rem; color: var(--read-text-muted, #94a3b8); line-height: 1.5; }
+.ln-refresh { background: var(--read-surface, #334155); border: 1px solid var(--read-border, #475569); color: var(--read-text-dim, #cbd5e1); padding: 0.4rem 0.7rem; border-radius: 4px; cursor: pointer; }
 .ln-error { color: #fca5a5; padding: 0.6rem; background: rgba(239,68,68,0.1); border-radius: 4px; }
-.ln-run-btn {
-  margin-top: 0.4rem; background: linear-gradient(135deg, #d97706, #f59e0b);
-  color: white; border: none; padding: 0.45rem 0.9rem; border-radius: 4px;
-  font-size: 0.85rem; cursor: pointer; font-weight: 600;
-}
-.ln-run-btn:hover { background: linear-gradient(135deg, #b45309, #d97706); }
-.ln-running { color: #fde68a; font-size: 0.85rem; margin-top: 0.4rem; }
-
-.ln-year-tabs {
-  display: flex; gap: 0.4rem; margin-bottom: 1.2rem;
-  flex-wrap: wrap;
-}
-.ln-year-tabs button {
-  background: #1e293b; border: 1px solid #334155; color: #94a3b8;
-  padding: 0.5rem 0.95rem; border-radius: 6px; cursor: pointer;
-  font-family: inherit; display: flex; flex-direction: column; align-items: center;
-  min-width: 80px; line-height: 1.2; transition: all 0.15s;
-}
-.ln-year-tabs button:hover { background: #283248; }
-.ln-year-tabs button.active {
-  background: linear-gradient(135deg, #6d28d9, #4c1d95); color: #fff;
-  border-color: #7c3aed;
-}
-.ln-year-tabs button strong { font-size: 1.05rem; }
-.ln-year-tabs button small { font-size: 0.7rem; opacity: 0.75; }
-
-/* View mode toggle */
-.ln-view-toggle { display: flex; gap: 0.4rem; margin-bottom: 0.9rem; }
-.ln-view-toggle button {
-  background: #1e293b; border: 1px solid #334155; color: #94a3b8;
-  padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer;
-  font-family: inherit; font-size: 0.88rem;
-  transition: all 0.15s;
-}
-.ln-view-toggle button:hover:not(:disabled) { background: #283248; }
-.ln-view-toggle button:disabled { opacity: 0.4; cursor: not-allowed; }
-.ln-view-toggle button.active {
-  background: linear-gradient(135deg, #be185d, #9f1239); color: #fff;
-  border-color: #db2777;
-}
-
-/* Month tabs */
-.ln-month-tabs {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 0.3rem; margin-bottom: 1.2rem;
-}
-.ln-month-tabs button {
-  background: #1e293b; border: 1px solid #334155; color: #94a3b8;
-  padding: 0.5rem 0.4rem; border-radius: 5px; cursor: pointer;
-  font-family: inherit; line-height: 1.2;
-  display: flex; flex-direction: column; align-items: center; gap: 1px;
-  transition: all 0.15s;
-}
-.ln-month-tabs button:hover { background: #283248; }
-.ln-month-tabs button.active {
-  background: linear-gradient(135deg, #be185d, #9f1239); color: #fff;
-  border-color: #db2777;
-}
-.ln-month-tabs button strong { font-size: 0.9rem; }
-.ln-month-tabs button small { font-size: 0.72rem; color: #fde68a; opacity: 0.85; }
-.ln-month-tabs button.active small { color: #fff; }
-.ln-month-tabs button em {
-  font-size: 0.65rem; font-style: normal; color: #64748b;
-  text-align: center; opacity: 0.85;
-}
-.ln-month-tabs button.active em { color: #fbcfe8; }
-.ln-month-tabs button.is-menh {
-  border-color: #fde68a; box-shadow: 0 0 0 1px rgba(253,230,138,0.3);
-}
-.ln-month-tabs button.is-menh small { color: #fde68a; }
-.ln-month-tabs button.is-phu-the {
-  border-color: #f59e0b; box-shadow: 0 0 0 1px rgba(245,158,11,0.3);
-}
-
-/* Cung card cho month */
-.ln-cung-month {
-  border-left-color: #db2777;
-  position: relative;
-}
-.ln-cung-month h4 { color: #f9a8d4; font-size: 0.85rem; }
-.ln-flag {
-  display: inline-block;
-  background: #fde68a; color: #4a1a1a;
-  padding: 2px 8px; border-radius: 3px;
-  font-size: 0.7rem; font-weight: 700;
-  margin-top: 0.4rem;
-}
-.ln-flag-warn { background: #f59e0b; color: #fff; }
-
-@media (max-width: 700px) {
-  .ln-month-tabs { grid-template-columns: repeat(4, 1fr); }
-}
-
-.ln-detail { display: flex; flex-direction: column; gap: 0.7rem; }
-
-.ln-cung-grid {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem;
-}
-.ln-cung-card {
-  background: #1e293b; border: 1px solid #475569;
-  border-radius: 6px; padding: 0.7rem 0.9rem;
-  border-left: 4px solid #7c3aed;
-}
-.ln-cung-card.ln-cung-th { border-left-color: #f59e0b; }
-.ln-cung-card h4 { margin: 0 0 0.4rem 0; font-size: 0.85rem; color: #94a3b8; }
-.ln-cung-branch {
-  font-size: 1.4rem; font-weight: 700; color: #fde68a;
-  font-family: "Songti SC", serif;
-}
-.ln-cung-palace { font-size: 0.85rem; color: #cbd5e1; margin-bottom: 0.4rem; }
-.ln-stars { display: flex; flex-wrap: wrap; gap: 0.25rem; }
-.ln-star {
-  padding: 1px 6px; border-radius: 3px; font-size: 0.72rem;
-  font-family: ui-sans-serif, sans-serif;
-}
-.ln-star-dv { background: rgba(124,58,237,0.18); color: #c4b5fd; }
-.ln-star-th { background: rgba(245,158,11,0.18); color: #fbbf24; }
-.ln-empty { color: #64748b; font-style: italic; font-size: 0.72rem; }
-
-.ln-block {
-  background: #1e293b; border: 1px solid #334155;
-  border-radius: 6px; padding: 0.7rem 0.95rem;
-}
-.ln-block h3 { margin: 0; color: #fde68a; font-size: 1.05rem; }
-.ln-block h4 {
-  margin: 0 0 0.4rem 0; color: #94a3b8; font-size: 0.85rem;
-  letter-spacing: 0.04em; text-transform: uppercase;
-}
-.ln-block p, .ln-block ul { margin: 0; font-size: 0.93rem; line-height: 1.65; color: #cbd5e1; }
-.ln-block ul { padding-left: 1.1rem; }
-.ln-block ul li { margin: 0.2rem 0; }
-
-.ln-chu-de {
-  display: flex; justify-content: space-between; align-items: center;
-  background: linear-gradient(135deg, #6d28d9, #4c1d95);
-  border-color: #7c3aed;
-}
-.ln-chu-de h3 { color: #fff; flex: 1; }
-/* Neutral "đọc đồng dạng" observation (replaces the old cát/hung verdict badge) */
-.ln-quan-sat {
-  padding: 4px 11px; border-radius: 6px;
-  background: rgba(167, 139, 250, 0.14);
-  border: 1px solid rgba(167, 139, 250, 0.3);
-  color: #cbb6f5; font-size: 0.82rem; font-style: italic;
-  font-family: ui-sans-serif, sans-serif; line-height: 1.5;
-}
-
-.ln-grid-2 {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem;
-}
-.ln-bright { border-left: 4px solid #10b981; }
-.ln-bright h4 { color: #34d399; }
-.ln-warning { border-left: 4px solid #f59e0b; }
-.ln-warning h4 { color: #fbbf24; }
-.ln-apply {
-  border-left: 4px solid #60a5fa;
-  background: rgba(59,130,246,0.06);
-}
-.ln-apply h4 { color: #60a5fa; }
-
-.ln-foot {
-  margin-top: 1rem; padding-top: 0.5rem;
-  border-top: 1px dashed #475569; text-align: center;
-}
-.ln-foot small { color: #64748b; font-size: 0.72rem; }
-
-@media (max-width: 700px) {
-  .ln-cung-grid, .ln-grid-2 { grid-template-columns: 1fr; }
-}
-
-/* ━━━━ Đẩu Quân (Q2 p0088 + Q3 p0157) ━━━━ */
-.dau-quan-banner {
-  margin: 14px 0;
-  padding: 12px 16px;
-  background: linear-gradient(135deg, rgba(232, 201, 90, 0.12), rgba(232, 201, 90, 0.04));
-  border: 1px solid rgba(232, 201, 90, 0.35);
-  border-radius: 8px;
-}
-.dq-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  margin-bottom: 8px;
-}
-.dq-title {
-  font-weight: 600;
-  color: #f5e6b1;
-  font-size: 14px;
-}
-.dq-source {
-  font-size: 10.5px;
-  color: rgba(230, 238, 245, 0.5);
-  font-style: italic;
-}
-.dq-body p { margin: 6px 0; font-size: 13px; color: #e6eef5; line-height: 1.55; }
-.dq-body b { color: #f5e6b1; }
-.dq-trace summary { cursor: pointer; font-size: 12px; color: #94a3b8; }
-.dq-trace ol { margin: 6px 0 0 22px; padding: 0; }
-.dq-trace li { font-size: 12px; color: rgba(230, 238, 245, 0.78); margin: 3px 0; }
-.dq-paradigm {
-  margin-top: 10px !important;
-  padding: 8px 12px;
-  background: rgba(167, 139, 250, 0.08);
-  border-left: 2px solid #a78bfa;
-  border-radius: 0 3px 3px 0;
-  font-size: 12px !important;
-  color: rgba(230, 238, 245, 0.85);
-  font-style: italic;
-}
-
-/* Đẩu Quân badge trên month tab */
-.dq-month-badge {
-  display: block;
-  margin-top: 3px;
-  background: rgba(232, 201, 90, 0.18);
-  color: #f5e6b1;
-  font-size: 9px;
-  padding: 1px 5px;
-  border-radius: 2px;
-  white-space: nowrap;
-}
-
-/* Đẩu Quân monthly detail */
-.dq-month-detail {
-  margin: 12px 0;
-  padding: 12px 14px;
-  background: rgba(232, 201, 90, 0.06);
-  border-left: 3px solid #e8c95a;
-  border-radius: 0 5px 5px 0;
-}
-.dq-month-detail h4 {
-  margin: 0 0 6px;
-  font-size: 13px;
-  color: #f5e6b1;
-}
-.dq-md-row { font-size: 13px; color: #e6eef5; margin-bottom: 8px; }
-.dq-md-label { color: rgba(230, 238, 245, 0.55); margin-right: 6px; }
-.dq-md-row b { color: #f5e6b1; }
-.dq-md-interp {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
-  margin: 6px 0;
-}
-@media (max-width: 720px) { .dq-md-interp { grid-template-columns: 1fr; } }
-.dq-md-cat, .dq-md-hung {
-  padding: 8px 10px;
-  border-radius: 4px;
-  font-size: 12px;
-  line-height: 1.55;
-}
-.dq-md-cat {
-  background: rgba(90, 176, 122, 0.08);
-  border-left: 2px solid #5ab07a;
-  color: #c0e8c8;
-}
-.dq-md-hung {
-  background: rgba(214, 90, 74, 0.08);
-  border-left: 2px solid #d65a4a;
-  color: #f5b8a0;
-}
-.dq-md-cat small, .dq-md-hung small {
-  display: block;
-  font-size: 10px;
-  opacity: 0.7;
-  margin-bottom: 2px;
-}
-.dq-md-source {
-  margin: 6px 0 0;
-  font-size: 10.5px;
-  color: rgba(230, 238, 245, 0.45);
-  font-style: italic;
-}
+.ln-loading { text-align: center; padding: 1.2rem; color: var(--read-text-muted, #94a3b8); }
+.dq-banner { background: rgba(253,230,138,0.06); border: 1px solid rgba(253,230,138,0.25); border-radius: 8px; padding: 0.7rem 0.9rem; margin-bottom: 1rem; }
+.dq-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.3rem; }
+.dq-title { color: var(--read-han, #fde68a); font-weight: 600; font-size: 0.92rem; }
+.dq-source { font-size: 0.7rem; color: var(--read-text-faint, #64748b); }
+.dq-banner p { margin: 0; font-size: 0.85rem; line-height: 1.55; color: var(--read-text-dim, #cbd5e1); }
+.dq-trace summary { cursor: pointer; font-size: 0.78rem; color: var(--read-accent, #7ec8e3); margin-top: 0.4rem; }
+.dq-trace ol { margin: 0.3rem 0 0; font-size: 0.8rem; color: var(--read-text-muted, #94a3b8); }
+.ln-toggle { display: flex; gap: 6px; margin-bottom: 0.8rem; }
+.ln-toggle button { padding: 5px 16px; border-radius: 8px; border: 1px solid var(--read-border, #475569); background: var(--read-surface, #1e293b); color: var(--read-text-dim, #cbd5e1); cursor: pointer; font-weight: 600; font-size: 0.85rem; }
+.ln-toggle button.active { border-color: var(--read-accent, #7ec8e3); color: var(--read-accent, #7ec8e3); background: var(--read-accent-bg, rgba(126,200,227,0.12)); }
+.ln-picker { margin-bottom: 1rem; }
+.ln-years, .ln-months { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 6px; }
+.ln-yr { display: inline-flex; flex-direction: column; align-items: center; padding: 4px 12px; border-radius: 8px; border: 1px solid var(--read-border, #475569); background: var(--read-surface, #1e293b); color: var(--read-text-dim, #cbd5e1); cursor: pointer; font-size: 0.85rem; }
+.ln-yr small { font-size: 0.65rem; color: var(--read-text-faint, #64748b); }
+.ln-yr.active, .ln-mo.active { border-color: var(--read-accent, #7ec8e3); color: var(--read-accent, #7ec8e3); background: var(--read-accent-bg, rgba(126,200,227,0.12)); }
+.ln-mo { padding: 4px 10px; border-radius: 6px; border: 1px solid var(--read-border, #475569); background: var(--read-surface, #1e293b); color: var(--read-text-dim, #cbd5e1); cursor: pointer; font-size: 0.8rem; }
+.ln-result { border: 1px solid var(--read-border, #334155); border-radius: 10px; padding: 0.9rem 1rem; background: var(--read-surface, rgba(0,0,0,0.12)); }
+.ln-baotram { margin: 0 0 0.5rem; padding: 6px 9px; border-radius: 6px; background: rgba(253,230,138,0.06); border: 1px solid rgba(253,230,138,0.22); font-size: 0.82rem; line-height: 1.55; color: var(--read-text-dim, #cbd5e1); }
+.ln-thedung { margin: 0 0 0.5rem; font-size: 0.9rem; line-height: 1.6; color: var(--read-text-dim, #cbd5e1); }
+.ln-cungrule { margin: 0 0 0.7rem; padding: 6px 9px; border-left: 3px solid var(--read-rule, rgba(232,201,90,0.5)); border-radius: 6px; font-size: 0.82rem; line-height: 1.55; color: var(--read-text-dim, #cbd5e1); background: rgba(0,0,0,0.12); }
+.ln-cungrule p { margin: 3px 0 0; }
+.ln-hoa-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 6px; margin-bottom: 0.7rem; }
+.ln-hoa { border: 1px solid var(--read-border, rgba(230,238,245,0.16)); border-left-width: 3px; border-radius: 6px; padding: 5px 9px; font-size: 0.78rem; color: var(--read-text-dim, #cbd5e1); }
+.ln-hoa small { display: block; color: var(--read-text-faint, #64748b); margin-top: 2px; }
+.ln-hoa[data-hoa="loc"] { border-left-color: #5ab07a; }
+.ln-hoa[data-hoa="quyen"] { border-left-color: #d6a05a; }
+.ln-hoa[data-hoa="khoa"] { border-left-color: #7ec8e3; }
+.ln-hoa[data-hoa="ky"] { border-left-color: #d65a4a; }
+.ln-sao-item { padding: 5px 0; border-top: 1px solid var(--read-border, rgba(230,238,245,0.08)); }
+.ln-sao-item:first-of-type { border-top: none; }
+.ln-sao-item p { margin: 0; font-size: 0.85rem; line-height: 1.55; color: var(--read-text-dim, #cbd5e1); }
+.ln-src { font-size: 0.7rem; color: var(--read-text-faint, #64748b); }
+.ln-chuanguon { font-size: 0.82rem; font-style: italic; color: var(--read-text-faint, #64748b); }
+.ln-luan-zone { margin-top: 0.7rem; }
+.ln-luan-btn { padding: 6px 12px; border-radius: 6px; cursor: pointer; border: 1px solid var(--read-accent, #7ec8e3); background: var(--read-accent-bg, rgba(126,200,227,0.12)); color: var(--read-accent, #7ec8e3); font-size: 0.82rem; font-weight: 600; }
+.ln-luan-btn:disabled { opacity: 0.6; }
+.ln-luan { margin-top: 0.6rem; padding: 0.7rem 0.9rem; border-radius: 6px; background: rgba(0,0,0,0.18); font-size: 0.88rem; line-height: 1.7; color: var(--read-text, #cbd5e1); white-space: pre-wrap; }
 </style>

@@ -156,7 +156,7 @@ CUC_NAME_TO_CANON = {
 async def render_from_birth(birth: BirthInput) -> dict:
     """Nhập ngày sinh → tự an sao (re-use /api/tu-vi/cast logic) → render 3-Layer."""
     # Re-use route handler có sẵn solar→lunar conversion (engine an_sao = source of truth)
-    from api.main import tu_vi_cast
+    from api.tu_vi_routes import tu_vi_cast
     from api.schemas import TuViCastRequest
 
     cast = tu_vi_cast(TuViCastRequest(

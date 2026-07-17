@@ -15,6 +15,7 @@ const tang = ref("luu_nguyet");   // default tháng — đúng trọng tâm Anh 
 const year = ref(2026);
 const month = ref(1);
 const tuan = ref(1);
+const day = ref(1);
 const cycle = ref(1);
 
 const block = ref(null);
@@ -22,12 +23,15 @@ const luan = ref("");
 const loading = ref(false);
 const luanLoading = ref(false);
 const error = ref("");
+const monthsOverview = ref([]);   // 12 tháng skeleton (khi xem lưu nguyệt)
+const leapNote = ref("");
 
 const TANG_TABS = [
   { key: "dai_van", label: "Đại Vận", sub: "10 năm" },
   { key: "luu_nien", label: "Lưu Niên", sub: "năm" },
   { key: "luu_nguyet", label: "Lưu Nguyệt", sub: "tháng" },
   { key: "tuan", label: "Tuần", sub: "10 ngày" },
+  { key: "luu_nhat", label: "Lưu Nhật", sub: "ngày" },
 ];
 const TUAN_LABEL = { 1: "Thượng tuần", 2: "Trung tuần", 3: "Hạ tuần" };
 const HOA_COLOR = { "Lộc": "loc", "Quyền": "quyen", "Khoa": "khoa", "Kỵ": "ky" };
@@ -44,9 +48,10 @@ function body() {
     want_llm: false,
   };
   if (tang.value === "dai_van") b.cycle_index = cycle.value;
-  if (["luu_nien", "luu_nguyet", "tuan"].includes(tang.value)) b.year = year.value;
-  if (["luu_nguyet", "tuan"].includes(tang.value)) b.month = month.value;
+  if (["luu_nien", "luu_nguyet", "tuan", "luu_nhat"].includes(tang.value)) b.year = year.value;
+  if (["luu_nguyet", "tuan", "luu_nhat"].includes(tang.value)) b.month = month.value;
   if (tang.value === "tuan") b.tuan = tuan.value;
+  if (tang.value === "luu_nhat") b.day = day.value;
   return b;
 }
 
@@ -82,11 +87,25 @@ async function genLuan() {
   } finally { luanLoading.value = false; }
 }
 
-watch([tang, year, month, tuan, cycle], () => { if (open.value) loadBlock(); });
+async function loadMonthsOverview() {
+  monthsOverview.value = []; leapNote.value = "";
+  if (tang.value !== "luu_nguyet" || !tuviPersonBirth.value) return;
+  try {
+    const resp = await fetch("/api/tu-vi/van-han", {
+      method: "POST", headers: { "Content-Type": "application/json" }, credentials: "include",
+      body: JSON.stringify({ ...reqBase(), tang: "luu_nguyet_overview", year: year.value }),
+    });
+    const d = await resp.json();
+    if (d.status === "ok") { monthsOverview.value = d.months || []; leapNote.value = d.thang_nhuan_note || ""; }
+  } catch (e) { /* im lặng — strip là phụ trợ */ }
+}
+
+watch([tang, year, month, tuan, day, cycle], () => { if (open.value) loadBlock(); });
+watch([tang, year], () => { if (open.value) loadMonthsOverview(); });
 
 async function toggle() {
   open.value = !open.value;
-  if (open.value && !block.value) await loadBlock();
+  if (open.value && !block.value) { await loadBlock(); await loadMonthsOverview(); }
 }
 </script>
 
@@ -112,9 +131,12 @@ async function toggle() {
           <label>Vận số <input type="number" v-model.number="cycle" min="1" max="12" /></label>
         </template>
         <template v-else>
-          <label>Năm <input type="number" v-model.number="year" min="1930" max="2100" /></label>
-          <label v-if="['luu_nguyet','tuan'].includes(tang)">Tháng
+          <label>Năm{{ tang === 'luu_nhat' ? ' (dương)' : '' }}
+            <input type="number" v-model.number="year" min="1930" max="2100" /></label>
+          <label v-if="['luu_nguyet','tuan','luu_nhat'].includes(tang)">Tháng
             <input type="number" v-model.number="month" min="1" max="12" /></label>
+          <label v-if="tang === 'luu_nhat'">Ngày
+            <input type="number" v-model.number="day" min="1" max="31" /></label>
           <label v-if="tang === 'tuan'">Tuần
             <select v-model.number="tuan">
               <option :value="1">Thượng tuần (1-10)</option>
@@ -125,14 +147,54 @@ async function toggle() {
         </template>
       </div>
 
+      <!-- Overview 12 tháng (nhịp cả năm — chọn tháng) -->
+      <div v-if="tang === 'luu_nguyet' && monthsOverview.length" class="vh-monthstrip">
+        <button v-for="mo in monthsOverview" :key="mo.month" type="button"
+          class="vh-mo" :class="{ active: month === mo.month }" @click="month = mo.month"
+          :title="`Tháng ${mo.month} (${mo.month_can}) — cung ${mo.cung_the}`">
+          <b>T{{ mo.month }}</b><small>{{ mo.cung_the }}</small>
+        </button>
+      </div>
+      <p v-if="leapNote" class="vh-leapnote">🌙 {{ leapNote }}</p>
+
       <p v-if="loading" class="vh-note">Đang tra vận hạn…</p>
       <p v-else-if="error" class="vh-error">{{ error }}</p>
 
       <div v-else-if="block" class="vh-result">
         <!-- Thể-Dụng -->
+        <!-- Bối cảnh Đại Vận bao trùm (lồng tầng — lấy đại vận làm chủ) -->
+        <div v-if="block.bao_tram_dai_van" class="vh-baotram">
+          🌗 <b>Trong Đại Vận V{{ block.bao_tram_dai_van.cycle_index }}</b>
+          (tuổi {{ block.bao_tram_dai_van.khoang_tuoi[0] }}–{{ block.bao_tram_dai_van.khoang_tuoi[1] }}) —
+          cung {{ block.bao_tram_dai_van.cung }}
+          <span v-if="block.bao_tram_dai_van.sao.length">({{ block.bao_tram_dai_van.sao.join(', ') }})</span>.
+          Tầng này là <b>một bước</b> trong đại vận đó.
+        </div>
+
         <div class="vh-thedung">
           <span class="vh-vitri">an Mệnh tại <b>{{ block.vi_tri }}</b></span>
           <p>{{ block.dien_giai_the_dung }}</p>
+        </div>
+
+        <!-- #3: nguyên tắc đọc cung này khi là cung vận (có nguồn, nhiều rule) -->
+        <div v-if="(block.cung_van_rules || []).length" class="vh-cungrule">
+          <p class="vh-cungrule-head">📐 <b>Đọc cung {{ block.cung_the }} theo vận:</b></p>
+          <p v-for="(r, i) in block.cung_van_rules" :key="i" class="vh-cungrule-item">
+            • {{ r.rule }} <span class="vh-src">📖 {{ r.nguon }}</span>
+          </p>
+        </div>
+
+        <!-- Tam phương tứ chính hội chiếu (cổ pháp không đọc cung lẻ) -->
+        <div v-if="(block.hoi_chieu || []).length" class="vh-hoichieu">
+          <h6 class="vh-sub">Tam phương tứ chính hội chiếu vào cung vận</h6>
+          <div class="vh-hc-grid">
+            <div v-for="(h, i) in block.hoi_chieu" :key="i" class="vh-hc">
+              <span class="vh-hc-qh">{{ h.quan_he }}</span>
+              <span class="vh-hc-cung">{{ h.cung }} ({{ h.vi_tri }})</span>
+              <small>{{ (h.sao || []).join(', ') || 'Vô Chính Diệu' }}</small>
+              <p v-for="(s, j) in (h.sao_nguon || [])" :key="j" class="vh-hc-nguon">{{ s.sao }}: {{ s.dich }}</p>
+            </div>
+          </div>
         </div>
 
         <!-- Tứ Hóa rọi cung -->
@@ -163,6 +225,7 @@ async function toggle() {
           <p v-else class="vh-chuanguon">Kho sách chưa có nội dung đã duyệt cho cung này — để trống, không suy đoán.</p>
         </div>
 
+        <p v-if="block.thang_nhuan_note" class="vh-leapnote">{{ block.thang_nhuan_note }}</p>
         <p v-if="block.luu_y_vi_mo" class="vh-vimo">⚠ {{ block.luu_y_vi_mo }}</p>
 
         <!-- Nguyên tắc + luận grounded -->
@@ -217,11 +280,27 @@ async function toggle() {
   background: var(--read-surface, rgba(255, 255, 255, 0.04)); color: var(--read-text, rgba(230, 238, 245, 0.92));
 }
 .vh-picker select { width: auto; }
+.vh-monthstrip { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 10px; }
+.vh-mo { display: inline-flex; flex-direction: column; align-items: center; padding: 4px 9px; border-radius: 7px; cursor: pointer; border: 1px solid var(--read-border, rgba(230,238,245,0.18)); background: var(--read-surface, rgba(255,255,255,0.02)); color: var(--read-text-dim, rgba(230,238,245,0.8)); font-size: calc(11px * var(--reading-scale, 1)); }
+.vh-mo small { color: var(--read-text-faint, rgba(230,238,245,0.5)); font-size: calc(9.5px * var(--reading-scale, 1)); }
+.vh-mo.active { border-color: var(--read-accent, #7ec8e3); color: var(--read-accent, #7ec8e3); background: var(--read-accent-bg, rgba(126,200,227,0.12)); }
+.vh-leapnote { margin: 0 0 10px; font-size: calc(11.5px * var(--reading-scale, 1)); line-height: 1.55; color: var(--read-han, #e8c95a); opacity: 0.85; }
 .vh-result { border: 1px solid var(--read-border, rgba(230, 238, 245, 0.14)); border-radius: 10px; padding: 12px 14px; background: var(--read-surface, rgba(255, 255, 255, 0.02)); }
+.vh-baotram { margin-bottom: 10px; padding: 8px 11px; border-radius: 8px; background: rgba(253,230,138,0.06); border: 1px solid rgba(253,230,138,0.22); font-size: calc(12.5px * var(--reading-scale, 1)); line-height: 1.6; color: var(--read-text-dim, rgba(230,238,245,0.85)); }
+.vh-hc-nguon { margin: 3px 0 0; font-size: calc(10.5px * var(--reading-scale, 1)); line-height: 1.5; color: var(--read-text-faint, rgba(230,238,245,0.62)); }
 .vh-thedung { margin-bottom: 12px; }
 .vh-vitri { font-size: calc(13px * var(--reading-scale, 1)); color: var(--read-accent, #7ec8e3); }
 .vh-thedung p { margin: 4px 0 0; font-size: calc(13px * var(--reading-scale, 1)); line-height: 1.6; color: var(--read-text, rgba(230, 238, 245, 0.88)); }
+.vh-cungrule { margin-bottom: 12px; padding: 8px 11px; border-radius: 8px; border-left: 3px solid var(--read-rule, rgba(232, 201, 90, 0.5)); background: var(--read-surface, rgba(255, 255, 255, 0.02)); }
+.vh-cungrule-head { margin: 0 0 3px; font-size: calc(12.5px * var(--reading-scale, 1)); color: var(--read-text, rgba(230, 238, 245, 0.9)); }
+.vh-cungrule-item { margin: 3px 0 0; font-size: calc(12px * var(--reading-scale, 1)); line-height: 1.55; color: var(--read-text-dim, rgba(230, 238, 245, 0.8)); }
 .vh-sub { margin: 0 0 6px; font-size: calc(12px * var(--reading-scale, 1)); font-weight: 600; color: var(--read-han, #e8c95a); opacity: 0.9; }
+.vh-hoichieu { margin-bottom: 12px; }
+.vh-hc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; }
+.vh-hc { border: 1px solid var(--read-border, rgba(230,238,245,0.14)); border-radius: 8px; padding: 6px 9px; font-size: calc(11.5px * var(--reading-scale, 1)); }
+.vh-hc-qh { color: var(--read-text-faint, rgba(230,238,245,0.55)); }
+.vh-hc-cung { display: block; color: var(--read-accent, #7ec8e3); font-weight: 600; margin: 1px 0; }
+.vh-hc small { color: var(--read-text-dim, rgba(230,238,245,0.78)); }
 .vh-hoa-group { margin-bottom: 12px; }
 .vh-hoa-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 8px; }
 .vh-hoa { border: 1px solid var(--read-border, rgba(230, 238, 245, 0.16)); border-left-width: 3px; border-radius: 8px; padding: 7px 10px; font-size: calc(12px * var(--reading-scale, 1)); }

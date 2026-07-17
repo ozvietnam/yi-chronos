@@ -1,0 +1,5 @@
+*
+!vercel.json
+!client/
+!client/webapp/
+!client/webapp/**
