@@ -35,11 +35,12 @@ def test_luu_nien_luu_nguyet_tuan_deterministic():
     r = _founder()
     n = vh.luu_nien_block(r, 2026)
     assert n["year_can_chi"] == "Bính Ngọ" and n["vi_tri"] == "Ngọ"   # 2026 = Bính Ngọ
-    g = vh.luu_nguyet_block(r, 2026, 9)
+    g = vh.luu_nguyet_block(r, 2026, 9)             # NHẬP DƯƠNG → đổi âm
     assert g["tang"] == "luu_nguyet" and g["month"] == 9
-    # lưu nguyệt Mệnh khởi Đẩu Quân lưu niên (chi năm) + thuận (month-1)
-    expect = BRANCHES_TVI[(BRANCHES_TVI.index("Ngọ") + 8) % 12]
-    assert g["vi_tri"] == expect
+    # lưu nguyệt Mệnh khởi Đẩu Quân lưu niên (chi năm ÂM) + thuận (tháng ÂM -1)
+    ly, lmonth, _, _, y_chi = vh._solar_month_to_lunar(2026, 9)
+    expect = BRANCHES_TVI[(BRANCHES_TVI.index(y_chi) + (lmonth - 1)) % 12]
+    assert g["vi_tri"] == expect and g["am_lich"]["thang"] == lmonth
     t = vh.tuan_block(r, 2026, 9, 3)
     assert t["tuan"] == 3 and "Hạ tuần" in t["tuan_label"]
     # tuần dịch thuận từ lưu nguyệt Mệnh
@@ -121,6 +122,22 @@ def test_tam_phuong_tu_chinh_hoi_chieu():
         assert any("xung" in h["quan_he"] for h in hc)
         for h in hc:
             assert h["cung"] and isinstance(h["sao"], list)
+
+
+def test_luu_nguyet_nhap_duong_doi_am_nhat_quan():
+    """Lưu Nguyệt/Tuần NHẬP DƯƠNG LỊCH → tự đổi ÂM (sxtwl), nhất quán với Lưu Nhật.
+    Boundary: tháng 1 dương trước Tết thuộc năm âm TRƯỚC (không lẫn)."""
+    r = _founder()
+    b = vh.luu_nguyet_block(r, 2026, 7)            # dương July 2026
+    assert b["am_lich"]["thang"] == 6 and b["am_lich"]["nam_can_chi"] == "Bính Ngọ"
+    b1 = vh.luu_nguyet_block(r, 2026, 1)           # dương Jan 2026 (TRƯỚC Tết)
+    assert b1["am_lich"]["nam_can_chi"] == "Ất Tỵ"   # đúng năm âm trước, KHÔNG phải Bính Ngọ
+    # tuần kế thừa đổi lịch đúng
+    t = vh.tuan_block(r, 2026, 7, 2)
+    assert t["am_lich"]["thang"] == 6
+    # overview 12 tháng DƯƠNG, mỗi tháng có âm tương ứng
+    o = vh.luu_nguyet_overview(r, 2026)
+    assert len(o["months"]) == 12 and all("am_thang" in m for m in o["months"])
 
 
 def test_luu_nguyet_overview_va_thang_nhuan():

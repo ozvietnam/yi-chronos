@@ -103,6 +103,15 @@ async function loadMonthsOverview() {
 watch([tang, year, month, tuan, day, cycle], () => { if (open.value) loadBlock(); });
 watch([tang, year], () => { if (open.value) loadMonthsOverview(); });
 
+function today() {
+  const d = new Date();
+  year.value = d.getFullYear();
+  month.value = d.getMonth() + 1;
+  day.value = d.getDate();
+  // tuần theo ngày dương (thô — tầng tuần là vi mô)
+  tuan.value = d.getDate() <= 10 ? 1 : d.getDate() <= 20 ? 2 : 3;
+}
+
 async function toggle() {
   open.value = !open.value;
   if (open.value && !block.value) { await loadBlock(); await loadMonthsOverview(); }
@@ -131,11 +140,11 @@ async function toggle() {
           <label>Vận số <input type="number" v-model.number="cycle" min="1" max="12" /></label>
         </template>
         <template v-else>
-          <label>Năm{{ tang === 'luu_nhat' ? ' (dương)' : '' }}
+          <label>Năm <small>(dương)</small>
             <input type="number" v-model.number="year" min="1930" max="2100" /></label>
-          <label v-if="['luu_nguyet','tuan','luu_nhat'].includes(tang)">Tháng
+          <label v-if="['luu_nguyet','tuan','luu_nhat'].includes(tang)">Tháng <small>(dương)</small>
             <input type="number" v-model.number="month" min="1" max="12" /></label>
-          <label v-if="tang === 'luu_nhat'">Ngày
+          <label v-if="tang === 'luu_nhat'">Ngày <small>(dương)</small>
             <input type="number" v-model.number="day" min="1" max="31" /></label>
           <label v-if="tang === 'tuan'">Tuần
             <select v-model.number="tuan">
@@ -144,6 +153,7 @@ async function toggle() {
               <option :value="3">Hạ tuần (21-cuối)</option>
             </select>
           </label>
+          <button v-if="tang !== 'luu_nien'" type="button" class="vh-today" @click="today">📅 Hôm nay</button>
         </template>
       </div>
 
@@ -151,8 +161,8 @@ async function toggle() {
       <div v-if="tang === 'luu_nguyet' && monthsOverview.length" class="vh-monthstrip">
         <button v-for="mo in monthsOverview" :key="mo.month" type="button"
           class="vh-mo" :class="{ active: month === mo.month }" @click="month = mo.month"
-          :title="`Tháng ${mo.month} (${mo.month_can}) — cung ${mo.cung_the}`">
-          <b>T{{ mo.month }}</b><small>{{ mo.cung_the }}</small>
+          :title="`Dương T${mo.month} ≈ âm tháng ${mo.am_thang} — cung ${mo.cung_the}`">
+          <b>T{{ mo.month }}</b><small>â.{{ mo.am_thang }} · {{ mo.cung_the }}</small>
         </button>
       </div>
       <p v-if="leapNote" class="vh-leapnote">🌙 {{ leapNote }}</p>
@@ -161,7 +171,15 @@ async function toggle() {
       <p v-else-if="error" class="vh-error">{{ error }}</p>
 
       <div v-else-if="block" class="vh-result">
-        <!-- Thể-Dụng -->
+        <!-- Âm lịch tương ứng (minh bạch dương→âm) -->
+        <p v-if="block.am_lich" class="vh-amlich">
+          📆 Dương lịch tháng {{ block.month }}/{{ block.year }}
+          <b>≈ âm lịch tháng {{ block.am_lich.thang }}<span v-if="block.am_lich.nhuan"> (nhuận)</span>, năm {{ block.am_lich.nam_can_chi }}</b>
+        </p>
+        <p v-else-if="block.lunar_day" class="vh-amlich">
+          📆 Dương lịch {{ block.solar }} <b>≈ âm lịch ngày {{ block.lunar_day }} tháng {{ block.lunar_month }}, can ngày {{ block.day_can }}</b>
+        </p>
+
         <!-- Bối cảnh Đại Vận bao trùm (lồng tầng — lấy đại vận làm chủ) -->
         <div v-if="block.bao_tram_dai_van" class="vh-baotram">
           🌗 <b>Trong Đại Vận V{{ block.bao_tram_dai_van.cycle_index }}</b>
@@ -280,6 +298,10 @@ async function toggle() {
   background: var(--read-surface, rgba(255, 255, 255, 0.04)); color: var(--read-text, rgba(230, 238, 245, 0.92));
 }
 .vh-picker select { width: auto; }
+.vh-picker label small { color: var(--read-text-faint, rgba(230,238,245,0.45)); font-size: calc(10px * var(--reading-scale, 1)); }
+.vh-today { padding: 4px 12px; border-radius: 7px; cursor: pointer; border: 1px solid var(--read-accent, #7ec8e3); background: var(--read-accent-bg, rgba(126,200,227,0.12)); color: var(--read-accent, #7ec8e3); font-size: calc(12px * var(--reading-scale, 1)); font-weight: 600; }
+.vh-amlich { margin: 0 0 10px; font-size: calc(12px * var(--reading-scale, 1)); color: var(--read-text-dim, rgba(230,238,245,0.82)); }
+.vh-amlich b { color: var(--read-han, #e8c95a); }
 .vh-monthstrip { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 10px; }
 .vh-mo { display: inline-flex; flex-direction: column; align-items: center; padding: 4px 9px; border-radius: 7px; cursor: pointer; border: 1px solid var(--read-border, rgba(230,238,245,0.18)); background: var(--read-surface, rgba(255,255,255,0.02)); color: var(--read-text-dim, rgba(230,238,245,0.8)); font-size: calc(11px * var(--reading-scale, 1)); }
 .vh-mo small { color: var(--read-text-faint, rgba(230,238,245,0.5)); font-size: calc(9.5px * var(--reading-scale, 1)); }
