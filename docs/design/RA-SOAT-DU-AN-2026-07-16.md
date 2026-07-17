@@ -21,7 +21,7 @@
   - (2) **Prod DB sync bảng `sao_noi_dung` — VẪN NỢ** (cần SSH VPS, chỉ chạy được từ Mac của Anh): dùng script mới `scripts/sync-sao-noi-dung-to-vps.sh` (surgical — chỉ thay 1 bảng, KHÔNG đè cả wiki.sqlite3 như `sync-atoms-to-vps.sh` nên không clobber sqlite-vec; có backup + verify + dry-run).
   - (3) **Duyệt đối kháng lớp `cung` (1063) + `ket_hop` (865) — VẪN NỢ** (cần LM Studio local UP): `scripts/verify_sao_noi_dung.py --lop cung/ket_hop`.
   Nguồn: `docs/design/PHIEN-SAU-chuan-bi-2026-07-03.md`.
-- Gap-analysis "nhai gọn" phần lớn chưa wire: Paradigm Engine 6 hàm (blocker), mapping CUNG_SAO 14/168, CrossSchoolOrchestrator, OutputFillerV2 chưa wire LLM, founder-verify 2700 atoms.
+- ~~Gap-analysis "nhai gọn" phần lớn chưa wire~~ → **Verify 2026-07-17: Phase A→D ĐÃ XONG từ `9410bf03` (2026-06-27)**, doc `gap-analysis-roadmap-2026-06-10.md` chỉ chưa cập nhật — đã sửa. Paradigm Engine 7 hàm + mapping live-query 8 sách + CrossSchoolOrchestrator + OutputFillerV2 + API `tu_vi_3layer.py` + UI `TuVi3LayerPanel.vue` + Founder Verify (`AtomVerifyPanel.vue`) đều đã wire. Nhân tiện phát hiện + sửa 1 bug thật (đụng độ canonical Tý/Tỵ trong `nhan_cung.py`, ảnh hưởng API `/api/tu-vi/3-layer` thật) + viết 34 test (trước đó = 0 test cho cả package paradigm). Còn lại: QC bằng mắt trên máy có `wiki.sqlite3` thật (không build gì thêm).
 - `than_cu.py:219` "chất người từng Cục" trống — cần đọc sách lấy nguồn (P1).
 - Nhiều quy tắc Trung Châu / Trần Đoàn đã thâm nhuần nhưng chưa wire engine (cường-cung weight, đào hoa Phu Thê, Bác Sĩ 12 ý nghĩa, …).
 
