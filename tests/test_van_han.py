@@ -71,6 +71,20 @@ def test_overview_skeleton_tat_dinh():
         assert y["cung_the"]
 
 
+def test_luu_nhat_block_lich_am_va_tu_hoa_ngay():
+    """Lưu Nhật: solar→âm (sxtwl) + lưu nhật Mệnh = lưu nguyệt Mệnh + (ngày âm-1) thuận,
+    Tứ Hóa theo CAN NGÀY. Có nguồn cổ pháp 'lưu nguyệt khởi mùng một'."""
+    r = _founder()
+    b = vh.luu_nhat_block(r, 2026, 9, 15)
+    assert b["available"] and b["tang"] == "luu_nhat"
+    assert 1 <= b["lunar_day"] <= 30 and b["day_can"]
+    assert b["vi_tri"] in BRANCHES_TVI and b["cung_the"]
+    assert {h["hoa"] for h in b["tu_hoa_van"]} == {"Lộc", "Quyền", "Khoa", "Kỵ"}
+    assert "vi mô" in b["luu_y_vi_mo"].lower()
+    # dispatch
+    assert vh.build_block(r, "luu_nhat", year=2026, month=9, day=15)["vi_tri"] == b["vi_tri"]
+
+
 def test_month_out_of_range():
     r = _founder()
     import pytest

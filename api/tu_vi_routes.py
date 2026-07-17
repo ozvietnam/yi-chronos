@@ -124,7 +124,8 @@ class TuViVanHanRequest(BaseModel):
     cycle_index: Optional[int] = None   # dai_van
     year: Optional[int] = None          # luu_nien | luu_nguyet | tuan | overview start
     year_end: Optional[int] = None      # luu_nien_overview
-    month: Optional[int] = None         # luu_nguyet | tuan
+    month: Optional[int] = None         # luu_nguyet | tuan | luu_nhat (dương lịch)
+    day: Optional[int] = None           # luu_nhat (ngày dương lịch)
     tuan: Optional[int] = None          # tuan (1 thượng · 2 trung · 3 hạ)
     want_llm: bool = True               # có sinh narrative grounded không
 
@@ -152,7 +153,7 @@ def tu_vi_van_han(request: TuViVanHanRequest, caller: dict = Depends(require_cal
             return {"status": "error", "reason": str(e)}
 
     kw: dict = {}
-    for k in ("cycle_index", "year", "month", "tuan"):
+    for k in ("cycle_index", "year", "month", "tuan", "day"):
         v = getattr(request, k)
         if v is not None:
             kw[k] = v

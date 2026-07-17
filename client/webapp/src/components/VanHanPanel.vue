@@ -15,6 +15,7 @@ const tang = ref("luu_nguyet");   // default tháng — đúng trọng tâm Anh 
 const year = ref(2026);
 const month = ref(1);
 const tuan = ref(1);
+const day = ref(1);
 const cycle = ref(1);
 
 const block = ref(null);
@@ -28,6 +29,7 @@ const TANG_TABS = [
   { key: "luu_nien", label: "Lưu Niên", sub: "năm" },
   { key: "luu_nguyet", label: "Lưu Nguyệt", sub: "tháng" },
   { key: "tuan", label: "Tuần", sub: "10 ngày" },
+  { key: "luu_nhat", label: "Lưu Nhật", sub: "ngày" },
 ];
 const TUAN_LABEL = { 1: "Thượng tuần", 2: "Trung tuần", 3: "Hạ tuần" };
 const HOA_COLOR = { "Lộc": "loc", "Quyền": "quyen", "Khoa": "khoa", "Kỵ": "ky" };
@@ -44,9 +46,10 @@ function body() {
     want_llm: false,
   };
   if (tang.value === "dai_van") b.cycle_index = cycle.value;
-  if (["luu_nien", "luu_nguyet", "tuan"].includes(tang.value)) b.year = year.value;
-  if (["luu_nguyet", "tuan"].includes(tang.value)) b.month = month.value;
+  if (["luu_nien", "luu_nguyet", "tuan", "luu_nhat"].includes(tang.value)) b.year = year.value;
+  if (["luu_nguyet", "tuan", "luu_nhat"].includes(tang.value)) b.month = month.value;
   if (tang.value === "tuan") b.tuan = tuan.value;
+  if (tang.value === "luu_nhat") b.day = day.value;
   return b;
 }
 
@@ -82,7 +85,7 @@ async function genLuan() {
   } finally { luanLoading.value = false; }
 }
 
-watch([tang, year, month, tuan, cycle], () => { if (open.value) loadBlock(); });
+watch([tang, year, month, tuan, day, cycle], () => { if (open.value) loadBlock(); });
 
 async function toggle() {
   open.value = !open.value;
@@ -112,9 +115,12 @@ async function toggle() {
           <label>Vận số <input type="number" v-model.number="cycle" min="1" max="12" /></label>
         </template>
         <template v-else>
-          <label>Năm <input type="number" v-model.number="year" min="1930" max="2100" /></label>
-          <label v-if="['luu_nguyet','tuan'].includes(tang)">Tháng
+          <label>Năm{{ tang === 'luu_nhat' ? ' (dương)' : '' }}
+            <input type="number" v-model.number="year" min="1930" max="2100" /></label>
+          <label v-if="['luu_nguyet','tuan','luu_nhat'].includes(tang)">Tháng
             <input type="number" v-model.number="month" min="1" max="12" /></label>
+          <label v-if="tang === 'luu_nhat'">Ngày
+            <input type="number" v-model.number="day" min="1" max="31" /></label>
           <label v-if="tang === 'tuan'">Tuần
             <select v-model.number="tuan">
               <option :value="1">Thượng tuần (1-10)</option>

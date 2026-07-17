@@ -305,9 +305,46 @@ def luu_nien_overview(la_so: dict, start_year: int, end_year: int) -> dict:
     return {"years": years}
 
 
+# ── LƯU NHẬT (ngày) — cổ pháp có nguồn ────────────────────────────────────────
+# "định lưu nhật: Lấy cung lưu nguyệt khởi mùng một, thuận đi 12 cung, một ngày một
+#  cung" (Trung Châu phái, sách phục chế). Tứ Hóa ngày = theo CAN NGÀY (lịch 60).
+def _lunar_of(solar_year: int, solar_month: int, solar_day: int) -> tuple[int, int, str]:
+    """(lunar_month, lunar_day, day_can) của 1 ngày dương — qua sxtwl."""
+    import sxtwl
+    from engine.yi_wiki.lich_conversion import TG_NAMES
+    d = sxtwl.fromSolar(solar_year, solar_month, solar_day)
+    return d.getLunarMonth(), d.getLunarDay(), TG_NAMES[d.getDayGZ().tg]
+
+
+def luu_nhat_block(la_so: dict, solar_year: int, solar_month: int, solar_day: int) -> dict:
+    """Khối grounded 1 Lưu Nhật (ngày). Lưu nhật Mệnh = lưu nguyệt Mệnh + (ngày âm -1),
+    thuận. Tứ Hóa ngày theo can ngày. ⚠️ Kho nội dung ngày cực mỏng → DẪN XUẤT."""
+    lmonth, lday, day_can = _lunar_of(solar_year, solar_month, solar_day)
+    # lưu nguyệt Mệnh của tháng âm chứa ngày này (Đẩu Quân lưu niên + thuận tháng)
+    y_can, y_chi = _year_stem_branch(solar_year)
+    dau_quan_bi = BRANCHES_TVI.index(y_chi)
+    lnm_bi = (dau_quan_bi + (lmonth - 1)) % 12
+    lnhat_bi = (lnm_bi + (lday - 1)) % 12
+    block = _the_dung_block(la_so, lnhat_bi, "Lưu Nhật")
+    return {
+        "available": True,
+        "tang": "luu_nhat",
+        "solar": f"{solar_year:04d}-{solar_month:02d}-{solar_day:02d}",
+        "lunar_month": lmonth, "lunar_day": lday, "day_can": day_can,
+        **block,
+        "tu_hoa_van": _hoa_lit(day_can, la_so),
+        "tu_hoa_can": day_can,
+        "nguyen_tac": THE_DUNG_PRINCIPLE,
+        "luu_y_vi_mo": ("Tầng ngày là quan-sát CỰC VI MÔ — kho sách cổ về lưu nhật rất "
+                        "mỏng, đây là DẪN XUẤT (cung động theo cổ pháp 'lưu nguyệt khởi "
+                        "mùng một, thuận 1 cung/ngày' + Tứ Hóa ngày + sao đã duyệt). "
+                        "KHÔNG phán việc cụ thể trong ngày."),
+    }
+
+
 # ── Dựng block cho 1 tầng bất kỳ (dispatch) ───────────────────────────────────
 def build_block(la_so: dict, tang: str, **kw) -> dict:
-    """Dispatch: tang ∈ {dai_van, luu_nien, luu_nguyet, tuan}."""
+    """Dispatch: tang ∈ {dai_van, luu_nien, luu_nguyet, tuan, luu_nhat}."""
     if tang == "dai_van":
         return dai_van_block(la_so, int(kw["cycle_index"]))
     if tang == "luu_nien":
@@ -316,6 +353,8 @@ def build_block(la_so: dict, tang: str, **kw) -> dict:
         return luu_nguyet_block(la_so, int(kw["year"]), int(kw["month"]))
     if tang == "tuan":
         return tuan_block(la_so, int(kw["year"]), int(kw["month"]), int(kw["tuan"]))
+    if tang == "luu_nhat":
+        return luu_nhat_block(la_so, int(kw["year"]), int(kw["month"]), int(kw["day"]))
     raise ValueError(f"tang không hợp lệ: {tang}")
 
 
@@ -328,7 +367,7 @@ def block_to_source_text(blk: dict) -> str:
         return ""
     lines: list[str] = []
     tang_vi = {"dai_van": "Đại Vận", "luu_nien": "Lưu Niên (năm)",
-               "luu_nguyet": "Lưu Nguyệt (tháng)", "tuan": "Tuần (10 ngày)"}.get(blk["tang"], blk["tang"])
+               "luu_nguyet": "Lưu Nguyệt (tháng)", "tuan": "Tuần (10 ngày)", "luu_nhat": "Lưu Nhật (ngày)"}.get(blk["tang"], blk["tang"])
     lines.append(f"### TẦNG: {tang_vi} — an Mệnh tại cung {blk['vi_tri']}")
     lines.append(f"### THỂ-DỤNG: {blk['dien_giai_the_dung']}")
     lines.append(f"### Nguyên tắc (nguồn {blk['nguyen_tac']['nguon']}): {blk['nguyen_tac']['text']}")
@@ -384,7 +423,7 @@ def _luan_llm(person: dict, tang: str, source_text: str) -> str:
         from engine.ai.council import _SAGE_FAST_MODEL
         model = _SAGE_FAST_MODEL.get(provider.name, model)
     tang_vi = {"dai_van": "Đại Vận (10 năm)", "luu_nien": "Lưu Niên (năm)",
-               "luu_nguyet": "Lưu Nguyệt (tháng)", "tuan": "Tuần (10 ngày)"}.get(tang, tang)
+               "luu_nguyet": "Lưu Nguyệt (tháng)", "tuan": "Tuần (10 ngày)", "luu_nhat": "Lưu Nhật (ngày)"}.get(tang, tang)
     q = (
         f"Bạn là người BIÊN TẬP luận vận hạn Tử Vi, KHÔNG phải người sáng tác nghĩa. Dưới đây "
         f"là dữ kiện CÓ NGUỒN về tầng {tang_vi} của người này:\n\n{source_text}\n\n"
