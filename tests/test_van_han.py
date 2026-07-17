@@ -138,6 +138,20 @@ def test_luu_nguyet_overview_va_thang_nhuan():
     assert vh.luu_nguyet_block(r, 2026, 6)["thang_nhuan_note"] == ""
 
 
+def test_long_tang_bao_tram_dai_van():
+    """Luận năm/tháng LỒNG trong Đại Vận bao trùm (cổ pháp lấy đại hạn làm chủ) + sao
+    hội chiếu có nội dung nguồn. Nâng chất luận nguyệt/niên vận."""
+    p = {"birth_datetime_local": "1988-06-05T23:30:00", "gender": "nam"}
+    for tang, kw in [("luu_nien", {"year": 2030}), ("luu_nguyet", {"year": 2030, "month": 5})]:
+        r = vh.van_han_luan(p, tang, want_llm=False, **kw)
+        bt = r["block"].get("bao_tram_dai_van")
+        assert bt and bt["cung"] and bt["khoang_tuoi"]         # có đại vận bao trùm
+        assert bt["khoang_tuoi"][0] <= 43 <= bt["khoang_tuoi"][1]   # 2030 ~ tuổi 43
+        assert "BỐI CẢNH — Đại Vận bao trùm" in r["source_text"]
+        # ≥1 cung hội chiếu có nội dung nguồn (đọc cả chòm)
+        assert any(h["sao_nguon"] for h in r["block"]["hoi_chieu"])
+
+
 def test_month_out_of_range():
     r = _founder()
     import pytest

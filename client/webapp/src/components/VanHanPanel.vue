@@ -162,6 +162,15 @@ async function toggle() {
 
       <div v-else-if="block" class="vh-result">
         <!-- Thể-Dụng -->
+        <!-- Bối cảnh Đại Vận bao trùm (lồng tầng — lấy đại vận làm chủ) -->
+        <div v-if="block.bao_tram_dai_van" class="vh-baotram">
+          🌗 <b>Trong Đại Vận V{{ block.bao_tram_dai_van.cycle_index }}</b>
+          (tuổi {{ block.bao_tram_dai_van.khoang_tuoi[0] }}–{{ block.bao_tram_dai_van.khoang_tuoi[1] }}) —
+          cung {{ block.bao_tram_dai_van.cung }}
+          <span v-if="block.bao_tram_dai_van.sao.length">({{ block.bao_tram_dai_van.sao.join(', ') }})</span>.
+          Tầng này là <b>một bước</b> trong đại vận đó.
+        </div>
+
         <div class="vh-thedung">
           <span class="vh-vitri">an Mệnh tại <b>{{ block.vi_tri }}</b></span>
           <p>{{ block.dien_giai_the_dung }}</p>
@@ -183,6 +192,7 @@ async function toggle() {
               <span class="vh-hc-qh">{{ h.quan_he }}</span>
               <span class="vh-hc-cung">{{ h.cung }} ({{ h.vi_tri }})</span>
               <small>{{ (h.sao || []).join(', ') || 'Vô Chính Diệu' }}</small>
+              <p v-for="(s, j) in (h.sao_nguon || [])" :key="j" class="vh-hc-nguon">{{ s.sao }}: {{ s.dich }}</p>
             </div>
           </div>
         </div>
@@ -276,6 +286,8 @@ async function toggle() {
 .vh-mo.active { border-color: var(--read-accent, #7ec8e3); color: var(--read-accent, #7ec8e3); background: var(--read-accent-bg, rgba(126,200,227,0.12)); }
 .vh-leapnote { margin: 0 0 10px; font-size: calc(11.5px * var(--reading-scale, 1)); line-height: 1.55; color: var(--read-han, #e8c95a); opacity: 0.85; }
 .vh-result { border: 1px solid var(--read-border, rgba(230, 238, 245, 0.14)); border-radius: 10px; padding: 12px 14px; background: var(--read-surface, rgba(255, 255, 255, 0.02)); }
+.vh-baotram { margin-bottom: 10px; padding: 8px 11px; border-radius: 8px; background: rgba(253,230,138,0.06); border: 1px solid rgba(253,230,138,0.22); font-size: calc(12.5px * var(--reading-scale, 1)); line-height: 1.6; color: var(--read-text-dim, rgba(230,238,245,0.85)); }
+.vh-hc-nguon { margin: 3px 0 0; font-size: calc(10.5px * var(--reading-scale, 1)); line-height: 1.5; color: var(--read-text-faint, rgba(230,238,245,0.62)); }
 .vh-thedung { margin-bottom: 12px; }
 .vh-vitri { font-size: calc(13px * var(--reading-scale, 1)); color: var(--read-accent, #7ec8e3); }
 .vh-thedung p { margin: 4px 0 0; font-size: calc(13px * var(--reading-scale, 1)); line-height: 1.6; color: var(--read-text, rgba(230, 238, 245, 0.88)); }

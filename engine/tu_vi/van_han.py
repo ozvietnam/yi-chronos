@@ -174,18 +174,48 @@ def _hoa_lit(hoa_stem: str, la_so: dict) -> list[dict]:
 
 def _tam_phuong(la_so: dict, i: int) -> list[dict]:
     """Tam phương tứ chính HỘI CHIẾU vào cung i: đối cung (xung, +6) + 2 cung tam hợp
-    (±4). Trả [{quan_he, cung, vi_tri, sao}]. Cổ pháp: cung vận không đọc lẻ."""
+    (±4). Trả [{quan_he, cung, vi_tri, sao, sao_nguon}]. Cổ pháp: cung vận không đọc lẻ.
+    Sao hội chiếu KÈM 1 trích nội dung có nguồn (để luận cả chòm, không chỉ tên sao)."""
     out = []
     for off, qh in ((6, "đối cung (xung chiếu)"), (4, "tam hợp"), (8, "tam hợp")):
         bi = (i + off) % 12
         p = _palace_at(la_so, bi)
+        pname = p["name"] if p else "?"
+        stars = _stars_at(la_so, bi)
+        nguon = []
+        for st in stars[:2]:
+            g = _grounded_sao(st, cung=pname, limit=1)
+            if g:
+                nguon.append(g[0])
         out.append({
-            "quan_he": qh,
-            "cung": p["name"] if p else "?",
-            "vi_tri": BRANCHES_TVI[bi],
-            "sao": _stars_at(la_so, bi),
+            "quan_he": qh, "cung": pname, "vi_tri": BRANCHES_TVI[bi],
+            "sao": stars, "sao_nguon": nguon,
         })
     return out
+
+
+def _dai_van_of_age(la_so: dict, age: int) -> "dict | None":
+    for dv in la_so.get("dai_van", []):
+        if dv["start_age"] <= age <= dv["end_age"]:
+            return dv
+    return None
+
+
+def _bao_tram_dai_van(la_so: dict, birth_year: int, year: int) -> "dict | None":
+    """Đại Vận (10 năm) BAO TRÙM năm này — để đọc năm/tháng TRONG bối cảnh đại vận
+    (cổ pháp: 'lấy đại hạn làm chủ, lưu niên nói rõ thêm một bước'). age = tuổi âm."""
+    dv = _dai_van_of_age(la_so, year - birth_year + 1)
+    if dv is None:
+        return None
+    bi = dv["branch_index"]
+    p = _palace_at(la_so, bi)
+    pname = p["name"] if p else "?"
+    stars = _stars_at(la_so, bi) or _stars_at(la_so, (bi + 6) % 12)
+    return {
+        "cycle_index": dv["cycle_index"], "khoang_tuoi": [dv["start_age"], dv["end_age"]],
+        "cung": pname, "vi_tri": BRANCHES_TVI[bi], "sao": stars,
+        "sao_nguon": [g for st in stars[:2] for g in _grounded_sao(st, cung=pname, limit=1)],
+    }
 
 
 def _the_dung_block(la_so: dict, active_branch_index: int, tang: str) -> dict:
@@ -505,6 +535,14 @@ def block_to_source_text(blk: dict) -> str:
     tang_vi = {"dai_van": "Đại Vận", "luu_nien": "Lưu Niên (năm)",
                "luu_nguyet": "Lưu Nguyệt (tháng)", "tuan": "Tuần (10 ngày)", "luu_nhat": "Lưu Nhật (ngày)"}.get(blk["tang"], blk["tang"])
     lines.append(f"### TẦNG: {tang_vi} — an Mệnh tại cung {blk['vi_tri']}")
+    bt = blk.get("bao_tram_dai_van")
+    if bt:
+        bt_sao = ", ".join(bt["sao"]) or "Vô Chính Diệu"
+        lines.append(f"### BỐI CẢNH — Đại Vận bao trùm (LẤY LÀM CHỦ): vận V{bt['cycle_index']} "
+                     f"tuổi {bt['khoang_tuoi'][0]}-{bt['khoang_tuoi'][1]}, cung {bt['cung']} ({bt_sao}). "
+                     f"Đọc tầng này như MỘT BƯỚC cụ thể trong đại vận đó.")
+        for s in bt.get("sao_nguon", []):
+            lines.append(f"  · {s['sao']} (đại vận): {s['dich']} (nguồn: {s['nguon']})")
     lines.append(f"### THỂ-DỤNG: {blk['dien_giai_the_dung']}")
     lines.append(f"### Nguyên tắc (nguồn {blk['nguyen_tac']['nguon']}): {blk['nguyen_tac']['text']}")
     hc = blk.get("hoi_chieu") or []
@@ -513,6 +551,8 @@ def block_to_source_text(blk: dict) -> str:
         for h in hc:
             sao = ", ".join(h["sao"]) or "Vô Chính Diệu"
             lines.append(f"- {h['quan_he']}: cung {h['cung']} ({h['vi_tri']}) — {sao}")
+            for s in h.get("sao_nguon", []):
+                lines.append(f"  · {s['sao']}: {s['dich']} (nguồn: {s['nguon']})")
     cvr = blk.get("cung_van_rules") or []
     if cvr:
         lines.append(f"### Đọc cung {blk['cung_the']} khi là cung vận (nguyên tắc CÓ NGUỒN):")
@@ -547,6 +587,14 @@ def van_han_luan(person: dict, tang: str, *, want_llm: bool = True, **kw) -> dic
     blk = build_block(la_so, tang, **kw)
     if not blk.get("available"):
         return {"available": False}
+    # LỒNG TẦNG: năm/tháng/tuần/ngày đọc TRONG đại vận bao trùm (cổ pháp lấy đại hạn làm chủ).
+    if tang in ("luu_nien", "luu_nguyet", "tuan", "luu_nhat"):
+        try:
+            byear = int(str(birth)[:4])
+            yr = int(str(blk.get("solar", ""))[:4]) if tang == "luu_nhat" else int(kw.get("year"))
+            blk["bao_tram_dai_van"] = _bao_tram_dai_van(la_so, byear, yr)
+        except Exception:
+            blk["bao_tram_dai_van"] = None
     src = block_to_source_text(blk)
     out = {"available": True, "block": blk, "source_text": src, "luan": "", "grounded": not blk["chua_co_nguon"]}
     if not want_llm or blk["chua_co_nguon"]:
@@ -571,18 +619,38 @@ def _luan_llm(person: dict, tang: str, source_text: str) -> str:
         model = _SAGE_FAST_MODEL.get(provider.name, model)
     tang_vi = {"dai_van": "Đại Vận (10 năm)", "luu_nien": "Lưu Niên (năm)",
                "luu_nguyet": "Lưu Nguyệt (tháng)", "tuan": "Tuần (10 ngày)", "luu_nhat": "Lưu Nhật (ngày)"}.get(tang, tang)
+    # Hướng dẫn CHUYÊN BIỆT theo tầng (chất luận tốt nhất cho năm/tháng).
+    _GUIDE = {
+        "luu_nien": (
+            "Đây là VẬN NĂM. Đọc năm này như MỘT BƯỚC trong Đại Vận bao trùm (lấy đại vận "
+            "làm CHỦ, năm nói rõ thêm một bước — theo bối cảnh cho sẵn). Cấu trúc: (1) chủ đề "
+            "năm 1 câu; (2) cái Thể nào của nguyên cục được năm này kích hoạt + đọc cả tam "
+            "phương tứ chính hội chiếu; (3) Tứ Hóa năm mời quan-sát lĩnh vực nào; (4) 1-2 câu "
+            "gợi ý nên NUÔI DƯỠNG/QUAN-SÁT gì. Tổng hợp, có chiều sâu."),
+        "luu_nguyet": (
+            "Đây là VẬN THÁNG — CỤ THỂ hơn năm. Đặt tháng trong bối cảnh Đại Vận + năm (cho "
+            "sẵn). Cấu trúc: (1) tháng này sân khấu chính là cung nào (Tứ Hóa tháng rọi đâu); "
+            "(2) đọc cung đó + tam phương tứ chính hội chiếu; (3) gợi ý quan-sát THỰC TẾ trong "
+            "tháng (dựa nguyên tắc đọc-cung có nguồn nếu có). Gọn, thiết thực, KHÔNG phán việc."),
+        "dai_van": "Đây là ĐẠI VẬN 10 năm — đọc chất nền cả giai đoạn, khái quát.",
+        "tuan": "Đây là TUẦN (10 ngày) — quan-sát VI MÔ, nói rõ là dẫn xuất, không phán ngày.",
+        "luu_nhat": "Đây là NGÀY — CỰC VI MÔ, dẫn xuất, tuyệt đối không phán việc trong ngày.",
+    }
+    guide = _GUIDE.get(tang, "")
     q = (
         f"Bạn là người BIÊN TẬP luận vận hạn Tử Vi, KHÔNG phải người sáng tác nghĩa. Dưới đây "
         f"là dữ kiện CÓ NGUỒN về tầng {tang_vi} của người này:\n\n{source_text}\n\n"
+        f"ĐỊNH HƯỚNG TẦNG NÀY: {guide}\n\n"
         f"NHIỆM VỤ: dệt các ý CÓ NGUỒN thành đoạn luận {tang_vi} mạch lạc, đời thường, theo "
         f"paradigm ĐỌC ĐỒNG DẠNG (mệnh là ĐỘNG TỪ — cách VẬN HÀNH cái tính qua thời gian, "
         f"KHÔNG án định số phận).\n"
         f"LUẬT BẮT BUỘC (vi phạm = hỏng):\n"
         f"1. CHỈ dùng ý trong nguồn cho sẵn — TUYỆT ĐỐI không thêm nghĩa từ kiến thức ngoài.\n"
-        f"2. Đọc theo THỂ-DỤNG: cái tính gốc (Thể) VẬN HÀNH thế nào trong tầng này (Dụng).\n"
-        f"3. Tứ Hóa rọi cung = MỜI QUAN-SÁT lĩnh vực đó, KHÔNG phán cát/hung, KHÔNG tiên tri việc cụ thể.\n"
-        f"4. Sao 'CHƯA CÓ NGUỒN' → không luận. Tầng tuần → nói rõ là quan-sát vi mô.\n"
-        f"~200–350 chữ, văn xuôi tiếng Việt, có thể nhắc tên sách nguồn cho tự nhiên."
+        f"2. Đọc theo THỂ-DỤNG + LỒNG TẦNG: tầng nhỏ là bước cụ thể trong tầng lớn bao trùm.\n"
+        f"3. Đọc CẢ CHÒM tam phương tứ chính, KHÔNG chỉ cung lẻ.\n"
+        f"4. Tứ Hóa rọi cung = MỜI QUAN-SÁT lĩnh vực đó, KHÔNG phán cát/hung, KHÔNG tiên tri.\n"
+        f"5. Sao 'CHƯA CÓ NGUỒN' → không luận.\n"
+        f"~220–380 chữ, văn xuôi tiếng Việt, có thể nhắc tên sách nguồn cho tự nhiên."
     )
     tz = person.get("timezone") or "Asia/Ho_Chi_Minh"
     resp = run_agent(agent_id="tu_vi", provider=provider, model=model, question=q,

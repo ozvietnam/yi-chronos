@@ -128,6 +128,7 @@ onMounted(init);
     <!-- Block grounded -->
     <div v-if="loading" class="ln-loading">Đang tra nguồn…</div>
     <div v-else-if="block" class="ln-result">
+      <p v-if="block.bao_tram_dai_van" class="ln-baotram">🌗 <b>Trong Đại Vận V{{ block.bao_tram_dai_van.cycle_index }}</b> (tuổi {{ block.bao_tram_dai_van.khoang_tuoi[0] }}–{{ block.bao_tram_dai_van.khoang_tuoi[1] }}) — cung {{ block.bao_tram_dai_van.cung }}<span v-if="block.bao_tram_dai_van.sao.length"> ({{ block.bao_tram_dai_van.sao.join(', ') }})</span>. Tầng này là một bước trong đại vận đó.</p>
       <p class="ln-thedung"><b>an Mệnh tại {{ block.vi_tri }}</b> — {{ block.dien_giai_the_dung }}</p>
       <div v-if="(block.cung_van_rules || []).length" class="ln-cungrule">
         <b>📐 Đọc cung {{ block.cung_the }} theo vận:</b>
@@ -181,6 +182,7 @@ onMounted(init);
 .ln-yr.active, .ln-mo.active { border-color: var(--read-accent, #7ec8e3); color: var(--read-accent, #7ec8e3); background: var(--read-accent-bg, rgba(126,200,227,0.12)); }
 .ln-mo { padding: 4px 10px; border-radius: 6px; border: 1px solid var(--read-border, #475569); background: var(--read-surface, #1e293b); color: var(--read-text-dim, #cbd5e1); cursor: pointer; font-size: 0.8rem; }
 .ln-result { border: 1px solid var(--read-border, #334155); border-radius: 10px; padding: 0.9rem 1rem; background: var(--read-surface, rgba(0,0,0,0.12)); }
+.ln-baotram { margin: 0 0 0.5rem; padding: 6px 9px; border-radius: 6px; background: rgba(253,230,138,0.06); border: 1px solid rgba(253,230,138,0.22); font-size: 0.82rem; line-height: 1.55; color: var(--read-text-dim, #cbd5e1); }
 .ln-thedung { margin: 0 0 0.5rem; font-size: 0.9rem; line-height: 1.6; color: var(--read-text-dim, #cbd5e1); }
 .ln-cungrule { margin: 0 0 0.7rem; padding: 6px 9px; border-left: 3px solid var(--read-rule, rgba(232,201,90,0.5)); border-radius: 6px; font-size: 0.82rem; line-height: 1.55; color: var(--read-text-dim, #cbd5e1); background: rgba(0,0,0,0.12); }
 .ln-cungrule p { margin: 3px 0 0; }
