@@ -113,6 +113,31 @@ def _grounded_sao(sao: str, cung: Optional[str] = None, limit: int = 2) -> list[
     return out
 
 
+def _cung_van_rules(cung: str, tang_key: str, limit: int = 3) -> list[dict]:
+    """Nguyên tắc đọc cung <cung> khi là cung VẬN — từ bảng van_han_nguon (đã atomize +
+    duyệt, founder_verified=1), khớp tầng (tang_key hoặc 'all'). Fallback seed hardcoded
+    nếu bảng chưa có / rỗng. Trả [{rule, nguon, quote_goc, tang}] (quote-or-silence)."""
+    conn = _db()
+    rules: list[dict] = []
+    if conn is not None:
+        try:
+            rows = conn.execute(
+                "SELECT rule, nguon_book, quote_goc, tang FROM van_han_nguon "
+                "WHERE cung=? AND founder_verified=1 AND (tang=? OR tang='all') "
+                "ORDER BY (tang='all') ASC, id ASC LIMIT ?", (cung, tang_key, limit)).fetchall()
+            rules = [{"rule": r[0], "nguon": r[1], "quote_goc": r[2] or "", "tang": r[3]} for r in rows]
+        except Exception:
+            rules = []
+    if not rules and cung in _CUNG_VAN_NGHIA:      # seed hardcoded (khi bảng chưa atomize)
+        h = _CUNG_VAN_NGHIA[cung]
+        rules = [{"rule": h["rule"], "nguon": h["nguon"], "quote_goc": "", "tang": "all"}]
+    return rules
+
+
+_TANG_KEY = {"Đại Vận": "dai_van", "Lưu Niên": "luu_nien", "Lưu Nguyệt": "luu_nguyet",
+             "Tuần": "luu_nguyet", "Lưu Nhật": "luu_nguyet"}
+
+
 def _palace_at(la_so: dict, branch_index: int) -> "dict | None":
     for p in la_so.get("palaces", []):
         if p.get("branch_index") == branch_index:
@@ -175,8 +200,8 @@ def _the_dung_block(la_so: dict, active_branch_index: int, tang: str) -> dict:
         "sao_nguon": sao_grounded,        # nội dung sao đã duyệt (có thể rỗng)
         "chua_co_nguon": len(sao_grounded) == 0,
         "dien_giai_the_dung": dg,
-        # #3: nguyên tắc đọc cung này khi là cung VẬN — có nguồn (None nếu chưa trích).
-        "cung_van_nghia": _CUNG_VAN_NGHIA.get(palace_name),
+        # #3: nguyên tắc đọc cung này khi là cung VẬN — LIST có nguồn (rỗng nếu chưa trích).
+        "cung_van_rules": _cung_van_rules(palace_name, _TANG_KEY.get(tang, "all")),
     }
 
 
@@ -407,9 +432,11 @@ def block_to_source_text(blk: dict) -> str:
     lines.append(f"### TẦNG: {tang_vi} — an Mệnh tại cung {blk['vi_tri']}")
     lines.append(f"### THỂ-DỤNG: {blk['dien_giai_the_dung']}")
     lines.append(f"### Nguyên tắc (nguồn {blk['nguyen_tac']['nguon']}): {blk['nguyen_tac']['text']}")
-    cvn = blk.get("cung_van_nghia")
-    if cvn:
-        lines.append(f"### Đọc cung {blk['cung_the']} khi là cung vận (nguồn {cvn['nguon']}): {cvn['rule']}")
+    cvr = blk.get("cung_van_rules") or []
+    if cvr:
+        lines.append(f"### Đọc cung {blk['cung_the']} khi là cung vận (nguyên tắc CÓ NGUỒN):")
+        for r in cvr:
+            lines.append(f"- {r['rule']} (nguồn: {r['nguon']})")
     if blk.get("sao_nguon"):
         lines.append("### Sao tại cung vận Mệnh — nội dung CÓ NGUỒN (chỉ dùng ý này):")
         for s in blk["sao_nguon"]:
