@@ -140,13 +140,15 @@ def tu_vi_van_han(request: TuViVanHanRequest, caller: dict = Depends(require_cal
     from engine.tu_vi import van_han as vh
 
     # Overview skeleton (tất định, 0-LLM) — thay nguồn cached-analyzer ungrounded của UI cũ.
-    if request.tang in ("dai_van_overview", "luu_nien_overview"):
+    if request.tang in ("dai_van_overview", "luu_nien_overview", "luu_nguyet_overview"):
         from engine.tu_vi.from_birth import cast_la_so_from_birth
         try:
             la_so = cast_la_so_from_birth(birth_datetime_local=request.birth_datetime_local,
                                           gender=request.gender)
             if request.tang == "dai_van_overview":
                 return {"status": "ok", **vh.dai_van_overview(la_so)}
+            if request.tang == "luu_nguyet_overview":
+                return {"status": "ok", **vh.luu_nguyet_overview(la_so, request.year or 2026)}
             start = request.year or 2026
             return {"status": "ok", **vh.luu_nien_overview(la_so, start, request.year_end or start + 4)}
         except (ValueError, KeyError) as e:

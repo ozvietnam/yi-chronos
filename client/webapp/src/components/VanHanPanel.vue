@@ -23,6 +23,8 @@ const luan = ref("");
 const loading = ref(false);
 const luanLoading = ref(false);
 const error = ref("");
+const monthsOverview = ref([]);   // 12 tháng skeleton (khi xem lưu nguyệt)
+const leapNote = ref("");
 
 const TANG_TABS = [
   { key: "dai_van", label: "Đại Vận", sub: "10 năm" },
@@ -85,11 +87,25 @@ async function genLuan() {
   } finally { luanLoading.value = false; }
 }
 
+async function loadMonthsOverview() {
+  monthsOverview.value = []; leapNote.value = "";
+  if (tang.value !== "luu_nguyet" || !tuviPersonBirth.value) return;
+  try {
+    const resp = await fetch("/api/tu-vi/van-han", {
+      method: "POST", headers: { "Content-Type": "application/json" }, credentials: "include",
+      body: JSON.stringify({ ...reqBase(), tang: "luu_nguyet_overview", year: year.value }),
+    });
+    const d = await resp.json();
+    if (d.status === "ok") { monthsOverview.value = d.months || []; leapNote.value = d.thang_nhuan_note || ""; }
+  } catch (e) { /* im lặng — strip là phụ trợ */ }
+}
+
 watch([tang, year, month, tuan, day, cycle], () => { if (open.value) loadBlock(); });
+watch([tang, year], () => { if (open.value) loadMonthsOverview(); });
 
 async function toggle() {
   open.value = !open.value;
-  if (open.value && !block.value) await loadBlock();
+  if (open.value && !block.value) { await loadBlock(); await loadMonthsOverview(); }
 }
 </script>
 
@@ -130,6 +146,16 @@ async function toggle() {
           </label>
         </template>
       </div>
+
+      <!-- Overview 12 tháng (nhịp cả năm — chọn tháng) -->
+      <div v-if="tang === 'luu_nguyet' && monthsOverview.length" class="vh-monthstrip">
+        <button v-for="mo in monthsOverview" :key="mo.month" type="button"
+          class="vh-mo" :class="{ active: month === mo.month }" @click="month = mo.month"
+          :title="`Tháng ${mo.month} (${mo.month_can}) — cung ${mo.cung_the}`">
+          <b>T{{ mo.month }}</b><small>{{ mo.cung_the }}</small>
+        </button>
+      </div>
+      <p v-if="leapNote" class="vh-leapnote">🌙 {{ leapNote }}</p>
 
       <p v-if="loading" class="vh-note">Đang tra vận hạn…</p>
       <p v-else-if="error" class="vh-error">{{ error }}</p>
@@ -189,6 +215,7 @@ async function toggle() {
           <p v-else class="vh-chuanguon">Kho sách chưa có nội dung đã duyệt cho cung này — để trống, không suy đoán.</p>
         </div>
 
+        <p v-if="block.thang_nhuan_note" class="vh-leapnote">{{ block.thang_nhuan_note }}</p>
         <p v-if="block.luu_y_vi_mo" class="vh-vimo">⚠ {{ block.luu_y_vi_mo }}</p>
 
         <!-- Nguyên tắc + luận grounded -->
@@ -243,6 +270,11 @@ async function toggle() {
   background: var(--read-surface, rgba(255, 255, 255, 0.04)); color: var(--read-text, rgba(230, 238, 245, 0.92));
 }
 .vh-picker select { width: auto; }
+.vh-monthstrip { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 10px; }
+.vh-mo { display: inline-flex; flex-direction: column; align-items: center; padding: 4px 9px; border-radius: 7px; cursor: pointer; border: 1px solid var(--read-border, rgba(230,238,245,0.18)); background: var(--read-surface, rgba(255,255,255,0.02)); color: var(--read-text-dim, rgba(230,238,245,0.8)); font-size: calc(11px * var(--reading-scale, 1)); }
+.vh-mo small { color: var(--read-text-faint, rgba(230,238,245,0.5)); font-size: calc(9.5px * var(--reading-scale, 1)); }
+.vh-mo.active { border-color: var(--read-accent, #7ec8e3); color: var(--read-accent, #7ec8e3); background: var(--read-accent-bg, rgba(126,200,227,0.12)); }
+.vh-leapnote { margin: 0 0 10px; font-size: calc(11.5px * var(--reading-scale, 1)); line-height: 1.55; color: var(--read-han, #e8c95a); opacity: 0.85; }
 .vh-result { border: 1px solid var(--read-border, rgba(230, 238, 245, 0.14)); border-radius: 10px; padding: 12px 14px; background: var(--read-surface, rgba(255, 255, 255, 0.02)); }
 .vh-thedung { margin-bottom: 12px; }
 .vh-vitri { font-size: calc(13px * var(--reading-scale, 1)); color: var(--read-accent, #7ec8e3); }

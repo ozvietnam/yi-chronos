@@ -295,11 +295,17 @@ def luu_nguyet_block(la_so: dict, year: int, month: int) -> dict:
     lnm_bi = (dau_quan_bi + (month - 1)) % 12               # lưu nguyệt Mệnh, thuận
     m_can = _month_can(y_can, month)
     block = _the_dung_block(la_so, lnm_bi, "Lưu Nguyệt")
+    leap = _leap_month_of(year)
     return {
         "available": True,
         "tang": "luu_nguyet",
         "year": year, "month": month,
         "month_can": m_can,
+        "thang_nhuan": leap,
+        "thang_nhuan_note": (
+            f"⚠️ Năm này có tháng nhuận (sau tháng {leap} âm) — tháng nhuận nằm chung cung "
+            f"với tháng kề; nếu đang xem quanh tháng nhuận, cổ pháp luận CẢ HAI trường hợp."
+            if leap else ""),
         **block,
         "tu_hoa_van": _hoa_lit(m_can, la_so),   # Tứ Hóa tháng theo can tháng
         "tu_hoa_can": m_can,
@@ -362,6 +368,55 @@ def dai_van_overview(la_so: dict) -> dict:
             "sao": stars, "sao_muon_xung": borrowed,
         })
     return {"cycles": cycles}
+
+
+@lru_cache(maxsize=128)
+def _leap_month_of(lunar_year: int) -> int:
+    """Tháng nhuận (âm) của 1 NĂM ÂM, 0 nếu không nhuận. Quét ngày dương của năm âm đó
+    (lọc getLunarYear==lunar_year), bắt isLunarLeap(). API sxtwl.fromLunar không validate
+    cờ nhuận nên phải quét."""
+    try:
+        import datetime
+        import sxtwl
+        dt = datetime.date(lunar_year, 1, 15)     # giữa tháng 1 dương ~ vẫn lunar năm trước/này
+        for _ in range(400):                       # phủ trọn 1 năm âm (~354-384 ngày)
+            d = sxtwl.fromSolar(dt.year, dt.month, dt.day)
+            if d.getLunarYear() == lunar_year and d.isLunarLeap():
+                return d.getLunarMonth()
+            dt += datetime.timedelta(days=1)
+    except Exception:
+        pass
+    return 0
+
+
+def luu_nguyet_overview(la_so: dict, year: int) -> dict:
+    """12 tháng (lưu nguyệt) skeleton tất định của 1 lưu niên: vị trí + cung Thể + sao +
+    cung Tứ Hóa tháng rọi. Kèm cờ tháng nhuận (#3) nếu năm âm có."""
+    y_can, y_chi = _year_stem_branch(year)
+    dau_quan_bi = BRANCHES_TVI.index(y_chi)
+    months = []
+    for m in range(1, 13):
+        bi = (dau_quan_bi + (m - 1)) % 12
+        p = _palace_at(la_so, bi)
+        stars = _stars_at(la_so, bi)
+        borrowed = False
+        if not stars:
+            stars = _stars_at(la_so, (bi + 6) % 12)
+            borrowed = bool(stars)
+        m_can = _month_can(y_can, m)
+        months.append({
+            "month": m, "month_can": m_can, "branch": BRANCHES_TVI[bi],
+            "cung_the": p["name"] if p else "?", "sao": stars, "sao_muon_xung": borrowed,
+        })
+    leap = _leap_month_of(year)
+    return {
+        "year": year, "year_can_chi": f"{y_can} {y_chi}", "months": months,
+        "thang_nhuan": leap,   # 0 nếu không; >0 = tháng âm bị nhuận
+        "thang_nhuan_note": (
+            f"Năm {y_can} {y_chi} có THÁNG NHUẬN sau tháng {leap} (âm). Cổ pháp: tháng "
+            f"nhuận nằm chung cung với tháng kề — nên luận CẢ HAI (chung tháng {leap} "
+            f"và tháng {leap+1}) rồi dùng dữ kiện khác chọn." if leap else ""),
+    }
 
 
 def luu_nien_overview(la_so: dict, start_year: int, end_year: int) -> dict:

@@ -123,6 +123,21 @@ def test_tam_phuong_tu_chinh_hoi_chieu():
             assert h["cung"] and isinstance(h["sao"], list)
 
 
+def test_luu_nguyet_overview_va_thang_nhuan():
+    """#2 overview 12 tháng tất định + #3 tháng nhuận đúng (sxtwl quét ngày)."""
+    r = _founder()
+    o = vh.luu_nguyet_overview(r, 2025)
+    assert len(o["months"]) == 12
+    assert o["months"][0]["month"] == 1 and o["months"][0]["cung_the"]
+    # 2025 (Ất Tỵ) có tháng nhuận 6; 2026/2027 không
+    assert vh._leap_month_of(2025) == 6
+    assert vh._leap_month_of(2026) == 0 and vh._leap_month_of(2027) == 0
+    assert vh._leap_month_of(2028) == 5
+    assert o["thang_nhuan"] == 6 and o["thang_nhuan_note"]
+    # block năm không nhuận → note rỗng (không cảnh báo bừa)
+    assert vh.luu_nguyet_block(r, 2026, 6)["thang_nhuan_note"] == ""
+
+
 def test_month_out_of_range():
     r = _founder()
     import pytest
