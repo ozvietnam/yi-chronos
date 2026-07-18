@@ -129,30 +129,34 @@ onMounted(init);
     <div v-if="loading" class="ln-loading">Đang tra nguồn…</div>
     <div v-else-if="block" class="ln-result">
       <p v-if="block.bao_tram_dai_van" class="ln-baotram">🌗 <b>Trong Đại Vận V{{ block.bao_tram_dai_van.cycle_index }}</b> (tuổi {{ block.bao_tram_dai_van.khoang_tuoi[0] }}–{{ block.bao_tram_dai_van.khoang_tuoi[1] }}) — cung {{ block.bao_tram_dai_van.cung }}<span v-if="block.bao_tram_dai_van.sao.length"> ({{ block.bao_tram_dai_van.sao.join(', ') }})</span>. Tầng này là một bước trong đại vận đó.</p>
+      <p v-if="block.am_lich" class="ln-amlich">📆 Dương lịch tháng {{ block.month }}/{{ block.year }} <b>≈ âm lịch tháng {{ block.am_lich.thang }}, năm {{ block.am_lich.nam_can_chi }}</b></p>
       <p class="ln-thedung"><b>an Mệnh tại {{ block.vi_tri }}</b> — {{ block.dien_giai_the_dung }}</p>
-      <div v-if="(block.cung_van_rules || []).length" class="ln-cungrule">
-        <b>📐 Đọc cung {{ block.cung_the }} theo vận:</b>
-        <p v-for="(r, i) in block.cung_van_rules" :key="i">• {{ r.rule }} <span class="ln-src">📖 {{ r.nguon }}</span></p>
-      </div>
       <div v-if="litHoa.length" class="ln-hoa-grid">
         <div v-for="h in litHoa" :key="h.hoa" class="ln-hoa" :data-hoa="HOA_COLOR[h.hoa]">
           <b>{{ h.hoa }}</b> {{ h.sao }} → {{ h.cung }}<small>{{ h.nghia }}</small>
         </div>
       </div>
-      <div class="ln-sao">
-        <template v-if="block.sao_nguon?.length">
-          <div v-for="(s, i) in block.sao_nguon" :key="i" class="ln-sao-item">
-            <p><b>{{ s.sao }}:</b> {{ s.dich }}</p><span class="ln-src">📖 {{ s.nguon }}</span>
-          </div>
-        </template>
-        <p v-else class="ln-chuanguon">Kho sách chưa có nội dung đã duyệt cho cung này — để trống, không suy đoán.</p>
-      </div>
       <div class="ln-luan-zone">
         <button v-if="!luan && !block.chua_co_nguon" class="ln-luan-btn" :disabled="luanBusy" @click="genLuan">
-          {{ luanBusy ? "Đang dệt luận…" : "✍️ Luận từ nguồn" }}
+          {{ luanBusy ? "Đang luận…" : "✍️ Luận vận này" }}
         </button>
         <div v-if="luan" class="ln-luan">{{ luan }}</div>
       </div>
+      <details class="ln-sources">
+        <summary>📚 Chi tiết &amp; dẫn sách</summary>
+        <div v-if="(block.cung_van_rules || []).length" class="ln-cungrule">
+          <b>📐 Đọc cung {{ block.cung_the }} theo vận:</b>
+          <p v-for="(r, i) in block.cung_van_rules" :key="i">• {{ r.rule }} <span class="ln-src">📖 {{ r.nguon }}</span></p>
+        </div>
+        <div class="ln-sao">
+          <template v-if="block.sao_nguon?.length">
+            <div v-for="(s, i) in block.sao_nguon" :key="i" class="ln-sao-item">
+              <p><b>{{ s.sao }}:</b> {{ s.dich }}</p><span class="ln-src">📖 {{ s.nguon }}</span>
+            </div>
+          </template>
+          <p v-else class="ln-chuanguon">Kho sách chưa có nội dung đã duyệt cho cung này — để trống.</p>
+        </div>
+      </details>
     </div>
   </div>
 </template>
@@ -201,5 +205,10 @@ onMounted(init);
 .ln-luan-zone { margin-top: 0.7rem; }
 .ln-luan-btn { padding: 6px 12px; border-radius: 6px; cursor: pointer; border: 1px solid var(--read-accent, #7ec8e3); background: var(--read-accent-bg, rgba(126,200,227,0.12)); color: var(--read-accent, #7ec8e3); font-size: 0.82rem; font-weight: 600; }
 .ln-luan-btn:disabled { opacity: 0.6; }
-.ln-luan { margin-top: 0.6rem; padding: 0.7rem 0.9rem; border-radius: 6px; background: rgba(0,0,0,0.18); font-size: 0.88rem; line-height: 1.7; color: var(--read-text, #cbd5e1); white-space: pre-wrap; }
+.ln-luan { margin-top: 0.6rem; padding: 0.85rem 1rem; border-radius: 8px; background: rgba(0,0,0,0.2); border-left: 3px solid var(--read-accent, #7ec8e3); font-size: 0.9rem; line-height: 1.75; color: var(--read-text, #cbd5e1); white-space: pre-wrap; }
+.ln-amlich { margin: 0 0 0.4rem; font-size: 0.82rem; color: var(--read-text-dim, #cbd5e1); }
+.ln-amlich b { color: var(--read-han, #e8c95a); }
+.ln-sources { margin-top: 0.7rem; }
+.ln-sources > summary { cursor: pointer; font-size: 0.78rem; color: var(--read-text-faint, #64748b); }
+.ln-sources > summary + * { margin-top: 0.5rem; }
 </style>

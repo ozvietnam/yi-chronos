@@ -112,30 +112,33 @@ onMounted(loadOverview);
           <p v-if="expanded[c.cycle_index].error" class="dv-error">{{ expanded[c.cycle_index].error }}</p>
           <template v-else>
             <p class="dv-thedung">{{ expanded[c.cycle_index].dien_giai_the_dung }}</p>
-            <div v-if="(expanded[c.cycle_index].cung_van_rules || []).length" class="dv-cungrule">
-              <b>📐 Đọc cung này theo vận:</b>
-              <p v-for="(r, i) in expanded[c.cycle_index].cung_van_rules" :key="i">• {{ r.rule }} <span class="dv-src">📖 {{ r.nguon }}</span></p>
-            </div>
             <div v-if="litHoa(expanded[c.cycle_index]).length" class="dv-hoa-grid">
               <div v-for="h in litHoa(expanded[c.cycle_index])" :key="h.hoa" class="dv-hoa" :data-hoa="HOA_COLOR[h.hoa]">
                 <b>{{ h.hoa }}</b> {{ h.sao }} → {{ h.cung }}<small>{{ h.nghia }}</small>
               </div>
             </div>
-            <div class="dv-sao">
-              <template v-if="expanded[c.cycle_index].sao_nguon?.length">
-                <div v-for="(s, i) in expanded[c.cycle_index].sao_nguon" :key="i" class="dv-sao-item">
-                  <p><b>{{ s.sao }}:</b> {{ s.dich }}</p><span class="dv-src">📖 {{ s.nguon }}</span>
-                </div>
-              </template>
-              <p v-else class="dv-chuanguon">Kho sách chưa có nội dung đã duyệt cho cung này — để trống, không suy đoán.</p>
-            </div>
             <div class="dv-luan-zone">
               <button v-if="!luan[c.cycle_index] && !expanded[c.cycle_index].chua_co_nguon"
                 class="dv-luan-btn" :disabled="busy['l'+c.cycle_index]" @click="genLuan(c.cycle_index)">
-                {{ busy['l'+c.cycle_index] ? "Đang dệt luận…" : "✍️ Luận đại vận này (từ nguồn)" }}
+                {{ busy['l'+c.cycle_index] ? "Đang luận…" : "✍️ Luận đại vận này" }}
               </button>
               <div v-if="luan[c.cycle_index]" class="dv-luan">{{ luan[c.cycle_index] }}</div>
             </div>
+            <details class="dv-sources">
+              <summary>📚 Chi tiết &amp; dẫn sách</summary>
+              <div v-if="(expanded[c.cycle_index].cung_van_rules || []).length" class="dv-cungrule">
+                <b>📐 Đọc cung này theo vận:</b>
+                <p v-for="(r, i) in expanded[c.cycle_index].cung_van_rules" :key="i">• {{ r.rule }} <span class="dv-src">📖 {{ r.nguon }}</span></p>
+              </div>
+              <div class="dv-sao">
+                <template v-if="expanded[c.cycle_index].sao_nguon?.length">
+                  <div v-for="(s, i) in expanded[c.cycle_index].sao_nguon" :key="i" class="dv-sao-item">
+                    <p><b>{{ s.sao }}:</b> {{ s.dich }}</p><span class="dv-src">📖 {{ s.nguon }}</span>
+                  </div>
+                </template>
+                <p v-else class="dv-chuanguon">Kho sách chưa có nội dung đã duyệt cho cung này — để trống.</p>
+              </div>
+            </details>
           </template>
         </div>
       </div>
@@ -185,6 +188,9 @@ onMounted(loadOverview);
 .dv-luan-zone { margin-top: 0.7rem; }
 .dv-luan-btn { padding: 6px 12px; border-radius: 6px; cursor: pointer; border: 1px solid var(--read-accent, #7ec8e3); background: var(--read-accent-bg, rgba(126,200,227,0.12)); color: var(--read-accent, #7ec8e3); font-size: 0.82rem; font-weight: 600; }
 .dv-luan-btn:disabled { opacity: 0.6; }
-.dv-luan { margin-top: 0.6rem; padding: 0.7rem 0.9rem; border-radius: 6px; background: rgba(0,0,0,0.18); font-size: 0.88rem; line-height: 1.7; color: var(--read-text, #cbd5e1); white-space: pre-wrap; }
+.dv-luan { margin-top: 0.6rem; padding: 0.85rem 1rem; border-radius: 8px; background: rgba(0,0,0,0.2); border-left: 3px solid var(--read-accent, #7ec8e3); font-size: 0.9rem; line-height: 1.75; color: var(--read-text, #cbd5e1); white-space: pre-wrap; }
+.dv-sources { margin-top: 0.7rem; }
+.dv-sources > summary { cursor: pointer; font-size: 0.78rem; color: var(--read-text-faint, #64748b); }
+.dv-sources > summary + * { margin-top: 0.5rem; }
 @media (max-width: 700px) { .dv-head-row { grid-template-columns: auto 1fr; } .dv-mid, .dv-right { grid-column: 1 / -1; justify-content: flex-start; } }
 </style>

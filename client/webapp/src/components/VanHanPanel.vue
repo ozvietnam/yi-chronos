@@ -194,30 +194,9 @@ async function toggle() {
           <p>{{ block.dien_giai_the_dung }}</p>
         </div>
 
-        <!-- #3: nguyên tắc đọc cung này khi là cung vận (có nguồn, nhiều rule) -->
-        <div v-if="(block.cung_van_rules || []).length" class="vh-cungrule">
-          <p class="vh-cungrule-head">📐 <b>Đọc cung {{ block.cung_the }} theo vận:</b></p>
-          <p v-for="(r, i) in block.cung_van_rules" :key="i" class="vh-cungrule-item">
-            • {{ r.rule }} <span class="vh-src">📖 {{ r.nguon }}</span>
-          </p>
-        </div>
-
-        <!-- Tam phương tứ chính hội chiếu (cổ pháp không đọc cung lẻ) -->
-        <div v-if="(block.hoi_chieu || []).length" class="vh-hoichieu">
-          <h6 class="vh-sub">Tam phương tứ chính hội chiếu vào cung vận</h6>
-          <div class="vh-hc-grid">
-            <div v-for="(h, i) in block.hoi_chieu" :key="i" class="vh-hc">
-              <span class="vh-hc-qh">{{ h.quan_he }}</span>
-              <span class="vh-hc-cung">{{ h.cung }} ({{ h.vi_tri }})</span>
-              <small>{{ (h.sao || []).join(', ') || 'Vô Chính Diệu' }}</small>
-              <p v-for="(s, j) in (h.sao_nguon || [])" :key="j" class="vh-hc-nguon">{{ s.sao }}: {{ s.dich }}</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Tứ Hóa rọi cung -->
+        <!-- Tứ Hóa rọi cung (cấu trúc, không phải dẫn sách) -->
         <div v-if="litHoa.length" class="vh-hoa-group">
-          <h6 class="vh-sub">Tứ Hóa của tầng rọi vào cung — sân khấu MỜI QUAN-SÁT (không phán cát/hung)</h6>
+          <h6 class="vh-sub">Tứ Hóa của tầng rọi vào cung — sân khấu MỜI QUAN-SÁT</h6>
           <div class="vh-hoa-grid">
             <div v-for="h in litHoa" :key="h.hoa" class="vh-hoa" :data-hoa="HOA_COLOR[h.hoa]">
               <span class="vh-hoa-name">{{ h.hoa }}</span>
@@ -228,38 +207,53 @@ async function toggle() {
           </div>
         </div>
 
-        <!-- Sao tại cung vận Mệnh (có nguồn) -->
-        <div class="vh-sao">
-          <h6 class="vh-sub">
-            Sao tại cung vận Mệnh: {{ (block.sao || []).join(', ') || 'Vô Chính Diệu' }}
-            <span v-if="block.sao_muon_xung" class="vh-muon">(mượn sao cung xung)</span>
-          </h6>
-          <template v-if="block.sao_nguon && block.sao_nguon.length">
-            <div v-for="(s, i) in block.sao_nguon" :key="i" class="vh-sao-item">
-              <p><b>{{ s.sao }}:</b> {{ s.dich }}</p>
-              <span class="vh-src">📖 {{ s.nguon }}</span>
-            </div>
-          </template>
-          <p v-else class="vh-chuanguon">Kho sách chưa có nội dung đã duyệt cho cung này — để trống, không suy đoán.</p>
-        </div>
-
         <p v-if="block.thang_nhuan_note" class="vh-leapnote">{{ block.thang_nhuan_note }}</p>
         <p v-if="block.luu_y_vi_mo" class="vh-vimo">⚠ {{ block.luu_y_vi_mo }}</p>
 
-        <!-- Nguyên tắc + luận grounded -->
-        <details class="vh-principle">
-          <summary>Nguyên tắc Thể-Dụng (nguồn: {{ block.nguyen_tac.nguon }})</summary>
-          <p>{{ block.nguyen_tac.text }}</p>
-        </details>
-
+        <!-- ★ LUẬN GIẢI — trọng tâm giao diện -->
         <div class="vh-luan-zone">
           <button v-if="!luan && !block.chua_co_nguon" type="button" class="vh-luan-btn"
             :disabled="luanLoading" @click="genLuan">
-            {{ luanLoading ? "Đang dệt luận từ nguồn…" : "✍️ Luận tầng này (biên tập từ nguồn)" }}
+            {{ luanLoading ? "Đang luận…" : "✍️ Luận vận hạn tầng này" }}
           </button>
           <p v-else-if="block.chua_co_nguon" class="vh-chuanguon">Chưa đủ nguồn để luận — không gieo rác.</p>
           <div v-if="luan" class="vh-luan">{{ luan }}</div>
         </div>
+
+        <!-- 📚 Chi tiết & dẫn sách — ẩn mặc định (Anh: giao diện tập trung luận giải) -->
+        <details class="vh-sources">
+          <summary>📚 Chi tiết &amp; dẫn sách (cung theo vận · tam phương tứ chính · sao · nguyên tắc)</summary>
+          <div class="vh-sources-body">
+            <div v-if="(block.cung_van_rules || []).length" class="vh-cungrule">
+              <p class="vh-cungrule-head">📐 <b>Đọc cung {{ block.cung_the }} theo vận:</b></p>
+              <p v-for="(r, i) in block.cung_van_rules" :key="i" class="vh-cungrule-item">
+                • {{ r.rule }} <span class="vh-src">📖 {{ r.nguon }}</span>
+              </p>
+            </div>
+            <div v-if="(block.hoi_chieu || []).length" class="vh-hoichieu">
+              <h6 class="vh-sub">Tam phương tứ chính hội chiếu</h6>
+              <div class="vh-hc-grid">
+                <div v-for="(h, i) in block.hoi_chieu" :key="i" class="vh-hc">
+                  <span class="vh-hc-qh">{{ h.quan_he }}</span>
+                  <span class="vh-hc-cung">{{ h.cung }} ({{ h.vi_tri }})</span>
+                  <small>{{ (h.sao || []).join(', ') || 'Vô Chính Diệu' }}</small>
+                  <p v-for="(s, j) in (h.sao_nguon || [])" :key="j" class="vh-hc-nguon">{{ s.sao }}: {{ s.dich }}</p>
+                </div>
+              </div>
+            </div>
+            <div class="vh-sao">
+              <h6 class="vh-sub">Sao tại cung vận Mệnh: {{ (block.sao || []).join(', ') || 'Vô Chính Diệu' }}
+                <span v-if="block.sao_muon_xung" class="vh-muon">(mượn sao cung xung)</span></h6>
+              <template v-if="block.sao_nguon && block.sao_nguon.length">
+                <div v-for="(s, i) in block.sao_nguon" :key="i" class="vh-sao-item">
+                  <p><b>{{ s.sao }}:</b> {{ s.dich }}</p><span class="vh-src">📖 {{ s.nguon }}</span>
+                </div>
+              </template>
+              <p v-else class="vh-chuanguon">Kho sách chưa có nội dung đã duyệt cho cung này — để trống.</p>
+            </div>
+            <p class="vh-principle-in"><b>Nguyên tắc Thể-Dụng</b> ({{ block.nguyen_tac.nguon }}): {{ block.nguyen_tac.text }}</p>
+          </div>
+        </details>
       </div>
     </div>
   </section>
@@ -351,5 +345,10 @@ async function toggle() {
   color: var(--read-accent, #7ec8e3); font-size: calc(12.5px * var(--reading-scale, 1)); font-weight: 600;
 }
 .vh-luan-btn:disabled { opacity: 0.6; cursor: default; }
-.vh-luan { margin-top: 10px; padding: 10px 12px; border-radius: 8px; background: var(--read-surface, rgba(255, 255, 255, 0.03)); font-size: calc(13px * var(--reading-scale, 1)); line-height: 1.75; color: var(--read-text, rgba(230, 238, 245, 0.88)); white-space: pre-wrap; }
+.vh-luan { margin-top: 10px; padding: 14px 16px; border-radius: 10px; background: var(--read-surface, rgba(255, 255, 255, 0.04)); border-left: 3px solid var(--read-accent, #7ec8e3); font-size: calc(13.5px * var(--reading-scale, 1)); line-height: 1.8; color: var(--read-text, rgba(230, 238, 245, 0.92)); white-space: pre-wrap; }
+.vh-luan-zone { margin: 14px 0; }
+.vh-sources { margin-top: 14px; }
+.vh-sources > summary { cursor: pointer; font-size: calc(12px * var(--reading-scale, 1)); color: var(--read-text-faint, rgba(230,238,245,0.5)); padding: 6px 0; }
+.vh-sources-body { padding-top: 6px; opacity: 0.92; }
+.vh-principle-in { margin: 8px 0 0; font-size: calc(11.5px * var(--reading-scale, 1)); line-height: 1.6; color: var(--read-text-faint, rgba(230,238,245,0.6)); padding-left: 9px; border-left: 2px solid var(--read-rule, rgba(232,201,90,0.3)); }
 </style>
