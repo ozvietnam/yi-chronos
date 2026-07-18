@@ -169,6 +169,40 @@ def test_long_tang_bao_tram_dai_van():
         assert any(h["sao_nguon"] for h in r["block"]["hoi_chieu"])
 
 
+def test_phi_hoa_chong_tang_tru_cot():
+    """TRỤ CỘT phi-tinh Tứ Hóa: tự hóa (can cung hóa sao trong cung) + trùng phùng
+    (sao bị ≥2 tầng cùng hóa → song Lộc / Lộc-Kỵ xung). Deterministic."""
+    r = _founder()
+    p = {"birth_datetime_local": "1988-06-05T23:30:00", "gender": "nam"}
+    blk = vh.van_han_luan(p, "luu_nguyet", want_llm=False, year=2026, month=9)["block"]
+    ph = blk["phi_hoa"]
+    # tự hóa: mỗi mục có cung + sao + hóa hợp lệ, sao THỰC nằm trong cung đó
+    for t in ph["tu_hoa"]:
+        assert t["cung"] and t["sao"] and t["hoa"] in ("Lộc", "Quyền", "Khoa", "Kỵ")
+    # trùng phùng: mỗi sao bị ≥2 tầng hóa
+    for t in ph["trung_phung"]:
+        assert len(t["tang_hoa"]) >= 2 and t["loai"] and t["nghia"]
+    # nguồn: source_text có mục trụ cột khi có trùng phùng
+    if ph["trung_phung"]:
+        assert "CHỒNG TẦNG" in blk_src(p)
+
+
+def blk_src(p):
+    return vh.van_han_luan(p, "luu_nguyet", want_llm=False, year=2026, month=9)["source_text"]
+
+
+def test_phi_hoa_tu_hoa_pure():
+    """phi_hoa() thuần: layer 1 tầng → không trùng phùng; tự hóa chỉ khi sao ngồi đúng cung."""
+    r = _founder()
+    out = vh.phi_hoa(r, [("Nguyên cục", r["year_stem"])])
+    assert out["trung_phung"] == []          # 1 tầng → không thể trùng phùng
+    from engine.tu_vi.an_sao import TU_HOA_TABLE
+    for t in out["tu_hoa"]:
+        # sao tự hóa PHẢI ngồi đúng cung có can hóa nó
+        pal = next(p for p in r["palaces"] if p["name"] == t["cung"])
+        assert TU_HOA_TABLE[pal["can"]][t["hoa"]] == t["sao"]
+
+
 def test_month_out_of_range():
     r = _founder()
     import pytest

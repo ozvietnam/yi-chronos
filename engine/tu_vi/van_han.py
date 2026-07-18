@@ -214,8 +214,69 @@ def _bao_tram_dai_van(la_so: dict, birth_year: int, year: int) -> "dict | None":
     return {
         "cycle_index": dv["cycle_index"], "khoang_tuoi": [dv["start_age"], dv["end_age"]],
         "cung": pname, "vi_tri": BRANCHES_TVI[bi], "sao": stars,
+        "can": p.get("can") if p else None,          # can cung đại vận → Tứ Hóa đại vận
         "sao_nguon": [g for st in stars[:2] for g in _grounded_sao(st, cung=pname, limit=1)],
     }
+
+
+def _star_branch_map(la_so: dict) -> dict:
+    """{tên sao (chính+phụ) → branch_index nó đậu}."""
+    m = {s: i for s, i in la_so.get("chinh_tinh", {}).items()}
+    m.update({s: i for s, i in la_so.get("phu_tinh", {}).items()})
+    return m
+
+
+def phi_hoa(la_so: dict, layer_cans: list) -> dict:
+    """Phi tinh TỨ HÓA CHỒNG TẦNG — trụ cột phái Tứ Hóa (Tinh Hoa Tập Thành).
+
+    layer_cans = [(tên_tầng, can), ...] theo thứ tự nguyên cục → đại vận → lưu niên →
+    lưu nguyệt. Trả:
+      • tu_hoa: cung TỰ HÓA (can cung hóa chính sao ngồi trong cung đó).
+      • trung_phung: sao bị ≥2 tầng cùng hóa (song Lộc cát / Lộc-Kỵ xung giằng co / …).
+    Deterministic. Ý nghĩa dùng nhãn KHUNG chuẩn (song Lộc=cát mạnh, Lộc-Kỵ=mâu thuẫn);
+    diễn giải sâu để atomize Tinh Hoa Tập Thành sau (grounded).
+    """
+    sb = _star_branch_map(la_so)
+    bi_pal = {p["branch_index"]: p["name"] for p in la_so.get("palaces", [])}
+    # sao → [(tầng, hóa)]
+    hits: dict = {}
+    for tang, can in layer_cans:
+        for hoa, star in TU_HOA_TABLE.get(can, {}).items():
+            if star in sb:
+                hits.setdefault(star, []).append({"tang": tang, "hoa": hoa})
+    trung_phung = []
+    for star, hs in hits.items():
+        if len(hs) < 2:
+            continue
+        hoas = [h["hoa"] for h in hs]
+        if all(h == "Lộc" for h in hoas):
+            loai, tot = "Song Lộc trùng phùng", True
+            nghia = "hai tầng cùng rọi Lộc lên sao này — cát lực rất lớn, chỗ được nuôi dưỡng mạnh."
+        elif "Lộc" in hoas and "Kỵ" in hoas:
+            loai, tot = "Lộc–Kỵ xung", False
+            nghia = "một tầng cho Lộc, một tầng cho Kỵ trên cùng sao — giằng co, được-mất lẫn lộn, cần cẩn trọng."
+        elif hoas.count("Kỵ") >= 2:
+            loai, tot = "Song Kỵ trùng phùng", False
+            nghia = "hai tầng cùng rọi Kỵ — chỗ hao tâm nặng, nên tĩnh không nên động."
+        else:
+            loai, tot = "Trùng phùng " + "+".join(dict.fromkeys(hoas)), None
+            nghia = "sao này được nhiều tầng thời gian cùng kích hoạt — điểm cần quan-sát kỹ."
+        trung_phung.append({
+            "sao": star, "cung": bi_pal.get(sb[star], "?"),
+            "tang_hoa": hs, "loai": loai, "cat": tot, "nghia": nghia,
+        })
+    tu_hoa = []
+    for p in la_so.get("palaces", []):
+        can, bi = p.get("can"), p["branch_index"]
+        for hoa, star in TU_HOA_TABLE.get(can, {}).items():
+            if sb.get(star) == bi:                          # sao ngồi ngay cung có can hóa nó
+                tu_hoa.append({
+                    "cung": p["name"], "sao": star, "hoa": hoa,
+                    "nghia": (f"cung {p['name']} TỰ HÓA {hoa} ({star}) — "
+                              + ("Lộc tự hóa dễ 'phá Lộc' (được mà hao nhanh)" if hoa == "Lộc"
+                                 else f"tính {hoa} bộc lộ ngay tại cung, năng lượng hướng ra ngoài")),
+                })
+    return {"tu_hoa": tu_hoa, "trung_phung": trung_phung}
 
 
 def _the_dung_block(la_so: dict, active_branch_index: int, tang: str) -> dict:
@@ -585,6 +646,16 @@ def block_to_source_text(blk: dict) -> str:
         lines.append("### Tứ Hóa của tầng rọi vào cung (sân khấu MỜI QUAN-SÁT, không phán cát/hung):")
         for h in lit:
             lines.append(f"- {h['hoa']} ({h['sao']}) → cung {h['cung']}: {h['nghia']}")
+    ph = blk.get("phi_hoa") or {}
+    if ph.get("trung_phung"):
+        lines.append("### TRỤ CỘT Tứ Hóa CHỒNG TẦNG (phi tinh — quan trọng nhất, đọc kỹ):")
+        for t in ph["trung_phung"]:
+            tang_list = " + ".join(f"{x['tang']} hóa {x['hoa']}" for x in t["tang_hoa"])
+            lines.append(f"- {t['loai']}: sao {t['sao']} (cung {t['cung']}) — {tang_list}. {t['nghia']}")
+    if ph.get("tu_hoa"):
+        lines.append("### Tự hóa (cung tự hóa sao của chính nó):")
+        for t in ph["tu_hoa"]:
+            lines.append(f"- {t['nghia']}")
     if blk.get("luu_y_vi_mo"):
         lines.append(f"### Lưu ý: {blk['luu_y_vi_mo']}")
     return "\n".join(lines)
@@ -611,6 +682,20 @@ def van_han_luan(person: dict, tang: str, *, want_llm: bool = True, **kw) -> dic
             blk["bao_tram_dai_van"] = _bao_tram_dai_van(la_so, byear, yr)
         except Exception:
             blk["bao_tram_dai_van"] = None
+    # TRỤ CỘT phi-tinh Tứ Hóa chồng tầng (Tinh Hoa Tập Thành): gom can từng tầng.
+    layer_cans = [("Nguyên cục", la_so.get("year_stem"))]
+    bt = blk.get("bao_tram_dai_van")
+    if bt and bt.get("can"):
+        layer_cans.append(("Đại vận", bt["can"]))
+    if tang in ("luu_nien",):
+        layer_cans.append(("Lưu niên", _year_stem_branch(int(kw["year"]))[0]))
+    if tang in ("luu_nguyet", "tuan") and blk.get("am_lich"):
+        layer_cans.append(("Lưu niên", blk["am_lich"]["nam_can_chi"].split()[0]))
+        layer_cans.append(("Lưu nguyệt", blk.get("month_can") or _month_can(
+            blk["am_lich"]["nam_can_chi"].split()[0], blk["am_lich"]["thang"])))
+    if tang == "luu_nhat":
+        layer_cans.append(("Lưu nhật (can ngày)", blk.get("day_can")))
+    blk["phi_hoa"] = phi_hoa(la_so, [(t, c) for t, c in layer_cans if c])
     src = block_to_source_text(blk)
     out = {"available": True, "block": blk, "source_text": src, "luan": "", "grounded": not blk["chua_co_nguon"]}
     if not want_llm or blk["chua_co_nguon"]:
