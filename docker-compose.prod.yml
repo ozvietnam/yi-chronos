@@ -18,6 +18,11 @@ services:
       - CELERY_BROKER_URL=redis://redis:6379/0
       - CELERY_RESULT_BACKEND=redis://redis:6379/0
       - REDIS_URL=redis://redis:6379/0
+      # fix ② (issue #61) — embedder bge-m3 self-host (service tei) → bật vector KNN.
+      # tei chưa sẵn / lỗi → embed trả None → Council degrade FTS+cạnh (an toàn).
+      - YI_EMBED_BASE_URL=http://tei:80/v1
+      - YI_EMBED_MODEL=bge-m3
+      - YI_EMBED_DIM=1024
     volumes:
       # Host /opt/yi-chronos/data → container path matching Mac (WORKDIR-relative)
       - /opt/yi-chronos/data:/Users/ozvietnamdesktop/Desktop/yi/data
@@ -102,6 +107,10 @@ services:
       - CELERY_BROKER_URL=redis://redis:6379/0
       - CELERY_RESULT_BACKEND=redis://redis:6379/0
       - REDIS_URL=redis://redis:6379/0
+      # fix ② — embedder bge-m3 cho path async (q_hermes/q_deepread chạy retrieval)
+      - YI_EMBED_BASE_URL=http://tei:80/v1
+      - YI_EMBED_MODEL=bge-m3
+      - YI_EMBED_DIM=1024
     volumes:
       - /opt/yi-chronos/data:/Users/ozvietnamdesktop/Desktop/yi/data
     depends_on:
@@ -139,5 +148,21 @@ services:
       redis:
         condition: service_healthy
 
+  # ── Embedder bge-m3 (fix ② issue #61) — self-host, bật vector KNN cho Council ─
+  #    OpenAI-compat /v1/embeddings. Lần đầu tải model ~2.3GB vào tei-data (cache).
+  #    App/worker KHÔNG hard-depend → tei chưa sẵn thì Council degrade FTS+cạnh.
+  #    Verify tương thích 2026-07-18: cosine TEI↔LM Studio 0.93–0.96, KNN đúng chủ đề.
+  tei:
+    image: ghcr.io/huggingface/text-embeddings-inference:cpu-1.6
+    container_name: yi-tei
+    restart: unless-stopped
+    mem_limit: 3g
+    command: ["--model-id", "BAAI/bge-m3", "--auto-truncate"]
+    volumes:
+      - tei-data:/data
+    expose:
+      - "80"
+
 volumes:
   redis-data:
+  tei-data:
