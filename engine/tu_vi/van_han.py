@@ -266,7 +266,7 @@ def phi_hoa(la_so: dict, layer_cans: list) -> dict:
             continue
         hoas = [h["hoa"] for h in hs]
         if all(h == "Lộc" for h in hoas):
-            loai, tot, lk = "Song Lộc trùng phùng", True, ("song_loc", "trung_phung")
+            loai, tot, lk = "Song Lộc trùng phùng", True, ("song_loc", "hoa_nghia")
             nghia = "hai tầng cùng rọi Lộc lên sao này — cát lực rất lớn, chỗ được nuôi dưỡng mạnh."
         elif "Lộc" in hoas and ("Kỵ" in hoas):
             loai, tot, lk = "Lộc–Kỵ xung", False, ("loc_ky_xung",)
@@ -275,7 +275,11 @@ def phi_hoa(la_so: dict, layer_cans: list) -> dict:
             loai, tot, lk = "Song Kỵ trùng phùng", False, ("loc_ky_xung", "trung_phung")
             nghia = "hai tầng cùng rọi Kỵ — chỗ hao tâm nặng, nên tĩnh không nên động."
         else:
-            loai, tot, lk = "Trùng phùng " + "+".join(dict.fromkeys(hoas)), None, ("trung_phung",)
+            loai, tot = "Trùng phùng " + "+".join(dict.fromkeys(hoas)), None
+            # kéo rule theo hóa nổi bật: có Lộc → song_loc; có Kỵ → loc_ky_xung; + nghĩa-hóa
+            lk = (("song_loc", "hoa_nghia") if "Lộc" in hoas
+                  else ("loc_ky_xung", "hoa_nghia") if "Kỵ" in hoas
+                  else ("hoa_nghia", "trung_phung"))
             nghia = "sao này được nhiều tầng thời gian cùng kích hoạt — điểm cần quan-sát kỹ."
         trung_phung.append({
             "sao": star, "cung": bi_pal.get(sb[star], "?"),
