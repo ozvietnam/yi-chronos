@@ -213,10 +213,14 @@ async function toggle() {
           <div v-for="(t, i) in block.phi_hoa.trung_phung" :key="i" class="vh-tp" :class="{ cat: t.cat === true, hung: t.cat === false }">
             <b>{{ t.loai }}</b> · {{ t.sao }} @ {{ t.cung }}
             <small>{{ t.tang_hoa.map(x => x.tang + '·' + x.hoa).join(' + ') }} — {{ t.nghia }}</small>
+            <em v-if="t.nguyen_ly" class="vh-nl">↻ {{ t.nguyen_ly }}</em>
           </div>
         </div>
         <div v-if="(block.phi_hoa?.tu_hoa || []).length" class="vh-tuhoa">
-          <span v-for="(t, i) in block.phi_hoa.tu_hoa" :key="i" class="vh-th-chip">{{ t.cung }} tự hóa {{ t.hoa }}</span>
+          <div v-for="(t, i) in block.phi_hoa.tu_hoa" :key="i" class="vh-th-item">
+            <span class="vh-th-chip">{{ t.cung }} tự hóa {{ t.hoa }}</span>
+            <small>{{ t.nghia.split('—').slice(1).join('—').trim() || t.nghia }}</small>
+          </div>
         </div>
 
         <p v-if="block.thang_nhuan_note" class="vh-leapnote">{{ block.thang_nhuan_note }}</p>
@@ -363,8 +367,11 @@ async function toggle() {
 .vh-tp.cat { border-left-color: #5ab07a; }
 .vh-tp.hung { border-left-color: #d65a4a; }
 .vh-tp small { display: block; margin-top: 2px; color: var(--read-text-faint, rgba(230,238,245,0.6)); }
-.vh-tuhoa { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 12px; }
-.vh-th-chip { padding: 2px 9px; border-radius: 999px; border: 1px solid var(--read-border, rgba(230,238,245,0.2)); font-size: calc(11px * var(--reading-scale, 1)); color: var(--read-text-faint, rgba(230,238,245,0.6)); }
+.vh-nl { display: block; margin-top: 4px; font-style: normal; font-size: calc(11.5px * var(--reading-scale, 1)); line-height: 1.5; color: var(--read-accent, #b99bd6); opacity: 0.9; }
+.vh-tuhoa { display: flex; flex-direction: column; gap: 6px; margin-bottom: 12px; }
+.vh-th-item { display: flex; flex-wrap: wrap; align-items: baseline; gap: 7px; }
+.vh-th-item small { color: var(--read-text-faint, rgba(230,238,245,0.6)); font-size: calc(11.5px * var(--reading-scale, 1)); line-height: 1.5; }
+.vh-th-chip { flex: none; padding: 2px 9px; border-radius: 999px; border: 1px solid var(--read-border, rgba(230,238,245,0.2)); font-size: calc(11px * var(--reading-scale, 1)); color: var(--read-text-faint, rgba(230,238,245,0.6)); }
 .vh-luan-zone { margin: 14px 0; }
 .vh-sources { margin-top: 14px; }
 .vh-sources > summary { cursor: pointer; font-size: calc(12px * var(--reading-scale, 1)); color: var(--read-text-faint, rgba(230,238,245,0.5)); padding: 6px 0; }

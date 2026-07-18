@@ -226,9 +226,14 @@ def _star_branch_map(la_so: dict) -> dict:
     return m
 
 
-def _tu_hoa_rules(loai_keys: tuple, limit: int = 2) -> list[dict]:
+def _tu_hoa_rules(loai_keys: tuple, limit: int = 2, keywords: tuple = ()) -> list[dict]:
     """Rule diễn giải Tứ Hóa ĐÃ DUYỆT từ bảng tu_hoa_nguon (atomize Tinh Hoa Tập Thành),
-    khớp loại (song_loc / loc_ky_xung / trung_phung / tu_hoa). [] nếu bảng chưa có."""
+    khớp loại (song_loc / loc_ky_xung / trung_phung / tu_hoa). [] nếu bảng chưa có.
+
+    keywords: tuple các chuỗi thay thế — lọc câu ĐÚNG hóa (vd tự-hóa-Lộc chỉ lấy câu về Lộc).
+    Lọc phía Python (chuẩn dấu tiếng Việt, tránh LIKE bỏ dấu). Không câu nào khớp → fallback
+    trả rule chung của loại (đừng để trống khi vẫn có nguồn hợp lệ).
+    """
     conn = _db()
     if conn is None:
         return []
@@ -236,10 +241,37 @@ def _tu_hoa_rules(loai_keys: tuple, limit: int = 2) -> list[dict]:
         ph = ",".join("?" * len(loai_keys))
         rows = conn.execute(
             f"SELECT rule, nguon_book FROM tu_hoa_nguon WHERE loai IN ({ph}) "
-            f"AND founder_verified=1 ORDER BY id LIMIT ?", (*loai_keys, limit)).fetchall()
-        return [{"rule": r[0], "nguon": r[1]} for r in rows]
+            f"AND founder_verified=1 ORDER BY id", loai_keys).fetchall()
+        out = [{"rule": r[0], "nguon": r[1]} for r in rows]
+        if keywords:
+            kws = [k.lower() for k in keywords]
+            filt = [r for r in out if any(k in r["rule"].lower() for k in kws)]
+            out = filt or out                     # fallback nếu keyword không khớp gì
+        return out[:limit]
     except Exception:
         return []
+
+
+# ── Tầng luận SÂU cho phi tinh (journal tu-hoa-truy-nguyen #551 + #149) ────────
+# nghĩa từng chiều TỰ HÓA — nguyên lý "tự phát, không tích, ĐẢO dấu" (Đạo pháp Tự nhiên)
+_TU_HOA_NGHIA = {
+    "Lộc": "Lộc TỰ PHÁT TÁN ngay tại cung — phúc/lộc đến mà giữ không được (cổ pháp: đại quý dễ rớt trung quý), khí hướng RA ngoài.",
+    "Quyền": "Quyền TỰ NẮM ngay tại cung — chủ động mạnh nhưng dễ độc đoán, sức tự tiêu.",
+    "Khoa": "Khoa/phong độ TỰ LỘ tại cung — cần có dẫn dắt, kích phát mới thành danh.",
+    "Kỵ": "chỗ TỰ BẾ, nhưng cái nghẽn TỰ BUNG thành dẫn động — bó buộc được kích đúng thì bật ra cơ hội (chớ vội kêu hung).",
+}
+_HOA_KW = {                                        # chuỗi tìm câu ĐÚNG hóa (đủ dị bản Kị/Kỵ)
+    "Lộc": ("tự hóa lộc", "hóa lộc"),
+    "Quyền": ("tự hóa quyền", "hóa quyền"),
+    "Khoa": ("tự hóa khoa", "hóa khoa"),
+    "Kỵ": ("tự hóa kị", "tự hóa kỵ", "hóa kị", "hóa kỵ"),
+}
+_TU_HOA_NGUYEN_LY = ("tự hóa = 自 TỰ-PHÁT (khí ra NGAY tại chỗ, KHÔNG tích được) → thường ĐẢO dấu: "
+                     "tốt mà tự hóa thì hao, xấu mà tự hóa thì động. Neo: 'Đạo pháp Tự nhiên' — cái tự-nó-thế.")
+# Hóa Kỵ chồng tầng = ĐIỂM QUAY của cả cục (thần cơ) — đọc điểm chuyển, không chỉ hung
+_KY_THAN_CO = ("Hóa Kỵ = ĐIỂM QUAY của cả cục (thần cơ) — khí THU về, trời đất trở mình; cổ pháp quẻ Phục "
+               "'phản phục kỳ đạo… kiến thiên địa chi tâm' (lòng trời hiện ở CHỖ QUAY VỀ). Nên TĨNH quan-sát "
+               "điểm chuyển, không nôn nóng phán hung.")
 
 
 def phi_hoa(la_so: dict, layer_cans: list) -> dict:
@@ -284,9 +316,10 @@ def phi_hoa(la_so: dict, layer_cans: list) -> dict:
         trung_phung.append({
             "sao": star, "cung": bi_pal.get(sb[star], "?"),
             "tang_hoa": hs, "loai": loai, "cat": tot, "nghia": nghia,
+            # NGUYÊN LÝ đọc (diễn giải có nhãn, tách khỏi nguon): Kỵ chồng tầng = điểm quay/thần cơ
+            "nguyen_ly": _KY_THAN_CO if "Kỵ" in hoas else None,
             "nguon": _tu_hoa_rules(lk),          # câu luận trích sách (nếu đã atomize)
         })
-    tu_hoa_nguon = _tu_hoa_rules(("tu_hoa",))
     tu_hoa = []
     for p in la_so.get("palaces", []):
         can, bi = p.get("can"), p["branch_index"]
@@ -294,10 +327,9 @@ def phi_hoa(la_so: dict, layer_cans: list) -> dict:
             if sb.get(star) == bi:                          # sao ngồi ngay cung có can hóa nó
                 tu_hoa.append({
                     "cung": p["name"], "sao": star, "hoa": hoa,
-                    "nghia": (f"cung {p['name']} TỰ HÓA {hoa} ({star}) — "
-                              + ("Lộc tự hóa dễ 'phá Lộc' (được mà hao nhanh)" if hoa == "Lộc"
-                                 else f"tính {hoa} bộc lộ ngay tại cung, năng lượng hướng ra ngoài")),
-                    "nguon": tu_hoa_nguon,
+                    "nghia": f"cung {p['name']} TỰ HÓA {hoa} ({star}) — {_TU_HOA_NGHIA.get(hoa, '')}",
+                    "nguyen_ly": _TU_HOA_NGUYEN_LY,           # diễn giải có nhãn (Đạo pháp Tự nhiên)
+                    "nguon": _tu_hoa_rules(("tu_hoa",), keywords=_HOA_KW.get(hoa, ())),  # trích ĐÚNG hóa
                 })
     return {"tu_hoa": tu_hoa, "trung_phung": trung_phung}
 
@@ -675,10 +707,12 @@ def block_to_source_text(blk: dict) -> str:
         for t in ph["trung_phung"]:
             tang_list = " + ".join(f"{x['tang']} hóa {x['hoa']}" for x in t["tang_hoa"])
             lines.append(f"- {t['loai']}: sao {t['sao']} (cung {t['cung']}) — {tang_list}. {t['nghia']}")
+            if t.get("nguyen_ly"):
+                lines.append(f"    → NGUYÊN LÝ đọc: {t['nguyen_ly']}")
             for g in (t.get("nguon") or [])[:1]:
                 lines.append(f"    (nguồn: {g['rule']} — {g['nguon']})")
     if ph.get("tu_hoa"):
-        lines.append("### Tự hóa (cung tự hóa sao của chính nó):")
+        lines.append(f"### Tự hóa (cung tự hóa sao của chính nó) — NGUYÊN LÝ: {_TU_HOA_NGUYEN_LY}")
         for t in ph["tu_hoa"]:
             lines.append(f"- {t['nghia']}")
             for g in (t.get("nguon") or [])[:1]:
