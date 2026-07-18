@@ -226,6 +226,22 @@ def _star_branch_map(la_so: dict) -> dict:
     return m
 
 
+def _tu_hoa_rules(loai_keys: tuple, limit: int = 2) -> list[dict]:
+    """Rule diễn giải Tứ Hóa ĐÃ DUYỆT từ bảng tu_hoa_nguon (atomize Tinh Hoa Tập Thành),
+    khớp loại (song_loc / loc_ky_xung / trung_phung / tu_hoa). [] nếu bảng chưa có."""
+    conn = _db()
+    if conn is None:
+        return []
+    try:
+        ph = ",".join("?" * len(loai_keys))
+        rows = conn.execute(
+            f"SELECT rule, nguon_book FROM tu_hoa_nguon WHERE loai IN ({ph}) "
+            f"AND founder_verified=1 ORDER BY id LIMIT ?", (*loai_keys, limit)).fetchall()
+        return [{"rule": r[0], "nguon": r[1]} for r in rows]
+    except Exception:
+        return []
+
+
 def phi_hoa(la_so: dict, layer_cans: list) -> dict:
     """Phi tinh TỨ HÓA CHỒNG TẦNG — trụ cột phái Tứ Hóa (Tinh Hoa Tập Thành).
 
@@ -250,21 +266,23 @@ def phi_hoa(la_so: dict, layer_cans: list) -> dict:
             continue
         hoas = [h["hoa"] for h in hs]
         if all(h == "Lộc" for h in hoas):
-            loai, tot = "Song Lộc trùng phùng", True
+            loai, tot, lk = "Song Lộc trùng phùng", True, ("song_loc", "trung_phung")
             nghia = "hai tầng cùng rọi Lộc lên sao này — cát lực rất lớn, chỗ được nuôi dưỡng mạnh."
-        elif "Lộc" in hoas and "Kỵ" in hoas:
-            loai, tot = "Lộc–Kỵ xung", False
+        elif "Lộc" in hoas and ("Kỵ" in hoas):
+            loai, tot, lk = "Lộc–Kỵ xung", False, ("loc_ky_xung",)
             nghia = "một tầng cho Lộc, một tầng cho Kỵ trên cùng sao — giằng co, được-mất lẫn lộn, cần cẩn trọng."
         elif hoas.count("Kỵ") >= 2:
-            loai, tot = "Song Kỵ trùng phùng", False
+            loai, tot, lk = "Song Kỵ trùng phùng", False, ("loc_ky_xung", "trung_phung")
             nghia = "hai tầng cùng rọi Kỵ — chỗ hao tâm nặng, nên tĩnh không nên động."
         else:
-            loai, tot = "Trùng phùng " + "+".join(dict.fromkeys(hoas)), None
+            loai, tot, lk = "Trùng phùng " + "+".join(dict.fromkeys(hoas)), None, ("trung_phung",)
             nghia = "sao này được nhiều tầng thời gian cùng kích hoạt — điểm cần quan-sát kỹ."
         trung_phung.append({
             "sao": star, "cung": bi_pal.get(sb[star], "?"),
             "tang_hoa": hs, "loai": loai, "cat": tot, "nghia": nghia,
+            "nguon": _tu_hoa_rules(lk),          # câu luận trích sách (nếu đã atomize)
         })
+    tu_hoa_nguon = _tu_hoa_rules(("tu_hoa",))
     tu_hoa = []
     for p in la_so.get("palaces", []):
         can, bi = p.get("can"), p["branch_index"]
@@ -275,6 +293,7 @@ def phi_hoa(la_so: dict, layer_cans: list) -> dict:
                     "nghia": (f"cung {p['name']} TỰ HÓA {hoa} ({star}) — "
                               + ("Lộc tự hóa dễ 'phá Lộc' (được mà hao nhanh)" if hoa == "Lộc"
                                  else f"tính {hoa} bộc lộ ngay tại cung, năng lượng hướng ra ngoài")),
+                    "nguon": tu_hoa_nguon,
                 })
     return {"tu_hoa": tu_hoa, "trung_phung": trung_phung}
 
@@ -652,10 +671,14 @@ def block_to_source_text(blk: dict) -> str:
         for t in ph["trung_phung"]:
             tang_list = " + ".join(f"{x['tang']} hóa {x['hoa']}" for x in t["tang_hoa"])
             lines.append(f"- {t['loai']}: sao {t['sao']} (cung {t['cung']}) — {tang_list}. {t['nghia']}")
+            for g in (t.get("nguon") or [])[:1]:
+                lines.append(f"    (nguồn: {g['rule']} — {g['nguon']})")
     if ph.get("tu_hoa"):
         lines.append("### Tự hóa (cung tự hóa sao của chính nó):")
         for t in ph["tu_hoa"]:
             lines.append(f"- {t['nghia']}")
+            for g in (t.get("nguon") or [])[:1]:
+                lines.append(f"    (nguồn: {g['rule']} — {g['nguon']})")
     if blk.get("luu_y_vi_mo"):
         lines.append(f"### Lưu ý: {blk['luu_y_vi_mo']}")
     return "\n".join(lines)
