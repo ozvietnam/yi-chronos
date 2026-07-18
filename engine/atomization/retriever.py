@@ -408,7 +408,9 @@ class ChunkAtomRetriever:
         fts = self.search_atom_fts(query, limit=k * 2, school=school)
         vec = self.search_atom_vec(query, limit=k * 2, school=school)
         if not vec:
-            return fts[:k]  # graceful degrade: không LM Studio → FTS thuần (prod)
+            # prod (không có embedder → không vector): VẪN lan-cạnh trên seed FTS.
+            # atom_relations KHÔNG cần embedder, nên 107k cạnh vẫn có giá trị trên live.
+            return self._expand_neighbors(fts[:k], query, k, school, expand)
         # Reciprocal Rank Fusion: score = Σ 1/(C+rank) qua 2 danh sách (C=60 chuẩn)
         C = 60
         rrf: dict[int, float] = {}
@@ -426,13 +428,19 @@ class ChunkAtomRetriever:
             a.retrieval_score = rrf[i]
             fused.append(a)
         top = fused[:k]
-        if expand and top:
-            have = {a.atom_id for a in top}
-            extra = [a for a in self.expand_via_relations(
-                        [a.atom_id for a in top[:6]], query, limit=max(2, k // 4), school=school)
-                     if a.atom_id not in have]
-            top = top + extra
-        return top
+        return self._expand_neighbors(top, query, k, school, expand)
+
+    def _expand_neighbors(self, top, query, k, school, expand):
+        """Lan-cạnh (atom_relations) từ seed → thêm hàng xóm quan hệ MẠNH (bỏ 'nói-về').
+        Tách riêng để DÙNG CHUNG cho cả đường có vector lẫn đường degrade FTS (prod):
+        expand_via_relations chỉ tra bảng cạnh, KHÔNG cần embedder → chạy được trên live."""
+        if not (expand and top):
+            return top
+        have = {a.atom_id for a in top}
+        extra = [a for a in self.expand_via_relations(
+                    [a.atom_id for a in top[:6]], query, limit=max(2, k // 4), school=school)
+                 if a.atom_id not in have]
+        return top + extra
 
     # ─────────────────────────────────────────────────────────────
     # Combined retrieval (3-level fallback PIKE-RAG)
