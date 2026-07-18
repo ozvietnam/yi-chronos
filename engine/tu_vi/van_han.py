@@ -489,20 +489,20 @@ def luu_nien_overview(la_so: dict, start_year: int, end_year: int) -> dict:
 # ── LƯU NHẬT (ngày) — cổ pháp có nguồn ────────────────────────────────────────
 # "định lưu nhật: Lấy cung lưu nguyệt khởi mùng một, thuận đi 12 cung, một ngày một
 #  cung" (Trung Châu phái, sách phục chế). Tứ Hóa ngày = theo CAN NGÀY (lịch 60).
-def _lunar_of(solar_year: int, solar_month: int, solar_day: int) -> tuple[int, int, str]:
-    """(lunar_month, lunar_day, day_can) của 1 ngày dương — qua sxtwl."""
+def _lunar_of(solar_year: int, solar_month: int, solar_day: int) -> tuple[int, int, str, int]:
+    """(lunar_month, lunar_day, day_can, lunar_year) của 1 ngày dương — qua sxtwl."""
     import sxtwl
     from engine.yi_wiki.lich_conversion import TG_NAMES
     d = sxtwl.fromSolar(solar_year, solar_month, solar_day)
-    return d.getLunarMonth(), d.getLunarDay(), TG_NAMES[d.getDayGZ().tg]
+    return d.getLunarMonth(), d.getLunarDay(), TG_NAMES[d.getDayGZ().tg], d.getLunarYear()
 
 
 def luu_nhat_block(la_so: dict, solar_year: int, solar_month: int, solar_day: int) -> dict:
     """Khối grounded 1 Lưu Nhật (ngày). Lưu nhật Mệnh = lưu nguyệt Mệnh + (ngày âm -1),
     thuận. Tứ Hóa ngày theo can ngày. ⚠️ Kho nội dung ngày cực mỏng → DẪN XUẤT."""
-    lmonth, lday, day_can = _lunar_of(solar_year, solar_month, solar_day)
-    # lưu nguyệt Mệnh của tháng âm chứa ngày này (Đẩu Quân lưu niên + thuận tháng)
-    y_can, y_chi = _year_stem_branch(solar_year)
+    lmonth, lday, day_can, lyear = _lunar_of(solar_year, solar_month, solar_day)
+    # lưu nguyệt Mệnh của tháng âm chứa ngày này (Đẩu Quân lưu niên theo NĂM ÂM + thuận tháng)
+    y_can, y_chi = _year_stem_branch(lyear)
     dau_quan_bi = BRANCHES_TVI.index(y_chi)
     lnm_bi = (dau_quan_bi + (lmonth - 1)) % 12
     lnhat_bi = (lnm_bi + (lday - 1)) % 12
@@ -512,6 +512,7 @@ def luu_nhat_block(la_so: dict, solar_year: int, solar_month: int, solar_day: in
         "tang": "luu_nhat",
         "solar": f"{solar_year:04d}-{solar_month:02d}-{solar_day:02d}",
         "lunar_month": lmonth, "lunar_day": lday, "day_can": day_can,
+        "lunar_year_can_chi": f"{y_can} {y_chi}",
         **block,
         "tu_hoa_van": _hoa_lit(day_can, la_so),
         "tu_hoa_can": day_can,

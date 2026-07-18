@@ -177,7 +177,7 @@ async function toggle() {
           <b>≈ âm lịch tháng {{ block.am_lich.thang }}<span v-if="block.am_lich.nhuan"> (nhuận)</span>, năm {{ block.am_lich.nam_can_chi }}</b>
         </p>
         <p v-else-if="block.lunar_day" class="vh-amlich">
-          📆 Dương lịch {{ block.solar }} <b>≈ âm lịch ngày {{ block.lunar_day }} tháng {{ block.lunar_month }}, can ngày {{ block.day_can }}</b>
+          📆 Dương lịch {{ block.solar }} <b>≈ âm lịch ngày {{ block.lunar_day }} tháng {{ block.lunar_month }} năm {{ block.lunar_year_can_chi }}, can ngày {{ block.day_can }}</b>
         </p>
 
         <!-- Bối cảnh Đại Vận bao trùm (lồng tầng — lấy đại vận làm chủ) -->
