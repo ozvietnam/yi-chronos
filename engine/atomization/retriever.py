@@ -309,6 +309,10 @@ class ChunkAtomRetriever:
     _STRONG_RELS = (
         "làm-rõ-sao", "thuộc-về", "làm-rõ", "giải-thích-bằng", "là-loại-của",
         "cho-ví-dụ", "là-mảnh-của", "đồng-nghĩa-phái-khác", "dẫn-chứng", "mở-rộng",
+        # Cạnh PHẢN-BIỆN/CẢNH-BÁO (Iron Rule #3 tôn trọng đa phái) — để council thấy
+        # counterpoint "phái X cảnh báo/đối lập", không chỉ bằng chứng đồng thuận.
+        "đối-lập", "đối-lập-với", "đối-nghịch", "đối-lập-phái-khác",
+        "cảnh-báo", "cảnh-báo-tại", "trai_nghia", "tương-ứng-phái-khác",
     )
 
     def _embed_query(self, query: str):

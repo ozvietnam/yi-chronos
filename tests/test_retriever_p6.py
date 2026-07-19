@@ -72,3 +72,11 @@ def test_degrade_van_lan_canh_khong_embedder(monkeypatch):
     assert {1, 2} <= ids, "phải giữ trọn seed FTS"
     assert 99 in ids, "phải THÊM atom lan-cạnh dù không có embedder (fix prod)"
     assert seen.get("ids"), "expand_via_relations phải được gọi trên đường degrade"
+
+
+def test_conflict_rels_duoc_lan():
+    """Iron Rule #3 (đa phái): cạnh PHẢN-BIỆN/CẢNH-BÁO phải được lan để council thấy
+    counterpoint, không chỉ bằng chứng đồng thuận. Vẫn LOẠI nhiễu 'nói-về'."""
+    for rel in ("đối-lập", "đối-lập-phái-khác", "cảnh-báo", "trai_nghia"):
+        assert rel in ChunkAtomRetriever._STRONG_RELS, f"{rel} phải nằm trong _STRONG_RELS"
+    assert "nói-về" not in ChunkAtomRetriever._STRONG_RELS
