@@ -120,7 +120,7 @@ class TuViVanHanRequest(BaseModel):
     birth_datetime_local: str
     gender: str = "nam"
     timezone: str = "Asia/Ho_Chi_Minh"
-    tang: str  # dai_van | luu_nien | luu_nguyet | tuan | dai_van_overview | luu_nien_overview
+    tang: str  # dai_van | luu_nien | luu_nguyet | tuan | *_overview | life_arc
     cycle_index: Optional[int] = None   # dai_van
     year: Optional[int] = None          # luu_nien | luu_nguyet | tuan | overview start
     year_end: Optional[int] = None      # luu_nien_overview
@@ -128,6 +128,10 @@ class TuViVanHanRequest(BaseModel):
     day: Optional[int] = None           # luu_nhat (ngày dương lịch)
     tuan: Optional[int] = None          # tuan (1 thượng · 2 trung · 3 hạ)
     want_llm: bool = True               # có sinh narrative grounded không
+    # life_arc (bức tranh cuộc đời thăng trầm — đường cong KHÍ tất định)
+    tu_nam: Optional[int] = None        # life_arc từ năm
+    den_nam: Optional[int] = None       # life_arc đến năm
+    buoc: str = "thang"                 # life_arc: "thang" | "nam"
 
 
 @router.post("/van-han")
@@ -138,6 +142,19 @@ def tu_vi_van_han(request: TuViVanHanRequest, caller: dict = Depends(require_cal
     CHỈ biên tập từ nguồn (không bịa). Thiếu nguồn → luận rỗng, KHÔNG gieo rác.
     """
     from engine.tu_vi import van_han as vh
+
+    # BỨC TRANH CUỘC ĐỜI THĂNG TRẦM — đường cong KHÍ tất định (0-LLM, không rate-limit).
+    # ⚠️ Iron #9: bản đồ KHÍ động↔tĩnh để SOI TÂM, KHÔNG bói giàu-nghèo/thắng-thua.
+    if request.tang == "life_arc":
+        person = {"birth_datetime_local": request.birth_datetime_local,
+                  "gender": request.gender, "timezone": request.timezone}
+        try:
+            arc = vh.life_arc(person, request.tu_nam or 2026,
+                              request.den_nam or (request.tu_nam or 2026) + 4,
+                              buoc=request.buoc)
+            return {"status": "ok", **arc}
+        except (ValueError, KeyError) as e:
+            return {"status": "error", "reason": str(e)}
 
     # Overview skeleton (tất định, 0-LLM) — thay nguồn cached-analyzer ungrounded của UI cũ.
     if request.tang in ("dai_van_overview", "luu_nien_overview", "luu_nguyet_overview"):

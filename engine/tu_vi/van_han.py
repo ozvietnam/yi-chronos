@@ -274,7 +274,7 @@ _KY_THAN_CO = ("Hóa Kỵ = ĐIỂM QUAY của cả cục (thần cơ) — khí 
                "điểm chuyển, không nôn nóng phán hung.")
 
 
-def phi_hoa(la_so: dict, layer_cans: list) -> dict:
+def phi_hoa(la_so: dict, layer_cans: list, *, with_rules: bool = True) -> dict:
     """Phi tinh TỨ HÓA CHỒNG TẦNG — trụ cột phái Tứ Hóa (Tinh Hoa Tập Thành).
 
     layer_cans = [(tên_tầng, can), ...] theo thứ tự nguyên cục → đại vận → lưu niên →
@@ -283,7 +283,12 @@ def phi_hoa(la_so: dict, layer_cans: list) -> dict:
       • trung_phung: sao bị ≥2 tầng cùng hóa (song Lộc cát / Lộc-Kỵ xung giằng co / …).
     Deterministic. Ý nghĩa dùng nhãn KHUNG chuẩn (song Lộc=cát mạnh, Lộc-Kỵ=mâu thuẫn);
     diễn giải sâu để atomize Tinh Hoa Tập Thành sau (grounded).
+
+    with_rules=False → BỎ QUA truy vấn câu luận trích sách (nguon=[]) cho nhanh khi chỉ
+    cần XƯƠNG cấu trúc (life_arc lặp trăm mốc — không cần dẫn sách mỗi mốc).
     """
+    def _rules(*a, **k):
+        return _tu_hoa_rules(*a, **k) if with_rules else []
     sb = _star_branch_map(la_so)
     bi_pal = {p["branch_index"]: p["name"] for p in la_so.get("palaces", [])}
     # sao → [(tầng, hóa)]
@@ -318,7 +323,7 @@ def phi_hoa(la_so: dict, layer_cans: list) -> dict:
             "tang_hoa": hs, "loai": loai, "cat": tot, "nghia": nghia,
             # NGUYÊN LÝ đọc (diễn giải có nhãn, tách khỏi nguon): Kỵ chồng tầng = điểm quay/thần cơ
             "nguyen_ly": _KY_THAN_CO if "Kỵ" in hoas else None,
-            "nguon": _tu_hoa_rules(lk),          # câu luận trích sách (nếu đã atomize)
+            "nguon": _rules(lk),                 # câu luận trích sách (nếu đã atomize)
         })
     tu_hoa = []
     for p in la_so.get("palaces", []):
@@ -329,7 +334,7 @@ def phi_hoa(la_so: dict, layer_cans: list) -> dict:
                     "cung": p["name"], "sao": star, "hoa": hoa,
                     "nghia": f"cung {p['name']} TỰ HÓA {hoa} ({star}) — {_TU_HOA_NGHIA.get(hoa, '')}",
                     "nguyen_ly": _TU_HOA_NGUYEN_LY,           # diễn giải có nhãn (Đạo pháp Tự nhiên)
-                    "nguon": _tu_hoa_rules(("tu_hoa",), keywords=_HOA_KW.get(hoa, ())),  # trích ĐÚNG hóa
+                    "nguon": _rules(("tu_hoa",), keywords=_HOA_KW.get(hoa, ())),  # trích ĐÚNG hóa
                 })
     return {"tu_hoa": tu_hoa, "trung_phung": trung_phung}
 
@@ -667,6 +672,16 @@ def block_to_source_text(blk: dict) -> str:
     tang_vi = {"dai_van": "Đại Vận", "luu_nien": "Lưu Niên (năm)",
                "luu_nguyet": "Lưu Nguyệt (tháng)", "tuan": "Tuần (10 ngày)", "luu_nhat": "Lưu Nhật (ngày)"}.get(blk["tang"], blk["tang"])
     lines.append(f"### TẦNG: {tang_vi} — an Mệnh tại cung {blk['vi_tri']}")
+    # FOREGROUND nền bẩm sinh (Mệnh chủ · Thân chủ · Cục) — đọc TRƯỚC (soil-before-seed).
+    nm = blk.get("nen_menh")
+    if nm:
+        cuc = nm.get("cuc") or {}
+        cuc_s = (f"{cuc.get('cuc_name')} (hành nền {cuc.get('element')} — {cuc.get('nature')})"
+                 if cuc.get("available") else "?")
+        dong = " (Mệnh-Thân đồng cung)" if nm.get("menh_than_dong_cung") else ""
+        lines.append(f"### NỀN BẨM SINH (KHÔNG đổi — foreground): Mệnh chủ {nm.get('menh_chu')} · "
+                     f"Thân chủ {nm.get('than_chu')} · Cục {cuc_s} · Thân cư {nm.get('than_cung')}{dong}. "
+                     f"Mọi tầng vận hạn VẬN HÀNH trên nền này (mệnh là ĐỘNG TỪ, không phải số định sẵn).")
     bt = blk.get("bao_tram_dai_van")
     if bt:
         bt_sao = ", ".join(bt["sao"]) or "Vô Chính Diệu"
@@ -675,6 +690,12 @@ def block_to_source_text(blk: dict) -> str:
                      f"Đọc tầng này như MỘT BƯỚC cụ thể trong đại vận đó.")
         for s in bt.get("sao_nguon", []):
             lines.append(f"  · {s['sao']} (đại vận): {s['dich']} (nguồn: {s['nguon']})")
+    bln = blk.get("bao_tram_luu_nien")
+    if bln:
+        bln_sao = ", ".join(bln["sao"]) or "Vô Chính Diệu"
+        lines.append(f"### BỐI CẢNH — Lưu Niên bao trùm (năm {bln['nam_can_chi']}): lưu niên Mệnh "
+                     f"cung {bln['cung']} ({bln_sao}). Tháng/tuần/ngày là MỘT BƯỚC trong năm này "
+                     f"(đại vận làm chủ → năm nói thêm một bước → rồi mới tới tầng nhỏ).")
     lines.append(f"### THỂ-DỤNG: {blk['dien_giai_the_dung']}")
     lines.append(f"### Nguyên tắc (nguồn {blk['nguyen_tac']['nguon']}): {blk['nguyen_tac']['text']}")
     hc = blk.get("hoi_chieu") or []
@@ -722,6 +743,244 @@ def block_to_source_text(blk: dict) -> str:
     return "\n".join(lines)
 
 
+# ── FOREGROUND: nền bẩm sinh (Mệnh chủ · Thân chủ · Cục) + Lưu Niên bao trùm ──
+def _nen_menh(la_so: dict) -> dict:
+    """Nền bẩm sinh KHÔNG đổi — foreground ĐẦU mỗi buổi đọc (soil-before-seed,
+    khớp [[tu_vi_doc_la_so_tien_trinh_phan_lop]]). Mệnh chủ / Thân chủ / Cục là hằng
+    số của cả đời; mọi tầng vận hạn VẬN HÀNH trên nền này (mệnh là động từ — Iron #8)."""
+    from engine.tu_vi.than_cu import doc_cuc
+    menh_p = _palace_at(la_so, la_so.get("menh_index", 0))
+    than_p = _palace_at(la_so, la_so.get("than_index", 0))
+    return {
+        "menh_chu": la_so.get("menh_chu"),
+        "than_chu": la_so.get("than_chu"),
+        "cuc": doc_cuc(la_so),                       # {cuc_name, element, nature, source}
+        "menh_cung_vi_tri": la_so.get("menh_branch"),
+        "than_cung": than_p["name"] if than_p else None,
+        "menh_than_dong_cung": la_so.get("menh_index") == la_so.get("than_index"),
+        "menh_sao": _stars_at(la_so, la_so.get("menh_index", 0)),
+        "note": ("Nền bẩm sinh (KHÔNG đổi cả đời) — Mệnh chủ + Thân chủ + Cục là hành nền "
+                 "mà mọi vận hạn vận hành trên đó. Đọc vận = xem cái nền này VẬN HÀNH ra sao "
+                 "qua thời gian, KHÔNG phải số phận định sẵn."),
+    }
+
+
+def _bao_tram_luu_nien(la_so: dict, year: int) -> dict:
+    """Lưu Niên (năm) BAO TRÙM một tầng nhỏ hơn (tháng/tuần/ngày) — lồng tầng rõ hơn:
+    năm là bối cảnh giữa Đại Vận và Tháng (cổ pháp: đại hạn làm chủ, lưu niên nói thêm
+    một bước, rồi mới tới lưu nguyệt)."""
+    y_can, y_chi = _year_stem_branch(year)
+    bi = BRANCHES_TVI.index(y_chi)
+    p = _palace_at(la_so, bi)
+    pname = p["name"] if p else "?"
+    stars = _stars_at(la_so, bi) or _stars_at(la_so, (bi + 6) % 12)
+    return {
+        "year": year, "nam_can_chi": f"{y_can} {y_chi}",
+        "cung": pname, "vi_tri": y_chi, "sao": stars,
+        "tu_hoa_van": [h for h in _hoa_lit(y_can, la_so) if not h["cung"].startswith("(")],
+    }
+
+
+def _wire_layers(la_so: dict, birth, blk: dict, tang: str, kw: dict, *, with_rules: bool = True) -> None:
+    """LỒNG TẦNG đầy đủ (mutate blk): nền bẩm sinh → Đại Vận bao trùm → Lưu Niên bao
+    trùm → phi tinh Tứ Hóa chồng tầng. Dùng chung cho van_han_luan + life_arc (tránh
+    diverge). with_rules=False → phi_hoa bỏ truy vấn dẫn sách (nhanh cho arc)."""
+    blk["nen_menh"] = _nen_menh(la_so)               # foreground bẩm sinh (mọi tầng)
+    blk["nguyen_cuc_can"] = la_so.get("year_stem")   # can nguyên cục (arc cộng hưởng đại vận)
+    if tang in ("luu_nien", "luu_nguyet", "tuan", "luu_nhat"):
+        try:
+            byear = int(str(birth)[:4])
+            yr = int(str(blk.get("solar", ""))[:4]) if tang == "luu_nhat" else int(kw.get("year"))
+            blk["bao_tram_dai_van"] = _bao_tram_dai_van(la_so, byear, yr)
+        except Exception:
+            blk["bao_tram_dai_van"] = None
+    # Lưu Niên bao trùm — chỉ cho tầng NHỎ HƠN năm (tháng/tuần/ngày)
+    if tang in ("luu_nguyet", "tuan", "luu_nhat"):
+        try:
+            ly = (blk.get("am_lich") or {}).get("nam") or int(kw.get("year"))
+            blk["bao_tram_luu_nien"] = _bao_tram_luu_nien(la_so, int(ly))
+        except Exception:
+            blk["bao_tram_luu_nien"] = None
+    # TRỤ CỘT phi-tinh Tứ Hóa chồng tầng (Tinh Hoa Tập Thành): gom can từng tầng.
+    layer_cans = [("Nguyên cục", la_so.get("year_stem"))]
+    if tang == "dai_van" and blk.get("tu_hoa_can"):     # đại vận đọc lẻ: thêm can chính nó
+        layer_cans.append(("Đại vận", blk["tu_hoa_can"]))
+    bt = blk.get("bao_tram_dai_van")
+    if bt and bt.get("can"):
+        layer_cans.append(("Đại vận", bt["can"]))
+    if tang == "luu_nien":
+        layer_cans.append(("Lưu niên", _year_stem_branch(int(kw["year"]))[0]))
+    if tang in ("luu_nguyet", "tuan") and blk.get("am_lich"):
+        layer_cans.append(("Lưu niên", blk["am_lich"]["nam_can_chi"].split()[0]))
+        layer_cans.append(("Lưu nguyệt", blk.get("month_can") or _month_can(
+            blk["am_lich"]["nam_can_chi"].split()[0], blk["am_lich"]["thang"])))
+    if tang == "luu_nhat":
+        layer_cans.append(("Lưu nhật (can ngày)", blk.get("day_can")))
+    blk["phi_hoa"] = phi_hoa(la_so, [(t, c) for t, c in layer_cans if c], with_rules=with_rules)
+
+
+# ── BỨC TRANH CUỘC ĐỜI THĂNG TRẦM — đường cong KHÍ (tất định, 0-LLM) ───────────
+# ⚠️ GUARD Iron #9: đây là BẢN ĐỒ KHÍ động↔tĩnh, TUYỆT ĐỐI KHÔNG phải đồ thị bói
+# giàu-nghèo / thắng-thua (=tà mạng Brahmajāla). "Thăng" = khí mở/động/tụ lực (nên
+# HÀNH); "Trầm" = khí thu/tĩnh/quay (nên DƯỠNG-TU). Cả hai đều KHÔNG cát/hung định sẵn.
+_CUNG_DONG = {"Thiên Di", "Quan Lộc", "Tài Bạch", "Phu Thê"}   # khí HƯỚNG RA — động
+_CUNG_TINH = {"Tật Ách", "Phúc Đức", "Phụ Mẫu"}               # khí THU VÀO — tĩnh
+_ARC_DISCLAIMER = (
+    "Đường cong này là BẢN ĐỒ KHÍ (động ↔ tĩnh) để SOI TÂM — chỗ nào nên HÀNH, chỗ "
+    "nào nên DƯỠNG — KHÔNG phải đồ thị đoán giàu-nghèo / thắng-thua / năm phát năm lụn. "
+    "Trầm KHÔNG phải xui; trầm = mùa nghỉ. Mệnh là ĐỘNG TỪ: cách vận hành cái tính qua "
+    "thời gian, không phải bản án. Lá số không thay tu học hay quyết định của chính mình."
+)
+_TRUC_NOTE = ("Trục dọc = khí ĐỘNG (mở/hành — thăng, phía trên) ↔ khí TĨNH (thu/dưỡng — "
+              "trầm, phía dưới). KHÔNG phải trục tốt↔xấu / giàu↔nghèo.")
+
+
+def _arc_point(blk: dict, tang: str, label: str) -> dict:
+    """Rút CHỈ SỐ CẤU TRÚC tất định của 1 mốc từ block đã lồng tầng (0-LLM, 0 bịa).
+
+    dong_tinh (hướng khí từ cung Mệnh vận) · dong_luc (cường độ: trùng phùng + Song
+    Lộc/Kỵ) · diem_quay (Hóa Kỵ chồng tầng) · cong_huong (can trùng tầng trên) ·
+    xa (tự hóa Lộc tại cung Mệnh vận). → khi ∈ [-1,1] cho đường cong + đường hành.
+    """
+    cung = blk.get("cung_the", "?")
+    if cung in _CUNG_DONG:
+        huong, dong_tinh = 1, "động"
+    elif cung in _CUNG_TINH:
+        huong, dong_tinh = -1, "tĩnh"
+    else:
+        huong, dong_tinh = 0, "trung"
+    ph = blk.get("phi_hoa") or {}
+    tp = ph.get("trung_phung") or []
+    tuhoa = ph.get("tu_hoa") or []
+    song_loc = sum(1 for t in tp if str(t.get("loai", "")).startswith("Song Lộc"))
+    song_ky = sum(1 for t in tp if str(t.get("loai", "")).startswith("Song Kỵ"))
+    # điểm quay = có Hóa Kỵ chồng tầng (bất kỳ trùng phùng nào chứa Kỵ)
+    diem_quay = any("Kỵ" in [x["hoa"] for x in t.get("tang_hoa", [])] for t in tp)
+    # xả = tự hóa Lộc NGAY tại cung Mệnh vận ("có mà giữ không được")
+    xa = any(t.get("hoa") == "Lộc" and t.get("cung") == cung for t in tuhoa)
+    # cộng hưởng = can tầng nhỏ trùng can tầng trên → Tứ Hóa khuếch đại (mốc đậm)
+    cong_huong = False
+    if tang == "luu_nguyet" and blk.get("am_lich"):
+        cong_huong = (blk.get("month_can") == blk["am_lich"]["nam_can_chi"].split()[0])
+    elif tang == "luu_nien":
+        bt = blk.get("bao_tram_dai_van") or {}
+        cong_huong = bool(bt.get("can") and bt["can"] == blk.get("year_can_chi", " ").split()[0])
+    elif tang == "dai_van":
+        cong_huong = bool(blk.get("tu_hoa_can") and blk["tu_hoa_can"] == blk.get("nguyen_cuc_can"))
+    # ── KHÍ (động ↔ tĩnh), KHÔNG phải cát ↔ hung ──
+    khi = 0.55 * huong
+    khi += 0.18 * song_loc + (0.12 if xa else 0.0)     # Lộc/tự hóa Lộc → khí mở (thăng)
+    khi -= 0.18 * song_ky                              # Kỵ chồng → khí thu (trầm)
+    if diem_quay and not song_ky:
+        khi -= 0.15                                    # điểm quay lẻ → nghiêng trầm/quay
+    if cong_huong:
+        khi *= 1.25                                    # cộng hưởng → biên độ ĐẬM hơn
+    khi = max(-1.0, min(1.0, round(khi, 3)))
+    # ── đường hành (DÙNG / TĨNH / CẨN) — nên làm gì cho hợp thời ──
+    # Điểm quay + khí VẪN nghiêng động (khi>0.15) → DÙNG nhưng tỉnh táo ở khúc chuyển
+    # (khớp ví dụ founder T7: Thiên Di động + tự hóa Lộc, dù có Kỵ chồng tầng vẫn DÙNG).
+    # Điểm quay mà khí thu/trầm → CẨN. Không quay: theo hướng cung.
+    if diem_quay and khi > 0.15:
+        duong_hanh, hanh_y = "DÙNG", "khí mở nhưng có điểm quay — dùng cơ hội, tỉnh táo ở khúc chuyển (chớ tích)"
+    elif diem_quay:
+        duong_hanh, hanh_y = "CẨN", "khí quay — tĩnh quan-sát điểm chuyển, chớ khởi sự lớn"
+    elif huong > 0 or (huong == 0 and (song_loc or xa)):
+        duong_hanh, hanh_y = "DÙNG", "khí mở — nên ra ngoài, dùng cơ hội (đừng tích giữ)"
+    elif huong < 0:
+        duong_hanh, hanh_y = "TĨNH", "khí thu — mùa dưỡng thân, tĩnh tâm, không khởi sự lớn"
+    else:
+        duong_hanh, hanh_y = "TĨNH", "khí trung hòa — giữ nhịp, tùy duyên"
+    # ── 1 dòng "đọc" (tất định, KHÔNG cát/hung) ──
+    parts = [f"Mệnh vận ở {cung} ({dong_tinh})"]
+    if cong_huong:
+        parts.append("can trùng tầng trên (cộng hưởng — mốc đậm)")
+    if song_loc:
+        parts.append("Song Lộc (được nuôi mạnh)")
+    if song_ky:
+        parts.append("Song Kỵ (khí thu)")
+    if diem_quay and not song_ky:
+        parts.append("Hóa Kỵ chồng tầng (điểm quay)")
+    if xa:
+        parts.append("tự hóa Lộc (có mà khó giữ)")
+    doc = " · ".join(parts) + f" → {duong_hanh}: {hanh_y}"
+    pt = {
+        "label": label,
+        "cung_the": cung, "vi_tri": blk.get("vi_tri"),
+        "dong_tinh": dong_tinh, "huong": huong,
+        "khi": khi,
+        "dong_luc": {"trung_phung": len(tp), "song_loc": song_loc, "song_ky": song_ky},
+        "diem_quay": diem_quay, "cong_huong": cong_huong, "xa": xa,
+        "duong_hanh": duong_hanh, "doc": doc,
+    }
+    if tang == "luu_nguyet" and blk.get("am_lich"):
+        pt["year"] = blk.get("year"); pt["month"] = blk.get("month")
+        pt["am_thang"] = blk["am_lich"]["thang"]
+        pt["am_nam_can_chi"] = blk["am_lich"]["nam_can_chi"]
+    elif tang == "luu_nien":
+        pt["year"] = blk.get("year"); pt["nam_can_chi"] = blk.get("year_can_chi")
+    elif tang == "dai_van":
+        kt = blk.get("khoang_tuoi") or [None, None]
+        pt["cycle_index"] = blk.get("cycle_index")
+        pt["start_age"] = kt[0]; pt["end_age"] = kt[1]
+    return pt
+
+
+def life_arc(person: dict, tu_nam: int, den_nam: int, buoc: str = "thang") -> dict:
+    """BỨC TRANH CUỘC ĐỜI THĂNG TRẦM — soi liên tục các tháng/năm → đường cong KHÍ.
+
+    Lặp mốc (tháng dương hoặc năm) tu_nam..den_nam, mỗi mốc rút chỉ số cấu trúc TẤT
+    ĐỊNH (0 LLM) qua _arc_point. Trả nền bẩm sinh (foreground) + list mốc + đường hành
+    mỗi mốc. ⚠️ Iron #9: bản đồ KHÍ động↔tĩnh, KHÔNG bói giàu-nghèo/thắng-thua.
+
+    buoc = "thang" (12 mốc/năm — mạch thở) | "nam" (1 mốc/năm) | "dai_van" (CẢ ĐỜI theo
+    tuổi — mỗi Đại Vận 10 năm 1 mốc, trục tuổi; tu_nam/den_nam bỏ qua).
+    """
+    if buoc not in ("thang", "nam", "dai_van"):
+        raise ValueError("buoc phải là 'thang' | 'nam' | 'dai_van'")
+    if buoc != "dai_van":
+        if den_nam < tu_nam:
+            raise ValueError("den_nam < tu_nam")
+        span = den_nam - tu_nam + 1
+        if buoc == "thang" and span > 30:
+            raise ValueError("buoc='thang': khoảng năm ≤ 30 (≤360 mốc)")
+        if buoc == "nam" and span > 100:
+            raise ValueError("buoc='nam': khoảng năm ≤ 100")
+
+    from engine.tu_vi.from_birth import cast_la_so_from_birth
+    birth = person["birth_datetime_local"]
+    gender = person.get("gender") or "nam"
+    la_so = cast_la_so_from_birth(birth_datetime_local=birth, gender=gender)
+
+    diem: list[dict] = []
+    if buoc == "dai_van":
+        # CẢ ĐỜI theo tuổi — mỗi Đại Vận (10 năm) = 1 mốc, trục hoành = tuổi khởi vận.
+        for dv in sorted(la_so.get("dai_van", []), key=lambda d: d["start_age"]):
+            blk = dai_van_block(la_so, dv["cycle_index"])
+            if not blk.get("available"):
+                continue
+            _wire_layers(la_so, birth, blk, "dai_van", {}, with_rules=False)
+            diem.append(_arc_point(blk, "dai_van", f"{dv['start_age']}t"))
+    elif buoc == "nam":
+        for y in range(tu_nam, den_nam + 1):
+            blk = luu_nien_block(la_so, y)
+            _wire_layers(la_so, birth, blk, "luu_nien", {"year": y}, with_rules=False)
+            diem.append(_arc_point(blk, "luu_nien", str(y)))
+    else:
+        for y in range(tu_nam, den_nam + 1):
+            for m in range(1, 13):
+                blk = luu_nguyet_block(la_so, y, m)
+                _wire_layers(la_so, birth, blk, "luu_nguyet", {"year": y, "month": m}, with_rules=False)
+                diem.append(_arc_point(blk, "luu_nguyet", f"T{m}/{y}"))
+    return {
+        "available": True,
+        "buoc": buoc, "tu_nam": tu_nam, "den_nam": den_nam,
+        "nen_menh": _nen_menh(la_so),
+        "diem": diem,
+        "truc_note": _TRUC_NOTE,
+        "disclaimer": _ARC_DISCLAIMER,
+    }
+
+
 def van_han_luan(person: dict, tang: str, *, want_llm: bool = True, **kw) -> dict:
     """Luận 1 tầng vận hạn GROUNDED. Trả {block, source_text, luan?}.
 
@@ -735,28 +994,8 @@ def van_han_luan(person: dict, tang: str, *, want_llm: bool = True, **kw) -> dic
     blk = build_block(la_so, tang, **kw)
     if not blk.get("available"):
         return {"available": False}
-    # LỒNG TẦNG: năm/tháng/tuần/ngày đọc TRONG đại vận bao trùm (cổ pháp lấy đại hạn làm chủ).
-    if tang in ("luu_nien", "luu_nguyet", "tuan", "luu_nhat"):
-        try:
-            byear = int(str(birth)[:4])
-            yr = int(str(blk.get("solar", ""))[:4]) if tang == "luu_nhat" else int(kw.get("year"))
-            blk["bao_tram_dai_van"] = _bao_tram_dai_van(la_so, byear, yr)
-        except Exception:
-            blk["bao_tram_dai_van"] = None
-    # TRỤ CỘT phi-tinh Tứ Hóa chồng tầng (Tinh Hoa Tập Thành): gom can từng tầng.
-    layer_cans = [("Nguyên cục", la_so.get("year_stem"))]
-    bt = blk.get("bao_tram_dai_van")
-    if bt and bt.get("can"):
-        layer_cans.append(("Đại vận", bt["can"]))
-    if tang in ("luu_nien",):
-        layer_cans.append(("Lưu niên", _year_stem_branch(int(kw["year"]))[0]))
-    if tang in ("luu_nguyet", "tuan") and blk.get("am_lich"):
-        layer_cans.append(("Lưu niên", blk["am_lich"]["nam_can_chi"].split()[0]))
-        layer_cans.append(("Lưu nguyệt", blk.get("month_can") or _month_can(
-            blk["am_lich"]["nam_can_chi"].split()[0], blk["am_lich"]["thang"])))
-    if tang == "luu_nhat":
-        layer_cans.append(("Lưu nhật (can ngày)", blk.get("day_can")))
-    blk["phi_hoa"] = phi_hoa(la_so, [(t, c) for t, c in layer_cans if c])
+    # LỒNG TẦNG đầy đủ (nền bẩm sinh → Đại Vận → Lưu Niên bao trùm → phi tinh chồng tầng).
+    _wire_layers(la_so, birth, blk, tang, kw)
     src = block_to_source_text(blk)
     out = {"available": True, "block": blk, "source_text": src, "luan": "", "grounded": not blk["chua_co_nguon"]}
     if not want_llm or blk["chua_co_nguon"]:

@@ -26,13 +26,23 @@ const error = ref("");
 const monthsOverview = ref([]);   // 12 tháng skeleton (khi xem lưu nguyệt)
 const leapNote = ref("");
 
+// 🎢 Bức tranh cuộc đời thăng trầm — đường cong KHÍ động↔tĩnh (tất định)
+const arc = ref(null);
+const arcLoading = ref(false);
+const arcBuoc = ref("dai_van");   // "dai_van" (cả đời theo tuổi) | "thang" | "nam"
+const arcTuNam = ref(2026);
+const arcDenNam = ref(2030);
+const arcSel = ref(null);         // mốc đang rê chuột (hiện dòng "đọc")
+
 const TANG_TABS = [
+  { key: "life_arc", label: "🎢 Bức tranh", sub: "thăng trầm" },
   { key: "dai_van", label: "Đại Vận", sub: "10 năm" },
   { key: "luu_nien", label: "Lưu Niên", sub: "năm" },
   { key: "luu_nguyet", label: "Lưu Nguyệt", sub: "tháng" },
   { key: "tuan", label: "Tuần", sub: "10 ngày" },
   { key: "luu_nhat", label: "Lưu Nhật", sub: "ngày" },
 ];
+const HANH_HUE = { "DÙNG": "#5ab07a", "TĨNH": "#7ec8e3", "CẨN": "#d6a05a" };
 const TUAN_LABEL = { 1: "Thượng tuần", 2: "Trung tuần", 3: "Hạ tuần" };
 const HOA_COLOR = { "Lộc": "loc", "Quyền": "quyen", "Khoa": "khoa", "Kỵ": "ky" };
 
@@ -55,7 +65,54 @@ function body() {
   return b;
 }
 
+// ── 🎢 Bức tranh cuộc đời — nạp đường cong KHÍ (tất định, 0-LLM) ──────────────
+async function loadArc() {
+  if (!tuviPersonBirth.value) { error.value = "Chưa có ngày giờ sinh — chọn người xem ở tab Hồ sơ."; return; }
+  arcLoading.value = true; error.value = ""; arc.value = null; arcSel.value = null;
+  try {
+    const resp = await fetch("/api/tu-vi/van-han", {
+      method: "POST", headers: { "Content-Type": "application/json" }, credentials: "include",
+      body: JSON.stringify({
+        birth_datetime_local: tuviPersonBirth.value,
+        gender: tuviPersonGender.value || "nam",
+        tang: "life_arc", buoc: arcBuoc.value,
+        tu_nam: arcTuNam.value, den_nam: arcDenNam.value,
+      }),
+    });
+    const d = await resp.json();
+    if (d.status !== "ok") throw new Error(d.reason || d.status || "lỗi");
+    arc.value = d;
+  } catch (e) {
+    error.value = "Không vẽ được bức tranh: " + (e?.message || e);
+  } finally { arcLoading.value = false; }
+}
+
+// Hình học đường cong: khí ∈ [-1,1] → y quanh đường giữa (động phía trên, tĩnh phía dưới).
+const arcGeom = computed(() => {
+  const pts = arc.value?.diem;
+  if (!pts?.length) return null;
+  const step = arcBuoc.value === "dai_van" ? 48 : arcBuoc.value === "nam" ? 34 : 15;
+  const padX = 34, midY = 82, amp = 62, h = arcBuoc.value === "dai_van" ? 182 : 164;
+  const w = padX * 2 + Math.max(1, pts.length - 1) * step;
+  const coords = pts.map((p, i) => ({
+    p, x: padX + i * step, y: +(midY - p.khi * amp).toFixed(1),
+  }));
+  const line = coords.map((c, i) => (i ? "L" : "M") + c.x + " " + c.y).join(" ");
+  const area = "M" + coords[0].x + " " + midY + " " +
+    coords.map((c) => "L" + c.x + " " + c.y).join(" ") +
+    " L" + coords[coords.length - 1].x + " " + midY + " Z";
+  return { coords, line, area, w, h, midY, padX };
+});
+
+// Click 1 mốc trên bức tranh → nhảy sang tầng chi tiết (tháng/năm) để LUẬN đầy đủ.
+function pickArcPoint(p) {
+  if (arcBuoc.value === "dai_van") { cycle.value = p.cycle_index; tang.value = "dai_van"; }
+  else if (arcBuoc.value === "nam") { year.value = p.year; tang.value = "luu_nien"; }
+  else { year.value = p.year; month.value = p.month; tang.value = "luu_nguyet"; }
+}
+
 async function loadBlock() {
+  if (tang.value === "life_arc") { if (!arc.value) await loadArc(); return; }
   if (!tuviPersonBirth.value) { error.value = "Chưa có ngày giờ sinh — chọn người xem ở tab Hồ sơ."; return; }
   loading.value = true; error.value = ""; luan.value = "";
   try {
@@ -102,6 +159,7 @@ async function loadMonthsOverview() {
 
 watch([tang, year, month, tuan, day, cycle], () => { if (open.value) loadBlock(); });
 watch([tang, year], () => { if (open.value) loadMonthsOverview(); });
+watch([arcBuoc, arcTuNam, arcDenNam], () => { if (open.value && tang.value === "life_arc") loadArc(); });
 
 function today() {
   const d = new Date();
@@ -136,7 +194,20 @@ async function toggle() {
 
       <!-- Bộ chọn thời điểm theo tầng -->
       <div class="vh-picker">
-        <template v-if="tang === 'dai_van'">
+        <template v-if="tang === 'life_arc'">
+          <label>Bước
+            <select v-model="arcBuoc">
+              <option value="dai_van">Cả đời theo tuổi (Đại vận)</option>
+              <option value="thang">Theo tháng (mạch thở)</option>
+              <option value="nam">Theo năm (khái quát)</option>
+            </select>
+          </label>
+          <template v-if="arcBuoc !== 'dai_van'">
+            <label>Từ năm <input type="number" v-model.number="arcTuNam" min="1930" max="2100" /></label>
+            <label>Đến năm <input type="number" v-model.number="arcDenNam" min="1930" max="2100" /></label>
+          </template>
+        </template>
+        <template v-else-if="tang === 'dai_van'">
           <label>Vận số <input type="number" v-model.number="cycle" min="1" max="12" /></label>
         </template>
         <template v-else>
@@ -167,10 +238,69 @@ async function toggle() {
       </div>
       <p v-if="leapNote" class="vh-leapnote">🌙 {{ leapNote }}</p>
 
-      <p v-if="loading" class="vh-note">Đang tra vận hạn…</p>
-      <p v-else-if="error" class="vh-error">{{ error }}</p>
+      <!-- 🎢 BỨC TRANH CUỘC ĐỜI THĂNG TRẦM — đường cong KHÍ động↔tĩnh -->
+      <div v-if="tang === 'life_arc'" class="vh-arc">
+        <p v-if="arcLoading" class="vh-note">Đang vẽ bức tranh khí…</p>
+        <p v-else-if="error" class="vh-error">{{ error }}</p>
+        <template v-else-if="arc && arcGeom">
+          <!-- Nền bẩm sinh foreground (soil-before-seed) -->
+          <div v-if="arc.nen_menh" class="vh-nen">
+            🌱 <b>Nền bẩm sinh</b> (không đổi cả đời): Mệnh chủ <b>{{ arc.nen_menh.menh_chu }}</b> ·
+            Thân chủ <b>{{ arc.nen_menh.than_chu }}</b> ·
+            <b>{{ arc.nen_menh.cuc?.cuc_name }}</b><span v-if="arc.nen_menh.cuc?.element"> (hành nền {{ arc.nen_menh.cuc.element }})</span> ·
+            Thân cư {{ arc.nen_menh.than_cung }}<span v-if="arc.nen_menh.menh_than_dong_cung"> (Mệnh-Thân đồng cung)</span>.
+            <small>Mọi tầng vận hạn VẬN HÀNH trên nền này (mệnh là động từ, không phải số định sẵn).</small>
+          </div>
 
-      <div v-else-if="block" class="vh-result">
+          <p class="vh-arc-axis-note">↕ {{ arc.truc_note }}</p>
+
+          <!-- Đường cong -->
+          <div class="vh-arc-scroll">
+            <svg class="vh-arc-svg" :viewBox="`0 0 ${arcGeom.w} ${arcGeom.h}`" :width="arcGeom.w" :height="arcGeom.h">
+              <!-- vùng động (trên) / tĩnh (dưới) -->
+              <text :x="6" :y="18" class="vh-arc-zone">ĐỘNG ↑</text>
+              <text :x="6" :y="arcGeom.h - 8" class="vh-arc-zone">TĨNH ↓</text>
+              <line :x1="arcGeom.padX" :y1="arcGeom.midY" :x2="arcGeom.w - 6" :y2="arcGeom.midY" class="vh-arc-mid" />
+              <path :d="arcGeom.area" class="vh-arc-area" />
+              <path :d="arcGeom.line" class="vh-arc-line" />
+              <g v-for="(c, i) in arcGeom.coords" :key="i">
+                <circle :cx="c.x" :cy="c.y" :r="c.p.diem_quay ? 5 : 3.5"
+                  :fill="HANH_HUE[c.p.duong_hanh]"
+                  :class="['vh-arc-dot', { quay: c.p.diem_quay }]"
+                  @mouseenter="arcSel = c.p" @click="pickArcPoint(c.p)">
+                  <title>{{ c.p.label }} — {{ c.p.doc }}</title>
+                </circle>
+                <!-- nhãn tuổi (chỉ Đại vận cả đời) -->
+                <text v-if="arcBuoc === 'dai_van'" :x="c.x" :y="arcGeom.h - 4"
+                  class="vh-arc-tick">{{ c.p.label }}</text>
+              </g>
+            </svg>
+          </div>
+
+          <!-- Chú giải đường hành -->
+          <div class="vh-arc-legend">
+            <span><i class="vh-lg" :style="{background: HANH_HUE['DÙNG']}"></i>DÙNG (khí mở)</span>
+            <span><i class="vh-lg" :style="{background: HANH_HUE['TĨNH']}"></i>TĨNH (khí thu)</span>
+            <span><i class="vh-lg" :style="{background: HANH_HUE['CẨN']}"></i>CẨN (điểm quay)</span>
+            <span class="vh-arc-hint">· rê chuột xem 1 dòng · bấm 1 mốc → luận đầy đủ</span>
+          </div>
+
+          <!-- Dòng "đọc" mốc đang rê -->
+          <div v-if="arcSel" class="vh-arc-sel" :style="{borderLeftColor: HANH_HUE[arcSel.duong_hanh]}">
+            <b>{{ arcSel.label }}</b> · <span class="vh-arc-chip">{{ arcSel.duong_hanh }}</span>
+            <p>{{ arcSel.doc }}</p>
+            <button type="button" class="vh-arc-go" @click="pickArcPoint(arcSel)">→ Luận đầy đủ mốc này</button>
+          </div>
+          <p v-else class="vh-arc-hint2">Rê chuột lên một mốc để đọc, hoặc bấm để mở luận đầy đủ tháng/năm đó.</p>
+
+          <p class="vh-arc-disc">☸️ {{ arc.disclaimer }}</p>
+        </template>
+      </div>
+
+      <p v-if="tang !== 'life_arc' && loading" class="vh-note">Đang tra vận hạn…</p>
+      <p v-else-if="tang !== 'life_arc' && error" class="vh-error">{{ error }}</p>
+
+      <div v-else-if="tang !== 'life_arc' && block" class="vh-result">
         <!-- Âm lịch tương ứng (minh bạch dương→âm) -->
         <p v-if="block.am_lich" class="vh-amlich">
           📆 Dương lịch tháng {{ block.month }}/{{ block.year }}
@@ -180,6 +310,13 @@ async function toggle() {
           📆 Dương lịch {{ block.solar }} <b>≈ âm lịch ngày {{ block.lunar_day }} tháng {{ block.lunar_month }} năm {{ block.lunar_year_can_chi }}, can ngày {{ block.day_can }}</b>
         </p>
 
+        <!-- Nền bẩm sinh foreground (soil-before-seed — Mệnh chủ/Thân chủ/Cục) -->
+        <div v-if="block.nen_menh" class="vh-nen">
+          🌱 <b>Nền:</b> Mệnh chủ <b>{{ block.nen_menh.menh_chu }}</b> · Thân chủ <b>{{ block.nen_menh.than_chu }}</b> ·
+          <b>{{ block.nen_menh.cuc?.cuc_name }}</b><span v-if="block.nen_menh.cuc?.element"> ({{ block.nen_menh.cuc.element }})</span> ·
+          Thân cư {{ block.nen_menh.than_cung }}
+        </div>
+
         <!-- Bối cảnh Đại Vận bao trùm (lồng tầng — lấy đại vận làm chủ) -->
         <div v-if="block.bao_tram_dai_van" class="vh-baotram">
           🌗 <b>Trong Đại Vận V{{ block.bao_tram_dai_van.cycle_index }}</b>
@@ -187,6 +324,13 @@ async function toggle() {
           cung {{ block.bao_tram_dai_van.cung }}
           <span v-if="block.bao_tram_dai_van.sao.length">({{ block.bao_tram_dai_van.sao.join(', ') }})</span>.
           Tầng này là <b>một bước</b> trong đại vận đó.
+        </div>
+
+        <!-- Bối cảnh Lưu Niên bao trùm (lồng tầng năm — giữa đại vận và tháng) -->
+        <div v-if="block.bao_tram_luu_nien" class="vh-baotram vh-baotram-nien">
+          📅 <b>Trong Lưu Niên {{ block.bao_tram_luu_nien.nam_can_chi }}</b> —
+          lưu niên Mệnh cung {{ block.bao_tram_luu_nien.cung }}
+          <span v-if="block.bao_tram_luu_nien.sao.length">({{ block.bao_tram_luu_nien.sao.join(', ') }})</span>.
         </div>
 
         <div class="vh-thedung">
@@ -377,4 +521,34 @@ async function toggle() {
 .vh-sources > summary { cursor: pointer; font-size: calc(12px * var(--reading-scale, 1)); color: var(--read-text-faint, rgba(230,238,245,0.5)); padding: 6px 0; }
 .vh-sources-body { padding-top: 6px; opacity: 0.92; }
 .vh-principle-in { margin: 8px 0 0; font-size: calc(11.5px * var(--reading-scale, 1)); line-height: 1.6; color: var(--read-text-faint, rgba(230,238,245,0.6)); padding-left: 9px; border-left: 2px solid var(--read-rule, rgba(232,201,90,0.3)); }
+
+/* 🌱 Nền bẩm sinh foreground */
+.vh-nen { margin-bottom: 10px; padding: 8px 11px; border-radius: 8px; background: rgba(90,176,122,0.06); border: 1px solid rgba(90,176,122,0.22); font-size: calc(12.5px * var(--reading-scale, 1)); line-height: 1.6; color: var(--read-text-dim, rgba(230,238,245,0.85)); }
+.vh-nen b { color: var(--read-han, #e8c95a); }
+.vh-nen small { display: block; margin-top: 3px; color: var(--read-text-faint, rgba(230,238,245,0.55)); font-size: calc(11px * var(--reading-scale, 1)); }
+.vh-baotram-nien { background: rgba(126,200,227,0.05); border-color: rgba(126,200,227,0.2); }
+
+/* 🎢 Bức tranh cuộc đời thăng trầm */
+.vh-arc { border: 1px solid var(--read-border, rgba(230,238,245,0.14)); border-radius: 10px; padding: 12px 14px; background: var(--read-surface, rgba(255,255,255,0.02)); }
+.vh-arc-axis-note { margin: 4px 0 8px; font-size: calc(11.5px * var(--reading-scale, 1)); line-height: 1.55; color: var(--read-text-faint, rgba(230,238,245,0.6)); }
+.vh-arc-scroll { overflow-x: auto; overflow-y: hidden; padding-bottom: 4px; }
+.vh-arc-svg { display: block; }
+.vh-arc-zone { fill: var(--read-text-faint, rgba(230,238,245,0.4)); font-size: 9px; font-weight: 700; letter-spacing: 0.5px; }
+.vh-arc-tick { fill: var(--read-text-faint, rgba(230,238,245,0.5)); font-size: 8.5px; text-anchor: middle; }
+.vh-arc-mid { stroke: var(--read-border, rgba(230,238,245,0.25)); stroke-width: 1; stroke-dasharray: 3 3; }
+.vh-arc-area { fill: rgba(126,200,227,0.07); }
+.vh-arc-line { fill: none; stroke: var(--read-accent, #7ec8e3); stroke-width: 1.4; opacity: 0.7; }
+.vh-arc-dot { cursor: pointer; stroke: var(--read-bg, #10161d); stroke-width: 1; transition: r 0.1s; }
+.vh-arc-dot:hover { stroke: var(--read-text, #fff); stroke-width: 1.5; }
+.vh-arc-dot.quay { stroke: #d6a05a; stroke-width: 1.5; }
+.vh-arc-legend { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; font-size: calc(11px * var(--reading-scale, 1)); color: var(--read-text-dim, rgba(230,238,245,0.75)); align-items: center; }
+.vh-arc-legend span { display: inline-flex; align-items: center; gap: 5px; }
+.vh-lg { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+.vh-arc-hint { color: var(--read-text-faint, rgba(230,238,245,0.5)); }
+.vh-arc-sel { margin-top: 10px; padding: 9px 12px; border-radius: 8px; border-left: 3px solid var(--read-accent, #7ec8e3); background: var(--read-surface, rgba(255,255,255,0.03)); }
+.vh-arc-sel p { margin: 4px 0 6px; font-size: calc(12.5px * var(--reading-scale, 1)); line-height: 1.6; color: var(--read-text, rgba(230,238,245,0.9)); }
+.vh-arc-chip { padding: 1px 8px; border-radius: 999px; border: 1px solid var(--read-border, rgba(230,238,245,0.25)); font-size: calc(10.5px * var(--reading-scale, 1)); color: var(--read-text-dim, rgba(230,238,245,0.8)); }
+.vh-arc-go { padding: 4px 11px; border-radius: 7px; cursor: pointer; border: 1px solid var(--read-accent, #7ec8e3); background: var(--read-accent-bg, rgba(126,200,227,0.12)); color: var(--read-accent, #7ec8e3); font-size: calc(11.5px * var(--reading-scale, 1)); font-weight: 600; }
+.vh-arc-hint2 { margin-top: 10px; font-size: calc(11.5px * var(--reading-scale, 1)); font-style: italic; color: var(--read-text-faint, rgba(230,238,245,0.5)); }
+.vh-arc-disc { margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--read-border, rgba(230,238,245,0.1)); font-size: calc(11px * var(--reading-scale, 1)); line-height: 1.6; color: var(--read-text-faint, rgba(230,238,245,0.6)); }
 </style>
