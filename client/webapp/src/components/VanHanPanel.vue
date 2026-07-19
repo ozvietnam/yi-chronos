@@ -10,6 +10,16 @@
 import { computed, ref, watch } from "vue";
 import { tuviPersonBirth, tuviPersonGender, tuviPersonName } from "../stores/tuviPersonStore.js";
 
+// Ngày sinh: ưu tiên props (chart VỪA AN SAO ở panel cha) → fallback store (người đang chọn).
+// Bảo đảm "nhập ngày sinh → an sao → vận hạn" luôn khớp đúng lá số user vừa lập, không lệ thuộc
+// đồng bộ giữa authStore.currentPerson và userDataStore.activePerson.
+const props = defineProps({
+  birthDatetimeLocal: { type: String, default: "" },
+  gender: { type: String, default: "" },
+});
+const birthVal = computed(() => props.birthDatetimeLocal || tuviPersonBirth.value);
+const genderVal = computed(() => props.gender || tuviPersonGender.value || "nam");
+
 const open = ref(false);
 const tang = ref("luu_nguyet");   // default tháng — đúng trọng tâm Anh cần
 const year = ref(2026);
@@ -52,8 +62,8 @@ const litHoa = computed(() =>
 
 function body() {
   const b = {
-    birth_datetime_local: tuviPersonBirth.value,
-    gender: tuviPersonGender.value || "nam",
+    birth_datetime_local: birthVal.value,
+    gender: genderVal.value,
     tang: tang.value,
     want_llm: false,
   };
@@ -67,14 +77,14 @@ function body() {
 
 // ── 🎢 Bức tranh cuộc đời — nạp đường cong KHÍ (tất định, 0-LLM) ──────────────
 async function loadArc() {
-  if (!tuviPersonBirth.value) { error.value = "Chưa có ngày giờ sinh — chọn người xem ở tab Hồ sơ."; return; }
+  if (!birthVal.value) { error.value = "Chưa có ngày giờ sinh — an sao lá số trước đã."; return; }
   arcLoading.value = true; error.value = ""; arc.value = null; arcSel.value = null;
   try {
     const resp = await fetch("/api/tu-vi/van-han", {
       method: "POST", headers: { "Content-Type": "application/json" }, credentials: "include",
       body: JSON.stringify({
-        birth_datetime_local: tuviPersonBirth.value,
-        gender: tuviPersonGender.value || "nam",
+        birth_datetime_local: birthVal.value,
+        gender: genderVal.value,
         tang: "life_arc", buoc: arcBuoc.value,
         tu_nam: arcTuNam.value, den_nam: arcDenNam.value,
       }),
@@ -113,7 +123,7 @@ function pickArcPoint(p) {
 
 async function loadBlock() {
   if (tang.value === "life_arc") { if (!arc.value) await loadArc(); return; }
-  if (!tuviPersonBirth.value) { error.value = "Chưa có ngày giờ sinh — chọn người xem ở tab Hồ sơ."; return; }
+  if (!birthVal.value) { error.value = "Chưa có ngày giờ sinh — an sao lá số trước đã."; return; }
   loading.value = true; error.value = ""; luan.value = "";
   try {
     const resp = await fetch("/api/tu-vi/van-han", {
@@ -146,11 +156,11 @@ async function genLuan() {
 
 async function loadMonthsOverview() {
   monthsOverview.value = []; leapNote.value = "";
-  if (tang.value !== "luu_nguyet" || !tuviPersonBirth.value) return;
+  if (tang.value !== "luu_nguyet" || !birthVal.value) return;
   try {
     const resp = await fetch("/api/tu-vi/van-han", {
       method: "POST", headers: { "Content-Type": "application/json" }, credentials: "include",
-      body: JSON.stringify({ ...reqBase(), tang: "luu_nguyet_overview", year: year.value }),
+      body: JSON.stringify({ ...body(), tang: "luu_nguyet_overview", year: year.value }),
     });
     const d = await resp.json();
     if (d.status === "ok") { monthsOverview.value = d.months || []; leapNote.value = d.thang_nhuan_note || ""; }

@@ -1793,7 +1793,7 @@ const grid = computed(() => {
       <div v-if="showVanHan" class="cc-modal-backdrop" @click.self="showVanHan = false">
         <div class="cc-modal">
           <button class="cc-modal-close" @click="showVanHan = false">✕</button>
-          <VanHanPanel />
+          <VanHanPanel :birth-datetime-local="inputBirth" :gender="inputGender" />
         </div>
       </div>
     </Teleport>
