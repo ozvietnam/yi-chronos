@@ -47,6 +47,33 @@
     "30": {"symbol": "Suy tưởng (retrospection)", "meaning_vi": "Ưu thế trí tuệ, thiên về suy tư; không tốt cũng không xấu cố định — tùy quyết định của trí. Có thể 'được tất cả hoặc không gì'."},
     "31": {"symbol": "Cô lập", "meaning_vi": "Giống 30 nhưng tự khép kín hơn, cô đơn, tách biệt với đời. Người trầm tư, dễ lẻ loi."},
     "32": {"symbol": "Sức mạnh huyền (như 14/23)", "meaning_vi": "Thuận lợi nếu giữ vững phán đoán riêng; nếu nghe theo sự cố chấp/bất tài của người khác thì kế hoạch đổ vỡ."},
-    "33_plus": {"rule": "Từ 33 đến 52: Cheiro nói phần lớn LẶP theo tổng chữ số → tra ý nghĩa số kép thấp tương ứng (33≈24, 34≈25, 35≈26, 36≈27, 37 đặc biệt tốt cho hợp tác/tình thân, 40≈31...). Sắc thái đầy đủ: xem bản PDF gốc."}
+    "33": {"symbol": "Không tự lực — theo 24", "alias_of": 24, "meaning_vi": "Cheiro: 33 không có lực riêng; cùng sắc thái số kép 24 (may mắn / quý nhân)."},
+    "34": {"symbol": "Theo 25", "alias_of": 25, "meaning_vi": "Cheiro: cùng sắc thái 25 — sức mạnh qua trải nghiệm."},
+    "35": {"symbol": "Theo 26", "alias_of": 26, "meaning_vi": "Cheiro: cùng sắc thái 26 — cảnh báo nặng về liên kết/đầu cơ sai."},
+    "36": {"symbol": "Theo 27", "alias_of": 27, "meaning_vi": "Cheiro: cùng sắc thái 27 — Vương Trượng / quyền uy sáng tạo."},
+    "37": {"symbol": "Tình thân / hợp tác may", "meaning_vi": "Lực riêng: tình bạn và tình yêu thuận; hợp tác đôi bên; khí tốt cho liên kết với người khác giới và đối tác. Xuất hiện trong sự kiện tương lai = sắc thái thuận cho liên kết."},
+    "38": {"symbol": "Theo 29", "alias_of": 29, "meaning_vi": "Cheiro: cùng sắc thái 29 — bất trắc lòng người."},
+    "39": {"symbol": "Theo 30", "alias_of": 30, "meaning_vi": "Cheiro: cùng sắc thái 30 — suy tưởng / retrospection."},
+    "40": {"symbol": "Theo 31", "alias_of": 31, "meaning_vi": "Cheiro: cùng sắc thái 31 — cô lập / trầm tư."},
+    "41": {"symbol": "Theo 32", "alias_of": 32, "meaning_vi": "Cheiro: cùng sắc thái 32 — sức mạnh huyền nếu giữ phán đoán riêng."},
+    "42": {"symbol": "Theo 24", "alias_of": 24, "meaning_vi": "Cheiro: cùng sắc thái 24 — may mắn / quý nhân."},
+    "43": {"symbol": "Cách mạng / đảo lộn", "meaning_vi": "Biểu tượng đảo loạn, xung đột, thất bại, bị ngăn trở. Sắc thái cấu trúc cần quan-sát khi số này xuất hiện trong tính toán sự kiện."},
+    "44": {"symbol": "Theo 26", "alias_of": 26, "meaning_vi": "Cheiro: cùng sắc thái 26 — cảnh báo nặng."},
+    "45": {"symbol": "Theo 27", "alias_of": 27, "meaning_vi": "Cheiro: cùng sắc thái 27 — Vương Trượng."},
+    "46": {"symbol": "Theo 37", "alias_of": 37, "meaning_vi": "Cheiro: cùng sắc thái 37 — tình thân / hợp tác may."},
+    "47": {"symbol": "Theo 29", "alias_of": 29, "meaning_vi": "Cheiro: cùng sắc thái 29 — bất trắc lòng người."},
+    "48": {"symbol": "Theo 30", "alias_of": 30, "meaning_vi": "Cheiro: cùng sắc thái 30 — suy tưởng."},
+    "49": {"symbol": "Theo 31", "alias_of": 31, "meaning_vi": "Cheiro: cùng sắc thái 31 — cô lập."},
+    "50": {"symbol": "Theo 32", "alias_of": 32, "meaning_vi": "Cheiro: cùng sắc thái 32 — sức mạnh huyền."},
+    "51": {"symbol": "Chiến binh / thăng tiến đột ngột", "meaning_vi": "Lực riêng mạnh: khí chiến binh; thăng tiến đột ngột trong việc đảm nhận; thuận lĩnh đạo / quân sự / phong trào. Đồng thời báo hiệu kẻ thù, hiểm họa, nguy bị hại — quan-sát cả hai mặt."},
+    "52": {"symbol": "Theo 43", "alias_of": 43, "meaning_vi": "Cheiro: cùng sắc thái 43 — cách mạng / đảo lộn. Kết thúc chuỗi 52 số = 52 tuần trong năm."}
+  },
+
+  "ocr_extract": {
+    "source_file": "data/restored_books/cheiro-book-of-numbers/source/cheiro-book-of-numbers-ocr.txt",
+    "chapter": "XIII — Compound or Spiritual Numbers",
+    "extracted_at": "2026-07-21",
+    "range": "10–52",
+    "note": "33–52 lấy từ OCR bản PD trong thư viện dự án (không còn stub 33_plus)."
   }
 }

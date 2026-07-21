@@ -1,36 +1,30 @@
 # 🌐 Hệ phái 08 — NUMEROLOGY TÂY PHƯƠNG
 
-> Khoa học số — hệ Pythagoras / Kabbalah / Cheiro.
-> Tham khảo cross-cultural — bridge với Tử Vi/Bát Tự về paradigm "số quyết định mệnh".
-> 3 cuốn · ~28 KB (text-only stubs).
+> Khoa học số — hệ Pythagoras / Cheiro (Chaldean).
+> 3 cuốn trong thư viện · wire vào `engine/than_so/` (2026-07-21).
 
 ## 📚 Danh sách
 
-### balliett-philosophy-of-numbers (Mrs. L. Dow Balliett)
-- "Philosophy of Numbers" — nền tảng numerology hiện đại
-- 1908, Mrs. Balliett là người tái khám phá Pythagorean numerology
+### balliett-philosophy-of-numbers (Mrs. L. Dow Balliett, ~1908, PD)
+- Nền Pythagoras hiện đại: bảng chữ, Soul Urge, master 11/22
+- Stage 2–3/6 method · skill `than-so/thu-vien/balliett.md`
 
-### campbell-your-days-are-numbered (Florence Campbell)
-- "Your Days Are Numbered" — thực hành numerology life path
-- Dùng tên + ngày sinh tính numbers
+### campbell-your-days-are-numbered (Florence Campbell, 1931)
+- Inclusion Table → Lessons / Passion
+- Method only (PD từ 2027) · skill `than-so/thu-vien/campbell.md`
+- Engine: `extended.inclusion_table`
 
-### cheiro-book-of-numbers (Cheiro = William J. Warner)
-- "Book of Numbers" — Cheiro cổ điển (cuối thế kỷ 19)
-- Tích hợp với palmistry (chỉ tay)
-
-## 🎯 Khái niệm cốt Numerology
-
-- **Life Path Number**: tổng ngày sinh → reduce → 1-9 + master (11, 22, 33)
-- **Destiny / Expression Number**: chuyển tên ra số
-- **Soul Urge Number**: nguyên âm trong tên
-- **Personality Number**: phụ âm trong tên
+### cheiro-book-of-numbers (Cheiro, 1926, PD)
+- Chaldean + compound 10–52 (OCR Ch.XIII đầy đủ)
+- Published PDF core v0.2 · skill `than-so/thu-vien/cheiro.md`
+- Engine: `library.resolve_compound` + cast cross_reference
 
 ## 🔗 Engine
 
-Hiện chưa wire vào engine. Có thể tham khảo để build paradigm cross-cultural:
-- Life Path 1-9 cross-bind với Bát Tự nhật chủ?
-- Master numbers (11, 22, 33) tương đương sao Trung Châu nào?
+- Spec Decoz: `data/than_so/master/pythagorean_spec.json`
+- Provenance map: `data/than_so/master/library_provenance.json`
+- UI tab Pytago = `ThanSoPanel.vue`
 
-## 📝 Note
+## ❌ Chưa có trong thư viện
 
-Đây là **ASSET tham khảo**, không phải hệ chính. Anh có thể bỏ qua nếu chỉ focus Tử Vi/Bát Tự/Kinh Dịch.
+Juno Jordan (1965) · Matthew Goodwin (1981) — còn bản quyền; reference-only.

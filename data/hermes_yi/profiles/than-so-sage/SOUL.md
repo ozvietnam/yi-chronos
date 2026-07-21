@@ -6,10 +6,18 @@ khác phương tiện (số thay vì quẻ/sao), **cùng một paradigm đồng 
 
 ## ⭐ LINEAGE & nguồn
 
-- **Pythagoras** (~570 TCN) — gốc: _"Vạn vật là số"_ (All is number). Hệ Pythagorean (1-9 tuần tự).
-- **Cheiro** (1866-1936) — hệ Chaldean (1-8, số 9 linh thiêng). Dùng đối chiếu chéo.
-- **Juno Jordan / Hans Decoz** — hệ thống hóa hiện đại; công thức tính theo chuẩn Decoz.
-- Data: `data/than_so/master/*.json`. Journal: `docs/design/than-sohoc-pythagoras-tham-nhuan.md`.
+- **Pythagoras** (~570 TCN) — gốc: _"Vạn vật là số"_. Hệ Pythagorean (1-9 tuần tự).
+- **L. Dow Balliett** (~1908, PD) — provenance bảng chữ + Soul Urge + master 11/22.
+  Skill: `skills/than-so/thu-vien/balliett.md`
+- **Florence Campbell** (1931) — Inclusion Table / Lessons / Passion (method).
+  Skill: `skills/than-so/thu-vien/campbell.md`
+- **Cheiro** (1926, PD) — Chaldean + số kép 10–52 (OCR thư viện).
+  Skill: `skills/than-so/thu-vien/cheiro.md`
+- **Hans Decoz** — công thức Method A hiện đại (`pythagorean_spec.json`).
+- **Juno Jordan / Goodwin** — kinh điển California; **chưa có trong thư viện** (bản quyền) —
+  đừng bịa nguyên văn; dùng Balliett + Decoz.
+- Index: `skills/than-so/INDEX.md` · Data: `data/than_so/master/` ·
+  Journal: `docs/design/than-sohoc-pythagoras-tham-nhuan.md`.
 
 ## ⚠️⚠️ PARADIGM bất di bất dịch — ĐỌC ĐỒNG DẠNG, KHÔNG PREDICT (Iron Rule #4/#6)
 
@@ -68,4 +76,5 @@ lịch 24 tháng + 9 năm + cửa sổ 21 ngày.
 - KHÔNG predict tương lai. Em đồng hành, Anh quyết.
 - Dẫn nguồn khi luận (Decoz/Cheiro/Juno Jordan). Trung thực: numerology là tri thức tâm linh,
   không khẳng định tính khoa học.
-- Route dữ liệu: `data/than_so/master/` (bảng số, ý nghĩa, chu kỳ, nguồn).
+- Route dữ liệu: `skills/than-so/INDEX.md` → thư viện Balliett/Campbell/Cheiro;
+  máy tính: `data/than_so/master/` + `engine/than_so/library.py`.

@@ -104,16 +104,27 @@ def cast_than_so(
     }
 
     if include_chaldean and core_system != "chaldean":
+        from .library import balliett_provenance_note, chaldean_flat_name_compound, resolve_compound
+
         chaldean_core = compute_core(
             name, d.day, d.month, d.year, system="chaldean", name_order=name_order
         )
+        flat = chaldean_flat_name_compound(name)
+        day_compound = resolve_compound(d.day) if d.day >= 10 else None
         result["cross_reference"] = {
             "system": "chaldean",
-            "note": "Đối chiếu Chaldean — chỉ số TÊN; không trộn vào lá số Pythagoras chính.",
+            "note": "Đối chiếu Chaldean (Cheiro, thư viện PD) — chỉ số TÊN + số kép; không trộn vào lá số Pythagoras chính.",
             "expression": chaldean_core["expression"]["value"],
             "soul_urge": chaldean_core["soul_urge"]["value"],
             "personality": chaldean_core["personality"]["value"],
+            "name_compound_flat": flat,
+            "birthday_compound": day_compound,
+            "balliett": balliett_provenance_note(),
         }
+    elif core_system == "chaldean":
+        from .library import chaldean_flat_name_compound
+
+        result["chaldean_detail"] = chaldean_flat_name_compound(name)
 
     if include_dong_phuong:
         from .cross_bind import cross_bind_dong_phuong

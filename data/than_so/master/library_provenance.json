@@ -1,0 +1,51 @@
+{
+  "doc": "Provenance thư viện Thần Số Học — map dữ liệu engine ↔ sách đã restore trong dự án. KHÔNG gồm Goodwin/Jordan (chưa có bản quyền).",
+  "curated_at": "2026-07-21",
+  "books": [
+    {
+      "book_id": "balliett-philosophy-of-numbers",
+      "author": "L. Dow Balliett",
+      "system": "pythagorean",
+      "path": "data/restored_books/balliett-philosophy-of-numbers/",
+      "public_domain": true,
+      "feeds": [
+        "letter_maps.json → pythagorean A=1…I=9",
+        "master 11/22 (Balliett nền; 33 hệ thống hóa sau)",
+        "Soul Urge = nguyên âm (provenance)",
+        "paradigm rung động số↔màu↔âm (art-direction tương lai)"
+      ],
+      "stage": "2-3/6 method",
+      "engine_hooks": ["constants.letter_map", "core_numbers.reduce master"]
+    },
+    {
+      "book_id": "campbell-your-days-are-numbered",
+      "author": "Florence Campbell",
+      "system": "pythagorean",
+      "path": "data/restored_books/campbell-your-days-are-numbered/",
+      "public_domain": false,
+      "pd_from": "2027-01-01",
+      "feeds": [
+        "Inclusion Table → tần suất chữ-số 1–9 trong tên",
+        "Karmic Lessons = số thiếu",
+        "Hidden Passion = số trội"
+      ],
+      "stage": "2-3/6 method (không publish PDF nguyên văn trước 2027)",
+      "engine_hooks": ["extended.inclusion_table", "extended.karmic_lessons", "extended.hidden_passion"]
+    },
+    {
+      "book_id": "cheiro-book-of-numbers",
+      "author": "Cheiro (Louis Hamon)",
+      "system": "chaldean",
+      "path": "data/restored_books/cheiro-book-of-numbers/",
+      "public_domain": true,
+      "feeds": [
+        "letter_maps.json → chaldean",
+        "chaldean_compound_numbers.json 10–52 (OCR Ch.XIII)",
+        "hành tinh số đơn 1–9",
+        "cross_bind cheiro_planet"
+      ],
+      "stage": "1–6 core v0.2 published; compound 10–52 wired 2026-07-21",
+      "engine_hooks": ["library.lookup_compound", "cast.cross_reference.chaldean", "cross_bind"]
+    }
+  ]
+}

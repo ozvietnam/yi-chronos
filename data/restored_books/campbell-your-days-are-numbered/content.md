@@ -35,6 +35,9 @@ Campbell hướng numerology vào **ứng dụng thực hành** (chọn thời �
 tinh thần "procedural grimoire" của YI-Chronos (sách như công cụ hành đạo). Vẫn giữ paradigm
 đồng dạng: đọc cấu trúc để **tự quan-sát**, không bói được-mất.
 
-## IV. Chờ Anh
-- [ ] Xác minh bản quyền 1931 (renewal) trước khi publish PDF
-- [ ] Attach bản quét (network allowlist)
+## IV. Wire engine (2026-07-21)
+
+- ✅ `extended.inclusion_table` — tần suất 1–9 + provenance Campbell
+- ✅ `karmic_lessons` / `hidden_passion` gắn provenance
+- ⚠️ Publish PDF nguyên văn: chờ 2027-01-01 (PD)
+- [ ] Attach bản quét khi Anh upload / allowlist

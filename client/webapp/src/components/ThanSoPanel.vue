@@ -423,13 +423,46 @@ const ARC = {
           Soul {{ result.extended.minor.soul_urge.value }} ·
           Personality {{ result.extended.minor.personality.value }}
         </div>
+        <div v-if="result.extended.inclusion_table" class="ts-inclusion">
+          <strong>{{ result.extended.inclusion_table.name_vi }}</strong>
+          <span class="ts-meta"> · {{ result.extended.inclusion_table.provenance }}</span>
+          <div class="ts-incl-grid">
+            <span
+              v-for="n in 9"
+              :key="'inc'+n"
+              class="ts-incl-cell"
+              :class="{ miss: !(result.extended.inclusion_table.frequency[String(n)] > 0) }"
+            >
+              {{ n }}×{{ result.extended.inclusion_table.frequency[String(n)] || 0 }}
+            </span>
+          </div>
+          <p class="ts-meta">{{ result.extended.inclusion_table.note }}</p>
+        </div>
       </div>
 
       <div v-if="result.cross_reference" class="ts-xref">
-        <strong>Đối chiếu Chaldean (tên):</strong>
+        <strong>Đối chiếu Chaldean (Cheiro · thư viện PD):</strong>
         Sứ Mệnh {{ result.cross_reference.expression }} ·
         Linh Hồn {{ result.cross_reference.soul_urge }} ·
         Nhân Cách {{ result.cross_reference.personality }}
+        <template v-if="result.cross_reference.name_compound_flat">
+          <p>
+            Số kép tên (flat): {{ result.cross_reference.name_compound_flat.raw }}
+            → {{ result.cross_reference.name_compound_flat.reduced }}
+            <template v-if="result.cross_reference.name_compound_flat.compound_reading">
+              — {{ result.cross_reference.name_compound_flat.compound_reading.symbol }}:
+              {{ result.cross_reference.name_compound_flat.compound_reading.meaning_vi }}
+            </template>
+          </p>
+        </template>
+        <p v-if="result.cross_reference.birthday_compound" class="ts-meta">
+          Số kép ngày sinh {{ result.cross_reference.birthday_compound.value }}
+          (→ {{ result.cross_reference.birthday_compound.resolved }}):
+          {{ result.cross_reference.birthday_compound.symbol }}
+        </p>
+        <p v-if="result.cross_reference.balliett" class="ts-meta">
+          {{ result.cross_reference.balliett.note }}
+        </p>
       </div>
 
       <div v-if="result.reading.karmic_debts?.length" class="ts-karmic">
@@ -754,4 +787,8 @@ const ARC = {
 .ts-compat-score strong { font-size: 1.8rem; color: #2c4a3e; }
 .ts-compat-result table { border-collapse: collapse; margin: 0.6rem 0; }
 .ts-compat-result th, .ts-compat-result td { border: 1px solid #ddd; padding: 0.3rem 0.6rem; font-size: 0.85rem; }
+.ts-inclusion { margin: 0.7rem 0; font-size: 0.88rem; }
+.ts-incl-grid { display: flex; flex-wrap: wrap; gap: 0.35rem; margin: 0.35rem 0; }
+.ts-incl-cell { background: #eef3ef; padding: 0.15rem 0.4rem; border-radius: 3px; font-size: 0.8rem; }
+.ts-incl-cell.miss { background: #f3ebe4; color: #8a5a2a; }
 </style>

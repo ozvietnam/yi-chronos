@@ -337,3 +337,49 @@ def test_compatibility_pdf_bytes():
     pdf = generate_compatibility_pdf(report)
     assert pdf[:4] == b"%PDF"
     assert len(pdf) > 800
+
+
+# ─── Library Balliett / Campbell / Cheiro (v11) ───────────────────────────────
+
+
+def test_cheiro_compound_33_aliases_to_24():
+    from engine.than_so.library import resolve_compound
+
+    r = resolve_compound(33)
+    assert r is not None
+    assert r["resolved"] == 24
+
+
+def test_cheiro_compound_37_has_own_potency():
+    from engine.than_so.library import resolve_compound
+
+    r = resolve_compound(37)
+    assert r["resolved"] == 37
+    assert "hợp tác" in r["meaning_vi"].lower() or "tình" in r["meaning_vi"].lower()
+
+
+def test_cheiro_compound_51_and_52():
+    from engine.than_so.library import resolve_compound
+
+    assert resolve_compound(51)["resolved"] == 51
+    assert resolve_compound(52)["resolved"] == 43
+
+
+def test_inclusion_table_campbell():
+    from engine.than_so.extended import inclusion_table
+
+    table = inclusion_table("Nguyễn Văn An")
+    assert table["provenance"] == "campbell-your-days-are-numbered"
+    assert "1" in table["frequency"]
+    assert sum(table["frequency"].values()) == table["letter_count"]
+    assert set(table["missing"]) <= set(range(1, 10))
+
+
+def test_cast_chaldean_xref_has_compound():
+    res = cast_than_so("Nguyễn Văn An", "1990-11-23", include_chaldean=True)
+    xref = res["cross_reference"]
+    assert xref["system"] == "chaldean"
+    assert "name_compound_flat" in xref
+    assert xref["name_compound_flat"]["raw"] >= 1
+    assert res["extended"]["inclusion_table"]["name_vi"]
+    assert "balliett" in xref

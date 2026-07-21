@@ -36,6 +36,9 @@ Balliett dẫn ngược về Pythagoras ("vạn vật là số" + hòa âm các 
   (mỗi số một màu/tông) — tương tự `data/school_art_direction/` của các phái khác.
 - Đối chiếu: "số ↔ màu ↔ âm" của Balliett ↔ Ngũ Hành ↔ màu/phương của Đông phương (cross-bind tương lai, tránh ép phái).
 
-## IV. Chờ Anh
+## IV. Wire engine (2026-07-21)
+
+- ✅ Provenance map `library_provenance.json` + skill `than-so/thu-vien/balliett.md`
+- ✅ Sage SOUL route Balliett cho bảng chữ / Soul Urge / master
 - [ ] Attach bản quét public-domain (network allowlist)
-- [ ] Bảng màu/âm per số (nếu làm art-direction)
+- [ ] Bảng màu/âm per số (art-direction) — chờ extract từ bản quét PD, không bịa

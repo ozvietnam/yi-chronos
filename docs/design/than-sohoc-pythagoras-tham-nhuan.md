@@ -204,10 +204,17 @@ Giống Iron Rule #6 (CƠ + BIẾN của Tử Vi), số tĩnh chưa đủ — ph
 - ✅ UI form người B trong `ThanSoPanel`
 - ✅ PDF WeasyPrint ưu tiên (HTML), fallback fpdf2
 
-**CHƯA LÀM (chờ bản quyền / nguồn PDF gốc):**
-- [ ] Restore sách Goodwin/Juno Jordan (bản quyền thương mại)
-- [ ] Attach PDF gốc Cheiro nếu Anh upload / allowlist archive.org
-- [ ] Publish PDF Campbell — chờ 2027-01-01 (PD)
+**ĐÃ XONG (v11, 2026-07-21 — xử lý thư viện Balliett/Campbell/Cheiro):**
+- ✅ Cheiro OCR Ch.XIII → compound **10–52** đầy đủ (`chaldean_compound_numbers.json`)
+- ✅ `library.py` resolve alias + cast cross_reference số kép tên
+- ✅ Campbell Inclusion Table → `extended.inclusion_table` + UI
+- ✅ Provenance map + Hermes skill `than-so/` + sage SOUL route thư viện
+- ✅ Balliett/Campbell/Cheiro content + school README cập nhật wire trạng thái
+
+**CHƯA LÀM (bản quyền / scan):**
+- [ ] Goodwin / Juno Jordan — chưa có trong thư viện (còn bản quyền)
+- [ ] Balliett màu/âm table — chờ bản quét PD, không bịa
+- [ ] Campbell publish PDF nguyên văn — chờ 2027-01-01
 
 ---
 

@@ -69,7 +69,7 @@ def rational_thought(
 
 
 def karmic_lessons(name: str, system: str = "pythagorean") -> dict:
-    """Số 1–9 thiếu trong tên khai sinh."""
+    """Số 1–9 thiếu trong tên khai sinh (Campbell Inclusion)."""
     letters = letters_only(name)
     present = {letter_value(ch, system) for ch in letters if letter_value(ch, system)}
     missing = [n for n in range(1, 10) if n not in present]
@@ -78,11 +78,12 @@ def karmic_lessons(name: str, system: str = "pythagorean") -> dict:
         "values": missing,
         "count": len(missing),
         "present": sorted(present),
+        "provenance": "campbell-your-days-are-numbered",
     }
 
 
 def hidden_passion(name: str, system: str = "pythagorean") -> dict:
-    """Số xuất hiện nhiều nhất trong tên (có thể nhiều)."""
+    """Số xuất hiện nhiều nhất trong tên (Campbell Inclusion — số trội)."""
     letters = letters_only(name)
     counts: Counter[int] = Counter()
     for ch in letters:
@@ -90,7 +91,13 @@ def hidden_passion(name: str, system: str = "pythagorean") -> dict:
         if v:
             counts[v] += 1
     if not counts:
-        return {"name_vi": "Số Đam Mê Tiềm Ẩn", "values": [], "counts": {}, "max_count": 0}
+        return {
+            "name_vi": "Số Đam Mê Tiềm Ẩn",
+            "values": [],
+            "counts": {},
+            "max_count": 0,
+            "provenance": "campbell-your-days-are-numbered",
+        }
     max_c = max(counts.values())
     values = sorted(n for n, c in counts.items() if c == max_c)
     return {
@@ -98,6 +105,33 @@ def hidden_passion(name: str, system: str = "pythagorean") -> dict:
         "values": values,
         "counts": {str(k): v for k, v in sorted(counts.items())},
         "max_count": max_c,
+        "provenance": "campbell-your-days-are-numbered",
+    }
+
+
+def inclusion_table(name: str, system: str = "pythagorean") -> dict:
+    """Campbell Inclusion Table — tần suất đầy đủ 1–9."""
+    from .library import campbell_inclusion_meta
+
+    letters = letters_only(name)
+    counts: Counter[int] = Counter()
+    for ch in letters:
+        v = letter_value(ch, system)
+        if v:
+            counts[v] += 1
+    freq = {str(n): counts.get(n, 0) for n in range(1, 10)}
+    missing = [n for n in range(1, 10) if counts.get(n, 0) == 0]
+    max_c = max(counts.values()) if counts else 0
+    dominant = sorted(n for n, c in counts.items() if c == max_c) if max_c else []
+    meta = campbell_inclusion_meta()
+    return {
+        "name_vi": meta["name_vi"],
+        "frequency": freq,
+        "missing": missing,
+        "dominant": dominant,
+        "letter_count": sum(counts.values()),
+        "provenance": meta["provenance"],
+        "note": meta["note"],
     }
 
 
@@ -238,6 +272,7 @@ def compute_extended(
         "attitude": attitude(day, month),
         "balance": balance(name, name_order, system),
         "rational_thought": rational_thought(name, day, name_order, system),
+        "inclusion_table": inclusion_table(name, system),
         "karmic_lessons": lessons,
         "hidden_passion": hidden_passion(name, system),
         "subconscious_self": subconscious_self(lessons["count"]),

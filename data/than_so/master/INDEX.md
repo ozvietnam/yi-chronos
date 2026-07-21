@@ -7,6 +7,8 @@ Paradigm: **đọc đồng dạng, KHÔNG predict**.
 
 | File | Nội dung |
 |---|---|
+| **`library_provenance.json`** | Map sách thư viện ↔ engine hooks |
+| **`compatibility_matrix.json`** | Ma trận tương hợp 1–9 |
 | **`pythagorean_spec.json`** | **SPEC ĐÓNG BĂNG v1** — Decoz Method A, inventory P0, golden fixtures |
 | `letter_maps.json` | Bảng chữ cái Pythagoras (+ Chaldean đối chiếu) + bản địa hóa VN |
 | `core_numbers.json` | Định nghĩa 6 số cốt lõi + mở rộng |
@@ -35,3 +37,4 @@ Paradigm: **đọc đồng dạng, KHÔNG predict**.
 - **v7–v8 (2026-07-21)**: transit timeline, method audit, năm/ngày window, glossary UI, sage SOUL v2
 - **v9 (2026-07-21)**: Expression name-audit (per-part vs flat), PDF đủ timeline/deep, xoá PytagoEnergyPage
 - **v10 (2026-07-21)**: SKU tương hợp multi-aspect + WeasyPrint PDF (fpdf2 fallback)
+- **v11 (2026-07-21)**: thư viện Balliett/Campbell/Cheiro → compound 10–52, Inclusion Table, skills

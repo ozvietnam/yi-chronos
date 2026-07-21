@@ -88,13 +88,14 @@ rồi mới xét tổng rút gọn — số kép mang lớp nghĩa riêng.
 - **32 — Sức mạnh huyền** (như 14/23): thuận nếu giữ phán đoán riêng; nghe theo cố chấp người khác thì đổ vỡ.
 
 ### Số kép 33-52
-Cheiro: phần lớn **lặp lại** sắc thái theo tổng chữ số → tra số kép thấp tương ứng
-(33≈24, 34≈25, 35≈26, 36≈27, 40≈31…). **37** đặc biệt tốt cho hợp tác/tình thân.
-Sắc thái đầy đủ: xem bản PDF nguyên tác.
+✅ **Đã extract từ OCR thư viện** (2026-07-21) → `chaldean_compound_numbers.json` + `library.resolve_compound`.
+
+- Alias: 33→24, 34→25, 35→26, 36→27, 38→29, 39→30, 40→31, 41→32, 42→24, 44→26, 45→27, 46→37, 47→29, 48→30, 49→31, 50→32, 52→43
+- Lực riêng: **37** (tình thân/hợp tác), **43** (đảo loạn), **51** (chiến binh)
 
 ---
 
-## IV. Còn lại (Stage 6 — chờ Anh)
-- [ ] Đính kèm PDF nguyên tác (Stage 1 hoàn tất)
-- [ ] Dịch trọn các chương ứng dụng (tên + ngày sinh, tương hợp, dự cảm)
-- [ ] Biên soạn → PDF publish (Stage 6) + vào `data/published/` + LEDGER
+## IV. Wire engine + còn lại
+- ✅ Compound 10–52 wired; cast `cross_reference.name_compound_flat`
+- ✅ PDF publish core v0.2 (`data/published/cheiro-book-of-numbers-core-v0.2.pdf`)
+- [ ] Dịch trọn chương ứng dụng (tên + ngày sự kiện) nếu Anh muốn mở rộng Stage 6
