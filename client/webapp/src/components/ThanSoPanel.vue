@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted, watch } from "vue";
-import { castThanSo } from "../lib/api.js";
+import { castThanSo, thanSoReportPdf } from "../lib/api.js";
 import { activePerson } from "../stores/userDataStore.js";
 
 const form = ref({
@@ -13,8 +13,11 @@ const form = ref({
 });
 
 const loading = ref(false);
+const pdfLoading = ref(false);
 const error = ref("");
 const result = ref(null);
+const showDeep = ref(true);
+const calendarLimit = ref(12);
 
 async function submit() {
   error.value = "";
@@ -43,6 +46,30 @@ async function submit() {
   }
 }
 
+async function downloadPdf() {
+  if (!form.value.name.trim() || !form.value.birthDate) return;
+  pdfLoading.value = true;
+  error.value = "";
+  try {
+    const url = await thanSoReportPdf({
+      name: form.value.name,
+      birthDate: form.value.birthDate,
+      currentName: form.value.currentName.trim() || null,
+      nameOrder: form.value.nameOrder,
+      targetYear: Number(form.value.targetYear) || null,
+    });
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `ThanSo_${form.value.birthDate}.pdf`;
+    a.click();
+    URL.revokeObjectURL(url);
+  } catch (err) {
+    error.value = err?.message || String(err);
+  } finally {
+    pdfLoading.value = false;
+  }
+}
+
 let _lastSynced = null;
 function syncFromActive(force) {
   const p = activePerson.value;
@@ -67,6 +94,18 @@ const CORE_ORDER = [
   ["birthday", "Số Ngày Sinh"],
   ["maturity", "Số Trưởng Thành"],
 ];
+
+const ARC = {
+  1: "Khởi đầu / gieo hạt",
+  2: "Vun đắp / quan hệ",
+  3: "Sáng tạo / giao tiếp",
+  4: "Xây nền / kỷ luật",
+  5: "Thay đổi / tự do",
+  6: "Trách nhiệm / nhà",
+  7: "Nội quán / học sâu",
+  8: "Gặt hái / quyền lực",
+  9: "Hoàn tất / buông",
+};
 </script>
 
 <template>
@@ -74,7 +113,7 @@ const CORE_ORDER = [
     <header class="ts-head">
       <h2>Thần Số Học Pythagoras</h2>
       <p class="ts-sub">
-        Lá số chuẩn Decoz — tên khai sinh + ngày sinh. Đọc cấu trúc, không bói cát/hung.
+        Lá số chuẩn Decoz — một nguồn tính từ API. Đọc cấu trúc, không bói cát/hung.
       </p>
     </header>
 
@@ -111,13 +150,19 @@ const CORE_ORDER = [
           <input v-model="form.targetYear" type="number" min="1900" max="2200" />
         </label>
       </div>
-      <button type="submit" :disabled="loading">{{ loading ? "Đang lập…" : "Lập lá số" }}</button>
+      <div class="ts-actions">
+        <button type="submit" :disabled="loading">{{ loading ? "Đang lập…" : "Lập lá số" }}</button>
+        <button type="button" class="ts-pdf" :disabled="pdfLoading || !form.name || !form.birthDate" @click="downloadPdf">
+          {{ pdfLoading ? "Đang xuất PDF…" : "Tải PDF báo cáo" }}
+        </button>
+      </div>
     </form>
 
     <p v-if="error" class="ts-error">{{ error }}</p>
 
     <section v-if="result" class="ts-result">
       <p class="ts-paradigm">{{ result.reading.paradigm_note }}</p>
+      <p v-if="result.deep_reading?.disclaimer" class="ts-disclaimer">{{ result.deep_reading.disclaimer }}</p>
       <p class="ts-meta">
         Chuẩn hoá: <code>{{ result.input.name_normalized }}</code>
         · schema {{ result.schema_version }}
@@ -130,7 +175,6 @@ const CORE_ORDER = [
           <div class="ts-label">{{ label }}</div>
           <div class="ts-arch">{{ result.reading.core[key]?.archetype_vi }}</div>
           <p v-if="result.core[key].karmic_debt" class="ts-kd">Nợ {{ result.core[key].karmic_debt }}</p>
-          <p v-if="result.reading.core[key]?.dong_dang" class="ts-dd">{{ result.reading.core[key].dong_dang }}</p>
         </article>
       </div>
 
@@ -162,21 +206,18 @@ const CORE_ORDER = [
             <div class="ts-label">Bài Học (thiếu)</div>
           </article>
         </div>
-
         <div class="ts-bridges" v-if="result.extended.bridges">
           <strong>Cầu nối:</strong>
           ĐĐ↔SM {{ result.extended.bridges.life_path_expression.value }} ·
           LH↔NC {{ result.extended.bridges.soul_personality.value }} ·
           ĐĐ↔NS {{ result.extended.bridges.life_path_birthday.value }}
         </div>
-
         <div class="ts-planes" v-if="result.extended.planes_of_expression">
-          <strong>Mặt phẳng biểu đạt:</strong>
+          <strong>Mặt phẳng:</strong>
           <span v-for="(pl, key) in result.extended.planes_of_expression.planes" :key="key">
             {{ pl.name_vi }} {{ pl.value }}
           </span>
         </div>
-
         <div v-if="result.extended.minor" class="ts-minor">
           <strong>Minor (tên đang dùng):</strong>
           Expression {{ result.extended.minor.expression.value }} ·
@@ -201,12 +242,13 @@ const CORE_ORDER = [
         </ul>
       </div>
 
-      <h3>Chu kỳ</h3>
+      <h3>Chu kỳ & Duality</h3>
       <div class="ts-cycles">
         <div class="ts-cycle-row">
           <span v-if="result.cycles.personal_year">
             <strong>Năm CN {{ result.cycles.personal_year.target_year }}:</strong>
             {{ result.cycles.personal_year.value }}
+            <em>({{ ARC[result.cycles.personal_year.value] }})</em>
           </span>
           <span v-if="result.cycles.personal_month">
             <strong>Tháng CN:</strong> {{ result.cycles.personal_month.value }}
@@ -222,8 +264,21 @@ const CORE_ORDER = [
           </span>
           <span v-if="result.cycles.duality">
             <strong>Duality:</strong>
-            Essence {{ result.cycles.duality.essence }} × Năm {{ result.cycles.duality.personal_year }}
+            {{ result.cycles.duality.essence }} × {{ result.cycles.duality.personal_year }}
           </span>
+          <span v-if="result.cycles.transits">
+            Transit:
+            P {{ result.cycles.transits.physical?.letter }} /
+            M {{ result.cycles.transits.mental?.letter }} /
+            S {{ result.cycles.transits.spiritual?.letter }}
+          </span>
+        </div>
+
+        <div v-if="result.deep_reading?.cycles?.personal_year" class="ts-year-guide">
+          <p>{{ result.deep_reading.cycles.personal_year.read }}</p>
+          <ul>
+            <li v-for="(a, i) in result.deep_reading.cycles.personal_year.improve" :key="i">{{ a }}</li>
+          </ul>
         </div>
 
         <table>
@@ -254,6 +309,52 @@ const CORE_ORDER = [
         </table>
       </div>
 
+      <div v-if="result.cycles.personal_calendar?.length" class="ts-calendar">
+        <h3>
+          Lịch Personal Month
+          <button type="button" class="ts-link" @click="calendarLimit = calendarLimit === 12 ? 24 : 12">
+            {{ calendarLimit === 12 ? 'Xem 24 tháng' : 'Thu gọn 12 tháng' }}
+          </button>
+        </h3>
+        <div class="ts-cal-grid">
+          <article
+            v-for="row in result.cycles.personal_calendar.slice(0, calendarLimit)"
+            :key="row.label"
+            class="ts-cal-cell"
+          >
+            <div class="ts-cal-label">{{ row.label }}</div>
+            <div class="ts-cal-num">{{ row.personal_month }}</div>
+            <div class="ts-cal-arc">{{ ARC[row.personal_month] }}</div>
+            <div class="ts-cal-py">Năm {{ row.personal_year }}</div>
+          </article>
+        </div>
+      </div>
+
+      <div v-if="result.deep_reading" class="ts-deep">
+        <h3>
+          Luận READ → GAP → IMPROVE
+          <button type="button" class="ts-link" @click="showDeep = !showDeep">
+            {{ showDeep ? 'Thu gọn' : 'Mở' }}
+          </button>
+        </h3>
+        <div v-show="showDeep">
+          <article
+            v-for="[key] in CORE_ORDER"
+            :key="'deep'+key"
+            class="ts-deep-card"
+            v-show="result.deep_reading.core?.[key]"
+          >
+            <h4>
+              {{ result.deep_reading.core[key].name_vi }}
+              = {{ result.deep_reading.core[key].value }}
+            </h4>
+            <p><strong>READ:</strong> {{ result.deep_reading.core[key].read }}</p>
+            <p><strong>GAP:</strong> {{ result.deep_reading.core[key].gap }}</p>
+            <p><strong>IMPROVE:</strong> {{ result.deep_reading.core[key].improve }}</p>
+          </article>
+        </div>
+      </div>
+
       <details class="ts-breakdown">
         <summary>Chi tiết quy đổi tên ({{ result.input.name_normalized }})</summary>
         <span v-for="(b, i) in result.core.breakdown" :key="i" class="ts-letter" :class="{ vowel: b.is_vowel }">
@@ -271,7 +372,7 @@ const CORE_ORDER = [
 </template>
 
 <style scoped>
-.than-so-panel { max-width: 920px; margin: 0 auto; padding: 1rem; }
+.than-so-panel { max-width: 960px; margin: 0 auto; padding: 1rem; }
 .ts-head h2 { margin: 0; font-family: Georgia, "Times New Roman", serif; }
 .ts-sub { color: #5a5348; margin: 0.25rem 0 1rem; }
 .ts-opt { color: #888; font-weight: 400; font-size: 0.8rem; }
@@ -279,10 +380,13 @@ const CORE_ORDER = [
 .ts-form input, .ts-form select { padding: 0.45rem; border: 1px solid #c9c0b0; border-radius: 4px; background: #faf8f4; }
 .ts-row { display: flex; gap: 0.75rem; flex-wrap: wrap; }
 .ts-row label { flex: 1; min-width: 120px; }
+.ts-actions { display: flex; gap: 0.6rem; flex-wrap: wrap; }
 .ts-form button { padding: 0.55rem 1.2rem; border: 0; border-radius: 4px; background: #2c4a3e; color: #fff; cursor: pointer; }
+.ts-form button.ts-pdf { background: #5c4030; }
 .ts-form button:disabled { opacity: 0.6; cursor: default; }
 .ts-error { color: #a33; }
 .ts-paradigm { background: #f0ebe2; border-left: 3px solid #2c4a3e; padding: 0.6rem 0.8rem; font-style: italic; }
+.ts-disclaimer { font-size: 0.78rem; color: #666; }
 .ts-meta { font-size: 0.8rem; color: #777; }
 .ts-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 0.75rem; }
 .ts-grid-sm { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }
@@ -290,7 +394,6 @@ const CORE_ORDER = [
 .ts-num { font-size: 1.8rem; font-weight: 700; color: #2c4a3e; }
 .ts-label { font-size: 0.78rem; color: #555; }
 .ts-arch { font-weight: 600; margin: 0.2rem 0; font-size: 0.85rem; }
-.ts-dd { font-size: 0.72rem; color: #777; }
 .ts-kd { font-size: 0.72rem; color: #8a5a2a; }
 .ts-extended { margin: 1rem 0; }
 .ts-bridges, .ts-planes, .ts-minor, .ts-xref { margin: 0.6rem 0; font-size: 0.9rem; }
@@ -298,6 +401,20 @@ const CORE_ORDER = [
 .ts-cycles table { border-collapse: collapse; margin-top: 0.5rem; margin-right: 1rem; display: inline-table; vertical-align: top; }
 .ts-cycles th, .ts-cycles td { border: 1px solid #ddd; padding: 0.3rem 0.7rem; font-size: 0.85rem; }
 .ts-cycle-row { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 0.5rem; }
+.ts-cycle-row em { color: #666; font-size: 0.85rem; }
+.ts-year-guide { background: #f7f3ea; padding: 0.7rem 0.9rem; border-radius: 4px; margin: 0.6rem 0; font-size: 0.9rem; }
+.ts-calendar { margin: 1.2rem 0; }
+.ts-cal-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 0.5rem; }
+.ts-cal-cell { border: 1px solid #e0d6c6; padding: 0.5rem; text-align: center; background: #fffefb; }
+.ts-cal-label { font-size: 0.72rem; color: #777; }
+.ts-cal-num { font-size: 1.4rem; font-weight: 700; color: #2c4a3e; }
+.ts-cal-arc { font-size: 0.68rem; color: #555; }
+.ts-cal-py { font-size: 0.65rem; color: #999; }
+.ts-deep { margin: 1.2rem 0; }
+.ts-deep-card { border-top: 1px solid #e5ddd0; padding: 0.7rem 0; }
+.ts-deep-card h4 { margin: 0 0 0.35rem; font-size: 0.95rem; }
+.ts-deep-card p { margin: 0.25rem 0; font-size: 0.86rem; line-height: 1.45; }
+.ts-link { background: none; border: none; color: #2c4a3e; text-decoration: underline; cursor: pointer; font-size: 0.8rem; margin-left: 0.5rem; }
 .ts-breakdown { margin-top: 1rem; }
 .ts-letter { display: inline-block; padding: 0.1rem 0.3rem; margin: 0.1rem; border-radius: 3px; background: #eee; }
 .ts-letter.vowel { background: #dce8e2; }

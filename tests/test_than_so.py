@@ -193,10 +193,22 @@ def test_cast_full_chart_p0():
     assert "personal_day" in res["cycles"]
     assert "essence" in res["cycles"]
     assert "transits" in res["cycles"]
+    assert len(res["cycles"]["personal_calendar"]) == 24
+    assert "deep_reading" in res
+    assert res["deep_reading"]["core"]["life_path"]["read"]
+    assert res["deep_reading"]["core"]["life_path"]["gap"]
+    assert res["deep_reading"]["core"]["life_path"]["improve"]
     assert res["cross_reference"]["system"] == "chaldean"
     assert "dong_phuong_doi_chieu" not in res  # default off
     assert "predict" not in res["reading"]["paradigm_note"].lower()
 
+
+def test_generate_pdf_bytes():
+    from engine.than_so.report_pdf import generate_than_so_pdf
+
+    pdf = generate_than_so_pdf("Nguyễn Văn An", "1990-11-23", current_name="An", target_year=2026)
+    assert pdf[:4] == b"%PDF"
+    assert len(pdf) > 1000
 
 def test_cast_dong_phuong_opt_in():
     res = cast_than_so("Nguyễn Văn An", "1990-11-23", include_dong_phuong=True)

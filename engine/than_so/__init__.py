@@ -17,9 +17,11 @@ from .cycles import (
     personal_year,
     pinnacles_and_challenges,
 )
+from .deep_reading import compose_deep_reading
 from .extended import compute_extended
 from .interpretation import compose_reading, describe_number
 from .name_calculator import name_breakdown, normalize_vietnamese
+from .report_pdf import generate_than_so_pdf
 
 __all__ = [
     "KARMIC_DEBT_NUMBERS",
@@ -29,11 +31,13 @@ __all__ = [
     "SYSTEMS",
     "build_cycles",
     "cast_than_so",
+    "compose_deep_reading",
     "compose_reading",
     "compute_core",
     "compute_extended",
     "cross_bind_dong_phuong",
     "describe_number",
+    "generate_than_so_pdf",
     "life_path",
     "name_breakdown",
     "normalize_vietnamese",

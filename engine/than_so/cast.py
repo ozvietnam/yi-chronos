@@ -9,6 +9,7 @@ from datetime import date
 from .constants import METHOD_ID, SOURCE_REF
 from .core_numbers import compute_core
 from .cycles import build_cycles
+from .deep_reading import compose_deep_reading
 from .extended import compute_extended
 from .interpretation import compose_reading
 from .name_calculator import normalize_vietnamese
@@ -90,6 +91,7 @@ def cast_than_so(
         "extended": extended,
         "cycles": cycles,
         "reading": compose_reading(core, cycles, extended),
+        "deep_reading": compose_deep_reading(core, extended, cycles),
     }
 
     if include_chaldean and core_system != "chaldean":

@@ -233,6 +233,32 @@ def age_digit(birth: date, on_date: date) -> dict:
     }
 
 
+def personal_calendar(
+    day: int,
+    month: int,
+    start_year: int,
+    start_month: int,
+    months: int = 24,
+) -> list[dict]:
+    """Lịch Personal Month 12–24 tháng tới (Decoz) — checklist hành động theo khí."""
+    out: list[dict] = []
+    y, m = start_year, start_month
+    for _ in range(max(1, months)):
+        pm = personal_month(day, month, y, m)
+        out.append({
+            "year": y,
+            "month": m,
+            "label": f"{y:04d}-{m:02d}",
+            "personal_year": pm["personal_year"],
+            "personal_month": pm["value"],
+        })
+        m += 1
+        if m > 12:
+            m = 1
+            y += 1
+    return out
+
+
 def build_cycles(
     day: int,
     month: int,
@@ -243,6 +269,7 @@ def build_cycles(
     target_month: int | None = None,
     target_day: int | None = None,
     as_of: date | None = None,
+    calendar_months: int = 24,
 ) -> dict:
     """Gói đầy đủ chu kỳ cho cast."""
     as_of = as_of or date.today()
@@ -275,6 +302,7 @@ def build_cycles(
         "personal_year": py,
         "personal_month": pm,
         "personal_day": pd,
+        "personal_calendar": personal_calendar(day, month, ty, tm, calendar_months),
         "transits": te,
         "essence": te["essence"],
         "duality": duality,

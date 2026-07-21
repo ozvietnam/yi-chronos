@@ -721,6 +721,37 @@ export function thanSoGlossary() {
   return request("/api/than-so/glossary");
 }
 
+/**
+ * Tải PDF lá số Thần Số Pythagoras.
+ * @returns {Promise<string>} object URL để download
+ */
+export function thanSoReportPdf({
+  name,
+  birthDate,
+  currentName = null,
+  nameOrder = "vn",
+  targetYear = null,
+}) {
+  return fetch(`/api/than-so/report-pdf`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      name,
+      birth_date: birthDate,
+      current_name: currentName,
+      name_order: nameOrder,
+      target_year: targetYear,
+    }),
+  }).then(async (r) => {
+    if (!r.ok) {
+      const text = await r.text().catch(() => "");
+      throw new Error(text || `HTTP ${r.status}`);
+    }
+    const blob = await r.blob();
+    return URL.createObjectURL(blob);
+  });
+}
+
 export function yiHermesChat({ userMessage, context = {}, history = [] }) {
   return request(`/api/yi-hermes/chat`, {
     method: "POST",

@@ -16,7 +16,6 @@ import { useReadingPrefs } from "./composables/useReadingPrefs.js";
 const UniverseCore = defineAsyncComponent(() => import("./components/UniverseCore.vue"));
 const MaiHoaClock3D = defineAsyncComponent(() => import("./components/MaiHoaClock3D.vue"));
 const LucHaoResultPage = defineAsyncComponent(() => import("./components/LucHaoResultPage.vue"));
-const PytagoEnergyPage = defineAsyncComponent(() => import("./components/PytagoEnergyPage.vue"));
 const ThanSoPanel = defineAsyncComponent(() => import("./components/ThanSoPanel.vue"));
 const EnergyWeatherPanel = defineAsyncComponent(() => import("./components/EnergyWeatherPanel.vue"));
 const PersonalResonance = defineAsyncComponent(() => import("./components/PersonalResonance.vue"));
@@ -1015,11 +1014,6 @@ onBeforeUnmount(() => {
 
       <section v-else-if="activeMainTab === 'pytago'" class="maihoa-page" aria-label="Trang trường phái Pytago">
         <ThanSoPanel />
-        <PytagoEnergyPage
-          :luc-hao-result="latestLucHaoResult"
-          :luc-hao-meta="latestLucHaoMeta"
-          :universe-profile="activeUniverseProfile"
-        />
       </section>
 
       <section v-else class="maihoa-page" aria-label="Trang kết quả Lục Hào">

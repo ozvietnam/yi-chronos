@@ -174,11 +174,16 @@ Giống Iron Rule #6 (CƠ + BIẾN của Tử Vi), số tĩnh chưa đủ — ph
 - ✅ API + `ThanSoPanel.vue` schema v2; `include_dong_phuong` mặc định tắt
 - ✅ Tests `tests/test_than_so.py` — 27 PASS
 
-**CHƯA LÀM (P1 — hữu dụng trả phí):**
-- [ ] Transit timeline UI nhiều năm + Duality narrative
-- [ ] PDF báo cáo lá số
-- [ ] Unify `PytagoEnergyPage` sang API (bỏ dual calculator client)
-- [ ] Reading VI đủ dày theo từng số (READ→GAP→IMPROVE)
+**ĐÃ XONG (v6, 2026-07-21 — P1 sản phẩm đủ dùng):**
+- ✅ Deep reading READ→GAP→IMPROVE (`engine/than_so/deep_reading.py`)
+- ✅ Lịch Personal Month 24 tháng trong cast
+- ✅ PDF báo cáo `/api/than-so/report-pdf` (fpdf2 + DejaVu)
+- ✅ Unify UI: tab Pytago chỉ `ThanSoPanel` (bỏ dual calculator `PytagoEnergyPage`)
+- ✅ UI: Duality/Transit + lịch tháng + luận sâu + nút tải PDF
+
+**CHƯA LÀM (ngoài module / chờ môi trường):**
+- [ ] WeasyPrint print-quality layout (hiện fpdf2 đủ dùng)
+- [ ] Restore sách Goodwin/Juno Jordan bản quyền
 
 ---
 

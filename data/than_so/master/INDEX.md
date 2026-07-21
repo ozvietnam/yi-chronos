@@ -31,3 +31,4 @@ Paradigm: **đọc đồng dạng, KHÔNG predict**.
 
 - v1–v4: data + E2E tối thiểu + UI + cross-bind
 - **v5 (2026-07-21)**: Decoz P0 complete chart — golden fixtures + extended + cycles đầy đủ
+- **v6 (2026-07-21)**: deep reading + PDF + lịch 24 tháng + UI một nguồn API

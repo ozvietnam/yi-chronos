@@ -1272,6 +1272,36 @@ def than_so_glossary() -> dict[str, object]:
     return {"method_id": METHOD_ID, "numbers": number_meanings()}
 
 
+class ThanSoPdfRequest(BaseModel):
+    name: str
+    birth_date: str
+    current_name: str | None = None
+    name_order: str = "vn"
+    target_year: int | None = None
+
+
+@app.post("/api/than-so/report-pdf")
+def than_so_report_pdf(request: ThanSoPdfRequest):
+    """Xuất PDF lá số Pythagoras (Decoz) — artifact báo cáo."""
+    from fastapi.responses import Response
+
+    from engine.than_so.report_pdf import generate_than_so_pdf, safe_filename
+
+    pdf_bytes = generate_than_so_pdf(
+        name=request.name,
+        birth_date=request.birth_date,
+        current_name=request.current_name,
+        name_order=request.name_order,
+        target_year=request.target_year,
+    )
+    filename = safe_filename(request.name, request.birth_date)
+    return Response(
+        content=pdf_bytes,
+        media_type="application/pdf",
+        headers={"Content-Disposition": f'attachment; filename="{filename}"'},
+    )
+
+
 @app.post("/api/bat-tu/cast")
 def bat_tu_cast(request: BatTuCastRequest, caller: dict = Depends(require_caller)) -> dict[str, object]:
     """Cast a Bát Tự chart (Tứ trụ + Thập thần + Ngũ hành balance)."""
