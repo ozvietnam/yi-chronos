@@ -12,6 +12,7 @@ from .cycles import build_cycles
 from .deep_reading import compose_deep_reading
 from .extended import compute_extended
 from .interpretation import compose_reading
+from .method_audit import method_audit
 from .name_calculator import normalize_vietnamese
 
 
@@ -92,6 +93,7 @@ def cast_than_so(
         "cycles": cycles,
         "reading": compose_reading(core, cycles, extended),
         "deep_reading": compose_deep_reading(core, extended, cycles),
+        "method_audit": method_audit(d.day, d.month, d.year),
     }
 
     if include_chaldean and core_system != "chaldean":

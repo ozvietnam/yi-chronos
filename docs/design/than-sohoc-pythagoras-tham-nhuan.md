@@ -181,6 +181,12 @@ Giống Iron Rule #6 (CƠ + BIẾN của Tử Vi), số tĩnh chưa đủ — ph
 - ✅ Unify UI: tab Pytago chỉ `ThanSoPanel` (bỏ dual calculator `PytagoEnergyPage`)
 - ✅ UI: Duality/Transit + lịch tháng + luận sâu + nút tải PDF
 
+**ĐÃ XONG (v7, 2026-07-21 — tin cậy + timeline):**
+- ✅ Transit timeline 9 tuổi + First Vowel + Age Digit/Corner/Cap trên UI
+- ✅ Method audit Decoz A vs shortcut (che Karmic)
+- ✅ Duality guidance dày hơn; Chân Dung teaser từ `cast_than_so`
+- ✅ PDF thêm Transit timeline + kiểm chứng công thức
+
 **CHƯA LÀM (ngoài module / chờ môi trường):**
 - [ ] WeasyPrint print-quality layout (hiện fpdf2 đủ dùng)
 - [ ] Restore sách Goodwin/Juno Jordan bản quyền

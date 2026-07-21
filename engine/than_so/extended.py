@@ -112,10 +112,17 @@ def subconscious_self(lessons_count: int) -> dict:
 
 
 def cornerstone_capstone(name: str, name_order: str = "vn", system: str = "pythagorean") -> dict:
+    from .name_calculator import is_vowel
+
     split = split_name_parts(name, name_order)
     first = letters_only(split["first_name"])
     corner = first[0] if first else ""
     cap = first[-1] if first else ""
+    first_vowel = ""
+    for i, ch in enumerate(first):
+        if is_vowel(first, i):
+            first_vowel = ch
+            break
     return {
         "cornerstone": {
             "name_vi": "Cornerstone",
@@ -126,6 +133,11 @@ def cornerstone_capstone(name: str, name_order: str = "vn", system: str = "pytha
             "name_vi": "Capstone",
             "letter": cap,
             "value": letter_value(cap, system) if cap else None,
+        },
+        "first_vowel": {
+            "name_vi": "Nguyên âm đầu (First Vowel)",
+            "letter": first_vowel,
+            "value": letter_value(first_vowel, system) if first_vowel else None,
         },
         "first_name": split["first_name"],
     }
@@ -231,6 +243,7 @@ def compute_extended(
         "subconscious_self": subconscious_self(lessons["count"]),
         "cornerstone": letters_meta["cornerstone"],
         "capstone": letters_meta["capstone"],
+        "first_vowel": letters_meta["first_vowel"],
         "bridges": bridges(core),
         "planes_of_expression": planes_of_expression(name, system),
     }

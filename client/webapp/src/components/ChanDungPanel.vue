@@ -27,9 +27,17 @@ const METHOD_LABEL = {
 };
 function methodLabel(m) { return METHOD_LABEL[m] || m; }
 function fmtDate(ts) { try { return new Date(ts * 1000).toLocaleDateString("vi-VN"); } catch { return ""; } }
-const TS_KEYS = ["life_path", "expression", "soul_urge", "personality", "birthday", "maturity"];
-const TS_LABEL = { life_path: "Đường đời", expression: "Sứ mệnh", soul_urge: "Linh hồn",
-  personality: "Nhân cách", birthday: "Ngày sinh", maturity: "Trưởng thành" };
+const TS_KEYS = ["life_path", "expression", "soul_urge", "personality", "birthday", "maturity", "attitude", "personal_year"];
+const TS_LABEL = {
+  life_path: "Đường đời",
+  expression: "Sứ mệnh",
+  soul_urge: "Linh hồn",
+  personality: "Nhân cách",
+  birthday: "Ngày sinh",
+  maturity: "Trưởng thành",
+  attitude: "Thái độ",
+  personal_year: "Năm cá nhân",
+};
 function stripMd(s) { return (s || "").replace(/\*\*/g, "").replace(/^#+\s*/gm, ""); }
 
 const PALACE_VI = {

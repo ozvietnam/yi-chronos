@@ -259,6 +259,29 @@ def personal_calendar(
     return out
 
 
+def transit_timeline(
+    name: str,
+    start_age: int,
+    years: int = 9,
+    name_order: str = "vn",
+    system: str = "pythagorean",
+) -> list[dict]:
+    """Essence + 3 Transit cho `years` tuổi liên tiếp kể từ start_age."""
+    rows: list[dict] = []
+    for offset in range(max(1, years)):
+        age = max(0, start_age + offset)
+        te = transits_and_essence(name, age, name_order, system)
+        rows.append({
+            "age": age,
+            "physical": te["physical"],
+            "mental": te["mental"],
+            "spiritual": te["spiritual"],
+            "essence": te["essence"]["value"],
+            "essence_raw": te["essence"]["raw"],
+        })
+    return rows
+
+
 def build_cycles(
     day: int,
     month: int,
@@ -270,6 +293,7 @@ def build_cycles(
     target_day: int | None = None,
     as_of: date | None = None,
     calendar_months: int = 24,
+    transit_years: int = 9,
 ) -> dict:
     """Gói đầy đủ chu kỳ cho cast."""
     as_of = as_of or date.today()
@@ -278,7 +302,6 @@ def build_cycles(
     td = target_day if target_day is not None else as_of.day
 
     birth = date(year, month, day)
-    # Age for transit: completed years as of as_of
     age = as_of.year - birth.year
     if (as_of.month, as_of.day) < (birth.month, birth.day):
         age -= 1
@@ -304,6 +327,7 @@ def build_cycles(
         "personal_day": pd,
         "personal_calendar": personal_calendar(day, month, ty, tm, calendar_months),
         "transits": te,
+        "transit_timeline": transit_timeline(name, age, transit_years, name_order),
         "essence": te["essence"],
         "duality": duality,
         "age_digit": age_digit(birth, as_of),

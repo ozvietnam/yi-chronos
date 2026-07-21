@@ -166,16 +166,20 @@ def compose_deep_reading(core: dict, extended: dict | None = None, cycles: dict 
             }
         duality = cycles.get("duality")
         if duality:
+            e, y = duality["essence"], duality["personal_year"]
             cycle_guidance["duality"] = {
-                "essence": duality["essence"],
-                "personal_year": duality["personal_year"],
+                "essence": e,
+                "personal_year": y,
                 "read": (
-                    f"Duality năm này: Essence {duality['essence']} × "
-                    f"Năm cá nhân {duality['personal_year']} — đọc chung, không tách."
+                    f"Duality năm này: Essence {e} × Năm cá nhân {y}. "
+                    f"Essence = khí từ chữ cái tên theo tuổi; Năm CN = khí từ ngày sinh + năm lịch. "
+                    f"Đọc chung: {arc.get(str(e), f'số {e}')} gặp {arc.get(str(y), f'số {y}')}."
                 ),
+                "gap": "Anh đang chỉ nghe một phía (tên hoặc ngày sinh) và bỏ phía kia?",
                 "improve": (
                     "Khi lập kế hoạch tháng: hỏi cả Essence (tên–tuổi) và Năm cá nhân (ngày sinh)."
                 ),
+                "actions": list(dict.fromkeys(_year_actions(e)[:1] + _year_actions(y)[:2])),
             }
         essence = cycles.get("essence")
         if essence:
@@ -184,6 +188,12 @@ def compose_deep_reading(core: dict, extended: dict | None = None, cycles: dict 
                 "read": f"Essence tuổi hiện tại = {essence['value']} (từ Transit tên).",
                 "improve": f"Quan-sát chủ đề số {essence['value']} trong các quyết định lớn năm nay.",
             }
+        timeline = cycles.get("transit_timeline") or []
+        if timeline:
+            cycle_guidance["transit_timeline_hint"] = (
+                f"Timeline Transit/Essence {len(timeline)} tuổi tới — "
+                "quan-sát chữ cái đổi và Essence đổi, không đoán cát/hung."
+            )
 
     return {
         "method": "READ→GAP→IMPROVE",

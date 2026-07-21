@@ -230,19 +230,43 @@ def _duyen(birth_iso: str, gender: str, tz: str, age: int) -> dict:
 
 
 def _than_so(name: str, birth_iso: str) -> dict:
-    """Thần Số học — 6 con số cốt lõi (lăng kính tâm lý phương Tây, đọc đồng dạng). Deterministic."""
+    """Thần Số Pythagoras — teaser Chân Dung từ cast Decoz (không tự tính lệch)."""
     try:
-        from engine.than_so.core_numbers import compute_core
-        from engine.than_so.interpretation import compose_reading
-        y, m, d = int(birth_iso[:4]), int(birth_iso[5:7]), int(birth_iso[8:10])
-        core = (compose_reading(compute_core(name or "Quý khách", d, m, y)).get("core") or {})
+        from engine.than_so import cast_than_so
+
+        chart = cast_than_so(
+            name=name or "Quý khách",
+            birth_date=birth_iso[:10],
+            include_chaldean=False,
+            include_dong_phuong=False,
+        )
+        core = chart.get("reading", {}).get("core") or {}
+        ext = chart.get("extended") or {}
+        cy = chart.get("cycles") or {}
 
         def _n(k):
             e = core.get(k) or {}
-            return {"value": e.get("value"), "archetype": e.get("archetype_vi"),
-                    "dong_dang": e.get("dong_dang")}
-        return {k: _n(k) for k in ("life_path", "expression", "soul_urge",
-                                   "personality", "birthday", "maturity")}
+            return {
+                "value": e.get("value"),
+                "archetype": e.get("archetype_vi"),
+                "dong_dang": e.get("dong_dang"),
+            }
+
+        out = {
+            k: _n(k)
+            for k in ("life_path", "expression", "soul_urge", "personality", "birthday", "maturity")
+        }
+        if ext.get("attitude"):
+            out["attitude"] = {
+                "value": ext["attitude"]["value"],
+                "archetype": (chart.get("reading") or {}).get("attitude", {}).get("archetype_vi"),
+            }
+        if cy.get("personal_year"):
+            out["personal_year"] = {
+                "value": cy["personal_year"]["value"],
+                "target_year": cy["personal_year"]["target_year"],
+            }
+        return out
     except Exception as e:
         logger.info("chan_dung than_so lỗi: %s", str(e)[:120])
         return {}

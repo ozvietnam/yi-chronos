@@ -212,6 +212,23 @@ const ARC = {
           LH↔NC {{ result.extended.bridges.soul_personality.value }} ·
           ĐĐ↔NS {{ result.extended.bridges.life_path_birthday.value }}
         </div>
+        <div class="ts-letters-meta">
+          <span v-if="result.extended.cornerstone?.letter">
+            Cornerstone <strong>{{ result.extended.cornerstone.letter }}</strong>
+            ({{ result.extended.cornerstone.value }})
+          </span>
+          <span v-if="result.extended.capstone?.letter">
+            Capstone <strong>{{ result.extended.capstone.letter }}</strong>
+            ({{ result.extended.capstone.value }})
+          </span>
+          <span v-if="result.extended.first_vowel?.letter">
+            First Vowel <strong>{{ result.extended.first_vowel.letter }}</strong>
+            ({{ result.extended.first_vowel.value }})
+          </span>
+          <span v-if="result.cycles.age_digit">
+            Age Digit <strong>{{ result.cycles.age_digit.value }}</strong>
+          </span>
+        </div>
         <div class="ts-planes" v-if="result.extended.planes_of_expression">
           <strong>Mặt phẳng:</strong>
           <span v-for="(pl, key) in result.extended.planes_of_expression.planes" :key="key">
@@ -279,6 +296,25 @@ const ARC = {
           <ul>
             <li v-for="(a, i) in result.deep_reading.cycles.personal_year.improve" :key="i">{{ a }}</li>
           </ul>
+          <p v-if="result.deep_reading.cycles.duality" class="ts-duality">
+            {{ result.deep_reading.cycles.duality.read }}
+          </p>
+        </div>
+
+        <div v-if="result.method_audit" class="ts-audit">
+          <h4>Kiểm chứng công thức Life Path</h4>
+          <p>{{ result.method_audit.note }}</p>
+          <p>
+            Decoz A: <strong>{{ result.method_audit.decoz_method_a.value }}</strong>
+            <template v-if="result.method_audit.decoz_method_a.karmic_debt">
+              (nợ {{ result.method_audit.decoz_method_a.karmic_debt }})
+            </template>
+            · Shortcut chữ số: {{ result.method_audit.shortcut_digit_string.value }}
+            · Shortcut cộng đơn vị: {{ result.method_audit.shortcut_unit_sum.value }}
+          </p>
+          <p v-if="result.method_audit.diverged || result.method_audit.karmic_hidden_by_shortcut" class="ts-audit-warn">
+            Shortcut lệch hoặc che Karmic — YI giữ Method A.
+          </p>
         </div>
 
         <table>
@@ -328,6 +364,29 @@ const ARC = {
             <div class="ts-cal-py">Năm {{ row.personal_year }}</div>
           </article>
         </div>
+      </div>
+
+      <div v-if="result.cycles.transit_timeline?.length" class="ts-timeline">
+        <h3>Transit / Essence — 9 tuổi tới</h3>
+        <p v-if="result.deep_reading?.cycles?.transit_timeline_hint" class="ts-meta">
+          {{ result.deep_reading.cycles.transit_timeline_hint }}
+        </p>
+        <table>
+          <thead>
+            <tr>
+              <th>Tuổi</th><th>P</th><th>M</th><th>S</th><th>Essence</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="row in result.cycles.transit_timeline" :key="'tt'+row.age">
+              <td>{{ row.age }}</td>
+              <td>{{ row.physical?.letter }}</td>
+              <td>{{ row.mental?.letter }}</td>
+              <td>{{ row.spiritual?.letter }}</td>
+              <td><strong>{{ row.essence }}</strong></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
 
       <div v-if="result.deep_reading" class="ts-deep">
@@ -396,8 +455,15 @@ const ARC = {
 .ts-arch { font-weight: 600; margin: 0.2rem 0; font-size: 0.85rem; }
 .ts-kd { font-size: 0.72rem; color: #8a5a2a; }
 .ts-extended { margin: 1rem 0; }
-.ts-bridges, .ts-planes, .ts-minor, .ts-xref { margin: 0.6rem 0; font-size: 0.9rem; }
+.ts-bridges, .ts-planes, .ts-minor, .ts-xref, .ts-letters-meta { margin: 0.6rem 0; font-size: 0.9rem; }
+.ts-letters-meta span { margin-right: 1rem; display: inline-block; }
 .ts-planes span { margin-right: 0.75rem; }
+.ts-audit { background: #f5f1e8; padding: 0.7rem 0.9rem; border-radius: 4px; margin: 0.6rem 0; font-size: 0.86rem; }
+.ts-audit-warn { color: #8a4b1a; font-weight: 600; }
+.ts-duality { font-style: italic; color: #555; margin-top: 0.4rem; }
+.ts-timeline { margin: 1.2rem 0; }
+.ts-timeline table { border-collapse: collapse; }
+.ts-timeline th, .ts-timeline td { border: 1px solid #ddd; padding: 0.25rem 0.55rem; font-size: 0.82rem; }
 .ts-cycles table { border-collapse: collapse; margin-top: 0.5rem; margin-right: 1rem; display: inline-table; vertical-align: top; }
 .ts-cycles th, .ts-cycles td { border: 1px solid #ddd; padding: 0.3rem 0.7rem; font-size: 0.85rem; }
 .ts-cycle-row { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 0.5rem; }

@@ -194,13 +194,26 @@ def test_cast_full_chart_p0():
     assert "essence" in res["cycles"]
     assert "transits" in res["cycles"]
     assert len(res["cycles"]["personal_calendar"]) == 24
+    assert len(res["cycles"]["transit_timeline"]) == 9
     assert "deep_reading" in res
     assert res["deep_reading"]["core"]["life_path"]["read"]
     assert res["deep_reading"]["core"]["life_path"]["gap"]
     assert res["deep_reading"]["core"]["life_path"]["improve"]
+    assert "method_audit" in res
+    assert res["method_audit"]["decoz_method_a"]["value"] == 8
+    assert res["extended"]["first_vowel"]["letter"]
     assert res["cross_reference"]["system"] == "chaldean"
     assert "dong_phuong_doi_chieu" not in res  # default off
     assert "predict" not in res["reading"]["paradigm_note"].lower()
+
+
+def test_method_audit_karmic_oct_15_1998():
+    from engine.than_so.method_audit import method_audit
+
+    audit = method_audit(15, 10, 1998)
+    assert audit["decoz_method_a"]["value"] == 7
+    assert audit["decoz_method_a"]["karmic_debt"] == 16
+    assert audit["karmic_hidden_by_shortcut"] is True
 
 
 def test_generate_pdf_bytes():

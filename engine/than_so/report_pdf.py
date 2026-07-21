@@ -180,6 +180,32 @@ def generate_than_so_pdf(
             size=9,
         )
 
+    pdf.ln(3)
+    _p(pdf, "VII. Transit / Essence (9 tuổi tới)", size=12, bold=True)
+    for row in (cy.get("transit_timeline") or [])[:9]:
+        _p(
+            pdf,
+            f"Tuổi {row['age']}: P={row['physical'] and row['physical'].get('letter')} "
+            f"M={row['mental'] and row['mental'].get('letter')} "
+            f"S={row['spiritual'] and row['spiritual'].get('letter')} "
+            f"→ Essence {row['essence']}",
+            size=9,
+        )
+
+    audit = chart.get("method_audit") or {}
+    if audit:
+        pdf.ln(3)
+        _p(pdf, "VIII. Kiểm chứng Life Path", size=12, bold=True)
+        _p(pdf, audit.get("note", ""), size=8)
+        da = audit.get("decoz_method_a") or {}
+        _p(
+            pdf,
+            f"Decoz A: {da.get('value')} · Shortcut: "
+            f"{(audit.get('shortcut_digit_string') or {}).get('value')} / "
+            f"{(audit.get('shortcut_unit_sum') or {}).get('value')}",
+            size=9,
+        )
+
     pdf.ln(4)
     pdf.set_text_color(100, 100, 100)
     _p(
