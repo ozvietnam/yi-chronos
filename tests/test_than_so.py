@@ -282,3 +282,58 @@ def test_cross_bind_number_3_strong_consensus():
 def test_cross_bind_number_9_divergence_not_forced():
     cb = cross_bind_dong_phuong(9)
     assert cb["divergence"] is True
+
+
+# ─── Compatibility (v10) ───────────────────────────────────────────────────────
+
+
+def test_lookup_pair_4_9_is_low():
+    from engine.than_so.compatibility import lookup_pair
+
+    pair = lookup_pair(4, 9)
+    assert pair["score"] == "low"
+    assert pair["points"] == 1
+
+
+def test_lookup_pair_master_11_maps_to_2():
+    from engine.than_so.compatibility import lookup_pair, root_digit
+
+    assert root_digit(11) == 2
+    # 11×6 → same as 2×6 → high
+    assert lookup_pair(11, 6)["score"] == "high"
+
+
+def test_analyze_compatibility_structure():
+    from engine.than_so.compatibility import analyze_compatibility
+
+    report = analyze_compatibility(
+        "Nguyễn Văn An",
+        "1990-11-23",
+        "Trần Thị Bình",
+        "1992-04-15",
+        relationship_type="partner",
+        target_year=2026,
+    )
+    assert report["schema_version"] == "v2-compat"
+    assert "predict" not in report["paradigm_note"].lower()
+    assert len(report["aspects"]) == 4
+    assert 0 <= report["overall"]["percent"] <= 100
+    assert report["composite_life_path"]["value"]
+    assert report["person_a"]["core"]["life_path"]["value"]
+    assert report["person_b"]["core"]["life_path"]["value"]
+
+
+def test_compatibility_pdf_bytes():
+    from engine.than_so.compatibility import analyze_compatibility
+    from engine.than_so.report_pdf import generate_compatibility_pdf
+
+    report = analyze_compatibility(
+        "Nguyễn Văn An",
+        "1990-11-23",
+        "Mary Ann Smith",
+        "1980-01-01",
+        name_order_b="western",
+    )
+    pdf = generate_compatibility_pdf(report)
+    assert pdf[:4] == b"%PDF"
+    assert len(pdf) > 800

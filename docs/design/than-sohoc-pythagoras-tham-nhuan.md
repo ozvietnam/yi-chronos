@@ -198,10 +198,16 @@ Giống Iron Rule #6 (CƠ + BIẾN của Tử Vi), số tĩnh chưa đủ — ph
 - ✅ PDF: day window 21d, pinnacle/challenge deep, planes, letter grid, Expression audit
 - ✅ UI: Expression audit + deep Đỉnh/Thử thách; xoá dead `PytagoEnergyPage.vue`
 
-**CHƯA LÀM (ngoài module / chờ môi trường / chờ Anh mở SKU):**
-- [ ] WeasyPrint print-quality layout (hiện fpdf2 đủ dùng)
-- [ ] Restore sách Goodwin/Juno Jordan bản quyền
-- [ ] Relationship/compatibility report (SKU riêng — chưa mở)
+**ĐÃ XONG (v10, 2026-07-21 — SKU tương hợp + WeasyPrint):**
+- ✅ `compatibility_matrix.json` + `engine/than_so/compatibility.py` (LP/Expr/Soul/Pers + Năm CN + composite)
+- ✅ API `/api/than-so/compatibility` + `/compatibility-pdf`
+- ✅ UI form người B trong `ThanSoPanel`
+- ✅ PDF WeasyPrint ưu tiên (HTML), fallback fpdf2
+
+**CHƯA LÀM (chờ bản quyền / nguồn PDF gốc):**
+- [ ] Restore sách Goodwin/Juno Jordan (bản quyền thương mại)
+- [ ] Attach PDF gốc Cheiro nếu Anh upload / allowlist archive.org
+- [ ] Publish PDF Campbell — chờ 2027-01-01 (PD)
 
 ---
 

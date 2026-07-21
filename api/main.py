@@ -1302,6 +1302,61 @@ def than_so_report_pdf(request: ThanSoPdfRequest):
     )
 
 
+class ThanSoCompatRequest(BaseModel):
+    name_a: str
+    birth_date_a: str
+    name_b: str
+    birth_date_b: str
+    name_order_a: str = "vn"
+    name_order_b: str = "vn"
+    relationship_type: str = "partner"  # spouse|partner|family|colleague|friend
+    target_year: int | None = None
+
+
+@app.post("/api/than-so/compatibility")
+def than_so_compatibility(request: ThanSoCompatRequest) -> dict[str, object]:
+    """So sánh tương hợp Pythagoras (multi-aspect) — đọc đồng dạng, không predict."""
+    from engine.than_so.compatibility import analyze_compatibility
+
+    return analyze_compatibility(
+        name_a=request.name_a,
+        birth_date_a=request.birth_date_a,
+        name_b=request.name_b,
+        birth_date_b=request.birth_date_b,
+        name_order_a=request.name_order_a,
+        name_order_b=request.name_order_b,
+        relationship_type=request.relationship_type,
+        target_year=request.target_year,
+    )
+
+
+@app.post("/api/than-so/compatibility-pdf")
+def than_so_compatibility_pdf(request: ThanSoCompatRequest):
+    """Xuất PDF báo cáo tương hợp Pythagoras."""
+    from fastapi.responses import Response
+
+    from engine.than_so.compatibility import analyze_compatibility
+    from engine.than_so.report_pdf import generate_compatibility_pdf, safe_compat_filename
+
+    report = analyze_compatibility(
+        name_a=request.name_a,
+        birth_date_a=request.birth_date_a,
+        name_b=request.name_b,
+        birth_date_b=request.birth_date_b,
+        name_order_a=request.name_order_a,
+        name_order_b=request.name_order_b,
+        relationship_type=request.relationship_type,
+        target_year=request.target_year,
+    )
+    pdf_bytes = generate_compatibility_pdf(report)
+    filename = safe_compat_filename(request.name_a, request.name_b)
+    return Response(
+        content=pdf_bytes,
+        media_type="application/pdf",
+        headers={"Content-Disposition": f'attachment; filename="{filename}"'},
+    )
+
+
 @app.post("/api/bat-tu/cast")
 def bat_tu_cast(request: BatTuCastRequest, caller: dict = Depends(require_caller)) -> dict[str, object]:
     """Cast a Bát Tự chart (Tứ trụ + Thập thần + Ngũ hành balance)."""

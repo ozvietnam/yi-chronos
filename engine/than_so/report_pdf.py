@@ -1,6 +1,7 @@
 """Báo cáo PDF lá số Thần Số Học Pythagoras (Decoz).
 
-PDF = artifact chính thức. Dùng fpdf2 + DejaVu (Unicode/VI).
+PDF = artifact chính thức.
+Ưu tiên WeasyPrint (HTML layout); fallback fpdf2 + DejaVu nếu WeasyPrint lỗi.
 """
 from __future__ import annotations
 
@@ -51,7 +52,7 @@ def generate_than_so_pdf(
     name_order: str = "vn",
     target_year: int | None = None,
 ) -> bytes:
-    """Trả PDF bytes — lá số đầy đủ + luận READ/GAP/IMPROVE."""
+    """Trả PDF bytes — ưu tiên WeasyPrint, fallback fpdf2."""
     chart = cast_than_so(
         name=name,
         birth_date=birth_date,
@@ -61,6 +62,59 @@ def generate_than_so_pdf(
         include_chaldean=True,
         include_dong_phuong=False,
     )
+    try:
+        from .report_html import chart_to_html, render_html_pdf
+
+        return render_html_pdf(chart_to_html(chart))
+    except Exception:
+        return _generate_than_so_pdf_fpdf(chart)
+
+
+def generate_compatibility_pdf(report: dict) -> bytes:
+    """PDF báo cáo tương hợp — WeasyPrint ưu tiên, fpdf2 fallback."""
+    try:
+        from .report_html import compatibility_to_html, render_html_pdf
+
+        return render_html_pdf(compatibility_to_html(report))
+    except Exception:
+        return _generate_compatibility_pdf_fpdf(report)
+
+
+def _generate_compatibility_pdf_fpdf(report: dict) -> bytes:
+    pdf = ThanSoPDF(format="A4")
+    pdf.alias_nb_pages()
+    pdf.set_auto_page_break(auto=True, margin=16)
+    pdf.add_font("DejaVu", "", str(FONT_REG))
+    pdf.add_font("DejaVu", "B", str(FONT_BOLD))
+    pdf.set_margins(18, 16, 18)
+    pdf.add_page()
+    a = report.get("person_a") or {}
+    b = report.get("person_b") or {}
+    overall = report.get("overall") or {}
+    _p(pdf, "Báo cáo tương hợp Thần Số Pythagoras", size=16, bold=True, align="C")
+    _p(pdf, f"{a.get('name')} × {b.get('name')}", size=11, align="C")
+    pdf.ln(2)
+    _p(pdf, report.get("paradigm_note", ""), size=9)
+    _p(pdf, f"Tổng hợp: {overall.get('percent')}/100 — {overall.get('label_vi')}", size=12, bold=True)
+    _p(pdf, overall.get("read", ""), size=9)
+    for asp in report.get("aspects") or []:
+        pdf.ln(1)
+        _p(
+            pdf,
+            f"{asp.get('name_vi')}: {asp.get('a')} × {asp.get('b')} ({asp.get('label_vi')})",
+            size=10,
+            bold=True,
+        )
+        _p(pdf, f"READ: {asp.get('read')}", size=8)
+        _p(pdf, f"GAP: {asp.get('gap')}", size=8)
+        _p(pdf, f"IMPROVE: {asp.get('improve')}", size=8)
+    buf = BytesIO()
+    pdf.output(buf)
+    return buf.getvalue()
+
+
+def _generate_than_so_pdf_fpdf(chart: dict) -> bytes:
+    """Fallback fpdf2 — lá số đầy đủ + luận READ/GAP/IMPROVE."""
     pdf = ThanSoPDF(format="A4")
     pdf.alias_nb_pages()
     pdf.set_auto_page_break(auto=True, margin=16)
@@ -69,6 +123,8 @@ def generate_than_so_pdf(
     pdf.set_margins(18, 16, 18)
     pdf.add_page()
 
+    name = chart["input"]["name_raw"]
+    birth_date = chart["input"]["birth_date"]
     _p(pdf, "Lá số Thần Số Học Pythagoras", size=18, bold=True, align="C")
     pdf.ln(2)
     _p(pdf, name, size=12, align="C")
@@ -278,7 +334,7 @@ def generate_than_so_pdf(
     _p(
         pdf,
         f"Spec: Decoz Method A · schema {chart.get('schema_version')} · "
-        f"Generated {datetime.now().strftime('%Y-%m-%d %H:%M')}",
+        f"Generated {datetime.now().strftime('%Y-%m-%d %H:%M')} · engine=fpdf2",
         size=8,
     )
 
@@ -290,3 +346,9 @@ def generate_than_so_pdf(
 def safe_filename(name: str, birth_date: str) -> str:
     slug = re.sub(r"[^A-Za-z0-9]+", "_", name.strip())[:40].strip("_") or "chart"
     return f"ThanSo_{slug}_{birth_date}.pdf"
+
+
+def safe_compat_filename(name_a: str, name_b: str) -> str:
+    a = re.sub(r"[^A-Za-z0-9]+", "_", name_a.strip())[:20].strip("_") or "A"
+    b = re.sub(r"[^A-Za-z0-9]+", "_", name_b.strip())[:20].strip("_") or "B"
+    return f"ThanSo_Compat_{a}_x_{b}.pdf"

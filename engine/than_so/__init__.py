@@ -21,7 +21,8 @@ from .deep_reading import compose_deep_reading
 from .extended import compute_extended
 from .interpretation import compose_reading, describe_number
 from .name_calculator import name_breakdown, normalize_vietnamese
-from .report_pdf import generate_than_so_pdf
+from .report_pdf import generate_compatibility_pdf, generate_than_so_pdf
+from .compatibility import analyze_compatibility
 
 __all__ = [
     "KARMIC_DEBT_NUMBERS",
@@ -29,6 +30,7 @@ __all__ = [
     "METHOD_ID",
     "SOURCE_REF",
     "SYSTEMS",
+    "analyze_compatibility",
     "build_cycles",
     "cast_than_so",
     "compose_deep_reading",
@@ -37,6 +39,7 @@ __all__ = [
     "compute_extended",
     "cross_bind_dong_phuong",
     "describe_number",
+    "generate_compatibility_pdf",
     "generate_than_so_pdf",
     "life_path",
     "name_breakdown",

@@ -752,6 +752,67 @@ export function thanSoReportPdf({
   });
 }
 
+/**
+ * Tương hợp Pythagoras (multi-aspect).
+ */
+export function thanSoCompatibility({
+  nameA,
+  birthDateA,
+  nameB,
+  birthDateB,
+  nameOrderA = "vn",
+  nameOrderB = "vn",
+  relationshipType = "partner",
+  targetYear = null,
+}) {
+  return request("/api/than-so/compatibility", {
+    method: "POST",
+    body: JSON.stringify({
+      name_a: nameA,
+      birth_date_a: birthDateA,
+      name_b: nameB,
+      birth_date_b: birthDateB,
+      name_order_a: nameOrderA,
+      name_order_b: nameOrderB,
+      relationship_type: relationshipType,
+      target_year: targetYear,
+    }),
+  });
+}
+
+export function thanSoCompatibilityPdf({
+  nameA,
+  birthDateA,
+  nameB,
+  birthDateB,
+  nameOrderA = "vn",
+  nameOrderB = "vn",
+  relationshipType = "partner",
+  targetYear = null,
+}) {
+  return fetch(`/api/than-so/compatibility-pdf`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      name_a: nameA,
+      birth_date_a: birthDateA,
+      name_b: nameB,
+      birth_date_b: birthDateB,
+      name_order_a: nameOrderA,
+      name_order_b: nameOrderB,
+      relationship_type: relationshipType,
+      target_year: targetYear,
+    }),
+  }).then(async (r) => {
+    if (!r.ok) {
+      const text = await r.text().catch(() => "");
+      throw new Error(text || `HTTP ${r.status}`);
+    }
+    const blob = await r.blob();
+    return URL.createObjectURL(blob);
+  });
+}
+
 export function yiHermesChat({ userMessage, context = {}, history = [] }) {
   return request(`/api/yi-hermes/chat`, {
     method: "POST",

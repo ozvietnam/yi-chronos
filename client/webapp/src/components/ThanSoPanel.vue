@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted, watch, computed } from "vue";
-import { castThanSo, thanSoReportPdf, thanSoGlossary } from "../lib/api.js";
+import { castThanSo, thanSoReportPdf, thanSoGlossary, thanSoCompatibility, thanSoCompatibilityPdf } from "../lib/api.js";
 import { activePerson } from "../stores/userDataStore.js";
 
 const form = ref({
@@ -11,6 +11,16 @@ const form = ref({
   nameOrder: "vn",
   targetYear: new Date().getFullYear(),
 });
+
+const compatForm = ref({
+  nameB: "",
+  birthDateB: "",
+  nameOrderB: "vn",
+  relationshipType: "partner",
+});
+const compatLoading = ref(false);
+const compatPdfLoading = ref(false);
+const compatResult = ref(null);
 
 const loading = ref(false);
 const pdfLoading = ref(false);
@@ -87,6 +97,63 @@ async function downloadPdf() {
     error.value = err?.message || String(err);
   } finally {
     pdfLoading.value = false;
+  }
+}
+
+async function submitCompat() {
+  error.value = "";
+  compatResult.value = null;
+  if (!form.value.name.trim() || !form.value.birthDate) {
+    error.value = "Nhập họ tên + ngày sinh người A (form trên) trước.";
+    return;
+  }
+  if (!compatForm.value.nameB.trim() || !compatForm.value.birthDateB) {
+    error.value = "Nhập đầy đủ họ tên + ngày sinh người B.";
+    return;
+  }
+  compatLoading.value = true;
+  try {
+    compatResult.value = await thanSoCompatibility({
+      nameA: form.value.name,
+      birthDateA: form.value.birthDate,
+      nameOrderA: form.value.nameOrder,
+      nameB: compatForm.value.nameB,
+      birthDateB: compatForm.value.birthDateB,
+      nameOrderB: compatForm.value.nameOrderB,
+      relationshipType: compatForm.value.relationshipType,
+      targetYear: Number(form.value.targetYear) || null,
+    });
+  } catch (err) {
+    error.value = err?.message || String(err);
+  } finally {
+    compatLoading.value = false;
+  }
+}
+
+async function downloadCompatPdf() {
+  if (!form.value.name.trim() || !compatForm.value.nameB.trim()) return;
+  compatPdfLoading.value = true;
+  error.value = "";
+  try {
+    const url = await thanSoCompatibilityPdf({
+      nameA: form.value.name,
+      birthDateA: form.value.birthDate,
+      nameOrderA: form.value.nameOrder,
+      nameB: compatForm.value.nameB,
+      birthDateB: compatForm.value.birthDateB,
+      nameOrderB: compatForm.value.nameOrderB,
+      relationshipType: compatForm.value.relationshipType,
+      targetYear: Number(form.value.targetYear) || null,
+    });
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `ThanSo_Compat_${form.value.birthDate}.pdf`;
+    a.click();
+    URL.revokeObjectURL(url);
+  } catch (err) {
+    error.value = err?.message || String(err);
+  } finally {
+    compatPdfLoading.value = false;
   }
 }
 
@@ -180,6 +247,85 @@ const ARC = {
         </button>
       </div>
     </form>
+
+    <section class="ts-compat-box">
+      <h3>Tương hợp với người B</h3>
+      <p class="ts-sub">So sánh Life Path · Expression · Soul Urge · Personality — đọc cấu trúc đôi, không phán hợp/khắc.</p>
+      <form class="ts-form" @submit.prevent="submitCompat">
+        <label>
+          Họ tên người B
+          <input v-model="compatForm.nameB" type="text" placeholder="Trần Thị Bình" autocomplete="off" />
+        </label>
+        <div class="ts-row">
+          <label>
+            Ngày sinh B
+            <input v-model="compatForm.birthDateB" type="date" />
+          </label>
+          <label>
+            Thứ tự tên B
+            <select v-model="compatForm.nameOrderB">
+              <option value="vn">Việt (Họ…Tên)</option>
+              <option value="western">Western</option>
+            </select>
+          </label>
+          <label>
+            Loại quan hệ
+            <select v-model="compatForm.relationshipType">
+              <option value="partner">Đối tác</option>
+              <option value="spouse">Vợ/chồng</option>
+              <option value="family">Gia đình</option>
+              <option value="colleague">Đồng nghiệp</option>
+              <option value="friend">Bạn bè</option>
+            </select>
+          </label>
+        </div>
+        <div class="ts-actions">
+          <button type="submit" :disabled="compatLoading">
+            {{ compatLoading ? "Đang so…" : "So tương hợp" }}
+          </button>
+          <button
+            type="button"
+            class="ts-pdf"
+            :disabled="compatPdfLoading || !compatForm.nameB || !compatForm.birthDateB"
+            @click="downloadCompatPdf"
+          >
+            {{ compatPdfLoading ? "Đang xuất…" : "PDF tương hợp" }}
+          </button>
+        </div>
+      </form>
+      <div v-if="compatResult" class="ts-compat-result">
+        <div class="ts-compat-score">
+          <strong>{{ compatResult.overall.percent }}/100</strong>
+          <span>{{ compatResult.overall.label_vi }}</span>
+        </div>
+        <p class="ts-paradigm">{{ compatResult.paradigm_note }}</p>
+        <p class="ts-disclaimer">{{ compatResult.disclaimer }}</p>
+        <p>{{ compatResult.overall.read }}</p>
+        <p><strong>GAP:</strong> {{ compatResult.overall.gap }}</p>
+        <p><strong>IMPROVE:</strong> {{ compatResult.overall.improve }}</p>
+        <table>
+          <thead>
+            <tr><th>Lớp</th><th>A</th><th>B</th><th>Khí</th></tr>
+          </thead>
+          <tbody>
+            <tr v-for="asp in compatResult.aspects" :key="asp.key">
+              <td>{{ asp.name_vi }}</td>
+              <td class="ts-click" @click="openGlossary(asp.a)">{{ asp.a }}</td>
+              <td class="ts-click" @click="openGlossary(asp.b)">{{ asp.b }}</td>
+              <td>{{ asp.label_vi }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <article v-for="asp in compatResult.aspects" :key="'cd'+asp.key" class="ts-deep-card">
+          <h4>{{ asp.name_vi }}: {{ asp.a }} × {{ asp.b }}</h4>
+          <p><strong>READ:</strong> {{ asp.read }}</p>
+          <p><strong>GAP:</strong> {{ asp.gap }}</p>
+          <p><strong>IMPROVE:</strong> {{ asp.improve }}</p>
+        </article>
+        <p v-if="compatResult.composite_life_path">{{ compatResult.composite_life_path.read }}</p>
+        <p v-if="compatResult.personal_year?.read">{{ compatResult.personal_year.read }}</p>
+      </div>
+    </section>
 
     <p v-if="error" class="ts-error">{{ error }}</p>
 
@@ -602,4 +748,10 @@ const ARC = {
 .ts-letter { display: inline-block; padding: 0.1rem 0.3rem; margin: 0.1rem; border-radius: 3px; background: #eee; }
 .ts-letter.vowel { background: #dce8e2; }
 .ts-parts { margin-top: 0.5rem; font-size: 0.85rem; }
+.ts-compat-box { margin: 1.4rem 0; padding: 1rem; border-top: 1px solid #e0d6c6; }
+.ts-compat-box h3 { margin: 0 0 0.35rem; font-family: Georgia, "Times New Roman", serif; }
+.ts-compat-score { display: flex; align-items: baseline; gap: 0.75rem; margin: 0.6rem 0; }
+.ts-compat-score strong { font-size: 1.8rem; color: #2c4a3e; }
+.ts-compat-result table { border-collapse: collapse; margin: 0.6rem 0; }
+.ts-compat-result th, .ts-compat-result td { border: 1px solid #ddd; padding: 0.3rem 0.6rem; font-size: 0.85rem; }
 </style>

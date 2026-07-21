@@ -34,3 +34,4 @@ Paradigm: **đọc đồng dạng, KHÔNG predict**.
 - **v6 (2026-07-21)**: deep reading + PDF + lịch 24 tháng + UI một nguồn API
 - **v7–v8 (2026-07-21)**: transit timeline, method audit, năm/ngày window, glossary UI, sage SOUL v2
 - **v9 (2026-07-21)**: Expression name-audit (per-part vs flat), PDF đủ timeline/deep, xoá PytagoEnergyPage
+- **v10 (2026-07-21)**: SKU tương hợp multi-aspect + WeasyPrint PDF (fpdf2 fallback)
