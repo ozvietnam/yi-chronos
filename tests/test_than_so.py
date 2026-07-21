@@ -383,3 +383,38 @@ def test_cast_chaldean_xref_has_compound():
     assert xref["name_compound_flat"]["raw"] >= 1
     assert res["extended"]["inclusion_table"]["name_vi"]
     assert "balliett" in xref
+
+
+# ─── Deep principles from library (v12) ────────────────────────────────────────
+
+
+def test_deep_reading_has_name_birth_harmony_and_cheiro_layers():
+    res = cast_than_so("Nguyễn Văn An", "1990-11-23", include_chaldean=False)
+    deep = res["deep_reading"]
+    assert "layers" in deep
+    assert "name_birth_harmony" in deep["layers"]
+    assert deep["layers"]["name_birth_harmony"]["band"] in ("aligned", "series_affinity", "offset")
+    assert "cheiro_birth_layers" in deep["layers"]
+    assert deep["layers"]["cheiro_birth_layers"]["day"]["raw"] == 23
+    assert "synthesis" in deep
+    assert "đổi tên" not in deep["synthesis"]["improve"].lower() or "KHÔNG" in deep["synthesis"]["read"]
+    assert "predict" not in deep["disclaimer"].lower()
+
+
+def test_name_birth_harmony_offset_does_not_advise_rename():
+    from engine.than_so.deep_reading import _name_birth_harmony
+
+    h = _name_birth_harmony(1, 5)  # different roots, not same series
+    assert h["band"] == "offset"
+    assert "KHÔNG khuyên đổi tên" in h["read"]
+    assert "đổi tên để" not in h["improve"].lower()
+
+
+def test_interpretation_principles_loaded():
+    from engine.than_so.deep_reading import _principles
+
+    p = _principles()
+    ids = {x["id"] for x in p["principles"]}
+    assert "birth_day_key" in ids
+    assert "name_birth_harmony" in ids
+    assert "concentration" in ids

@@ -38,3 +38,4 @@ Paradigm: **đọc đồng dạng, KHÔNG predict**.
 - **v9 (2026-07-21)**: Expression name-audit (per-part vs flat), PDF đủ timeline/deep, xoá PytagoEnergyPage
 - **v10 (2026-07-21)**: SKU tương hợp multi-aspect + WeasyPrint PDF (fpdf2 fallback)
 - **v11 (2026-07-21)**: thư viện Balliett/Campbell/Cheiro → compound 10–52, Inclusion Table, skills
+- **v12 (2026-07-21)**: thâm nhuần nguyên lý → deep_reading Name↔Birth + Cheiro layers + synthesis

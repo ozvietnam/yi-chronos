@@ -92,7 +92,14 @@ def cast_than_so(
         "extended": extended,
         "cycles": cycles,
         "reading": compose_reading(core, cycles, extended),
-        "deep_reading": compose_deep_reading(core, extended, cycles),
+        "deep_reading": compose_deep_reading(
+            core,
+            extended,
+            cycles,
+            birth_day=d.day,
+            birth_month=d.month,
+            birth_year=d.year,
+        ),
         "method_audit": method_audit(
             d.day,
             d.month,

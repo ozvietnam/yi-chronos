@@ -1,6 +1,7 @@
 """Luận sâu Pythagoras — khung READ → GAP → IMPROVE (không predict).
 
-Mỗi số: đọc cấu trúc → nhận vùng lệch → gợi ý vận hành.
+Nguyên lý thư viện: data/than_so/master/interpretation_principles.json
+Journal: docs/design/than-so-thu-vien-tham-nhuan.md
 """
 from __future__ import annotations
 
@@ -8,7 +9,7 @@ from functools import lru_cache
 import json
 from pathlib import Path
 
-from .constants import number_meanings
+from .core_numbers import reduce_number
 from .interpretation import describe_number
 
 
@@ -16,6 +17,7 @@ def reduce_single(n: int) -> int:
     while n > 9:
         n = sum(int(d) for d in str(n))
     return n
+
 
 _DATA = Path(__file__).resolve().parents[2] / "data" / "than_so" / "master"
 
@@ -26,53 +28,196 @@ def _nine_year_arc() -> dict[str, str]:
     return data["personal_year_month_day"]["nine_year_arc"]
 
 
-# Vai trò từng chỉ số trong lá số — dùng để viết READ/GAP/IMPROVE sát ngữ cảnh
+@lru_cache(maxsize=1)
+def _principles() -> dict:
+    return json.loads((_DATA / "interpretation_principles.json").read_text(encoding="utf-8"))
+
+
+# Vai trò từng chỉ số — bám nguyên lý Balliett/Cheiro/Campbell
 _ROLE: dict[str, dict[str, str]] = {
     "life_path": {
-        "lens": "xương sống đời — bài học lớn và hướng vận hành dài hạn",
-        "gap_q": "Anh đang ép đời mình đi theo khuôn nào khác với khí này?",
-        "improve": "Mỗi tuần chọn 1 việc nhỏ đúng khí Đường Đời; bỏ 1 việc chỉ vì 'phải'.",
+        "lens": "xương sống Decoz (tháng+ngày+năm Method A) — bài học dài hạn",
+        "gap_q": "Anh đang ép đời theo khuôn nào khác với khí Đường Đời?",
+        "improve": "Mỗi tuần 1 việc nhỏ đúng khí Đường Đời; bỏ 1 việc chỉ vì 'phải'.",
+        "source": "decoz",
     },
     "expression": {
-        "lens": "tài năng / cách anh hiện diện ra thế giới qua tên khai sinh",
-        "gap_q": "Anh đang giấu hay phô phần tài năng nào lệch với Số Sứ Mệnh?",
+        "lens": "rung động tên khai sinh (Balliett/Decoz) — cách anh hiện diện ra đời",
+        "gap_q": "Anh đang giấu hay phô tài năng lệch với Sứ Mệnh?",
         "improve": "Làm 1 sản phẩm/việc công khai đúng Sứ Mệnh trong 30 ngày.",
+        "source": "balliett+decoz",
     },
     "soul_urge": {
-        "lens": "khát vọng nội tâm (nguyên âm) — động lực thật",
-        "gap_q": "Điều anh thật sự muốn có đang bị lịch làm việc nuốt không?",
+        "lens": "khát vọng linh hồn qua nguyên âm (Balliett) — động lực thật",
+        "gap_q": "Điều anh thật sự muốn đang bị lịch nuốt không?",
         "improve": "Đặt 1 ranh giới bảo vệ khát vọng Linh Hồn mỗi tuần.",
+        "source": "balliett",
     },
     "personality": {
         "lens": "lớp vỏ người khác thấy trước (phụ âm)",
-        "gap_q": "Lớp vỏ Nhân Cách đang giúp hay đang che khuất Linh Hồn?",
+        "gap_q": "Lớp vỏ Nhân Cách đang giúp hay che khuất Linh Hồn?",
         "improve": "Điều chỉnh 1 thói quen giao tiếp cho khớp hơn với bên trong.",
+        "source": "decoz",
     },
     "birthday": {
-        "lens": "món quà / năng khiếu đặc thù trong ngày sinh",
-        "gap_q": "Năng khiếu Ngày Sinh đang được dùng hay để khô?",
-        "improve": "Dành 2 giờ/tuần luyện đúng món quà Ngày Sinh.",
+        "lens": (
+            "Key ngày sinh (Cheiro Ch.XV) — rung động vật chất thân thiết nhất; "
+            "khác Life Path Decoz (không gộp tháng/năm vào đây)"
+        ),
+        "gap_q": "Anh có đang bỏ quên khí ngày sinh vì chỉ nhìn Đường Đời?",
+        "improve": (
+            "Neo 1 việc/tuần đúng khí Ngày Sinh (Cheiro: tập trung vào số của mình — Ch.XXIV)."
+        ),
+        "source": "cheiro+decoz",
     },
     "maturity": {
         "lens": "hợp lưu Đường Đời + Sứ Mệnh — lộ rõ sau ~35",
         "gap_q": "Anh đang vội 'trưởng thành' theo chuẩn ngoài hay theo số này?",
         "improve": "Viết 1 câu sứ mệnh nửa sau đời khớp Số Trưởng Thành.",
+        "source": "decoz",
     },
     "attitude": {
         "lens": "phản xạ tức thì trước sự việc (tháng + ngày)",
         "gap_q": "Phản xạ Thái Độ đang cứu hay đang làm căng quan hệ?",
         "improve": "Trước quyết định nóng: thở 3 nhịp, hỏi 'Thái Độ này phục vụ gì?'.",
+        "source": "decoz",
     },
 }
 
 
+def _series(n: int) -> str | None:
+    r = reduce_number(n, keep_master=False)
+    if r in (1, 4):
+        return "1-4"
+    if r in (2, 7):
+        return "2-7"
+    return None
+
+
+def _name_birth_harmony(birth_day_value: int, expression_value: int) -> dict:
+    """Cheiro Ch.XIV — hòa/lệch Name↔Birth; YI không khuyên đổi tên."""
+    bd = reduce_number(birth_day_value, keep_master=False)
+    ex = reduce_number(expression_value, keep_master=False)
+    same = bd == ex
+    s_bd, s_ex = _series(bd), _series(ex)
+    series_link = bool(s_bd and s_bd == s_ex)
+    if same:
+        band = "aligned"
+        read = (
+            f"Birth Day {birth_day_value} và Expression {expression_value} cùng rút về {bd}: "
+            "hai rung động cùng pha (Cheiro Ch.XIV). Dễ neo một số để tập trung."
+        )
+        gap = "Anh có đang ỷ vào sự cùng pha mà không còn quan-sát?"
+        improve = (
+            f"Giữ neo số {bd}: mỗi tuần 1 việc đúng khí — "
+            "tập trung (Cheiro Ch.XXIV), không tán loạn chỉ số."
+        )
+    elif series_link:
+        band = "series_affinity"
+        read = (
+            f"Birth Day {birth_day_value} (series {s_bd}) và Expression {expression_value} "
+            f"(series {s_ex}): cùng họ 1–4 hoặc 2–7 (Cheiro Ch.I) — cảm thông nội bộ, chưa phải trùng số."
+        )
+        gap = "Anh đang kỳ vọng hai mặt phải giống hệt thay vì bổ sung?"
+        improve = "Cho mỗi mặt một việc riêng trong tuần; đừng ép một số nuốt số kia."
+    else:
+        band = "offset"
+        read = (
+            f"Birth Day {birth_day_value}→{bd} lệch Expression {expression_value}→{ex}: "
+            "Cheiro gọi là muddle khi Name↔Birth không cùng rung. "
+            "YI đọc đây là GAP quan-sát — KHÔNG khuyên đổi tên để cầu may."
+        )
+        gap = (
+            "Chỗ nào trong đời anh đang 'lộn số' — quyết định theo tên công chúng "
+            "hay theo khí ngày sinh?"
+        )
+        improve = (
+            f"Chọn MỘT neo tạm 7 ngày (Birth Day {bd} hoặc Expression {ex}), "
+            "làm 1 việc đúng neo; ghi nhật ký chỗ căng — mệnh là động từ xử lý lệch pha."
+        )
+    care_48 = bd in (4, 8) or ex in (4, 8)
+    out = {
+        "band": band,
+        "birth_day_root": bd,
+        "expression_root": ex,
+        "series_birth": s_bd,
+        "series_expression": s_ex,
+        "read": read,
+        "gap": gap,
+        "improve": improve,
+        "source": "cheiro-book-of-numbers Ch.XIV (tone YI đồng dạng)",
+    }
+    if care_48:
+        out["four_eight_note"] = (
+            "Có mặt 4 hoặc 8: Cheiro cảnh báo đừng chồng thêm môi trường cùng khí. "
+            "YI: hỏi anh có đang tự chất kỷ luật/cách biệt vào nhà–việc không — không dọa xui."
+        )
+        out["gap"] = out["gap"] + " " + out["four_eight_note"]
+    return out
+
+
+def _inclusion_deep(inclusion: dict) -> dict:
+    missing = inclusion.get("missing") or []
+    dominant = inclusion.get("dominant") or []
+    return {
+        "provenance": inclusion.get("provenance"),
+        "read": (
+            "Bảng Bao Hàm (Campbell): tần suất chữ-số trong tên là bản đồ tập luyện — "
+            f"thiếu {missing or 'không'}; trội {dominant or 'không'}."
+        ),
+        "gap": (
+            "Anh đang sợ số thiếu như 'nghiệp' hay đang tránh số trội vì nó quá mạnh?"
+        ),
+        "improve": (
+            (
+                f"Thiếu {missing}: chọn 1 số, luyện 1 thói quen thuộc khí đó trong 14 ngày. "
+                if missing
+                else "Không thiếu 1–9: quan-sát cân bằng thay vì tìm 'lỗ hổng'."
+            )
+            + (
+                f"Trội {dominant}: cho một kênh biểu đạt chính đáng, tránh để ám ảnh chiếm lịch."
+                if dominant
+                else ""
+            )
+        ),
+        "missing": missing,
+        "dominant": dominant,
+    }
+
+
+def _cheiro_birth_layers(day: int, month: int, year: int) -> dict:
+    d = reduce_number(day, keep_master=False)
+    m = reduce_number(month, keep_master=False)
+    y = reduce_number(year, keep_master=False)
+    return {
+        "source": "cheiro-book-of-numbers Ch.XV",
+        "note": (
+            "Cheiro tách Ngày (cá nhân) · Tháng (chung) · Năm (dòng lớn) — "
+            "KHÔNG cộng ba lớp. Decoz Life Path là khung khác (Iron Rule #3)."
+        ),
+        "day": {"raw": day, "value": d, "role_vi": "Key cá nhân / vật chất thân thiết"},
+        "month": {"raw": month, "value": m, "role_vi": "Việc chung / bối cảnh"},
+        "year": {"raw": year, "value": y, "role_vi": "Dòng lớn hơn của thời đoạn sinh"},
+        "read": (
+            f"Cheiro: Ngày {day}→{d} là Key; tháng→{m}; năm→{y}. "
+            "Ba lớp riêng — đừng gộp thành một 'số mệnh' kiểu tắt."
+        ),
+        "gap": "Anh đang bỏ lớp Ngày vì chỉ nhìn Life Path Decoz (đã gộp tháng+năm)?",
+        "improve": f"Tuần này neo khí Ngày {d} trong 1 quyết định nhỏ — tập trung (Ch.XXIV).",
+    }
+
+
 def _deep_one(role_key: str, value: int, name_vi: str) -> dict:
     desc = describe_number(value)
-    role = _ROLE.get(role_key, {
-        "lens": "một mặt cấu trúc số",
-        "gap_q": "Mặt này đang lệch chỗ nào trong đời sống?",
-        "improve": "Quan-sát 7 ngày rồi chọn 1 điều chỉnh nhỏ.",
-    })
+    role = _ROLE.get(
+        role_key,
+        {
+            "lens": "một mặt cấu trúc số",
+            "gap_q": "Mặt này đang lệch chỗ nào trong đời sống?",
+            "improve": "Quan-sát 7 ngày rồi chọn 1 điều chỉnh nhỏ.",
+            "source": "",
+        },
+    )
     strengths = desc.get("strengths") or ""
     shadow = desc.get("shadow") or ""
     return {
@@ -80,24 +225,30 @@ def _deep_one(role_key: str, value: int, name_vi: str) -> dict:
         "name_vi": name_vi,
         "value": value,
         "archetype_vi": desc.get("archetype_vi", ""),
+        "source_principle": role.get("source", ""),
         "read": (
             f"{name_vi} = {value} ({desc.get('archetype_vi', '')}). "
             f"Đây là {role['lens']}. "
             f"Khi vận hành tốt: {strengths} "
             f"{desc.get('dong_dang') or ''}"
         ).strip(),
-        "gap": (
-            f"Bóng của số {value}: {shadow} "
-            f"{role['gap_q']}"
-        ).strip(),
+        "gap": (f"Bóng của số {value}: {shadow} {role['gap_q']}").strip(),
         "improve": role["improve"],
         "keywords": desc.get("keywords", []),
         "is_master": desc.get("is_master", False),
     }
 
 
-def compose_deep_reading(core: dict, extended: dict | None = None, cycles: dict | None = None) -> dict:
-    """Trả deep_core + deep_extended + cycle_guidance theo READ/GAP/IMPROVE."""
+def compose_deep_reading(
+    core: dict,
+    extended: dict | None = None,
+    cycles: dict | None = None,
+    *,
+    birth_day: int | None = None,
+    birth_month: int | None = None,
+    birth_year: int | None = None,
+) -> dict:
+    """Trả deep_core + layers nguyên lý thư viện + cycle guidance."""
     deep_core = {}
     for key in ("life_path", "expression", "soul_urge", "personality", "birthday", "maturity"):
         node = core[key]
@@ -115,9 +266,13 @@ def compose_deep_reading(core: dict, extended: dict | None = None, cycles: dict 
                 {
                     "number": n,
                     **describe_number(n),
-                    "read": f"Số {n} thiếu trong tên — vùng chưa được 'tập' qua chữ cái khai sinh.",
-                    "gap": f"Đời có thể kéo anh vào tình huống đòi hỏi phẩm chất số {n}.",
+                    "read": (
+                        f"Số {n} thiếu trong tên (Campbell Inclusion) — "
+                        "phẩm chất chưa được 'tập' qua chữ cái khai sinh; không phải án nghiệp."
+                    ),
+                    "gap": f"Đời có kéo anh vào tình huống đòi hỏi phẩm chất số {n} mà anh né?",
                     "improve": f"Chủ động luyện 1 thói quen thuộc khí số {n} mỗi tuần.",
+                    "provenance": "campbell-your-days-are-numbered",
                 }
                 for n in lessons["values"]
             ]
@@ -127,12 +282,18 @@ def compose_deep_reading(core: dict, extended: dict | None = None, cycles: dict 
                 {
                     "number": n,
                     **describe_number(n),
-                    "read": f"Số {n} xuất hiện nhiều nhất trong tên — đam mê/ám ảnh nổi trội.",
-                    "gap": "Đam mê này đang được nuôi hay bị lịch làm việc đè?",
-                    "improve": f"Cho số {n} một kênh biểu đạt chính đáng (dự án/sở thích) trong tháng.",
+                    "read": (
+                        f"Số {n} trội trong tên (Campbell) — đam mê/ám ảnh nổi; "
+                        "dùng có ý thức kẻo chiếm hết lịch."
+                    ),
+                    "gap": "Đam mê này đang được nuôi lành hay bị đè / bị phóng đại?",
+                    "improve": f"Cho số {n} một kênh biểu đạt chính đáng trong tháng.",
+                    "provenance": "campbell-your-days-are-numbered",
                 }
                 for n in passion["values"]
             ]
+        if extended.get("inclusion_table"):
+            deep_ext["inclusion"] = _inclusion_deep(extended["inclusion_table"])
         bridges = extended.get("bridges") or {}
         for bk, bv in bridges.items():
             deep_ext[f"bridge_{bk}"] = {
@@ -146,6 +307,21 @@ def compose_deep_reading(core: dict, extended: dict | None = None, cycles: dict 
                 "gap": "Anh đang đứng về một phía và phủ nhận phía kia?",
                 "improve": f"Mỗi tuần làm 1 việc mang khí số cầu {bv['value']} để nối hai phía.",
             }
+
+    bd_val = core["birthday"]["value"]
+    if birth_day is not None:
+        bd_val = reduce_number(birth_day)
+    harmony = _name_birth_harmony(bd_val, core["expression"]["value"])
+
+    layers: dict = {
+        "name_birth_harmony": harmony,
+        "principle_ids": [p["id"] for p in _principles().get("principles") or []],
+        "reading_steps": _principles().get("reading_steps") or [],
+        "forbid": _principles().get("forbid_user_facing") or [],
+        "journal": "docs/design/than-so-thu-vien-tham-nhuan.md",
+    }
+    if birth_day is not None and birth_month is not None and birth_year is not None:
+        layers["cheiro_birth_layers"] = _cheiro_birth_layers(birth_day, birth_month, birth_year)
 
     cycle_guidance: dict = {}
     arc = _nine_year_arc()
@@ -200,8 +376,6 @@ def compose_deep_reading(core: dict, extended: dict | None = None, cycles: dict 
                 f"Timeline Transit/Essence {len(timeline)} tuổi tới — "
                 "quan-sát chữ cái đổi và Essence đổi, không đoán cát/hung."
             )
-
-        # Đỉnh vận + Thử thách
         pinnacles = cycles.get("pinnacles") or []
         if pinnacles:
             cycle_guidance["pinnacles"] = [
@@ -236,7 +410,6 @@ def compose_deep_reading(core: dict, extended: dict | None = None, cycles: dict 
                 }
                 for c in challenges
             ]
-
         ycal = cycles.get("personal_year_calendar") or []
         if ycal:
             cycle_guidance["personal_year_calendar_hint"] = (
@@ -246,12 +419,19 @@ def compose_deep_reading(core: dict, extended: dict | None = None, cycles: dict 
     return {
         "method": "READ→GAP→IMPROVE",
         "disclaimer": (
-            "Tử Vi/Thần Số ở YI MƯỢN khung soi tâm — không phải lời tiên tri. "
-            "Lá số không thay tu học hay y tế."
+            "Thần Số ở YI MƯỢN khung soi tâm (Balliett/Campbell/Cheiro/Decoz) — "
+            "không phải lời tiên tri. Lá số không thay tu học hay y tế."
         ),
         "core": deep_core,
         "extended": deep_ext,
         "cycles": cycle_guidance,
+        "layers": layers,
+        "synthesis": {
+            "read": harmony["read"],
+            "gap": harmony["gap"],
+            "improve": harmony["improve"],
+            "steps": layers["reading_steps"],
+        },
     }
 
 
@@ -271,5 +451,4 @@ def _year_actions(n: int) -> list[str]:
 
 
 def _month_actions(n: int) -> list[str]:
-    # Rút gọn từ năm — checklist tháng
     return [f"(Tháng) {a}" for a in _year_actions(n)[:2]]

@@ -676,6 +676,18 @@ const ARC = {
       </div>
 
       <div v-if="result.deep_reading" class="ts-deep">
+        <div v-if="result.deep_reading.synthesis" class="ts-synth">
+          <h3>Tổng hợp Name ↔ Birth (Cheiro · đồng dạng)</h3>
+          <p><strong>READ:</strong> {{ result.deep_reading.synthesis.read }}</p>
+          <p><strong>GAP:</strong> {{ result.deep_reading.synthesis.gap }}</p>
+          <p><strong>IMPROVE:</strong> {{ result.deep_reading.synthesis.improve }}</p>
+          <ol v-if="result.deep_reading.synthesis.steps?.length" class="ts-steps">
+            <li v-for="(s, i) in result.deep_reading.synthesis.steps" :key="'st'+i">{{ s }}</li>
+          </ol>
+          <p v-if="result.deep_reading.layers?.cheiro_birth_layers" class="ts-meta">
+            {{ result.deep_reading.layers.cheiro_birth_layers.read }}
+          </p>
+        </div>
         <h3>
           Luận READ → GAP → IMPROVE
           <button type="button" class="ts-link" @click="showDeep = !showDeep">
@@ -773,6 +785,8 @@ const ARC = {
 .ts-cal-arc { font-size: 0.68rem; color: #555; }
 .ts-cal-py { font-size: 0.65rem; color: #999; }
 .ts-deep { margin: 1.2rem 0; }
+.ts-synth { background: #f0ebe2; border-left: 3px solid #2c4a3e; padding: 0.75rem 0.9rem; margin-bottom: 1rem; }
+.ts-steps { margin: 0.4rem 0 0.2rem 1.1rem; font-size: 0.82rem; color: #444; }
 .ts-deep-card { border-top: 1px solid #e5ddd0; padding: 0.7rem 0; }
 .ts-deep-card h4 { margin: 0 0 0.35rem; font-size: 0.95rem; }
 .ts-deep-card p { margin: 0.25rem 0; font-size: 0.86rem; line-height: 1.45; }

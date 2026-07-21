@@ -1,0 +1,100 @@
+{
+  "schema_version": "v1",
+  "curated_at": "2026-07-21",
+  "doc": "Nguyên lý luận giải Thần Số — rút từ thâm nhuần thư viện Balliett/Campbell/Cheiro. Machine-readable cho deep_reading + sage. Paradigm: đồng dạng, không predict.",
+  "journal": "docs/design/than-so-thu-vien-tham-nhuan.md",
+  "principles": [
+    {
+      "id": "vibration",
+      "name_vi": "Luật Rung Động",
+      "sources": ["balliett-philosophy-of-numbers", "cheiro-book-of-numbers Ch.II"],
+      "axiom_vi": "Ngày sinh gắn một Key number — rung động xuyên đời; tên mang rung động khác, có thể cùng pha hoặc lệch pha.",
+      "for_user_vi": "Đọc số như đọc nhịp — hỏi hai khí (ngày / tên) đang kéo anh về đâu, không hỏi 'số này may không'."
+    },
+    {
+      "id": "nine_are_enough",
+      "name_vi": "Chín số là đủ",
+      "sources": ["cheiro-book-of-numbers Ch.II"],
+      "axiom_vi": "Mọi số lớn rút về 1–9 bằng natural addition; số đơn cuối là 'spirit/soul number' của tổng — tinh thần của chuỗi, không phải án.",
+      "for_user_vi": "Khi thấy số kép, đọc cả lớp kép (biểu tượng) lẫn lớp đơn (vận hành)."
+    },
+    {
+      "id": "single_vs_compound",
+      "name_vi": "Đơn = vật chất · Kép = tinh thần",
+      "sources": ["cheiro-book-of-numbers Ch.XII–XIII"],
+      "axiom_vi": "Số đơn 1–9 thuộc mặt vật chất; số kép 10–52 thuộc mặt huyền/tinh thần. Từng phần tên có compound riêng.",
+      "for_user_vi": "Đừng chỉ nhìn số rút gọn — hỏi số kép tên đang nói sắc thái gì cần quan-sát."
+    },
+    {
+      "id": "birth_day_key",
+      "name_vi": "Ngày sinh là Key thân thiết nhất (Cheiro)",
+      "sources": ["cheiro-book-of-numbers Ch.XV"],
+      "axiom_vi": "Ngày (cá nhân) · Tháng (chung) · Năm (dòng lớn) — Cheiro KHÔNG cộng ba lớp thành một. Khác Decoz Life Path (Method A có cộng).",
+      "for_user_vi": "Trình bày song song: Birth Day (Cheiro) và Life Path (Decoz). Nói rõ đang đứng khung nào.",
+      "iron_rule": 3
+    },
+    {
+      "id": "name_as_known",
+      "name_vi": "Tên đang dùng mới có lực",
+      "sources": ["cheiro-book-of-numbers Ch.XII, XIV"],
+      "axiom_vi": "Key name = tên người đời gọi nhiều nhất, không luôn đủ họ-đệm-tên khai sinh.",
+      "for_user_vi": "Hỏi tên anh được biết tới; so Minor (tên đang dùng) với Expression khai sinh."
+    },
+    {
+      "id": "name_birth_harmony",
+      "name_vi": "Hòa / lệch Name ↔ Birth",
+      "sources": ["cheiro-book-of-numbers Ch.XIV"],
+      "axiom_vi": "Cùng số = dễ neo; lệch = muddle. Cheiro khuyên đổi tên — YI KHÔNG khuyên đổi tên cầu may; đọc lệch như GAP quan-sát.",
+      "for_user_vi": "Nếu Birth Day và Expression lệch: chọn một neo tạm + quan-sát chỗ đời đang 'lộn số'.",
+      "forbid": ["đổi tên để đổi vận", "chọn ngày may theo số"]
+    },
+    {
+      "id": "series_1_4_2_7",
+      "name_vi": "Series 1–4 và 2–7",
+      "sources": ["cheiro-book-of-numbers Ch.I"],
+      "axiom_vi": "1–4 (Sun–Uranus) và 2–7 (Moon–Neptune) là cặp đồng dạng nội bộ; hai series thường cảm thông nhau.",
+      "for_user_vi": "Khi đối chiếu người khác, xét series trước khi phán 'hợp/khắc'."
+    },
+    {
+      "id": "four_eight_care",
+      "name_vi": "4 và 8 — cấu trúc chịu tải",
+      "sources": ["cheiro-book-of-numbers Ch.XIV–XV"],
+      "axiom_vi": "4/8 dễ chồng khổ nếu khuếch đại; Cheiro tránh nhà 4 khi Birth=8. YI: hỏi có đang tự chất thêm kỷ luật/cách biệt không — không dọa xui.",
+      "for_user_vi": "Birth/Name = 4 hoặc 8 → bớt chồng môi trường cùng khí; nuôi một hành vi mở (không bói)."
+    },
+    {
+      "id": "recurrence",
+      "name_vi": "Số lặp lại trong đời",
+      "sources": ["cheiro-book-of-numbers Ch.XVII"],
+      "axiom_vi": "Số hay gặp là pattern cần đọc, không phải lời nguyền.",
+      "for_user_vi": "Hỏi số nào hay xuất hiện trong tiểu sử anh — phản ứng của anh với nó mới là mệnh (động từ)."
+    },
+    {
+      "id": "concentration",
+      "name_vi": "Tập trung vào một neo số",
+      "sources": ["cheiro-book-of-numbers Ch.XXIV"],
+      "axiom_vi": "Nắm một số chủ đạo → hiểu nghĩa → nghĩ và hành khớp khí đó. Đừng tán loạn.",
+      "for_user_vi": "Chọn 1 neo (Birth Day hoặc Life Path), 1 việc nhỏ/tuần đúng khí — đó là cải thiện, không phải cầu may."
+    },
+    {
+      "id": "inclusion",
+      "name_vi": "Bảng Bao Hàm (Campbell)",
+      "sources": ["campbell-your-days-are-numbered"],
+      "axiom_vi": "Số thiếu = chưa tập; số trội = đam mê/ám ảnh. Bản đồ luyện, không điểm tốt/xấu.",
+      "for_user_vi": "Thiếu → luyện có chủ đích; trội → dùng có ý thức kẻo lệch."
+    }
+  ],
+  "reading_steps": [
+    "Neo vật chất: Birth Day (Cheiro) + Life Path (Decoz) — nói rõ hai khung",
+    "Lớp tên: Expression / Soul / Personality (+ compound Chaldean nếu có)",
+    "Hòa/lệch Birth Day ↔ Expression",
+    "Inclusion: thiếu / trội",
+    "BIẾN: Personal Y/M/D + một IMPROVE kiểu tập trung"
+  ],
+  "forbid_user_facing": [
+    "may/xui cố định",
+    "đổi tên để đổi vận",
+    "đoán chết/tai nạn từ 4/8/16",
+    "gộp Cheiro day+month+year như Decoz mà không nói"
+  ]
+}

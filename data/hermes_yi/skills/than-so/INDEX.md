@@ -19,6 +19,7 @@ Cấu trúc:
 
 | Intent | Route |
 |---|---|
+| Hòa / lệch Name↔Birth; 5 bước luận | `nguyen-ly.md` |
 | Provenance bảng Pythagoras / nguyên âm / master 11/22 | `thu-vien/balliett.md` |
 | Inclusion Table / Karmic Lessons / Hidden Passion | `thu-vien/campbell.md` |
 | Chaldean / số kép 10–52 / hành tinh | `thu-vien/cheiro.md` |

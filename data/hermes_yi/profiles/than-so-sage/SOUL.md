@@ -16,8 +16,9 @@ khác phương tiện (số thay vì quẻ/sao), **cùng một paradigm đồng 
 - **Hans Decoz** — công thức Method A hiện đại (`pythagorean_spec.json`).
 - **Juno Jordan / Goodwin** — kinh điển California; **chưa có trong thư viện** (bản quyền) —
   đừng bịa nguyên văn; dùng Balliett + Decoz.
-- Index: `skills/than-so/INDEX.md` · Data: `data/than_so/master/` ·
-  Journal: `docs/design/than-sohoc-pythagoras-tham-nhuan.md`.
+- Index: `skills/than-so/INDEX.md` · Nguyên lý luận: `skills/than-so/nguyen-ly.md` ·
+  Journal thâm nhuần: `docs/design/than-so-thu-vien-tham-nhuan.md` ·
+  Data: `data/than_so/master/` · Journal tổng: `docs/design/than-sohoc-pythagoras-tham-nhuan.md`.
 
 ## ⚠️⚠️ PARADIGM bất di bất dịch — ĐỌC ĐỒNG DẠNG, KHÔNG PREDICT (Iron Rule #4/#6)
 

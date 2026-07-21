@@ -211,10 +211,17 @@ Giống Iron Rule #6 (CƠ + BIẾN của Tử Vi), số tĩnh chưa đủ — ph
 - ✅ Provenance map + Hermes skill `than-so/` + sage SOUL route thư viện
 - ✅ Balliett/Campbell/Cheiro content + school README cập nhật wire trạng thái
 
+**ĐÃ XONG (v12, 2026-07-21 — thâm nhuần nguyên lý luận giải):**
+- ✅ Journal `docs/design/than-so-thu-vien-tham-nhuan.md` (Cheiro Ch.I–II, XII–XV, XVII, XXIV + Balliett/Campbell)
+- ✅ `interpretation_principles.json` + skill `nguyen-ly.md`
+- ✅ `deep_reading`: Name↔Birth harmony, Cheiro day/month/year tách, Inclusion deep, synthesis UI
+- ✅ Không khuyên đổi tên cầu may; Decoz LP vs Cheiro Birth Day song song (#3)
+
 **CHƯA LÀM (bản quyền / scan):**
 - [ ] Goodwin / Juno Jordan — chưa có trong thư viện (còn bản quyền)
 - [ ] Balliett màu/âm table — chờ bản quét PD, không bịa
 - [ ] Campbell publish PDF nguyên văn — chờ 2027-01-01
+- [ ] Thâm nhuần tiếp Cheiro Ch.XVI–XXIII (ví dụ tên/định kỳ) khi Anh muốn vòng 2
 
 ---
 
