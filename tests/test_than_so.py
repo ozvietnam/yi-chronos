@@ -195,16 +195,31 @@ def test_cast_full_chart_p0():
     assert "transits" in res["cycles"]
     assert len(res["cycles"]["personal_calendar"]) == 24
     assert len(res["cycles"]["transit_timeline"]) == 9
+    assert len(res["cycles"]["personal_year_calendar"]) == 9
+    assert len(res["cycles"]["personal_day_window"]) == 21
     assert "deep_reading" in res
     assert res["deep_reading"]["core"]["life_path"]["read"]
     assert res["deep_reading"]["core"]["life_path"]["gap"]
     assert res["deep_reading"]["core"]["life_path"]["improve"]
+    assert res["deep_reading"]["cycles"].get("pinnacles")
+    assert res["deep_reading"]["cycles"].get("challenges")
     assert "method_audit" in res
     assert res["method_audit"]["decoz_method_a"]["value"] == 8
     assert res["extended"]["first_vowel"]["letter"]
     assert res["cross_reference"]["system"] == "chaldean"
     assert "dong_phuong_doi_chieu" not in res  # default off
     assert "predict" not in res["reading"]["paradigm_note"].lower()
+
+
+def test_obama_life_path_western():
+    res = cast_than_so(
+        "Barack Hussein Obama",
+        "1961-08-04",
+        name_order="western",
+        include_chaldean=False,
+    )
+    assert res["core"]["life_path"]["value"] == 2
+    assert res["core"]["expression"]["value"] == 1
 
 
 def test_method_audit_karmic_oct_15_1998():

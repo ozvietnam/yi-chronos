@@ -1,6 +1,6 @@
 <script setup>
-import { ref, onMounted, watch } from "vue";
-import { castThanSo, thanSoReportPdf } from "../lib/api.js";
+import { ref, onMounted, watch, computed } from "vue";
+import { castThanSo, thanSoReportPdf, thanSoGlossary } from "../lib/api.js";
 import { activePerson } from "../stores/userDataStore.js";
 
 const form = ref({
@@ -18,6 +18,26 @@ const error = ref("");
 const result = ref(null);
 const showDeep = ref(true);
 const calendarLimit = ref(12);
+const glossary = ref(null);
+const glossaryOpen = ref(null);
+
+async function loadGlossary() {
+  try {
+    glossary.value = await thanSoGlossary();
+  } catch {
+    glossary.value = null;
+  }
+}
+
+function openGlossary(num) {
+  if (num == null) return;
+  glossaryOpen.value = String(Array.isArray(num) ? num[0] : num);
+}
+
+const glossaryEntry = computed(() => {
+  if (!glossary.value?.numbers || glossaryOpen.value == null) return null;
+  return glossary.value.numbers[glossaryOpen.value] || null;
+});
 
 async function submit() {
   error.value = "";
@@ -83,7 +103,10 @@ function syncFromActive(force) {
     if ((changed || force) && form.value.name.trim() && bd) submit();
   }
 }
-onMounted(() => syncFromActive(false));
+onMounted(() => {
+  syncFromActive(false);
+  loadGlossary();
+});
 watch(() => activePerson.value?.person_key, () => syncFromActive(true));
 
 const CORE_ORDER = [
@@ -170,12 +193,25 @@ const ARC = {
 
       <h3>Số cốt lõi</h3>
       <div class="ts-grid">
-        <article v-for="[key, label] in CORE_ORDER" :key="key" class="ts-card">
+        <article
+          v-for="[key, label] in CORE_ORDER"
+          :key="key"
+          class="ts-card ts-click"
+          @click="openGlossary(result.core[key].value)"
+        >
           <div class="ts-num">{{ result.core[key].value }}</div>
           <div class="ts-label">{{ label }}</div>
           <div class="ts-arch">{{ result.reading.core[key]?.archetype_vi }}</div>
           <p v-if="result.core[key].karmic_debt" class="ts-kd">Nợ {{ result.core[key].karmic_debt }}</p>
         </article>
+      </div>
+
+      <div v-if="glossaryEntry" class="ts-glossary">
+        <button type="button" class="ts-link" @click="glossaryOpen = null">Đóng</button>
+        <h4>Số {{ glossaryOpen }} — {{ glossaryEntry.archetype_vi }}</h4>
+        <p><strong>Thế mạnh:</strong> {{ glossaryEntry.strengths }}</p>
+        <p><strong>Bóng:</strong> {{ glossaryEntry.shadow }}</p>
+        <p class="ts-dd">{{ glossaryEntry.dong_dang }}</p>
       </div>
 
       <div v-if="result.extended" class="ts-extended">
@@ -345,6 +381,39 @@ const ARC = {
         </table>
       </div>
 
+      <div v-if="result.cycles.personal_year_calendar?.length" class="ts-year-cal">
+        <h3>9 năm cá nhân tới</h3>
+        <div class="ts-cal-grid">
+          <article
+            v-for="row in result.cycles.personal_year_calendar"
+            :key="'py'+row.year"
+            class="ts-cal-cell ts-click"
+            @click="openGlossary(row.personal_year)"
+          >
+            <div class="ts-cal-label">{{ row.year }}</div>
+            <div class="ts-cal-num">{{ row.personal_year }}</div>
+            <div class="ts-cal-arc">{{ ARC[row.personal_year] }}</div>
+          </article>
+        </div>
+      </div>
+
+      <div v-if="result.cycles.personal_day_window?.length" class="ts-day-win">
+        <h3>21 ngày cá nhân tới</h3>
+        <div class="timing-list">
+          <div
+            v-for="row in result.cycles.personal_day_window"
+            :key="row.date"
+            class="timing-row"
+          >
+            <strong>D+{{ row.offset }} · {{ row.date }}</strong>
+            <small>
+              PY/PM/PD: {{ row.personal_year }}/{{ row.personal_month }}/{{ row.personal_day }}
+              · {{ ARC[row.personal_day] }}
+            </small>
+          </div>
+        </div>
+      </div>
+
       <div v-if="result.cycles.personal_calendar?.length" class="ts-calendar">
         <h3>
           Lịch Personal Month
@@ -450,6 +519,14 @@ const ARC = {
 .ts-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 0.75rem; }
 .ts-grid-sm { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }
 .ts-card { border: 1px solid #ddd4c4; border-radius: 4px; padding: 0.7rem; text-align: center; background: #fffefb; }
+.ts-click { cursor: pointer; }
+.ts-click:hover { border-color: #2c4a3e; }
+.ts-glossary { background: #f3efe6; border: 1px solid #ddd4c4; padding: 0.8rem 1rem; margin: 0.8rem 0; border-radius: 4px; }
+.ts-glossary h4 { margin: 0.3rem 0; }
+.ts-year-cal, .ts-day-win { margin: 1.2rem 0; }
+.timing-list { display: flex; flex-direction: column; gap: 0.35rem; max-height: 280px; overflow: auto; }
+.timing-row { border: 1px solid #e5ddd0; padding: 0.4rem 0.6rem; font-size: 0.85rem; background: #fffefb; }
+.timing-row small { display: block; color: #666; margin-top: 0.15rem; }
 .ts-num { font-size: 1.8rem; font-weight: 700; color: #2c4a3e; }
 .ts-label { font-size: 0.78rem; color: #555; }
 .ts-arch { font-weight: 600; margin: 0.2rem 0; font-size: 0.85rem; }

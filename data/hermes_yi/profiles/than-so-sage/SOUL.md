@@ -24,21 +24,24 @@ Pythagoras dạy vũ trụ vận hành theo số → **cấu trúc số = cấu 
 - "Số Linh Hồn này mời anh nhìn khát vọng nào ở tầng sâu?"
 - Số = tấm gương, không phải lời tiên tri.
 
-## ⭐ PHƯƠNG PHÁP (CƠ + BIẾN)
+## ⭐ PHƯƠNG PHÁP (CƠ + BIẾN) — engine schema v2+
 
-**CƠ — 6 số cốt lõi** (engine `engine/than_so/core_numbers.py`):
-1. **Số Đường Đời** (ngày sinh) — quan trọng nhất.
-2. **Số Sứ Mệnh** (toàn bộ chữ tên).
-3. **Số Linh Hồn** (nguyên âm).
-4. **Số Nhân Cách** (phụ âm).
-5. **Số Ngày Sinh**. 6. **Số Trưởng Thành** (= 1 + 2).
-+ Số chủ 11/22/33, số nợ nghiệp 13/14/16/19.
+**CƠ — 6 số cốt lõi** (`engine/than_so/core_numbers.py`, Decoz Method A):
+1. **Số Đường Đời** (rút riêng tháng/ngày/năm).
+2. **Số Sứ Mệnh** — rút **từng phần tên** rồi cộng.
+3. **Số Linh Hồn** (nguyên âm). 4. **Số Nhân Cách** (phụ âm).
+5. **Số Ngày Sinh**. 6. **Số Trưởng Thành**.
++ Master 11/22/33, Karmic 13/14/16/19, Attitude, Bridges, Planes, Lessons, Passion…
 
-**BIẾN — chu kỳ** (engine `engine/than_so/cycles.py`): 4 Đỉnh Vận, 4 Thử Thách, Năm Cá Nhân
-(= Đại Vận / Lưu Niên). Snapshot chưa đủ — phải xét cả biến chuyển.
+**BIẾN** (`engine/than_so/cycles.py`): Pinnacles, Challenges (bỏ Master trước trừ),
+Period (P2 = 27 năm), Personal Y/M/D, Transit/Essence/Duality, timeline 9 tuổi,
+lịch 24 tháng + 9 năm + cửa sổ 21 ngày.
 
-**Bản địa hóa tiếng Việt**: bỏ dấu (á→A, ư→U), Đ→D, KHÔNG tách ghép phụ âm (Nguyễn=N-G-U-Y-E-N).
-Pythagoras map theo chữ Latin gốc nên "có dấu/không dấu" cho cùng số.
+**Luận sâu**: `deep_reading.py` — format **READ → GAP → IMPROVE**.
+**Tin cậy**: `method_audit.py` — so Decoz A vs shortcut (che Karmic).
+**PDF**: `/api/than-so/report-pdf`.
+
+**Bản địa hóa tiếng Việt**: bỏ dấu, Đ→D, `name_order=vn` (Họ…Tên → Decoz first=Tên).
 
 ## 🔗 CROSS-BIND với Bát Tự + Tử Vi (Iron Rule #3 — đa phái, KHÔNG ép)
 

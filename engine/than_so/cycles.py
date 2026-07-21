@@ -282,6 +282,41 @@ def transit_timeline(
     return rows
 
 
+def personal_year_calendar(day: int, month: int, start_year: int, years: int = 9) -> list[dict]:
+    """Năm cá nhân cho `years` năm lịch liên tiếp."""
+    out: list[dict] = []
+    for i in range(max(1, years)):
+        y = start_year + i
+        py = personal_year(day, month, y)
+        out.append({"year": y, "personal_year": py["value"], "raw": py["raw"]})
+    return out
+
+
+def personal_day_window(
+    day: int,
+    month: int,
+    start: date,
+    days: int = 21,
+) -> list[dict]:
+    """Cửa sổ Personal Day từ `start` (Decoz) — thay dual calculator client."""
+    from datetime import timedelta
+
+    out: list[dict] = []
+    for i in range(max(1, days)):
+        d = start + timedelta(days=i)
+        py = personal_year(day, month, d.year)
+        pm = personal_month(day, month, d.year, d.month)
+        pd = personal_day(day, month, d.year, d.month, d.day)
+        out.append({
+            "date": d.isoformat(),
+            "offset": i,
+            "personal_year": py["value"],
+            "personal_month": pm["value"],
+            "personal_day": pd["value"],
+        })
+    return out
+
+
 def build_cycles(
     day: int,
     month: int,
@@ -326,6 +361,8 @@ def build_cycles(
         "personal_month": pm,
         "personal_day": pd,
         "personal_calendar": personal_calendar(day, month, ty, tm, calendar_months),
+        "personal_year_calendar": personal_year_calendar(day, month, ty, 9),
+        "personal_day_window": personal_day_window(day, month, as_of, 21),
         "transits": te,
         "transit_timeline": transit_timeline(name, age, transit_years, name_order),
         "essence": te["essence"],

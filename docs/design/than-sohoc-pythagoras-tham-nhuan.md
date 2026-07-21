@@ -187,9 +187,16 @@ Giống Iron Rule #6 (CƠ + BIẾN của Tử Vi), số tĩnh chưa đủ — ph
 - ✅ Duality guidance dày hơn; Chân Dung teaser từ `cast_than_so`
 - ✅ PDF thêm Transit timeline + kiểm chứng công thức
 
+**ĐÃ XONG (v8, 2026-07-21 — hành động ngắn hạn + glossary):**
+- ✅ Personal year calendar 9 năm + Personal day window 21 ngày
+- ✅ Deep reading cho Pinnacles + Challenges
+- ✅ Glossary click-to-lookup trên UI; cập nhật sage SOUL/prompt schema v2
+- ✅ Fixture Obama LP=2 / Expression=1
+
 **CHƯA LÀM (ngoài module / chờ môi trường):**
 - [ ] WeasyPrint print-quality layout (hiện fpdf2 đủ dùng)
 - [ ] Restore sách Goodwin/Juno Jordan bản quyền
+- [ ] Relationship/compatibility report (SKU riêng — chưa mở)
 
 ---
 

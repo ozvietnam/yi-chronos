@@ -11,6 +11,12 @@ from pathlib import Path
 from .constants import number_meanings
 from .interpretation import describe_number
 
+
+def reduce_single(n: int) -> int:
+    while n > 9:
+        n = sum(int(d) for d in str(n))
+    return n
+
 _DATA = Path(__file__).resolve().parents[2] / "data" / "than_so" / "master"
 
 
@@ -193,6 +199,48 @@ def compose_deep_reading(core: dict, extended: dict | None = None, cycles: dict 
             cycle_guidance["transit_timeline_hint"] = (
                 f"Timeline Transit/Essence {len(timeline)} tuổi tới — "
                 "quan-sát chữ cái đổi và Essence đổi, không đoán cát/hung."
+            )
+
+        # Đỉnh vận + Thử thách
+        pinnacles = cycles.get("pinnacles") or []
+        if pinnacles:
+            cycle_guidance["pinnacles"] = [
+                {
+                    "index": p["index"],
+                    "value": p["value"],
+                    "age_range": p.get("age_range"),
+                    "read": (
+                        f"Đỉnh {p['index']} = {p['value']} (tuổi {p.get('age_range', '?')}): "
+                        f"môi trường / cơ hội bên ngoài của giai đoạn. "
+                        f"{arc.get(str(reduce_single(p['value'])), '')}"
+                    ),
+                    "improve": _year_actions(reduce_single(p["value"]))[:2],
+                }
+                for p in pinnacles
+            ]
+        challenges = cycles.get("challenges") or []
+        if challenges:
+            cycle_guidance["challenges"] = [
+                {
+                    "index": c["index"],
+                    "value": c["value"],
+                    "main": bool(c.get("main")),
+                    "read": (
+                        f"Thử thách {c['index']}{' (Chính)' if c.get('main') else ''} = {c['value']}: "
+                        f"bài học nội tâm cần rèn — không phải án. "
+                        f"{'Đây là thử thách xuyên suốt đời.' if c.get('main') else ''}"
+                    ),
+                    "improve": (
+                        f"Khi căng: hỏi 'Thử thách {c['value']} đang dạy gì?' rồi chọn 1 hành vi nhỏ ngược bóng."
+                    ),
+                }
+                for c in challenges
+            ]
+
+        ycal = cycles.get("personal_year_calendar") or []
+        if ycal:
+            cycle_guidance["personal_year_calendar_hint"] = (
+                f"Chuỗi {len(ycal)} năm cá nhân tới — đọc khí từng năm, không đoán thắng/thua."
             )
 
     return {

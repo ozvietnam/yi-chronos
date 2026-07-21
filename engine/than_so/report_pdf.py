@@ -180,6 +180,11 @@ def generate_than_so_pdf(
             size=9,
         )
 
+    pdf.ln(2)
+    _p(pdf, "VI.b 9 năm cá nhân tới", size=11, bold=True)
+    for row in (cy.get("personal_year_calendar") or [])[:9]:
+        _p(pdf, f"{row['year']}: Năm CN {row['personal_year']}", size=9)
+
     pdf.ln(3)
     _p(pdf, "VII. Transit / Essence (9 tuổi tới)", size=12, bold=True)
     for row in (cy.get("transit_timeline") or [])[:9]:
