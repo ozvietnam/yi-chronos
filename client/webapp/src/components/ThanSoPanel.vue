@@ -351,6 +351,28 @@ const ARC = {
           <p v-if="result.method_audit.diverged || result.method_audit.karmic_hidden_by_shortcut" class="ts-audit-warn">
             Shortcut lệch hoặc che Karmic — YI giữ Method A.
           </p>
+          <template v-if="result.method_audit.expression">
+            <h4>Kiểm chứng Expression (từng phần tên)</h4>
+            <p>{{ result.method_audit.expression.note }}</p>
+            <p>
+              Decoz: <strong>{{ result.method_audit.expression.decoz_per_part.value }}</strong>
+              · Flat shortcut: {{ result.method_audit.expression.flat_full_name_shortcut.value }}
+            </p>
+            <ul class="ts-audit-parts" v-if="result.method_audit.expression.decoz_per_part.parts?.length">
+              <li v-for="(pt, i) in result.method_audit.expression.decoz_per_part.parts" :key="'ea'+i">
+                {{ pt.part }}: {{ pt.raw }} → {{ pt.reduced }}
+                <em v-if="pt.karmic_debt"> (nợ {{ pt.karmic_debt }})</em>
+              </li>
+            </ul>
+            <p
+              v-if="result.method_audit.expression.diverged
+                || result.method_audit.expression.master_hidden_by_flat
+                || result.method_audit.expression.karmic_hidden_by_flat"
+              class="ts-audit-warn"
+            >
+              Flat lệch hoặc che Master/Karmic — YI giữ Decoz per-part.
+            </p>
+          </template>
         </div>
 
         <table>
@@ -361,6 +383,14 @@ const ARC = {
             </tr>
           </tbody>
         </table>
+        <div v-if="result.deep_reading?.cycles?.pinnacles?.length" class="ts-pin-deep">
+          <article v-for="(p, i) in result.deep_reading.cycles.pinnacles" :key="'pd'+i" class="ts-deep-card">
+            <p>{{ p.read }}</p>
+            <ul v-if="p.improve?.length">
+              <li v-for="(a, j) in p.improve" :key="'pi'+j">{{ a }}</li>
+            </ul>
+          </article>
+        </div>
         <table>
           <thead><tr><th>Thử thách</th><th>Số</th><th></th></tr></thead>
           <tbody>
@@ -371,6 +401,14 @@ const ARC = {
             </tr>
           </tbody>
         </table>
+        <div v-if="result.deep_reading?.cycles?.challenges?.length" class="ts-chal-deep">
+          <article v-for="(c, i) in result.deep_reading.cycles.challenges" :key="'cd'+i" class="ts-deep-card">
+            <p>{{ c.read }}</p>
+            <ul v-if="c.improve?.length">
+              <li v-for="(a, j) in c.improve" :key="'ci'+j">{{ a }}</li>
+            </ul>
+          </article>
+        </div>
         <table v-if="result.cycles.period_cycles">
           <thead><tr><th>Chu kỳ đời</th><th>Số</th><th>Tuổi</th></tr></thead>
           <tbody>
@@ -537,6 +575,8 @@ const ARC = {
 .ts-planes span { margin-right: 0.75rem; }
 .ts-audit { background: #f5f1e8; padding: 0.7rem 0.9rem; border-radius: 4px; margin: 0.6rem 0; font-size: 0.86rem; }
 .ts-audit-warn { color: #8a4b1a; font-weight: 600; }
+.ts-audit-parts { margin: 0.35rem 0 0.5rem 1rem; padding: 0; font-size: 0.82rem; }
+.ts-pin-deep, .ts-chal-deep { margin: 0.4rem 0 0.8rem; }
 .ts-duality { font-style: italic; color: #555; margin-top: 0.4rem; }
 .ts-timeline { margin: 1.2rem 0; }
 .ts-timeline table { border-collapse: collapse; }

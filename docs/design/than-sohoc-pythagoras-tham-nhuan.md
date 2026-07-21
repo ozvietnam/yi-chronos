@@ -193,7 +193,12 @@ Giống Iron Rule #6 (CƠ + BIẾN của Tử Vi), số tĩnh chưa đủ — ph
 - ✅ Glossary click-to-lookup trên UI; cập nhật sage SOUL/prompt schema v2
 - ✅ Fixture Obama LP=2 / Expression=1
 
-**CHƯA LÀM (ngoài module / chờ môi trường):**
+**ĐÃ XONG (v9, 2026-07-21 — tin cậy Expression + PDF đủ + dọn UI):**
+- ✅ Expression name-audit: Decoz per-part vs flat full-name (fixture Mary Ann Smith 2≠11)
+- ✅ PDF: day window 21d, pinnacle/challenge deep, planes, letter grid, Expression audit
+- ✅ UI: Expression audit + deep Đỉnh/Thử thách; xoá dead `PytagoEnergyPage.vue`
+
+**CHƯA LÀM (ngoài module / chờ môi trường / chờ Anh mở SKU):**
 - [ ] WeasyPrint print-quality layout (hiện fpdf2 đủ dùng)
 - [ ] Restore sách Goodwin/Juno Jordan bản quyền
 - [ ] Relationship/compatibility report (SKU riêng — chưa mở)

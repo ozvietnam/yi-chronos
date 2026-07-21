@@ -231,6 +231,24 @@ def test_method_audit_karmic_oct_15_1998():
     assert audit["karmic_hidden_by_shortcut"] is True
 
 
+def test_expression_audit_mary_ann_smith_diverges():
+    """Flat full-name sum can diverge from Decoz per-part (Mary Ann Smith: 2 vs 11)."""
+    from engine.than_so.method_audit import expression_name_audit
+
+    audit = expression_name_audit("Mary Ann Smith", name_order="western")
+    assert audit["decoz_per_part"]["value"] == 2
+    assert audit["flat_full_name_shortcut"]["value"] == 11
+    assert audit["diverged"] is True
+    assert any(p["part"] == "ANN" and p["reduced"] == 11 for p in audit["decoz_per_part"]["parts"])
+
+
+def test_cast_includes_expression_audit():
+    res = cast_than_so("Mary Ann Smith", "1980-01-01", name_order="western", include_chaldean=False)
+    assert "expression" in res["method_audit"]
+    assert res["method_audit"]["expression"]["diverged"] is True
+    assert res["core"]["expression"]["value"] == 2
+
+
 def test_generate_pdf_bytes():
     from engine.than_so.report_pdf import generate_than_so_pdf
 

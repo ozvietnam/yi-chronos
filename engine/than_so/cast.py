@@ -93,7 +93,14 @@ def cast_than_so(
         "cycles": cycles,
         "reading": compose_reading(core, cycles, extended),
         "deep_reading": compose_deep_reading(core, extended, cycles),
-        "method_audit": method_audit(d.day, d.month, d.year),
+        "method_audit": method_audit(
+            d.day,
+            d.month,
+            d.year,
+            name=normalized,
+            name_order=name_order,
+            system=core_system,
+        ),
     }
 
     if include_chaldean and core_system != "chaldean":

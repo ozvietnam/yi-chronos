@@ -124,6 +124,20 @@ def generate_than_so_pdf(
         f"ĐĐ↔NS {br['life_path_birthday']['value']}",
         size=10,
     )
+    if ext.get("cornerstone") or ext.get("capstone"):
+        _p(
+            pdf,
+            f"Cornerstone {ext.get('cornerstone', {}).get('letter', '—')} · "
+            f"Capstone {ext.get('capstone', {}).get('letter', '—')} · "
+            f"First Vowel {ext.get('first_vowel', {}).get('letter', '—')}",
+            size=10,
+        )
+    planes = (ext.get("planes_of_expression") or {}).get("planes") or {}
+    if planes:
+        plane_txt = " · ".join(
+            f"{pl.get('name_vi', k)} {pl.get('value')}" for k, pl in planes.items()
+        )
+        _p(pdf, f"Mặt phẳng: {plane_txt}", size=9)
 
     pdf.ln(2)
     _p(pdf, "III. Chu kỳ", size=13, bold=True)
@@ -185,6 +199,30 @@ def generate_than_so_pdf(
     for row in (cy.get("personal_year_calendar") or [])[:9]:
         _p(pdf, f"{row['year']}: Năm CN {row['personal_year']}", size=9)
 
+    pdf.ln(2)
+    _p(pdf, "VI.c 21 ngày cá nhân tới", size=11, bold=True)
+    for row in (cy.get("personal_day_window") or [])[:21]:
+        _p(
+            pdf,
+            f"D+{row['offset']} {row['date']}: "
+            f"PY/PM/PD {row['personal_year']}/{row['personal_month']}/{row['personal_day']}",
+            size=8,
+        )
+
+    pins = (deep.get("cycles") or {}).get("pinnacles") or []
+    chals = (deep.get("cycles") or {}).get("challenges") or []
+    if pins or chals:
+        pdf.ln(2)
+        _p(pdf, "VI.d Đỉnh vận & Thử thách (đọc sâu)", size=11, bold=True)
+        for block in pins:
+            _p(pdf, block.get("read", ""), size=8)
+            for act in block.get("improve") or []:
+                _p(pdf, f"• {act}", size=8)
+        for block in chals:
+            _p(pdf, block.get("read", ""), size=8)
+            for act in block.get("improve") or []:
+                _p(pdf, f"• {act}", size=8)
+
     pdf.ln(3)
     _p(pdf, "VII. Transit / Essence (9 tuổi tới)", size=12, bold=True)
     for row in (cy.get("transit_timeline") or [])[:9]:
@@ -210,6 +248,30 @@ def generate_than_so_pdf(
             f"{(audit.get('shortcut_unit_sum') or {}).get('value')}",
             size=9,
         )
+        expr_audit = audit.get("expression") or {}
+        if expr_audit:
+            pdf.ln(2)
+            _p(pdf, "VIII.b Kiểm chứng Expression", size=11, bold=True)
+            _p(pdf, expr_audit.get("note", ""), size=8)
+            de = expr_audit.get("decoz_per_part") or {}
+            flat = expr_audit.get("flat_full_name_shortcut") or {}
+            _p(
+                pdf,
+                f"Decoz từng phần: {de.get('value')} · Flat shortcut: {flat.get('value')}",
+                size=9,
+            )
+            for pt in de.get("parts") or []:
+                kd = f" (nợ {pt['karmic_debt']})" if pt.get("karmic_debt") else ""
+                _p(pdf, f"  {pt.get('part')}: {pt.get('raw')} → {pt.get('reduced')}{kd}", size=8)
+            if expr_audit.get("diverged") or expr_audit.get("master_hidden_by_flat"):
+                _p(pdf, "Flat lệch hoặc che Master — YI giữ Decoz per-part.", size=8)
+
+    letters = chart.get("core", {}).get("breakdown") or []
+    if letters:
+        pdf.ln(2)
+        _p(pdf, "IX. Quy đổi chữ cái", size=11, bold=True)
+        grid = " ".join(f"{b.get('letter')}={b.get('value')}" for b in letters)
+        _p(pdf, grid, size=8)
 
     pdf.ln(4)
     pdf.set_text_color(100, 100, 100)
