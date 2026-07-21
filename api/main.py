@@ -1232,12 +1232,18 @@ class ThanSoCastRequest(BaseModel):
     birth_date: str  # 'YYYY-MM-DD'
     system: str = "pythagorean"  # 'pythagorean' | 'chaldean'
     include_chaldean: bool = True
+    include_dong_phuong: bool = False
     target_year: int | None = None
+    target_month: int | None = None
+    target_day: int | None = None
+    current_name: str | None = None
+    name_order: str = "vn"  # 'vn' | 'western'
+    as_of: str | None = None  # 'YYYY-MM-DD'
 
 
 @app.post("/api/than-so/cast")
 def than_so_cast(request: ThanSoCastRequest) -> dict[str, object]:
-    """Lập lá số Thần Số Học từ TÊN + NGÀY SINH (Pythagoras + đối chiếu Chaldean).
+    """Lập lá số Thần Số Học Pythagoras (Decoz P0) từ TÊN + NGÀY SINH.
 
     Paradigm đọc đồng dạng (Iron Rule #4/#6) — KHÔNG predict.
     """
@@ -1248,7 +1254,13 @@ def than_so_cast(request: ThanSoCastRequest) -> dict[str, object]:
         birth_date=request.birth_date,
         system=request.system,
         include_chaldean=request.include_chaldean,
+        include_dong_phuong=request.include_dong_phuong,
         target_year=request.target_year,
+        target_month=request.target_month,
+        target_day=request.target_day,
+        current_name=request.current_name,
+        name_order=request.name_order,
+        as_of=request.as_of,
     )
 
 

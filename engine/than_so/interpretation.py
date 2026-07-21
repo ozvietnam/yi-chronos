@@ -1,6 +1,6 @@
 """Soạn luận giải — paradigm ĐỌC ĐỒNG DẠNG, KHÔNG predict.
 
-Lấy ý nghĩa từ number_meanings.json + karmic_debt.json. Tone: quan-số-trace-tính.
+Lấy ý nghĩa từ number_meanings.json + karmic_debt.json.
 """
 from __future__ import annotations
 
@@ -27,7 +27,6 @@ def describe_number(value: int) -> dict:
 
 
 def interpret_core(core: dict) -> dict:
-    """Diễn giải 6 số cốt lõi theo tone đồng dạng."""
     out: dict[str, dict] = {}
     for key in ("life_path", "expression", "soul_urge", "personality", "birthday", "maturity"):
         node = core[key]
@@ -60,21 +59,46 @@ def collect_karmic(core: dict) -> list[dict]:
 
 
 PARADIGM_NOTE = (
-    "Thần Số Học ở đây là MÔN ĐỌC ĐỒNG DẠNG (Pythagoras: 'Vạn vật là số'), "
-    "KHÔNG phải bói tốt/xấu. Số phản chiếu cấu trúc tâm-thiên-thân của Anh — "
-    "câu hỏi đúng là 'cấu trúc này mời Anh quan-sát điều gì', không phải 'tương lai sẽ ra sao'."
+    "Thần Số Học Pythagoras ở đây là MÔN ĐỌC ĐỒNG DẠNG ('Vạn vật là số'), "
+    "KHÔNG phải bói tốt/xấu. Số phản chiếu cấu trúc — câu hỏi đúng là "
+    "'cấu trúc này mời quan-sát điều gì', không phải 'tương lai sẽ ra sao'."
 )
 
 
-def compose_reading(core: dict, cycles: dict | None = None) -> dict:
-    reading = {
+def compose_reading(core: dict, cycles: dict | None = None, extended: dict | None = None) -> dict:
+    reading: dict = {
         "paradigm_note": PARADIGM_NOTE,
         "core": interpret_core(core),
         "karmic_debts": collect_karmic(core),
     }
+    if extended:
+        att = extended.get("attitude")
+        if att:
+            reading["attitude"] = describe_number(att["value"])
+        lessons = extended.get("karmic_lessons") or {}
+        if lessons.get("values"):
+            reading["karmic_lessons"] = [
+                {"number": n, **describe_number(n)} for n in lessons["values"]
+            ]
+        passion = extended.get("hidden_passion") or {}
+        if passion.get("values"):
+            reading["hidden_passion"] = [
+                {"number": n, **describe_number(n)} for n in passion["values"]
+            ]
+        bridges = extended.get("bridges") or {}
+        reading["bridges"] = {
+            k: {"value": v["value"], "name_vi": v["name_vi"], **describe_number(v["value"])}
+            for k, v in bridges.items()
+        }
     if cycles:
         reading["cycles_hint"] = (
-            "Các chu kỳ (Đỉnh Vận / Thử Thách / Năm Cá Nhân) là lớp BIẾN — "
-            "đọc 'khí của giai đoạn', tương ứng Đại Vận/Lưu Niên, không predict được-mất."
+            "Chu kỳ (Đỉnh Vận / Thử Thách / Năm–Tháng–Ngày Cá Nhân / Transit–Essence) "
+            "là lớp BIẾN — đọc khí giai đoạn, không predict được-mất."
         )
+        py = cycles.get("personal_year")
+        if py:
+            reading["personal_year"] = {
+                "target_year": py["target_year"],
+                **describe_number(py["value"]),
+            }
     return reading

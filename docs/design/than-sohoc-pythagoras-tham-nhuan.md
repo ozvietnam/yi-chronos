@@ -164,6 +164,22 @@ Giống Iron Rule #6 (CƠ + BIẾN của Tử Vi), số tĩnh chưa đủ — ph
 - [ ] Restore Goodwin/Juno Jordan — chờ mua bản quyền hợp pháp
 - [ ] Publish PDF Campbell — chờ 2027-01-01
 
+**ĐÃ XONG (v5, 2026-07-21 — Decoz P0 complete chart, chỉ Pythagoras):**
+- ✅ Spec đóng băng `data/than_so/master/pythagorean_spec.json` + golden fixtures Decoz
+- ✅ Fix Expression/Soul/Personality: **rút từng phần tên** (không cộng tràn chuỗi)
+- ✅ Fix Challenges: **bỏ Master** trước khi trừ; Period 2 = đúng 27 năm
+- ✅ Extended: Attitude, Balance, Rational Thought, Karmic Lessons, Hidden Passion,
+  Subconscious Self, Cornerstone/Capstone, Bridges, Planes of Expression, Minor (tên đang dùng)
+- ✅ Cycles: Personal Month/Day + Transit/Essence/Duality/Age Digit
+- ✅ API + `ThanSoPanel.vue` schema v2; `include_dong_phuong` mặc định tắt
+- ✅ Tests `tests/test_than_so.py` — 27 PASS
+
+**CHƯA LÀM (P1 — hữu dụng trả phí):**
+- [ ] Transit timeline UI nhiều năm + Duality narrative
+- [ ] PDF báo cáo lá số
+- [ ] Unify `PytagoEnergyPage` sang API (bỏ dual calculator client)
+- [ ] Reading VI đủ dày theo từng số (READ→GAP→IMPROVE)
+
 ---
 
 ## 9. Nguồn tham khảo phiên này (web research 2026-06-05)

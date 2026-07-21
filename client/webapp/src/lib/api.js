@@ -687,10 +687,20 @@ export function castTuViLaSo({ birthDatetimeLocal, timezone = "Asia/Ho_Chi_Minh"
 // ─── YI-Hermes API ─────────────────────────────────────────────────────────
 
 /**
- * Lập lá số Thần Số Học (Numerology) từ TÊN + NGÀY SINH.
- * @param {{ name: string, birthDate: string, system?: string, includeChaldean?: boolean, targetYear?: number|null }} p
+ * Lập lá số Thần Số Học Pythagoras (Decoz) từ TÊN + NGÀY SINH.
+ * @param {{ name: string, birthDate: string, system?: string, includeChaldean?: boolean, targetYear?: number|null, targetMonth?: number|null, targetDay?: number|null, currentName?: string|null, nameOrder?: string }} p
  */
-export function castThanSo({ name, birthDate, system = "pythagorean", includeChaldean = true, targetYear = null }) {
+export function castThanSo({
+  name,
+  birthDate,
+  system = "pythagorean",
+  includeChaldean = true,
+  targetYear = null,
+  targetMonth = null,
+  targetDay = null,
+  currentName = null,
+  nameOrder = "vn",
+}) {
   return request("/api/than-so/cast", {
     method: "POST",
     body: JSON.stringify({
@@ -699,6 +709,10 @@ export function castThanSo({ name, birthDate, system = "pythagorean", includeCha
       system,
       include_chaldean: includeChaldean,
       target_year: targetYear,
+      target_month: targetMonth,
+      target_day: targetDay,
+      current_name: currentName,
+      name_order: nameOrder,
     }),
   });
 }
