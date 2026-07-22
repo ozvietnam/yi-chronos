@@ -3,6 +3,9 @@
 > Đọc sâu từ sách **đã có trong thư viện dự án** (2026-07-21).
 > Mục tiêu: nguyên lý luận giải cho user — không predict, không làm ẩu extract.
 > Paradigm: Iron Rule #4/#6/#8/#9 · đa phái độc lập (#3).
+>
+> 📋 **Kế hoạch đọc hết thư viện (vòng C1…C8 + B0/P0 + M*)**:  
+> `docs/design/than-so-thu-vien-KE-HOACH-THAM-NHUAN.md` — file này chỉ là **C0 nền**, chưa xong toàn thư viện.
 
 ---
 
