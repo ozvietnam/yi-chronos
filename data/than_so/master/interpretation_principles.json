@@ -124,6 +124,19 @@
       "forbid": ["chọn số đề", "đua ngựa theo số", "xổ số / lottery tip", "cá cược theo Birth Day"]
     },
     {
+      "id": "balliett_tone_color",
+      "name_vi": "Balliett: số · màu · âm (lớp tùy chọn)",
+      "sources": ["balliett-philosophy-of-numbers B1–B2"],
+      "axiom_vi": "Mỗi số có màu và nốt — ba mặt một rung động. Dùng để quan-sát khí môi trường / GAP, không kê đơn màu may, đá quý, hay tài chính (money=9).",
+      "for_user_vi": "Nếu mở lớp Balliett: hỏi màu/âm đang mở hay đóng kênh — một tuần ghi nhận, không mua đồ theo số.",
+      "forbid": [
+        "lucky color shopping",
+        "gem shopping as cure",
+        "investment advice from money=9",
+        "medical from digit-body lists"
+      ]
+    },
+    {
       "id": "inclusion",
       "name_vi": "Bảng Bao Hàm (Campbell)",
       "sources": ["campbell-your-days-are-numbered"],

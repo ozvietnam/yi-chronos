@@ -428,6 +428,48 @@ def test_cast_chaldean_xref_has_compound():
     assert xref["name_compound_flat"]["raw"] >= 1
     assert res["extended"]["inclusion_table"]["name_vi"]
     assert "balliett" in xref
+    assert "balliett" in res
+    assert res["balliett"]["birth_digit"]["birth_digit"] >= 1
+
+
+# ─── Balliett B1/B2 tone-color ─────────────────────────────────────────────────
+
+
+def test_resolve_balliett_tone_and_henry_elder_birth():
+    from engine.than_so.library import resolve_balliett_tone, balliett_birth_digit
+
+    t9 = resolve_balliett_tone(9)
+    assert t9["colors"] == ["red"]
+    assert "D" in t9["tones"]
+    assert t9.get("present_both") is True  # Cheiro conflict note
+    assert resolve_balliett_tone(11)["tones"] == ["full_octave_C"]
+    assert resolve_balliett_tone(33) is None
+
+    # Henry Elder: 1872-01-17 → 1+8+9 → 18 → 9
+    he = balliett_birth_digit(1, 17, 1872)
+    assert he["components"] == {"month": 1, "day_digit": 8, "year_digit": 9}
+    assert he["birth_digit"] == 9
+
+    # Wanamaker: 1838-07-11 → birth numbers 9, 11
+    w = balliett_birth_digit(7, 11, 1838)
+    assert w["wanamaker_mode"] is True
+    assert w["birth_numbers"] == [9, 11]
+
+
+def test_deep_reading_has_balliett_tone_layer():
+    res = cast_than_so("Nguyễn Văn An", "1990-11-23", include_chaldean=False)
+    layer = res["deep_reading"]["layers"]["balliett_tone"]
+    assert "birth_digit" in layer
+    assert "không" in layer["improve"].lower() or "không" in layer["read"]
+    assert any("lucky" in f or "color" in f for f in layer["forbid"])
+    assert res["balliett"]["expression_tone"]["value"] >= 1
+
+
+def test_balliett_principle_in_v2():
+    from engine.than_so.deep_reading import _principles
+
+    ids = {p["id"] for p in _principles()["principles"]}
+    assert "balliett_tone_color" in ids
 
 
 # ─── Deep principles from library (v12) ────────────────────────────────────────

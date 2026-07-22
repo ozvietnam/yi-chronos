@@ -11,7 +11,7 @@ from pathlib import Path
 
 from .core_numbers import reduce_number
 from .interpretation import describe_number
-from .library import resolve_cheiro_birth
+from .library import resolve_cheiro_birth, resolve_balliett_tone, balliett_birth_digit
 
 
 def reduce_single(n: int) -> int:
@@ -392,6 +392,41 @@ def compose_deep_reading(
     }
     if birth_day is not None and birth_month is not None and birth_year is not None:
         layers["cheiro_birth_layers"] = _cheiro_birth_layers(birth_day, birth_month, birth_year)
+        bb = balliett_birth_digit(birth_month, birth_day, birth_year)
+        ex_tone = resolve_balliett_tone(core["expression"]["value"])
+        bd_tone = bb.get("tone") or resolve_balliett_tone(bb["birth_digit"])
+        layers["balliett_tone"] = {
+            "source": "balliett-philosophy-of-numbers B1",
+            "birth_digit": bb,
+            "expression_tone": ex_tone,
+            "read": (
+                f"Balliett: birth digit {bb['birth_digit']}"
+                + (
+                    f" ({', '.join(bd_tone.get('colors') or [])} / {', '.join(bd_tone.get('tones') or [])})"
+                    if bd_tone
+                    else ""
+                )
+                + f"; Expression {core['expression']['value']}"
+                + (
+                    f" ({', '.join(ex_tone.get('colors') or [])} / {', '.join(ex_tone.get('tones') or [])})"
+                    if ex_tone
+                    else ""
+                )
+                + ". Số·màu·âm = quan-sát khí — không mua màu may."
+            ),
+            "gap": (
+                "Anh đang dùng môi trường (màu/âm) để mở hay đóng kênh khí birth digit?"
+            ),
+            "improve": (
+                "Một tuần: ghi 1 lần khi màu/âm thanh làm anh mở hoặc đóng — "
+                "không kê đơn mua đồ theo số."
+            ),
+            "forbid": (bd_tone or {}).get("forbid")
+            or [
+                "lucky color prescription as fate",
+                "gem shopping as numerology cure",
+            ],
+        }
 
     cycle_guidance: dict = {}
     arc = _nine_year_arc()

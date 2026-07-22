@@ -144,8 +144,105 @@ def balliett_provenance_note() -> dict:
     return {
         "name_vi": "Balliett — provenance Pythagoras hiện đại",
         "provenance": "balliett-philosophy-of-numbers",
+        "deep_read_status": "B1+B2",
+        "data_file": "balliett_tone_color.json",
+        "journal": "docs/design/than-so-balliett-tham-nhuan-vong-B1.md",
         "note": (
             "Bảng A=1…I=9, nguyên âm = linh hồn, master 11/22: gốc Balliett (~1908, PD). "
+            "Tone/color layer: balliett_tone_color.json (B1). "
             "Jordan/Decoz hệ thống hóa sau — thư viện chưa có Jordan/Goodwin."
         ),
     }
+
+
+@lru_cache(maxsize=1)
+def balliett_tone_color() -> dict:
+    return json.loads((MASTER / "balliett_tone_color.json").read_text(encoding="utf-8"))
+
+
+def resolve_balliett_tone(digit: int | None) -> dict | None:
+    """Tra màu/âm Balliett cho 1–9, 11, 22. Không rút master. 33 → None."""
+    if digit is None:
+        return None
+    try:
+        d = int(digit)
+    except (TypeError, ValueError):
+        return None
+    data = balliett_tone_color()
+    numbers = data.get("numbers") or {}
+    key = str(d)
+    node = numbers.get(key)
+    if not node and d not in (11, 22, 33) and d > 9:
+        while d > 9:
+            d = sum(int(x) for x in str(d))
+        key = str(d)
+        node = numbers.get(key)
+    if not node:
+        return None
+    out = {
+        "value": int(key),
+        "colors": node.get("colors") or [],
+        "colors_vi": node.get("colors_vi") or [],
+        "tones": node.get("tones") or [],
+        "archetype_vi": node.get("archetype_vi", ""),
+        "keywords_vi": node.get("keywords_vi") or [],
+        "ocr_confidence": node.get("ocr_confidence", "medium"),
+        "source": "balliett-philosophy-of-numbers",
+        "dong_dang": (
+            "Balliett: số·màu·âm = ba mặt một rung động để quan-sát khí — "
+            "KHÔNG kê đơn màu may / đá quý / bệnh."
+        ),
+        "forbid": data.get("forbid") or [],
+    }
+    if node.get("cheiro_color_conflict"):
+        out["cheiro_color_conflict"] = node["cheiro_color_conflict"]
+        out["present_both"] = True
+    if node.get("colors_expresses"):
+        out["colors_expresses"] = node["colors_expresses"]
+    if node.get("is_master"):
+        out["is_master"] = True
+        out["reduces_to"] = node.get("reduces_to")
+    return out
+
+
+def balliett_birth_digit(month: int, day: int, year: int) -> dict:
+    """Balliett birth vibration: month + day_digit + year_digit (Ch.II Henry Elder).
+
+    Khác Decoz Life Path (cộng mọi chữ số). Khác Cheiro Birth Day (chỉ ngày).
+    Ngày 11/22: giữ master ở lớp ngày; Wanamaker OCR liệt kê birth numbers
+    [month+year, day] song song với tổng gộp.
+    """
+    from .core_numbers import reduce_number
+
+    month_d = int(month)
+    day_raw = int(day)
+    year_d = reduce_number(sum(int(c) for c in str(int(year))), keep_master=False)
+    if day_raw in (11, 22):
+        day_d = day_raw
+        month_year = reduce_number(month_d + year_d, keep_master=True)
+        birth_numbers = [month_year, day_d]
+    else:
+        day_d = reduce_number(day_raw, keep_master=False)
+        birth_numbers = None
+    raw = month_d + day_d + year_d
+    birth = reduce_number(raw, keep_master=True)
+    out = {
+        "birth_digit": birth,
+        "raw": raw,
+        "components": {"month": month_d, "day_digit": day_d, "year_digit": year_d},
+        "method": "balliett_month_plus_day_digit_plus_year_digit",
+        "differs_from": ["decoz_life_path", "cheiro_birth_day_only"],
+        "note_vi": (
+            "Balliett birth digit = khí bài học hiện tại (màu/âm đi kèm); "
+            "không thay Life Path Decoz hay Birth Day Cheiro."
+        ),
+        "tone": resolve_balliett_tone(birth),
+    }
+    if birth_numbers:
+        out["birth_numbers"] = birth_numbers
+        out["wanamaker_mode"] = True
+        out["note_vi"] += (
+            f" Ngày master {day_d}: OCR cũng liệt kê birth numbers {birth_numbers} "
+            "(tháng+năm · ngày) — present BOTH."
+        )
+    return out

@@ -110,8 +110,23 @@ def cast_than_so(
         ),
     }
 
+    from .library import (
+        balliett_birth_digit,
+        balliett_provenance_note,
+        resolve_balliett_tone,
+    )
+
+    result["balliett"] = {
+        "provenance": balliett_provenance_note(),
+        "birth_digit": balliett_birth_digit(d.month, d.day, d.year),
+        "life_path_tone": resolve_balliett_tone(core["life_path"]["value"]),
+        "expression_tone": resolve_balliett_tone(core["expression"]["value"]),
+        "soul_urge_tone": resolve_balliett_tone(core["soul_urge"]["value"]),
+        "birthday_tone": resolve_balliett_tone(core["birthday"]["value"]),
+    }
+
     if include_chaldean and core_system != "chaldean":
-        from .library import balliett_provenance_note, chaldean_flat_name_compound, resolve_compound
+        from .library import chaldean_flat_name_compound, resolve_compound
 
         chaldean_core = compute_core(
             name, d.day, d.month, d.year, system="chaldean", name_order=name_order
@@ -126,7 +141,7 @@ def cast_than_so(
             "personality": chaldean_core["personality"]["value"],
             "name_compound_flat": flat,
             "birthday_compound": day_compound,
-            "balliett": balliett_provenance_note(),
+            "balliett": result["balliett"]["provenance"],
         }
     elif core_system == "chaldean":
         from .library import chaldean_flat_name_compound

@@ -149,14 +149,17 @@ Sau mỗi cụm (C1–C2, C3–C4, …): **một PR nhỏ** inject đã duyệt 
 
 ### Balliett / Campbell
 - [x] B0 stub + câu hỏi mở → `than-so-balliett-tham-nhuan-vong-0.md`
+- [x] **B1** foundations + tone/color → `than-so-balliett-tham-nhuan-vong-B1.md` + `balliett_tone_color.json` + OCR IA
+- [x] **B2** practical / boundaries → `than-so-balliett-tham-nhuan-vong-B2.md` (money/gems/rooms forbid)
+- [ ] B3 Life Song chart (OCR bẩn — optional)
 - [x] P0 stub + audit Inclusion → `than-so-campbell-tham-nhuan-vong-0.md` (+ intensity average)
-- [ ] B1+ / P1+ (chờ nguồn / 2027)
+- [ ] B1+ full Balliett done for Track B foundations; P1+ Campbell vẫn chờ 2027 / Anh
 
 ### Master
 - [x] M1 meanings/debt → giữ Decoz; đánh dấu conflict 3/4/9 (`than-so-master-tham-nhuan-M1-M3.md`)
 - [x] M2 cycles vs Cheiro → `school_boundary_m2` + series 3–6–9
 - [x] M3 compatibility → `cheiro_vi` dual-lens (không ghi đè score)
-- [x] M4 principles v2 ← 2026-07-22 (merge C0–C8)
+- [x] M4 principles v2 ← 2026-07-22 (+ `balliett_tone_color` B2)
 
 ---
 
@@ -182,13 +185,10 @@ Sau mỗi cụm (C1–C2, C3–C4, …): **một PR nhỏ** inject đã duyệt 
 
 ---
 
-## 9. Bước kế tiếp (thư viện trong repo)
+## 9. Bước kế tiếp
 
-Cheiro C* + B0/P0 + M1–M4: **xong** trên nguồn hiện có.
+- Balliett Track B: **B1+B2 xong** (OCR IA trong repo). B3 Life Song optional.
+- Campbell P1+ — chờ 2027 / Anh.
+- Goodwin/Jordan — chưa có file (copyright).
 
-Còn lại:
-1. Track B — Anh upload PDF Balliett (PD) → B1+ màu/âm.
-2. Campbell full text — chờ 2027 hoặc Anh cho phép method sâu hơn.
-3. Goodwin/Jordan — chưa có file (copyright).
-
-*(B0/P0/M1–M3: 2026-07-22.)*
+*(B1–B2 Balliett: 2026-07-22.)*

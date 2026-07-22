@@ -12,10 +12,17 @@
         "letter_maps.json → pythagorean A=1…I=9",
         "master 11/22 (Balliett nền; 33 hệ thống hóa sau)",
         "Soul Urge = nguyên âm (provenance)",
-        "paradigm rung động số↔màu↔âm (art-direction tương lai)"
+        "balliett_tone_color.json → màu/âm 1–9+11/22 (B1 OCR)",
+        "balliett_birth_digit (month+day+year; Wanamaker 11/22)"
       ],
-      "stage": "2-3/6 method",
-      "engine_hooks": ["constants.letter_map", "core_numbers.reduce master"]
+      "stage": "OCR IA + B1/B2 thâm nhuần 2026-07-22",
+      "engine_hooks": [
+        "constants.letter_map",
+        "core_numbers.reduce master",
+        "library.resolve_balliett_tone",
+        "library.balliett_birth_digit",
+        "deep_reading.layers.balliett_tone"
+      ]
     },
     {
       "book_id": "campbell-your-days-are-numbered",
