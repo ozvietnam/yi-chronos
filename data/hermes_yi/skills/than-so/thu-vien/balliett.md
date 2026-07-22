@@ -1,6 +1,7 @@
 # Balliett — Triết Lý Của Những Con Số
 
 > L. Dow Balliett (~1908) · Public domain · `data/restored_books/balliett-philosophy-of-numbers/`
+> Journal B0: `docs/design/than-so-balliett-tham-nhuan-vong-0.md` (**stub only** — chưa OCR full)
 
 ## Cống hiến đã wire vào engine
 
@@ -14,6 +15,10 @@
 - Khi giải thích *vì sao* tách nguyên âm/phụ âm → dẫn Balliett.
 - Khi nói master → Balliett là provenance; Decoz/Jordan tinh chỉnh.
 - KHÔNG bịa bảng màu/âm đầy đủ nếu chưa extract từ bản quét PD.
+
+## B0 status
+
+Đã đọc stub + chốt câu hỏi mở (Track B cần PDF). **Không claim đã đọc sách.**
 
 ## File
 

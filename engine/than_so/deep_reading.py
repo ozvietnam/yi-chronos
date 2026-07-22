@@ -92,6 +92,8 @@ def _series(n: int) -> str | None:
         return "1-4"
     if r in (2, 7):
         return "2-7"
+    if r in (3, 6, 9):
+        return "3-6-9"
     return None
 
 
@@ -117,7 +119,7 @@ def _name_birth_harmony(birth_day_value: int, expression_value: int) -> dict:
         band = "series_affinity"
         read = (
             f"Birth Day {birth_day_value} (series {s_bd}) và Expression {expression_value} "
-            f"(series {s_ex}): cùng họ 1–4 hoặc 2–7 (Cheiro Ch.I) — cảm thông nội bộ, chưa phải trùng số."
+            f"(series {s_ex}): cùng họ 1–4 / 2–7 / 3–6–9 (Cheiro) — cảm thông nội bộ, chưa phải trùng số."
         )
         gap = "Anh đang kỳ vọng hai mặt phải giống hệt thay vì bổ sung?"
         improve = "Cho mỗi mặt một việc riêng trong tuần; đừng ép một số nuốt số kia."
@@ -160,12 +162,19 @@ def _name_birth_harmony(birth_day_value: int, expression_value: int) -> dict:
 def _inclusion_deep(inclusion: dict) -> dict:
     missing = inclusion.get("missing") or []
     dominant = inclusion.get("dominant") or []
+    above = inclusion.get("above_average") or []
+    avg = inclusion.get("average")
     return {
         "provenance": inclusion.get("provenance"),
+        "average": avg,
+        "above_average": above,
+        "below_average": inclusion.get("below_average") or [],
         "read": (
             "Bảng Bao Hàm (Campbell): tần suất chữ-số trong tên là bản đồ tập luyện — "
-            f"thiếu {missing or 'không'}; trội {dominant or 'không'}."
-        ),
+            f"thiếu {missing or 'không'}; trội {dominant or 'không'}; "
+            f"trên TB {above or '—'} (TB={avg}). "
+            f"{inclusion.get('intensity_note') or ''}"
+        ).strip(),
         "gap": (
             "Anh đang sợ số thiếu như 'nghiệp' hay đang tránh số trội vì nó quá mạnh?"
         ),

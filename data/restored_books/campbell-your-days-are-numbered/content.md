@@ -37,7 +37,8 @@ tinh thần "procedural grimoire" của YI-Chronos (sách như công cụ hành 
 
 ## IV. Wire engine (2026-07-21)
 
-- ✅ `extended.inclusion_table` — tần suất 1–9 + provenance Campbell
+- ✅ `extended.inclusion_table` — tần suất 1–9 + average intensity + provenance Campbell
 - ✅ `karmic_lessons` / `hidden_passion` gắn provenance
+- ✅ P0 audit: `docs/design/than-so-campbell-tham-nhuan-vong-0.md`
 - ⚠️ Publish PDF nguyên văn: chờ 2027-01-01 (PD)
 - [ ] Attach bản quét khi Anh upload / allowlist

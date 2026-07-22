@@ -75,7 +75,7 @@ def lookup_pair(a: int, b: int) -> dict:
             "roots": [root_digit(a), root_digit(b)],
         }
     score = row["score"]
-    return {
+    out = {
         "pair": key,
         "score": score,
         "points": SCORE_POINTS.get(score, 2),
@@ -86,6 +86,9 @@ def lookup_pair(a: int, b: int) -> dict:
         "values": [a, b],
         "roots": [root_digit(a), root_digit(b)],
     }
+    if row.get("cheiro_vi"):
+        out["cheiro_vi"] = row["cheiro_vi"]
+    return out
 
 
 def _person_slice(chart: dict, label: str) -> dict:
@@ -143,19 +146,23 @@ def analyze_compatibility(
         w = float(weights.get(key, 0.25))
         weighted += pair["points"] * w
         weight_sum += w
-        aspects.append(
-            {
-                "key": key,
-                "name_vi": name_vi,
-                "a": va,
-                "b": vb,
-                "weight": w,
-                "read": pair["dynamic_vi"],
-                "gap": pair["gap_vi"],
-                "improve": pair["improve_vi"],
-                **{k: pair[k] for k in ("pair", "score", "points", "label_vi", "roots")},
-            }
-        )
+        read = pair["dynamic_vi"]
+        if pair.get("cheiro_vi"):
+            read = f"{read} Cheiro: {pair['cheiro_vi']}"
+        aspect_row = {
+            "key": key,
+            "name_vi": name_vi,
+            "a": va,
+            "b": vb,
+            "weight": w,
+            "read": read,
+            "gap": pair["gap_vi"],
+            "improve": pair["improve_vi"],
+            **{k: pair[k] for k in ("pair", "score", "points", "label_vi", "roots")},
+        }
+        if pair.get("cheiro_vi"):
+            aspect_row["cheiro_vi"] = pair["cheiro_vi"]
+        aspects.append(aspect_row)
 
     max_points = 3.0
     overall_01 = (weighted / weight_sum / max_points) if weight_sum else 0.5

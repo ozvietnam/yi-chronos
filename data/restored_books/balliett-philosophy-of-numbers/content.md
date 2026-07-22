@@ -40,5 +40,6 @@ Balliett dẫn ngược về Pythagoras ("vạn vật là số" + hòa âm các 
 
 - ✅ Provenance map `library_provenance.json` + skill `than-so/thu-vien/balliett.md`
 - ✅ Sage SOUL route Balliett cho bảng chữ / Soul Urge / master
+- ✅ B0 journal: `docs/design/than-so-balliett-tham-nhuan-vong-0.md` (stub only)
 - [ ] Attach bản quét public-domain (network allowlist)
 - [ ] Bảng màu/âm per số (art-direction) — chờ extract từ bản quét PD, không bịa

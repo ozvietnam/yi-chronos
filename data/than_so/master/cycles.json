@@ -1,8 +1,16 @@
 {
-  "schema_version": "v1",
-  "curated_at": "2026-06-05",
+  "schema_version": "v1.1",
+  "curated_at": "2026-07-22",
   "doc": "Các CHU KỲ thời gian trong Thần Số Học — lớp BIẾN (dynamic) bổ cho lớp CƠ (số cốt lõi tĩnh). Tương ứng Đại Vận/Lưu Niên của Tử Vi (Iron Rule #6 CƠ+BIẾN). Nguồn: Hans Decoz / worldnumerology.com, lynsreadings, affinitynumerology.",
   "paradigm_note": "Chu kỳ KHÔNG predict 'năm nay giàu/nghèo'. Chúng đọc 'khí của giai đoạn' — anh nên quan-sát điều gì, học gì. Đồng dạng với Đại Vận đi qua cung.",
+  "school_boundary_m2": {
+    "decoz_in_this_file": [
+      "Pinnacles", "Challenges", "Period Cycles",
+      "Personal Year / Month / Day", "Transit / Essence / Duality"
+    ],
+    "cheiro_separate": "Cheiro Ch.XV tách Ngày · Tháng · Năm sinh (KHÔNG cộng) — wire trong deep_reading.cheiro_birth_layers + cheiro_birth_numbers.json. Không trộn thành Personal Year Decoz.",
+    "journal": "docs/design/than-so-master-tham-nhuan-M1-M3.md"
+  },
 
   "abbrev": {
     "M": "Tháng sinh đã rút gọn (1 chữ số)",

@@ -110,7 +110,7 @@ def hidden_passion(name: str, system: str = "pythagorean") -> dict:
 
 
 def inclusion_table(name: str, system: str = "pythagorean") -> dict:
-    """Campbell Inclusion Table — tần suất đầy đủ 1–9."""
+    """Campbell Inclusion Table — tần suất đầy đủ 1–9 + intensity bands."""
     from .library import campbell_inclusion_meta
 
     letters = letters_only(name)
@@ -123,15 +123,28 @@ def inclusion_table(name: str, system: str = "pythagorean") -> dict:
     missing = [n for n in range(1, 10) if counts.get(n, 0) == 0]
     max_c = max(counts.values()) if counts else 0
     dominant = sorted(n for n, c in counts.items() if c == max_c) if max_c else []
+    letter_count = sum(counts.values())
+    average = round(letter_count / 9, 3) if letter_count else 0.0
+    above = sorted(n for n in range(1, 10) if freq[str(n)] > average) if letter_count else []
+    below = sorted(
+        n for n in range(1, 10) if 0 < freq[str(n)] < average
+    ) if letter_count else []
     meta = campbell_inclusion_meta()
     return {
         "name_vi": meta["name_vi"],
         "frequency": freq,
         "missing": missing,
         "dominant": dominant,
-        "letter_count": sum(counts.values()),
+        "letter_count": letter_count,
+        "average": average,
+        "above_average": above,
+        "below_average": below,
         "provenance": meta["provenance"],
         "note": meta["note"],
+        "intensity_note": (
+            "Trung bình = tổng chữ / 9. Trên TB = khí nổi; dưới TB (nhưng >0) = có nhưng yếu; "
+            "thiếu (=0) = Karmic Lesson. Bản đồ luyện — không điểm tốt/xấu."
+        ),
     }
 
 

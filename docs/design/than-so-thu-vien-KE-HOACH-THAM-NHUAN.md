@@ -148,14 +148,14 @@ Sau mỗi cụm (C1–C2, C3–C4, …): **một PR nhỏ** inject đã duyệt 
 - [x] C8 horse-racing = từ chối SKU → cùng file C6–C8 + principle `betting_refusal`
 
 ### Balliett / Campbell
-- [ ] B0 stub + câu hỏi mở
-- [ ] P0 stub + audit Inclusion
-- [ ] B1+ / P1+ (chờ nguồn)
+- [x] B0 stub + câu hỏi mở → `than-so-balliett-tham-nhuan-vong-0.md`
+- [x] P0 stub + audit Inclusion → `than-so-campbell-tham-nhuan-vong-0.md` (+ intensity average)
+- [ ] B1+ / P1+ (chờ nguồn / 2027)
 
 ### Master
-- [ ] M1 meanings/debt (Decoz giữ; Cheiro birth = file riêng — đã xong lớp birth)
-- [ ] M2 cycles vs Cheiro
-- [ ] M3 compatibility
+- [x] M1 meanings/debt → giữ Decoz; đánh dấu conflict 3/4/9 (`than-so-master-tham-nhuan-M1-M3.md`)
+- [x] M2 cycles vs Cheiro → `school_boundary_m2` + series 3–6–9
+- [x] M3 compatibility → `cheiro_vi` dual-lens (không ghi đè score)
 - [x] M4 principles v2 ← 2026-07-22 (merge C0–C8)
 
 ---
@@ -182,10 +182,13 @@ Sau mỗi cụm (C1–C2, C3–C4, …): **một PR nhỏ** inject đã duyệt 
 
 ---
 
-## 9. Bước kế tiếp (sau C1–C8)
+## 9. Bước kế tiếp (thư viện trong repo)
 
-1. **B0 / P0** — stub Balliett + Campbell (không pretend full text).
-2. M1–M3 nếu cần tinh chỉnh Decoz meanings / cycles / compatibility vs Cheiro series.
-3. Track B khi Anh upload PDF Balliett.
+Cheiro C* + B0/P0 + M1–M4: **xong** trên nguồn hiện có.
 
-*(C1–C8 + inject dual-lens Birth + principles v2: 2026-07-22.)*
+Còn lại:
+1. Track B — Anh upload PDF Balliett (PD) → B1+ màu/âm.
+2. Campbell full text — chờ 2027 hoặc Anh cho phép method sâu hơn.
+3. Goodwin/Jordan — chưa có file (copyright).
+
+*(B0/P0/M1–M3: 2026-07-22.)*

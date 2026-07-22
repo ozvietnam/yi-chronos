@@ -45,3 +45,4 @@ Cheiro C1–C8: `docs/design/than-so-cheiro-tham-nhuan-vong-C*.md`
 - **v11 (2026-07-21)**: thư viện Balliett/Campbell/Cheiro → compound 10–52, Inclusion Table, skills
 - **v12 (2026-07-21)**: thâm nhuần nguyên lý → deep_reading Name↔Birth + Cheiro layers + synthesis
 - **v13 (2026-07-22)**: Cheiro C1–C8 journals + `cheiro_birth_numbers` dual lens + principles v2 + biên giới y tế/cá cược
+- **v14 (2026-07-22)**: B0/P0 Balliett·Campbell + Inclusion intensity + M1–M3 dual-lens master data

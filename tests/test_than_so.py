@@ -366,13 +366,58 @@ def test_cheiro_compound_51_and_52():
 
 
 def test_inclusion_table_campbell():
-    from engine.than_so.extended import inclusion_table
+    from engine.than_so.extended import inclusion_table, karmic_lessons, hidden_passion
 
     table = inclusion_table("Nguyễn Văn An")
     assert table["provenance"] == "campbell-your-days-are-numbered"
     assert "1" in table["frequency"]
     assert sum(table["frequency"].values()) == table["letter_count"]
     assert set(table["missing"]) <= set(range(1, 10))
+    assert table["average"] == round(table["letter_count"] / 9, 3)
+    assert table["missing"] == karmic_lessons("Nguyễn Văn An")["values"]
+    assert table["dominant"] == hidden_passion("Nguyễn Văn An")["values"]
+    assert 5 in table["above_average"]  # N/E heavy
+
+
+def test_inclusion_passion_tie_and_empty():
+    from engine.than_so.extended import inclusion_table, hidden_passion
+
+    john = inclusion_table("John")
+    assert len(john["dominant"]) == 4  # 1,5,6,8 each once
+    assert john["dominant"] == hidden_passion("John")["values"]
+    empty = inclusion_table("")
+    assert empty["missing"] == list(range(1, 10))
+    assert empty["dominant"] == []
+    assert empty["average"] == 0.0
+
+
+def test_series_affinity_includes_3_6_9():
+    from engine.than_so.deep_reading import _name_birth_harmony
+
+    h = _name_birth_harmony(3, 6)
+    assert h["band"] == "series_affinity"
+    assert h["series_birth"] == "3-6-9"
+
+
+def test_compatibility_surfaces_cheiro_series_note():
+    from engine.than_so.compatibility import lookup_pair
+
+    pair = lookup_pair(1, 4)
+    assert pair["score"] == "low"
+    assert "cheiro_vi" in pair
+    assert "1–4" in pair["cheiro_vi"] or "1-4" in pair["cheiro_vi"]
+
+
+def test_number_meanings_m1_keeps_decoz_marks_conflict():
+    import json
+    from pathlib import Path
+
+    data = json.loads(
+        (Path("data/than_so/master/number_meanings.json")).read_text(encoding="utf-8")
+    )
+    assert data["audit_m1"]["cheiro_birth_conflicts"] == [3, 4, 9]
+    assert "cheiro_birth_note" in data["numbers"]["3"]
+    assert data["numbers"]["3"]["archetype_vi"].startswith("Người Sáng Tạo")
 
 
 def test_cast_chaldean_xref_has_compound():

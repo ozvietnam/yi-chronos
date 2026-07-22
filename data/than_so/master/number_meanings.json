@@ -1,8 +1,14 @@
 {
-  "schema_version": "v1",
-  "curated_at": "2026-06-05",
-  "doc": "Ý nghĩa từng số 1-9 + số chủ 11/22/33. Mỗi số có 2 lớp: (a) nghĩa kinh điển Pythagoras; (b) framing ĐỒNG DẠNG của YI-Chronos (số = tấm gương cấu trúc tâm-thiên-thân, KHÔNG predict). Nguồn: Decoz, Juno Jordan, đối chiếu consensus.",
+  "schema_version": "v1.1",
+  "curated_at": "2026-07-22",
+  "doc": "Ý nghĩa từng số 1-9 + số chủ 11/22/33. Mỗi số có 2 lớp: (a) nghĩa kinh điển Pythagoras/Decoz; (b) framing ĐỒNG DẠNG của YI-Chronos. Nguồn: Decoz, Juno Jordan, đối chiếu consensus.",
   "paradigm_note": "Pythagoras: 'Vạn vật là số' (All is number) — vũ trụ vận hành theo số. Đây CHÍNH là paradigm đồng dạng (micro=macro) của Iron Rule #4/#6, chỉ khác phương tiện. Số phản chiếu Tính, không bói tương lai.",
+  "audit_m1": {
+    "at": "2026-07-22",
+    "verdict": "Giữ archetype Decoz nguyên văn trong file này. Birth Day Cheiro = data/than_so/master/cheiro_birth_numbers.json (dual lens deep_reading).",
+    "cheiro_birth_conflicts": [3, 4, 9],
+    "journal": "docs/design/than-so-master-tham-nhuan-M1-M3.md"
+  },
 
   "numbers": {
     "1": {
@@ -24,14 +30,16 @@
       "keywords": ["giao tiếp", "nghệ thuật", "niềm vui", "tưởng tượng", "lan tỏa"],
       "strengths": "Truyền cảm, lạc quan, có duyên ngôn ngữ.",
       "shadow": "Hời hợt, tản mạn, phô trương, thiếu kỷ luật.",
-      "dong_dang": "Tam Tài (Thiên-Địa-Nhân) — số của sự sinh nở biểu hiện ra hình tướng."
+      "dong_dang": "Tam Tài (Thiên-Địa-Nhân) — số của sự sinh nở biểu hiện ra hình tướng.",
+      "cheiro_birth_note": "CONFLICT Birth Day: Cheiro 3 = Jupiter/authority — present BOTH (#3)."
     },
     "4": {
       "archetype_vi": "Người Kiến Tạo / Trụ Cột",
       "keywords": ["ổn định", "kỷ luật", "trật tự", "lao động", "nền móng"],
       "strengths": "Đáng tin, bền bỉ, thực tế, có hệ thống.",
       "shadow": "Cứng nhắc, bảo thủ, ngại đổi thay, khô khan.",
-      "dong_dang": "Tứ tượng, bốn phương — số của khung sườn vật chất, đất chịu tải."
+      "dong_dang": "Tứ tượng, bốn phương — số của khung sườn vật chất, đất chịu tải.",
+      "cheiro_birth_note": "CONFLICT Birth Day: Cheiro 4 = Uranus/unconventional — present BOTH (#3)."
     },
     "5": {
       "archetype_vi": "Người Tự Do / Phiêu Lưu",
@@ -66,7 +74,8 @@
       "keywords": ["từ bi", "lý tưởng", "phụng sự nhân loại", "buông bỏ", "viên mãn"],
       "strengths": "Rộng lượng, vị tha, nghệ sĩ tâm hồn, bao dung.",
       "shadow": "Mơ mộng, tử vì đạo, khó buông, xa rời thực tế.",
-      "dong_dang": "Cửu cung, số tận cùng trước khi quay vòng — số 'linh thiêng' của Chaldean. Hoàn tất một chu kỳ (quẻ Ký Tế → Vị Tế)."
+      "dong_dang": "Cửu cung, số tận cùng trước khi quay vòng — số 'linh thiêng' của Chaldean. Hoàn tất một chu kỳ (quẻ Ký Tế → Vị Tế).",
+      "cheiro_birth_note": "CONFLICT Birth Day: Cheiro 9 = Mars/energy/conflict — present BOTH (#3)."
     },
     "11": {
       "is_master": true,
