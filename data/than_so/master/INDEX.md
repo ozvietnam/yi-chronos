@@ -27,7 +27,9 @@ Paradigm: **đọc đồng dạng, KHÔNG predict**.
 
 ## Journal
 
-`docs/design/than-sohoc-pythagoras-tham-nhuan.md`
+`docs/design/than-sohoc-pythagoras-tham-nhuan.md`  
+Thâm nhuần C0: `docs/design/than-so-thu-vien-tham-nhuan.md`  
+**Kế hoạch đọc hết thư viện:** `docs/design/than-so-thu-vien-KE-HOACH-THAM-NHUAN.md`
 
 ## Trạng thái
 

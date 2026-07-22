@@ -24,6 +24,7 @@
 - Spec Decoz: `data/than_so/master/pythagorean_spec.json`
 - Provenance map: `data/than_so/master/library_provenance.json`
 - UI tab Pytago = `ThanSoPanel.vue`
+- **Kế hoạch thâm nhuần hết thư viện:** `docs/design/than-so-thu-vien-KE-HOACH-THAM-NHUAN.md`
 
 ## ❌ Chưa có trong thư viện
 
