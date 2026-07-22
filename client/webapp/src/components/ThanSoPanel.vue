@@ -65,9 +65,18 @@ const otherCore = computed(() =>
     label,
     node: result.value?.core?.[key],
     arch: result.value?.reading?.core?.[key]?.archetype_vi,
+    plain: result.value?.reading?.core?.[key]?.plain_vi
+      || result.value?.reading?.plain_summary?.core_cards?.find((c) => c.role === key)?.plain_vi
+      || "",
   })),
 );
 const plainSummary = computed(() => result.value?.reading?.plain_summary || null);
+const lifePathPlain = computed(() => {
+  const fromReading = result.value?.reading?.core?.life_path?.plain_vi;
+  if (fromReading) return fromReading;
+  const card = (plainSummary.value?.core_cards || []).find((c) => c.role === "life_path");
+  return card?.plain_vi || "";
+});
 const karmicDebts = computed(() => result.value?.reading?.karmic_debts || []);
 function karmicLabel(kd) {
   if (kd == null) return "";
@@ -78,6 +87,11 @@ function karmicShort(kd) {
   if (!hit) return karmicLabel(kd);
   const theme = (hit.theme_vi || "").replace(/^Bài học kèm về\s*/i, "");
   return theme ? `Bài học kèm ${kd}: ${theme}` : karmicLabel(kd);
+}
+function truncatePlain(text, n = 110) {
+  const t = (text || "").trim();
+  if (!t) return "";
+  return t.length > n ? `${t.slice(0, n - 1)}…` : t;
 }
 
 async function submit() {
@@ -293,6 +307,7 @@ const ARC = {
         <div class="ts-hero-body">
           <p class="ts-hero-label">Số Đường Đời</p>
           <p class="ts-hero-arch">{{ result.reading.core.life_path?.archetype_vi }}</p>
+          <p v-if="lifePathPlain" class="ts-hero-plain">{{ lifePathPlain }}</p>
           <p class="ts-hero-name">{{ result.input.name_raw }} · {{ result.input.birth_date }}</p>
           <p v-if="lifePathCore.karmic_debt" class="ts-kd">{{ karmicShort(lifePathCore.karmic_debt) }}</p>
         </div>
@@ -307,6 +322,7 @@ const ARC = {
       <section v-if="plainSummary" class="ts-plain">
         <h3 class="ts-section-h">{{ plainSummary.title_vi }}</h3>
         <p class="ts-plain-intro">{{ plainSummary.intro_vi }}</p>
+        <p v-if="plainSummary.how_to_use_vi" class="ts-plain-howto">{{ plainSummary.how_to_use_vi }}</p>
         <p v-if="plainSummary.karmic_intro_vi" class="ts-plain-karmic-intro">
           {{ plainSummary.karmic_intro_vi }}
         </p>
@@ -366,6 +382,7 @@ const ARC = {
           <div class="ts-num">{{ item.node?.value }}</div>
           <div class="ts-label">{{ item.label }}</div>
           <div class="ts-arch">{{ item.arch }}</div>
+          <p v-if="item.plain" class="ts-card-plain">{{ truncatePlain(item.plain) }}</p>
           <p v-if="item.node?.karmic_debt" class="ts-kd">{{ karmicLabel(item.node.karmic_debt) }}</p>
         </article>
       </div>
@@ -373,6 +390,9 @@ const ARC = {
       <div v-if="glossaryEntry" class="ts-glossary">
         <button type="button" class="ts-link" @click="glossaryOpen = null">Đóng</button>
         <h4>Số {{ glossaryOpen }} — {{ glossaryEntry.archetype_vi }}</h4>
+        <p v-if="glossaryEntry.plain_vi" class="ts-glossary-plain">{{ glossaryEntry.plain_vi }}</p>
+        <p v-if="glossaryEntry.practice_vi"><strong>Luyện:</strong> {{ glossaryEntry.practice_vi }}</p>
+        <p v-if="glossaryEntry.master_note_vi" class="ts-meta">{{ glossaryEntry.master_note_vi }}</p>
         <p><strong>Thế mạnh:</strong> {{ glossaryEntry.strengths }}</p>
         <p><strong>Bóng:</strong> {{ glossaryEntry.shadow }}</p>
         <p class="ts-dd">{{ glossaryEntry.dong_dang }}</p>
@@ -1138,6 +1158,13 @@ const ARC = {
   font-weight: 600;
   color: var(--ts-gold-soft);
 }
+.ts-hero-plain {
+  margin: 0.45rem 0 0;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--text-secondary, rgba(230, 238, 245, 0.78));
+  max-width: 36rem;
+}
 .ts-hero-name {
   margin: 0.3rem 0 0;
   font-size: 0.78rem;
@@ -1237,6 +1264,13 @@ const ARC = {
   color: var(--text-secondary, rgba(230, 238, 245, 0.72));
   line-height: 1.3;
 }
+.ts-card-plain {
+  margin: 0.4rem 0 0;
+  font-size: 0.72rem;
+  line-height: 1.4;
+  text-align: left;
+  color: var(--text-muted, rgba(230, 238, 245, 0.58));
+}
 .ts-kd {
   margin: 0.3rem 0 0;
   font-size: 0.7rem;
@@ -1258,6 +1292,12 @@ const ARC = {
   font-size: 0.88rem;
   line-height: 1.5;
   color: var(--text-secondary, rgba(230, 238, 245, 0.72));
+}
+.ts-plain-howto {
+  margin: 0 0 0.65rem;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: var(--text-muted, rgba(230, 238, 245, 0.58));
 }
 .ts-plain-karmic-intro {
   margin: 0 0 0.65rem;
@@ -1355,6 +1395,16 @@ const ARC = {
   margin: 0.25rem 0 0.45rem;
   color: var(--ts-gold-soft);
   font-size: 1rem;
+}
+.ts-glossary-plain {
+  margin: 0.35rem 0 0.55rem !important;
+  padding: 0.5rem 0.65rem;
+  border-radius: 8px;
+  border-left: 3px solid var(--ts-teal);
+  background: rgba(91, 229, 211, 0.06);
+  font-size: 0.88rem !important;
+  line-height: 1.5 !important;
+  color: var(--text-primary, #e6eef5) !important;
 }
 .ts-glossary p { margin: 0.3rem 0; font-size: 0.86rem; line-height: 1.45; }
 .ts-dd { color: var(--text-secondary, rgba(230, 238, 245, 0.72)); font-style: italic; }

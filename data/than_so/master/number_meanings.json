@@ -1,11 +1,11 @@
 {
-  "schema_version": "v1.1",
+  "schema_version": "v2",
   "curated_at": "2026-07-22",
-  "doc": "Ý nghĩa từng số 1-9 + số chủ 11/22/33. Mỗi số có 2 lớp: (a) nghĩa kinh điển Pythagoras/Decoz; (b) framing ĐỒNG DẠNG của YI-Chronos. Nguồn: Decoz, Juno Jordan, đối chiếu consensus.",
-  "paradigm_note": "Pythagoras: 'Vạn vật là số' (All is number) — vũ trụ vận hành theo số. Đây CHÍNH là paradigm đồng dạng (micro=macro) của Iron Rule #4/#6, chỉ khác phương tiện. Số phản chiếu Tính, không bói tương lai.",
+  "doc": "Ý nghĩa số 1–9 + master 11/22/33. Mỗi số có archetype (Decoz) + plain_vi/practice_vi cho người thường. Số phản chiếu cấu trúc để vận hành — không bói tương lai.",
+  "paradigm_note": "Pythagoras: vạn vật là số. YI đọc số như bản đồ: 'bạn vận hành tốt khi… / dễ lệch khi… / việc nhỏ tuần này…'.",
   "audit_m1": {
     "at": "2026-07-22",
-    "verdict": "Giữ archetype Decoz nguyên văn trong file này. Birth Day Cheiro = data/than_so/master/cheiro_birth_numbers.json (dual lens deep_reading).",
+    "verdict": "Giữ archetype Decoz. Birth Day Cheiro = cheiro_birth_numbers.json (dual lens).",
     "cheiro_birth_conflicts": [3, 4, 9],
     "journal": "docs/design/than-so-master-tham-nhuan-M1-M3.md"
   },
@@ -16,6 +16,8 @@
       "keywords": ["độc lập", "khởi đầu", "ý chí", "lãnh đạo", "sáng tạo nguyên thủy"],
       "strengths": "Tự chủ, quyết đoán, dám đi đầu, nguyên bản.",
       "shadow": "Độc đoán, cô lập, ích kỷ, áp đặt.",
+      "plain_vi": "Bạn hợp việc tự mở đường, tự quyết, làm cái chưa có sẵn. Điểm mạnh là đứng mũi chịu sào; điểm lệch là ôm hết một mình hoặc bắt người khác theo ý mình.",
+      "practice_vi": "Tuần này: tự khởi xướng 1 việc nhỏ (không chờ ai giao) — và nhờ đúng 1 người hỗ trợ một phần.",
       "dong_dang": "Khí Dương khởi nguyên — như hào sơ động, như Càn khởi. Cái Một sinh vạn vật."
     },
     "2": {
@@ -23,6 +25,8 @@
       "keywords": ["hợp tác", "nhạy cảm", "cân bằng", "kiên nhẫn", "đối ngẫu"],
       "strengths": "Tinh tế, biết lắng nghe, dung hòa, hỗ trợ.",
       "shadow": "Phụ thuộc, do dự, dễ tổn thương, né tránh xung đột.",
+      "plain_vi": "Bạn hợp làm việc đôi / nhóm, lắng nghe, nối hai phía. Điểm mạnh là tinh tế; điểm lệch là do dự mãi hoặc quên nhu cầu của chính mình.",
+      "practice_vi": "Tuần này: trong 1 cuộc họp/trao đổi, nói rõ 1 nhu cầu của bạn (không chỉ chiều người khác).",
       "dong_dang": "Âm-Dương phân lưỡng nghi — cần cái khác để thành. Số của giao thoa (quẻ Thái)."
     },
     "3": {
@@ -30,6 +34,8 @@
       "keywords": ["giao tiếp", "nghệ thuật", "niềm vui", "tưởng tượng", "lan tỏa"],
       "strengths": "Truyền cảm, lạc quan, có duyên ngôn ngữ.",
       "shadow": "Hời hợt, tản mạn, phô trương, thiếu kỷ luật.",
+      "plain_vi": "Bạn hợp nói, viết, sáng tạo, làm không khí vui và rõ ý. Điểm mạnh là lan tỏa; điểm lệch là bắt nhiều việc rồi không đi tới cùng.",
+      "practice_vi": "Tuần này: hoàn thành 1 sản phẩm nhỏ để công bố (1 bài viết, 1 slide, 1 clip, 1 ý đã nói ra) — chỉ một.",
       "dong_dang": "Tam Tài (Thiên-Địa-Nhân) — số của sự sinh nở biểu hiện ra hình tướng.",
       "cheiro_birth_note": "CONFLICT Birth Day: Cheiro 3 = Jupiter/authority — present BOTH (#3)."
     },
@@ -38,6 +44,8 @@
       "keywords": ["ổn định", "kỷ luật", "trật tự", "lao động", "nền móng"],
       "strengths": "Đáng tin, bền bỉ, thực tế, có hệ thống.",
       "shadow": "Cứng nhắc, bảo thủ, ngại đổi thay, khô khan.",
+      "plain_vi": "Bạn hợp xây nền, quy trình, làm việc có trật tự và bền. Điểm mạnh là đáng tin; điểm lệch là cứng nhắc hoặc sợ đổi cách làm.",
+      "practice_vi": "Tuần này: chọn 1 việc loạn → viết 3 bước cụ thể → làm xong bước 1 trước khi nghĩ bước mới.",
       "dong_dang": "Tứ tượng, bốn phương — số của khung sườn vật chất, đất chịu tải.",
       "cheiro_birth_note": "CONFLICT Birth Day: Cheiro 4 = Uranus/unconventional — present BOTH (#3)."
     },
@@ -46,6 +54,8 @@
       "keywords": ["thay đổi", "tự do", "trải nghiệm", "giác quan", "thích nghi"],
       "strengths": "Linh hoạt, ham học, cuốn hút, thích nghi nhanh.",
       "shadow": "Bốc đồng, sa đà, thiếu cam kết, mất gốc.",
+      "plain_vi": "Bạn hợp thay đổi, học mới, đi nhiều hướng. Điểm mạnh là linh hoạt; điểm lệch là bỏ cam kết giữa chừng hoặc sống quá phân tán.",
+      "practice_vi": "Tuần này: giữ 1 cam kết nhỏ không phá (giờ ngủ / 1 buổi tập / 1 deadline) — tự do nằm trong khung đó.",
       "dong_dang": "Ngũ Hành, trung tâm Lạc Thư — số của vận động, chuyển hóa giữa các trạng thái."
     },
     "6": {
@@ -53,6 +63,8 @@
       "keywords": ["gia đình", "trách nhiệm", "hài hòa", "phụng sự", "yêu thương"],
       "strengths": "Tận tụy, ấm áp, công bằng, biết chữa lành.",
       "shadow": "Ôm đồm, kiểm soát, hy sinh quá mức, can thiệp.",
+      "plain_vi": "Bạn hợp chăm người, giữ nhà/nhóm hài hòa, nhận trách nhiệm. Điểm mạnh là tận tụy; điểm lệch là ôm đồm rồi kiệt hoặc can thiệp quá tay.",
+      "practice_vi": "Tuần này: chăm 1 người/việc quan trọng — và từ chối lịch sự 1 việc không phải của bạn.",
       "dong_dang": "Lục hợp — số của nuôi dưỡng, như Khôn chở vạn vật, như quẻ Khiêm (6 hào đều cát)."
     },
     "7": {
@@ -60,6 +72,8 @@
       "keywords": ["nội quán", "tâm linh", "trí tuệ", "ẩn dật", "chân lý"],
       "strengths": "Sâu sắc, trực giác, độc lập tư duy, minh triết.",
       "shadow": "Cô độc, hoài nghi, xa cách, lạnh lùng.",
+      "plain_vi": "Bạn hợp nghĩ sâu, nghiên cứu, ở một mình có chất lượng. Điểm mạnh là thấy tầng dưới bề mặt; điểm lệch là rút quá xa người hoặc nghi hết mọi thứ.",
+      "practice_vi": "Tuần này: 30 phút yên lặng / đọc / viết nhật ký — rồi chia sẻ 1 insight ngắn với một người tin cậy.",
       "dong_dang": "Thất tinh, số của quan-vật-trace-tính — đi vào trong để hiểu cái lớn. Gần paradigm Mai Hoa nhất."
     },
     "8": {
@@ -67,6 +81,8 @@
       "keywords": ["quyền uy", "sung mãn", "tham vọng", "công bằng nhân quả", "tổ chức"],
       "strengths": "Bản lĩnh, tầm nhìn lớn, làm chủ vật chất, công minh.",
       "shadow": "Tham lam, thống trị, đặt nặng tiền-quyền, lạnh lùng.",
+      "plain_vi": "Bạn hợp tổ chức lớn, quản lý nguồn lực, quyết việc có trọng lượng. Điểm mạnh là bản lĩnh; điểm lệch là chỉ còn thấy tiền/quyền hoặc đè người để việc chạy.",
+      "practice_vi": "Tuần này: 1 quyết định tài chính/tổ chức rõ ràng + 1 cử chỉ công bằng với người trong hệ (cảm ơn / chia sẻ credit / trả đúng hạn).",
       "dong_dang": "Bát Quái — số của tuần hoàn nhân-quả vật chất (gieo-gặt). Vô cực ∞ dựng đứng."
     },
     "9": {
@@ -74,6 +90,8 @@
       "keywords": ["từ bi", "lý tưởng", "phụng sự nhân loại", "buông bỏ", "viên mãn"],
       "strengths": "Rộng lượng, vị tha, nghệ sĩ tâm hồn, bao dung.",
       "shadow": "Mơ mộng, tử vì đạo, khó buông, xa rời thực tế.",
+      "plain_vi": "Bạn hợp hoàn tất vòng, giúp rộng hơn cái tôi, nhìn bức tranh lớn. Điểm mạnh là bao dung; điểm lệch là ôm lý tưởng mà bỏ việc cụ thể, hoặc không chịu kết thúc.",
+      "practice_vi": "Tuần này: kết thúc 1 việc/quan hệ/thói quen đã hết hạn — và làm 1 việc tốt cụ thể không cần được ghi nhận.",
       "dong_dang": "Cửu cung, số tận cùng trước khi quay vòng — số 'linh thiêng' của Chaldean. Hoàn tất một chu kỳ (quẻ Ký Tế → Vị Tế).",
       "cheiro_birth_note": "CONFLICT Birth Day: Cheiro 9 = Mars/energy/conflict — present BOTH (#3)."
     },
@@ -84,6 +102,9 @@
       "keywords": ["trực giác siêu việt", "soi sáng", "tâm linh", "nhạy cảm cao độ"],
       "strengths": "Linh cảm mạnh, truyền cảm hứng, kênh dẫn tinh thần.",
       "shadow": "Căng thẳng thần kinh, mộng tưởng, dao động cực đoan giữa 11 và 2.",
+      "plain_vi": "Số chủ: nhạy và thấy nhanh hơn người thường — nhưng cũng dễ căng và dao động. Khi vững: soi sáng được người khác; khi lệch: chỉ còn lo âu hoặc rút về số 2 (phụ thuộc/do dự).",
+      "practice_vi": "Tuần này: ghi 3 linh cảm đúng trong tuần (không phán xét) + ngủ/ nghỉ đủ — số 11 cần thân khỏe mới giữ được kênh.",
+      "master_note_vi": "11 không 'xịn hơn' 2 — là cùng họ với trách nhiệm cao hơn. Có ngày bạn sống như 2 cũng bình thường.",
       "dong_dang": "Hai cây cột — cổng giữa hai thế giới. Trực giác = dấu hiệu sớm (ngoại ứng Mai Hoa)."
     },
     "22": {
@@ -93,6 +114,9 @@
       "keywords": ["hiện thực hóa tầm nhìn lớn", "kiến trúc sư bậc thầy", "thực tiễn + tâm linh"],
       "strengths": "Biến lý tưởng thành công trình hữu hình ở quy mô lớn.",
       "shadow": "Áp lực khổng lồ, dễ sụp về 4 tầm thường nếu né trách nhiệm.",
+      "plain_vi": "Số chủ: nhìn được việc lớn và có thể biến thành hiện thực. Khi vững: xây được quy mô; khi lệch: hoặc mơ không làm, hoặc chỉ còn việc nhỏ kiểu 4 vì sợ gánh.",
+      "practice_vi": "Tuần này: chọn 1 tầm nhìn lớn → viết 1 bước vật chất có thể làm trong 7 ngày (gọi điện, bản nháp, cuộc họp) — làm bước đó.",
+      "master_note_vi": "22 không bắt bạn 'vĩ đại' mọi ngày. Có giai đoạn sống như 4 (nền tảng) là cách nuôi 22.",
       "dong_dang": "Trực giác 11 + nền móng 4 = đem Trời xuống Đất. Cao nhất trong các master."
     },
     "33": {
@@ -102,6 +126,9 @@
       "keywords": ["phụng sự vô điều kiện", "tình thương phổ quát", "dạy dỗ", "hy sinh"],
       "strengths": "Nâng đỡ nhân loại bằng từ bi và minh triết.",
       "shadow": "Gánh quá nặng, tử đạo, kiệt sức. Rất hiếm thực sự đạt 33.",
+      "plain_vi": "Số chủ hiếm: khuynh hướng dạy/chữa/nâng người ở tầm rộng. Khi vững: phụng sự có biên; khi lệch: hy sinh đến kiệt hoặc ôm trách nhiệm cả thế giới.",
+      "practice_vi": "Tuần này: giúp đúng 1 người/việc trong khả năng — và giữ 1 ranh giới chăm sóc bản thân (ngủ / ăn / từ chối ôm thêm).",
+      "master_note_vi": "33 không phải danh hiệu. Nhiều ngày sống như 6 (chăm sóc gần) chính là luyện 33 bền.",
       "dong_dang": "Trách nhiệm 6 ở tầng vũ trụ — thầy của những người thầy. Lao Khiêm tột bậc."
     }
   }
