@@ -36,6 +36,12 @@ Balliett dẫn ngược về Pythagoras ("vạn vật là số" + hòa âm các 
   (mỗi số một màu/tông) — tương tự `data/school_art_direction/` của các phái khác.
 - Đối chiếu: "số ↔ màu ↔ âm" của Balliett ↔ Ngũ Hành ↔ màu/phương của Đông phương (cross-bind tương lai, tránh ép phái).
 
-## IV. Chờ Anh
-- [ ] Attach bản quét public-domain (network allowlist)
-- [ ] Bảng màu/âm per số (nếu làm art-direction)
+## IV. Wire engine (2026-07-21 → 2026-07-22 Track B)
+
+- ✅ Provenance map `library_provenance.json` + skill `than-so/thu-vien/balliett.md`
+- ✅ Sage SOUL route Balliett cho bảng chữ / Soul Urge / master
+- ✅ B0 journal stub
+- ✅ **OCR full** IA Abbyy → `source/balliett-philosophy-of-numbers-ocr.txt`
+- ✅ B1/B2/B3 journals + tone/color + Life Song keynote + Spiritual Birthday days
+- PDF scan: `source/philosophyofnum00ball.pdf` (gitignored)
+- Life Song **chart** in-book: OCR mất — không bịa

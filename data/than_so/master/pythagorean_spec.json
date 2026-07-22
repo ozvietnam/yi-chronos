@@ -1,0 +1,53 @@
+{
+  "schema_version": "v1",
+  "curated_at": "2026-07-21",
+  "doc": "SPEC ĐÓNG BĂNG — Thần Số Học Pythagoras (Decoz / California School). Engine phải khớp spec này. KHÔNG trộn Chaldean / Millman / biểu đồ mũi tên 3×3 vào pipeline chính.",
+  "standard": "Hans Decoz Method A (worldnumerology.com)",
+  "letter_map": "Pythagorean A=1…I=9 cycle (xem letter_maps.json → pythagorean)",
+  "master_numbers": [11, 22, 33],
+  "karmic_debt_numbers": [13, 14, 16, 19],
+  "rules": {
+    "life_path": "Reduce month, day, year SEPARATELY (keep master), then sum and reduce (keep master). Never digit-string shortcut.",
+    "expression_soul_personality": "Reduce EACH name part separately (keep master), then sum part totals and reduce. Never sum all letters of the full name in one pass for intermediate values.",
+    "challenges": "Reduce month/day/year WITHOUT keeping master, then absolute differences. Challenge 3 is Main.",
+    "pinnacles": "Use month/day/year reduced WITH master kept. Age band 1 ends at (36 − life_path_as_single_digit).",
+    "period_timing": "Period 1 duration = 36 − LP(single digit); Period 2 = exactly 27 years; Period 3 = remainder of life.",
+    "y_rule": "Y is vowel when not adjacent to another pure vowel (A/E/I/O/U). W is always consonant.",
+    "vietnamese_name_order": "Default name_order=vn: tokens = [Họ, …Đệm, Tên]. Decoz 'first name' = Tên (last token); 'last name' = Họ (first token); middle = đệm tokens. western: first/middle/last as English order.",
+    "minor_numbers": "Same formulas on current_name (tên đang dùng), not birth name."
+  },
+  "golden_fixtures": [
+    {
+      "birth_date": "1990-08-12",
+      "life_path": 3,
+      "note": "Decoz: month 8 + day 3 + year 1 = 12 → 3"
+    },
+    {
+      "birth_date": "1983-11-22",
+      "life_path": 9,
+      "components": {"month": 11, "day": 22, "year": 3},
+      "note": "11+22+3=36→9"
+    },
+    {
+      "birth_date": "1998-10-15",
+      "life_path": 7,
+      "karmic_debt": 16,
+      "note": "1+6+9=16→7 — shortcut 34 would hide karmic 16"
+    },
+    {
+      "birth_date": "1990-11-23",
+      "life_path": 8,
+      "components": {"month": 11, "day": 5, "year": 1},
+      "note": "Journal example: 5+11+1=17→8"
+    }
+  ],
+  "inventory_p0": [
+    "life_path", "birthday", "expression", "soul_urge", "personality", "maturity",
+    "attitude", "balance", "rational_thought", "karmic_lessons", "hidden_passion",
+    "subconscious_self", "cornerstone", "capstone", "bridges", "planes_of_expression",
+    "minor_expression", "minor_soul_urge", "minor_personality",
+    "period_cycles", "pinnacles", "challenges",
+    "personal_year", "personal_month", "personal_day",
+    "transits", "essence", "age_digit"
+  ]
+}

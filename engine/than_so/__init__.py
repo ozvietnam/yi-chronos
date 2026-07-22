@@ -1,7 +1,6 @@
-"""Thần Số Học (Numerology) engine — tính mệnh từ TÊN + NGÀY SINH.
+"""Thần Số Học (Numerology) engine — Pythagoras (Decoz) là pipeline chính.
 
-Phái: Pythagoras (mặc định) + Chaldean (đối chiếu, Iron Rule #3).
-Paradigm: đọc đồng dạng, KHÔNG predict (Iron Rule #4/#6).
+Spec: data/than_so/master/pythagorean_spec.json
 Journal: docs/design/than-sohoc-pythagoras-tham-nhuan.md
 """
 from __future__ import annotations
@@ -10,9 +9,20 @@ from .constants import KARMIC_DEBT_NUMBERS, MASTER_NUMBERS, METHOD_ID, SOURCE_RE
 from .cast import cast_than_so
 from .core_numbers import compute_core, life_path, reduce_number
 from .cross_bind import cross_bind_dong_phuong
-from .cycles import period_cycles, personal_year, pinnacles_and_challenges
+from .cycles import (
+    build_cycles,
+    period_cycles,
+    personal_day,
+    personal_month,
+    personal_year,
+    pinnacles_and_challenges,
+)
+from .deep_reading import compose_deep_reading
+from .extended import compute_extended
 from .interpretation import compose_reading, describe_number
 from .name_calculator import name_breakdown, normalize_vietnamese
+from .report_pdf import generate_compatibility_pdf, generate_than_so_pdf
+from .compatibility import analyze_compatibility
 
 __all__ = [
     "KARMIC_DEBT_NUMBERS",
@@ -20,15 +30,23 @@ __all__ = [
     "METHOD_ID",
     "SOURCE_REF",
     "SYSTEMS",
+    "analyze_compatibility",
+    "build_cycles",
     "cast_than_so",
+    "compose_deep_reading",
     "compose_reading",
     "compute_core",
+    "compute_extended",
     "cross_bind_dong_phuong",
     "describe_number",
+    "generate_compatibility_pdf",
+    "generate_than_so_pdf",
     "life_path",
     "name_breakdown",
     "normalize_vietnamese",
     "period_cycles",
+    "personal_day",
+    "personal_month",
     "personal_year",
     "pinnacles_and_challenges",
     "reduce_number",

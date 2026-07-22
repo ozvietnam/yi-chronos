@@ -1232,12 +1232,18 @@ class ThanSoCastRequest(BaseModel):
     birth_date: str  # 'YYYY-MM-DD'
     system: str = "pythagorean"  # 'pythagorean' | 'chaldean'
     include_chaldean: bool = True
+    include_dong_phuong: bool = False
     target_year: int | None = None
+    target_month: int | None = None
+    target_day: int | None = None
+    current_name: str | None = None
+    name_order: str = "vn"  # 'vn' | 'western'
+    as_of: str | None = None  # 'YYYY-MM-DD'
 
 
 @app.post("/api/than-so/cast")
 def than_so_cast(request: ThanSoCastRequest) -> dict[str, object]:
-    """Lập lá số Thần Số Học từ TÊN + NGÀY SINH (Pythagoras + đối chiếu Chaldean).
+    """Lập lá số Thần Số Học Pythagoras (Decoz P0) từ TÊN + NGÀY SINH.
 
     Paradigm đọc đồng dạng (Iron Rule #4/#6) — KHÔNG predict.
     """
@@ -1248,7 +1254,13 @@ def than_so_cast(request: ThanSoCastRequest) -> dict[str, object]:
         birth_date=request.birth_date,
         system=request.system,
         include_chaldean=request.include_chaldean,
+        include_dong_phuong=request.include_dong_phuong,
         target_year=request.target_year,
+        target_month=request.target_month,
+        target_day=request.target_day,
+        current_name=request.current_name,
+        name_order=request.name_order,
+        as_of=request.as_of,
     )
 
 
@@ -1258,6 +1270,91 @@ def than_so_glossary() -> dict[str, object]:
     from engine.than_so.constants import METHOD_ID, number_meanings
 
     return {"method_id": METHOD_ID, "numbers": number_meanings()}
+
+
+class ThanSoPdfRequest(BaseModel):
+    name: str
+    birth_date: str
+    current_name: str | None = None
+    name_order: str = "vn"
+    target_year: int | None = None
+
+
+@app.post("/api/than-so/report-pdf")
+def than_so_report_pdf(request: ThanSoPdfRequest):
+    """Xuất PDF lá số Pythagoras (Decoz) — artifact báo cáo."""
+    from fastapi.responses import Response
+
+    from engine.than_so.report_pdf import generate_than_so_pdf, safe_filename
+
+    pdf_bytes = generate_than_so_pdf(
+        name=request.name,
+        birth_date=request.birth_date,
+        current_name=request.current_name,
+        name_order=request.name_order,
+        target_year=request.target_year,
+    )
+    filename = safe_filename(request.name, request.birth_date)
+    return Response(
+        content=pdf_bytes,
+        media_type="application/pdf",
+        headers={"Content-Disposition": f'attachment; filename="{filename}"'},
+    )
+
+
+class ThanSoCompatRequest(BaseModel):
+    name_a: str
+    birth_date_a: str
+    name_b: str
+    birth_date_b: str
+    name_order_a: str = "vn"
+    name_order_b: str = "vn"
+    relationship_type: str = "partner"  # spouse|partner|family|colleague|friend
+    target_year: int | None = None
+
+
+@app.post("/api/than-so/compatibility")
+def than_so_compatibility(request: ThanSoCompatRequest) -> dict[str, object]:
+    """So sánh tương hợp Pythagoras (multi-aspect) — đọc đồng dạng, không predict."""
+    from engine.than_so.compatibility import analyze_compatibility
+
+    return analyze_compatibility(
+        name_a=request.name_a,
+        birth_date_a=request.birth_date_a,
+        name_b=request.name_b,
+        birth_date_b=request.birth_date_b,
+        name_order_a=request.name_order_a,
+        name_order_b=request.name_order_b,
+        relationship_type=request.relationship_type,
+        target_year=request.target_year,
+    )
+
+
+@app.post("/api/than-so/compatibility-pdf")
+def than_so_compatibility_pdf(request: ThanSoCompatRequest):
+    """Xuất PDF báo cáo tương hợp Pythagoras."""
+    from fastapi.responses import Response
+
+    from engine.than_so.compatibility import analyze_compatibility
+    from engine.than_so.report_pdf import generate_compatibility_pdf, safe_compat_filename
+
+    report = analyze_compatibility(
+        name_a=request.name_a,
+        birth_date_a=request.birth_date_a,
+        name_b=request.name_b,
+        birth_date_b=request.birth_date_b,
+        name_order_a=request.name_order_a,
+        name_order_b=request.name_order_b,
+        relationship_type=request.relationship_type,
+        target_year=request.target_year,
+    )
+    pdf_bytes = generate_compatibility_pdf(report)
+    filename = safe_compat_filename(request.name_a, request.name_b)
+    return Response(
+        content=pdf_bytes,
+        media_type="application/pdf",
+        headers={"Content-Disposition": f'attachment; filename="{filename}"'},
+    )
 
 
 @app.post("/api/bat-tu/cast")

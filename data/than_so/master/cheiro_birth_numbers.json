@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "method": "cheiro_chaldean",
+  "source": "Cheiro's Book of Numbers — Chapters III–XI (OCR)",
+  "journal": "docs/design/than-so-cheiro-tham-nhuan-vong-C1.md + C2",
+  "paradigm": "Đọc đồng dạng (quan số → trace tính). KHÔNG predict cát/hung. Mệnh = động từ. Multi-school: Cheiro Birth Day ≠ Decoz Birthday Number — present both khi conflict.",
+  "disclaimer": "Cheiro's Book of Numbers is public domain (UK/US). Attribution required. Not medical/financial advice.",
+  "numbers": {
+    "1": {
+      "planet": "Sun",
+      "planet_vi": "Mặt Trời",
+      "hebrew": "Aleph",
+      "archetype_en": "Ambition, will, originality — creative force",
+      "archetype_vi": "Tham vọng, ý chí, nguyên bản — lực sáng tạo",
+      "keywords": ["ambition", "will", "originality", "independence", "leadership"],
+      "favorable_days": [1, 10, 19, 28],
+      "colors": ["all shades of gold and yellow", "bronze", "brown"],
+      "jewels": ["topaz", "amber", "yellow diamond"],
+      "cheiro_vs_decoz": "Aligns broadly with Decoz Birthday 1 (independent, pioneer)."
+    },
+    "2": {
+      "planet": "Moon",
+      "planet_vi": "Mặt Trăng",
+      "hebrew": "Beth",
+      "archetype_en": "Imagination, romance, partnership — changeable nature",
+      "archetype_vi": "Tưởng tượng, lãng mạn, đối tác — bản tính hay biến",
+      "keywords": ["imagination", "romance", "gentle", "artistic", "partnership"],
+      "favorable_days": [2, 11, 20, 29],
+      "colors": ["all greens", "cream", "white"],
+      "jewels": ["pearl", "moonstone", "jade"],
+      "cheiro_vs_decoz": "Aligns with Decoz Birthday 2 (sensitive, cooperative)."
+    },
+    "3": {
+      "planet": "Jupiter",
+      "planet_vi": "Mộc Tinh",
+      "hebrew": "Gimel",
+      "archetype_en": "Ambition for position — authority, religion, law, responsibility",
+      "archetype_vi": "Tham vọng địa vị — uy quyền, tôn giáo, luật, trách nhiệm",
+      "keywords": ["ambition", "authority", "discipline", "responsibility", "pride"],
+      "favorable_days": [3, 12, 21, 30],
+      "colors": ["mauve", "violet", "purple"],
+      "jewels": ["amethyst", "purple stones"],
+      "cheiro_vs_decoz": "CONFLICT: Decoz Birthday 3 = creative/expressive (Mercury/communication vibe). Cheiro 3 = Jupiter/authority. Present BOTH lenses; do not overwrite Decoz archetype."
+    },
+    "4": {
+      "planet": "Uranus",
+      "planet_vi": "Thiên Vương",
+      "hebrew": "Daleth",
+      "archetype_en": "Unconventional, occult leanings — isolation risk, late recognition",
+      "archetype_vi": "Phi truyền thống, khuynh hướng huyền học — nguy cơ cô lập, muộn được công nhận",
+      "keywords": ["unconventional", "rebellious", "occult", "isolation", "late_recognition"],
+      "favorable_days": [4, 13, 22, 31],
+      "linked_with": 8,
+      "colors": ["electric blues", "greys", "electric shades"],
+      "jewels": ["sapphire", "blue stones"],
+      "cheiro_vs_decoz": "CONFLICT: Decoz Birthday 4 = builder/organizer (stable). Cheiro 4 = Uranus/unconventional. Present BOTH. See also Ch.XXIII (4&8)."
+    },
+    "5": {
+      "planet": "Mercury",
+      "planet_vi": "Thủy Tinh",
+      "hebrew": "He",
+      "archetype_en": "Versatility, commerce, travel, mental activity — restlessness",
+      "archetype_vi": "Đa năng, thương mại, đi lại, hoạt động trí óc — bồn chồn",
+      "keywords": ["versatility", "commerce", "travel", "mental", "restless", "freedom"],
+      "favorable_days": [5, 14, 23],
+      "colors": ["light greys", "white", "silver", "glistening materials"],
+      "jewels": ["diamond", "silver ornaments"],
+      "cheiro_vs_decoz": "Partial overlap with Decoz Birthday 5 (freedom/change); Cheiro stresses Mercury/commerce more."
+    },
+    "6": {
+      "planet": "Venus",
+      "planet_vi": "Kim Tinh",
+      "hebrew": "Vau",
+      "archetype_en": "Attraction, art, luxury, domestic harmony — magnetism",
+      "archetype_vi": "Hút, nghệ thuật, xa hoa, hòa hợp gia đình — từ lực",
+      "keywords": ["attraction", "art", "luxury", "domestic", "magnetism", "beauty"],
+      "favorable_days": [6, 15, 24],
+      "colors": ["all shades of blue (except very dark)", "pinks"],
+      "jewels": ["turquoise", "emerald"],
+      "cheiro_vs_decoz": "Aligns with Decoz Birthday 6 (responsibility/harmony/beauty)."
+    },
+    "7": {
+      "planet": "Neptune",
+      "planet_vi": "Hải Vương",
+      "hebrew": "Zain",
+      "archetype_en": "Mystery, idealism, introspection — solitude, dream vs reality",
+      "archetype_vi": "Huyền bí, lý tưởng, nội quán — cô tịch, mộng vs thực",
+      "keywords": ["mystery", "idealism", "introspection", "solitude", "dream", "analysis"],
+      "favorable_days": [7, 16, 25],
+      "colors": ["pale green", "greenish blue", "white"],
+      "jewels": ["moonstone", "cat's eye", "pearl"],
+      "cheiro_vs_decoz": "Aligns with Decoz Birthday 7 (analytical, spiritual seeker)."
+    },
+    "8": {
+      "planet": "Saturn",
+      "planet_vi": "Thổ Tinh",
+      "hebrew": "Cheth",
+      "archetype_en": "Depth, endurance, material power — delay, solitude, late harvest",
+      "archetype_vi": "Sâu, bền, lực vật chất — trì hoãn, cô tịch, thu hoạch muộn",
+      "keywords": ["endurance", "material_power", "delay", "solitude", "depth", "caution"],
+      "favorable_days": [8, 17, 26],
+      "linked_with": 4,
+      "colors": ["dark greys", "black", "dark blue", "purple"],
+      "jewels": ["amethyst", "dark sapphires", "black pearls"],
+      "cheiro_vs_decoz": "Partial: Decoz 8 = power/ambition/material; Cheiro adds Saturn delay/solitude + link to 4. Present BOTH."
+    },
+    "9": {
+      "planet": "Mars",
+      "planet_vi": "Hỏa Tinh",
+      "hebrew": "Teth",
+      "archetype_en": "Energy, courage, conflict — fight for ideals, impatience",
+      "archetype_vi": "Năng lượng, dũng cảm, xung đột — chiến đấu vì lý tưởng, nôn nóng",
+      "keywords": ["energy", "courage", "conflict", "fight", "impatience", "force"],
+      "favorable_days": [9, 18, 27],
+      "colors": ["all shades of crimson or red", "rose"],
+      "jewels": ["ruby", "garnet", "bloodstone"],
+      "cheiro_vs_decoz": "CONFLICT: Decoz Birthday 9 = humanitarian/completion. Cheiro 9 = Mars/energy/conflict. Present BOTH lenses."
+    }
+  },
+  "conflict_digits": [3, 4, 9],
+  "notes": [
+    "Cheiro Birth Number = day of month reduced (keep Masters 11/22/33 as special in Decoz layer; Cheiro discusses compounds separately).",
+    "Do NOT merge into number_meanings.json — Iron Rule #3 multi-school.",
+    "Colors/jewels = symbolic correspondence for reading, NOT medical/financial prescription."
+  ]
+}

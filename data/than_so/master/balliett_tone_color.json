@@ -1,0 +1,469 @@
+{
+  "schema_version": 1,
+  "curated_at": "2026-07-22",
+  "source": "Balliett Philosophy of Numbers OCR (balliett-philosophy-of-numbers-ocr.txt, 1908/1917 PD, IA Abbyy)",
+  "journal": "docs/design/than-so-balliett-tham-nhuan-vong-B1.md",
+  "paradigm": "Đọc đồng dạng — số·màu·âm là ba mặt một rung động để quan-sát khí và GAP, KHÔNG predict may/xui. Mệnh = động từ (xử lý tính). Multi-school: layer Balliett tách khỏi Decoz number_meanings và Cheiro birth colors.",
+  "disclaimer_vi": "Lớp Balliett mượn khung rung động Pythagoras để soi tính đang vận hành — không phải lời khuyên y tế, tài chính, hay mua sắm màu may mắn.",
+  "musical_scale": {
+    "notes_by_digit": {
+      "1": "C",
+      "2": "D",
+      "3": "E",
+      "4": "F",
+      "5": "G",
+      "6": "A",
+      "7": "B",
+      "8": "C",
+      "9": "D"
+    },
+    "master_octaves": {
+      "11": "full_octave_C",
+      "22": "full_octave_D"
+    },
+    "ocr_ref": "Ch.II ~L3387-3393; exercises Ch.VI-VIII"
+  },
+  "number_hierarchy": {
+    "first_trinity": [
+      1,
+      2,
+      3
+    ],
+    "cube_limited": [
+      4,
+      5,
+      6,
+      7
+    ],
+    "free_numbers": [
+      8,
+      9,
+      11,
+      22
+    ],
+    "divine_trinity_free": {
+      "8": "body",
+      "9": "soul",
+      "11": "spirit"
+    },
+    "ocr_ref": "Ch.II ~L3356-3377; Ch.XII ~L5055-5056"
+  },
+  "name_vibration_principles": [
+    {
+      "id": "unity_source",
+      "text_vi": "Mọi số·màu·âm xuất phát từ một nguyên lý Unity — vạn vật biểu hiện khác nhau cùng một nguồn.",
+      "ocr_ref": "Preface ~L2961-2963"
+    },
+    {
+      "id": "name_past_birth_present",
+      "text_vi": "Số tên = thành quả/victory đã tích từ quá khứ; số sinh (birth digit) = bài học và khí cần xử lý trong kiếp này.",
+      "ocr_ref": "Ch.I ~L3148-3152; Ch.IX ~L4304-4306"
+    },
+    {
+      "id": "vowels_hidden",
+      "text_vi": "Nguyên âm trong tên cho thấy sức mạnh ẩn (spiritual structure) — không hiện rõ ở mặt khách quan.",
+      "ocr_ref": "Preface ~L2965; Ch.XVIII ~L6028-6029"
+    },
+    {
+      "id": "birth_higher_than_name",
+      "text_vi": "Khi birth digit cao hơn name digit: linh hồn chọn 'đi làm và thắng' bài học cao hơn thành tích tên đang mang — thất bại bề ngoài có thể là tích lũy.",
+      "ocr_ref": "Ch.II ~L3209-3214; Henry Elder ~L3330-3336"
+    },
+    {
+      "id": "name_change_consciousness",
+      "text_vi": "Đổi tên chỉ xảy ra khi đã earned vibration mới — đổi ý thức thì đổi tên; không hack số.",
+      "ocr_ref": "Ch.II ~L3240-3254; Ch.IX ~L4337-4340"
+    },
+    {
+      "id": "first_trinity_expression",
+      "text_vi": "1-2-3 = ấn tượng → tái ấn tượng → biểu đạt; số 3 phải hòa C (1) và D (2) mới trọn.",
+      "ocr_ref": "Ch.II ~L3356-3368; Ch.VI ~L3931-3937"
+    },
+    {
+      "id": "life_song_keynote",
+      "text_vi": "Tháng·ngày·năm sinh cho colors + key-note của incarnation; tên giữ motif quá khứ — hát/strike notes để mở kênh, không bói.",
+      "ocr_ref": "Ch.V ~L3621-3623; Ch.XIX ~L6088-6154"
+    },
+    {
+      "id": "letter_map_pythagorean",
+      "text_vi": "Bảng chữ A=1…I=9, J=1…R=9, S=1…Z=8 (Pythagorean) — khớp letter_maps.json engine.",
+      "ocr_ref": "Ch.II ~L3260-3266"
+    }
+  ],
+  "birth_digit_method": {
+    "doc_vi": "Balliett birth vibration: digit(tháng) + digit(ngày) + digit(năm) → rút gọn. KHÁC Decoz Life Path (cộng mọi chữ số ngày tháng năm). KHÁC Cheiro Birth Day (chỉ ngày).",
+    "example": {
+      "name": "Henry Elder",
+      "dob": "1872-01-17",
+      "month": 1,
+      "day_digit": 8,
+      "year_digit": 9,
+      "birth_digit": 9,
+      "name_digit": 6
+    },
+    "ocr_ref": "Ch.II ~L3318-3336",
+    "open_question": "Ngày 11/22: Wanamaker giữ 11 riêng (~L6041) — rule gộp cần B2"
+  },
+  "forbid": [
+    "lucky color prescription as fate",
+    "gem shopping as numerology cure",
+    "medical diagnosis from birth/name digits",
+    "betting or investment advice from money=9 vibration",
+    "fortune-telling tone (will succeed/fail)",
+    "overwriting Decoz number_meanings archetypes",
+    "merging Cheiro birth colors without conflict note",
+    "lucky spiritual birthday decisions",
+    "invented Life Song chart when OCR missing"
+  ],
+  "numbers": {
+    "1": {
+      "colors": [
+        "flame"
+      ],
+      "colors_vi": [
+        "ngọn lửa",
+        "ánh lửa"
+      ],
+      "tones": [
+        "C"
+      ],
+      "keywords_vi": [
+        "unity",
+        "nguyên lý",
+        "mystic",
+        "light-bearer",
+        "foundation"
+      ],
+      "archetype_vi": "Nguyên lý Unity — nền móng cho người khác dựa vào; flame tiêu self-hood để trở thành ánh sáng",
+      "ocr_confidence": "high",
+      "notes": "1 là principle thuộc mọi người khi có ý thức Divine Oneness. Christ digit example = 5 pink, không 1. Ch.XXIII: phòng flame shades.",
+      "cheiro_color_conflict": "Cheiro 1 = gold/yellow — present BOTH, không ghi đè",
+      "decoz_note": "Giữ archetype Decoz trong number_meanings.json; file này chỉ tone/color"
+    },
+    "2": {
+      "colors": [
+        "gold"
+      ],
+      "colors_vi": [
+        "vàng gold"
+      ],
+      "tones": [
+        "D"
+      ],
+      "keywords_vi": [
+        "spirit-matter",
+        "harmony",
+        "partnership",
+        "lines",
+        "pipe organ"
+      ],
+      "archetype_vi": "Hai đường Spirit–Matter; gold khi sống đúng khí — không middle ground",
+      "ocr_confidence": "high",
+      "notes": "Mineral gold trong cơ thể khi sống highest (~L4390-4391). Không fruit riêng.",
+      "cheiro_color_conflict": "CONFLICT: Cheiro 2 = greens/cream/white"
+    },
+    "3": {
+      "colors": [],
+      "colors_expresses": [
+        "gold flame",
+        "flame",
+        "gold"
+      ],
+      "colors_vi": [
+        "không màu riêng — biểu đạt gold flame từ 1+2"
+      ],
+      "tones": [
+        "E",
+        "C",
+        "D"
+      ],
+      "keywords_vi": [
+        "expression",
+        "trinity",
+        "peacemaker",
+        "Christ love",
+        "vehicle"
+      ],
+      "archetype_vi": "Xe biểu đạt — phải hòa 1 và 2; sacred, gắn 7 và 11",
+      "ocr_confidence": "high",
+      "notes": "Has no colors of its own (~L4456-4457). Medical OCR mentions liver — KHÔNG đưa vào user output.",
+      "cheiro_color_conflict": "CONFLICT: Cheiro 3 = mauve/violet Jupiter"
+    },
+    "4": {
+      "colors": [
+        "blue",
+        "green"
+      ],
+      "colors_vi": [
+        "xanh dương",
+        "xanh lá"
+      ],
+      "tones": [
+        "F"
+      ],
+      "keywords_vi": [
+        "intellect",
+        "earth-sky",
+        "builder",
+        "land",
+        "patriotism"
+      ],
+      "archetype_vi": "Trí tuệ + đất trời — blue illumination, green commerce/earth",
+      "ocr_confidence": "high",
+      "notes": "Ch.V example GREEN=4 from word; Ch.XI green and blue surround from first breath (~L4617-4632). Metallic colors also (~L6388).",
+      "cheiro_color_conflict": "Partial: Cheiro 4 = electric blues/greys"
+    },
+    "5": {
+      "colors": [
+        "pink"
+      ],
+      "colors_vi": [
+        "hồng pink"
+      ],
+      "tones": [
+        "G"
+      ],
+      "keywords_vi": [
+        "threshold of spirit",
+        "adaptable",
+        "pink light",
+        "Christ principle",
+        "freedom glimpse"
+      ],
+      "archetype_vi": "Ngưỡng tinh thần — pink = white light chạm flesh; Christ = 5",
+      "ocr_confidence": "high",
+      "notes": "Black magic warning if force entry (~L4730-4733). OCR body parts — forbid clinical use.",
+      "cheiro_color_conflict": "CONFLICT: Cheiro 5 = greys/white/silver"
+    },
+    "6": {
+      "colors": [
+        "orange",
+        "scarlet",
+        "heliotrope"
+      ],
+      "colors_vi": [
+        "cam",
+        "đỏ scarlet",
+        "heliotrope"
+      ],
+      "tones": [
+        "A"
+      ],
+      "keywords_vi": [
+        "rest in motion",
+        "parenthood",
+        "home",
+        "cheerfulness",
+        "law of opposites"
+      ],
+      "archetype_vi": "Nghỉ trong chuyển động — heliotrope = parenthood thuần khiết",
+      "ocr_confidence": "high",
+      "notes": "Saturday of world (~L4827-4828). Dress with care in these tones (~L4840-4848).",
+      "cheiro_color_conflict": "CONFLICT: Cheiro 6 = blues/pinks Venus"
+    },
+    "7": {
+      "colors": [
+        "steel",
+        "purple",
+        "brick",
+        "magenta"
+      ],
+      "colors_vi": [
+        "thép",
+        "tím",
+        "gạch",
+        "magenta"
+      ],
+      "tones": [
+        "B"
+      ],
+      "keywords_vi": [
+        "rest",
+        "reflection",
+        "music gamut",
+        "finisher",
+        "sabbath"
+      ],
+      "archetype_vi": "Ngày nghỉ / nhạc cụ vũ trụ — giữ melody, seek to free it",
+      "ocr_confidence": "medium",
+      "notes": "Ch.XVII summary chỉ brick+steel (~L5963) thiếu purple/magenta; Ch.V và name reading (~L5019) đủ 4. OCR exercise 'J' for 7 (~L4051)."
+    },
+    "8": {
+      "colors": [
+        "canary"
+      ],
+      "colors_vi": [
+        "vàng canary"
+      ],
+      "tones": [
+        "C"
+      ],
+      "keywords_vi": [
+        "free",
+        "cosmic consciousness",
+        "body",
+        "brother's keeper",
+        "investor"
+      ],
+      "archetype_vi": "Free number — thân/body; mở Cosmic Consciousness khi unselfish",
+      "ocr_confidence": "high",
+      "notes": "Gem opal (~L5156-5160). Poverty = wrong thinking per Balliett — YI forbid financial prescription.",
+      "cheiro_color_conflict": "CONFLICT: Cheiro 8 = dark greys/black/purple"
+    },
+    "9": {
+      "colors": [
+        "red"
+      ],
+      "colors_vi": [
+        "đỏ"
+      ],
+      "tones": [
+        "D"
+      ],
+      "keywords_vi": [
+        "soul",
+        "universal brotherhood",
+        "law",
+        "love",
+        "humanity"
+      ],
+      "archetype_vi": "Free number — soul plane; red = light, stillness, love",
+      "ocr_confidence": "high",
+      "notes": "Money vibrates 9 (~L6233) — symbolic only. Also brown in furnishing (~L6417-6418).",
+      "cheiro_color_conflict": "Partial: cùng red family; Cheiro 9 = Mars energy/conflict vs Balliett stillness/love"
+    },
+    "11": {
+      "colors": [
+        "white",
+        "black",
+        "yellow",
+        "violet"
+      ],
+      "colors_vi": [
+        "trắng",
+        "đen",
+        "vàng",
+        "tím violet"
+      ],
+      "tones": [
+        "full_octave_C"
+      ],
+      "keywords_vi": [
+        "spirit",
+        "priesthood",
+        "master",
+        "leader",
+        "cosmic consciousness"
+      ],
+      "archetype_vi": "Free master — spirit; cao hơn 22 về mặt spiritual per Balliett (~L5372)",
+      "ocr_confidence": "high",
+      "notes": "More spiritual than 22 (~L5372). Can use any vibration colors in furnishing (~L6424-6427).",
+      "is_master": true,
+      "reduces_to": 2
+    },
+    "22": {
+      "colors": [
+        "cream"
+      ],
+      "colors_vi": [
+        "kem cream"
+      ],
+      "tones": [
+        "full_octave_D"
+      ],
+      "keywords_vi": [
+        "burden bearer",
+        "builder of temple",
+        "consolidation",
+        "even path"
+      ],
+      "archetype_vi": "Free master — kết tinh bài hát nhân loại; route số chẵn 4-6-2-8-9",
+      "ocr_confidence": "high",
+      "notes": "Can take any 11 colors in rooms (~L6421-6422). Stooped shoulders OCR trope — dùng như metaphor, không chẩn đoán.",
+      "is_master": true,
+      "reduces_to": 4
+    }
+  },
+  "esoteric_vowel_patterns": {
+    "doc_vi": "Ch.XX — pattern nguyên âm trong TỪ số (ONE, TWO…), không thay Soul Urge sum. Optional deep layer B2+.",
+    "ocr_ref": "Ch.XX ~L6177-6220",
+    "patterns": {
+      "1": {
+        "vowels": "o,e",
+        "esoteric_sum": 11,
+        "note_vi": "strongest force"
+      },
+      "2": {
+        "vowels": "o",
+        "note_vi": "maternal quality"
+      },
+      "3": {
+        "vowels": "e,e",
+        "esoteric_sum": 1,
+        "note_vi": "spirit of creative 1"
+      },
+      "4": {
+        "vowels": "o,u",
+        "esoteric_sum": 9
+      },
+      "5": {
+        "vowels": "i,e",
+        "esoteric_sum": 5,
+        "contains_free_9": true
+      },
+      "6": {
+        "vowels": "i",
+        "esoteric_sum": 9
+      },
+      "7": {
+        "vowels": "e,e",
+        "esoteric_sum": 1
+      },
+      "8": {
+        "vowels": "e,i",
+        "esoteric_sum": 5
+      },
+      "9": {
+        "vowels": "e,i",
+        "esoteric_sum": 5
+      },
+      "11": {
+        "vowels": "e,e,e",
+        "esoteric_sum": 6
+      },
+      "22": {
+        "vowels": "o,e",
+        "esoteric_sum": 11
+      }
+    }
+  },
+  "practical_use_yi": {
+    "balliett_intends": [
+      "Clear clogged vibrations via color/note awareness and just action",
+      "Harmonize body as instrument for soul (breathing, humming keynote)",
+      "Furnish/dress in own vibration colors as environmental attunement",
+      "Life Song repetition to open memory channels"
+    ],
+    "yi_must_not": [
+      "Prescribe lucky colors to buy/wear for fortune",
+      "Diagnose illness from number-body part lists",
+      "Recommend gems as mandatory purchases",
+      "Predict events from Spiritual Birthday days"
+    ],
+    "ocr_ref": "Ch.XV ~L5618-5745; Ch.XVI ~L5850; Ch.XXIII ~L6368+"
+  },
+  "life_song": {
+    "chart_status": "missing_ocr",
+    "principle_vi": "Key-note = tone của Balliett birth digit; name = motif quá khứ. Sing/strike để mở kênh — không may.",
+    "spiritual_birthday": {
+      "method": "days in each month sharing birth day-digit",
+      "example": "Born day 1 → 1,10,19,28",
+      "yi": "ngày luyện, không ngày may"
+    },
+    "journals": [
+      "docs/design/than-so-balliett-tham-nhuan-vong-B1.md",
+      "docs/design/than-so-balliett-tham-nhuan-vong-B2.md",
+      "docs/design/than-so-balliett-tham-nhuan-vong-B3.md"
+    ]
+  }
+}

@@ -164,6 +164,65 @@ Giống Iron Rule #6 (CƠ + BIẾN của Tử Vi), số tĩnh chưa đủ — ph
 - [ ] Restore Goodwin/Juno Jordan — chờ mua bản quyền hợp pháp
 - [ ] Publish PDF Campbell — chờ 2027-01-01
 
+**ĐÃ XONG (v5, 2026-07-21 — Decoz P0 complete chart, chỉ Pythagoras):**
+- ✅ Spec đóng băng `data/than_so/master/pythagorean_spec.json` + golden fixtures Decoz
+- ✅ Fix Expression/Soul/Personality: **rút từng phần tên** (không cộng tràn chuỗi)
+- ✅ Fix Challenges: **bỏ Master** trước khi trừ; Period 2 = đúng 27 năm
+- ✅ Extended: Attitude, Balance, Rational Thought, Karmic Lessons, Hidden Passion,
+  Subconscious Self, Cornerstone/Capstone, Bridges, Planes of Expression, Minor (tên đang dùng)
+- ✅ Cycles: Personal Month/Day + Transit/Essence/Duality/Age Digit
+- ✅ API + `ThanSoPanel.vue` schema v2; `include_dong_phuong` mặc định tắt
+- ✅ Tests `tests/test_than_so.py` — 27 PASS
+
+**ĐÃ XONG (v6, 2026-07-21 — P1 sản phẩm đủ dùng):**
+- ✅ Deep reading READ→GAP→IMPROVE (`engine/than_so/deep_reading.py`)
+- ✅ Lịch Personal Month 24 tháng trong cast
+- ✅ PDF báo cáo `/api/than-so/report-pdf` (fpdf2 + DejaVu)
+- ✅ Unify UI: tab Pytago chỉ `ThanSoPanel` (bỏ dual calculator `PytagoEnergyPage`)
+- ✅ UI: Duality/Transit + lịch tháng + luận sâu + nút tải PDF
+
+**ĐÃ XONG (v7, 2026-07-21 — tin cậy + timeline):**
+- ✅ Transit timeline 9 tuổi + First Vowel + Age Digit/Corner/Cap trên UI
+- ✅ Method audit Decoz A vs shortcut (che Karmic)
+- ✅ Duality guidance dày hơn; Chân Dung teaser từ `cast_than_so`
+- ✅ PDF thêm Transit timeline + kiểm chứng công thức
+
+**ĐÃ XONG (v8, 2026-07-21 — hành động ngắn hạn + glossary):**
+- ✅ Personal year calendar 9 năm + Personal day window 21 ngày
+- ✅ Deep reading cho Pinnacles + Challenges
+- ✅ Glossary click-to-lookup trên UI; cập nhật sage SOUL/prompt schema v2
+- ✅ Fixture Obama LP=2 / Expression=1
+
+**ĐÃ XONG (v9, 2026-07-21 — tin cậy Expression + PDF đủ + dọn UI):**
+- ✅ Expression name-audit: Decoz per-part vs flat full-name (fixture Mary Ann Smith 2≠11)
+- ✅ PDF: day window 21d, pinnacle/challenge deep, planes, letter grid, Expression audit
+- ✅ UI: Expression audit + deep Đỉnh/Thử thách; xoá dead `PytagoEnergyPage.vue`
+
+**ĐÃ XONG (v10, 2026-07-21 — SKU tương hợp + WeasyPrint):**
+- ✅ `compatibility_matrix.json` + `engine/than_so/compatibility.py` (LP/Expr/Soul/Pers + Năm CN + composite)
+- ✅ API `/api/than-so/compatibility` + `/compatibility-pdf`
+- ✅ UI form người B trong `ThanSoPanel`
+- ✅ PDF WeasyPrint ưu tiên (HTML), fallback fpdf2
+
+**ĐÃ XONG (v11, 2026-07-21 — xử lý thư viện Balliett/Campbell/Cheiro):**
+- ✅ Cheiro OCR Ch.XIII → compound **10–52** đầy đủ (`chaldean_compound_numbers.json`)
+- ✅ `library.py` resolve alias + cast cross_reference số kép tên
+- ✅ Campbell Inclusion Table → `extended.inclusion_table` + UI
+- ✅ Provenance map + Hermes skill `than-so/` + sage SOUL route thư viện
+- ✅ Balliett/Campbell/Cheiro content + school README cập nhật wire trạng thái
+
+**ĐÃ XONG (v12, 2026-07-21 — thâm nhuần nguyên lý luận giải):**
+- ✅ Journal `docs/design/than-so-thu-vien-tham-nhuan.md` (Cheiro Ch.I–II, XII–XV, XVII, XXIV + Balliett/Campbell)
+- ✅ `interpretation_principles.json` + skill `nguyen-ly.md`
+- ✅ `deep_reading`: Name↔Birth harmony, Cheiro day/month/year tách, Inclusion deep, synthesis UI
+- ✅ Không khuyên đổi tên cầu may; Decoz LP vs Cheiro Birth Day song song (#3)
+
+**CHƯA LÀM (bản quyền / scan):**
+- [ ] Goodwin / Juno Jordan — chưa có trong thư viện (còn bản quyền)
+- [ ] Balliett màu/âm table — chờ bản quét PD, không bịa
+- [ ] Campbell publish PDF nguyên văn — chờ 2027-01-01
+- [ ] Thâm nhuần tiếp Cheiro Ch.XVI–XXIII (ví dụ tên/định kỳ) khi Anh muốn vòng 2
+
 ---
 
 ## 9. Nguồn tham khảo phiên này (web research 2026-06-05)

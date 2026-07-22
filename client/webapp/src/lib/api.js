@@ -687,10 +687,20 @@ export function castTuViLaSo({ birthDatetimeLocal, timezone = "Asia/Ho_Chi_Minh"
 // ─── YI-Hermes API ─────────────────────────────────────────────────────────
 
 /**
- * Lập lá số Thần Số Học (Numerology) từ TÊN + NGÀY SINH.
- * @param {{ name: string, birthDate: string, system?: string, includeChaldean?: boolean, targetYear?: number|null }} p
+ * Lập lá số Thần Số Học Pythagoras (Decoz) từ TÊN + NGÀY SINH.
+ * @param {{ name: string, birthDate: string, system?: string, includeChaldean?: boolean, targetYear?: number|null, targetMonth?: number|null, targetDay?: number|null, currentName?: string|null, nameOrder?: string }} p
  */
-export function castThanSo({ name, birthDate, system = "pythagorean", includeChaldean = true, targetYear = null }) {
+export function castThanSo({
+  name,
+  birthDate,
+  system = "pythagorean",
+  includeChaldean = true,
+  targetYear = null,
+  targetMonth = null,
+  targetDay = null,
+  currentName = null,
+  nameOrder = "vn",
+}) {
   return request("/api/than-so/cast", {
     method: "POST",
     body: JSON.stringify({
@@ -699,12 +709,108 @@ export function castThanSo({ name, birthDate, system = "pythagorean", includeCha
       system,
       include_chaldean: includeChaldean,
       target_year: targetYear,
+      target_month: targetMonth,
+      target_day: targetDay,
+      current_name: currentName,
+      name_order: nameOrder,
     }),
   });
 }
 
 export function thanSoGlossary() {
   return request("/api/than-so/glossary");
+}
+
+/**
+ * Tải PDF lá số Thần Số Pythagoras.
+ * @returns {Promise<string>} object URL để download
+ */
+export function thanSoReportPdf({
+  name,
+  birthDate,
+  currentName = null,
+  nameOrder = "vn",
+  targetYear = null,
+}) {
+  return fetch(`/api/than-so/report-pdf`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      name,
+      birth_date: birthDate,
+      current_name: currentName,
+      name_order: nameOrder,
+      target_year: targetYear,
+    }),
+  }).then(async (r) => {
+    if (!r.ok) {
+      const text = await r.text().catch(() => "");
+      throw new Error(text || `HTTP ${r.status}`);
+    }
+    const blob = await r.blob();
+    return URL.createObjectURL(blob);
+  });
+}
+
+/**
+ * Tương hợp Pythagoras (multi-aspect).
+ */
+export function thanSoCompatibility({
+  nameA,
+  birthDateA,
+  nameB,
+  birthDateB,
+  nameOrderA = "vn",
+  nameOrderB = "vn",
+  relationshipType = "partner",
+  targetYear = null,
+}) {
+  return request("/api/than-so/compatibility", {
+    method: "POST",
+    body: JSON.stringify({
+      name_a: nameA,
+      birth_date_a: birthDateA,
+      name_b: nameB,
+      birth_date_b: birthDateB,
+      name_order_a: nameOrderA,
+      name_order_b: nameOrderB,
+      relationship_type: relationshipType,
+      target_year: targetYear,
+    }),
+  });
+}
+
+export function thanSoCompatibilityPdf({
+  nameA,
+  birthDateA,
+  nameB,
+  birthDateB,
+  nameOrderA = "vn",
+  nameOrderB = "vn",
+  relationshipType = "partner",
+  targetYear = null,
+}) {
+  return fetch(`/api/than-so/compatibility-pdf`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      name_a: nameA,
+      birth_date_a: birthDateA,
+      name_b: nameB,
+      birth_date_b: birthDateB,
+      name_order_a: nameOrderA,
+      name_order_b: nameOrderB,
+      relationship_type: relationshipType,
+      target_year: targetYear,
+    }),
+  }).then(async (r) => {
+    if (!r.ok) {
+      const text = await r.text().catch(() => "");
+      throw new Error(text || `HTTP ${r.status}`);
+    }
+    const blob = await r.blob();
+    return URL.createObjectURL(blob);
+  });
 }
 
 export function yiHermesChat({ userMessage, context = {}, history = [] }) {

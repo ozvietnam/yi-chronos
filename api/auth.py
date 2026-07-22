@@ -54,7 +54,18 @@ logger = logging.getLogger(__name__)
 # persons (gia đình/con/vợ/đồng nghiệp), gieo quẻ history, favorites...
 # Founder là owner — thấy mọi tab kể cả Cài đặt / Lexicon.
 # User thường chỉ thấy các tab xem mệnh (tab dev được ẩn).
-PROJECT_ROOT = Path("/Users/ozvietnamdesktop/Desktop/yi")
+def _default_project_root() -> Path:
+    env = os.environ.get("YI_PROJECT_ROOT")
+    if env:
+        return Path(env)
+    mac = Path("/Users/ozvietnamdesktop/Desktop/yi")
+    if mac.exists():
+        return mac
+    # Cloud agent / CI: repo root next to api/
+    return Path(__file__).resolve().parents[1]
+
+
+PROJECT_ROOT = _default_project_root()
 AUTH_DB = PROJECT_ROOT / "data/yi_users/users.sqlite3"
 PERSONS_DB = PROJECT_ROOT / "data/yi_hermes/persons.sqlite3"
 
