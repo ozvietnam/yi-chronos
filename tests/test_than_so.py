@@ -465,11 +465,38 @@ def test_deep_reading_has_balliett_tone_layer():
     assert res["balliett"]["expression_tone"]["value"] >= 1
 
 
+def test_balliett_life_song_and_spiritual_birthday():
+    from engine.than_so.library import (
+        balliett_life_song,
+        balliett_spiritual_birthday_days,
+    )
+
+    # OCR example: born day 1 → 1,10,19,28
+    sb = balliett_spiritual_birthday_days(1)
+    assert sb["days_in_month"] == [1, 10, 19, 28]
+    assert "may" not in sb["yi_reframe"].lower() or "KHÔNG" in sb["yi_reframe"]
+
+    # March 1, 1883 → birth digit 6, keynote A
+    song = balliett_life_song(3, 1, 1883, expression_value=5)
+    assert song["birth_digit"] == 6
+    assert song["keynote"] == "A"
+    assert song["chart_status"] == "missing_ocr"
+    assert "1" in str(song["spiritual_birthday"]["days_in_month"])
+
+    res = cast_than_so("Test User", "1883-03-01", include_chaldean=False)
+    assert res["balliett"]["life_song"]["keynote"] == "A"
+    layer = res["deep_reading"]["layers"]["balliett_tone"]
+    assert "spiritual_birthday" in layer
+    assert layer["life_song"]["chart_status"] == "missing_ocr"
+
+
 def test_balliett_principle_in_v2():
     from engine.than_so.deep_reading import _principles
 
     ids = {p["id"] for p in _principles()["principles"]}
     assert "balliett_tone_color" in ids
+    assert "balliett_life_song" in ids
+    assert "balliett_spiritual_birthday" in ids
 
 
 # ─── Deep principles from library (v12) ────────────────────────────────────────

@@ -144,12 +144,12 @@ def balliett_provenance_note() -> dict:
     return {
         "name_vi": "Balliett — provenance Pythagoras hiện đại",
         "provenance": "balliett-philosophy-of-numbers",
-        "deep_read_status": "B1+B2",
+        "deep_read_status": "B1+B2+B3",
         "data_file": "balliett_tone_color.json",
         "journal": "docs/design/than-so-balliett-tham-nhuan-vong-B1.md",
         "note": (
             "Bảng A=1…I=9, nguyên âm = linh hồn, master 11/22: gốc Balliett (~1908, PD). "
-            "Tone/color layer: balliett_tone_color.json (B1). "
+            "Tone/color + Life Song keynote + Spiritual Birthday days (B1–B3). "
             "Jordan/Decoz hệ thống hóa sau — thư viện chưa có Jordan/Goodwin."
         ),
     }
@@ -246,3 +246,70 @@ def balliett_birth_digit(month: int, day: int, year: int) -> dict:
             "(tháng+năm · ngày) — present BOTH."
         )
     return out
+
+
+def balliett_spiritual_birthday_days(day: int) -> dict:
+    """Spiritual Birthday days (Ch.XVI OCR): ngày trong tháng cùng day-digit với ngày sinh.
+
+    Ví dụ sinh ngày 1 → 1, 10, 19, 28 mỗi tháng. Balliett: ngày luyện / quan-sát
+    lực birth — YI KHÔNG gọi là ngày may.
+    """
+    from .core_numbers import reduce_number
+
+    day_raw = int(day)
+    if day_raw in (11, 22):
+        day_digit = day_raw
+        days = [day_raw]
+    else:
+        day_digit = reduce_number(day_raw, keep_master=False)
+        days = [d for d in range(1, 32) if reduce_number(d, keep_master=False) == day_digit]
+    return {
+        "day_digit": day_digit,
+        "days_in_month": days,
+        "method": "same_day_digit_each_month",
+        "source": "balliett-philosophy-of-numbers Ch.XVI (Spiritual Birthday)",
+        "yi_reframe": (
+            "Ngày luyện / quan-sát khí birth — ghi nhật ký cảm-hành; "
+            "KHÔNG phải ngày may để quyết định lớn."
+        ),
+        "example_ocr": "Sinh 1/3/1883 → day digit 1 → Spiritual Birthday 1, 10, 19, 28",
+    }
+
+
+def balliett_life_song(month: int, day: int, year: int, expression_value: int | None = None) -> dict:
+    """Life Song / key-note (Ch.XIX) — nguyên lý; chart in-book OCR mất (~L3326).
+
+    Key-note = tone của Balliett birth digit. Name = motif quá khứ (Expression).
+    """
+    bb = balliett_birth_digit(month, day, year)
+    birth = bb["birth_digit"]
+    tone = bb.get("tone") or resolve_balliett_tone(birth)
+    notes = (tone or {}).get("tones") or []
+    colors = (tone or {}).get("colors") or (tone or {}).get("colors_expresses") or []
+    ex_tone = resolve_balliett_tone(expression_value) if expression_value is not None else None
+    return {
+        "birth_digit": birth,
+        "keynote": notes[0] if notes else None,
+        "keynotes": notes,
+        "colors": colors,
+        "archetype_vi": (tone or {}).get("archetype_vi", ""),
+        "name_motif": {
+            "expression": expression_value,
+            "tones": (ex_tone or {}).get("tones"),
+            "colors": (ex_tone or {}).get("colors"),
+        }
+        if ex_tone
+        else None,
+        "chart_status": "missing_ocr",
+        "chart_note_vi": (
+            "Bảng Life Song đầy đủ trong sách (p.102) mất trong OCR Abbyy — "
+            "chỉ giữ nguyên lý key-note; không bịa chart."
+        ),
+        "practice_vi": (
+            "Strike/sing key-note birth (hoặc nghe âm cùng độ) như bài tập mở kênh — "
+            "không playlist may mắn."
+        ),
+        "source": "balliett-philosophy-of-numbers Ch.V + Ch.XIX",
+        "spiritual_birthday": balliett_spiritual_birthday_days(day),
+        "birth": bb,
+    }

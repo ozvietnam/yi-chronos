@@ -48,3 +48,4 @@ Cheiro C1–C8: `docs/design/than-so-cheiro-tham-nhuan-vong-C*.md`
 - **v13 (2026-07-22)**: Cheiro C1–C8 journals + `cheiro_birth_numbers` dual lens + principles v2 + biên giới y tế/cá cược
 - **v14 (2026-07-22)**: B0/P0 Balliett·Campbell + Inclusion intensity + M1–M3 dual-lens master data
 - **v15 (2026-07-22)**: Balliett Track B — OCR IA + B1/B2 tone-color layer + birth digit Wanamaker mode
+- **v16 (2026-07-22)**: B3 Life Song keynote + Spiritual Birthday; đóng DoD thư viện PD trong repo

@@ -21,6 +21,8 @@
         "core_numbers.reduce master",
         "library.resolve_balliett_tone",
         "library.balliett_birth_digit",
+        "library.balliett_life_song",
+        "library.balliett_spiritual_birthday_days",
         "deep_reading.layers.balliett_tone"
       ]
     },

@@ -1,31 +1,21 @@
 # Balliett — Triết Lý Của Những Con Số
 
 > L. Dow Balliett (~1908/1917) · Public domain  
-> `data/restored_books/balliett-philosophy-of-numbers/`  
 > OCR: `source/balliett-philosophy-of-numbers-ocr.txt`  
-> Journals: B0 stub · **B1** foundations · **B2** practical/boundaries
+> Journals: **B0–B3** (Track B đóng trên nguồn PD trong repo)
 
-## Cống hiến đã wire vào engine
+## Wire engine
 
-1. Bảng chữ Latin A=1…I=9 (lặp) → `letter_maps.json` pythagorean
-2. Nguyên âm = khát vọng linh hồn → Soul Urge
-3. Master 11/22 không rút (33 hệ thống hóa sau)
-4. **Tone/color** 1–9 + 11/22 → `balliett_tone_color.json` + `library.resolve_balliett_tone`
-5. **Birth digit Balliett** (month+day_digit+year_digit; Wanamaker 11/22) → `balliett_birth_digit`
-6. deep_reading layer `balliett_tone` (quan-sát khí — không lucky shopping)
+1. Letter map A=1…I=9 · Soul Urge · master 11/22  
+2. `balliett_tone_color.json` + `resolve_balliett_tone`  
+3. `balliett_birth_digit` (Wanamaker 11/22)  
+4. `balliett_life_song` + Spiritual Birthday days (ngày luyện)  
+5. deep_reading `balliett_tone` layer  
 
-## Cách dùng khi luận
+## Cấm
 
-- Tách nguyên âm / master → dẫn Balliett.
-- Màu/âm → lớp Balliett; conflict màu với Cheiro → present BOTH (#3).
-- KHÔNG kê đơn màu may, đá quý, tài chính (money=9), bệnh từ số.
+Lucky color · gem cure · money=9 finance · medical from digits · quyết định vì Spiritual Birthday “may” · bịa Life Song chart khi OCR mất.
 
-## Routing keys
+## Routing
 
-`màu số`, `âm thanh`, `rung động Balliett`, `tone color`, `life song`, `Wanamaker`
-
-## File
-
-- OCR + PDF IA (PDF gitignored `**/*.pdf`)
-- `data/than_so/master/balliett_tone_color.json`
-- Journals `docs/design/than-so-balliett-tham-nhuan-vong-B*.md`
+`màu số`, `âm thanh`, `Life Song`, `Spiritual Birthday`, `keynote`, `rung động Balliett`

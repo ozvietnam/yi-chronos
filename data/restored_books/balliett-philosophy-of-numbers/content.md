@@ -42,6 +42,6 @@ Balliett dẫn ngược về Pythagoras ("vạn vật là số" + hòa âm các 
 - ✅ Sage SOUL route Balliett cho bảng chữ / Soul Urge / master
 - ✅ B0 journal stub
 - ✅ **OCR full** IA Abbyy → `source/balliett-philosophy-of-numbers-ocr.txt`
-- ✅ B1/B2 journals + `balliett_tone_color.json` + `resolve_balliett_tone` / `balliett_birth_digit`
-- [ ] B3 Life Song chart (OCR bẩn)
-- PDF scan: `source/philosophyofnum00ball.pdf` (gitignored `**/*.pdf`)
+- ✅ B1/B2/B3 journals + tone/color + Life Song keynote + Spiritual Birthday days
+- PDF scan: `source/philosophyofnum00ball.pdf` (gitignored)
+- Life Song **chart** in-book: OCR mất — không bịa

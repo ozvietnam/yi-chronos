@@ -112,6 +112,7 @@ def cast_than_so(
 
     from .library import (
         balliett_birth_digit,
+        balliett_life_song,
         balliett_provenance_note,
         resolve_balliett_tone,
     )
@@ -119,6 +120,9 @@ def cast_than_so(
     result["balliett"] = {
         "provenance": balliett_provenance_note(),
         "birth_digit": balliett_birth_digit(d.month, d.day, d.year),
+        "life_song": balliett_life_song(
+            d.month, d.day, d.year, expression_value=core["expression"]["value"]
+        ),
         "life_path_tone": resolve_balliett_tone(core["life_path"]["value"]),
         "expression_tone": resolve_balliett_tone(core["expression"]["value"]),
         "soul_urge_tone": resolve_balliett_tone(core["soul_urge"]["value"]),

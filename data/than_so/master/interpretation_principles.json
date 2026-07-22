@@ -137,6 +137,21 @@
       ]
     },
     {
+      "id": "balliett_spiritual_birthday",
+      "name_vi": "Spiritual Birthday (Balliett) — ngày luyện",
+      "sources": ["balliett-philosophy-of-numbers Ch.XVI", "vong-B3"],
+      "axiom_vi": "Mỗi tháng ~3 ngày cùng day-digit với ngày sinh mang lực birth digit (màu/âm). Dùng để quan-sát / luyện — không ngày may.",
+      "for_user_vi": "Trên Spiritual Birthday: nhật ký cảm–hành; tránh quyết định lớn chỉ vì 'đúng số'.",
+      "forbid": ["lucky day decisions", "so sánh thắng/thua theo ngày số"]
+    },
+    {
+      "id": "balliett_life_song",
+      "name_vi": "Life Song / key-note",
+      "sources": ["balliett-philosophy-of-numbers Ch.V, XIX", "vong-B3"],
+      "axiom_vi": "Key-note = nốt của birth digit; hát/strike để mở kênh ký ức–khí. Chart in-book OCR mất — không bịa bảng.",
+      "for_user_vi": "Một lần/tuần nghe hoặc ngân keynote birth như bài tập — không playlist cầu may."
+    },
+    {
       "id": "inclusion",
       "name_vi": "Bảng Bao Hàm (Campbell)",
       "sources": ["campbell-your-days-are-numbered"],

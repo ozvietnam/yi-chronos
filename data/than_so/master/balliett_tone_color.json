@@ -111,7 +111,9 @@
     "betting or investment advice from money=9 vibration",
     "fortune-telling tone (will succeed/fail)",
     "overwriting Decoz number_meanings archetypes",
-    "merging Cheiro birth colors without conflict note"
+    "merging Cheiro birth colors without conflict note",
+    "lucky spiritual birthday decisions",
+    "invented Life Song chart when OCR missing"
   ],
   "numbers": {
     "1": {
@@ -449,5 +451,19 @@
       "Predict events from Spiritual Birthday days"
     ],
     "ocr_ref": "Ch.XV ~L5618-5745; Ch.XVI ~L5850; Ch.XXIII ~L6368+"
+  },
+  "life_song": {
+    "chart_status": "missing_ocr",
+    "principle_vi": "Key-note = tone của Balliett birth digit; name = motif quá khứ. Sing/strike để mở kênh — không may.",
+    "spiritual_birthday": {
+      "method": "days in each month sharing birth day-digit",
+      "example": "Born day 1 → 1,10,19,28",
+      "yi": "ngày luyện, không ngày may"
+    },
+    "journals": [
+      "docs/design/than-so-balliett-tham-nhuan-vong-B1.md",
+      "docs/design/than-so-balliett-tham-nhuan-vong-B2.md",
+      "docs/design/than-so-balliett-tham-nhuan-vong-B3.md"
+    ]
   }
 }
