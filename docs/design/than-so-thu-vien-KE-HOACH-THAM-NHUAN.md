@@ -138,14 +138,14 @@ Sau mỗi cụm (C1–C2, C3–C4, …): **một PR nhỏ** inject đã duyệt 
 
 ### Cheiro
 - [x] C0 nền (v12)
-- [x] C1 số 1–5
-- [x] C2 số 6–9
-- [x] C3 compound audit → `than-so-cheiro-tham-nhuan-vong-C3.md` (2026-07-22; alias 33–52 khớp OCR; chưa inject JSON)
+- [x] C1 số 1–5 → `than-so-cheiro-tham-nhuan-vong-C1.md` + `cheiro_birth_numbers.json`
+- [x] C2 số 6–9 → `than-so-cheiro-tham-nhuan-vong-C2.md`
+- [x] C3 compound audit → `than-so-cheiro-tham-nhuan-vong-C3.md` (alias 33–52 khớp OCR)
 - [x] C4 Name↔Birth + ví dụ tên → `than-so-cheiro-tham-nhuan-vong-C4.md` (cấm rename-for-luck)
 - [x] C5 recurrence / periodicity → `than-so-cheiro-tham-nhuan-vong-C5.md` (ethical filter case chết)
-- [ ] C6 màu–nhạc–4&8
-- [ ] C7 biên giới + case + conclusion
-- [ ] C8 horse-racing = từ chối SKU
+- [x] C6 màu–nhạc–4&8 → gộp `than-so-cheiro-tham-nhuan-vong-C6-C8.md`
+- [x] C7 biên giới y tế + case + conclusion → cùng file C6–C8
+- [x] C8 horse-racing = từ chối SKU → cùng file C6–C8 + principle `betting_refusal`
 
 ### Balliett / Campbell
 - [ ] B0 stub + câu hỏi mở
@@ -153,10 +153,10 @@ Sau mỗi cụm (C1–C2, C3–C4, …): **một PR nhỏ** inject đã duyệt 
 - [ ] B1+ / P1+ (chờ nguồn)
 
 ### Master
-- [ ] M1 meanings/debt
+- [ ] M1 meanings/debt (Decoz giữ; Cheiro birth = file riêng — đã xong lớp birth)
 - [ ] M2 cycles vs Cheiro
 - [ ] M3 compatibility
-- [ ] M4 principles v2
+- [x] M4 principles v2 ← 2026-07-22 (merge C0–C8)
 
 ---
 
@@ -182,10 +182,10 @@ Sau mỗi cụm (C1–C2, C3–C4, …): **một PR nhỏ** inject đã duyệt 
 
 ---
 
-## 9. Bước kế tiếp ngay (khi Anh bảo “bắt đầu”)
+## 9. Bước kế tiếp (sau C1–C8)
 
-1. Mở vòng **C1** — đọc OCR Ch.III–VII (số 1–5).
-2. Viết `docs/design/than-so-cheiro-tham-nhuan-vong-1.md`.
-3. Trình Anh duyệt insight → mới đề xuất patch `number_meanings` / deep_reading.
+1. **B0 / P0** — stub Balliett + Campbell (không pretend full text).
+2. M1–M3 nếu cần tinh chỉnh Decoz meanings / cycles / compatibility vs Cheiro series.
+3. Track B khi Anh upload PDF Balliett.
 
-*(Em không tự nhảy C1 trong file kế hoạch này — Anh chốt “bắt đầu C1” thì làm.)*
+*(C1–C8 + inject dual-lens Birth + principles v2: 2026-07-22.)*

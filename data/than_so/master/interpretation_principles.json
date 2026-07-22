@@ -1,8 +1,16 @@
 {
-  "schema_version": "v1",
-  "curated_at": "2026-07-21",
-  "doc": "Nguyên lý luận giải Thần Số — rút từ thâm nhuần thư viện Balliett/Campbell/Cheiro. Machine-readable cho deep_reading + sage. Paradigm: đồng dạng, không predict.",
-  "journal": "docs/design/than-so-thu-vien-tham-nhuan.md",
+  "schema_version": "v2",
+  "curated_at": "2026-07-22",
+  "doc": "Nguyên lý luận giải Thần Số — merge C0–C8 Cheiro + stub Balliett/Campbell. Machine-readable cho deep_reading + sage. Paradigm: đồng dạng, không predict.",
+  "journals": [
+    "docs/design/than-so-thu-vien-tham-nhuan.md",
+    "docs/design/than-so-cheiro-tham-nhuan-vong-C1.md",
+    "docs/design/than-so-cheiro-tham-nhuan-vong-C2.md",
+    "docs/design/than-so-cheiro-tham-nhuan-vong-C3.md",
+    "docs/design/than-so-cheiro-tham-nhuan-vong-C4.md",
+    "docs/design/than-so-cheiro-tham-nhuan-vong-C5.md",
+    "docs/design/than-so-cheiro-tham-nhuan-vong-C6-C8.md"
+  ],
   "principles": [
     {
       "id": "vibration",
@@ -21,29 +29,38 @@
     {
       "id": "single_vs_compound",
       "name_vi": "Đơn = vật chất · Kép = tinh thần",
-      "sources": ["cheiro-book-of-numbers Ch.XII–XIII"],
-      "axiom_vi": "Số đơn 1–9 thuộc mặt vật chất; số kép 10–52 thuộc mặt huyền/tinh thần. Từng phần tên có compound riêng.",
+      "sources": ["cheiro-book-of-numbers Ch.XII–XIII", "vong-C3"],
+      "axiom_vi": "Số đơn 1–9 thuộc mặt vật chất; số kép 10–52 thuộc mặt huyền/tinh thần. Alias 33→24…52→43; lực riêng 37/43/51.",
       "for_user_vi": "Đừng chỉ nhìn số rút gọn — hỏi số kép tên đang nói sắc thái gì cần quan-sát."
     },
     {
       "id": "birth_day_key",
       "name_vi": "Ngày sinh là Key thân thiết nhất (Cheiro)",
-      "sources": ["cheiro-book-of-numbers Ch.XV"],
-      "axiom_vi": "Ngày (cá nhân) · Tháng (chung) · Năm (dòng lớn) — Cheiro KHÔNG cộng ba lớp thành một. Khác Decoz Life Path (Method A có cộng).",
+      "sources": ["cheiro-book-of-numbers Ch.XV", "vong-C1", "vong-C2"],
+      "axiom_vi": "Ngày (cá nhân) · Tháng (chung) · Năm (dòng lớn) — Cheiro KHÔNG cộng ba lớp thành một. Khác Decoz Life Path (Method A có cộng). Birth 1–9 theo hành tinh Cheiro trong cheiro_birth_numbers.json.",
       "for_user_vi": "Trình bày song song: Birth Day (Cheiro) và Life Path (Decoz). Nói rõ đang đứng khung nào.",
+      "iron_rule": 3
+    },
+    {
+      "id": "cheiro_decoz_dual_lens",
+      "name_vi": "Dual lens Cheiro ↔ Decoz (conflict 3/4/9)",
+      "sources": ["vong-C1", "vong-C2", "Iron Rule #3"],
+      "axiom_vi": "Birth Day Cheiro 3=Jupiter, 4=Uranus, 9=Mars lệch archetype Decoz Birthday thường dùng. KHÔNG ghi đè number_meanings.json — present BOTH.",
+      "for_user_vi": "Khi Birth Day = 3, 4 hoặc 9: nghe cả Cheiro (hành tinh) lẫn Decoz — hỏi anh đang sống theo khí nào hơn.",
+      "conflict_digits": [3, 4, 9],
       "iron_rule": 3
     },
     {
       "id": "name_as_known",
       "name_vi": "Tên đang dùng mới có lực",
-      "sources": ["cheiro-book-of-numbers Ch.XII, XIV"],
-      "axiom_vi": "Key name = tên người đời gọi nhiều nhất, không luôn đủ họ-đệm-tên khai sinh.",
+      "sources": ["cheiro-book-of-numbers Ch.XII, XIV", "vong-C4"],
+      "axiom_vi": "Key name = tên người đời gọi nhiều nhất, không luôn đủ họ-đệm-tên khai sinh. Case Napoleon / Lloyd George = minh họa phương pháp, không idol.",
       "for_user_vi": "Hỏi tên anh được biết tới; so Minor (tên đang dùng) với Expression khai sinh."
     },
     {
       "id": "name_birth_harmony",
       "name_vi": "Hòa / lệch Name ↔ Birth",
-      "sources": ["cheiro-book-of-numbers Ch.XIV"],
+      "sources": ["cheiro-book-of-numbers Ch.XIV", "vong-C4"],
       "axiom_vi": "Cùng số = dễ neo; lệch = muddle. Cheiro khuyên đổi tên — YI KHÔNG khuyên đổi tên cầu may; đọc lệch như GAP quan-sát.",
       "for_user_vi": "Nếu Birth Day và Expression lệch: chọn một neo tạm + quan-sát chỗ đời đang 'lộn số'.",
       "forbid": ["đổi tên để đổi vận", "chọn ngày may theo số"]
@@ -51,30 +68,60 @@
     {
       "id": "series_1_4_2_7",
       "name_vi": "Series 1–4 và 2–7",
-      "sources": ["cheiro-book-of-numbers Ch.I"],
-      "axiom_vi": "1–4 (Sun–Uranus) và 2–7 (Moon–Neptune) là cặp đồng dạng nội bộ; hai series thường cảm thông nhau.",
+      "sources": ["cheiro-book-of-numbers Ch.I", "vong-C2", "vong-C6"],
+      "axiom_vi": "1–4 (Sun–Uranus) và 2–7 (Moon–Neptune) là cặp đồng dạng nội bộ; 3–6–9 main line; hai series thường cảm thông nhau.",
       "for_user_vi": "Khi đối chiếu người khác, xét series trước khi phán 'hợp/khắc'."
     },
     {
       "id": "four_eight_care",
       "name_vi": "4 và 8 — cấu trúc chịu tải",
-      "sources": ["cheiro-book-of-numbers Ch.XIV–XV"],
+      "sources": ["cheiro-book-of-numbers Ch.XIV–XV, XXIII", "vong-C6"],
       "axiom_vi": "4/8 dễ chồng khổ nếu khuếch đại; Cheiro tránh nhà 4 khi Birth=8. YI: hỏi có đang tự chất thêm kỷ luật/cách biệt không — không dọa xui.",
       "for_user_vi": "Birth/Name = 4 hoặc 8 → bớt chồng môi trường cùng khí; nuôi một hành vi mở (không bói)."
     },
     {
       "id": "recurrence",
       "name_vi": "Số lặp lại trong đời",
-      "sources": ["cheiro-book-of-numbers Ch.XVII"],
-      "axiom_vi": "Số hay gặp là pattern cần đọc, không phải lời nguyền.",
+      "sources": ["cheiro-book-of-numbers Ch.XVII–XXI", "vong-C5"],
+      "axiom_vi": "Số hay gặp là pattern cần đọc, không phải lời nguyền. Case lịch sử (vua/chết) = bài tập cấu trúc — filter #9, không tái hiện đoán tai nạn.",
       "for_user_vi": "Hỏi số nào hay xuất hiện trong tiểu sử anh — phản ứng của anh với nó mới là mệnh (động từ)."
     },
     {
       "id": "concentration",
       "name_vi": "Tập trung vào một neo số",
-      "sources": ["cheiro-book-of-numbers Ch.XXIV"],
+      "sources": ["cheiro-book-of-numbers Ch.XXIV", "vong-C6"],
       "axiom_vi": "Nắm một số chủ đạo → hiểu nghĩa → nghĩ và hành khớp khí đó. Đừng tán loạn.",
       "for_user_vi": "Chọn 1 neo (Birth Day hoặc Life Path), 1 việc nhỏ/tuần đúng khí — đó là cải thiện, không phải cầu may."
+    },
+    {
+      "id": "color_music_correspondence",
+      "name_vi": "Màu / nhạc = correspondence văn hóa",
+      "sources": ["cheiro-book-of-numbers Ch.XXII–XXVII", "vong-C6"],
+      "axiom_vi": "Bảng màu–đá–nhạc theo số là di sản correspondence, không lucky charm. Dùng để quan-sát khí thẩm mỹ / môi trường.",
+      "for_user_vi": "Nếu muốn neo khí số: chọn 1 màu/âm thanh anh thấy khớp — không mua đá để đổi vận."
+    },
+    {
+      "id": "environment_fit",
+      "name_vi": "Nơi ở = khớp rung môi trường",
+      "sources": ["cheiro-book-of-numbers Ch.XXIX", "vong-C7"],
+      "axiom_vi": "Cheiro 'fortunate place' → YI: environment–vibration fit. Octave: người > ngày > nhà > thành phố. Số = filter phụ sau thực địa.",
+      "for_user_vi": "Khi đổi chỗ: cảm nhận thực + cộng đồng trước; số chỉ gợi ý phụ."
+    },
+    {
+      "id": "medical_boundary",
+      "name_vi": "Biên giới y tế (Ch.XXVIII)",
+      "sources": ["cheiro-book-of-numbers Ch.XXVIII", "vong-C7", "Iron Rule #9"],
+      "axiom_vi": "Cheiro liệt kê khuynh hướng bệnh theo số — YI CẤM chẩn đoán / kê thảo mộc / 'năm nguy'. Chỉ giữ cultural reference + lời khuyên lối sống chung nếu nhắc.",
+      "for_user_vi": "Số không thay bác sĩ. Nếu căng (vd. 5 thần kinh): ngủ đủ, giảm overload — không bệnh danh.",
+      "forbid": ["chẩn bệnh theo số", "kê thảo mộc như thuốc", "tháng kiêng / năm nguy như y lệnh"]
+    },
+    {
+      "id": "betting_refusal",
+      "name_vi": "Từ chối tuyệt đối cá cược / xổ số (Ch.XXX)",
+      "sources": ["cheiro-book-of-numbers Ch.XXX", "vong-C8", "Iron Rule #9"],
+      "axiom_vi": "A little knowledge is a dangerous thing. Cheiro horse-racing = biên giới cứng. YI không SKU chọn ngựa/số đề/xổ số — kể cả 'giải trí theo Cheiro'.",
+      "for_user_vi": "Thành công buổi đọc = bớt dính mắc, không đoán cửa thắng.",
+      "forbid": ["chọn số đề", "đua ngựa theo số", "xổ số / lottery tip", "cá cược theo Birth Day"]
     },
     {
       "id": "inclusion",
@@ -82,19 +129,30 @@
       "sources": ["campbell-your-days-are-numbered"],
       "axiom_vi": "Số thiếu = chưa tập; số trội = đam mê/ám ảnh. Bản đồ luyện, không điểm tốt/xấu.",
       "for_user_vi": "Thiếu → luyện có chủ đích; trội → dùng có ý thức kẻo lệch."
+    },
+    {
+      "id": "menh_is_verb",
+      "name_vi": "Mệnh là động từ (kết Cheiro → YI)",
+      "sources": ["cheiro-book-of-numbers Ch.XXXIII", "vong-C7", "Iron Rule #8"],
+      "axiom_vi": "Cheiro 'practical occultism / make the best of themselves' = procedural grimoire: số cho TÍNH; mệnh = việc xử lý tính.",
+      "for_user_vi": "Hỏi 'cấu trúc này vận hành tốt nhất khi anh làm gì?' — không 'số anh là gì đã định'."
     }
   ],
   "reading_steps": [
-    "Neo vật chất: Birth Day (Cheiro) + Life Path (Decoz) — nói rõ hai khung",
+    "Neo vật chất: Birth Day Cheiro (+ dual lens Decoz nếu 3/4/9) + Life Path Decoz — nói rõ khung",
     "Lớp tên: Expression / Soul / Personality (+ compound Chaldean nếu có)",
     "Hòa/lệch Birth Day ↔ Expression",
     "Inclusion: thiếu / trội",
-    "BIẾN: Personal Y/M/D + một IMPROVE kiểu tập trung"
+    "BIẾN: Personal Y/M/D + một IMPROVE kiểu tập trung",
+    "Biên giới: không chẩn bệnh; không cá cược/xổ số"
   ],
   "forbid_user_facing": [
     "may/xui cố định",
     "đổi tên để đổi vận",
     "đoán chết/tai nạn từ 4/8/16",
-    "gộp Cheiro day+month+year như Decoz mà không nói"
+    "gộp Cheiro day+month+year như Decoz mà không nói",
+    "ghi đè Decoz archetype bằng Cheiro (hoặc ngược) khi conflict — phải present BOTH",
+    "chẩn bệnh / kê thảo mộc theo số",
+    "chọn số đề / đua ngựa / xổ số theo số"
   ]
 }

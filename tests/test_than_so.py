@@ -414,7 +414,52 @@ def test_interpretation_principles_loaded():
     from engine.than_so.deep_reading import _principles
 
     p = _principles()
+    assert p.get("schema_version") == "v2"
     ids = {x["id"] for x in p["principles"]}
     assert "birth_day_key" in ids
     assert "name_birth_harmony" in ids
     assert "concentration" in ids
+    assert "cheiro_decoz_dual_lens" in ids
+    assert "betting_refusal" in ids
+    assert "medical_boundary" in ids
+    forbid = p.get("forbid_user_facing") or []
+    assert any("xổ số" in x or "đua ngựa" in x for x in forbid)
+
+
+def test_cheiro_birth_numbers_dual_lens_on_birthday():
+    from engine.than_so.library import resolve_cheiro_birth
+
+    c3 = resolve_cheiro_birth(3)
+    assert c3 is not None
+    assert c3["conflict_with_decoz"] is True
+    assert c3["planet"] == "Jupiter"
+
+    # Day 12 → Birthday digit 3 (conflict digit) — dual lens in deep_reading
+    res = cast_than_so("Nguyễn Văn An", "1990-03-12", include_chaldean=False)
+    bday = res["deep_reading"]["core"]["birthday"]
+    assert "cheiro_birth" in bday
+    assert bday["cheiro_birth"]["planet"] == "Jupiter"
+    assert "decoz_lens" in bday
+    assert "BOTH" in bday["read"] or "Cheiro" in bday["read"]
+    day_layer = res["deep_reading"]["layers"]["cheiro_birth_layers"]["day"]
+    assert "cheiro" in day_layer
+    assert day_layer["cheiro"]["conflict_with_decoz"] is True
+
+
+def test_cheiro_birth_non_conflict_uses_cheiro_archetype():
+    # Day 5 → digit 5 — Mercury, typically non-conflict in our table
+    from engine.than_so.library import resolve_cheiro_birth
+
+    c5 = resolve_cheiro_birth(5)
+    assert c5["conflict_with_decoz"] is False
+    res = cast_than_so("Test User", "1988-06-05", include_chaldean=False)
+    bday = res["deep_reading"]["core"]["birthday"]
+    assert bday["cheiro_birth"]["planet"] == "Mercury"
+    assert "Mercury" in bday["read"] or "Thủy" in bday["read"] or "mercur" in bday["read"].lower() or "đa năng" in bday["read"].lower()
+
+
+def test_disclaimer_forbids_betting_and_medical():
+    res = cast_than_so("Nguyễn Văn An", "1990-11-23", include_chaldean=False)
+    d = res["deep_reading"]["disclaimer"].lower()
+    assert "cá cược" in d or "xổ số" in d
+    assert "y tế" in d or "chẩn bệnh" in d

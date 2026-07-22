@@ -41,11 +41,19 @@
       "feeds": [
         "letter_maps.json → chaldean",
         "chaldean_compound_numbers.json 10–52 (OCR Ch.XIII)",
+        "cheiro_birth_numbers.json 1–9 (OCR Ch.III–XI) + deep_reading dual lens",
+        "interpretation_principles.json v2 (C0–C8)",
         "hành tinh số đơn 1–9",
         "cross_bind cheiro_planet"
       ],
-      "stage": "1–6 core v0.2 published; compound 10–52 wired 2026-07-21",
-      "engine_hooks": ["library.lookup_compound", "cast.cross_reference.chaldean", "cross_bind"]
+      "stage": "1–6 core v0.2; compound 10–52; Birth 1–9 + principles v2 (2026-07-22)",
+      "engine_hooks": [
+        "library.resolve_compound",
+        "library.resolve_cheiro_birth",
+        "cast.cross_reference.chaldean",
+        "deep_reading.birthday dual lens",
+        "cross_bind"
+      ]
     }
   ]
 }

@@ -19,11 +19,13 @@ Cấu trúc:
 
 | Intent | Route |
 |---|---|
-| Hòa / lệch Name↔Birth; 5 bước luận | `nguyen-ly.md` |
+| Hòa / lệch Name↔Birth; bước luận + biên giới | `nguyen-ly.md` |
 | Provenance bảng Pythagoras / nguyên âm / master 11/22 | `thu-vien/balliett.md` |
 | Inclusion Table / Karmic Lessons / Hidden Passion | `thu-vien/campbell.md` |
-| Chaldean / số kép 10–52 / hành tinh | `thu-vien/cheiro.md` |
+| Chaldean / số kép / Birth Day Cheiro / C0–C8 | `thu-vien/cheiro.md` |
 | Công thức Decoz Method A (engine) | `data/than_so/master/pythagorean_spec.json` |
+| Birth Day Cheiro 1–9 (dual lens) | `data/than_so/master/cheiro_birth_numbers.json` |
+| Nguyên lý máy v2 | `data/than_so/master/interpretation_principles.json` |
 | Tương hợp multi-aspect | `data/than_so/master/compatibility_matrix.json` |
 
 ## Sách CHƯA có (đừng bịa nguyên văn)

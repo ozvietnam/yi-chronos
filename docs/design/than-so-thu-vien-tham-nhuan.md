@@ -5,7 +5,11 @@
 > Paradigm: Iron Rule #4/#6/#8/#9 · đa phái độc lập (#3).
 >
 > 📋 **Kế hoạch đọc hết thư viện (vòng C1…C8 + B0/P0 + M*)**:  
-> `docs/design/than-so-thu-vien-KE-HOACH-THAM-NHUAN.md` — file này chỉ là **C0 nền**, chưa xong toàn thư viện.
+> `docs/design/than-so-thu-vien-KE-HOACH-THAM-NHUAN.md` — file này là **C0 nền**.
+>
+> ✅ **C1–C8 (2026-07-22)**: journals `than-so-cheiro-tham-nhuan-vong-C*.md` ·
+> inject `cheiro_birth_numbers.json` + principles **v2** · biên giới y tế/cá cược.  
+> Tiếp: B0/P0.
 
 ---
 

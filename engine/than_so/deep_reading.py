@@ -11,6 +11,7 @@ from pathlib import Path
 
 from .core_numbers import reduce_number
 from .interpretation import describe_number
+from .library import resolve_cheiro_birth
 
 
 def reduce_single(n: int) -> int:
@@ -189,22 +190,81 @@ def _cheiro_birth_layers(day: int, month: int, year: int) -> dict:
     d = reduce_number(day, keep_master=False)
     m = reduce_number(month, keep_master=False)
     y = reduce_number(year, keep_master=False)
+    cheiro = resolve_cheiro_birth(d)
+    day_node: dict = {
+        "raw": day,
+        "value": d,
+        "role_vi": "Key cá nhân / vật chất thân thiết",
+    }
+    if cheiro:
+        day_node["cheiro"] = {
+            "planet_vi": cheiro["planet_vi"],
+            "archetype_vi": cheiro["archetype_vi"],
+            "keywords": cheiro["keywords"],
+            "conflict_with_decoz": cheiro["conflict_with_decoz"],
+            "cheiro_vs_decoz": cheiro["cheiro_vs_decoz"],
+        }
     return {
-        "source": "cheiro-book-of-numbers Ch.XV",
+        "source": "cheiro-book-of-numbers Ch.XV + Ch.III–XI",
         "note": (
             "Cheiro tách Ngày (cá nhân) · Tháng (chung) · Năm (dòng lớn) — "
             "KHÔNG cộng ba lớp. Decoz Life Path là khung khác (Iron Rule #3)."
         ),
-        "day": {"raw": day, "value": d, "role_vi": "Key cá nhân / vật chất thân thiết"},
+        "day": day_node,
         "month": {"raw": month, "value": m, "role_vi": "Việc chung / bối cảnh"},
         "year": {"raw": year, "value": y, "role_vi": "Dòng lớn hơn của thời đoạn sinh"},
         "read": (
-            f"Cheiro: Ngày {day}→{d} là Key; tháng→{m}; năm→{y}. "
+            f"Cheiro: Ngày {day}→{d}"
+            + (f" ({cheiro['planet_vi']}: {cheiro['archetype_vi']})" if cheiro else "")
+            + f"; tháng→{m}; năm→{y}. "
             "Ba lớp riêng — đừng gộp thành một 'số mệnh' kiểu tắt."
         ),
         "gap": "Anh đang bỏ lớp Ngày vì chỉ nhìn Life Path Decoz (đã gộp tháng+năm)?",
         "improve": f"Tuần này neo khí Ngày {d} trong 1 quyết định nhỏ — tập trung (Ch.XXIV).",
     }
+
+
+def _enrich_birthday_dual_lens(node: dict) -> dict:
+    """Birthday: Cheiro Birth + Decoz — present BOTH khi conflict (#3)."""
+    cheiro = resolve_cheiro_birth(node["value"])
+    if not cheiro:
+        return node
+    decoz_arch = node.get("archetype_vi", "")
+    node["cheiro_birth"] = cheiro
+    node["decoz_lens"] = {
+        "archetype_vi": decoz_arch,
+        "keywords": node.get("keywords") or [],
+        "note": "Decoz Birthday Number (từ number_meanings) — khung khác Cheiro.",
+    }
+    conflict = cheiro["conflict_with_decoz"]
+    if conflict:
+        node["read"] = (
+            f"Ngày Sinh = {node['value']}. "
+            f"Cheiro ({cheiro['planet_vi']}): {cheiro['archetype_vi']}. "
+            f"Decoz: {decoz_arch}. "
+            f"Hai khung lệch — giữ BOTH (#3): {cheiro['cheiro_vs_decoz']} "
+            f"Key Cheiro = vật chất thân thiết nhất; đừng gộp vào Life Path."
+        )
+        node["gap"] = (
+            f"Anh đang chỉ nghe một trường (Cheiro hoặc Decoz) cho số {node['value']}? "
+            f"{node.get('gap', '')}"
+        ).strip()
+        node["archetype_vi"] = (
+            f"Cheiro: {cheiro['archetype_vi']} · Decoz: {decoz_arch}"
+        )
+    else:
+        node["read"] = (
+            f"Ngày Sinh = {node['value']} — Cheiro {cheiro['planet_vi']}: "
+            f"{cheiro['archetype_vi']}. "
+            f"(Decoz cùng hướng: {decoz_arch}.) "
+            f"Đây là Key ngày sinh thân thiết nhất — khác Life Path đã gộp tháng/năm."
+        )
+        node["archetype_vi"] = cheiro["archetype_vi"]
+    node["keywords"] = list(
+        dict.fromkeys((cheiro.get("keywords") or []) + (node.get("keywords") or []))
+    )
+    node["source_principle"] = "cheiro+decoz"
+    return node
 
 
 def _deep_one(role_key: str, value: int, name_vi: str) -> dict:
@@ -253,6 +313,7 @@ def compose_deep_reading(
     for key in ("life_path", "expression", "soul_urge", "personality", "birthday", "maturity"):
         node = core[key]
         deep_core[key] = _deep_one(key, node["value"], node["name_vi"])
+    deep_core["birthday"] = _enrich_birthday_dual_lens(deep_core["birthday"])
 
     deep_ext: dict = {}
     if extended:
@@ -420,7 +481,8 @@ def compose_deep_reading(
         "method": "READ→GAP→IMPROVE",
         "disclaimer": (
             "Thần Số ở YI MƯỢN khung soi tâm (Balliett/Campbell/Cheiro/Decoz) — "
-            "không phải lời tiên tri. Lá số không thay tu học hay y tế."
+            "không phải lời tiên tri. Lá số không thay tu học hay y tế. "
+            "Không chẩn bệnh theo số; không tư vấn cá cược / xổ số."
         ),
         "core": deep_core,
         "extended": deep_ext,

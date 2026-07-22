@@ -17,8 +17,50 @@ def chaldean_compounds() -> dict:
 
 
 @lru_cache(maxsize=1)
+def cheiro_birth_numbers() -> dict:
+    return json.loads((MASTER / "cheiro_birth_numbers.json").read_text(encoding="utf-8"))
+
+
+@lru_cache(maxsize=1)
 def library_provenance() -> dict:
     return json.loads((MASTER / "library_provenance.json").read_text(encoding="utf-8"))
+
+
+def resolve_cheiro_birth(digit: int | None) -> dict | None:
+    """Tra Birth Day Cheiro 1–9 (Ch.III–XI). Không ghi đè Decoz number_meanings."""
+    if digit is None:
+        return None
+    try:
+        d = int(digit)
+    except (TypeError, ValueError):
+        return None
+    while d > 9:
+        d = sum(int(x) for x in str(d))
+    if d < 1:
+        return None
+    node = (cheiro_birth_numbers().get("numbers") or {}).get(str(d))
+    if not node:
+        return None
+    conflicts = cheiro_birth_numbers().get("conflict_digits") or []
+    return {
+        "value": d,
+        "planet": node.get("planet"),
+        "planet_vi": node.get("planet_vi"),
+        "archetype_en": node.get("archetype_en", ""),
+        "archetype_vi": node.get("archetype_vi", ""),
+        "keywords": node.get("keywords") or [],
+        "favorable_days": node.get("favorable_days") or [],
+        "colors": node.get("colors") or [],
+        "jewels": node.get("jewels") or [],
+        "cheiro_vs_decoz": node.get("cheiro_vs_decoz", ""),
+        "conflict_with_decoz": d in conflicts,
+        "linked_with": node.get("linked_with"),
+        "source": "cheiro-book-of-numbers Ch.III–XI",
+        "dong_dang": (
+            "Cheiro Birth Day = Key vật chất thân thiết — quan-sát khí hành tinh/series; "
+            "KHÔNG may/xui. Khi lệch Decoz: present BOTH (Iron Rule #3)."
+        ),
+    }
 
 
 def resolve_compound(n: int | None) -> dict | None:
