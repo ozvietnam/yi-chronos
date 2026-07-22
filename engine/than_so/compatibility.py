@@ -7,13 +7,13 @@ from __future__ import annotations
 
 import json
 from functools import lru_cache
-from pathlib import Path
 
 from .cast import cast_than_so
 from .core_numbers import reduce_number
 from .interpretation import describe_number
+from .paths import than_so_master_dir
 
-DATA = Path(__file__).resolve().parents[2] / "data" / "than_so" / "master" / "compatibility_matrix.json"
+DATA = than_so_master_dir() / "compatibility_matrix.json"
 
 ASPECT_KEYS = (
     ("life_path", "Số Đường Đời"),

@@ -10,7 +10,8 @@ from __future__ import annotations
 
 import json
 from functools import lru_cache
-from pathlib import Path
+
+from .paths import than_so_master_dir
 
 METHOD_ID = "than_so_pythagoras_chaldean_v1"
 SOURCE_REF = (
@@ -22,7 +23,7 @@ MASTER_NUMBERS = (11, 22, 33)
 KARMIC_DEBT_NUMBERS = (13, 14, 16, 19)
 PURE_VOWELS = frozenset("AEIOU")
 
-_DATA_DIR = Path(__file__).resolve().parents[2] / "data" / "than_so" / "master"
+_DATA_DIR = than_so_master_dir()
 
 
 @lru_cache(maxsize=None)

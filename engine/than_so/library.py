@@ -3,12 +3,12 @@ from __future__ import annotations
 
 import json
 from functools import lru_cache
-from pathlib import Path
 
 from .core_numbers import _sum_letters_flat, reduce_with_trace
 from .name_calculator import normalize_vietnamese
+from .paths import than_so_master_dir
 
-MASTER = Path(__file__).resolve().parents[2] / "data" / "than_so" / "master"
+MASTER = than_so_master_dir()
 
 
 @lru_cache(maxsize=1)

@@ -7,7 +7,6 @@ from __future__ import annotations
 
 from functools import lru_cache
 import json
-from pathlib import Path
 
 from .core_numbers import reduce_number
 from .interpretation import describe_number
@@ -17,6 +16,7 @@ from .library import (
     balliett_birth_digit,
     balliett_life_song,
 )
+from .paths import than_so_master_dir
 
 
 def reduce_single(n: int) -> int:
@@ -25,7 +25,7 @@ def reduce_single(n: int) -> int:
     return n
 
 
-_DATA = Path(__file__).resolve().parents[2] / "data" / "than_so" / "master"
+_DATA = than_so_master_dir()
 
 
 @lru_cache(maxsize=1)

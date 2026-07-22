@@ -577,3 +577,35 @@ def test_disclaimer_forbids_betting_and_medical():
     d = res["deep_reading"]["disclaimer"].lower()
     assert "cá cược" in d or "xổ số" in d
     assert "y tế" in d or "chẩn bệnh" in d
+
+
+def test_than_so_master_dir_falls_back_when_volume_stale(tmp_path):
+    """VPS volume may have partial data/than_so/master — prefer embedded_data."""
+    import shutil
+    from pathlib import Path
+
+    from engine.than_so import paths
+
+    root = Path(__file__).resolve().parents[1]
+    src = root / "data" / "than_so" / "master"
+    primary = tmp_path / "data" / "than_so" / "master"
+    embedded = tmp_path / "embedded_data" / "than_so" / "master"
+    primary.mkdir(parents=True)
+    embedded.mkdir(parents=True)
+    # Stale primary: only a couple of older files
+    for name in ("pythagorean_spec.json", "number_meanings.json"):
+        shutil.copy(src / name, primary / name)
+    for src_file in src.glob("*.json"):
+        shutil.copy(src_file, embedded / src_file.name)
+
+    paths.than_so_master_dir.cache_clear()
+    old_root = paths._ROOT
+    try:
+        paths._ROOT = tmp_path
+        resolved = paths.than_so_master_dir()
+        assert resolved == embedded
+        assert (resolved / "balliett_tone_color.json").is_file()
+        assert (resolved / "cheiro_birth_numbers.json").is_file()
+    finally:
+        paths._ROOT = old_root
+        paths.than_so_master_dir.cache_clear()
