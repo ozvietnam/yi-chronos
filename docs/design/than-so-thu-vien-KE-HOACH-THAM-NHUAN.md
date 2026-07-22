@@ -138,11 +138,11 @@ Sau mỗi cụm (C1–C2, C3–C4, …): **một PR nhỏ** inject đã duyệt 
 
 ### Cheiro
 - [x] C0 nền (v12)
-- [ ] C1 số 1–5
-- [ ] C2 số 6–9
-- [ ] C3 compound audit
-- [ ] C4 Name↔Birth + ví dụ tên
-- [ ] C5 recurrence / periodicity
+- [x] C1 số 1–5
+- [x] C2 số 6–9
+- [x] C3 compound audit → `than-so-cheiro-tham-nhuan-vong-C3.md` (2026-07-22; alias 33–52 khớp OCR; chưa inject JSON)
+- [x] C4 Name↔Birth + ví dụ tên → `than-so-cheiro-tham-nhuan-vong-C4.md` (cấm rename-for-luck)
+- [x] C5 recurrence / periodicity → `than-so-cheiro-tham-nhuan-vong-C5.md` (ethical filter case chết)
 - [ ] C6 màu–nhạc–4&8
 - [ ] C7 biên giới + case + conclusion
 - [ ] C8 horse-racing = từ chối SKU

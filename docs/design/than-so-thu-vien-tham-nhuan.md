@@ -130,3 +130,17 @@ Tone cấm: may/xui, đổi tên để đổi vận, đoán chết/tai nạn t�
 - Balliett/Campbell trong repo mới là **method stub** — chưa có full text PD để thâm nhuần từng chương như Cheiro OCR.
 - Goodwin/Jordan: không có → không bịa.
 - Cheiro nguyên văn đầy “lucky/fatal” — em giữ nguyên lý cấu trúc, **đổi tone** sang đồng dạng khi xuất ra user.
+
+---
+
+## 5. Vòng sâu C3–C5 (2026-07-22)
+
+Journal riêng (không nhồi vào C0):
+
+| Vòng | File |
+|---|---|
+| C3 Compound 10–52 | `docs/design/than-so-cheiro-tham-nhuan-vong-C3.md` |
+| C4 Name↔Birth | `docs/design/than-so-cheiro-tham-nhuan-vong-C4.md` |
+| C5 Recurrence / 13 / periodicity | `docs/design/than-so-cheiro-tham-nhuan-vong-C5.md` |
+
+Chưa inject engine — chờ Anh duyệt.
