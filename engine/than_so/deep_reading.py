@@ -112,36 +112,36 @@ def _name_birth_harmony(birth_day_value: int, expression_value: int) -> dict:
     if same:
         band = "aligned"
         read = (
-            f"Birth Day {birth_day_value} và Expression {expression_value} cùng rút về {bd}: "
-            "hai rung động cùng pha (Cheiro Ch.XIV). Dễ neo một số để tập trung."
+            f"Ngày sinh rút về {bd} và Sứ Mệnh (tên) rút về {ex}: cùng một khí. "
+            f"Dễ tập trung vào một hướng — số {bd}."
         )
-        gap = "Anh có đang ỷ vào sự cùng pha mà không còn quan-sát?"
+        gap = "Anh có đang ỷ vào sự cùng pha mà không còn tự hỏi mình đang sống đúng khí đó không?"
         improve = (
-            f"Giữ neo số {bd}: mỗi tuần 1 việc đúng khí — "
-            "tập trung (Cheiro Ch.XXIV), không tán loạn chỉ số."
+            f"Mỗi tuần làm 1 việc đúng khí số {bd} — chỉ một việc, làm xong đã."
         )
     elif series_link:
         band = "series_affinity"
         read = (
-            f"Birth Day {birth_day_value} (series {s_bd}) và Expression {expression_value} "
-            f"(series {s_ex}): cùng họ 1–4 / 2–7 / 3–6–9 (Cheiro) — cảm thông nội bộ, chưa phải trùng số."
+            f"Ngày sinh ({birth_day_value}→{bd}) và Sứ Mệnh ({expression_value}→{ex}) "
+            f"không trùng số nhưng cùng họ {s_bd} — bổ sung được cho nhau, chưa phải lệch hẳn."
         )
-        gap = "Anh đang kỳ vọng hai mặt phải giống hệt thay vì bổ sung?"
+        gap = "Anh đang kỳ vọng hai mặt phải giống hệt thay vì để chúng bổ sung?"
         improve = "Cho mỗi mặt một việc riêng trong tuần; đừng ép một số nuốt số kia."
     else:
         band = "offset"
         read = (
-            f"Birth Day {birth_day_value}→{bd} lệch Expression {expression_value}→{ex}: "
-            "Cheiro gọi là muddle khi Name↔Birth không cùng rung. "
-            "YI đọc đây là GAP quan-sát — KHÔNG khuyên đổi tên để cầu may."
+            f"Ngày sinh ({birth_day_value}→{bd}) và Sứ Mệnh từ tên ({expression_value}→{ex}) "
+            "không cùng pha: bên trong (ngày sinh) và cách anh hiện diện ra ngoài (tên) "
+            "đang kéo theo hai hướng. Đây là chỗ để quan-sát — "
+            "KHÔNG phải lý do đổi tên cầu may."
         )
         gap = (
-            "Chỗ nào trong đời anh đang 'lộn số' — quyết định theo tên công chúng "
-            "hay theo khí ngày sinh?"
+            "Chỗ nào anh đang quyết theo 'mặt ngoài / tên công chúng' "
+            "trong khi ngày sinh kéo sang hướng khác?"
         )
         improve = (
-            f"Chọn MỘT neo tạm 7 ngày (Birth Day {bd} hoặc Expression {ex}), "
-            "làm 1 việc đúng neo; ghi nhật ký chỗ căng — mệnh là động từ xử lý lệch pha."
+            f"Chọn một neo tạm 7 ngày (ngày sinh {bd} hoặc sứ mệnh {ex}), "
+            "làm 1 việc đúng neo đó; ghi lại chỗ nào thấy căng."
         )
     care_48 = bd in (4, 8) or ex in (4, 8)
     out = {
@@ -323,11 +323,33 @@ def compose_deep_reading(
     birth_year: int | None = None,
 ) -> dict:
     """Trả deep_core + layers nguyên lý thư viện + cycle guidance."""
+    from .interpretation import collect_karmic
+
     deep_core = {}
     for key in ("life_path", "expression", "soul_urge", "personality", "birthday", "maturity"):
         node = core[key]
         deep_core[key] = _deep_one(key, node["value"], node["name_vi"])
     deep_core["birthday"] = _enrich_birthday_dual_lens(deep_core["birthday"])
+
+    # Gắn bài học kèm (karmic) — tiếng thường, không chỉ số khô
+    kd_by_key = {d["source_key"]: d for d in collect_karmic(core)}
+    for key, kd in kd_by_key.items():
+        if key not in deep_core:
+            continue
+        deep_core[key]["karmic"] = {
+            "number": kd["number"],
+            "label_vi": kd["label_vi"],
+            "plain_vi": kd["plain_vi"],
+            "practice_vi": kd["practice_vi"],
+            "where_vi": kd["where_vi"],
+            "avoid_vi": kd.get("avoid_vi"),
+        }
+        deep_core[key]["read"] = (
+            f"{deep_core[key]['read']} "
+            f"Bài học kèm {kd['number']}: {kd['plain_vi']}"
+        ).strip()
+        if kd.get("practice_vi"):
+            deep_core[key]["improve"] = kd["practice_vi"]
 
     deep_ext: dict = {}
     if extended:
