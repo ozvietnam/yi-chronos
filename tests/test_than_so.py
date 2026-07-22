@@ -609,3 +609,21 @@ def test_than_so_master_dir_falls_back_when_volume_stale(tmp_path):
     finally:
         paths._ROOT = old_root
         paths.than_so_master_dir.cache_clear()
+
+
+def test_package_init_does_not_eager_import_report_pdf():
+    """Cast must work even if fpdf2 missing — report_pdf is lazy (#71 follow-up)."""
+    import importlib
+    import sys
+
+    for key in list(sys.modules):
+        if key.startswith("engine.than_so"):
+            del sys.modules[key]
+    import engine.than_so as ts
+
+    assert "engine.than_so.report_pdf" not in sys.modules
+    res = ts.cast_than_so("Nguyen Van A", "1988-06-05", include_chaldean=False)
+    assert res["core"]["life_path"]["value"] >= 1
+    assert "balliett" in res
+    # Lazy attribute still resolvable when PDF deps present
+    assert callable(ts.generate_than_so_pdf)

@@ -21,8 +21,19 @@ from .deep_reading import compose_deep_reading
 from .extended import compute_extended
 from .interpretation import compose_reading, describe_number
 from .name_calculator import name_breakdown, normalize_vietnamese
-from .report_pdf import generate_compatibility_pdf, generate_than_so_pdf
 from .compatibility import analyze_compatibility
+
+# report_pdf (fpdf2) — KHÔNG import eager: cast/API JSON không cần PDF.
+# PDF endpoints import `engine.than_so.report_pdf` trực tiếp.
+
+
+def __getattr__(name: str):
+    if name in ("generate_than_so_pdf", "generate_compatibility_pdf"):
+        from . import report_pdf
+
+        return getattr(report_pdf, name)
+    raise AttributeError(f"module {__name__!r} has no attribute {name!r}")
+
 
 __all__ = [
     "KARMIC_DEBT_NUMBERS",

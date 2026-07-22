@@ -24,6 +24,7 @@ cssselect2==0.9.0
 ephem==4.2.1
 fastapi==0.137.1
 filelock==3.29.4
+fpdf2==2.8.7
 fonttools==4.63.0
 greenlet==3.5.1
 gunicorn==26.0.0
