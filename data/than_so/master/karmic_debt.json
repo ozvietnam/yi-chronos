@@ -1,41 +1,55 @@
 {
-  "schema_version": "v1",
-  "curated_at": "2026-06-05",
-  "doc": "Số Nợ Nghiệp (Karmic Debt) 13/14/16/19 — xuất hiện khi tổng TRƯỚC KHI rút gọn của một số cốt lõi là 13, 14, 16 hoặc 19. Đánh dấu 'bài học còn dang dở' cần hoàn trong đời này. Nguồn: Decoz, consensus numerology.",
-  "paradigm_note": "ĐỌC ĐỒNG DẠNG, KHÔNG dọa nghiệp báo: số nợ nghiệp = vùng cấu trúc mất cân bằng cần quan-sát và rèn, không phải 'án phạt tiền kiếp'. Tránh tone hù dọa.",
+  "schema_version": "v2",
+  "curated_at": "2026-07-22",
+  "doc": "Số Nợ Nghiệp (Karmic Debt) 13/14/16/19 — xuất hiện khi tổng TRƯỚC KHI rút gọn của một số cốt lõi (hoặc một phần tên) là 13, 14, 16 hoặc 19. Decoz gọi là 'bài học còn dang dở'. YI gọi dễ hiểu: BÀI HỌC KÈM — không phải án phạt.",
+  "paradigm_note": "ĐỌC ĐỒNG DẠNG, KHÔNG dọa nghiệp báo: 'nợ' = vùng cấu trúc cần rèn thêm khi vận hành số đã rút gọn. KHÔNG phải lời tiên tri kiếp trước. Tone: rõ ràng, cụ thể, người thường đọc được.",
+  "ui_label_vi": "Bài học kèm",
+  "ui_explain_vi": "Khi cộng số ra 13 / 14 / 16 / 19 rồi mới rút về 4 / 5 / 7 / 1, hệ gọi là 'bài học kèm' (Decoz: karmic debt). Nghĩa thực tế: anh vẫn mang khí số đã rút (ví dụ 4), NHƯNG phải luyện thêm một thói quen cụ thể — không phải bị nguyền.",
 
-  "detection_rule": "Khi rút gọn một số cốt lõi (Life Path, Expression, ...) mà bước trung gian rơi vào 13/14/16/19 thì ghi nhận nợ nghiệp tương ứng. VD: 13→4 là '4 mang nợ 13'.",
+  "detection_rule": "Khi rút gọn một số cốt lõi (Life Path, Expression, …) mà bước trung gian (hoặc một phần tên) rơi vào 13/14/16/19 thì ghi nhận bài học kèm. VD: họ LAI = 13→4 gắn vào Sứ Mệnh; ngày+tháng+năm = 19→1 gắn vào Đường Đời.",
 
   "karmic_debts": {
     "13": {
       "reduces_to": 4,
-      "theme_vi": "Nợ về LAO ĐỘNG & KỶ LUẬT",
-      "past_pattern": "Kiếp trước né tránh việc, dựa dẫm, lười nhác.",
-      "this_life": "Phải rèn tập trung, kiên trì, làm việc chăm chỉ và có trật tự. Hay gặp cản trở khiến nản — vượt qua bằng chuyên cần.",
-      "dong_dang": "Như Tiểu Súc/Đại Súc — tích lũy bằng bền bỉ, không đi tắt."
+      "theme_vi": "Bài học kèm về LAO ĐỘNG & KỶ LUẬT",
+      "plain_vi": "Số rút về 4 (xây nền, kỷ luật), nhưng đường đi khó hơn người 4 'trơn': hay nản vì việc chậm, hay muốn bỏ giữa chừng. Việc cần luyện là bền bỉ và làm có trật tự — không phải 'đi tắt'.",
+      "practice_vi": "Chọn 1 việc đang dang dở → chia thành 3 bước nhỏ → làm xong 1 bước trong 7 ngày. Không mở việc mới cho đến khi xong bước đó.",
+      "avoid_vi": "Đừng đọc thành 'kiếp trước lười nên đời này khổ'. Đó là giọng dọa, không phải cách YI dùng số.",
+      "past_pattern": "(Decoz cổ điển, chỉ để tham khảo học thuật) Xu hướng né việc nặng / dựa dẫm — YI không khẳng định tiền kiếp.",
+      "this_life": "Rèn tập trung, kiên trì, làm việc có trật tự. Khi gặp cản trở: chậm lại và làm tiếp, không đổi hướng ngay.",
+      "dong_dang": "Tích lũy bằng bền bỉ — như xây nền, không nhảy cóc."
     },
     "14": {
       "reduces_to": 5,
-      "theme_vi": "Nợ về TỰ DO & CHỪNG MỰC",
-      "past_pattern": "Kiếp trước lạm dụng tự do, sa đà dục lạc, vô độ.",
-      "this_life": "Học điều độ, thích nghi với thay đổi mà không buông thả; tránh nghiện ngập, thất thường. Tự do đi cùng cam kết.",
-      "dong_dang": "Ngũ Hành lệch — vận động cần có trục, không tán loạn."
+      "theme_vi": "Bài học kèm về TỰ DO & CHỪNG MỰC",
+      "plain_vi": "Số rút về 5 (tự do, thay đổi), nhưng dễ lệch sang buông thả hoặc đổi hướng liên tục. Việc cần luyện: giữ tự do có khung — cam kết ngắn hạn rõ ràng.",
+      "practice_vi": "Mỗi tuần giữ 1 cam kết nhỏ không được phá (giờ ngủ, 1 buổi tập, 1 cuộc hẹn). Tự do nằm trong khung đó.",
+      "avoid_vi": "Đừng đọc thành 'số nghiện / số phá'. Đó là gắn nhãn, không phải quan-sát.",
+      "past_pattern": "(Decoz cổ điển) Xu hướng lạm dụng tự do — YI không khẳng định tiền kiếp.",
+      "this_life": "Học điều độ; thích nghi với thay đổi mà không buông thả. Tự do đi cùng cam kết.",
+      "dong_dang": "Vận động cần có trục — không tán loạn."
     },
     "16": {
       "reduces_to": 7,
-      "theme_vi": "Nợ về BẢN NGÃ & TÌNH ÁI",
-      "past_pattern": "Kiếp trước kiêu mạn, để cái tôi/ái dục làm tổn thương người.",
-      "this_life": "Trải 'sụp đổ tháp' để tái sinh tinh thần: ego cũ vỡ → khiêm hạ → ngộ. Quan hệ hay biến động để học buông chấp.",
-      "dong_dang": "Quẻ Bác (剝) → tước rụng cái cũ; rồi Phục (復) hồi sinh."
+      "theme_vi": "Bài học kèm về CÁI TÔI & QUAN HỆ SÂU",
+      "plain_vi": "Số rút về 7 (nội quán, sâu), nhưng hay học qua việc 'cái tôi bị va' — quan hệ hoặc hình ảnh bản thân lung lay rồi mới thấy rõ mình. Việc cần luyện: khiêm hơn, hỏi trước khi khẳng định.",
+      "practice_vi": "Khi bị chạm tự ái: chờ 24 giờ rồi hỏi một người tin cậy 'anh/chị thấy chỗ nào em đang phòng thủ?' — chỉ lắng nghe, không biện hộ.",
+      "avoid_vi": "Đừng đọc thành 'số đổ vỡ / số mất tình'. Không đoán chia tay hay tai ương.",
+      "past_pattern": "(Decoz cổ điển) Xu hướng để cái tôi làm tổn thương quan hệ — YI không khẳng định tiền kiếp.",
+      "this_life": "Học buông chấp cái tôi cũ; quan hệ biến động là gương soi, không phải án.",
+      "dong_dang": "Cái cũ rụng → chỗ trống để hiểu sâu hơn."
     },
     "19": {
       "reduces_to": 1,
-      "theme_vi": "Nợ về QUYỀN LỰC & ĐỘC LẬP",
-      "past_pattern": "Kiếp trước lạm quyền, ích kỷ, đè nén người khác để tiến thân.",
-      "this_life": "Học tự lập mà KHÔNG ích kỷ; biết nhận trợ giúp và trao đi. 'Đứng một mình nhưng không cô lập'.",
-      "dong_dang": "Càn quá cương tất gãy — hào thượng cửu 'kháng long hữu hối'."
+      "theme_vi": "Bài học kèm về TỰ LẬP & KHÔNG ÔM HẾT MỘT MÌNH",
+      "plain_vi": "Số rút về 1 (tiên phong, tự chủ), nhưng dễ lệch sang 'tôi tự làm hết / không nhờ ai'. Việc cần luyện: đứng vững mà vẫn biết nhờ đúng người và chia quyền.",
+      "practice_vi": "Tuần này: 1 việc anh tự mở đầu (đúng khí 1) + 1 việc anh chủ động nhờ đúng một người (đúng bài học 19). Ghi lại cảm giác sau mỗi việc.",
+      "avoid_vi": "Đừng đọc thành 'kiếp trước lạm quyền nên đời này cô độc'. Không đoán giàu-nghèo hay mất chức.",
+      "past_pattern": "(Decoz cổ điển) Xu hướng ôm quyền / ích kỷ — YI không khẳng định tiền kiếp.",
+      "this_life": "Học tự lập mà không cô lập; nhận trợ giúp và trao đi.",
+      "dong_dang": "Cứng quá thì gãy — mềm đúng chỗ mới bền."
     }
   },
 
-  "note_master_vs_karmic": "Đừng nhầm: 11/22/33 = số CHỦ (master, tiềm năng cao + thử thách cao); 13/14/16/19 = số NỢ (karmic debt, bài học chưa xong). Cả hai đều là 'cấu trúc cần quan-sát', không phải nhãn tốt/xấu cố định."
+  "note_master_vs_karmic": "Đừng nhầm: 11/22/33 = số CHỦ (tiềm năng cao + trách nhiệm cao); 13/14/16/19 = BÀI HỌC KÈM (cần luyện thêm một thói quen). Cả hai đều là cấu trúc để quan-sát, không phải nhãn tốt/xấu cố định."
 }

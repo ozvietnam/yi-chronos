@@ -67,6 +67,18 @@ const otherCore = computed(() =>
     arch: result.value?.reading?.core?.[key]?.archetype_vi,
   })),
 );
+const plainSummary = computed(() => result.value?.reading?.plain_summary || null);
+const karmicDebts = computed(() => result.value?.reading?.karmic_debts || []);
+function karmicLabel(kd) {
+  if (kd == null) return "";
+  return `Bài học kèm ${kd}`;
+}
+function karmicShort(kd) {
+  const hit = (karmicDebts.value || []).find((d) => d.number === kd);
+  if (!hit) return karmicLabel(kd);
+  const theme = (hit.theme_vi || "").replace(/^Bài học kèm về\s*/i, "");
+  return theme ? `Bài học kèm ${kd}: ${theme}` : karmicLabel(kd);
+}
 
 async function submit() {
   error.value = "";
@@ -282,7 +294,7 @@ const ARC = {
           <p class="ts-hero-label">Số Đường Đời</p>
           <p class="ts-hero-arch">{{ result.reading.core.life_path?.archetype_vi }}</p>
           <p class="ts-hero-name">{{ result.input.name_raw }} · {{ result.input.birth_date }}</p>
-          <p v-if="lifePathCore.karmic_debt" class="ts-kd">Nợ nghiệp {{ lifePathCore.karmic_debt }}</p>
+          <p v-if="lifePathCore.karmic_debt" class="ts-kd">{{ karmicShort(lifePathCore.karmic_debt) }}</p>
         </div>
         <div v-if="result.cycles?.personal_year" class="ts-hero-cycle">
           <span class="ts-hero-cycle-label">Năm CN {{ result.cycles.personal_year.target_year }}</span>
@@ -290,6 +302,46 @@ const ARC = {
           <span class="ts-hero-cycle-arc">{{ ARC[result.cycles.personal_year.value] }}</span>
         </div>
       </div>
+
+      <!-- Tóm tắt người thường đọc được — ngay dưới hero -->
+      <section v-if="plainSummary" class="ts-plain">
+        <h3 class="ts-section-h">{{ plainSummary.title_vi }}</h3>
+        <p class="ts-plain-intro">{{ plainSummary.intro_vi }}</p>
+        <p v-if="plainSummary.karmic_intro_vi" class="ts-plain-karmic-intro">
+          {{ plainSummary.karmic_intro_vi }}
+        </p>
+        <ul class="ts-plain-list">
+          <li v-for="(b, i) in plainSummary.bullets" :key="'ps'+i">{{ b }}</li>
+        </ul>
+        <div v-if="plainSummary.one_practice_vi" class="ts-plain-practice">
+          <span class="ts-plain-practice-k">Việc nhỏ tuần này</span>
+          <p>{{ plainSummary.one_practice_vi }}</p>
+        </div>
+      </section>
+
+      <section v-if="karmicDebts.length" class="ts-karmic-panel">
+        <h3 class="ts-section-h">Bài học kèm — «nợ» nghĩa là gì?</h3>
+        <p class="ts-plain-intro">
+          Không phải án kiếp trước. Khi cộng ra 13 / 14 / 16 / 19 rồi mới rút về 4 / 5 / 7 / 1,
+          hệ ghi nhận thêm một thói quen cần luyện.
+        </p>
+        <article v-for="kd in karmicDebts" :key="'kd'+kd.number" class="ts-karmic-card">
+          <header class="ts-karmic-head">
+            <span class="ts-karmic-num">{{ kd.number }}→{{ kd.reduces_to }}</span>
+            <div>
+              <h4>{{ kd.theme_vi || ('Bài học kèm ' + kd.number) }}</h4>
+              <p class="ts-meta">Trên {{ kd.source }} · {{ kd.where_vi }}</p>
+            </div>
+          </header>
+          <p class="ts-karmic-plain">{{ kd.plain_vi || kd.this_life }}</p>
+          <p v-if="kd.practice_vi" class="ts-karmic-practice">
+            <span class="ts-rgi-k ts-rgi-improve">Luyện</span> {{ kd.practice_vi }}
+          </p>
+          <p v-if="kd.avoid_vi" class="ts-karmic-avoid">
+            <span class="ts-rgi-k ts-rgi-gap">Tránh</span> {{ kd.avoid_vi }}
+          </p>
+        </article>
+      </section>
 
       <details class="ts-fold ts-fold-quiet">
         <summary>Paradigm · disclaimer</summary>
@@ -314,7 +366,7 @@ const ARC = {
           <div class="ts-num">{{ item.node?.value }}</div>
           <div class="ts-label">{{ item.label }}</div>
           <div class="ts-arch">{{ item.arch }}</div>
-          <p v-if="item.node?.karmic_debt" class="ts-kd">Nợ {{ item.node.karmic_debt }}</p>
+          <p v-if="item.node?.karmic_debt" class="ts-kd">{{ karmicLabel(item.node.karmic_debt) }}</p>
         </article>
       </div>
 
@@ -327,11 +379,11 @@ const ARC = {
       </div>
 
       <div v-if="result.deep_reading?.synthesis" class="ts-synth">
-        <h3 class="ts-section-h">Tổng hợp Name ↔ Birth</h3>
+        <h3 class="ts-section-h">Tên và ngày sinh có cùng pha không?</h3>
         <div class="ts-rgi">
-          <p><span class="ts-rgi-k">Read</span> {{ result.deep_reading.synthesis.read }}</p>
-          <p><span class="ts-rgi-k ts-rgi-gap">Gap</span> {{ result.deep_reading.synthesis.gap }}</p>
-          <p><span class="ts-rgi-k ts-rgi-improve">Improve</span> {{ result.deep_reading.synthesis.improve }}</p>
+          <p><span class="ts-rgi-k">Đọc</span> {{ result.deep_reading.synthesis.read }}</p>
+          <p><span class="ts-rgi-k ts-rgi-gap">Chỗ lệch</span> {{ result.deep_reading.synthesis.gap }}</p>
+          <p><span class="ts-rgi-k ts-rgi-improve">Việc nhỏ</span> {{ result.deep_reading.synthesis.improve }}</p>
         </div>
         <ol v-if="result.deep_reading.synthesis.steps?.length" class="ts-steps">
           <li v-for="(s, i) in result.deep_reading.synthesis.steps" :key="'st'+i">{{ s }}</li>
@@ -666,29 +718,20 @@ const ARC = {
         </p>
       </div>
 
-      <div v-if="result.reading.karmic_debts?.length" class="ts-karmic">
-        <h3 class="ts-section-h">Số nợ nghiệp</h3>
-        <ul>
-          <li v-for="kd in result.reading.karmic_debts" :key="kd.number">
-            <strong>{{ kd.number }}</strong> — {{ kd.theme_vi }}: {{ kd.this_life }}
-          </li>
-        </ul>
-      </div>
-
       <details v-if="result.method_audit" class="ts-fold">
-        <summary>Kiểm chứng công thức</summary>
+        <summary>Kiểm chứng công thức (cho người muốn soi cách tính)</summary>
         <div class="ts-audit">
           <p>{{ result.method_audit.note }}</p>
           <p>
             Decoz A: <strong>{{ result.method_audit.decoz_method_a.value }}</strong>
             <template v-if="result.method_audit.decoz_method_a.karmic_debt">
-              (nợ {{ result.method_audit.decoz_method_a.karmic_debt }})
+              (bài học kèm {{ result.method_audit.decoz_method_a.karmic_debt }})
             </template>
             · Shortcut chữ số: {{ result.method_audit.shortcut_digit_string.value }}
             · Shortcut cộng đơn vị: {{ result.method_audit.shortcut_unit_sum.value }}
           </p>
           <p v-if="result.method_audit.diverged || result.method_audit.karmic_hidden_by_shortcut" class="ts-audit-warn">
-            Shortcut lệch hoặc che Karmic — YI giữ Method A.
+            Shortcut lệch hoặc che bài học kèm — YI giữ Method A.
           </p>
           <template v-if="result.method_audit.expression">
             <p>{{ result.method_audit.expression.note }}</p>
@@ -699,7 +742,7 @@ const ARC = {
             <ul class="ts-audit-parts" v-if="result.method_audit.expression.decoz_per_part.parts?.length">
               <li v-for="(pt, i) in result.method_audit.expression.decoz_per_part.parts" :key="'ea'+i">
                 {{ pt.part }}: {{ pt.raw }} → {{ pt.reduced }}
-                <em v-if="pt.karmic_debt"> (nợ {{ pt.karmic_debt }})</em>
+                <em v-if="pt.karmic_debt"> (bài học kèm {{ pt.karmic_debt }})</em>
               </li>
             </ul>
           </template>
@@ -708,7 +751,7 @@ const ARC = {
 
       <div v-if="result.deep_reading" class="ts-deep">
         <h3 class="ts-section-h">
-          Luận READ → GAP → IMPROVE
+          Đọc từng số · chỗ lệch · việc nhỏ
           <button type="button" class="ts-link" @click="showDeep = !showDeep">
             {{ showDeep ? "Thu gọn" : "Mở" }}
           </button>
@@ -725,9 +768,9 @@ const ARC = {
               <span class="ts-deep-val">{{ result.deep_reading.core[key].value }}</span>
             </h4>
             <div class="ts-rgi">
-              <p><span class="ts-rgi-k">Read</span> {{ result.deep_reading.core[key].read }}</p>
-              <p><span class="ts-rgi-k ts-rgi-gap">Gap</span> {{ result.deep_reading.core[key].gap }}</p>
-              <p><span class="ts-rgi-k ts-rgi-improve">Improve</span> {{ result.deep_reading.core[key].improve }}</p>
+              <p><span class="ts-rgi-k">Đọc</span> {{ result.deep_reading.core[key].read }}</p>
+              <p><span class="ts-rgi-k ts-rgi-gap">Chỗ lệch</span> {{ result.deep_reading.core[key].gap }}</p>
+              <p><span class="ts-rgi-k ts-rgi-improve">Việc nhỏ</span> {{ result.deep_reading.core[key].improve }}</p>
             </div>
           </article>
         </div>
@@ -741,7 +784,7 @@ const ARC = {
         <div v-if="result.core.expression.parts?.length" class="ts-parts">
           <p v-for="(pt, i) in result.core.expression.parts" :key="i">
             {{ pt.part }}: {{ pt.raw }} → {{ pt.reduced }}
-            <em v-if="pt.karmic_debt"> (nợ {{ pt.karmic_debt }})</em>
+            <em v-if="pt.karmic_debt"> (bài học kèm {{ pt.karmic_debt }})</em>
           </p>
         </div>
       </details>
@@ -1198,6 +1241,108 @@ const ARC = {
   margin: 0.3rem 0 0;
   font-size: 0.7rem;
   color: var(--accent-red, #ff9080);
+  line-height: 1.35;
+}
+
+/* ── Plain summary (người thường) ───────────────────────── */
+.ts-plain {
+  padding: 0.95rem 1rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-soft, rgba(255, 255, 255, 0.08));
+  background:
+    radial-gradient(ellipse 80% 60% at 0% 0%, rgba(91, 229, 211, 0.07), transparent 55%),
+    var(--ts-surface);
+}
+.ts-plain-intro {
+  margin: 0.15rem 0 0.55rem;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--text-secondary, rgba(230, 238, 245, 0.72));
+}
+.ts-plain-karmic-intro {
+  margin: 0 0 0.65rem;
+  padding: 0.5rem 0.65rem;
+  border-radius: 8px;
+  border-left: 3px solid var(--accent-red, #ff9080);
+  background: rgba(255, 144, 128, 0.07);
+  font-size: 0.84rem;
+  line-height: 1.45;
+  color: var(--text-secondary, rgba(230, 238, 245, 0.72));
+}
+.ts-plain-list {
+  margin: 0;
+  padding-left: 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+.ts-plain-list li {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--text-primary, #e6eef5);
+}
+.ts-plain-practice {
+  margin-top: 0.85rem;
+  padding: 0.7rem 0.8rem;
+  border-radius: 8px;
+  border: 1px solid rgba(91, 229, 211, 0.28);
+  background: rgba(91, 229, 211, 0.07);
+}
+.ts-plain-practice-k {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.55px;
+  text-transform: uppercase;
+  color: var(--ts-teal);
+  margin-bottom: 0.25rem;
+}
+.ts-plain-practice p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: var(--text-primary, #e6eef5);
+}
+
+.ts-karmic-panel { display: flex; flex-direction: column; gap: 0.65rem; }
+.ts-karmic-card {
+  padding: 0.85rem 0.95rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 144, 128, 0.22);
+  background: rgba(255, 144, 128, 0.05);
+}
+.ts-karmic-head {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  margin-bottom: 0.45rem;
+}
+.ts-karmic-num {
+  flex-shrink: 0;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--accent-red, #ff9080);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+  padding-top: 0.1rem;
+}
+.ts-karmic-head h4 {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--ts-gold-soft);
+}
+.ts-karmic-plain {
+  margin: 0.35rem 0;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--text-primary, #e6eef5);
+}
+.ts-karmic-practice,
+.ts-karmic-avoid {
+  margin: 0.4rem 0 0;
+  font-size: 0.84rem;
+  line-height: 1.45;
+  color: var(--text-secondary, rgba(230, 238, 245, 0.72));
 }
 
 .ts-glossary {

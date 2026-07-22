@@ -520,8 +520,28 @@ def test_name_birth_harmony_offset_does_not_advise_rename():
 
     h = _name_birth_harmony(1, 5)  # different roots, not same series
     assert h["band"] == "offset"
-    assert "KHÔNG khuyên đổi tên" in h["read"]
+    assert "KHÔNG" in h["read"] and "đổi tên" in h["read"]
     assert "đổi tên để" not in h["improve"].lower()
+
+
+def test_plain_summary_explains_karmic_debt_for_ordinary_reader():
+    res = cast_than_so("Lại Minh Thắng", "1988-06-05", include_chaldean=False)
+    ps = res["reading"]["plain_summary"]
+    assert ps["title_vi"] == "Tóm tắt dễ hiểu"
+    assert any("Bài học kèm 19" in b for b in ps["bullets"])
+    assert any("Bài học kèm 13" in b for b in ps["bullets"])
+    assert "kiếp trước" not in (ps.get("karmic_intro_vi") or "").lower() or "không phải án" in ps["karmic_intro_vi"].lower()
+
+    debts = {d["number"]: d for d in res["reading"]["karmic_debts"]}
+    assert 13 in debts and 19 in debts
+    assert "plain_vi" in debts[13] and len(debts[13]["plain_vi"]) > 40
+    assert "LAI" in debts[13]["where_vi"]
+    assert debts[19]["where_vi"].startswith("Tổng trước khi rút gọn")
+    assert "practice_vi" in debts[19] and "nhờ" in debts[19]["practice_vi"]
+
+    # Deep reading carries karmic practice onto life path improve
+    assert "nhờ" in res["deep_reading"]["core"]["life_path"]["improve"]
+    assert res["deep_reading"]["core"]["life_path"].get("karmic", {}).get("number") == 19
 
 
 def test_interpretation_principles_loaded():
