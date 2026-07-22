@@ -45,11 +45,11 @@ for i in $(seq 1 "$ATTEMPTS"); do
       python3 -c 'import json;d=json.load(open("/tmp/yi_than_so_cast.json")); assert "balliett" in d and "core" in d; print("  life_path", d["core"]["life_path"]["value"], "balliett_digit", d["balliett"]["birth_digit"]["birth_digit"])' 2>&1 || true
       exit 0
     fi
-    echo "❌ than-so/cast HTTP=$cast_code (health OK nhưng cast gãy — thường do data/than_so/master thiếu JSON mới)"
+    echo "❌ than-so/cast HTTP=$cast_code (health OK nhưng cast gãy)"
     echo "─── cast body (head) ───"
     head -c 800 /tmp/yi_than_so_cast.json 2>/dev/null; echo
-    echo "─── than_so files in container ───"
-    docker exec yi-chronos sh -c 'ls -la data/than_so/master/ 2>&1; ls -la embedded_data/than_so/master/ 2>&1 | head -30' || true
+    echo "─── than_so files + python fpdf check ───"
+    docker exec yi-chronos sh -c 'ls data/than_so/master/*.json 2>&1 | wc -l; python3 -c "import fpdf; print(\"fpdf\", fpdf.__version__)" 2>&1' || true
     echo "─── 80 dòng log yi-chronos ───"
     docker logs --tail 80 yi-chronos 2>&1 || true
     exit 1
