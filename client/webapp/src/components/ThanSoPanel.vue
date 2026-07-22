@@ -431,12 +431,56 @@ const ARC = {
               v-for="n in 9"
               :key="'inc'+n"
               class="ts-incl-cell"
-              :class="{ miss: !(result.extended.inclusion_table.frequency[String(n)] > 0) }"
+              :class="{
+                miss: !(result.extended.inclusion_table.frequency[String(n)] > 0),
+                above: (result.extended.inclusion_table.above_average || []).includes(n),
+              }"
             >
               {{ n }}×{{ result.extended.inclusion_table.frequency[String(n)] || 0 }}
             </span>
           </div>
-          <p class="ts-meta">{{ result.extended.inclusion_table.note }}</p>
+          <p v-if="result.extended.inclusion_table.average != null" class="ts-meta">
+            TB {{ result.extended.inclusion_table.average }}
+            · trên TB: {{ (result.extended.inclusion_table.above_average || []).join(", ") || "—" }}
+            · dưới TB: {{ (result.extended.inclusion_table.below_average || []).join(", ") || "—" }}
+          </p>
+          <p class="ts-meta">{{ result.extended.inclusion_table.intensity_note || result.extended.inclusion_table.note }}</p>
+        </div>
+      </div>
+
+      <div v-if="result.balliett" class="ts-balliett">
+        <h3>Balliett — màu · âm · Life Song</h3>
+        <p class="ts-meta">{{ result.balliett.provenance?.note }}</p>
+        <div class="ts-balliett-grid" v-if="result.balliett.life_song">
+          <p>
+            <strong>Birth digit Balliett:</strong>
+            {{ result.balliett.life_song.birth_digit }}
+            <template v-if="result.balliett.life_song.keynote">
+              · keynote <em>{{ result.balliett.life_song.keynote }}</em>
+            </template>
+            <template v-if="result.balliett.life_song.colors?.length">
+              · màu {{ result.balliett.life_song.colors.join(", ") }}
+            </template>
+          </p>
+          <p v-if="result.balliett.birth_digit?.wanamaker_mode" class="ts-meta">
+            Wanamaker mode: birth numbers
+            {{ (result.balliett.birth_digit.birth_numbers || []).join(", ") }}
+          </p>
+          <p v-if="result.balliett.life_song.spiritual_birthday">
+            <strong>Spiritual Birthday (ngày luyện):</strong>
+            {{ (result.balliett.life_song.spiritual_birthday.days_in_month || []).join(", ") }}
+            mỗi tháng
+            <span class="ts-meta"> — {{ result.balliett.life_song.spiritual_birthday.yi_reframe }}</span>
+          </p>
+          <p class="ts-meta">{{ result.balliett.life_song.practice_vi }}</p>
+          <p v-if="result.balliett.life_song.chart_status === 'missing_ocr'" class="ts-meta">
+            {{ result.balliett.life_song.chart_note_vi }}
+          </p>
+        </div>
+        <div v-if="result.deep_reading?.layers?.balliett_tone" class="ts-year-guide">
+          <p><strong>READ:</strong> {{ result.deep_reading.layers.balliett_tone.read }}</p>
+          <p><strong>GAP:</strong> {{ result.deep_reading.layers.balliett_tone.gap }}</p>
+          <p><strong>IMPROVE:</strong> {{ result.deep_reading.layers.balliett_tone.improve }}</p>
         </div>
       </div>
 
@@ -687,6 +731,17 @@ const ARC = {
           <p v-if="result.deep_reading.layers?.cheiro_birth_layers" class="ts-meta">
             {{ result.deep_reading.layers.cheiro_birth_layers.read }}
           </p>
+          <p
+            v-if="result.deep_reading.core?.birthday?.cheiro_birth"
+            class="ts-meta"
+          >
+            Cheiro Birth {{ result.deep_reading.core.birthday.value }}:
+            {{ result.deep_reading.core.birthday.cheiro_birth.planet_vi }} —
+            {{ result.deep_reading.core.birthday.cheiro_birth.archetype_vi }}
+            <template v-if="result.deep_reading.core.birthday.cheiro_birth.conflict_with_decoz">
+              · dual lens với Decoz (Iron #3)
+            </template>
+          </p>
         </div>
         <h3>
           Luận READ → GAP → IMPROVE
@@ -805,4 +860,8 @@ const ARC = {
 .ts-incl-grid { display: flex; flex-wrap: wrap; gap: 0.35rem; margin: 0.35rem 0; }
 .ts-incl-cell { background: #eef3ef; padding: 0.15rem 0.4rem; border-radius: 3px; font-size: 0.8rem; }
 .ts-incl-cell.miss { background: #f3ebe4; color: #8a5a2a; }
+.ts-incl-cell.above { background: #d5e6dc; font-weight: 600; }
+.ts-balliett { margin: 1.2rem 0; padding: 0.85rem 0; border-top: 1px solid #e0d6c6; }
+.ts-balliett h3 { margin: 0 0 0.4rem; font-family: Georgia, "Times New Roman", serif; font-size: 1.05rem; }
+.ts-balliett-grid p { margin: 0.35rem 0; font-size: 0.88rem; line-height: 1.45; }
 </style>
