@@ -39,46 +39,41 @@ def _principles() -> dict:
     return json.loads((_DATA / "interpretation_principles.json").read_text(encoding="utf-8"))
 
 
-# Vai trò từng chỉ số — bám nguyên lý Balliett/Cheiro/Campbell
+# Vai trò từng chỉ số — tiếng người thường (nguồn thư viện giữ ở source, không nhét jargon vào lens)
 _ROLE: dict[str, dict[str, str]] = {
     "life_path": {
-        "lens": "xương sống Decoz (tháng+ngày+năm Method A) — bài học dài hạn",
-        "gap_q": "Anh đang ép đời theo khuôn nào khác với khí Đường Đời?",
+        "lens": "xương sống của lá số — bài học dài hạn từ ngày sinh (tháng + ngày + năm)",
+        "gap_q": "Bạn đang ép đời theo khuôn nào khác với khí Đường Đời?",
         "improve": "Mỗi tuần 1 việc nhỏ đúng khí Đường Đời; bỏ 1 việc chỉ vì 'phải'.",
         "source": "decoz",
     },
     "expression": {
-        "lens": "rung động tên khai sinh (Balliett/Decoz) — cách anh hiện diện ra đời",
-        "gap_q": "Anh đang giấu hay phô tài năng lệch với Sứ Mệnh?",
+        "lens": "cách bạn hiện diện ra đời qua tên khai sinh",
+        "gap_q": "Bạn đang giấu hay phô tài năng lệch với Sứ Mệnh?",
         "improve": "Làm 1 sản phẩm/việc công khai đúng Sứ Mệnh trong 30 ngày.",
         "source": "balliett+decoz",
     },
     "soul_urge": {
-        "lens": "khát vọng linh hồn qua nguyên âm (Balliett) — động lực thật",
-        "gap_q": "Điều anh thật sự muốn đang bị lịch nuốt không?",
+        "lens": "điều bạn thật sự muốn bên trong (qua nguyên âm trong tên)",
+        "gap_q": "Điều bạn thật sự muốn đang bị lịch nuốt không?",
         "improve": "Đặt 1 ranh giới bảo vệ khát vọng Linh Hồn mỗi tuần.",
         "source": "balliett",
     },
     "personality": {
-        "lens": "lớp vỏ người khác thấy trước (phụ âm)",
+        "lens": "lớp vỏ người khác thấy trước (qua phụ âm trong tên)",
         "gap_q": "Lớp vỏ Nhân Cách đang giúp hay che khuất Linh Hồn?",
         "improve": "Điều chỉnh 1 thói quen giao tiếp cho khớp hơn với bên trong.",
         "source": "decoz",
     },
     "birthday": {
-        "lens": (
-            "Key ngày sinh (Cheiro Ch.XV) — rung động vật chất thân thiết nhất; "
-            "khác Life Path Decoz (không gộp tháng/năm vào đây)"
-        ),
-        "gap_q": "Anh có đang bỏ quên khí ngày sinh vì chỉ nhìn Đường Đời?",
-        "improve": (
-            "Neo 1 việc/tuần đúng khí Ngày Sinh (Cheiro: tập trung vào số của mình — Ch.XXIV)."
-        ),
+        "lens": "khí ngày sinh riêng — gần gũi, cụ thể; khác Đường Đời (không gộp tháng/năm vào đây)",
+        "gap_q": "Bạn có đang bỏ quên khí ngày sinh vì chỉ nhìn Đường Đời?",
+        "improve": "Neo 1 việc/tuần đúng khí Ngày Sinh — tập trung vào số của mình.",
         "source": "cheiro+decoz",
     },
     "maturity": {
-        "lens": "hợp lưu Đường Đời + Sứ Mệnh — lộ rõ sau ~35",
-        "gap_q": "Anh đang vội 'trưởng thành' theo chuẩn ngoài hay theo số này?",
+        "lens": "hợp lưu Đường Đời + Sứ Mệnh — lộ rõ hơn sau tuổi ~35",
+        "gap_q": "Bạn đang vội 'trưởng thành' theo chuẩn ngoài hay theo số này?",
         "improve": "Viết 1 câu sứ mệnh nửa sau đời khớp Số Trưởng Thành.",
         "source": "decoz",
     },
@@ -115,7 +110,7 @@ def _name_birth_harmony(birth_day_value: int, expression_value: int) -> dict:
             f"Ngày sinh rút về {bd} và Sứ Mệnh (tên) rút về {ex}: cùng một khí. "
             f"Dễ tập trung vào một hướng — số {bd}."
         )
-        gap = "Anh có đang ỷ vào sự cùng pha mà không còn tự hỏi mình đang sống đúng khí đó không?"
+        gap = "Bạn có đang ỷ vào sự cùng pha mà không còn tự hỏi mình đang sống đúng khí đó không?"
         improve = (
             f"Mỗi tuần làm 1 việc đúng khí số {bd} — chỉ một việc, làm xong đã."
         )
@@ -125,18 +120,18 @@ def _name_birth_harmony(birth_day_value: int, expression_value: int) -> dict:
             f"Ngày sinh ({birth_day_value}→{bd}) và Sứ Mệnh ({expression_value}→{ex}) "
             f"không trùng số nhưng cùng họ {s_bd} — bổ sung được cho nhau, chưa phải lệch hẳn."
         )
-        gap = "Anh đang kỳ vọng hai mặt phải giống hệt thay vì để chúng bổ sung?"
+        gap = "Bạn đang kỳ vọng hai mặt phải giống hệt thay vì để chúng bổ sung?"
         improve = "Cho mỗi mặt một việc riêng trong tuần; đừng ép một số nuốt số kia."
     else:
         band = "offset"
         read = (
             f"Ngày sinh ({birth_day_value}→{bd}) và Sứ Mệnh từ tên ({expression_value}→{ex}) "
-            "không cùng pha: bên trong (ngày sinh) và cách anh hiện diện ra ngoài (tên) "
+            "không cùng pha: bên trong (ngày sinh) và cách bạn hiện diện ra ngoài (tên) "
             "đang kéo theo hai hướng. Đây là chỗ để quan-sát — "
             "KHÔNG phải lý do đổi tên cầu may."
         )
         gap = (
-            "Chỗ nào anh đang quyết theo 'mặt ngoài / tên công chúng' "
+            "Chỗ nào bạn đang quyết theo 'mặt ngoài / tên công chúng' "
             "trong khi ngày sinh kéo sang hướng khác?"
         )
         improve = (
@@ -158,7 +153,7 @@ def _name_birth_harmony(birth_day_value: int, expression_value: int) -> dict:
     if care_48:
         out["four_eight_note"] = (
             "Có mặt 4 hoặc 8: Cheiro cảnh báo đừng chồng thêm môi trường cùng khí. "
-            "YI: hỏi anh có đang tự chất kỷ luật/cách biệt vào nhà–việc không — không dọa xui."
+            "YI: hỏi bạn có đang tự chất kỷ luật/cách biệt vào nhà–việc không — không dọa xui."
         )
         out["gap"] = out["gap"] + " " + out["four_eight_note"]
     return out
@@ -181,7 +176,7 @@ def _inclusion_deep(inclusion: dict) -> dict:
             f"{inclusion.get('intensity_note') or ''}"
         ).strip(),
         "gap": (
-            "Anh đang sợ số thiếu như 'nghiệp' hay đang tránh số trội vì nó quá mạnh?"
+            "Bạn đang sợ số thiếu như 'nghiệp' hay đang tránh số trội vì nó quá mạnh?"
         ),
         "improve": (
             (
@@ -233,8 +228,8 @@ def _cheiro_birth_layers(day: int, month: int, year: int) -> dict:
             + f"; tháng→{m}; năm→{y}. "
             "Ba lớp riêng — đừng gộp thành một 'số mệnh' kiểu tắt."
         ),
-        "gap": "Anh đang bỏ lớp Ngày vì chỉ nhìn Life Path Decoz (đã gộp tháng+năm)?",
-        "improve": f"Tuần này neo khí Ngày {d} trong 1 quyết định nhỏ — tập trung (Ch.XXIV).",
+        "gap": "Bạn đang bỏ lớp Ngày vì chỉ nhìn Đường Đời (đã gộp tháng+năm)?",
+        "improve": f"Tuần này neo khí Ngày {d} trong 1 quyết định nhỏ — tập trung vào số của mình.",
     }
 
 
@@ -260,7 +255,7 @@ def _enrich_birthday_dual_lens(node: dict) -> dict:
             f"Key Cheiro = vật chất thân thiết nhất; đừng gộp vào Life Path."
         )
         node["gap"] = (
-            f"Anh đang chỉ nghe một trường (Cheiro hoặc Decoz) cho số {node['value']}? "
+            f"Bạn đang chỉ nghe một trường (Cheiro hoặc Decoz) cho số {node['value']}? "
             f"{node.get('gap', '')}"
         ).strip()
         node["archetype_vi"] = (
@@ -292,22 +287,37 @@ def _deep_one(role_key: str, value: int, name_vi: str) -> dict:
             "source": "",
         },
     )
+    plain = (desc.get("plain_vi") or "").strip()
+    practice = (desc.get("practice_vi") or "").strip()
     strengths = desc.get("strengths") or ""
     shadow = desc.get("shadow") or ""
+    master_note = (desc.get("master_note_vi") or "").strip()
+    if plain:
+        read = (
+            f"{name_vi} = {value} ({desc.get('archetype_vi', '')}). "
+            f"Đây là {role['lens']}. {plain}"
+        )
+        if master_note:
+            read = f"{read} {master_note}"
+    else:
+        read = (
+            f"{name_vi} = {value} ({desc.get('archetype_vi', '')}). "
+            f"Đây là {role['lens']}. "
+            f"Khi vận hành tốt: {strengths} "
+            f"{desc.get('dong_dang') or ''}"
+        ).strip()
     return {
         "role": role_key,
         "name_vi": name_vi,
         "value": value,
         "archetype_vi": desc.get("archetype_vi", ""),
+        "plain_vi": plain,
+        "practice_vi": practice,
+        "master_note_vi": master_note,
         "source_principle": role.get("source", ""),
-        "read": (
-            f"{name_vi} = {value} ({desc.get('archetype_vi', '')}). "
-            f"Đây là {role['lens']}. "
-            f"Khi vận hành tốt: {strengths} "
-            f"{desc.get('dong_dang') or ''}"
-        ).strip(),
+        "read": read.strip(),
         "gap": (f"Bóng của số {value}: {shadow} {role['gap_q']}").strip(),
-        "improve": role["improve"],
+        "improve": practice or role["improve"],
         "keywords": desc.get("keywords", []),
         "is_master": desc.get("is_master", False),
     }
@@ -401,7 +411,7 @@ def compose_deep_reading(
                     f"{bv['name_vi']} = {bv['value']}: khoảng cách cần bắc cầu giữa hai mặt. "
                     f"Không phải lỗi — là khoảng luyện."
                 ),
-                "gap": "Anh đang đứng về một phía và phủ nhận phía kia?",
+                "gap": "Bạn đang đứng về một phía và phủ nhận phía kia?",
                 "improve": f"Mỗi tuần làm 1 việc mang khí số cầu {bv['value']} để nối hai phía.",
             }
 
@@ -454,7 +464,7 @@ def compose_deep_reading(
                 "Số·màu·âm = quan-sát khí — không mua màu may."
             ),
             "gap": (
-                "Anh đang dùng môi trường (màu/âm) để mở hay đóng kênh khí birth digit? "
+                "Bạn đang dùng môi trường (màu/âm) để mở hay đóng kênh khí birth digit? "
                 "Ngày Spiritual Birthday đang được dùng để luyện hay để 'cầu may'?"
             ),
             "improve": (
@@ -480,7 +490,7 @@ def compose_deep_reading(
                 "value": py["value"],
                 "arc": arc.get(v, ""),
                 "read": f"Năm cá nhân {py['target_year']} = {py['value']}: {arc.get(v, '')}.",
-                "gap": "Anh đang dùng năm này như năm nào khác trong chu kỳ 9?",
+                "gap": "Bạn đang dùng năm này như năm nào khác trong chu kỳ 9?",
                 "improve": _year_actions(py["value"]),
             }
         pm = cycles.get("personal_month")
@@ -503,7 +513,7 @@ def compose_deep_reading(
                     f"Essence = khí từ chữ cái tên theo tuổi; Năm CN = khí từ ngày sinh + năm lịch. "
                     f"Đọc chung: {arc.get(str(e), f'số {e}')} gặp {arc.get(str(y), f'số {y}')}."
                 ),
-                "gap": "Anh đang chỉ nghe một phía (tên hoặc ngày sinh) và bỏ phía kia?",
+                "gap": "Bạn đang chỉ nghe một phía (tên hoặc ngày sinh) và bỏ phía kia?",
                 "improve": (
                     "Khi lập kế hoạch tháng: hỏi cả Essence (tên–tuổi) và Năm cá nhân (ngày sinh)."
                 ),

@@ -11,19 +11,19 @@ from .constants import karmic_meanings, number_meanings
 CORE_PLAIN_ROLE = {
     "life_path": (
         "Số Đường Đời",
-        "bài học dài hạn của cả đời — anh vận hành tốt nhất khi sống đúng khí này",
+        "việc chính dài hạn của đời này — bạn vận hành tốt nhất khi sống đúng khí này",
     ),
     "expression": (
         "Số Sứ Mệnh",
-        "cách anh hiện diện ra đời qua tên khai sinh — người khác thường thấy mặt này trước",
+        "cách bạn hiện diện ra đời qua tên khai sinh — người khác thường thấy mặt này trước",
     ),
     "soul_urge": (
         "Số Linh Hồn",
-        "điều anh thật sự muốn ở bên trong (qua nguyên âm trong tên)",
+        "điều bạn thật sự muốn ở bên trong (qua nguyên âm trong tên)",
     ),
     "personality": (
         "Số Nhân Cách",
-        "lớp vỏ bên ngoài — ấn tượng đầu khi người ta gặp anh",
+        "lớp vỏ bên ngoài — ấn tượng đầu khi người ta gặp bạn",
     ),
     "birthday": (
         "Số Ngày Sinh",
@@ -43,13 +43,22 @@ def _meaning(value: int) -> dict | None:
 def describe_number(value: int) -> dict:
     m = _meaning(value)
     if not m:
-        return {"value": value, "archetype_vi": f"Số {value}", "note": "Chưa có dữ liệu."}
+        return {
+            "value": value,
+            "archetype_vi": f"Số {value}",
+            "plain_vi": "",
+            "practice_vi": "",
+            "note": "Chưa có dữ liệu.",
+        }
     return {
         "value": value,
         "archetype_vi": m.get("archetype_vi", ""),
         "keywords": m.get("keywords", []),
         "strengths": m.get("strengths", ""),
         "shadow": m.get("shadow", ""),
+        "plain_vi": m.get("plain_vi", ""),
+        "practice_vi": m.get("practice_vi", ""),
+        "master_note_vi": m.get("master_note_vi", ""),
         "dong_dang": m.get("dong_dang", ""),
         "is_master": m.get("is_master", False),
     }
@@ -133,9 +142,10 @@ def collect_karmic(core: dict) -> list[dict]:
 
 
 def compose_plain_summary(core: dict, cycles: dict | None = None) -> dict:
-    """Tóm tắt tiếng người thường — đọc được trong ~30 giây."""
+    """Tóm tắt tiếng người thường — đọc được trong ~30 giây. Luôn có cho mọi lá số."""
     debts = collect_karmic(core)
     debt_by_key = {d["source_key"]: d for d in debts}
+    core_cards: list[dict] = []
     bullets: list[str] = []
     for key in ("life_path", "expression", "soul_urge", "personality", "birthday"):
         node = core.get(key) or {}
@@ -145,12 +155,34 @@ def compose_plain_summary(core: dict, cycles: dict | None = None) -> dict:
         role_name, role_hint = CORE_PLAIN_ROLE[key]
         desc = describe_number(value)
         arch = desc.get("archetype_vi") or f"Số {value}"
-        strengths = (desc.get("strengths") or "").rstrip(".")
-        shadow = (desc.get("shadow") or "").rstrip(".")
-        bullets.append(
-            f"{role_name} = {value} ({arch}): {role_hint}. "
-            f"Khi thuận: {strengths}. Dễ lệch khi: {shadow}."
+        plain = (desc.get("plain_vi") or "").strip()
+        practice = (desc.get("practice_vi") or "").strip()
+        master_note = (desc.get("master_note_vi") or "").strip()
+        core_cards.append(
+            {
+                "role": key,
+                "role_label": role_name,
+                "role_hint": role_hint,
+                "value": value,
+                "archetype_vi": arch,
+                "plain_vi": plain,
+                "practice_vi": practice,
+                "master_note_vi": master_note,
+                "is_master": bool(desc.get("is_master")),
+                "shadow_vi": desc.get("shadow") or "",
+            }
         )
+        if plain:
+            bullets.append(f"{role_name} = {value} ({arch}): {plain}")
+        else:
+            strengths = (desc.get("strengths") or "").rstrip(".")
+            shadow = (desc.get("shadow") or "").rstrip(".")
+            bullets.append(
+                f"{role_name} = {value} ({arch}): {role_hint}. "
+                f"Khi thuận: {strengths}. Dễ lệch khi: {shadow}."
+            )
+        if master_note:
+            bullets.append(f"→ Lưu ý số chủ {value}: {master_note}")
         if key in debt_by_key:
             d = debt_by_key[key]
             bullets.append(f"→ Bài học kèm {d['number']} trên {role_name}: {d['plain_vi']}")
@@ -158,16 +190,29 @@ def compose_plain_summary(core: dict, cycles: dict | None = None) -> dict:
     py = (cycles or {}).get("personal_year") or {}
     if py.get("value") is not None:
         py_desc = describe_number(py["value"])
-        bullets.append(
-            f"Năm cá nhân {py.get('target_year')} = {py['value']} "
-            f"({py_desc.get('archetype_vi', '')}): khí năm nay để quan-sát — "
-            f"không phải lời đoán được/mất."
-        )
+        py_plain = (py_desc.get("plain_vi") or "").strip()
+        if py_plain:
+            bullets.append(
+                f"Năm cá nhân {py.get('target_year')} = {py['value']} "
+                f"({py_desc.get('archetype_vi', '')}): khí năm nay để quan-sát — "
+                f"{py_plain} (không phải lời đoán được/mất)."
+            )
+        else:
+            bullets.append(
+                f"Năm cá nhân {py.get('target_year')} = {py['value']} "
+                f"({py_desc.get('archetype_vi', '')}): khí năm nay để quan-sát — "
+                f"không phải lời đoán được/mất."
+            )
 
     practice = None
     if debts:
         pick = next((d for d in debts if d.get("source_key") == "life_path"), debts[0])
         practice = pick.get("practice_vi") or None
+
+    if not practice:
+        lp_val = core.get("life_path", {}).get("value")
+        if lp_val is not None:
+            practice = (describe_number(lp_val).get("practice_vi") or "").strip() or None
 
     if not practice:
         practice = (
@@ -180,13 +225,20 @@ def compose_plain_summary(core: dict, cycles: dict | None = None) -> dict:
         "title_vi": "Tóm tắt dễ hiểu",
         "intro_vi": (
             "Đọc số như đọc bản đồ cấu trúc — không phải lời tiên tri. "
-            "Mỗi số nói 'anh vận hành tốt khi…' và 'dễ lệch khi…'."
+            "Mỗi số nói 'bạn vận hành tốt khi…' và 'dễ lệch khi…'."
         ),
         "bullets": bullets,
+        "core_cards": core_cards,
         "one_practice_vi": practice,
+        "how_to_use_vi": (
+            "Cách dùng: lấy Đường Đời làm trục chính; "
+            "Sứ Mệnh / Linh Hồn / Nhân Cách / Ngày Sinh là góc nhìn bổ sung. "
+            "Nếu có «bài học kèm», đó là chỗ cần luyện thêm — không phải lời nguyền. "
+            "Phần «Việc nhỏ tuần này» là cách xử lý tính (mệnh là động từ)."
+        ),
         "karmic_intro_vi": (
-            "«Bài học kèm» (Decoz gọi karmic debt / 'nợ nghiệp') không phải án kiếp trước. "
-            "Nghĩa là: anh vẫn mang khí số đã rút, nhưng cần luyện thêm một thói quen cụ thể."
+            "«Bài học kèm» không phải án kiếp trước. "
+            "Nghĩa là: bạn vẫn mang khí số đã rút, nhưng cần luyện thêm một thói quen cụ thể."
             if debts
             else None
         ),
@@ -195,7 +247,7 @@ def compose_plain_summary(core: dict, cycles: dict | None = None) -> dict:
 
 PARADIGM_NOTE = (
     "Thần Số ở đây đọc cấu trúc qua số — không bói tốt/xấu. "
-    "Câu hỏi đúng: 'cấu trúc này mời anh quan-sát và luyện điều gì?', "
+    "Câu hỏi đúng: 'cấu trúc này mời bạn quan-sát và luyện điều gì?', "
     "không phải 'tương lai sẽ ra sao'."
 )
 
