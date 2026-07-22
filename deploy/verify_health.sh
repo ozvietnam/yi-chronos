@@ -33,7 +33,26 @@ for i in $(seq 1 "$ATTEMPTS"); do
     echo "✅ Health OK (HTTP 200) ở lần thử $i:"
     cat /tmp/yi_health.json 2>/dev/null
     echo
-    exit 0
+    # Smoke Thần Số cast — bắt volume-stale / missing master JSON sớm
+    cast_code=$(curl -sS --resolve "$RESOLVE" \
+      --connect-timeout 10 --max-time 30 \
+      -o /tmp/yi_than_so_cast.json -w '%{http_code}' \
+      -X POST "https://kinhdich.online/api/than-so/cast" \
+      -H 'Content-Type: application/json' \
+      -d '{"name":"Nguyen Van A","birth_date":"1988-06-05"}' 2>/tmp/yi_than_so_cast.err || true)
+    if [ "$cast_code" = "200" ]; then
+      echo "✅ than-so/cast OK (HTTP 200)"
+      python3 -c 'import json;d=json.load(open("/tmp/yi_than_so_cast.json")); assert "balliett" in d and "core" in d; print("  life_path", d["core"]["life_path"]["value"], "balliett_digit", d["balliett"]["birth_digit"]["birth_digit"])' 2>&1 || true
+      exit 0
+    fi
+    echo "❌ than-so/cast HTTP=$cast_code (health OK nhưng cast gãy — thường do data/than_so/master thiếu JSON mới)"
+    echo "─── cast body (head) ───"
+    head -c 800 /tmp/yi_than_so_cast.json 2>/dev/null; echo
+    echo "─── than_so files in container ───"
+    docker exec yi-chronos sh -c 'ls -la data/than_so/master/ 2>&1; ls -la embedded_data/than_so/master/ 2>&1 | head -30' || true
+    echo "─── 80 dòng log yi-chronos ───"
+    docker logs --tail 80 yi-chronos 2>&1 || true
+    exit 1
   fi
   echo "  ⏳ thử $i/$ATTEMPTS: HTTP=$code — $(tr '\n' ' ' </tmp/yi_health.err 2>/dev/null)"
   sleep "$SLEEP"

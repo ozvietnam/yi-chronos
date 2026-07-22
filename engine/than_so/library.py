@@ -3,7 +3,6 @@ from __future__ import annotations
 
 import json
 from functools import lru_cache
-from pathlib import Path
 
 from .core_numbers import _sum_letters_flat, reduce_with_trace
 from .name_calculator import normalize_vietnamese

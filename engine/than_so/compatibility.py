@@ -7,7 +7,6 @@ from __future__ import annotations
 
 import json
 from functools import lru_cache
-from pathlib import Path
 
 from .cast import cast_than_so
 from .core_numbers import reduce_number
