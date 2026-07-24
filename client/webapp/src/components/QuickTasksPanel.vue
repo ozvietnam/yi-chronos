@@ -9,6 +9,7 @@
 import { ref, computed, onMounted, watch } from "vue";
 import LifeOverviewModal from "./LifeOverviewModal.vue";
 import BirthHourQuizV2 from "./BirthHourQuizV2.vue";
+import PersonPicker from "./PersonPicker.vue";
 import { activePerson } from "../stores/userDataStore.js";
 import { CalendarCheck, Clock, HeartHandshake, ScrollText, Flower } from "lucide-vue-next";
 
@@ -176,7 +177,8 @@ function closeTask() {
             <h4>Người A</h4>
             <input v-model="mForm.name_a" placeholder="Tên / vai trò" />
             <div class="m-row">
-              <input v-model="mForm.birth_a_date" type="date" />
+              <PersonPicker v-model="mForm.birth_a_date" mode="date" label="Chọn hồ sơ"
+                @picked="p => { if (p.name) mForm.name_a = p.name; if (p.gender) mForm.gender_a = p.gender; }" />
               <select v-model.number="mForm.birth_a_hour">
                 <option v-for="h in 24" :key="h-1" :value="h-1">{{ String(h-1).padStart(2,'0') }}h</option>
               </select>
@@ -190,7 +192,8 @@ function closeTask() {
             <h4>Người B</h4>
             <input v-model="mForm.name_b" placeholder="Tên / vai trò" />
             <div class="m-row">
-              <input v-model="mForm.birth_b_date" type="date" />
+              <PersonPicker v-model="mForm.birth_b_date" mode="date" label="Chọn hồ sơ"
+                @picked="p => { if (p.name) mForm.name_b = p.name; if (p.gender) mForm.gender_b = p.gender; }" />
               <select v-model.number="mForm.birth_b_hour">
                 <option v-for="h in 24" :key="h-1" :value="h-1">{{ String(h-1).padStart(2,'0') }}h</option>
               </select>

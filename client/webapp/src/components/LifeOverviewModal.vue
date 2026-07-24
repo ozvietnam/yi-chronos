@@ -6,6 +6,7 @@
  */
 import { ref, onMounted, watch } from "vue";
 import { activePerson } from "../stores/userDataStore.js";
+import PersonPicker from "./PersonPicker.vue";
 
 const emit = defineEmits(["close"]);
 
@@ -98,7 +99,10 @@ function printReport() {
           </label>
         </div>
         <div class="form-row">
-          <label>Ngày sinh: <input v-model="form.birth_date" type="date" /></label>
+          <label>Ngày sinh:
+            <PersonPicker v-model="form.birth_date" mode="date" label="Chọn hồ sơ"
+              @picked="p => { if (p.name) form.name = p.name; if (p.gender) form.gender = p.gender; }" />
+          </label>
           <label>Giờ sinh:
             <select v-model.number="form.birth_hour">
               <option v-for="h in 24" :key="h-1" :value="h-1">{{ String(h-1).padStart(2,'0') }}h</option>
@@ -112,7 +116,10 @@ function printReport() {
             <label>Tên: <input v-model="form.spouse_name" /></label>
           </div>
           <div class="form-row">
-            <label>Ngày sinh: <input v-model="form.spouse_birth_date" type="date" /></label>
+            <label>Ngày sinh:
+              <PersonPicker v-model="form.spouse_birth_date" mode="date" label="Chọn hồ sơ"
+                @picked="p => { if (p.name) form.spouse_name = p.name; }" />
+            </label>
             <label>Giờ sinh:
               <select v-model.number="form.spouse_birth_hour">
                 <option v-for="h in 24" :key="h-1" :value="h-1">{{ String(h-1).padStart(2,'0') }}h</option>

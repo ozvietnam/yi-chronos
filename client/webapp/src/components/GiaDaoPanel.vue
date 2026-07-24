@@ -18,7 +18,7 @@
     <section v-if="tab==='phuc'" class="gd2-card">
       <p class="gd2-sub">Đọc sâu cung Phúc Đức (phúc ấm tổ tiên) và Nô Bộc (kẻ dưới / đối tác / lứa đôi) — theo Toàn Thư cổ + góc dân gian Việt (ghi rõ nguồn).</p>
       <div class="gd2-person" style="max-width:340px;margin:0 auto;">
-        <input v-model="pbirth" type="datetime-local" class="gd2-in" />
+        <PersonPicker v-model="pbirth" label="Chọn hồ sơ" @picked="p => { pgender = p.gender || pgender; }" />
         <select v-model="pgender" class="gd2-in"><option value="nam">Nam</option><option value="nữ">Nữ</option></select>
       </div>
       <button class="gd2-run" :disabled="!pbirth || ploading" @click="runPhuc">{{ ploading ? '⏳ Đang đọc...' : '🏮 Đọc Phúc Đức & Nô Bộc' }}</button>
@@ -42,13 +42,13 @@
         <div class="gd2-person">
           <h4>Chồng</h4>
           <input v-model="h.ten" placeholder="Tên" class="gd2-in" />
-          <input v-model="h.birth" type="datetime-local" class="gd2-in" />
+          <PersonPicker v-model="h.birth" label="Chọn hồ sơ" @picked="p => { h.ten = p.name || h.ten; h.gender = p.gender || h.gender; }" />
           <select v-model="h.gender" class="gd2-in"><option value="nam">Nam</option><option value="nữ">Nữ</option></select>
         </div>
         <div class="gd2-person">
           <h4>Vợ</h4>
           <input v-model="w.ten" placeholder="Tên" class="gd2-in" />
-          <input v-model="w.birth" type="datetime-local" class="gd2-in" />
+          <PersonPicker v-model="w.birth" label="Chọn hồ sơ" @picked="p => { w.ten = p.name || w.ten; w.gender = p.gender || w.gender; }" />
           <select v-model="w.gender" class="gd2-in"><option value="nữ">Nữ</option><option value="nam">Nam</option></select>
         </div>
       </div>
@@ -82,15 +82,15 @@
       <div class="gd2-form">
         <div class="gd2-person">
           <h4>👶 Con</h4>
-          <input v-model="con.birth" type="datetime-local" class="gd2-in" />
+          <PersonPicker v-model="con.birth" label="Chọn hồ sơ" @picked="p => { con.gender = p.gender || con.gender; }" />
           <select v-model="con.gender" class="gd2-in"><option value="nam">Bé trai</option><option value="nữ">Bé gái</option></select>
         </div>
         <div class="gd2-person">
           <h4>Bố / Mẹ <small>(tuỳ chọn — để đối chiếu trường khí)</small></h4>
           <label class="gd2-lbl">Bố — ngày sinh</label>
-          <input v-model="con.bo" type="date" class="gd2-in" />
+          <PersonPicker v-model="con.bo" :mode="'date'" label="Chọn hồ sơ" @picked="p => {}" />
           <label class="gd2-lbl">Mẹ — ngày sinh</label>
-          <input v-model="con.me" type="date" class="gd2-in" />
+          <PersonPicker v-model="con.me" :mode="'date'" label="Chọn hồ sơ" @picked="p => {}" />
         </div>
       </div>
       <button class="gd2-run" :disabled="!con.birth || lloading" @click="runLuanCon">
@@ -138,7 +138,7 @@
     <section v-if="tab==='ten'" class="gd2-card">
       <p class="gd2-sub">Nhập ngày + giờ sinh của bé — hệ thống tính Bát Tự, tìm hành bé cần (dụng thần) và gợi ý chữ/tên.</p>
       <div class="gd2-person" style="max-width:340px;margin:0 auto;">
-        <input v-model="cbirth" type="datetime-local" class="gd2-in" />
+        <PersonPicker v-model="cbirth" label="Chọn hồ sơ" @picked="p => {}" />
       </div>
       <button class="gd2-run" :disabled="!cbirth || tloading" @click="runTen">
         {{ tloading ? '⏳ Đang tính...' : '👶 Gợi ý tên cho bé' }}
@@ -164,6 +164,7 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import { activeBirthDatetime } from "../stores/userDataStore.js";
+import PersonPicker from "./PersonPicker.vue";
 
 const tab = ref("nha");
 const h = ref({ ten: "Chồng", birth: "", gender: "nam" });

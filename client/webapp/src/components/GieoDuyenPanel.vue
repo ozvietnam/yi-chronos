@@ -25,7 +25,7 @@
       <div class="gd-form">
         <div class="gd-person" style="flex:1">
           <input v-model="dn" placeholder="Tên (tuỳ chọn)" class="gd-in" />
-          <input v-model="db" type="datetime-local" class="gd-in" />
+          <PersonPicker v-model="db" label="Chọn hồ sơ" @picked="p => { dn = p.name || dn; dg = p.gender || dg; }" />
           <select v-model="dg" class="gd-in"><option value="nam">Nam</option><option value="nữ">Nữ</option></select>
         </div>
       </div>
@@ -95,12 +95,12 @@
       <div class="gd-person" style="margin-bottom:12px;">
         <h4>Bạn</h4>
         <input v-model="soMe.ten" placeholder="Tên (tuỳ chọn)" class="gd-in" />
-        <input v-model="soMe.birth" type="datetime-local" class="gd-in" />
+        <PersonPicker v-model="soMe.birth" label="Chọn hồ sơ" @picked="p => { soMe.ten = p.name || soMe.ten; soMe.gender = p.gender || soMe.gender; }" />
         <select v-model="soMe.gender" class="gd-in"><option value="nam">Nam</option><option value="nữ">Nữ</option></select>
       </div>
       <div v-for="(o,i) in soOthers" :key="i" class="gd-other-row">
         <input v-model="o.ten" :placeholder="'Người '+(i+1)" class="gd-in" style="flex:1" />
-        <input v-model="o.birth" type="datetime-local" class="gd-in" style="flex:1.4" />
+        <PersonPicker v-model="o.birth" label="Chọn hồ sơ" @picked="p => { o.ten = p.name || o.ten; o.gender = p.gender || o.gender; }" />
         <select v-model="o.gender" class="gd-in"><option value="nam">Nam</option><option value="nữ">Nữ</option></select>
         <button class="gd-x" @click="rmOther(i)" v-if="soOthers.length>1">✕</button>
       </div>
@@ -503,15 +503,15 @@
       <div class="gd-form">
         <div class="gd-person">
           <h4>Người 1 (bạn)</h4>
-          <input v-model="n1" placeholder="Tên (tuỳ chọn)" class="gd-in" />
-          <input v-model="b1" type="datetime-local" class="gd-in" />
+          <PersonPicker v-model="b1" label="Chọn hồ sơ" @picked="p => { n1 = p.name || n1; g1 = p.gender || g1; }" />
+          <input v-model="n1" placeholder="Tên (tự điền khi chọn hồ sơ)" class="gd-in" />
           <select v-model="g1" class="gd-in"><option value="nam">Nam</option><option value="nữ">Nữ</option></select>
         </div>
         <div class="gd-heart">💞</div>
         <div class="gd-person">
           <h4>Người 2</h4>
-          <input v-model="n2" placeholder="Tên (tuỳ chọn)" class="gd-in" />
-          <input v-model="b2" type="datetime-local" class="gd-in" />
+          <PersonPicker v-model="b2" label="Chọn hồ sơ" @picked="p => { n2 = p.name || n2; g2 = p.gender || g2; }" />
+          <input v-model="n2" placeholder="Tên (tự điền khi chọn hồ sơ)" class="gd-in" />
           <select v-model="g2" class="gd-in"><option value="nam">Nam</option><option value="nữ">Nữ</option></select>
         </div>
       </div>
@@ -642,6 +642,7 @@ import { computed, ref, h, onMounted } from "vue";
 import manuscript from "../content/gieo-duyen.md?raw";
 import { activeBirthDatetime, activePerson } from "../stores/userDataStore.js";
 import RefBlock from "./RefBlock.vue";
+import PersonPicker from "./PersonPicker.vue";
 import { sessionToken } from "../stores/authStore.js";
 import { tuviPersonName, tuviPersonBirth, tuviPersonGender } from "../stores/tuviPersonStore.js";
 

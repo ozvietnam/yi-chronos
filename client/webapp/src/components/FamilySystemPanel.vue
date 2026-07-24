@@ -1,6 +1,7 @@
 <script setup>
 import { computed, ref } from "vue";
 import { postFamilyResonance } from "../lib/api";
+import PersonPicker from "./PersonPicker.vue";
 import {
   familyMembers as sharedFamilyMembers,
   weddingDatetime as sharedWedding,
@@ -134,8 +135,8 @@ const unifiedSig = computed(() => data.value?.unified_household?.member_signatur
         </select>
         <input v-model="m.name" type="text" placeholder="Tên" />
         <input v-model.number="m.birth_year" type="number" min="1900" max="2100" placeholder="Năm" />
-        <input v-model="m.birth_datetime_local" type="datetime-local" step="60"
-          title="Ngày giờ sinh chính xác (tuỳ chọn — nếu trống chỉ dùng năm)" />
+        <PersonPicker v-model="m.birth_datetime_local" label="Chọn hồ sơ"
+          @picked="p => { m.name = p.name || m.name; const yr = parseInt(String(p.birth_datetime_local || '').slice(0, 4)); if (yr) m.birth_year = yr; }" />
         <button class="del-btn" @click="removeMember(idx)" v-if="members.length > 1">×</button>
       </div>
       <div class="add-row">
