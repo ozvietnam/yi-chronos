@@ -13,7 +13,7 @@ import {
   familyMembers as sharedFamilyMembers,
   serializableMembers,
 } from "../stores/familyStore.js";
-import { activePerson } from "../stores/profileStore.js";
+import { useActivePersonBirth } from "../stores/useActivePersonBirth.js";
 
 const DOMAIN_COLOR = {
   decision:  "#e8c95a",
@@ -26,14 +26,9 @@ const DOMAIN_COLOR = {
 
 const inputBirth = ref("");
 
-onMounted(() => {
-  if (!inputBirth.value && activePerson.value?.birth_datetime_local) {
-    inputBirth.value = activePerson.value.birth_datetime_local;
-  }
-});
-watch(() => activePerson.value?.birth_datetime_local, (val) => {
-  if (val && !inputBirth.value) inputBirth.value = val;
-});
+// MỘT NGUỒN: ngày sinh lấy từ hồ sơ tài khoản đang chọn; đổi profile → tự cập nhật + chạy lại.
+// Nhập ngày sinh chỉ ở phần quản lý tài khoản (Iron: 2026-07-18).
+useActivePersonBirth(inputBirth, { onReady: () => computePreview() });
 const inputTargetDate = ref("");
 const minScore = ref(70);
 const gpsDay = ref(null);

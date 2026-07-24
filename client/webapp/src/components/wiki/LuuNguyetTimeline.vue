@@ -9,6 +9,7 @@
  */
 import { ref, computed, onMounted } from "vue";
 import HexagramSvg from "./diagrams/HexagramSvg.vue";
+import { useActivePersonBirth } from "../../stores/useActivePersonBirth.js";
 
 // Birth datetime — user nhập, không hardcode founder (privacy 2026-05-27).
 const birthSolar = ref("");
@@ -98,7 +99,8 @@ function renderMd(s) {
     .replace(/\n/g, "<br>");
 }
 
-onMounted(loadTimeline);
+// MỘT NGUỒN: ngày sinh (dương) từ hồ sơ tài khoản; đổi profile → tự cập nhật + chạy lại.
+useActivePersonBirth(birthSolar, { onReady: loadTimeline });
 </script>
 
 <template>

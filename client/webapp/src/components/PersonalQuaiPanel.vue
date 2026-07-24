@@ -5,7 +5,7 @@ import {
   familyMembers as sharedFamilyMembers,
   serializableMembers,
 } from "../stores/familyStore.js";
-import { activePerson } from "../stores/profileStore.js";
+import { useActivePersonBirth } from "../stores/useActivePersonBirth.js";
 
 const TRIGRAM_ELEMENT = {
   "Càn": "kim", "Đoài": "kim", "Ly": "hỏa", "Chấn": "mộc",
@@ -17,16 +17,8 @@ const ELEMENT_COLOR = {
 
 const inputBirth = ref("");
 
-// Auto-fill from active person on mount + watch for changes.
-function autoFillFromActivePerson() {
-  if (!inputBirth.value && activePerson.value?.birth_datetime_local) {
-    inputBirth.value = activePerson.value.birth_datetime_local;
-  }
-}
-onMounted(autoFillFromActivePerson);
-watch(() => activePerson.value?.birth_datetime_local, (val) => {
-  if (val && !inputBirth.value) inputBirth.value = val;
-});
+// MỘT NGUỒN: ngày sinh từ hồ sơ tài khoản đang chọn; đổi profile → tự cập nhật + chạy lại.
+useActivePersonBirth(inputBirth, { onReady: () => load() });
 const inputSpan = ref(30);
 const natal = ref(null);
 const outlook = ref(null);

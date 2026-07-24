@@ -1,17 +1,23 @@
 /**
  * tuviPersonStore — chọn người để phân tích Tử Vi.
  *
- * Mặc định = currentPerson (auth). User có thể switch sang bất kỳ ai đã add
- * vào /api/auth/my/persons. Tất cả panels (DaiVan, LuuNien, CachCuc, PhuThaiVi)
- * đều đọc từ store này thay vì hardcode "_founder".
+ * MỘT NGUỒN SỰ THẬT (Anh chốt 2026-07-18): người đang xem = `activePerson`
+ * của userDataStore (= hồ sơ tài khoản đang chọn). Muốn xem người khác →
+ * chọn lại profile (setActivePerson). tuviPersonStore chỉ là VIEW mỏng lên
+ * activePerson để các panel Tử Vi (DaiVan/LuuNien/CachCuc/PhuThaiVi/VanHan) dùng.
+ * KHÔNG còn override riêng lệch với account picker.
  */
 import { computed, ref, watch } from "vue";
 import { currentPerson, sessionToken } from "./authStore.js";
+import { activePerson, setActivePerson } from "./userDataStore.js";
 
-// Active person for Tử Vi analysis — defaults to currentPerson, but user can pick another.
+// Fallback DUY NHẤT cho person ad-hoc không có key (guest gõ tay, chưa lưu hồ sơ).
+// activePerson (hồ sơ tài khoản) LUÔN ưu tiên → hai picker không bao giờ lệch.
 const _override = ref(null);
 
-export const tuviPerson = computed(() => _override.value || currentPerson.value || null);
+export const tuviPerson = computed(
+  () => activePerson.value || currentPerson.value || _override.value || null,
+);
 
 export const tuviPersonKey = computed(() => {
   const p = tuviPerson.value;
@@ -29,7 +35,15 @@ export const tuviPersonBirth = computed(() => tuviPerson.value?.birth_datetime_l
 export const tuviPersonGender = computed(() => tuviPerson.value?.gender || "nam");
 
 export function setTuviPerson(person) {
-  _override.value = person;
+  // Chọn người Tử Vi = chọn lại profile tài khoản (một nguồn). Person có key
+  // (hồ sơ đã lưu) → đặt active person; ad-hoc không key → giữ tạm ở _override.
+  const key = person?.person_key || person?.person_id;
+  if (key) {
+    setActivePerson(key);
+    _override.value = null;
+  } else {
+    _override.value = person || null;
+  }
 }
 
 export function clearTuviPersonOverride() {

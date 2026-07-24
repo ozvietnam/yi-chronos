@@ -112,8 +112,9 @@ const tbLapLoading = ref(false);
 const tbLapErr = ref("");
 
 function syncTbBirthFromPerson() {
+  // MỘT NGUỒN: đổi profile → GHI ĐÈ ngày sinh (trước fill-if-empty nên bị kẹt người cũ).
   const bd = activePerson.value?.birth_datetime_local;
-  if (bd && !tbBirth.value) tbBirth.value = String(bd).slice(0, 16);
+  if (bd) tbBirth.value = String(bd).slice(0, 16);
   if (activePerson.value?.gender) tbGender.value = activePerson.value.gender;
 }
 

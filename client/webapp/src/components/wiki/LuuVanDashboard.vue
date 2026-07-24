@@ -12,6 +12,7 @@
 import { ref, computed, onMounted, watch } from "vue";
 import HexagramSvg from "./diagrams/HexagramSvg.vue";
 import { renderMarkdown, renderInline } from "../../lib/markdown.js";
+import { useActivePersonBirth } from "../../stores/useActivePersonBirth.js";
 
 // Solar birth input — empty default (sẽ thay khi auto-load từ user profile).
 // Privacy 2026-05-27: KHÔNG hardcode founder.
@@ -145,6 +146,8 @@ function closeDrawer() {
 // renderMarkdown plain lines could carry javascript: links → XSS #22).
 
 onMounted(loadSnapshot);
+// MỘT NGUỒN: ngày sinh (dương) auto-điền từ hồ sơ tài khoản; đổi profile → force + chạy lại.
+useActivePersonBirth(birthSolar, { onReady: loadSnapshot });
 </script>
 
 <template>
