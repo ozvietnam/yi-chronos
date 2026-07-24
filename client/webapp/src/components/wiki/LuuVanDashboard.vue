@@ -13,6 +13,7 @@ import { ref, computed, onMounted, watch } from "vue";
 import HexagramSvg from "./diagrams/HexagramSvg.vue";
 import { renderMarkdown, renderInline } from "../../lib/markdown.js";
 import { useActivePersonBirth } from "../../stores/useActivePersonBirth.js";
+import ActivePersonBar from "../ActivePersonBar.vue";
 
 // Solar birth input — empty default (sẽ thay khi auto-load từ user profile).
 // Privacy 2026-05-27: KHÔNG hardcode founder.
@@ -165,11 +166,7 @@ useActivePersonBirth(birthSolar, { onReady: loadSnapshot });
         Tự load ngày sinh từ profile (nếu đã đăng nhập)
       </label>
 
-      <div class="form-row">
-        <span class="form-label">📅 Sinh (dương):</span>
-        <input type="datetime-local" v-model="birthSolar" />
-        <small class="form-hint">→ sẽ tự convert sang âm lịch + can chi</small>
-      </div>
+      <ActivePersonBar />
 
       <label class="form-toggle">
         <input type="checkbox" v-model="useNow" />

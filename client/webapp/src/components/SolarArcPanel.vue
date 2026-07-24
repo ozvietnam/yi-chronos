@@ -2,6 +2,7 @@
 import { computed, ref } from "vue";
 import { getSolarArcHits } from "../lib/api";
 import { useActivePersonBirth } from "../stores/useActivePersonBirth.js";
+import ActivePersonBar from "./ActivePersonBar.vue";
 
 const BODY_VI = {
   sun: "Mặt Trời", moon: "Mặt Trăng", mercury: "Thủy", venus: "Kim", mars: "Hỏa",
@@ -110,8 +111,9 @@ function fmtAge(age) {
       đi kèm sự kiện cụ thể.
     </p>
 
+    <ActivePersonBar />
+
     <div class="sa-form">
-      <label><span>Ngày giờ sinh</span><input v-model="inputBirth" type="datetime-local" step="60" /></label>
       <div class="sa-loc">
         <label><span>Vĩ độ</span><input v-model="inputLat" type="number" step="0.0001" /></label>
         <label><span>Kinh độ</span><input v-model="inputLon" type="number" step="0.0001" /></label>

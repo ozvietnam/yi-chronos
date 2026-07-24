@@ -2,6 +2,7 @@
 import { computed, ref } from "vue";
 import { getLifeTimeline } from "../lib/api";
 import { useActivePersonBirth } from "../stores/useActivePersonBirth.js";
+import ActivePersonBar from "./ActivePersonBar.vue";
 
 const BODY_VI = {
   saturn: "Thổ Tinh",
@@ -161,10 +162,7 @@ function fmtAge(age) {
     </p>
 
     <div class="timeline-form">
-      <label>
-        <span>Ngày giờ sinh (giờ địa phương trình duyệt)</span>
-        <input v-model="inputBirth" type="datetime-local" step="60" />
-      </label>
+      <ActivePersonBar />
       <label>
         <span>Trải dài (năm)</span>
         <input v-model.number="inputSpan" type="number" min="20" max="100" step="10" />

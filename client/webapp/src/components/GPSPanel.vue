@@ -14,6 +14,7 @@ import {
   serializableMembers,
 } from "../stores/familyStore.js";
 import { useActivePersonBirth } from "../stores/useActivePersonBirth.js";
+import ActivePersonBar from "./ActivePersonBar.vue";
 
 const DOMAIN_COLOR = {
   decision:  "#e8c95a",
@@ -190,11 +191,9 @@ function isPast(forDate) {
       Sau khi ngày trôi qua, anh phản hồi đúng/sai để hệ thống tích lũy độ tin cậy.
     </p>
 
+    <ActivePersonBar />
+
     <div class="g-form">
-      <label>
-        <span>Ngày giờ sinh</span>
-        <input v-model="inputBirth" type="datetime-local" step="60" />
-      </label>
       <label>
         <span>Ngày mục tiêu</span>
         <input v-model="inputTargetDate" type="date" :min="todayStr" />

@@ -2,6 +2,7 @@
 import { computed, ref } from "vue";
 import { getTransitHits } from "../lib/api";
 import { useActivePersonBirth } from "../stores/useActivePersonBirth.js";
+import ActivePersonBar from "./ActivePersonBar.vue";
 
 const NATAL_POINTS_VI = {
   sun: "Mặt Trời",
@@ -197,11 +198,9 @@ function rowY(natalPoint) {
       góc lớn với một điểm trong lá số sinh của anh. Đây là "thời tiết cuộc đời".
     </p>
 
+    <ActivePersonBar />
+
     <div class="t-form">
-      <label>
-        <span>Ngày giờ sinh</span>
-        <input v-model="inputBirth" type="datetime-local" step="60" />
-      </label>
       <div class="t-loc">
         <label>
           <span>Vĩ độ</span>

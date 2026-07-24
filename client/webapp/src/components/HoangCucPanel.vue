@@ -1,6 +1,7 @@
 <script setup>
 import { ref, computed, onMounted, watch } from "vue";
 import { activePerson } from "../stores/userDataStore.js";
+import ActivePersonBar from "./ActivePersonBar.vue";
 
 // ── Thời cuộc Nguyên-Hội-Vận-Thế ─────────────────────────────────────────
 const nowYear = new Date().getFullYear();
@@ -331,8 +332,7 @@ watch(activePerson, () => { syncBirthFromPerson(); syncTbBirthFromPerson(); loca
         <span class="hc-tb-dao">Đọc cái ĐÃ ĐỊNH (THỂ) để hiểu cái nền — mệnh là dịch, người là cái biến.</span>
       </p>
       <div class="hc-form">
-        <label>Ngày giờ sinh <input type="datetime-local" v-model="tbBirth" /></label>
-        <label>Giới <select v-model="tbGender" class="hc-sel"><option value="nam">Nam</option><option value="nữ">Nữ</option></select></label>
+        <ActivePersonBar />
         <label>Xem tới tuổi <input type="number" v-model.number="tbMaxAge" min="1" max="108" /></label>
         <button @click="lapSo" :disabled="tbLapLoading">{{ tbLapLoading ? "Đang lập…" : "Lập số" }}</button>
       </div>

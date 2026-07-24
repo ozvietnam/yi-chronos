@@ -2,6 +2,7 @@
 import { computed, ref } from "vue";
 import { getEclipses } from "../lib/api";
 import { useActivePersonBirth } from "../stores/useActivePersonBirth.js";
+import ActivePersonBar from "./ActivePersonBar.vue";
 
 const SIGN_VI = {
   aries: "Bạch Dương", taurus: "Kim Ngưu", gemini: "Song Tử",
@@ -99,8 +100,9 @@ function fmtAge(age) {
       sinh đó cai quản.
     </p>
 
+    <ActivePersonBar />
+
     <div class="ec-form">
-      <label><span>Ngày giờ sinh</span><input v-model="inputBirth" type="datetime-local" step="60" /></label>
       <div class="ec-loc">
         <label><span>Vĩ độ</span><input v-model="inputLat" type="number" step="0.0001" /></label>
         <label><span>Kinh độ</span><input v-model="inputLon" type="number" step="0.0001" /></label>

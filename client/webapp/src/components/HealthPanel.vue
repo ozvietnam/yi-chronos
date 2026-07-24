@@ -2,6 +2,7 @@
 import { ref, computed } from "vue";
 import { batTuSucKhoeSau, dongYFull, dongYMonthlyHealth } from "../lib/api";
 import { useActivePersonBirth } from "../stores/useActivePersonBirth.js";
+import ActivePersonBar from "./ActivePersonBar.vue";
 import RefBlock from "./RefBlock.vue";
 
 const inputBirth = ref("");
@@ -10,7 +11,7 @@ const inputTimezone = ref("Asia/Ho_Chi_Minh");
 const inputChanThuong = ref("");
 const inputAge = ref(null);
 
-useActivePersonBirth(inputBirth, { onReady: analyze }); // nhập 1 lần → tự vẽ; đổi profile → vẽ lại
+useActivePersonBirth(inputBirth, { onReady: analyze, genderRef: inputGender }); // nhập 1 lần → tự vẽ; đổi profile → vẽ lại
 
 const data = ref(null);
 const loading = ref(false);
@@ -136,16 +137,8 @@ const sk = computed(() => data.value?.suc_khoe_sau);
     </header>
 
     <div class="hp-form">
+      <ActivePersonBar />
       <div class="hp-row">
-        <label>Ngày-giờ sinh
-          <input type="datetime-local" v-model="inputBirth" />
-        </label>
-        <label>Giới
-          <select v-model="inputGender">
-            <option value="nam">Nam</option>
-            <option value="nữ">Nữ</option>
-          </select>
-        </label>
         <label>Tuổi hiện tại
           <input type="number" v-model="inputAge" placeholder="VD: 37" min="0" max="120" />
         </label>

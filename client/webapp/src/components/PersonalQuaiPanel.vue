@@ -6,6 +6,7 @@ import {
   serializableMembers,
 } from "../stores/familyStore.js";
 import { useActivePersonBirth } from "../stores/useActivePersonBirth.js";
+import ActivePersonBar from "./ActivePersonBar.vue";
 
 const TRIGRAM_ELEMENT = {
   "Càn": "kim", "Đoài": "kim", "Ly": "hỏa", "Chấn": "mộc",
@@ -122,10 +123,7 @@ function isToday(d) {
     </p>
 
     <div class="pq-form">
-      <label>
-        <span>Ngày giờ sinh (giờ địa phương)</span>
-        <input v-model="inputBirth" type="datetime-local" step="60" />
-      </label>
+      <ActivePersonBar />
       <label>
         <span>Số ngày tới</span>
         <input v-model.number="inputSpan" type="number" min="7" max="90" step="1" />

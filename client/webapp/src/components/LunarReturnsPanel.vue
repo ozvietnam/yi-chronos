@@ -2,6 +2,7 @@
 import { ref } from "vue";
 import { getLunarReturns } from "../lib/api";
 import { useActivePersonBirth } from "../stores/useActivePersonBirth.js";
+import ActivePersonBar from "./ActivePersonBar.vue";
 
 const SIGN_VI = {
   aries: "Bạch Dương", taurus: "Kim Ngưu", gemini: "Song Tử",
@@ -80,7 +81,7 @@ function fmtDateTime(iso) {
     </p>
 
     <div class="lr-form">
-      <label><span>Ngày giờ sinh</span><input v-model="inputBirth" type="datetime-local" step="60" /></label>
+      <ActivePersonBar />
       <div class="lr-loc">
         <label><span>Vĩ độ</span><input v-model="inputLat" type="number" step="0.0001" /></label>
         <label><span>Kinh độ</span><input v-model="inputLon" type="number" step="0.0001" /></label>

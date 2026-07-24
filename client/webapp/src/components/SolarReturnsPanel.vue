@@ -2,6 +2,7 @@
 import { computed, ref } from "vue";
 import { getSolarReturns } from "../lib/api";
 import { useActivePersonBirth } from "../stores/useActivePersonBirth.js";
+import ActivePersonBar from "./ActivePersonBar.vue";
 
 const SIGN_VI = {
   aries: "Bạch Dương", taurus: "Kim Ngưu", gemini: "Song Tử",
@@ -98,11 +99,9 @@ function toggleExpand(age) {
       ra lá số "năm cá nhân" — đọc cùng lá số sinh để hiểu chủ đề năm đó.
     </p>
 
+    <ActivePersonBar />
+
     <div class="sr-form">
-      <label>
-        <span>Ngày giờ sinh</span>
-        <input v-model="inputBirth" type="datetime-local" step="60" />
-      </label>
       <div class="sr-loc">
         <label>
           <span>Vĩ độ</span>

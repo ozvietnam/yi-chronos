@@ -22,7 +22,7 @@ import DaiVanPanel from "./DaiVanPanel.vue";
 import LuuNienPanel from "./LuuNienPanel.vue";
 import VanHanPanel from "./VanHanPanel.vue";
 import TuViVsCDKCompare from "./TuViVsCDKCompare.vue";
-import TuViPersonSwitcher from "./TuViPersonSwitcher.vue";
+import ActivePersonBar from "./ActivePersonBar.vue";
 import TuVi3LayerPanel from "./TuVi3LayerPanel.vue";
 // Nút "📖 xem sao" → CHUYỂN sang tab Thư viện + mở đúng sao (App xử lý). Hợp nhất
 // 1 nơi tra sao duy nhất (bỏ drawer nhúng cũ — kiến-thức-trên-chart, Anh chốt tách sạch).
@@ -70,7 +70,7 @@ const oracleCards = ref([]);
 const selectedOracleCard = ref(null);
 
 // Nhập ngày sinh 1 lần ở profile → tự điền + an sao luôn; đổi profile → an lại người mới.
-useActivePersonBirth(inputBirth, { onReady: castChart });
+useActivePersonBirth(inputBirth, { onReady: castChart, genderRef: inputGender });
 
 // Branch index → (row, col) in 4×4 grid (clockwise from Tỵ at top-left).
 const BRANCH_TO_GRID = {
@@ -883,20 +883,10 @@ const grid = computed(() => {
       <em>iztro (MIT)</em> + sách Tử Vi Sài Gòn / xemtuong.net.
     </p>
 
-    <TuViPersonSwitcher />
+    <ActivePersonBar />
 
     <div class="tvls-form">
-      <label>
-        <span>Sinh thần</span>
-        <input v-model="inputBirth" type="datetime-local" />
-      </label>
-      <label>
-        <span>Giới tính</span>
-        <select v-model="inputGender">
-          <option value="nam">TA Nam</option>
-          <option value="nữ">TA Nữ</option>
-        </select>
-      </label>
+      <!-- Ngày-giờ sinh + giới tính: nhập 1 lần ở tab Hồ sơ (ActivePersonBar trên). -->
       <label>
         <span>Múi giờ</span>
         <input v-model="inputTimezone" type="text" />

@@ -19,8 +19,13 @@ import { onMounted, watch } from "vue";
 import { activePerson } from "./userDataStore.js";
 
 export function useActivePersonBirth(birthRef, opts = {}) {
-  const { onLatLon, onReady } = opts;
+  const { onLatLon, onReady, genderRef } = opts;
   let lastSynced = null; // birth value gần nhất ta tự điền — để phân biệt với edit tay
+
+  // Giới tính cũng lấy từ hồ sơ (một nguồn) — panel bỏ ô chọn giới, tự theo profile.
+  function syncGender() {
+    if (genderRef && activePerson.value?.gender) genderRef.value = activePerson.value.gender;
+  }
 
   function fire(val) {
     if (!onReady) return;
@@ -32,6 +37,7 @@ export function useActivePersonBirth(birthRef, opts = {}) {
   }
 
   function sync(force) {
+    syncGender();
     const val = activePerson.value?.birth_datetime_local;
     if (!val) return;
     // Đẩy giá trị khi: ô rỗng | force (đổi người) | chưa bị sửa tay kể từ lần đồng bộ trước.

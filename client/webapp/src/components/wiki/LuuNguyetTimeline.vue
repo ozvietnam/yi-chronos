@@ -10,6 +10,7 @@
 import { ref, computed, onMounted } from "vue";
 import HexagramSvg from "./diagrams/HexagramSvg.vue";
 import { useActivePersonBirth } from "../../stores/useActivePersonBirth.js";
+import ActivePersonBar from "../ActivePersonBar.vue";
 
 // Birth datetime — user nhập, không hardcode founder (privacy 2026-05-27).
 const birthSolar = ref("");
@@ -113,10 +114,7 @@ useActivePersonBirth(birthSolar, { onReady: loadTimeline });
     </header>
 
     <div class="lnt-form">
-      <label>
-        <span>Sinh:</span>
-        <input type="datetime-local" v-model="birthSolar" />
-      </label>
+      <ActivePersonBar />
       <label>
         <span>3 năm so sánh:</span>
         <input v-model="yearChiList[0]" placeholder="Giáp Thìn" />

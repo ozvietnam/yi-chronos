@@ -2,6 +2,7 @@
 import { computed, ref, watch } from "vue";
 import { castBatTu, castHaLac, batTuLuanGiai, batTuLuuNien, batTuHonNhan, batTuSuNghiep, batTuTaiVan, batTuSucKhoe, batTuLuanGiaiSoiNhieuSach, batTuGlossaryLookup, haLacLuanGiai, haLacLuanGiaiSau } from "../lib/api";
 import { useActivePersonBirth } from "../stores/useActivePersonBirth.js";
+import ActivePersonBar from "./ActivePersonBar.vue";
 import { saveCasting, activePerson } from "../stores/userDataStore.js";
 import { isAuthenticated } from "../stores/authStore.js";
 import HexagramImage from "./HexagramImage.vue";
@@ -98,7 +99,7 @@ const loading = ref(false);
 const errorMsg = ref("");
 
 // Nhập ngày sinh 1 lần ở profile → tự điền + tự chạy kết quả; đổi profile → chạy lại người mới.
-useActivePersonBirth(inputBirth, { onReady: castAll });
+useActivePersonBirth(inputBirth, { onReady: castAll, genderRef: inputGender });
 
 const { openSlug, openHexagram, closeHexagram } = useHexagramModal();
 
@@ -470,18 +471,9 @@ function formatSolarDateTime(iso) {
       </button>
     </div>
 
+    <ActivePersonBar />
+
     <div class="bt-form">
-      <label>
-        <span>Sinh thần (datetime-local)</span>
-        <input v-model="inputBirth" type="datetime-local" />
-      </label>
-      <label>
-        <span>Giới tính</span>
-        <select v-model="inputGender">
-          <option value="nam">TA Nam</option>
-          <option value="nữ">TA Nữ</option>
-        </select>
-      </label>
       <label>
         <span>Múi giờ</span>
         <input v-model="inputTimezone" type="text" />

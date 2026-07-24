@@ -377,8 +377,15 @@ function handleLucHaoCastResult(payload) {
 
 const { startReadingPrefs } = useReadingPrefs();
 
+// ActivePersonBar "Đổi người / Nhập ở tab Hồ sơ" → chuyển sang tab quản lý hồ sơ.
+function onNavTab(e) {
+  const tab = e?.detail;
+  if (typeof tab === "string" && tab) activeMainTab.value = tab;
+}
+
 onMounted(() => {
   startReadingPrefs(); // apply saved reading theme + text scale to <html>
+  window.addEventListener("yi-nav-tab", onNavTab);
   clockTimer = window.setInterval(() => {
     now.value = new Date();
   }, 1000);
@@ -401,6 +408,7 @@ onMounted(() => {
 });
 
 onBeforeUnmount(() => {
+  window.removeEventListener("yi-nav-tab", onNavTab);
   window.clearInterval(clockTimer);
   window.clearInterval(universeRefreshTimer);
 });

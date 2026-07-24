@@ -2,6 +2,7 @@
 import { ref, onMounted, watch, computed } from "vue";
 import { castThanSo, thanSoReportPdf, thanSoGlossary, thanSoCompatibility, thanSoCompatibilityPdf } from "../lib/api.js";
 import { activePerson } from "../stores/userDataStore.js";
+import ActivePersonBar from "./ActivePersonBar.vue";
 
 const form = ref({
   name: "",
@@ -239,10 +240,7 @@ const ARC = {
         <span>Tên đang dùng <em class="ts-opt">tuỳ chọn · Minor</em></span>
         <input v-model="form.currentName" type="text" placeholder="tên thường gọi (nếu khác)" autocomplete="off" />
       </label>
-      <label class="ts-field">
-        <span>Ngày sinh</span>
-        <input v-model="form.birthDate" type="date" />
-      </label>
+      <ActivePersonBar />
       <label class="ts-field">
         <span>Thứ tự tên</span>
         <select v-model="form.nameOrder">
