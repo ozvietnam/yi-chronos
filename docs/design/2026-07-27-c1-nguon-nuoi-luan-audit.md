@@ -165,7 +165,7 @@ Orphan / mỏng UI: bat_phap · thap_du · (ba_vong/nhân_cung đã vào warning
 | Bước | Việc | Done khi |
 |---|---|---|
 | **C1** (báo cáo này) | Audit + diet map + fill order | ✅ file này |
-| **C2a** | Seed/verify `sao_noi_dung` cho gap phụ trên 4 cung (P0) | `doc_mot_cung` founder: n_thieu Điền ≤ 2; Văn Tinh có def |
+| **C2a** | Seed/verify `sao_noi_dung` cho gap phụ trên 4 cung (P0) | ✅ 2026-07-27 — xem §8 |
 | **C2b** | Queue verify commentaries chuỗi đất (P1) — tool UI hoặc batch Anh duyệt | ≥ N commentaries fv=1 trên Phúc+Mệnh |
 | **C2c** | Siết retriever `require` fv_comm=1 khi N đủ; optional inject vào deep_cung | test expert_context + deep_cung |
 | **C2d** | ket_hop / đa sách cân bằng (P2) | lop3 không còn luôn 0 trên lá mẫu có cách |
@@ -189,3 +189,27 @@ Orphan / mỏng UI: bat_phap · thap_du · (ba_vong/nhân_cung đã vào warning
 2. **Đói thật = phụ tinh per-cung + Văn Tinh + Điền mỏng** trên lá user.  
 3. **7712 commentaries là kho chết-nửa-sống:** Hermes đã nối GAP-1 nhưng chưa có fv=1 → không nâng được thành nguồn “được phép nói chắc”.  
 4. Fill order đúng: **P0 sao_noi_dung phụ trên 4 cung → P1 verify commentary → P2 ket_hop/đa phái** — không parallel “viết thêm LLM commentary” trước khi Anh duyệt.
+
+---
+
+## 8. C2a — Đã seed (2026-07-27)
+
+**Script:** `scripts/seed_c2a_p0_sao_noi_dung.py` (provenance shingle ≥ 0.85 → `founder_verified=1`).
+
+| Insert | Nguồn |
+|---|---|
+| Văn Tinh · def ×2 | Hàm Số p.191 + Thiên Lương (anh em Lộc Tồn) |
+| Văn Tinh · Mệnh | Hàm Số p.191 §cung |
+| Lưu Hà · Mệnh | Hàm Số p.190 (thay hàng cũ fv=-1 bịa) |
+| Thiên Hỉ · Mệnh | Vũ Tài Lục p.62–63 |
+| Ân Quang · Phụ Mẫu | Hàm Số p.148 Quang Quý mọi cung |
+| Thiên Quý · Điền Trạch | cùng Quang Quý |
+| Quan Phù · Phúc Đức | Hàm Số p.197 |
+
+**Founder `doc_la_so_tien_trinh` sau seed:** n_gap **17 → 12**.  
+Điền n_thieu 6→4 · Mệnh 4→2 · Phụ 5→4. Văn Tinh đã có def.
+
+**Book silence còn lại (không bịa):**  
+Tả Phù@Phúc · Thiếu Âm@Phúc · Lực Sĩ/Tai Sát/Thai Phụ/Phượng Các@Phụ · Quan Phù/Tiểu Hao/Chỉ Bối/Văn Tinh@Điền · Thiếu Dương/Bác Sĩ@Mệnh.
+
+Mục tiêu “Điền ≤ 2” **chưa đạt** vì sách trong kho không có luận riêng sao×Điền cho 4 sao còn lại — đúng kỷ luật quote-or-silence.
