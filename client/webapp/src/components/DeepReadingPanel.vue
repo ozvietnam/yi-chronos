@@ -5,7 +5,7 @@
  * 30-90s → poll → hiện bản văn xuôi đầy đủ. Login-gated; trừ 99 xu (hoàn nếu lỗi).
  */
 import { ref, computed, onMounted, onUnmounted } from "vue";
-import { activePerson } from "../stores/userDataStore.js";
+import { activePerson, personLabel } from "../stores/userDataStore.js";
 import { sessionToken } from "../stores/authStore.js";
 
 const result = ref(null);
@@ -20,7 +20,7 @@ function stopTimers() {
   if (tickTimer) { clearInterval(tickTimer); tickTimer = null; }
 }
 
-const personName = computed(() => activePerson.value?.name || "người đang xem");
+const personName = computed(() => (activePerson.value ? personLabel(activePerson.value) : "người đang xem"));
 const personKey = computed(() => activePerson.value?.person_key || "self");
 const hasBirth = computed(() => !!activePerson.value?.birth_datetime_local);
 

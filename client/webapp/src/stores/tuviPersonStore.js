@@ -9,7 +9,7 @@
  */
 import { computed, ref, watch } from "vue";
 import { currentPerson, sessionToken } from "./authStore.js";
-import { activePerson, setActivePerson } from "./userDataStore.js";
+import { activePerson, setActivePerson, personLabel } from "./userDataStore.js";
 
 // Fallback DUY NHẤT cho person ad-hoc không có key (guest gõ tay, chưa lưu hồ sơ).
 // activePerson (hồ sơ tài khoản) LUÔN ưu tiên → hai picker không bao giờ lệch.
@@ -28,7 +28,7 @@ export const tuviPersonKey = computed(() => {
 export const tuviPersonName = computed(() => {
   const p = tuviPerson.value;
   if (!p) return "anh (Founder)";
-  return p.name || p.full_name || p.person_id || "?";
+  return personLabel(p);           // coi 'self'/'_founder'/rỗng như chưa có tên → nhãn quan hệ
 });
 
 export const tuviPersonBirth = computed(() => tuviPerson.value?.birth_datetime_local || "");

@@ -52,6 +52,21 @@ def _resolve(firebase_uid: str = "", person_key: str = "self", *,
     return uid, person
 
 
+def _is_owner(uid: Optional[int]) -> bool:
+    """Chủ tài khoản (role='owner') luôn được luận sâu — bỏ cổng gói VIP + không trừ lượt.
+    (Bug live 2026-07: owner bị 'hết lượt' vì thiếu row user_subscriptions trên prod.)"""
+    if uid is None:
+        return False
+    try:
+        with session_scope(service=True) as conn:
+            row = conn.execute(
+                text("SELECT role FROM users WHERE user_id=:u"), {"u": uid},
+            ).fetchone()
+        return bool(row and row[0] == "owner")
+    except Exception:
+        return False
+
+
 def _generate(person: dict, user_id: int) -> dict:
     """Sinh luận sâu — bọc engine có sẵn. Chỉ chart facts đi vào LLM (pseudonymous)."""
     from engine.tu_vi.analyzer import Person, TuViAnalyzer
@@ -72,9 +87,10 @@ def precheck(firebase_uid: str = "", person_key: str = "self", *,
         return {"ok": False, "code": 404, "reason": "not_synced"}
     if not person or not person.get("birth_datetime_local"):
         return {"ok": False, "code": 422, "reason": "missing_birth"}
-    access = subs.check_access(uid, FEATURE)
-    if not access["allowed"]:
-        return {"ok": False, "code": 403, "reason": access["reason"]}
+    if not _is_owner(uid):                       # owner luôn qua cổng
+        access = subs.check_access(uid, FEATURE)
+        if not access["allowed"]:
+            return {"ok": False, "code": 403, "reason": access["reason"]}
     return {"ok": True, "user_id": uid}
 
 
@@ -91,9 +107,11 @@ def run_deep_reading(firebase_uid: str = "", person_key: str = "self", *,
     if not person or not person.get("birth_datetime_local"):
         return {"status": "error", "reason": "missing_birth"}
 
-    access = subs.check_access(uid, FEATURE)
-    if not access["allowed"]:
-        return {"status": "denied", "reason": access["reason"]}
+    owner = _is_owner(uid)
+    if not owner:                                # owner luôn qua cổng gói VIP
+        access = subs.check_access(uid, FEATURE)
+        if not access["allowed"]:
+            return {"status": "denied", "reason": access["reason"]}
 
     # Đặt-chỗ ngân sách ATOMIC (master plan §5): ghi trước 1 khoản ước lượng. Nếu
     # sẽ vượt cap → từ chối, KHÔNG gọi LLM. Đóng cửa sổ TOCTOU khi nhiều request
@@ -129,7 +147,7 @@ def run_deep_reading(firebase_uid: str = "", person_key: str = "self", *,
                  "res": json.dumps(result, ensure_ascii=False), "av": av,
                  "now": int(time.time())},
             ).scalar()
-        usage = subs.consume_use(uid, FEATURE)
+        usage = {"ok": True, "remaining_uses": None} if owner else subs.consume_use(uid, FEATURE)
     except Exception:
         _refund()
         raise

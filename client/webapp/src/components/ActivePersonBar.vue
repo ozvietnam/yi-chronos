@@ -7,7 +7,7 @@
  * Đọc từ MỘT NGUỒN: userDataStore.activePerson. Đổi người = setActivePerson (mọi panel theo).
  */
 import { computed } from "vue";
-import { persons, activePerson, activePersonKey, setActivePerson } from "../stores/userDataStore.js";
+import { persons, activePerson, activePersonKey, setActivePerson, personLabel } from "../stores/userDataStore.js";
 
 const hasPerson = computed(() => !!activePerson.value);
 const list = computed(() => persons.value || []);
@@ -27,7 +27,7 @@ function goProfiles() { window.dispatchEvent(new CustomEvent("yi-nav-tab", { det
   <div class="apb">
     <template v-if="hasPerson">
       <span class="apb-ic">👤</span>
-      <span class="apb-name">{{ activePerson.name || activePerson.person_id || "Hồ sơ" }}</span>
+      <span class="apb-name">{{ personLabel(activePerson) }}</span>
       <span class="apb-meta">
         sinh {{ fmtBirth(activePerson.birth_datetime_local) }} <em>dương</em>
         <template v-if="activePerson.gender"> · {{ activePerson.gender }}</template>
@@ -40,7 +40,7 @@ function goProfiles() { window.dispatchEvent(new CustomEvent("yi-nav-tab", { det
         @change="onSwitch"
       >
         <option v-for="p in list" :key="p.person_key || p.person_id" :value="p.person_key || p.person_id">
-          {{ p.name || p.person_id }}
+          {{ personLabel(p) }}
         </option>
       </select>
       <button type="button" class="apb-link" @click="goProfiles" title="Thêm / sửa hồ sơ ở tab Hồ sơ">

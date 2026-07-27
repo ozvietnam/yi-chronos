@@ -6,6 +6,7 @@
  * Download PDF/DOCX/MD. Share via token. Archive. View stats.
  */
 import { ref, computed, onMounted } from "vue";
+import { relationshipLabel } from "../stores/userDataStore.js";
 
 const data = ref(null);
 const shares = ref([]);
@@ -206,7 +207,7 @@ onMounted(loadAll);
           <div>
             <h3>{{ pub.title }}</h3>
             <small>
-              👤 {{ pub.person_key }} ·
+              👤 {{ relationshipLabel(pub.person_key) }} ·
               📝 {{ formatBytes(pub.total_chars || 0) }} ·
               💰 ${{ (pub.cost_usd || 0).toFixed(4) }}
             </small>
@@ -251,7 +252,7 @@ onMounted(loadAll);
       <article v-for="s in shares" :key="s.id" class="pub-share-card">
         <div class="pub-share-info">
           <strong>{{ s.pub_title }}</strong>
-          <small>{{ s.person_key }} · {{ s.access_count }} lượt xem{{ s.max_accesses ? '/' + s.max_accesses : '' }}</small>
+          <small>{{ relationshipLabel(s.person_key) }} · {{ s.access_count }} lượt xem{{ s.max_accesses ? '/' + s.max_accesses : '' }}</small>
           <small v-if="s.expires_at">⏰ Hết hạn: {{ formatDate(s.expires_at) }}</small>
           <small v-if="s.note">💬 {{ s.note }}</small>
         </div>

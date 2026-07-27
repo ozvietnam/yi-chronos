@@ -254,7 +254,10 @@ def upsert_from_firebase(
         person_key = "self"
         if req.birth is not None:
             b = req.birth
-            name = req.display_name or "self"
+            # KHÔNG ghi literal "self" vào NAME (chỉ là khóa). name rỗng → None để UPDATE
+            # dùng COALESCE giữ tên đẹp cũ; INSERT mới thì lấy display_name / "Bạn".
+            name = (req.display_name or "").strip() or None
+            insert_name = name or (display_name or "").strip() or "Bạn"
             existing_p = conn.execute(
                 text("SELECT id FROM user_persons WHERE user_id=:id AND person_key=:pk"),
                 {"id": user_id, "pk": person_key},
@@ -262,7 +265,7 @@ def upsert_from_firebase(
             if existing_p:
                 conn.execute(
                     text("""UPDATE user_persons
-                               SET name=:name, gender=COALESCE(:g, gender),
+                               SET name=COALESCE(:name, name), gender=COALESCE(:g, gender),
                                    birth_datetime_local=COALESCE(:bdt, birth_datetime_local),
                                    timezone=:tz, birth_place=COALESCE(:bp, birth_place),
                                    updated_at=:now
@@ -276,7 +279,7 @@ def upsert_from_firebase(
                                 gender, birth_datetime_local, timezone, birth_place,
                                 created_at, updated_at)
                             VALUES (:id,'self',:name,'self',:g,:bdt,:tz,:bp,:now,:now)"""),
-                    {"id": user_id, "name": name, "g": b.gender, "bdt": b.datetime_local,
+                    {"id": user_id, "name": insert_name, "g": b.gender, "bdt": b.datetime_local,
                      "tz": b.timezone, "bp": b.birth_place, "now": now},
                 )
 

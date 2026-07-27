@@ -7,7 +7,7 @@
  * để panel set thêm tên/giới. mode="date" → nhả YYYY-MM-DD; mặc định datetime YYYY-MM-DDTHH:mm.
  */
 import { computed } from "vue";
-import { persons, activePersonKey } from "../stores/userDataStore.js";
+import { persons, activePersonKey, personLabel } from "../stores/userDataStore.js";
 
 const props = defineProps({
   modelValue: { type: String, default: "" },
@@ -49,7 +49,7 @@ function goProfiles() { window.dispatchEvent(new CustomEvent("yi-nav-tab", { det
     <select class="pp-sel" :value="selectedKey" @change="onPick" :aria-label="label">
       <option value="">— {{ label }} —</option>
       <option v-for="p in list" :key="p.person_key || p.person_id" :value="p.person_key || p.person_id">
-        {{ p.name || p.person_id }}<template v-if="p.birth_datetime_local"> · {{ p.birth_datetime_local.slice(0, 10) }}</template>
+        {{ personLabel(p) }}<template v-if="p.birth_datetime_local"> · {{ p.birth_datetime_local.slice(0, 10) }}</template>
       </option>
     </select>
     <button type="button" class="pp-add" @click="goProfiles" title="Thêm người ở tab Hồ sơ">＋ Hồ sơ</button>

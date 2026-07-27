@@ -11,6 +11,7 @@
  * được Chính Chấn/Tốn (Hằng) — bằng chứng đầu tay cho trường năng lượng ngày.
  */
 import { ref, computed, onMounted } from "vue";
+import { relationshipLabel } from "../../stores/userDataStore.js";
 
 const CHI_OPTIONS = [
   "Tý", "Sửu", "Dần", "Mão", "Thìn", "Tỵ",
@@ -192,7 +193,7 @@ const hasResults = computed(() => result.value && result.value.n_casts > 0);
               <td class="td-intent">{{ r.intent }}</td>
               <td><b>{{ r.the_que }}</b> <small>({{ r.the_hanh }})</small></td>
               <td>{{ r.dung_que }} <small>({{ r.dung_hanh }})</small></td>
-              <td>{{ r.relationship.replace("_", " ") }}</td>
+              <td>{{ relationshipLabel(r.relationship) }}</td>
               <td :class="'aus-' + r.auspice">{{ r.auspice.toUpperCase() }}</td>
             </tr>
           </tbody>

@@ -63,6 +63,26 @@ export const activeBirthDatetime = computed(() => {
   return p?.birth_datetime_local || "";
 });
 
+// Nhãn quan hệ tiếng Việt cho person_key/relationship (tránh lòi khóa thô ra UI).
+const RELATION_LABEL = {
+  self: "Bản thân", wife: "Vợ", husband: "Chồng", spouse: "Bạn đời",
+  child: "Con", child_1: "Con", child_2: "Con", father: "Cha", mother: "Mẹ",
+  partner: "Đối phương", crush: "Người thương",
+};
+// Tên hiển thị AN TOÀN: coi khóa thô ('self','_founder','') là CHƯA có tên →
+// rơi về nhãn quan hệ / "Bạn". Chặn bug name bị ghi ='self' lọt ra giao diện.
+export function personLabel(p) {
+  const raw = (p?.name || "").trim();
+  if (raw && raw !== "self" && raw !== "_founder") return raw;
+  const key = p?.relationship || p?.person_key || "";
+  return RELATION_LABEL[key] || "Bạn";
+}
+// Nhãn từ 1 khóa quan hệ/person_key trần (khi chỉ có chuỗi, không có object).
+export function relationshipLabel(key) {
+  const k = String(key || "").trim();
+  return RELATION_LABEL[k] || (k && k !== "self" && k !== "_founder" ? k : "Bản thân");
+}
+
 // ─── API operations ──────────────────────────────────────────────────────────
 
 export async function loadMyPersons() {
