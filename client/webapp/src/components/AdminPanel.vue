@@ -619,7 +619,7 @@ const actionIcon = {
       <button :class="{ active: subTab === 'dashboard' }" @click="subTab = 'dashboard'">📊 Tổng quan</button>
       <button :class="{ active: subTab === 'users' }" @click="subTab = 'users'">👥 Users</button>
       <button :class="{ active: subTab === 'audit' }" @click="subTab = 'audit'">📜 Audit log</button>
-      <button :class="{ active: subTab === 'vip' }" @click="subTab = 'vip'">✨ VIP & Subscriptions</button>
+      <button :class="{ active: subTab === 'vip' }" @click="subTab = 'vip'">🗄 Gói VIP (lưu trữ)</button>
       <button :class="{ active: subTab === 'xu' }" @click="subTab = 'xu'">💰 Doanh thu / Xu</button>
       <button :class="{ active: subTab === 'activity' }" @click="subTab = 'activity'">💬 Hỏi đáp</button>
     </nav>
@@ -926,6 +926,11 @@ const actionIcon = {
 
     <!-- ─── VIP / SUBSCRIPTIONS ───────────────────────────────────────────── -->
     <section v-if="subTab === 'vip'" class="ap-section">
+      <p class="ap-vip-legacy">
+        🗄 <b>Gói VIP đã ngừng dùng</b> (2026-07-27) — hệ thống chỉ còn <b>MỘT loại tiền: XU</b>.
+        Bảng dưới giữ lại để <b>tra cứu lịch sử</b>; cấp gói ở đây <b>không còn tác dụng</b>.
+        Muốn cho user dùng dịch vụ → sang tab <b>💰 Doanh thu / Xu</b> (hoặc Users → Ví Xu) để <b>cấp xu</b>.
+      </p>
       <div class="ap-toolbar">
         <select v-model="vipFilterFeature" @change="loadVipData()">
           <option value="">Tất cả feature</option>
@@ -1225,6 +1230,9 @@ const actionIcon = {
 .ap-sub-tabs button.active { color: #fde68a; border-bottom-color: #f59e0b; }
 
 .ap-section { position: relative; }
+.ap-vip-legacy { margin: 0 0 12px; padding: 9px 12px; border-radius: 8px; line-height: 1.6;
+  border: 1px dashed rgba(230,190,120,.45); background: rgba(230,190,120,.08);
+  color: var(--read-text-dim, rgba(230,238,245,.85)); font-size: .9rem; }
 .ap-refresh {
   position: absolute; top: 0; right: 0;
   background: #334155; border: 1px solid #475569; color: #cbd5e1;
