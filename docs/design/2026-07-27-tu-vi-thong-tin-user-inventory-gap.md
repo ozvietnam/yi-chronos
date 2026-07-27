@@ -351,6 +351,9 @@ Chú giải: **●** user-facing đủ method · **◐** có nhưng lệch metho
 9. Nối `atom_commentaries` + filter fv vào phê mệnh / 3-layer / Hermes.  
 10. Phủ Ngũ Uẩn 8 lớp: ưu tiên 14 chính tinh mẫu duyệt từng sao (lộ trình thủ thư).
 
+→ **C1 audit xong (2026-07-27):** `docs/design/2026-07-27-c1-nguon-nuoi-luan-audit.md`  
+  Verdict: 14 chính×4 cung đã đầy; đói = phụ per-cung + Văn Tinh + commentaries fv=1=0. Fill: P0 phụ → P1 verify commentary → P2 ket_hop.
+
 ### Hạng D — Đủ catalog cổ còn mỏng
 
 11. Map **biến cách** Q1 (106) có chọn lọc vào engine.  
