@@ -4,7 +4,7 @@
  * Phê mệnh DeepSeek async (mirror Hội Đồng nhưng KHÔNG câu hỏi/sage): bấm → chạy ngầm
  * 30-90s → poll → hiện bản văn xuôi đầy đủ. Login-gated; trừ 99 xu (hoàn nếu lỗi).
  */
-import { ref, computed, onMounted, onUnmounted } from "vue";
+import { ref, computed, onMounted, onUnmounted, watch } from "vue";
 import { activePerson, personLabel } from "../stores/userDataStore.js";
 import { sessionToken } from "../stores/authStore.js";
 
@@ -58,7 +58,18 @@ function authHeaders() {
   return h;
 }
 
-async function runDeep() {
+// Nạp bản ĐÃ LƯU (miễn phí) khi mở panel / đổi người → không phải luận lại + trả xu lần nữa.
+async function loadLatest() {
+  if (!hasBirth.value) return;
+  try {
+    const r = await fetch(`/api/hermes/deep-reading/latest?person_key=${encodeURIComponent(personKey.value)}`,
+      { headers: authHeaders(), credentials: "include" });
+    const d = await r.json();
+    if (d && d.status === "done" && d.phe_menh) result.value = d;
+  } catch { /* im lặng — chỉ là nạp sẵn */ }
+}
+
+async function runDeep(force = false) {
   if (!hasBirth.value) { err.value = "Người đang xem chưa có giờ sinh — chọn người có giờ sinh để luận."; return; }
   loading.value = true; err.value = ""; result.value = null; elapsed.value = 0;
   stopTimers();
@@ -66,7 +77,7 @@ async function runDeep() {
   try {
     const r = await fetch("/api/hermes/deep-reading/enqueue", {
       method: "POST", headers: authHeaders(), credentials: "include",
-      body: JSON.stringify({ person_key: personKey.value }),
+      body: JSON.stringify({ person_key: personKey.value, force }),
     });
     const d = await r.json();
     if (!r.ok) { err.value = d.detail || `Lỗi ${r.status}`; loading.value = false; stopTimers(); return; }
@@ -110,7 +121,9 @@ function resumePending() {     // quay lại trang khi job còn chạy → tiế
   }
 }
 
-onMounted(resumePending);
+onMounted(() => { loadLatest(); resumePending(); });
+// Đổi người đang xem → xóa kết quả cũ + nạp bản đã lưu của người mới (nếu có).
+watch(personKey, () => { result.value = null; err.value = ""; loadLatest(); });
 onUnmounted(stopTimers);
 </script>
 
@@ -122,8 +135,8 @@ onUnmounted(stopTimers);
         (gợi mở, đọc đồng dạng, <b>không tiên tri</b>). Bản văn xuôi đầy đủ, chạy ngầm 30-90 giây.</p>
     </header>
 
-    <div class="dr-actions">
-      <button class="dr-run" :disabled="loading || !hasBirth" @click="runDeep">
+    <div v-if="!(result && result.status === 'done')" class="dr-actions">
+      <button class="dr-run" :disabled="loading || !hasBirth" @click="runDeep(false)">
         {{ loading ? `💎 Đang luận sâu… (${elapsed}s)` : "💎 Luận Sâu Trọn Đời (99 xu)" }}
       </button>
       <span v-if="!hasBirth" class="dr-note">Chọn người có giờ sinh để luận.</span>
@@ -133,8 +146,12 @@ onUnmounted(stopTimers);
     <p v-if="err" class="dr-err">⚠ {{ err }}</p>
 
     <div v-if="result" class="dr-result">
-      <p v-if="result.status === 'denied' || result.code === 403" class="dr-err">
-        Chưa đủ điều kiện / hết lượt cho Luận Sâu (99 xu).<span v-if="result.reason"> ({{ result.reason }})</span>
+      <p v-if="result.status === 'insufficient_xu' || result.code === 402" class="dr-err">
+        Không đủ xu để luận sâu — cần <b>{{ result.need || 99 }} xu</b>, ví đang có {{ result.have ?? 0 }} xu.
+        Nạp thêm xu ở ví rồi luận nhé.
+      </p>
+      <p v-else-if="result.status === 'denied' || result.code === 403" class="dr-err">
+        Chưa dùng được Luận Sâu.<span v-if="result.reason"> ({{ result.reason }})</span>
       </p>
       <p v-else-if="result.code === 404 || result.status === 'not_synced'" class="dr-err">
         Hồ sơ chưa sẵn sàng để luận.
@@ -150,9 +167,14 @@ onUnmounted(stopTimers);
           <h3>{{ s.label }}</h3>
           <div class="dr-sec-body">{{ s.text }}</div>
         </section>
-        <p v-if="!sections.length" class="dr-note">Đã luận xong (lá #{{ result.casting_id }}) nhưng nội dung trống — thử lại sau.</p>
+        <p v-if="!sections.length" class="dr-note">Đã luận xong nhưng nội dung trống — thử luận lại.</p>
         <p v-if="result.paradigm_note" class="dr-paradigm">{{ result.paradigm_note }}</p>
-        <p v-if="result.remaining_uses != null" class="dr-note">Còn {{ result.remaining_uses }} lượt luận sâu.</p>
+        <div v-if="sections.length" class="dr-actions">
+          <p class="dr-note">✅ Bản đã lưu — mở lại <b>miễn phí</b>, không trừ xu.</p>
+          <button class="dr-rerun" :disabled="loading" @click="runDeep(true)">
+            🔄 Luận lại (99 xu)
+          </button>
+        </div>
       </template>
     </div>
   </div>
@@ -167,6 +189,9 @@ onUnmounted(stopTimers);
   cursor: pointer; background: linear-gradient(135deg, #b45309, #f59e0b); color: #fff;
   box-shadow: 0 2px 10px rgba(180,83,9,.3); }
 .dr-run:disabled { opacity: .6; cursor: wait; }
+.dr-rerun { padding: .4rem .9rem; border: 1px solid var(--read-border, #ccc); border-radius: 7px;
+  background: transparent; color: var(--read-muted, #b45309); cursor: pointer; font-size: .9rem; }
+.dr-rerun:disabled { opacity: .5; cursor: wait; }
 .dr-note { font-size: .82rem; color: var(--read-muted, #888); }
 .dr-progress { color: var(--read-muted, #666); background: rgba(245,158,11,.07); border: 1px dashed rgba(180,83,9,.3);
   padding: .55rem .8rem; border-radius: 8px; font-size: .9rem; line-height: 1.6; margin: .5rem 0; }

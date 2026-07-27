@@ -20,10 +20,12 @@ from sqlalchemy import text
 
 from engine import llm_spend
 from engine import subscriptions as subs
+from engine import xu_wallet
 from engine.algo_version import algo_version
 from engine.db import is_postgres, session_scope
 
 FEATURE = "tu_vi_phe_menh_sau"
+DEEP_XU = xu_wallet.XU_COST.get("deep", 99)   # giá luận sâu trọn lá số (thống nhất về XU 2026-07-27)
 
 
 def _resolve(firebase_uid: str = "", person_key: str = "self", *,
@@ -67,6 +69,42 @@ def _is_owner(uid: Optional[int]) -> bool:
         return False
 
 
+def _latest_saved(uid: int, person_key: str) -> Optional[dict]:
+    """Bản luận sâu ĐÃ LƯU gần nhất cho (user, person) khớp algo_version hiện tại →
+    tái dùng, KHÔNG trừ xu, KHÔNG sinh lại (chống tính tiền 2 lần khi mở lại — Anh 2026-07-27)."""
+    av = algo_version("tu_vi")
+    try:
+        with session_scope(service=True) as conn:
+            row = conn.execute(
+                text("""SELECT result_json FROM user_castings
+                        WHERE user_id=:u AND subject_person_key=:pk AND method='tu_vi'
+                          AND tags LIKE '%deep%' AND algo_version=:av
+                        ORDER BY created_at DESC, id DESC LIMIT 1"""),
+                {"u": uid, "pk": person_key, "av": av},
+            ).fetchone()
+    except Exception:
+        return None
+    if not row or not row[0]:
+        return None
+    try:
+        return row[0] if isinstance(row[0], dict) else json.loads(row[0])
+    except Exception:
+        return None
+
+
+def get_latest(firebase_uid: str = "", person_key: str = "self", *,
+               user_id: Optional[int] = None) -> Optional[dict]:
+    """Trả bản luận sâu đã lưu (KHÔNG trừ tiền) cho endpoint nạp-lại khi mở panel."""
+    uid, _ = _resolve(firebase_uid, person_key, user_id=user_id)
+    if uid is None:
+        return None
+    r = _latest_saved(uid, person_key)
+    if not r:
+        return None
+    return {"status": "done", "cached": True, "phe_menh": r.get("phe_menh"),
+            "paradigm_note": r.get("paradigm_note"), "provider": r.get("provider")}
+
+
 def _generate(person: dict, user_id: int) -> dict:
     """Sinh luận sâu — bọc engine có sẵn. Chỉ chart facts đi vào LLM (pseudonymous)."""
     from engine.tu_vi.analyzer import Person, TuViAnalyzer
@@ -87,19 +125,23 @@ def precheck(firebase_uid: str = "", person_key: str = "self", *,
         return {"ok": False, "code": 404, "reason": "not_synced"}
     if not person or not person.get("birth_datetime_local"):
         return {"ok": False, "code": 422, "reason": "missing_birth"}
-    if not _is_owner(uid):                       # owner luôn qua cổng
-        access = subs.check_access(uid, FEATURE)
-        if not access["allowed"]:
-            return {"ok": False, "code": 403, "reason": access["reason"]}
+    if _is_owner(uid):                                    # chủ tài khoản: luôn được
+        return {"ok": True, "user_id": uid}
+    if _latest_saved(uid, person_key):                   # đã luận rồi → mở lại MIỄN PHÍ
+        return {"ok": True, "user_id": uid, "cached": True}
+    bal = xu_wallet.get_balance(uid)                     # chưa có → cần đủ xu
+    if bal < DEEP_XU:
+        return {"ok": False, "code": 402, "reason": "insufficient_xu",
+                "need": DEEP_XU, "have": bal}
     return {"ok": True, "user_id": uid}
 
 
 def run_deep_reading(firebase_uid: str = "", person_key: str = "self", *,
-                     user_id: Optional[int] = None,
+                     user_id: Optional[int] = None, force: bool = False,
                      generate: Optional[Callable[[dict, int], dict]] = None) -> dict:
-    """Chạy 1 lần luận sâu end-to-end. KHÔNG idempotent (mỗi lần gọi = 1 lần tốn
-    tiền LLM + 1 lần trừ lượt) → task gọi nó phải at-most-once (xem deepread_run).
-    Chỉ record_spend + consume_use khi generation + save THÀNH CÔNG."""
+    """Chạy 1 lần luận sâu end-to-end. THỐNG NHẤT XU (2026-07-27):
+    cache (đã luận → trả lại MIỄN PHÍ, không sinh lại) → trừ DEEP_XU (owner miễn) →
+    sinh LLM → lưu user_castings → HOÀN xu nếu lỗi. force=True = luận lại (vẫn trừ xu)."""
     generate = generate or _generate
     uid, person = _resolve(firebase_uid, person_key, user_id=user_id)
     if uid is None:
@@ -108,23 +150,40 @@ def run_deep_reading(firebase_uid: str = "", person_key: str = "self", *,
         return {"status": "error", "reason": "missing_birth"}
 
     owner = _is_owner(uid)
-    if not owner:                                # owner luôn qua cổng gói VIP
-        access = subs.check_access(uid, FEATURE)
-        if not access["allowed"]:
-            return {"status": "denied", "reason": access["reason"]}
 
-    # Đặt-chỗ ngân sách ATOMIC (master plan §5): ghi trước 1 khoản ước lượng. Nếu
-    # sẽ vượt cap → từ chối, KHÔNG gọi LLM. Đóng cửa sổ TOCTOU khi nhiều request
-    # đồng thời (khác over_daily_budget 'mềm').
+    # CACHE: đã luận rồi (và không ép luận lại) → trả bản cũ, KHÔNG trừ tiền, KHÔNG sinh lại.
+    if not force:
+        cached = _latest_saved(uid, person_key)
+        if cached:
+            return {"status": "done", "cached": True,
+                    "phe_menh": cached.get("phe_menh"),
+                    "paradigm_note": cached.get("paradigm_note"),
+                    "provider": cached.get("provider"),
+                    "xu_balance": xu_wallet.get_balance(uid)}
+
+    # TRỪ XU (owner miễn phí). Thiếu xu → dừng, KHÔNG gọi LLM.
+    charged = False
+    if not owner:
+        sp = xu_wallet.spend(uid, DEEP_XU, f"deep_reading:{person_key}")
+        if not sp.get("ok"):
+            return {"status": "denied", "reason": "insufficient_xu",
+                    "need": sp.get("need", DEEP_XU), "have": sp.get("have", 0)}
+        charged = True
+
+    # Đặt-chỗ ngân sách ATOMIC (cost-safety USD, tách khỏi ví xu người dùng).
     est = float(subs.FEATURE_CATALOG.get(FEATURE, {}).get("cost_estimate_usd", 0.05))
     if not llm_spend.try_charge(cost_usd=est, feature=FEATURE, model="reserve",
                                 user_id=str(uid)):
+        if charged:
+            xu_wallet.grant(uid, DEEP_XU, f"refund_deep_reading:{person_key}")
         return {"status": "budget_exceeded"}
 
     def _refund():
-        # hoàn lại khoản đặt-chỗ bằng dòng âm (giữ "không tính tiền khi lỗi").
+        # hoàn khoản đặt-chỗ USD + HOÀN XU đã trừ (giữ "không tính tiền khi lỗi").
         llm_spend.record_spend(provider="reserve", cost_usd=-est, feature=FEATURE,
                                model="refund", user_id=str(uid))
+        if charged:
+            xu_wallet.grant(uid, DEEP_XU, f"refund_deep_reading:{person_key}")
 
     try:
         result = generate(person, uid)
@@ -147,7 +206,6 @@ def run_deep_reading(firebase_uid: str = "", person_key: str = "self", *,
                  "res": json.dumps(result, ensure_ascii=False), "av": av,
                  "now": int(time.time())},
             ).scalar()
-        usage = {"ok": True, "remaining_uses": None} if owner else subs.consume_use(uid, FEATURE)
     except Exception:
         _refund()
         raise
@@ -165,9 +223,9 @@ def run_deep_reading(firebase_uid: str = "", person_key: str = "self", *,
                                tokens_out=int(toks.get("completion") or 0),
                                user_id=str(uid))
     return {
-        "status": "done", "casting_id": cid, "algo_version": av,
+        "status": "done", "cached": False, "casting_id": cid, "algo_version": av,
         "provider": result.get("provider"),
         "phe_menh": result.get("phe_menh"),               # nội dung luận để frontend render
         "paradigm_note": result.get("paradigm_note"),
-        "remaining_uses": usage.get("remaining_uses") if usage.get("ok") else None,
+        "xu_balance": xu_wallet.get_balance(uid),
     }

@@ -2965,6 +2965,7 @@ def hermes_council_job(job_id: str, http_request: Request) -> dict:
 
 class DeepReadingWebRequest(BaseModel):
     person_key: str = "self"
+    force: bool = False   # True = luận LẠI (trừ xu mới); False = dùng bản đã lưu nếu có (miễn phí)
 
 
 @app.post("/api/hermes/deep-reading/enqueue")
@@ -2977,10 +2978,12 @@ def hermes_deep_reading_enqueue(req: DeepReadingWebRequest, http_request: Reques
     from engine.deep_reading import precheck
     pc = precheck(user_id=user["user_id"], person_key=req.person_key)
     if not pc.get("ok"):
-        return {"status": pc.get("reason", "error"), "code": pc.get("code")}
+        return {"status": pc.get("reason", "error"), "code": pc.get("code"),
+                "need": pc.get("need"), "have": pc.get("have")}
     try:
         from engine.tasks.jobs import deepread_run
-        res = deepread_run.delay(user_id=user["user_id"], person_key=req.person_key)
+        res = deepread_run.delay(user_id=user["user_id"], person_key=req.person_key,
+                                 force=req.force)
         return {"status": "processing", "job_id": res.id}
     except Exception as e:
         logging.getLogger(__name__).warning("deep-reading enqueue failed (broker?): %s", e)
@@ -3000,6 +3003,17 @@ def hermes_deep_reading_job(job_id: str, http_request: Request) -> dict:
     elif res.failed():
         out["error"] = str(res.result)[:300]
     return out
+
+
+@app.get("/api/hermes/deep-reading/latest")
+def hermes_deep_reading_latest(http_request: Request, person_key: str = "self") -> dict:
+    """Bản Luận Sâu ĐÃ LƯU gần nhất (MIỄN PHÍ, không trừ xu) — frontend nạp khi mở panel
+    để không phải luận lại + trả tiền lần nữa (Anh 2026-07-27)."""
+    from api.auth import require_user
+    user = require_user(http_request)
+    from engine.deep_reading import get_latest
+    saved = get_latest(user_id=user["user_id"], person_key=person_key)
+    return saved or {"status": "empty"}
 
 
 @app.get("/api/chan-dung")

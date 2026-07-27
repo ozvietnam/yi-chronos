@@ -40,7 +40,7 @@ def nightly_compat_precompute(self) -> dict:
 @celery_app.task(name="yi.deepread.run", bind=True, max_retries=0,
                  acks_late=False, queue="q_deepread")
 def deepread_run(self, *, firebase_uid: str = "", person_key: str = "self",
-                 user_id: int | None = None) -> dict:
+                 user_id: int | None = None, force: bool = False) -> dict:
     """H5 (#38) — luận sâu DeepSeek async. Gọi orchestration (gating + ngân sách +
     sinh + lưu lịch sử + consume). Heavy LLM → chạy ở worker q_deepread.
     AppChat truyền firebase_uid; web (login) truyền user_id trực tiếp.
@@ -49,7 +49,7 @@ def deepread_run(self, *, firebase_uid: str = "", person_key: str = "self",
     (mỗi lần chạy = 1 lần gọi LLM tốn tiền + 1 lần trừ lượt). Nếu worker crash giữa
     chừng → job mất, KHÔNG redeliver → tránh double-charge. User gọi lại nếu cần."""
     from engine.deep_reading import run_deep_reading
-    return run_deep_reading(firebase_uid, person_key, user_id=user_id)
+    return run_deep_reading(firebase_uid, person_key, user_id=user_id, force=force)
 
 
 @celery_app.task(name="yi.hermes.council_run", bind=True, max_retries=0,

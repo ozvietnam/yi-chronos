@@ -1,5 +1,6 @@
-"""H5 — luận sâu DeepSeek: orchestration (gating + ngân sách + lưu lịch sử +
-consume) trên 2 driver, generation MOCK (không gọi DeepSeek thật) + endpoint gating.
+"""H5 — luận sâu DeepSeek: orchestration THỐNG NHẤT XU (2026-07-27):
+cache (đã luận → miễn phí) → trừ 99 xu (owner miễn) → sinh (MOCK) → lưu → HOÀN nếu lỗi.
+Chạy 2 driver, generation MOCK (không gọi DeepSeek thật) + endpoint gating.
 """
 from __future__ import annotations
 
@@ -11,7 +12,7 @@ from sqlalchemy import text
 import engine.db as db
 import engine.deep_reading as dr
 import engine.llm_spend as llm_spend
-import engine.subscriptions as subs
+import engine.xu_wallet as xu_wallet
 
 PG_DSN = os.environ.get("YI_TEST_PG_DSN", "").strip()
 BACKENDS = ["sqlite"] + (["pg"] if PG_DSN else [])
@@ -24,11 +25,11 @@ def _stub_ok(person, uid):
 
 
 def _stub_must_not_call(person, uid):
-    raise AssertionError("generate KHÔNG được gọi (gating/ngân sách phải chặn trước)")
+    raise AssertionError("generate KHÔNG được gọi (cache/xu/ngân sách phải chặn trước)")
 
 
-def _seed(uid="uid_h5", *, birth=True, sub=True, remaining=1):
-    import api.auth as auth
+def _seed(uid="uid_h5", *, birth=True, xu=500):
+    """Tạo user (role=user) + person self + nạp `xu` vào ví (thay gói VIP cũ)."""
     with db.session_scope(service=True) as conn:
         user_id = conn.execute(
             text("INSERT INTO users(email,display_name,password_hash,password_salt,"
@@ -43,8 +44,8 @@ def _seed(uid="uid_h5", *, birth=True, sub=True, remaining=1):
                      "(:u,'self','U','nam','1988-06-05T23:30:00','Asia/Ho_Chi_Minh',1)"),
                 {"u": user_id},
             )
-    if sub:
-        subs.grant_subscription(user_id, dr.FEATURE, tier="vip1", remaining_uses=remaining)
+    if xu:
+        xu_wallet.grant(user_id, xu, "test_seed")
     return user_id
 
 
@@ -66,7 +67,8 @@ def backend(request, tmp_path, monkeypatch):
             db.apply_schema(conn)
         with db.session_scope(service=True) as conn:
             conn.execute(text("TRUNCATE users, user_persons, user_castings, "
-                              "user_subscriptions, llm_spend RESTART IDENTITY CASCADE"))
+                              "user_subscriptions, xu_wallet, xu_ledger, llm_spend "
+                              "RESTART IDENTITY CASCADE"))
     db.get_engine.cache_clear()
     yield request.param
     db.get_engine.cache_clear()
@@ -74,52 +76,81 @@ def backend(request, tmp_path, monkeypatch):
 
 # ─── orchestration ───────────────────────────────────────────────────────────
 
-def test_happy_path_charges_and_saves(backend):
-    uid = _seed(remaining=1)
+def test_happy_path_charges_xu_and_saves(backend):
+    uid = _seed(xu=500)
     r = dr.run_deep_reading("uid_h5", generate=_stub_ok)
     assert r["status"] == "done" and r["casting_id"] >= 1
-    assert r["remaining_uses"] == 0                 # consume_use đã trừ
-    assert llm_spend.day_total() > 0                # record_spend
-    # lịch sử lưu đúng (method tu_vi, tag deep)
+    assert r["cached"] is False
+    assert xu_wallet.get_balance(uid) == 500 - dr.DEEP_XU     # trừ đúng 99 xu
+    assert llm_spend.day_total() > 0                          # record_spend (cost-safety)
     with db.session_scope(service=True) as conn:
         row = conn.execute(text("SELECT method, tags FROM user_castings WHERE id=:i"),
                            {"i": r["casting_id"]}).fetchone()
     assert row[0] == "tu_vi" and "deep" in row[1]
 
 
+def test_cache_reload_does_not_charge_again(backend):
+    """GỐC bug Anh 2026-07-27: mở lại KHÔNG được trừ xu lần nữa."""
+    uid = _seed(xu=500)
+    r1 = dr.run_deep_reading("uid_h5", generate=_stub_ok)
+    assert r1["cached"] is False and xu_wallet.get_balance(uid) == 500 - dr.DEEP_XU
+    # gọi LẠI (không force) → trả bản cũ, KHÔNG trừ thêm, KHÔNG sinh lại
+    r2 = dr.run_deep_reading("uid_h5", generate=_stub_must_not_call)
+    assert r2["status"] == "done" and r2["cached"] is True
+    assert xu_wallet.get_balance(uid) == 500 - dr.DEEP_XU     # y nguyên, không trừ lần 2
+    # get_latest cũng trả bản cũ, không trừ
+    assert dr.get_latest(user_id=uid)["phe_menh"]
+    assert xu_wallet.get_balance(uid) == 500 - dr.DEEP_XU
+
+
+def test_force_reruns_and_charges(backend):
+    uid = _seed(xu=500)
+    dr.run_deep_reading("uid_h5", generate=_stub_ok)
+    r = dr.run_deep_reading("uid_h5", force=True, generate=_stub_ok)   # luận lại → trừ tiếp
+    assert r["cached"] is False
+    assert xu_wallet.get_balance(uid) == 500 - 2 * dr.DEEP_XU
+
+
+def test_owner_free(backend):
+    """Chủ tài khoản (role=owner) luận sâu KHÔNG trừ xu."""
+    uid = _seed(xu=0)
+    with db.session_scope(service=True) as conn:
+        conn.execute(text("UPDATE users SET role='owner' WHERE user_id=:u"), {"u": uid})
+    r = dr.run_deep_reading("uid_h5", generate=_stub_ok)
+    assert r["status"] == "done" and xu_wallet.get_balance(uid) == 0
+
+
 def test_user_id_path_web(backend):
-    """Web (login) truyền user_id TRỰC TIẾP (không firebase_uid) → vẫn luận + trả phe_menh
-    trong result (cho frontend render). Mirror council dùng user_id."""
-    uid = _seed(remaining=1)
-    pc = dr.precheck(user_id=uid)                   # precheck TRƯỚC khi tiêu lượt → ok
+    uid = _seed(xu=500)
+    pc = dr.precheck(user_id=uid)
     assert pc["ok"] is True and pc["user_id"] == uid
     r = dr.run_deep_reading(user_id=uid, generate=_stub_ok)
-    assert r["status"] == "done" and r["casting_id"] >= 1
-    assert r.get("phe_menh")                       # nội dung luận có trong return (web render)
+    assert r["status"] == "done" and r.get("phe_menh")
 
 
 def test_records_real_provider_cost(backend):
-    """Cost ghi vào ledger là cost THẬT provider báo (không phải catalog phẳng)."""
-    _seed(remaining=1)
+    _seed(xu=500)
     def gen(person, uid):
         return {"status": "ok", "provider": "anthropic", "cost_usd": 0.42,
                 "tokens": {"prompt": 1200, "completion": 800}, "phe_menh": "…"}
     r = dr.run_deep_reading("uid_h5", generate=gen)
     assert r["status"] == "done"
-    assert abs(llm_spend.day_total() - 0.42) < 1e-6   # cost thật, không phải 0.05
+    assert abs(llm_spend.day_total() - 0.42) < 1e-6
 
 
-def test_denied_without_subscription(backend):
-    _seed(sub=False)
+def test_denied_without_xu(backend):
+    uid = _seed(xu=0)
     r = dr.run_deep_reading("uid_h5", generate=_stub_must_not_call)
-    assert r["status"] == "denied" and r["reason"] == "no_subscription"
+    assert r["status"] == "denied" and r["reason"] == "insufficient_xu"
+    assert r["need"] == dr.DEEP_XU
 
 
-def test_budget_hard_stop_blocks_before_llm(backend, monkeypatch):
-    _seed(remaining=5)
+def test_budget_hard_stop_refunds_xu(backend, monkeypatch):
+    uid = _seed(xu=500)
     monkeypatch.setenv("LLM_DAILY_BUDGET_USD", "0")   # ngân sách 0 → luôn over
     r = dr.run_deep_reading("uid_h5", generate=_stub_must_not_call)
     assert r["status"] == "budget_exceeded"
+    assert xu_wallet.get_balance(uid) == 500          # xu đã trừ được HOÀN
 
 
 def test_not_synced(backend):
@@ -128,17 +159,16 @@ def test_not_synced(backend):
 
 
 def test_missing_birth(backend):
-    _seed(birth=False)
+    _seed(birth=False, xu=500)
     r = dr.run_deep_reading("uid_h5", generate=_stub_must_not_call)
     assert r["status"] == "error" and r["reason"] == "missing_birth"
 
 
-def test_generation_error_does_not_charge(backend):
-    uid = _seed(remaining=1)
+def test_generation_error_refunds_xu(backend):
+    uid = _seed(xu=500)
     r = dr.run_deep_reading("uid_h5", generate=lambda p, u: {"status": "error", "message": "x"})
     assert r["status"] == "error" and r["reason"] == "generation_failed"
-    # KHÔNG trừ lượt khi sinh lỗi
-    assert subs.check_access(uid, dr.FEATURE)["subscription"]["remaining_uses"] == 1
+    assert xu_wallet.get_balance(uid) == 500          # HOÀN xu khi sinh lỗi
     assert llm_spend.day_total() == 0
 
 
@@ -152,7 +182,6 @@ def client(backend):
 
 
 def test_endpoint_requires_service_key(client):
-    from fastapi.testclient import TestClient  # noqa
     r = client.post("/api/sync/deep-reading", json={"firebase_uid": "x"})
     assert r.status_code == 401
 
@@ -162,19 +191,18 @@ def test_endpoint_404_not_synced(client):
     assert r.status_code == 404
 
 
-def test_endpoint_403_no_subscription(client):
-    _seed(sub=False)
+def test_endpoint_402_no_xu(client):
+    _seed(xu=0)
     r = client.post("/api/sync/deep-reading", json={"firebase_uid": "uid_h5"}, headers=HDR)
-    assert r.status_code == 403
+    assert r.status_code == 402
 
 
 def test_endpoint_enqueue_eager(client, monkeypatch):
-    _seed(remaining=1)
-    # eager + stub orchestration → không gọi DeepSeek thật
+    _seed(xu=500)
     from engine.tasks.celery_app import celery_app
     celery_app.conf.task_always_eager = True
     monkeypatch.setattr(dr, "run_deep_reading",
-                        lambda uid, pk="self": {"status": "done", "casting_id": 1})
+                        lambda *a, **k: {"status": "done", "casting_id": 1})
     try:
         r = client.post("/api/sync/deep-reading", json={"firebase_uid": "uid_h5"}, headers=HDR)
         assert r.status_code == 200 and r.json()["status"] == "processing"
