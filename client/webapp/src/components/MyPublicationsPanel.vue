@@ -151,7 +151,7 @@ onMounted(loadAll);
   <section class="pub-panel">
     <header class="pub-head">
       <div>
-        <h2>📚 Hồ sơ Kết quả của tôi</h2>
+        <h2>📚 Kết quả đã sinh của tôi</h2>
         <p class="pub-sub">
           Tất cả bản đã sinh thành — PDF · Word · Markdown. Share token cho người thân.
         </p>
