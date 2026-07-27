@@ -445,6 +445,7 @@ async function loadAll() {
 const noiTamLuan = ref("");
 const noiTamLoading = ref(false);
 const noiTamError = ref("");
+const noiTamCached = ref(false);   // bản đã lưu → xem lại miễn phí
 
 async function loadNoiTam() {
   const person = activePerson.value;
@@ -460,15 +461,19 @@ async function loadNoiTam() {
         }
       : null;
   if (!chartPayload) { noiTamError.value = "Chưa chọn người hoặc thiếu giờ sinh để luận."; return; }
-  noiTamLoading.value = true; noiTamError.value = ""; noiTamLuan.value = "";
+  noiTamLoading.value = true; noiTamError.value = ""; noiTamLuan.value = ""; noiTamCached.value = false;
   try {
     const resp = await fetch("/api/tu-vi/q4/cdk/luan-noi-tam", {
       method: "POST", headers: { "Content-Type": "application/json" },
       credentials: "include", body: JSON.stringify(chartPayload),
     });
     const data = await resp.json();
-    if (data.status === "ok") noiTamLuan.value = data.luan || "";
-    else noiTamError.value = data.message || `Lỗi ${resp.status}`;
+    if (data.status === "ok") {
+      noiTamLuan.value = data.luan || "";
+      noiTamCached.value = cdkIsCached(data);
+    } else {
+      noiTamError.value = cdkXuBlocked(data) || data.message || `Lỗi ${resp.status}`;
+    }
   } catch (e) {
     noiTamError.value = String(e.message || e);
   } finally {
@@ -707,24 +712,38 @@ const selectedBranchInfo = computed(() => {
   };
 });
 
-// ─── Deep interpretation by DeepSeek (VIP) ─────────────────────────────────
+// ─── Deep interpretation by DeepSeek — TRẢ BẰNG XU (ví trung tâm) ───────────
+// Owner miễn phí · đã có bản lưu (cache) → xem lại MIỄN PHÍ · sinh mới → trừ xu.
 const cdkDeepInterp = ref({});  // {branchKey: {loading, data, error}}
-const cdkDeepFeature = ref(null);  // VIP feature status
 const cdkUserRole = ref(null);  // 'owner' | 'user' | null
+const cdkLoggedIn = ref(false);
+
+// 💰 Bảng giá xu (khớp CDK_XU trong api/tu_vi_routes.py)
+const CDK_XU = { cung: 10, noi_tam: 10, luu_nien: 30, dai_han: 30, toan_bo: 99 };
 
 async function loadCdkDeepFeature() {
   try {
     const r = await fetch('/api/user/my-vip-features', { credentials: 'include' });
     if (!r.ok) return;
     const d = await r.json();
-    // API returns { subscriptions: [...], catalog: [...] }
-    const sub = (d.subscriptions || []).find((s) => s.feature_id === 'tu_vi_cdk_luan_cung');
-    cdkDeepFeature.value = sub || null;
-    // Also check if user is owner (always allowed) via separate field if present
-    cdkUserRole.value = d.user_role || (d.role) || null;
+    cdkUserRole.value = d.user_role || d.role || null;
+    cdkLoggedIn.value = Boolean(d.user_id || d.user_role);
   } catch (e) {
-    console.warn('Cannot load VIP features:', e);
+    console.warn('Cannot load user role:', e);
   }
+}
+
+/** Trả về chuỗi lỗi thân thiện khi backend chặn vì thiếu xu, ngược lại null. */
+function cdkXuBlocked(data) {
+  if (!data || data.reason !== 'insufficient_xu') return null;
+  const need = data.need ?? '?';
+  const have = data.have ?? 0;
+  return data.message || `Không đủ xu — cần ${need} xu, ví đang có ${have} xu.`;
+}
+
+/** Bản vừa nhận có phải bản lưu (xem lại miễn phí) không? */
+function cdkIsCached(data) {
+  return Boolean(data && (data.from_cache || data.xu_spent === 0));
 }
 
 // ───── BULK luận toàn bộ 12 cung (1 lần ~3-5 phút) ─────
@@ -806,7 +825,7 @@ async function loadLuuNien(force = false) {
     if (data.status === 'ok') {
       cdkLuuNien.value = data;
     } else {
-      cdkLuuNienError.value = data.message || 'Lỗi không xác định';
+      cdkLuuNienError.value = cdkXuBlocked(data) || data.message || 'Lỗi không xác định';
     }
   } catch (e) {
     cdkLuuNienError.value = String(e.message || e);
@@ -906,7 +925,7 @@ async function loadDaiHan(force = false) {
     if (data.status === 'ok') {
       cdkDaiHan.value = data;
     } else {
-      cdkDaiHanError.value = data.message || 'Lỗi không xác định';
+      cdkDaiHanError.value = cdkXuBlocked(data) || data.message || 'Lỗi không xác định';
     }
   } catch (e) {
     cdkDaiHanError.value = String(e.message || e);
@@ -1014,7 +1033,7 @@ async function loadDeepInterpAll(force = false) {
         tokens: data.tokens,
       };
     } else {
-      cdkBulkError.value = data.message || 'Lỗi không xác định';
+      cdkBulkError.value = cdkXuBlocked(data) || data.message || 'Lỗi không xác định';
     }
   } catch (e) {
     cdkBulkError.value = String(e.message || e);
@@ -1056,7 +1075,7 @@ async function loadDeepInterp(branch, force = false) {
     if (data.status === 'ok') {
       slot.data = data;
     } else {
-      slot.error = data.message || 'Lỗi không xác định';
+      slot.error = cdkXuBlocked(data) || data.message || 'Lỗi không xác định';
     }
   } catch (e) {
     slot.error = String(e.message || e);
@@ -1072,31 +1091,13 @@ function getDeepInterpSlot(branch) {
   return cdkDeepInterp.value[key] || { loading: false, data: null, error: null };
 }
 
-const cdkDeepFeatureStatus = computed(() => {
-  // Owner always allowed regardless of subscription
-  if (cdkUserRole.value === 'owner') {
-    return { allowed: true, label: '👑 Owner — không giới hạn', reason: 'owner' };
-  }
-  const sub = cdkDeepFeature.value;
-  if (!sub) return { allowed: false, label: '🔒 Chưa cấp VIP1', reason: 'no_subscription' };
-  if (!sub.enabled) return { allowed: false, label: '🔒 Bị tắt', reason: 'disabled' };
-  // Check expiry
-  if (sub.expires_at) {
-    const now = Math.floor(Date.now() / 1000);
-    if (now > sub.expires_at) return { allowed: false, label: '🔒 Đã hết hạn', reason: 'expired' };
-  }
-  // Check remaining uses
-  if (sub.remaining_uses !== null && sub.remaining_uses !== undefined && sub.remaining_uses <= 0) {
-    return { allowed: false, label: '🔒 Hết lượt', reason: 'no_uses_left' };
-  }
-  const remainingLabel = sub.remaining_uses == null ? '∞' : sub.remaining_uses;
-  return {
-    allowed: true,
-    label: `✓ VIP1 — Còn ${remainingLabel} lượt`,
-    reason: 'ok',
-    remaining: sub.remaining_uses,
-  };
-});
+// KHÔNG còn cổng gói VIP — mọi tính năng thu bằng XU (backend tự chặn nếu thiếu).
+// Nút luôn bấm được; nhãn chỉ hiện GIÁ. Owner miễn phí, bản đã lưu xem lại miễn phí.
+/** Nhãn giá cho từng loại luận — owner thì miễn phí. */
+function cdkPriceLabel(kind) {
+  if (cdkUserRole.value === 'owner') return 'miễn phí (owner)';
+  return `${CDK_XU[kind]} xu`;
+}
 </script>
 
 <template>
@@ -1130,10 +1131,13 @@ const cdkDeepFeatureStatus = computed(() => {
             <span>Giọng trầm-sâu, soi cốt cách tâm hồn &amp; chỗ khắc khoải. KHÔNG tiên tri — đọc đồng dạng (Bắc phái, 18 Phi Tinh).</span>
           </div>
           <button class="cdk-noitam-btn" :disabled="noiTamLoading" @click="loadNoiTam">
-            {{ noiTamLoading ? "Đang soi nội tâm…" : (noiTamLuan ? "Luận lại" : "Luận nội tâm") }}
+            {{ noiTamLoading
+              ? "Đang soi nội tâm…"
+              : (noiTamLuan ? `Luận lại (${cdkPriceLabel('noi_tam')})` : `Luận nội tâm (${cdkPriceLabel('noi_tam')})`) }}
           </button>
         </div>
         <p v-if="noiTamError" class="cdk-error">⚠ {{ noiTamError }}</p>
+        <p v-if="noiTamCached" class="cdk-cache-note">✅ Bản đã lưu — xem lại miễn phí</p>
         <div v-if="noiTamLuan" class="cdk-noitam-body">{{ noiTamLuan }}</div>
       </div>
 
@@ -1372,12 +1376,12 @@ Verdict: {{ st.meaning.summary }}</title></text>
               <p v-for="(para, i) in selectedBranchInfo.quickInterpretation" :key="i" v-html="renderMarkdownInline(para)"></p>
             </section>
 
-            <!-- VIP Deep interpretation by DeepSeek V4 Pro -->
+            <!-- Deep interpretation by DeepSeek V4 Pro — trả bằng XU -->
             <section class="cdk-drawer-deep">
               <header class="cdk-deep-head">
                 <h5>🌟 Luận giải SÂU bởi DeepSeek V4 Pro</h5>
-                <span :class="['cdk-vip-badge', cdkDeepFeatureStatus.allowed ? 'is-ok' : 'is-locked']">
-                  {{ cdkDeepFeatureStatus.label }}
+                <span class="cdk-vip-badge is-price">
+                  {{ cdkPriceLabel('toan_bo') }} · 12 cung
                 </span>
               </header>
 
@@ -1415,27 +1419,32 @@ Verdict: {{ st.meaning.summary }}</title></text>
                 <small class="cdk-deep-meta">
                   Provider: {{ getDeepInterpSlot(selectedBranchInfo.branch).data.provider }} ·
                   {{ getDeepInterpSlot(selectedBranchInfo.branch).data.from_bulk ? 'Đã luận cùng 12 cung' : 'Đã lưu wiki ✓' }}
+                  <span v-if="cdkIsCached(getDeepInterpSlot(selectedBranchInfo.branch).data)" class="cdk-cache-note">
+                    · ✅ Bản đã lưu — xem lại miễn phí
+                  </span>
                 </small>
               </div>
 
               <!-- No data: show big bulk button -->
               <div v-else class="cdk-bulk-cta">
+                <p v-if="!cdkLoggedIn" class="cdk-login-note">
+                  🔑 Anh cần <b>đăng nhập</b> để luận (trừ xu từ ví trung tâm).
+                </p>
                 <p class="cdk-bulk-explain">
                   💡 Để tiết kiệm thời gian, anh nên <b>luận TOÀN BỘ 12 cung trong 1 lần</b> (~3-5 phút).
-                  Sau đó click chi nào cũng có sẵn luôn (cache vĩnh viễn).
+                  Sau đó click chi nào cũng có sẵn luôn (bản lưu vĩnh viễn — <b>xem lại miễn phí</b>).
                 </p>
                 <button type="button"
                         class="cdk-deep-btn cdk-bulk-btn"
-                        :disabled="!cdkDeepFeatureStatus.allowed || cdkBulkLoading"
+                        :disabled="cdkBulkLoading"
                         @click="loadDeepInterpAll(false)">
                   <span v-if="cdkBulkLoading">
                     <span class="cdk-spinner"></span>
                     Đang luận 12 cung song song bằng DeepSeek V4 Pro... (~3-5 phút)
                   </span>
-                  <span v-else-if="cdkDeepFeatureStatus.allowed">
-                    🚀 Luận TOÀN BỘ 12 cung CDK (1 lần · ~3-5 phút · tự lưu wiki)
+                  <span v-else>
+                    🚀 Luận TOÀN BỘ 12 cung CDK ({{ cdkPriceLabel('toan_bo') }} · ~3-5 phút · tự lưu wiki)
                   </span>
-                  <span v-else>🔒 {{ cdkDeepFeatureStatus.label }} — không thể luận sâu</span>
                 </button>
                 <p v-if="cdkBulkError" class="cdk-deep-error" style="margin-top: 8px;">
                   ⚠ {{ cdkBulkError }}
@@ -1561,34 +1570,36 @@ Verdict: {{ st.meaning.summary }}</title></text>
           </article>
         </div>
 
-        <!-- VIP button khi chưa có cache -->
+        <!-- Nút luận khi chưa có bản lưu -->
         <div v-else class="cdk-dh-cta">
           <p class="cdk-bulk-explain">
             💡 Engine đã có 8 vòng đại hạn raw (cung + tuổi).
             Bấm bên dưới để DeepSeek V4 Pro luận sâu từng vòng — tổng quan + cơ hội + thử thách + lời khuyên.
+            Đã luận rồi → xem lại <b>miễn phí</b>.
           </p>
           <button type="button"
                   class="cdk-deep-btn cdk-bulk-btn"
-                  :disabled="!cdkDeepFeatureStatus.allowed || cdkDaiHanLoading"
+                  :disabled="cdkDaiHanLoading"
                   @click="loadDaiHan(false)">
             <span v-if="cdkDaiHanLoading">
               <span class="cdk-spinner"></span>
               Đang luận 8 vòng đại hạn... (~4-5 phút)
             </span>
-            <span v-else-if="cdkDeepFeatureStatus.allowed">
-              🌟 Luận sâu 8 vòng Đại Hạn (~5 phút · tự lưu wiki)
+            <span v-else>
+              🌟 Luận sâu 8 vòng Đại Hạn ({{ cdkPriceLabel('dai_han') }} · ~5 phút · tự lưu wiki)
             </span>
-            <span v-else>🔒 {{ cdkDeepFeatureStatus.label }}</span>
           </button>
           <p v-if="cdkDaiHanError" class="cdk-deep-error" style="margin-top: 8px;">
             ⚠ {{ cdkDaiHanError }}
           </p>
         </div>
 
-        <button v-if="cdkDaiHan && cdkDeepFeatureStatus.allowed"
+        <p v-if="cdkIsCached(cdkDaiHan)" class="cdk-cache-note">✅ Bản đã lưu — xem lại miễn phí</p>
+
+        <button v-if="cdkDaiHan"
                 type="button" class="cdk-deep-regen"
                 @click="loadDaiHan(true)">
-          🔄 Viết lại 8 vòng
+          🔄 Viết lại 8 vòng ({{ cdkPriceLabel('dai_han') }})
         </button>
       </section>
 
@@ -1654,34 +1665,36 @@ Verdict: {{ st.meaning.summary }}</title></text>
           </article>
         </transition>
 
-        <!-- VIP button khi chưa có cache -->
+        <!-- Nút luận khi chưa có bản lưu -->
         <div v-if="!cdkLuuNien" class="cdk-dh-cta">
           <p class="cdk-bulk-explain">
             💡 Engine đã tính sẵn can-chi + lưu Thái Tuế cho 10 năm.
             Bấm bên dưới để DeepSeek V4 Pro luận sâu từng năm cụ thể.
+            Đã luận rồi → xem lại <b>miễn phí</b>.
           </p>
           <button type="button"
                   class="cdk-deep-btn cdk-bulk-btn"
-                  :disabled="!cdkDeepFeatureStatus.allowed || cdkLuuNienLoading"
+                  :disabled="cdkLuuNienLoading"
                   @click="loadLuuNien(false)">
             <span v-if="cdkLuuNienLoading">
               <span class="cdk-spinner"></span>
               Đang luận 10 năm... (~5 phút)
             </span>
-            <span v-else-if="cdkDeepFeatureStatus.allowed">
-              📅 Luận sâu 10 năm Lưu Niên (~5 phút · tự lưu wiki)
+            <span v-else>
+              📅 Luận sâu 10 năm Lưu Niên ({{ cdkPriceLabel('luu_nien') }} · ~5 phút · tự lưu wiki)
             </span>
-            <span v-else>🔒 {{ cdkDeepFeatureStatus.label }}</span>
           </button>
           <p v-if="cdkLuuNienError" class="cdk-deep-error" style="margin-top: 8px;">
             ⚠ {{ cdkLuuNienError }}
           </p>
         </div>
 
-        <button v-if="cdkLuuNien && cdkDeepFeatureStatus.allowed"
+        <p v-if="cdkIsCached(cdkLuuNien)" class="cdk-cache-note">✅ Bản đã lưu — xem lại miễn phí</p>
+
+        <button v-if="cdkLuuNien"
                 type="button" class="cdk-deep-regen"
                 @click="loadLuuNien(true)">
-          🔄 Viết lại 10 năm
+          🔄 Viết lại 10 năm ({{ cdkPriceLabel('luu_nien') }})
         </button>
       </section>
 
@@ -2694,6 +2707,21 @@ Verdict: {{ st.meaning.summary }}</title></text>
 .cdk-vip-badge.is-locked {
   background: rgba(167, 139, 250, 0.18);
   color: #c4b5fd;
+}
+.cdk-vip-badge.is-price {
+  background: rgba(252, 211, 77, 0.18);
+  color: #fcd34d;
+  border: 1px solid rgba(252, 211, 77, 0.45);
+}
+.cdk-cache-note {
+  margin: 6px 0;
+  font-size: 12px;
+  color: #5be5d3;
+}
+.cdk-login-note {
+  margin: 0 0 8px;
+  font-size: 12px;
+  color: #fcd34d;
 }
 .cdk-deep-btn {
   width: 100%;

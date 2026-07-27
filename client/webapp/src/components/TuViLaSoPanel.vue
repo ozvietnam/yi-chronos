@@ -51,10 +51,10 @@ const chartStrength = ref(null);  // ⭐ Miếu Vượng Hãm score (Q2 p0102)
 const safetyCheck = ref(null);    // ⭐ Psychological safety patterns
 const pheMenh = ref(null);        // ⭐ Phê mệnh phú thi (Q4 Khang Tiết)
 const pheMenhLoading = ref(false);
-const pheMenhSau = ref(null);     // ⭐ VIP1 — Luận giải sâu (DeepSeek Pro)
+const pheMenhSau = ref(null);     // ⭐ Luận giải sâu (DeepSeek Pro) — trả bằng XU
 const pheMenhSauLoading = ref(false);
 const collapsedSections = ref(new Set());  // ⭐ collapsible 10 sections phê mệnh sâu
-const vipFeatures = ref(null);    // ⭐ VIP subscriptions for current user
+const PHE_MENH_SAU_XU = 99;       // 💰 giá xu (owner miễn · đã có bản lưu → xem lại miễn phí)
 const thienQuanArchetype = ref(null);  // ⭐ Q4 Thiên Quán 36 archetypes
 const loading = ref(false);
 const errorMsg = ref("");
@@ -442,7 +442,6 @@ async function castChart() {
     loadChartStrength();
     loadSafetyCheck();
     loadThienQuanArchetype();
-    loadVipFeatures();
 
     // Auto-save to user_castings (silent — only if logged in)
     if (isAuthenticated.value && resp.la_so) {
@@ -526,40 +525,32 @@ async function loadPheMenh(force = false) {
   }
 }
 
-async function loadVipFeatures() {
-  try {
-    const resp = await fetch("/api/user/my-vip-features").then((r) => r.json());
-    if (resp.status === "ok") vipFeatures.value = resp;
-  } catch (e) { /* silent */ }
-}
-
-function vipFeatureStatus(featureId) {
-  if (!vipFeatures.value) return { hasAccess: false };
-  const sub = (vipFeatures.value.subscriptions || []).find((s) => s.feature_id === featureId);
-  if (!sub) return { hasAccess: false, reason: "no_subscription" };
-  if (!sub.enabled) return { hasAccess: false, reason: "disabled", subscription: sub };
-  const now = Math.floor(Date.now() / 1000);
-  if (sub.expires_at && now > sub.expires_at) return { hasAccess: false, reason: "expired", subscription: sub };
-  if (sub.remaining_uses !== null && sub.remaining_uses <= 0) return { hasAccess: false, reason: "no_uses_left", subscription: sub };
-  return { hasAccess: true, subscription: sub };
-}
-
 async function loadPheMenhSau(force = false) {
   const personKey = activePerson.value?.person_key;
   if (!personKey) return;
   pheMenhSauLoading.value = true;
   try {
+    // Bản đã lưu → xem lại MIỄN PHÍ (không đụng tới ví xu)
     let resp = await fetch(`/api/tu-vi/analyze/${encodeURIComponent(personKey)}/phe_menh_sau`).then((r) => r.json()).catch(() => ({status:"not_cached"}));
+    if (resp.status === "ok" && !force) resp = { ...resp, from_cache: true, xu_spent: 0 };
     if (resp.status !== "ok" || force) {
       resp = await fetch("/api/tu-vi/phe-menh-sau", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
+        credentials: "include",
         body: JSON.stringify({ person_key: personKey, force }),
       }).then((r) => r.json());
     }
     if (resp.status === "ok") {
       pheMenhSau.value = resp;
-      loadVipFeatures(); // reload to update remaining_uses
+    } else if (resp.reason === "insufficient_xu") {
+      // 💰 Backend chặn vì ví thiếu xu — nói rõ cần bao nhiêu / đang có bao nhiêu
+      pheMenhSau.value = {
+        insufficientXu: true,
+        need: resp.need ?? PHE_MENH_SAU_XU,
+        have: resp.have ?? 0,
+        error: resp.message || `Không đủ xu — cần ${resp.need ?? PHE_MENH_SAU_XU} xu, ví đang có ${resp.have ?? 0} xu.`,
+      };
     } else {
       pheMenhSau.value = { error: resp.message || resp.detail || "Tạo phê mệnh sâu thất bại" };
     }
@@ -1454,54 +1445,35 @@ const grid = computed(() => {
         </div>
       </section>
 
-      <!-- ── Luận giải SÂU (VIP1 DeepSeek Pro — 10 sections theo 10 bước) ── -->
+      <!-- ── Luận giải SÂU (DeepSeek Pro — 10 sections theo 10 bước · trả bằng XU) ── -->
       <section v-show="showDeepRead" class="phe-menh-sau-block">
         <header class="pms-head">
-          <h4>🌟 Luận giải SÂU — VIP DeepSeek Pro · 10 bước Trần Đoàn</h4>
+          <h4>🌟 Luận giải SÂU — DeepSeek Pro · 10 bước Trần Đoàn</h4>
           <div class="pms-status">
-            <template v-if="vipFeatureStatus('tu_vi_phe_menh_sau').hasAccess">
-              <span class="pms-badge pms-vip">✓ VIP1</span>
-              <small v-if="vipFeatureStatus('tu_vi_phe_menh_sau').subscription?.remaining_uses !== null" class="pms-remaining">
-                Còn {{ vipFeatureStatus('tu_vi_phe_menh_sau').subscription.remaining_uses }} lượt
-              </small>
-              <small v-if="vipFeatureStatus('tu_vi_phe_menh_sau').subscription?.expires_at" class="pms-expires">
-                Hết hạn: {{ new Date(vipFeatureStatus('tu_vi_phe_menh_sau').subscription.expires_at * 1000).toLocaleDateString('vi-VN') }}
-              </small>
-            </template>
-            <template v-else>
-              <span class="pms-badge pms-locked">🔒 Cần VIP1</span>
-            </template>
+            <span class="pms-badge pms-price">{{ PHE_MENH_SAU_XU }} xu</span>
+            <small class="pms-remaining">Đã luận rồi → xem lại miễn phí</small>
           </div>
         </header>
 
         <p class="pms-intro">
           Phê mệnh SÂU theo <b>10 bước methodology Trần Đoàn</b> (Q4 p0266) — depth gấp 3 lần phê mệnh free tier.
           Dùng <b>DeepSeek Pro</b> với context đầy đủ Q1+Q2+Q3+Q4 + cách cục + case lịch sử + Chiếu Đởm Kinh.
-          ~60 giây · ~$0.05/lượt.
+          ~60 giây · <b>{{ PHE_MENH_SAU_XU }} xu</b> mỗi lần sinh mới.
         </p>
 
-        <template v-if="!vipFeatureStatus('tu_vi_phe_menh_sau').hasAccess">
+        <template v-if="!isAuthenticated">
           <div class="pms-locked-msg">
-            <p>🔒 <b>Tính năng VIP1</b> — anh chưa có quyền dùng. Liên hệ admin để được cấp.</p>
-            <p v-if="vipFeatureStatus('tu_vi_phe_menh_sau').reason === 'expired'" class="pms-locked-reason">
-              ⏰ Subscription đã hết hạn.
-            </p>
-            <p v-else-if="vipFeatureStatus('tu_vi_phe_menh_sau').reason === 'no_uses_left'" class="pms-locked-reason">
-              💧 Hết lượt dùng.
-            </p>
-            <p v-else-if="vipFeatureStatus('tu_vi_phe_menh_sau').reason === 'disabled'" class="pms-locked-reason">
-              ⏸ Tạm dừng bởi admin.
-            </p>
+            <p>🔑 Anh cần <b>đăng nhập</b> để dùng luận giải sâu (trừ xu từ ví).</p>
           </div>
         </template>
 
         <template v-else>
           <div class="pms-actions">
-            <button v-if="!pheMenhSau && !pheMenhSauLoading" class="pms-btn" @click="loadPheMenhSau(false)">
-              🌟 Tạo luận giải SÂU
+            <button v-if="(!pheMenhSau || pheMenhSau.error) && !pheMenhSauLoading" class="pms-btn" @click="loadPheMenhSau(false)">
+              🌟 Tạo luận giải SÂU ({{ PHE_MENH_SAU_XU }} xu)
             </button>
             <button v-if="pheMenhSau && !pheMenhSau.error && !pheMenhSauLoading" class="pms-btn pms-regen" @click="loadPheMenhSau(true)">
-              🔄 Viết lại (-1 lượt)
+              🔄 Viết lại (-{{ PHE_MENH_SAU_XU }} xu)
             </button>
           </div>
 
@@ -1509,7 +1481,16 @@ const grid = computed(() => {
             ⏳ Đang viết phê mệnh SÂU... (~60s — DeepSeek đọc cả Q1+Q2+Q3+Q4 + lá số anh)
           </p>
 
-          <p v-if="pheMenhSau?.error" class="pms-error">⚠ {{ pheMenhSau.error }}</p>
+          <p v-if="pheMenhSau?.from_cache || pheMenhSau?.xu_spent === 0" class="pms-cache-note">
+            ✅ Bản đã lưu — xem lại miễn phí
+          </p>
+
+          <p v-if="pheMenhSau?.error" class="pms-error">
+            <template v-if="pheMenhSau.insufficientXu">
+              💰 Không đủ xu — cần {{ pheMenhSau.need }} xu, ví đang có {{ pheMenhSau.have }} xu.
+            </template>
+            <template v-else>⚠ {{ pheMenhSau.error }}</template>
+          </p>
 
           <div v-if="pheMenhSau?.phe_menh_sau && !pheMenhSau.error" class="pms-content">
             <div class="pms-meta">
@@ -3077,7 +3058,7 @@ const grid = computed(() => {
   border: 1px solid rgba(148, 163, 184, 0.3);
 }
 
-/* ━━━━━━━━ VIP1 Luận giải sâu (DeepSeek Pro) ━━━━━━━━ */
+/* ━━━━━━━━ Luận giải sâu (DeepSeek Pro — trả bằng XU) ━━━━━━━━ */
 .phe-menh-sau-block {
   margin: 24px 0;
   padding: 18px 20px;
@@ -3087,7 +3068,7 @@ const grid = computed(() => {
   position: relative;
 }
 .phe-menh-sau-block::before {
-  content: "✨ VIP";
+  content: "✨ SÂU";
   position: absolute; top: -12px; right: 16px;
   background: linear-gradient(135deg, #f59e0b, #fbbf24);
   color: #1a1a1a; padding: 2px 10px;
@@ -3102,8 +3083,10 @@ const grid = computed(() => {
   font-size: 11px; font-weight: 600;
 }
 .pms-vip { background: rgba(90, 176, 122, 0.2); color: #88d39e; border: 1px solid #5ab07a; }
+.pms-price { background: rgba(245, 158, 11, 0.18); color: #fbbf24; border: 1px solid #f59e0b; }
 .pms-locked { background: rgba(148, 163, 184, 0.2); color: #cbd5e1; border: 1px solid #94a3b8; }
 .pms-remaining, .pms-expires { font-size: 11px; color: rgba(230, 238, 245, 0.7); }
+.pms-cache-note { font-size: 12px; color: #88d39e; margin: 6px 0; }
 .pms-intro {
   font-size: 12.5px; color: rgba(230, 238, 245, 0.85);
   line-height: 1.6; margin: 8px 0;
