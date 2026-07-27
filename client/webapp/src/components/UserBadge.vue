@@ -15,6 +15,14 @@ import {
   logout, listPersons, switchPerson, listUsers, changePassword, registerUser, login, signup,
   forgotPassword, resetPassword,
 } from "../stores/authStore.js";
+// MỘT NGUỒN hồ sơ (Anh 2026-07-18): modal chuyển hồ sơ dùng CÙNG list với tab Hồ sơ +
+// các panel (userDataStore), KHÔNG dùng listPersons cũ (chỉ có seed founder → sót người đã thêm).
+import {
+  persons as accountPersons,
+  activePersonKey,
+  setActivePerson,
+  loadMyPersons,
+} from "../stores/userDataStore.js";
 import WalletModal from "./WalletModal.vue";
 
 const showLogin = ref(false);
@@ -223,21 +231,15 @@ async function handleLogout() {
 async function openSwitchPerson() {
   showMenu.value = false;
   try {
-    const d = await listPersons();
-    persons.value = d.persons || [];
-    showSwitchPersonModal.value = true;
-  } catch (e) {
-    alert(`Lỗi tải danh sách: ${e.message}`);
-  }
+    await loadMyPersons();          // nạp CÙNG list với tab Hồ sơ (mọi hồ sơ đã thêm)
+  } catch (e) { /* vẫn mở modal với list đang có */ }
+  showSwitchPersonModal.value = true;
 }
 
-async function pickPerson(personId) {
-  try {
-    await switchPerson(personId);
-    showSwitchPersonModal.value = false;
-  } catch (e) {
-    alert(e.message);
-  }
+function pickPerson(p) {
+  // Đổi hồ sơ = đặt active person (một nguồn) → mọi panel theo.
+  setActivePerson(p?.person_key || p?.person_id);
+  showSwitchPersonModal.value = false;
 }
 
 async function openUsers() {
@@ -504,16 +506,17 @@ async function submitChangePassword() {
           Mặc định là <code>_founder</code> (anh). Nếu xem cho ai khác, chọn hồ sơ tương ứng.
         </p>
         <ul class="ub-person-list">
-          <li v-for="p in persons" :key="p.person_id">
+          <li v-for="p in accountPersons" :key="p.person_key || p.person_id">
             <button class="ub-person-pick"
-                    :class="{ active: currentPerson?.person_id === p.person_id }"
-                    @click="pickPerson(p.person_id)">
-              <strong>{{ p.name }}</strong>
+                    :class="{ active: (p.person_key || p.person_id) === activePersonKey }"
+                    @click="pickPerson(p)">
+              <strong>{{ p.name || p.person_id }}</strong>
               <small>{{ p.birth_datetime_local }} · {{ p.gender }}</small>
-              <span v-if="p.relationship_to_founder === 'self'" class="ub-tag">Anh</span>
+              <span v-if="p.relationship === 'self' || p.relationship_to_founder === 'self'" class="ub-tag">Anh</span>
             </button>
           </li>
         </ul>
+        <p v-if="!accountPersons.length" class="ub-hint">Chưa có hồ sơ nào — thêm ở tab <strong>Hồ sơ</strong>.</p>
         <div class="ub-modal-actions">
           <button class="ub-btn-secondary" @click="showSwitchPersonModal = false">Đóng</button>
         </div>
