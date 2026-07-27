@@ -1,240 +1,394 @@
-# Nghiên cứu: Tử Vi mang lại thông tin gì cho user? · Inventory kỳ vọng × Đối chiếu sản phẩm YI
+# Nghiên cứu sâu: Tử Vi mang lại thông tin gì? · Phương pháp · Kỳ vọng · Gap sản phẩm
 
-> **Ngày:** 2026-07-27 · **Hướng:** nghiên cứu (không UX đại chúng)  
-> **Câu hỏi Anh:** Xem Tử Vi, user có thể nhận những thông tin gì? Liệt kê kỳ vọng → đối chiếu sản phẩm → gợi ý phần còn thiếu.  
-> **Paradigm:** đọc đồng dạng · CƠ+BIẾN · mệnh = động từ · Iron #3/#4/#6/#8/#9 — **không** liệt kê như menu bói.
-
-**Chứng cứ sản phẩm:** `engine/tu_vi/*` · `api/tu_vi_routes.py` · `TuViLaSoPanel` · thư viện · vận hạn · Gia đạo · CDK · Đằng Sơn · 3-layer · PDF cache.
-
----
-
-## 1. Trả lời ngắn
-
-Tử Vi có thể mang lại **sáu họ thông tin**:
-
-1. **Cấu trúc lá số** — ai đứng ở đâu trên 12 sân khấu  
-2. **Miền đời (12 cung)** — từng khía cạnh quan sát (không bản án)  
-3. **Biến theo thời gian** — Đại Vận → Tiểu Hạn → Lưu niên/nguyệt/tuần/nhật  
-4. **Cách cục & biến hóa** — tổ hợp sao, Tứ Hóa, miếu/hãm  
-5. **Quan hệ / đa lá** — Phu Thê, gia đạo, hợp đĩa, case lịch sử  
-6. **Gương tâm (paradigm YI)** — Ngũ Uẩn, khe tỉnh thức, việc xử lý tính  
-
-YI **từ chối** họ thứ bảy cổ điển: đoán giàu–nghèo / chết / xổ số / bệnh danh / ngày cưới cố định.
+> **2026-07-27 v2** — thay bản inventory nông (catalog phẳng).  
+> **Câu hỏi Anh:** Xem Tử Vi, user nhận được thông tin gì? Liệt kê kỳ vọng chi tiết → đối chiếu sản phẩm → gợi ý thiếu.  
+> **Kỷ luật:** nghiên cứu · đa phái độc lập (#3) · CƠ+BIẾN (#6) · mệnh động từ (#8) · không predict (#9).  
+> **Nguồn:** Toàn Thư Q1–Q4 journals · Đằng Sơn · Thiên Lương · Trung Châu · Bôn Ba Ngũ Uẩn · `engine/tu_vi/*` · wiki counts 2026-07-27.
 
 ---
 
-## 2. Danh mục kỳ vọng chi tiết (thông tin user-facing hợp lệ)
+## 0. Vì sao bản trước nông
 
-### A. Cấu trúc lá số (CƠ — snapshot)
+Liệt kê “12 cung / Đại Vận / cách cục” chỉ là **mục lục cấu trúc**, chưa trả lời:
 
-| # | Thông tin kỳ vọng | 1 dòng |
-|---|---|---|
-| A01 | Ngày giờ + lịch âm đã resolve | Neo lập bàn |
-| A02 | Giới tính → chiều Đại Vận / trọng cung | Nam–nữ mệnh khác nhấn |
-| A03 | Mệnh cung + chi | Sân khấu bản thể |
-| A04 | Thân cung + chi | Hậu vận / thân làm |
-| A05 | Quan hệ Mệnh–Thân (đồng/lệch/xung) | Tâm nói vs thân làm |
-| A06 | Ngũ Cục + tên cục | Hàm an Tử Vi + Trường Sinh |
-| A07 | Mệnh chủ / Thân chủ | Ai cầm trịch |
-| A08 | 12 cung × Địa Chi (+ thiên can ngũ hổ) | Bản đồ địa bàn |
-| A09 | 14 chính tinh vị trí | Xương sống |
-| A10 | Vô chính diệu tại cung | Đọc đối/xung/phụ |
-| A11 | Lục cát / lục sát / Lộc–Mã | Trợ & áp lực |
-| A12 | Tứ Hóa natal (Lộc Quyền Khoa Kỵ) | DNA biến hóa |
-| A13 | Vòng Trường Sinh | Tuổi đời hành cục |
-| A14 | Vòng Thái Tuế (12) | Lớp khí năm trên natal |
-| A15 | Tuần Không / Triệt | Vùng suy / trống |
-| A16 | Sao Q2 / sao lẻ / Bác Sĩ / Tướng Tinh | Lớp phụ đầy đủ |
-| A17 | Đẩu Quân neo sinh | Neo lưu nguyệt |
-| A18 | Độ sáng miếu–vượng–đắc–hãm từng chính tinh | Độ khó bài học |
-| A19 | Tam phương tứ chính từ Mệnh | Khung đọc chính |
-| A20 | Metadata sao (hành, âm dương, chủ về) | Nền sinh–khắc |
+1. Thông tin đó thuộc **loại nhận thức** nào (mô tả cấu trúc? gợi mùa? so sánh phái?)  
+2. Phải đọc theo **thứ tự / điều kiện** nào mới thành thông tin (không nhảy cóc)  
+3. Cùng một lá, **mỗi phái rút thông tin khác** thế nào  
+4. Trong repo, cái gì là **engine đã có nhưng chưa thành thông tin user**, cái gì **chưa có dữ liệu**
 
-### B. Miền đời theo 12 cung (+ Thân)
-
-Mỗi cung kỳ vọng: **chính tinh · phụ/sát · thế · miếu/hãm · câu hỏi miền · (YI) chân dung tâm**.
-
-| Cung | Thông tin kỳ vọng (loại) |
-|---|---|
-| **Mệnh** | Cách vận hành tính; khí chất; Mệnh–Thân khớp/lệch |
-| **Phụ Mẫu** | Quan hệ bậc trên; nền gia; học sớm / ấn |
-| **Phúc Đức** | An lòng; sở thích tinh thần; “phúc” nội |
-| **Điền Trạch** | Không gian sống; tích sản nhà; ổn định vs đổi chỗ |
-| **Quan Lộc** | Vai trò xã hội / nghề; kiểu lãnh đạo–chuyên môn |
-| **Nô Bộc** | Bạn–đồng nghiệp–cấp dưới; mạng lưới tin cậy |
-| **Thiên Di** | Ra ngoài môi trường quen; danh bên ngoài |
-| **Tật Ách** | Cơ địa / stress pattern (*không* chẩn bệnh) |
-| **Tài Bạch** | Phong cách kiếm–giữ–tiêu (*không* đoán giàu nghèo) |
-| **Tử Tức** | Nuôi dạy / “con” mở rộng = dự án–học trò (*không* đoán số/giới con) |
-| **Phu Thê** | Archetype phối ngẫu; chất lượng quan hệ; mùa duyên |
-| **Huynh Đệ** | Anh chị em / core team; tranh–hòa |
-| **Thân** | Thân rơi cung nào → trọng tâm hậu vận |
-
-### C. Biến theo thời gian (BIẾN)
-
-| # | Thông tin kỳ vọng |
-|---|---|
-| C01 | Đại Vận hiện tại: cung Thể, tuổi, sao, Tứ Hóa DV |
-| C02 | Chuỗi 12 Đại Vận đời người (overview) |
-| C03 | Intra-cung trong hạn 10 năm |
-| C04 | Tiểu Hạn năm nay (+ chồng DV) |
-| C05 | Lưu Niên: Thái Tuế cung, Lưu Tứ Hóa, Lộc/Kình/Đà/Khôi/Việt… |
-| C06 | Overview vài năm lưu niên tới |
-| C07 | Lưu Nguyệt / Đẩu Quân 12 tháng |
-| C08 | Tuần (thượng/trung/hạ) trong tháng |
-| C09 | Lưu Nhật (fine-grain) |
-| C10 | Life-arc / nhịp khí năm (quan sát, không cát hung tuyệt) |
-| C11 | Thể–Dụng: cung gốc × cung vận |
-| C12 | Hồi chiếu tam phương khi đọc vận |
-
-### D. Cách cục & pattern đặc biệt
-
-| # | Thông tin kỳ vọng |
-|---|---|
-| D01 | Danh sách cách cục khớp lá (tên + cấp + nguồn) |
-| D02 | Giải thích cách — cấu trúc cần quan-sát |
-| D03 | Kỳ cách / phá cách (điều kiện) |
-| D04 | Tứ Hóa × cung (ý nghĩa hóa tại miền) |
-| D05 | Đồng cung / giáp / hội / xung giữa sao |
-| D06 | Cặp kinh điển (Tử–Phủ, Sát–Phá–Tham…) |
-| D07 | Chart strength tổng hợp miếu/hãm |
-| D08 | Case lịch sử “giống pattern” |
-
-### E. Quan hệ / đa lá / gia đạo
-
-| # | Thông tin kỳ vọng |
-|---|---|
-| E01 | Đọc sâu cung Phu Thê + quy luật phái |
-| E02 | Partner traits từ cấu trúc |
-| E03 | Hợp đĩa / synastry 2 lá (*không* đoán hợp–tan tuyệt) |
-| E04 | Gia đạo: Phúc Đức, Nô Bộc, quan hệ nhà |
-| E05 | Luận con / cung sau / đặt tên (khung cấu trúc) |
-| E06 | Đa phái đối chiếu cùng một lá (Bắc / CDK / Đằng Sơn) |
-
-### F. Paradigm YI (thông tin “gương tâm”)
-
-| # | Thông tin kỳ vọng |
-|---|---|
-| F01 | Ngũ Uẩn tại cung/sao (5 bước tiến trình tâm) |
-| F02 | 8 lớp chân dung (căn cơ → gốc tham → … → khe tỉnh thức) |
-| F03 | Câu tự soi / việc nhỏ tuần này (mệnh = động từ) |
-| F04 | Disclaimer + safety (không dọa chết/bệnh) |
-| F05 | Atom / trích dẫn nguồn đã duyệt |
-| F06 | Phê mệnh có cấu trúc (khai đề → miền → vận) nhưng tone đồng dạng |
-
-### G. Cổ pháp — YI **không** cung cấp (whitelist từ chối)
-
-Đoán giàu–nghèo cụ thể · thắng cược/xổ số · ngày chết · số/giới con · ngày cưới/ly hôn cố định · chức danh cụ thể · bệnh danh · bản án cát/hung tuyệt · hù giải hạn.
+Bản này đi theo 4 tầng đó.
 
 ---
 
-## 3. Đối chiếu sản phẩm YI hôm nay
+## 1. Tử Vi là máy thông tin kiểu gì?
 
-Chú giải: **●** đủ user-facing · **◐** có engine/UI nhưng mỏng / ẩn / VIP / cache · **○** thiếu hoặc chưa khép paradigm
+Theo Phú Thái Vi + Đằng Sơn + paradigm YI:
 
-### A. Cấu trúc
-
-| Kỳ vọng | Status | Ghi chú ngắn |
-|---|---|---|
-| A01–A18 natal layers | **●** | `cast_la_so` + TuViLaSo cơ bản/nâng cao rất dày |
-| A19 tam phương tứ chính UI rõ | **◐** | Có trong vận hạn `hoi_chieu`; lá số chính chưa “highlight khung” mặc định |
-| A20 metadata trên lá | **◐** | Thư viện ★; trên cell lá chủ yếu tên sao + hóa + độ sáng |
-
-### B. 12 cung miền đời
-
-| Kỳ vọng | Status | Ghi chú |
-|---|---|---|
-| Lưới 12 cung + sao | **●** | |
-| Interpretation / cung reading | **◐** | Có API + UI trong “Đọc sâu”; không phải lớp mặc định sau cast |
-| Ngũ Uẩn theo cung | **◐** | Có khi bung cung; coverage & 8 lớp chưa đều 14 sao |
-| Plain “miền này mời quan-sát gì” (1 câu/cung) | **○** | Còn thiên jargon / LLM dài hơn là thẻ miền chuẩn |
-| Thư viện sao / cục / thân–mệnh / vòng | **●** | Không cần ngày sinh |
-| Ngũ Cục “chất người” | **○** | UI `chua_co_nguon` |
-
-### C. Thời gian
-
-| Kỳ vọng | Status | Ghi chú |
-|---|---|---|
-| Đại Vận 12 + grounded van_han | **●** | |
-| Lưu niên / nguyệt / tuần / nhật skeleton | **●** | `van_han.py` |
-| Overview + life_arc | **●** | |
-| LLM vận chỉ edit-from-source | **◐** | Có; phụ thuộc rate limit / chất nguồn |
-| Đọc Thể–Dụng user hiểu ngay | **◐** | Có field; UX/giải thích paradigm còn mỏng |
-| Chuỗi “mùa quan sát” plain (không cát hung) | **○** | Arc số có; câu plain chuẩn hóa chưa |
-
-### D. Cách cục
-
-| Kỳ vọng | Status | Ghi chú |
-|---|---|---|
-| Dict 545+ match | **●** | |
-| Panel + PDF từ cache | **◐** | Phụ thuộc analyze/run-all |
-| Kỳ cách / phá cách có điều kiện rõ | **◐** | Corpus Q3/Q4; chưa sản phẩm hóa thành lớp đọc |
-| Case studies match | **●** | API + UI |
-
-### E. Quan hệ
-
-| Kỳ vọng | Status | Ghi chú |
-|---|---|---|
-| Phu Thê Bắc phái flagship | **●** | Panel riêng rất sâu |
-| Gia đạo / luận con / đặt tên | **●** | `GiaDaoPanel` |
-| Hợp đĩa 2 người (synastry TV) | **◐** | Có module hướng; chưa = cửa sổ ngang Phu Thê |
-| CDK / Đằng Sơn = thế giới riêng | **●** | Đúng kiến trúc đa phái Anh chốt |
-
-### F. Gương tâm YI
-
-| Kỳ vọng | Status | Ghi chú |
-|---|---|---|
-| Quán chiếu Ngũ Uẩn trên lá | **◐** | Có; chưa xương sống mặc định mọi buổi đọc |
-| 8 lớp đủ 14 chính tinh | **○/◐** | Lộ trình thủ thư; mẫu chưa phủ |
-| Việc nhỏ / checkbox streak | **○** | Chưa khép product |
-| Safety check | **●** | |
-| Phê mệnh free / VIP / 3-layer / Deep Reading | **●/◐** | Nhiều kênh LLM; **lệch** so với grounded-first |
-| Atom commentaries nuôi luận | **○** | Gap đã ghi: commentaries gần chết với council |
-| PDF báo cáo | **◐** | Phụ thuộc cache |
-
-### G. Từ chối
-
-| Kỳ vọng | Status |
+| Tuyên bố | Hệ quả về “thông tin” |
 |---|---|
-| Filter psychological + paradigm copy | **◐** | Có nền; cần audit output LLM định kỳ |
+| *Lý chỉ dị minh* — có nguyên lý, không mê tín | User nhận **cấu trúc có thể kiểm** (vị trí, miếu/hãm, hóa), không bùa |
+| *Sát cơ + bất vong biến* | Mọi buổi đọc phải có **CƠ (snapshot)** và **BIẾN (vận)** — thiếu một = thông tin cụt |
+| *Giả tướng* (Đằng Sơn) | Thông tin = **biểu kiến/cấu trúc đồng dạng**, không phải nhân quả “sao gây ra giàu” |
+| *Mệnh = động từ* | Thông tin hợp lệ kết bằng **cách vận hành tính**, không “số anh là…” |
+| *Mỗ niên / mỗ tinh* (Q4) | Tầng gợi mở: chỉ đường tra, **không spell-out tiên tri** |
+
+**Định nghĩa làm việc:**  
+> Một “thông tin Tử Vi” = một mệnh đề user kiểm được trên lá / trên thời gian / trên sách nguồn, giúp **quan-sát cấu trúc tâm–đời**, không phải dự báo sự kiện đóng.
 
 ---
 
-## 4. Khoảng trống có ý nghĩa (gợi ý phát triển — nghiên cứu → làm)
+## 2. Bảy loại thông tin (phân loại nhận thức)
 
-Ưu tiên theo **độ thiếu × đúng cửa sổ Tử Vi** (không gộp phái).
+Mọi hạng mục cụ thể ở §4–§6 đều thuộc một trong bảy loại:
 
-### P1 — Khép “đọc một cung / một mùa” trong đúng thế giới Bắc phái
-1. **Thẻ miền 12 cung (deterministic):** mỗi cung = câu hỏi miền + sao cầm micro + 1 câu plain “quan-sát gì” + link Ngũ Uẩn — trước LLM.  
-2. **Mặc định sau cast:** hiện Mệnh + Thân–Mệnh + 1 Đại Vận hiện tại (plain) — lớp nâng cao giữ nguyên (không cắt thế giới).  
-3. **Chuẩn hóa BIẾN plain:** template “mùa ĐV / năm này mời quan-sát cung X vì …” từ `vi_tri` + `sao_nguon`, 0-LLM trước.
+| Loại | Ký hiệu | User nhận được | Ví dụ |
+|---|---|---|---|
+| **Cấu trúc tĩnh** | Σ | Ai đứng đâu, mạnh yếu thế nào | 14 chính tại cung, miếu/hãm, Tuần/Triệt |
+| **Topology quan hệ** | Τ | Sao/cung liên kết ra sao | Tam phương tứ chính, giáp, xung, tam hợp |
+| **Danh pháp / cách** | Κ | Tên pattern đã có trong truyền thống | Cự Nhật, Bát Pháp thành/phá, Thập Dụ |
+| **Miền đời** | Δ | Cấu trúc chiếu vào lĩnh vực nào | Quan Lộc → nghề; Phu Thê → quan hệ |
+| **Thời–biến** | Χ | Cùng cấu trúc đang “mùa” nào | ĐV, LN, Đẩu Quân tháng, life_arc khí |
+| **Tiến trình tâm** | Ψ | Khát / uẩn / khe thoát | Ngũ Uẩn 8 lớp, thái độ số phận Đằng Sơn |
+| **Đối chiếu nguồn** | Ω | Sách/phái nói gì · đồng · lệch | Cross-school atoms, case lịch sử |
 
-### P2 — Xương sống paradigm (đúng GOAL thủ thư)
-4. **Phủ 8 lớp / Ngũ Uẩn cho 14 chính tinh** theo lộ trình đã có — mẫu duyệt từng sao.  
-5. **Nối `atom_commentaries` + `founder_verified`** vào phê mệnh / 3-layer / Hermes tu-vi — giảm luận “trôi”.  
-6. **Ngũ Cục “chất người”** — chỉ khi có nguồn; bỏ placeholder im lặng hoặc ghi “chưa có nguồn”.
+Loại **bị cấm** (không thuộc thông tin YI): dự báo đóng (giàu/nghèo/chết/xổ số/bệnh danh/ngày cưới cố định).
 
-### P3 — Lớp còn mỏng trong taxonomy
-7. **Tam phương tứ chính highlight** trên lưới lá (A19).  
-8. **Kỳ cách / phá cách** thành lớp đọc có điều kiện (không chỉ tên cách).  
-9. **Hợp đĩa Tử Vi** ngang tầm Phu Thê panel (E03) — khi Anh mở bàn quan hệ liên cửa sổ.  
-10. **Việc nhỏ tuần này** gắn khe tỉnh thức Mệnh/ĐV — optional, không biến thành habit-app nuốt lá số.  
-11. **Audit LLM** định kỳ theo whitelist G (refuse list).  
-12. **PDF** one-click từ cast (ít phụ thuộc run-all) hoặc UX báo rõ “cần phân tích trước”.
+---
 
-### Không ưu tiên (nghiên cứu này)
+## 3. Thứ tự đọc = thứ tự sinh thông tin (method stack)
+
+Thông tin không độc lập. Thiếu tầng dưới → tầng trên thành bịa.
+
+### 3.1 Tiến trình “đất trước hạt” (Anh chốt · `doc_tien_trinh.py`)
+
+```
+Phúc Đức (phúc ấm tổ) → Phụ Mẫu (gen/mầm) → Điền Trạch (vun/phá)
+        → đặt Mệnh + Thân vào môi trường đó
+```
+
+**Thông tin kỳ vọng theo bước:** nền chạy ngầm → mầm trao → môi trường đầu đời → bản thể trong ngữ cảnh.  
+**Không:** nhảy thẳng “Mệnh anh là X” rồi bỏ ba cung đất.
+
+### 3.2 Bốn lớp trong một cung (chống ảo giác)
+
+| Lớp | Thông tin | Điều kiện |
+|---|---|---|
+| 1 | Tính chất **từng sao** (def) | Có nguồn `sao_noi_dung` fv=1 |
+| 2 | Sao **trên cung này** | Có nguồn per-cung fv=1 |
+| 3 | **Combo đã kết khối** (rule-match) | Chỉ cách thật — không gom lỏng |
+| 4 | **Tam phương tứ chính** | Topology chiếu |
+
+Thiếu nguồn → **gap khai trống** (quote-or-silence), không LLM đắp.
+
+### 3.3 Lồng tầng thời gian (Anh · bức tranh thăng trầm)
+
+```
+Mệnh chủ + Thân chủ + Cục (hằng)
+  └─ Đại Vận (chủ đề ~10 năm)
+       └─ Lưu Niên (can năm → Tứ Hóa)
+            └─ Lưu Nguyệt / Đẩu Quân
+                 └─ Tuần / Lưu Nhật
+```
+
+Mỗi tầng dưới chỉ thành thông tin khi đọc **trong** tầng trên (Thể–Dụng / bao trùm).
+
+### 3.4 Q3 — ba lớp chồng trong diễn giải cung
+
+1. Sao × miếu/hãm  
+2. Sao × sao đồng cung  
+3. Sao × sát phá  
+
+→ Thông tin “Huynh Đệ có Thiên Cơ” **chưa đủ**; phải kèm độ sáng + đồng cung + sát.
+
+---
+
+## 4. Catalog kỳ vọng chi tiết (theo pha buổi đọc)
+
+### Pha 0 — Input & độ tin cậy Σ
+
+| ID | Thông tin kỳ vọng | Ghi chú phương pháp |
+|---|---|---|
+| P0.1 | Ngày giờ + true solar (nếu có kinh độ) | Sai giờ = sai Mệnh |
+| P0.2 | Âm lịch resolve + giờ chi | |
+| P0.3 | Giới tính → chiều ĐV / trọng cung | |
+| P0.4 | **Độ chắc giờ** (biết / khoảng / quiz rectification) | Q4 Định thời khắc |
+| P0.5 | Phái đang đứng (Bắc / CDK / Đằng Sơn…) | #3 — nói rõ khung |
+
+### Pha 1 — CƠ: lập bàn Σ + Τ
+
+| ID | Thông tin | Loại |
+|---|---|---|
+| C1.1 | Mệnh / Thân chi + quan hệ đồng·lệch·xung | Σ Τ |
+| C1.2 | Ngũ Cục + tên + (nếu có) “chất cục” có nguồn | Σ |
+| C1.3 | Mệnh chủ / Thân chủ | Σ |
+| C1.4 | 12 cung chức năng × chi × can ngũ hổ | Σ |
+| C1.5 | 14 chính + vô chính diệu | Σ |
+| C1.6 | Lục cát / lục sát / Lộc–Mã | Σ |
+| C1.7 | Tứ Hóa natal map lên sao–cung | Σ Τ |
+| C1.8 | Trường Sinh · Thái Tuế belt · Bác Sĩ · Tướng · sao Q2/Q3/lẻ | Σ |
+| C1.9 | Tuần / Triệt | Σ |
+| C1.10 | Độ sáng từng chính tinh tại chi | Σ |
+| C1.11 | Đẩu Quân neo sinh | Σ |
+| C1.12 | **Tam phương tứ chính từ Mệnh** (Tài–Quan–Phúc + xung) | Τ |
+| C1.13 | **Giáp cung / mượn sao đối** | Τ |
+| C1.14 | **3 vòng xương sống** (Lộc Tồn / Thái Tuế / Tràng Sinh) — Thiên Lương | Σ Ψ |
+| C1.15 | **Bậc tuổi Can–Chi** (1–5) — Thiên Lương | Ψ |
+| C1.16 | Cảnh báo **Nhân Cung** (chính tinh thất vị) — Trần Đoàn | Κ |
+
+### Pha 2 — Cách đọc cấu trúc quanh Mệnh Κ
+
+| ID | Thông tin | Nguồn cổ |
+|---|---|---|
+| K2.1 | **Bát Pháp** thành/phá/cứu/khí (8 lối) | Toàn Thư p19–20 |
+| K2.2 | **Thập Dụ** (10 điều bản/hợp/lân/xung) | Toàn Thư p19 |
+| K2.3 | Cách cục có tên khớp lá (+ cấp + điều kiện) | Phú Thái Vi 545+ |
+| K2.4 | Kỳ cách / phá cách có điều kiện | Q3 |
+| K2.5 | Biến cách: Vong Thần, Câu Giảo, Phản Bối… (106 concept Q1) | Q1 concepts |
+| K2.6 | Bộ phụ tinh đủ cặp + thế (đồng/giáp/hội/xung) | Trung Châu |
+| K2.7 | Điểm nổi bật toàn lá (dị cách, hóa kỵ trọng cung, cung rực/nặng) | Heuristic có nguồn |
+
+### Pha 3 — Đất → hạt (tiến trình) Δ + Ω
+
+| ID | Thông tin |
+|---|---|
+| D3.1 | Phúc Đức: phúc ấm / sở thích tinh thần (4 lớp nguồn) |
+| D3.2 | Phụ Mẫu: gen–bậc trên–học sớm |
+| D3.3 | Điền Trạch: môi trường / tích sản / ổn–động |
+| D3.4 | Mệnh (+ Thân): vận hành tính trong ngữ cảnh 3 cung trên |
+| D3.5 | Gaps: sao nào thiếu def / thiếu per-cung (trung thực) |
+
+### Pha 4 — Mười hai miền đời Δ (mỗi cung)
+
+Với **mỗi** cung, kỳ vọng đủ bộ:
+
+1. Vai trò miền (câu hỏi đời)  
+2. Chính + phụ/sát + hóa tại chỗ  
+3. Miếu/hãm chính tinh  
+4. Lớp 1–4 nguồn (def / per-cung / combo / tam phương cung đó)  
+5. (YI) Ngũ Uẩn / gốc tham / khe tỉnh thức nếu có dataset  
+6. Bias giới / năm sinh đặc thù nếu sách có (Q3)
+
+| Cung | Trọng tâm thông tin (không phải phán) |
+|---|---|
+| Mệnh | Cách vận hành tính; nhất quán Mệnh–Thân |
+| Phụ Mẫu | Quan hệ bậc trên; nền |
+| Phúc Đức | An lòng; phúc nội |
+| Điền Trạch | Chỗ ở / tích sản / nhân khẩu nhà |
+| Quan Lộc | Vai trò xã hội–nghề |
+| Nô Bộc | Mạng lưới ngang/dưới |
+| Thiên Di | Ra ngoài môi trường quen |
+| Tật Ách | Cơ địa / stress (*không* bệnh danh) |
+| Tài Bạch | Phong cách kiếm–giữ (*không* đoán giàu) |
+| Tử Tức | Nuôi dạy / “con” mở rộng (*không* số/giới con) |
+| Phu Thê | Archetype phối; chất quan hệ; mùa duyên |
+| Huynh Đệ | Anh em / core team |
+
+### Pha 5 — BIẾN Χ (mỗi tầng = Thể–Dụng + phi hóa)
+
+| ID | Thông tin |
+|---|---|
+| X5.1 | ĐV hiện tại: cung Thể, tuổi, sao, intra-cung |
+| X5.2 | Overview 12 ĐV đời |
+| X5.3 | Tứ Hóa theo Can ĐV · phi hóa chồng natal |
+| X5.4 | Tiểu Hạn năm + **quy tắc chồng hung chỉ khi ĐV∩TH** (Q3) |
+| X5.5 | Lưu Niên: Thái Tuế cung, Lưu Tứ Hóa, Lộc/Kình/Đà/Khôi… |
+| X5.6 | Bao trùm ĐV lên LN (foreground Mệnh chủ/Cục) |
+| X5.7 | Lưu Nguyệt / Đẩu Quân 12 tháng + cát tinh đồng hành (Q3) |
+| X5.8 | Tuần / Lưu Nhật |
+| X5.9 | **Đường cong khí** liên tục (động↔tĩnh, điểm quay Hóa Kỵ, tự hóa xả) — *không* giàu–nghèo |
+| X5.10 | Rule per-cung vận có nguồn (Trung Châu) + hồi chiếu tam phương |
+
+### Pha 6 — Chủ đề đời sống Δ (không bắt user nghĩ “cung”)
+
+| ID | Chủ đề | Cung gom |
+|---|---|---|
+| T6.1 | Sự nghiệp & công danh | Quan + Mệnh + Tài + Di |
+| T6.2 | Tình duyên & hôn nhân | Phu Thê + Mệnh + Phúc |
+| T6.3 | Tài lộc & của cải | Tài + Điền + Phúc + Quan |
+| T6.4 | Sức khỏe & thân tâm | Tật + Mệnh + Phúc |
+| T6.5 | Gia đạo tổng | Phụ + Phu + Tử + Huynh + Nô |
+
+Mỗi chủ đề kỳ vọng: atoms đa phái · bộ phụ · cách · hóa · narrative paradigm · (tuỳ) vòng đời theo tuổi×giới.
+
+### Pha 7 — Quan hệ / đa lá Ε
+
+| ID | Thông tin |
+|---|---|
+| E7.1 | Phu Thê Bắc phái: quy luật + cross-ref + partner traits |
+| E7.2 | Duyên / đào hoa vận (mùa, không ngày cưới) |
+| E7.3 | Hợp đĩa: Tử Vi × Bát Tự × Hà Lạc (trục cương–nhu) |
+| E7.4 | Gia quý an ở · năm sinh con (cấu trúc) · luận lá con · đặt tên |
+| E7.5 | Case lịch sử “pattern giống” (học, không định mệnh) |
+
+### Pha 8 — Gương tâm YI Ψ
+
+| ID | Thông tin |
+|---|---|
+| Y8.1 | Ngũ Uẩn 5 bước tại sao/cung |
+| Y8.2 | 8 lớp v3 (căn cơ → … → khe tỉnh thức → ví dụ → căn cứ) |
+| Y8.3 | Hồ sơ **thái độ số phận** 3 trục Định–Biến / Tác–Thụ / Nội–Ngoại (Đằng Sơn) |
+| Y8.4 | Việc xử lý tính / tự soi (không habit-app nuốt lá) |
+| Y8.5 | Safety: pattern dark Q3 → self-care, không surface tử vong |
+| Y8.6 | Disclaimer mượn khung soi tâm |
+
+### Pha 9 — Đa thế giới phái Ω (cửa sổ riêng)
+
+| ID | Thông tin |
+|---|---|
+| W9.1 | Bắc phái Toàn Thư (trên) |
+| W9.2 | Chiếu Đởm Kinh: 18 Phi Tinh · matrix · cách CDK · luận VIP |
+| W9.3 | Đằng Sơn: địa bàn khoa học · độ sáng · nhịp tháng · natal universe |
+| W9.4 | Trung Châu nhấn Phu Thê / Di Cung Hoán Vị |
+| W9.5 | Cross-school cùng sao×cung: agree / diverge / kept_all |
+
+### Pha 10 — Thư viện (không cần ngày sinh) Ω
+
+| ID | Thông tin |
+|---|---|
+| L10.1 | Hồ sơ 14 chính + phụ (Ngũ Uẩn, miếu 12 chi, quotes) |
+| L10.2 | Ngũ Cục / Thân–Mệnh / ~89 vòng sao |
+| L10.3 | Concept 320 · cách phổ biến · Q4 Thiên Quán / Chiếu Đởm corpus |
+
+---
+
+## 5. Đối chiếu sản phẩm (sâu — không chỉ “có/không”)
+
+Chú giải: **●** user-facing đủ method · **◐** có nhưng lệch method / ẩn / VIP / mỏng nguồn · **◇** engine có, cửa sổ yếu hoặc orphan · **○** thiếu dữ liệu hoặc chưa làm · **✕** cố ý không làm (G)
+
+### 5.1 Method stack
+
+| Kỳ vọng method | Status | Bằng chứng / lỗ |
+|---|---|---|
+| Đất→hạt Phúc→Phụ→Điền→Mệnh | **◇** | `doc_tien_trinh.py` + deep_cung kéo 1 cung; **không** là mặc định sau cast trên lưới lá |
+| 4 lớp quote-or-silence | **◇** | Có; phụ thuộc `sao_noi_dung` fv=1 (~2030/2603); gaps chưa luôn hiện cho user |
+| Lồng ĐV⊃LN⊃tháng | **◐** | `van_han` + bao trùm; UI còn dễ đọc từng tầng rời |
+| Q3 3 lớp miếu×đồng×sát | **◐** | Data/atoms có; render structured 3 lớp chưa chuẩn |
+| life_arc đường cong khí | **●** | API + `VanHanPanel` tab Bức tranh; paradigm guard có test |
+
+### 5.2 CƠ / topology / cách
+
+| ID nhóm | Status | Chi tiết |
+|---|---|---|
+| C1.1–C1.11 lập bàn | **●** | `cast_la_so` + TuViLaSo cơ bản/nâng cao rất dày |
+| C1.12–13 tam phương / giáp UI | **◐◇** | Có trong van_han / paradigm `to_hop_cung`; lưới lá chưa highlight mặc định |
+| C1.14–16 ba vòng / bậc tuổi / nhân cung | **◐** | Wire qua `cross_school` → 3-layer warnings; **chưa** thẻ CƠ đầu buổi đọc mọi user |
+| K2.1 Bát Pháp | **◇○** | Module `bat_phap.py` tồn tại — **gần như không gọi từ API/UI đọc lá** |
+| K2.2 Thập Dụ | **◇○** | `thap_du.py` — orphan tương tự |
+| K2.3 cách cục 545+/1193 | **◐** | Dict + panel; phụ cache analyze |
+| K2.5 biến cách 106 | **○** | Concept Q1; chưa engine map đủ |
+| K2.7 highlights | **◐** | Trong 3-layer; không phải lớp đầu mọi cast |
+
+### 5.3 Miền & chủ đề
+
+| | Status | |
+|---|---|---|
+| 12 cung trên lưới | **●** | |
+| Interpretation / cung reading / deep_cung | **◐** | Đọc sâu / VIP / cache |
+| Chủ đề 5 món (T6) | **◐** | API 3-layer; chưa = xương sống Bắc phái tab chính |
+| Vòng đời tuổi×giới | **◐** | `vong_doi` trong 3-layer |
+| Ngũ Cục “chất người” | **○** | `chua_co_nguon` |
+
+### 5.4 BIẾN
+
+| | Status | |
+|---|---|---|
+| ĐV / LN / tháng / tuần / nhật blocks | **●** | |
+| Phi hóa + rules nguồn | **◐** | |
+| Chồng hung ĐV∩Tiểu hạn (Q3) | **○◇** | Logic cổ đã ghi journal; chưa feature rõ |
+| Đẩu Quân tháng + cát đồng hành | **◐** | Có endpoint/đồ; chưa đủ Q3 narrative |
+| Foreground Mệnh chủ/Cục mỗi buổi vận | **◐** | Design đã chốt; implement một phần trong van_han |
+
+### 5.5 Quan hệ & đa phái
+
+| | Status | |
+|---|---|---|
+| Phu Thê Bắc flagship | **●** | |
+| Gia đạo / duyên / hợp hôn | **◐●** | Nhiều API; hợp đĩa chưa cửa sổ ngang Phu Thê |
+| CDK / Đằng Sơn tách cửa | **●** | Đúng kiến trúc Anh |
+| Case match | **●** | |
+| Thái độ số phận | **◐** | API 3-layer; ít nổi trên lá Bắc |
+
+### 5.6 Gương tâm / dữ liệu
+
+| | Status | Số liệu |
+|---|---|---|
+| Ngũ Uẩn dataset | **◐** | 95 records; 14 chính + một phần phụ; có field v3 |
+| 8 lớp đủ sâu 14 sao | **◐** | Schema có; chất + phủ chưa đồng đều |
+| sao_noi_dung fv=1 | **◐** | 2030 đã duyệt; def 476 · cung 910 — còn gap theo sao×cung |
+| atom_commentaries | **○/◐** | 7712 tồn tại; council/phê mệnh **chưa nuôi đủ** (gap cũ kế hoạch Phật) |
+| Safety + disclaimer | **◐** | Có module; audit LLM định kỳ còn thiếu |
+
+### 5.7 So với gap analysis 2026-06-10
+
+| Khi đó | Nay (2026-07) |
+|---|---|
+| Paradigm engine “chưa có” | **Đã code** nhan_cung, bậc tuổi, ba vòng, tam hợp lộc, to_hop — wire một phần vào 3-layer |
+| Bát Pháp / Thập Dụ “cần build” | **Đã code** nhưng **orphan UI** |
+| 3-layer goal | **Có** API + panel; chưa thay mặc định đọc lá |
+| life_arc | **Đã ship** trong VanHan |
+| Founder verify atoms | **Tiến bộ** trên `sao_noi_dung`; atomic_questions verify vẫn là trận lớn |
+
+---
+
+## 6. Gợi ý phát triển (theo lỗ method — không UX gom phái)
+
+### Hạng A — Khép method đã chốt mà chưa lên mặt CƠ
+
+1. **Mặc định sau cast Bắc phái:** thẻ CƠ = Mệnh–Thân–Cục–chủ + **3 vòng** + **bậc tuổi** + cảnh báo Nhân Cung (nếu có) — trước LLM.  
+2. **Nút / mode “Đọc tiến trình đất→hạt”** gọi `doc_la_so_tien_trinh`, hiện gaps trung thực.  
+3. **Highlight tam phương tứ chính** trên lưới (Τ).  
+4. **Wire Bát Pháp + Thập Dụ** vào đọc Mệnh (Κ) — module đã có, thiếu sản phẩm hóa.
+
+### Hạng B — BIẾN đủ cổ pháp Q3
+
+5. Feature **ĐV ∩ Tiểu hạn chồng hung** (chỉ khi đồng kích).  
+6. Đẩu Quân tháng: cát tinh đồng hành + đọc Q3 (không cát/hung tuyệt).  
+7. Chuẩn hóa copy **mùa khí** trên life_arc (đã có xương).
+
+### Hạng C — Nguồn nuôi luận
+
+8. Lấp gap `sao_noi_dung` per-cung theo tiến trình 4 cung đất + Mệnh trước.  
+9. Nối `atom_commentaries` + filter fv vào phê mệnh / 3-layer / Hermes.  
+10. Phủ Ngũ Uẩn 8 lớp: ưu tiên 14 chính tinh mẫu duyệt từng sao (lộ trình thủ thư).
+
+### Hạng D — Đủ catalog cổ còn mỏng
+
+11. Map **biến cách** Q1 (106) có chọn lọc vào engine.  
+12. Kỳ cách / phá cách có điều kiện trên cách cục panel.  
+13. Ngũ Cục chất người — chỉ khi có nguồn; không placeholder giả.  
+14. Hợp đĩa TV = cửa sổ riêng (khi Anh mở bàn quan hệ liên cửa).
+
+### Hạng E — Không làm
+
 - Gộp CDK + Bắc + Đằng Sơn thành một funnel.  
-- Thêm môn ngoài Tử Vi vào default.  
-- Surface predict cổ (G).
+- Surface predict G.  
+- Coi “thêm panel” = đủ thông tin (thiếu method stack vẫn nông).
 
 ---
 
-## 5. Kết luận nghiên cứu
+## 7. Kết luận nghiên cứu (v2)
 
-- **Kỳ vọng cổ + YI-safe ≈ 150–200 loại thông tin**; sản phẩm đã **rất dày ở CƠ (lá số) và xương BIẾN (van_han)**, cộng thư viện và vài cửa sâu (Phu Thê, CDK, Đằng Sơn).  
-- **Thiếu chủ yếu không phải “thêm sao”**, mà: (1) lớp **plain miền/mùa deterministic**, (2) **phủ chân dung Ngũ Uẩn**, (3) **nuôi luận bằng nguồn đã duyệt**, (4) vài pattern cao cấp (kỳ cách, tam phương UI, hợp đĩa).  
-- Kiến trúc **mỗi cửa sổ một thế giới** đang đúng với inventory; phần còn thiếu nằm **bên trong cửa Tử Vi**, không phải UX gom đại chúng.
+1. **Tử Vi có thể mang lại** không chỉ “lá số + vận hạn”, mà một **máy thông tin 7 loại** (Σ Τ Κ Δ Χ Ψ Ω), sinh theo **method stack** (đất→hạt · 4 lớp · lồng thời gian · đa phái).  
+2. **Sản phẩm YI đã rất dày Σ và xương Χ**; đã có Ψ/Ω một phần (Ngũ Uẩn, 3-layer, cross-school, life_arc, Phu Thê).  
+3. **Lỗ sâu nhất không phải thiếu sao**, mà:  
+   - method đọc **chưa là mặc định user-facing** (tiến trình, Bát Pháp, Thập Dụ, ba vòng đầu buổi);  
+   - **nguồn per-cung / commentaries** chưa đủ nuôi lớp 1–2–3;  
+   - **Q3 chồng hạn / Đẩu Quân** chưa đủ sản phẩm;  
+   - **orphan paradigm modules** (bat_phap, thap_du).  
+4. Phát triển tiếp nên **khép method trong cửa Bắc phái** (và từng cửa phái khác tương tự), không nghiên cứu nông kiểu liệt kê cung.
 
 ---
 
-*Hết vòng nghiên cứu câu hỏi. Bước tiếp nếu Anh muốn: chọn 1 mục P1–P2 để đào sâu thiết kế (không code) hoặc audit live 1 lá mẫu theo checklist A–F.*
+### Phụ lục — Chỉ số kho (snapshot 2026-07-27)
+
+| Kho | Số |
+|---|---|
+| `sao_noi_dung` | 2603 (fv=1: 2030; def: 476; cung: 910) |
+| `atomic_questions` | 67497 |
+| `atom_commentaries` | 7712 |
+| `cach_cuc_index` entries | ~1193 |
+| Ngũ Uẩn records | 95 (chính tinh + phụ + cung + nguyên lý…) |
+
+---
+
+*Hết v2. Nếu Anh muốn vòng 3: chọn **một** cung (vd Phúc Đức) hoặc **một** tầng BIẾN (Đẩu Quân tháng) — em đối chiếu sát từng câu Q3 × engine × UI.*
