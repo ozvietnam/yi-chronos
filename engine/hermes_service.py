@@ -91,17 +91,26 @@ def _cached(uid: int, method: str, question: str, ttl: int = CACHE_TTL_SEC):
     return row[0], data
 
 
-def _gate(uid: int, free_key: str, free_limit: int) -> dict:
-    """Quyết quyền + THU PHÍ: 'paid' (gói VIP) → 'free' (còn lượt free/ngày) →
-    'xu' (hết free → tiêu xu từ ví TRUNG TÂM) → 'denied' (hết free + không đủ xu).
+def _is_owner(uid: int) -> bool:
+    """Chủ tài khoản → miễn phí (thay cổng gói VIP đã gỡ, Anh chốt 2026-07-27)."""
+    try:
+        from engine.deep_reading import _is_owner as _o
+        return _o(uid)
+    except Exception:
+        return False
 
-    Free tier dùng ratelimit (Redis đa-worker / in-memory dev). 'paid' KHÔNG trừ lượt
-    gói ở đây (consume_use sau khi serve). 'xu' đã TRỪ xu (atomic) ngay tại đây →
-    caller phải HOÀN (xu_wallet.grant) nếu sau đó vượt ngân sách / LLM lỗi.
+
+def _gate(uid: int, free_key: str, free_limit: int) -> dict:
+    """Quyết quyền + THU PHÍ (THỐNG NHẤT XU — gói VIP đã gỡ 2026-07-27):
+    'owner' (chủ, miễn) → 'free' (còn lượt free/ngày) → 'xu' (hết free → tiêu xu từ ví
+    TRUNG TÂM) → 'denied' (hết free + không đủ xu).
+
+    Free tier dùng ratelimit (Redis đa-worker / in-memory dev). 'xu' đã TRỪ xu (atomic)
+    ngay tại đây → caller phải HOÀN (xu_wallet.grant) nếu sau đó vượt ngân sách / LLM lỗi.
 
     Trả {tier, reason?, xu_cost?, xu_balance?, need?, have?}."""
-    if subs.check_access(uid, FEATURE)["allowed"]:
-        return {"tier": "paid"}
+    if _is_owner(uid):
+        return {"tier": "owner"}
     if ratelimit.allow(f"{free_key}:{uid}", free_limit, _DAY):
         return {"tier": "free"}
     # hết lượt free → tiêu xu (ví trung tâm)
@@ -233,11 +242,15 @@ def precheck(firebase_uid: str, question: str, person_key: str = "self") -> dict
         return {"ok": False, "code": 404, "reason": "not_synced"}
     if not person or not person.get("birth_datetime_local"):
         return {"ok": False, "code": 422, "reason": "missing_birth"}
-    access = subs.check_access(uid, FEATURE)
-    if not access["allowed"]:
-        # không có gói → còn lượt FREE/ngày thì cho qua (peek, KHÔNG trừ; worker mới trừ)
-        if ratelimit.remaining(f"council_free:{uid}", FREE_DAILY_COUNCIL, _DAY) <= 0:
-            return {"ok": False, "code": 403, "reason": "no_subscription_and_free_exhausted"}
+    # Cổng XU (gói VIP đã gỡ): owner miễn → còn lượt FREE/ngày (peek, KHÔNG trừ) →
+    # hết free thì phải đủ XU. Trước đây chặn cả user CÓ XU vì không có gói VIP.
+    if not _is_owner(uid) and ratelimit.remaining(
+            f"council_free:{uid}", FREE_DAILY_COUNCIL, _DAY) <= 0:
+        cost = xu_wallet.XU_COST["council"]
+        bal = xu_wallet.get_balance(uid)
+        if bal < cost:
+            return {"ok": False, "code": 402, "reason": "insufficient_xu",
+                    "need": cost, "have": bal}
     return {"ok": True, "user_id": uid}
 
 
@@ -330,7 +343,7 @@ def run_council(firebase_uid: str, question: str, person_key: str = "self", *,
                  "av": av, "now": int(time.time())},
             ).scalar()
         # gói → trừ lượt gói; free → đã đếm ở _gate (ratelimit), không trừ gói
-        usage = subs.consume_use(uid, FEATURE) if tier == "paid" else {"ok": False}
+        usage = {"ok": False}          # gói VIP đã gỡ — thu phí bằng XU ở _gate
     except Exception:
         _refund()
         raise
@@ -387,9 +400,13 @@ def precheck_quick(firebase_uid: str, question: str, person_key: str = "self") -
         return {"ok": False, "code": 404, "reason": "not_synced"}
     if not person or not person.get("birth_datetime_local"):
         return {"ok": False, "code": 422, "reason": "missing_birth"}
-    if not subs.check_access(uid, FEATURE)["allowed"]:
-        if ratelimit.remaining(f"quick_free:{uid}", FREE_DAILY_QUICK, _DAY) <= 0:
-            return {"ok": False, "code": 403, "reason": "no_subscription_and_free_exhausted"}
+    if not _is_owner(uid) and ratelimit.remaining(
+            f"quick_free:{uid}", FREE_DAILY_QUICK, _DAY) <= 0:
+        cost = xu_wallet.XU_COST["quick"]
+        bal = xu_wallet.get_balance(uid)
+        if bal < cost:
+            return {"ok": False, "code": 402, "reason": "insufficient_xu",
+                    "need": cost, "have": bal}
     return {"ok": True, "user_id": uid}
 
 
@@ -464,7 +481,7 @@ def run_quick(firebase_uid: str, question: str, person_key: str = "self", *,
                  "vd": "paradigm_flag" if violations else None,
                  "av": av, "now": int(time.time())},
             ).scalar()
-        usage = subs.consume_use(uid, FEATURE) if tier == "paid" else {"ok": False}
+        usage = {"ok": False}          # gói VIP đã gỡ — thu phí bằng XU ở _gate
     except Exception:
         _refund()
         raise

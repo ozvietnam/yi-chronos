@@ -741,15 +741,58 @@ class _LuanCungRequest(_AnalyzeRequest):
     branch: str = ""
 
 
+# ── XU gate cho nhóm Chiếu Đởm Kinh (thống nhất 1 hệ tiền = XU, Anh chốt 2026-07-27) ──
+# Thay cổng gói VIP cũ (user_subscriptions). Nguyên tắc SIẾT TIỀN + KẾT QUẢ:
+#   owner miễn phí · ĐÃ CÓ bản lưu → xem lại MIỄN PHÍ (không trừ lần 2) ·
+#   sinh MỚI → trừ xu, và CHỈ trừ khi sinh THÀNH CÔNG (lỗi = không mất tiền).
+CDK_XU = {"cung": 10, "noi_tam": 10, "luu_nien": 30, "dai_han": 30, "toan_bo": 99}
+
+
+def _cdk_has_cache(person, cache_key: str) -> bool:
+    """Đã có bản luận lưu sẵn cho (người, mục) này chưa → cho xem lại miễn phí."""
+    try:
+        from engine.tu_vi.cdk_cung_analyzer import _cache_path
+        return _cache_path(person.person_key, person.user_id, cache_key).exists()
+    except Exception:
+        return False
+
+
+def _xu_precheck(user: dict, price: int, has_cache: bool) -> Optional[dict]:
+    """None = cho chạy. Owner / đã có bản lưu → miễn. Còn lại phải đủ xu."""
+    if user.get("role") == "owner" or has_cache:
+        return None
+    from engine import xu_wallet
+    bal = xu_wallet.get_balance(user["user_id"])
+    if bal < price:
+        return {"status": "error", "reason": "insufficient_xu",
+                "message": f"Không đủ xu — cần {price} xu, ví đang có {bal} xu.",
+                "need": price, "have": bal}
+    return None
+
+
+def _xu_charge(user: dict, price: int, reason: str, result: dict) -> dict:
+    """Trừ xu khi SINH MỚI thành công. Owner / bản cache → không trừ."""
+    if user.get("role") == "owner" or result.get("status") != "ok":
+        return result
+    fresh = (not result.get("from_cache")) and result.get("fresh_calls", 1) > 0
+    if not fresh:
+        result["xu_spent"] = 0
+        return result
+    from engine import xu_wallet
+    sp = xu_wallet.spend(user["user_id"], price, reason)
+    result["xu_spent"] = price if sp.get("ok") else 0
+    result["xu_balance"] = sp.get("balance")
+    return result
+
+
 @router.post("/q4/cdk/luan-cung")
 def yi_tuvi_cdk_luan_cung(req: _LuanCungRequest, request: Request) -> dict:
-    """Luận giải sâu 1 cung CDK bằng DeepSeek V4 Pro — VIP1 gated.
+    """Luận giải sâu 1 cung CDK bằng DeepSeek V4 Pro — trừ XU (10 xu/cung).
 
-    Owner bypass VIP check + không consume_use. User thường cần subscription.
+    Owner miễn phí. Đã luận cung này rồi → xem lại MIỄN PHÍ (cache), chỉ trừ khi sinh mới.
     Auto-extract → wiki sau mỗi lần gen.
     """
     from engine.tu_vi.cdk_cung_analyzer import luan_cdk_cung, BRANCHES_ORDER
-    from engine.subscriptions import check_access, consume_use
     from api.auth import get_current_user
 
     if not req.branch or req.branch not in BRANCHES_ORDER:
@@ -757,27 +800,16 @@ def yi_tuvi_cdk_luan_cung(req: _LuanCungRequest, request: Request) -> dict:
 
     user = get_current_user(request)
     if not user:
-        return {"status": "error", "message": "Phải đăng nhập để dùng tính năng VIP."}
-
-    # VIP gating (owner bypass)
-    if user.get("role") != "owner":
-        access = check_access(user["user_id"], "tu_vi_cdk_luan_cung")
-        if not access.get("allowed"):
-            return {
-                "status": "error",
-                "message": f"Không có quyền VIP1 — {access.get('reason', 'unknown')}",
-                "vip_check": access,
-            }
+        return {"status": "error", "message": "Phải đăng nhập để dùng tính năng này."}
 
     person = _resolve_person_from_request(req, request)
+    price = CDK_XU["cung"]
+    blocked = _xu_precheck(user, price, _cdk_has_cache(person, req.branch) and not req.force)
+    if blocked:
+        return blocked
+
     result = luan_cdk_cung(person, req.branch, force=req.force)
-
-    # Consume use only on success + not owner
-    if result.get("status") == "ok" and user.get("role") != "owner" and not result.get("from_cache"):
-        usage = consume_use(user["user_id"], "tu_vi_cdk_luan_cung")
-        result["usage_after"] = usage
-
-    return result
+    return _xu_charge(user, price, f"cdk_cung:{req.branch}", result)
 
 
 @router.post("/q4/cdk/luan-noi-tam")
@@ -786,25 +818,34 @@ def yi_tuvi_cdk_luan_noi_tam(req: _AnalyzeRequest, request: Request) -> dict:
 
     Khác luận-cung (per-cung thực dụng): đây là GIỌNG sage chieu_dom — trầm-sâu-từ-bi,
     soi cốt cách tâm hồn, chỗ khắc khoải + sức mạnh ngầm. Paradigm Iron #4/#6/#8 (đọc đồng
-    dạng, KHÔNG predict, mệnh-là-động-từ). VIP1-gated, owner bypass — như luận-cung.
+    dạng, KHÔNG predict, mệnh-là-động-từ). Trừ XU (10 xu), owner miễn, có CACHE.
     """
+    import json as _json
     from engine.ai.council import _get_agent_provider, sage_model
     from engine.ai.agents import run_agent
     from engine.tu_vi.from_birth import cast_chieu_dom_from_birth
-    from engine.subscriptions import check_access, consume_use
+    from engine.tu_vi.cdk_cung_analyzer import _cache_path
     from api.auth import get_current_user
 
     user = get_current_user(request)
     if not user:
-        return {"status": "error", "message": "Phải đăng nhập để dùng tính năng VIP."}
-    if user.get("role") != "owner":
-        access = check_access(user["user_id"], "tu_vi_cdk_luan_cung")
-        if not access.get("allowed"):
-            return {"status": "error",
-                    "message": f"Không có quyền VIP1 — {access.get('reason', 'unknown')}",
-                    "vip_check": access}
+        return {"status": "error", "message": "Phải đăng nhập để dùng tính năng này."}
 
     person = _resolve_person_from_request(req, request)
+    price = CDK_XU["noi_tam"]
+    # CACHE: đã luận nội tâm rồi → trả bản cũ MIỄN PHÍ (siết tiền + giữ kết quả).
+    cache_p = _cache_path(person.person_key, person.user_id, "NOI_TAM")
+    if not req.force and cache_p.exists():
+        try:
+            cached = _json.loads(cache_p.read_text(encoding="utf-8"))
+            cached["from_cache"] = True
+            cached["xu_spent"] = 0
+            return cached
+        except Exception:
+            pass
+    blocked = _xu_precheck(user, price, False)
+    if blocked:
+        return blocked
     try:
         chart = cast_chieu_dom_from_birth(
             birth_datetime_local=person.birth_datetime_local,
@@ -824,15 +865,21 @@ def yi_tuvi_cdk_luan_noi_tam(req: _AnalyzeRequest, request: Request) -> dict:
                   "từ' — cấu trúc này vận hành đẹp nhất khi nào. KHÔNG tiên tri cát/hung."),
         chart_data={"chieu_dom": chart}, max_tokens=4000, temperature=0.6)
 
-    if user.get("role") != "owner":
-        consume_use(user["user_id"], "tu_vi_cdk_luan_cung")
-
-    return {
+    if not (resp.content or "").strip():   # luận rỗng → KHÔNG tính tiền
+        return {"status": "error", "message": "Luận rỗng — thử lại (không trừ xu)."}
+    out = {
         "status": "ok", "luan": resp.content,
         "provider": resp.provider, "model": resp.model,
         "menh_branch": chart.get("menh_branch"),
         "paradigm_note": "Sage Chiếu Đởm Kinh — đọc đồng dạng nội tâm, KHÔNG predict (Iron #4/#6/#8).",
     }
+    if resp.content:                       # LƯU để lần sau mở lại không mất + không trả tiền nữa
+        try:
+            cache_p.parent.mkdir(parents=True, exist_ok=True)
+            cache_p.write_text(_json.dumps(out, ensure_ascii=False), encoding="utf-8")
+        except Exception:
+            pass
+    return _xu_charge(user, price, "cdk_noi_tam", out)
 
 
 @router.post("/q4/cdk/eval-cach-cuc")
@@ -863,46 +910,40 @@ def yi_tuvi_cdk_eval_cach_cuc(req: _AnalyzeRequest, request: Request) -> dict:
 
 @router.post("/q4/cdk/luan-luu-nien")
 def yi_tuvi_cdk_luan_luu_nien(req: _AnalyzeRequest, request: Request) -> dict:
-    """Luận Lưu Niên 10 năm tới. VIP1-gated."""
+    """Luận Lưu Niên 10 năm tới — 30 xu (owner miễn; đã luận rồi → xem lại miễn phí)."""
     from engine.tu_vi.cdk_cung_analyzer import luan_luu_nien_10_nam
-    from engine.subscriptions import check_access, consume_use
     from api.auth import get_current_user
 
     user = get_current_user(request)
     if not user:
-        return {"status": "error", "message": "Phải đăng nhập để dùng VIP."}
-    if user.get("role") != "owner":
-        access = check_access(user["user_id"], "tu_vi_cdk_luan_cung")
-        if not access.get("allowed"):
-            return {"status": "error", "message": f"Cần VIP1 — {access.get('reason')}"}
+        return {"status": "error", "message": "Phải đăng nhập để dùng tính năng này."}
 
     person = _resolve_person_from_request(req, request)
+    price = CDK_XU["luu_nien"]
+    blocked = _xu_precheck(user, price, _cdk_has_cache(person, "LUU_NIEN_10_NAM") and not req.force)
+    if blocked:
+        return blocked
     result = luan_luu_nien_10_nam(person, num_years=10, force=req.force)
-    if result.get("status") == "ok" and user.get("role") != "owner" and not result.get("from_cache"):
-        consume_use(user["user_id"], "tu_vi_cdk_luan_cung")
-    return result
+    return _xu_charge(user, price, "cdk_luu_nien", result)
 
 
 @router.post("/q4/cdk/luan-dai-han")
 def yi_tuvi_cdk_luan_dai_han(req: _AnalyzeRequest, request: Request) -> dict:
-    """Luận chi tiết 8 vòng Đại Hạn CDK (80 năm). VIP1-gated."""
+    """Luận chi tiết 8 vòng Đại Hạn CDK (80 năm) — 30 xu (owner miễn; đã luận → xem lại miễn phí)."""
     from engine.tu_vi.cdk_cung_analyzer import luan_dai_han_8_vong
-    from engine.subscriptions import check_access, consume_use
     from api.auth import get_current_user
 
     user = get_current_user(request)
     if not user:
-        return {"status": "error", "message": "Phải đăng nhập để dùng VIP."}
-    if user.get("role") != "owner":
-        access = check_access(user["user_id"], "tu_vi_cdk_luan_cung")
-        if not access.get("allowed"):
-            return {"status": "error", "message": f"Cần VIP1 — {access.get('reason')}"}
+        return {"status": "error", "message": "Phải đăng nhập để dùng tính năng này."}
 
     person = _resolve_person_from_request(req, request)
+    price = CDK_XU["dai_han"]
+    blocked = _xu_precheck(user, price, _cdk_has_cache(person, "DAI_HAN_8_VONG") and not req.force)
+    if blocked:
+        return blocked
     result = luan_dai_han_8_vong(person, force=req.force)
-    if result.get("status") == "ok" and user.get("role") != "owner" and not result.get("from_cache"):
-        consume_use(user["user_id"], "tu_vi_cdk_luan_cung")
-    return result
+    return _xu_charge(user, price, "cdk_dai_han", result)
 
 
 @router.post("/q4/cdk/luan-toan-bo")
@@ -910,30 +951,26 @@ def yi_tuvi_cdk_luan_toan_bo(req: _AnalyzeRequest, request: Request) -> dict:
     """Luận TOÀN BỘ 12 cung CDK trong 1 phiên (2 batches × 6 cung song song).
 
     Faster than 12 per-cung calls. Persist cache per-cung for instant future lookup.
-    VIP1 gated (owner bypass). Charges 1 use only (not 12).
+    Trừ XU 1 lần (99 xu, không phải ×12); owner miễn; đã luận đủ 12 cung → xem lại miễn phí.
     """
-    from engine.tu_vi.cdk_cung_analyzer import luan_toan_bo_cung
-    from engine.subscriptions import check_access, consume_use
+    from engine.tu_vi.cdk_cung_analyzer import luan_toan_bo_cung, BRANCHES_ORDER
     from api.auth import get_current_user
 
     user = get_current_user(request)
     if not user:
-        return {"status": "error", "message": "Phải đăng nhập để dùng VIP."}
-
-    if user.get("role") != "owner":
-        access = check_access(user["user_id"], "tu_vi_cdk_luan_cung")
-        if not access.get("allowed"):
-            return {"status": "error", "message": f"Không có quyền VIP1 — {access.get('reason')}", "vip_check": access}
+        return {"status": "error", "message": "Phải đăng nhập để dùng tính năng này."}
 
     person = _resolve_person_from_request(req, request)
+    price = CDK_XU["toan_bo"]
+    # Đủ 12 cung đã có bản lưu (và không ép luận lại) → không sinh mới → miễn phí.
+    all_cached = (not req.force) and all(_cdk_has_cache(person, b) for b in BRANCHES_ORDER)
+    blocked = _xu_precheck(user, price, all_cached)
+    if blocked:
+        return blocked
+
     result = luan_toan_bo_cung(person, force=req.force)
-
-    # Consume 1 use only if fresh calls + not owner
-    if result.get("status") == "ok" and user.get("role") != "owner" and result.get("fresh_calls", 0) > 0:
-        usage = consume_use(user["user_id"], "tu_vi_cdk_luan_cung")
-        result["usage_after"] = usage
-
-    return result
+    # fresh_calls > 0 = có sinh mới → tính tiền 1 lần; toàn bộ từ cache → miễn.
+    return _xu_charge(user, price, "cdk_toan_bo", result)
 
 
 @router.get("/q4/chieu-dom-12cung-matrix")
@@ -973,35 +1010,33 @@ def yi_tuvi_chieu_dom_cach_cuc() -> dict:
 
 @router.post("/phe-menh-sau")
 def yi_tuvi_phe_menh_sau(req: _AnalyzeRequest, request: Request) -> dict:
-    """Luận giải sâu Tử Vi (VIP DeepSeek Pro). VIP1-gated.
+    """Luận giải sâu Tử Vi (DeepSeek Pro) — 99 xu.
 
     Engine generates 10-section deep phê mệnh per Trần Đoàn methodology.
+    Owner miễn; ĐÃ luận rồi → xem lại MIỄN PHÍ (cache), chỉ trừ khi sinh mới.
     """
     from api.auth import get_current_user
-    from engine.subscriptions import check_access, consume_use
-    from engine.tu_vi.analyzer import TuViAnalyzer
+    from engine.tu_vi.analyzer import TuViAnalyzer, _cache_load
+    from engine import xu_wallet
 
     user = get_current_user(request)
     if not user:
         raise HTTPException(401, "Login required")
-    user_id = user["user_id"]
-
-    # Owner bypass — owner luôn có quyền
-    if user.get("role") != "owner":
-        access = check_access(user_id, "tu_vi_phe_menh_sau")
-        if not access["allowed"]:
-            raise HTTPException(403, f"VIP required: {access['reason']}")
 
     person = _resolve_person_from_request(req, request)
+    price = xu_wallet.XU_COST.get("deep", 99)
+    # Cache của analyzer KHÔNG gắn cờ → tự peek để biết có sinh mới hay không.
+    has_cache = (not req.force) and bool(
+        _cache_load(person.person_key, "phe_menh_sau", person.user_id))
+    blocked = _xu_precheck(user, price, has_cache)
+    if blocked:
+        return blocked
+
     analyzer = TuViAnalyzer(person, force=req.force)
     result = analyzer.phe_menh_sau()
-
-    # Consume 1 use only if successful AND not owner
-    if result.get("status") == "ok" and user.get("role") != "owner":
-        usage = consume_use(user_id, "tu_vi_phe_menh_sau")
-        result["usage"] = usage
-
-    return result
+    if has_cache:
+        result["from_cache"] = True          # xem lại → KHÔNG trừ xu
+    return _xu_charge(user, price, "phe_menh_sau", result)
 
 @router.post("/safety-check")
 def yi_tuvi_safety_check(req: _AnalyzeRequest, request: Request) -> dict:
