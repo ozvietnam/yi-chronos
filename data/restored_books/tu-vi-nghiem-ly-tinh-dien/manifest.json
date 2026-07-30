@@ -1,0 +1,12 @@
+{
+  "slug": "tu-vi-nghiem-ly-tinh-dien",
+  "source_format": "doc/docx (Word, text-layer)",
+  "converter": "markitdown(.docx)/textutil(.doc)",
+  "chars": 411431,
+  "pages": 46,
+  "stage": "4.1 text sạch — SẴN SÀNG atomize (chưa vào wiki)",
+  "note": "Tử Vi Nghiệm Lý Tinh Điển — chưa có corpus tương ứng trong wiki.",
+  "source_dir": "thư viện sách/TUVIFULL",
+  "restoration": "Word text-layer (KHÔNG OCR): markitdown cho .docx · textutil cho .doc binary",
+  "next_step": "chunker.chunk_book_pages() → batch_atomize --book <slug>"
+}

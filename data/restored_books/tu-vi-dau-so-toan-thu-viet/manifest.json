@@ -1,0 +1,12 @@
+{
+  "slug": "tu-vi-dau-so-toan-thu-viet",
+  "source_format": "doc/docx (Word, text-layer)",
+  "converter": "markitdown(.docx)/textutil(.doc)",
+  "chars": 345937,
+  "pages": 107,
+  "stage": "4.1 text sạch — SẴN SÀNG atomize (chưa vào wiki)",
+  "note": "Bản dịch Việt của Toàn Thư (La Hồng Tiên), song ngữ Hán+Hán-Việt. DỊ BẢN với tu-vi-dau-so-toan-thu-zh (980 atom) và -vu-tai-luc (3096 atom) đã có → atomize sau cùng, đánh dấu dị bản để khử trùng.",
+  "source_dir": "thư viện sách/TUVIFULL",
+  "restoration": "Word text-layer (KHÔNG OCR): markitdown cho .docx · textutil cho .doc binary",
+  "next_step": "chunker.chunk_book_pages() → batch_atomize --book <slug>"
+}
