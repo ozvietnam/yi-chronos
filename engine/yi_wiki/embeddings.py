@@ -50,6 +50,11 @@ def embed_one(text: str, timeout: float = 30.0) -> list[float] | None:
     return vecs[0] if vecs else None
 
 
-def is_available() -> bool:
-    """True if an embedder responds (used to decide vector vs FTS5-only)."""
-    return embed_one("ping", timeout=5.0) is not None
+def is_available(timeout: float = 30.0) -> bool:
+    """True if an embedder responds (used to decide vector vs FTS5-only).
+
+    Timeout 30s (KHÔNG phải 5s): TEI self-host lúc NGUỘI trả ping mất ~5.6s (đo
+    prod 2026-07-29, queue_time từng lên 16s) → mốc 5s cũ khiến vector bị coi là
+    "không sẵn" một cách ngẫu nhiên sau giờ nhàn rỗi, dù embed_texts() vẫn chạy.
+    """
+    return embed_one("ping", timeout=timeout) is not None

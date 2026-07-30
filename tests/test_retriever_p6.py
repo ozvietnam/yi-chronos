@@ -77,6 +77,41 @@ def test_degrade_van_lan_canh_khong_embedder(monkeypatch):
 def test_conflict_rels_duoc_lan():
     """Iron Rule #3 (đa phái): cạnh PHẢN-BIỆN/CẢNH-BÁO phải được lan để council thấy
     counterpoint, không chỉ bằng chứng đồng thuận. Vẫn LOẠI nhiễu 'nói-về'."""
-    for rel in ("đối-lập", "đối-lập-phái-khác", "cảnh-báo", "trai_nghia"):
+    # Tên ĐÚNG theo DB (dấu tiếng Việt). Bản trước test "trai_nghia" — chính test
+    # sai này đã cho bug lọt qua CI, nên đây phải là tên có thật.
+    for rel in ("đối-lập", "đối-lập-phái-khác", "cảnh-báo", "trái-nghĩa",
+                "đối-nghĩa-cặp", "tương-phản-với", "đối-chiếu"):
         assert rel in ChunkAtomRetriever._STRONG_RELS, f"{rel} phải nằm trong _STRONG_RELS"
     assert "nói-về" not in ChunkAtomRetriever._STRONG_RELS
+    # Cạnh CẤU TRÚC (không phải phản-biện) phải KHÔNG được lan
+    for rel in ("đối-xứng-với", "đối-ngẫu", "đối-tượng-của"):
+        assert rel not in ChunkAtomRetriever._STRONG_RELS, f"{rel} là cấu trúc, đừng lan"
+
+
+def test_khong_co_ten_canh_MA_trong_strong_rels():
+    """Chống tái diễn bug PR #68: mọi tên trong _STRONG_RELS phải TỒN TẠI trong DB.
+
+    Bản #68 khai "trai_nghia" (ASCII, gạch dưới) — DB dùng dấu tiếng Việt
+    ("trái-nghĩa") nên khớp 0 dòng, hụt ~160 cạnh phản-biện có thật. Test này
+    query DB THẬT nên chỉ so hằng số là không đủ. Skip nếu không có DB (worktree).
+    """
+    import sqlite3
+    from pathlib import Path
+    from engine.atomization.retriever import DB_PATH
+    db = Path(DB_PATH)
+    if not db.exists():
+        import pytest
+        pytest.skip("không có wiki.sqlite3 (worktree) — test này cần DB thật")
+    conn = sqlite3.connect(f"file:{db}?mode=ro", uri=True)
+    real = {r[0] for r in conn.execute("SELECT DISTINCT relation_type FROM atom_relations")}
+    conn.close()
+    ghosts = [r for r in ChunkAtomRetriever._STRONG_RELS if r not in real]
+    assert not ghosts, f"tên cạnh KHÔNG có trong DB (ma): {ghosts}"
+
+
+def test_is_available_timeout_du_dai_cho_tei_nguoi():
+    """TEI nguội trả ping ~5.6s → timeout mặc định phải >= 20s, không phải 5s."""
+    import inspect
+    from engine.yi_wiki import embeddings
+    sig = inspect.signature(embeddings.is_available)
+    assert sig.parameters["timeout"].default >= 20.0

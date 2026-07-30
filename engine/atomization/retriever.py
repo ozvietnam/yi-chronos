@@ -311,8 +311,19 @@ class ChunkAtomRetriever:
         "cho-ví-dụ", "là-mảnh-của", "đồng-nghĩa-phái-khác", "dẫn-chứng", "mở-rộng",
         # Cạnh PHẢN-BIỆN/CẢNH-BÁO (Iron Rule #3 tôn trọng đa phái) — để council thấy
         # counterpoint "phái X cảnh báo/đối lập", không chỉ bằng chứng đồng thuận.
-        "đối-lập", "đối-lập-với", "đối-nghịch", "đối-lập-phái-khác",
-        "cảnh-báo", "cảnh-báo-tại", "trai_nghia", "tương-ứng-phái-khác",
+        # Tên lấy TỪ DB THẬT (SELECT DISTINCT relation_type), KHÔNG theo trí nhớ: bản
+        # trước khai "trai_nghia" (ASCII, gạch dưới) → 0 dòng, hụt ~160 cạnh có thật.
+        "cảnh-báo", "cảnh-báo-tại",
+        "đối-lập", "đối-lập-với", "đối-lập-phái-khác", "đối-nghịch",
+        "đối-nghĩa", "đối-nghĩa-cặp", "đối-nghĩa-với", "trái-nghĩa",
+        "tương-phản", "tương-phản-với", "đồng-cấp-tương-phản",
+        "đối-cực-với", "đối-cặp-với", "cặp-đối", "xung-với",
+        # Hai loại dưới nhìn tên tưởng trung tính nhưng rationale THẬT là mâu thuẫn:
+        # đối-chiếu = "cùng xét mà KẾT LUẬN KHÁC"; đối-sánh-với = đối lập liên-phái.
+        "đối-chiếu", "đối-sánh-với", "đối-với",
+        "tương-ứng-phái-khác",
+        # CỐ Ý LOẠI (cấu trúc, không phải phản-biện): đối-xứng-với (ghép thượng/hạ thể),
+        # đối-ngẫu (Càn-Khôn làm cha mẹ), đối-cung-với (Hỷ-Loan cùng chủ), đối-tượng(-của).
     )
 
     def _embed_query(self, query: str):
