@@ -679,10 +679,17 @@ Output JSON: {
             return cached
 
         from .an_sao import tieu_han_for_age
+        from .dau_quan import compute_dau_quan_for_months
         ls = self.la_so
         birth_year = int(self.person.birth_datetime_local[:4])
         age = year - birth_year + 1
-        th_idx = tieu_han_for_age(ls['year_branch'], self.person.gender, age)
+        th_idx = tieu_han_for_age(ls['year_branch'], self.person.gender, age)   # metadata, KHÔNG dùng để gán cung
+
+        luu_nien_branch = BRANCHES[(year - 1984) % 12]          # chi năm lưu (mốc 1984=Giáp Tý)
+        lunar_month_birth = ls.get('lunar_month', 1)
+        hour_branch_birth = ls.get('hour_branch', 'Tý')
+        dq_months = compute_dau_quan_for_months(luu_nien_branch, lunar_month_birth, hour_branch_birth)
+        dq_branch_by_month = {m['luu_nguyet_month']: m['dau_quan_branch'] for m in dq_months}
 
         palace_to_branch = {p['name']: BRANCHES[p['branch_index']] for p in ls['palaces']}
         branch_to_palace = {v: k for k, v in palace_to_branch.items()}
@@ -697,18 +704,18 @@ Output JSON: {
         total_cost = 0
         ctx = self.chart_summary
 
-        # Solar month range — rough estimate for year 2026 (recalc per year in real)
-        # For simplicity store branch + palace + stars; UI maps to solar dates
+        # Cung lưu nguyệt mỗi tháng = Đẩu Quân lưu niên (TVĐSTT Q2 tr.88), thuận 1 cung/tháng —
+        # cùng quy ước với badge "Đẩu Quân tháng" (an_sao.nguyet_van_per_cung), KHÔNG dùng Tiểu Hạn
+        # (đã sửa 2026-07-05: 2 quy ước từng lệch nhau, gây văn bản AI mô tả sai cung so với badge).
         for thang in range(1, 13):
-            br_idx = (th_idx + (thang - 1)) % 12
-            br = BRANCHES[br_idx]
+            br = dq_branch_by_month[thang]
             palace = branch_to_palace.get(br, '?')
             stars = branch_to_stars.get(br, [])
 
             user_p = f"""{ctx}
 
 NĂM {year}, THÁNG {thang} ÂM:
-- Tiểu Hạn năm: {BRANCHES[th_idx]}
+- Đẩu Quân lưu niên {year}: {dq_branch_by_month[1]}
 - Cung lưu nguyệt T{thang}: {br} ({palace})
 - Sao tại cung: {', '.join(stars) or '(rỗng)'}
 
