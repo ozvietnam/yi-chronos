@@ -1,0 +1,12 @@
+{
+  "slug": "dao-tang-tu-vi-dau-so",
+  "source_format": "doc/docx (Word, text-layer)",
+  "converter": "markitdown(.docx)/textutil(.doc)",
+  "chars": 163423,
+  "pages": 49,
+  "stage": "4.1 text sạch — SẴN SÀNG atomize (chưa vào wiki)",
+  "note": "MỚI hoàn toàn — không trùng corpus nào trong wiki. Song ngữ Hán + Hán-Việt (Tử Vi trong Đạo Tạng, bản hiếm). ƯU TIÊN atomize (issue #61 nhóm A).",
+  "source_dir": "thư viện sách/TUVIFULL",
+  "restoration": "Word text-layer (KHÔNG OCR): markitdown cho .docx · textutil cho .doc binary",
+  "next_step": "chunker.chunk_book_pages() → batch_atomize --book <slug>"
+}

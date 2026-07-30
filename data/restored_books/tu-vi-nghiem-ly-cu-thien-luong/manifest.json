@@ -1,0 +1,12 @@
+{
+  "slug": "tu-vi-nghiem-ly-cu-thien-luong",
+  "source_format": "doc/docx (Word, text-layer)",
+  "converter": "markitdown(.docx)/textutil(.doc)",
+  "chars": 241051,
+  "pages": 74,
+  "stage": "4.1 text sạch — SẴN SÀNG atomize (chưa vào wiki)",
+  "note": "ĐÃ ĐỐI CHIẾU 2026-07-29: KHÁC HẲN corpus tu-vi-nghiem-ly-toan-thu-thien-luong đã có (0/8 câu mẫu trùng; 241k vs 430k ký tự) → KHÔNG phải bản trùng, an toàn atomize.",
+  "source_dir": "thư viện sách/TUVIFULL",
+  "restoration": "Word text-layer (KHÔNG OCR): markitdown cho .docx · textutil cho .doc binary",
+  "next_step": "chunker.chunk_book_pages() → batch_atomize --book <slug>"
+}
