@@ -67,6 +67,23 @@ const PURE_CHINH_TINH_SLUG = Object.freeze({
   "Phá Quân": "pha-quan",
 });
 
+const PHU_TINH_ORACLE_SLUG = Object.freeze({
+  "Lộc Tồn": "loc-ton",
+  "Kình Dương": "kinh-duong",
+  "Đà La": "da-la",
+  "Tả Phù": "ta-phu",
+  "Hữu Bật": "huu-bat",
+  "Văn Xương": "van-xuong",
+  "Văn Khúc": "van-khuc",
+  "Thiên Khôi": "thien-khoi",
+  "Thiên Việt": "thien-viet",
+  "Hỏa Tinh": "hoa-tinh",
+  "Linh Tinh": "linh-tinh",
+  "Địa Không": "dia-khong",
+  "Địa Kiếp": "dia-kiep",
+  "Thiên Mã": "thien-ma",
+});
+
 const UAN_LABELS = {
   sac: "Sắc — biểu hiện ra ngoài",
   tho: "Thọ — cảm xúc",
@@ -188,7 +205,10 @@ const oracleCardsBySlug = computed(() => {
 });
 
 function oracleCardForProfile(profile) {
-  const slug = PURE_CHINH_TINH_SLUG[profile?.co_ban?.ten_vi];
+  const ten = profile?.co_ban?.ten_vi;
+  const slug = profile?.co_ban?.is_phu_tinh
+    ? PHU_TINH_ORACLE_SLUG[ten]
+    : PURE_CHINH_TINH_SLUG[ten];
   return slug ? oracleCardsBySlug.value.get(slug) || null : null;
 }
 
