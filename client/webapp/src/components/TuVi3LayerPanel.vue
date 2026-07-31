@@ -174,6 +174,7 @@
           <div v-for="row in boPhuTinhList" :key="row.chi" class="bo-pt-cung">
             <strong>🏛 {{ formatPalace(row.chi) }}:</strong>
             <span v-for="b in row.bos" :key="b.slug" :class="['bo-pt-chip', b.loai]" :title="b.the_vi + (b.du_cap ? ' · đủ cặp' : ' · lẻ')">
+              <img v-if="boPhuTinhImage(b)" :src="boPhuTinhImage(b)" :alt="`Ảnh ${b.ten}`" loading="lazy" />
               {{ b.ten }} <em>{{ b.the_vi }}</em>{{ b.du_cap ? '' : '*' }}
             </span>
           </div>
@@ -556,6 +557,23 @@ const boPhuTinhList = computed(() => {
 })
 const daiVan = computed(() => result.value?.lop_3_sach_co?.dai_van_hien_tai || null)
 
+const BO_PHU_TINH_ART = {
+  'kinh_da:giap': '/oracle-cards/tu-vi/web_ready/170-kinh-da-giap-cung.webp',
+  'ta_huu:hoi_chieu': '/oracle-cards/tu-vi/web_ready/171-ta-huu-hoi-chieu.webp',
+  'xuong_khuc:dong_cung': '/oracle-cards/tu-vi/web_ready/172-xuong-khuc-dong-cung.webp',
+  'khong_kiep:xung_chieu': '/oracle-cards/tu-vi/web_ready/173-khong-kiep-xung-chieu.webp',
+  'loc_ma:dong_cung': '/oracle-cards/tu-vi/web_ready/174-loc-ma-dong-hoi.webp',
+  'loc_ma:hoi_chieu': '/oracle-cards/tu-vi/web_ready/174-loc-ma-dong-hoi.webp',
+  'hoa_linh:dong_cung': '/oracle-cards/tu-vi/web_ready/175-hoa-linh-kich-phat.webp',
+  'hoa_linh:giap': '/oracle-cards/tu-vi/web_ready/175-hoa-linh-kich-phat.webp',
+  'hoa_linh:xung_chieu': '/oracle-cards/tu-vi/web_ready/175-hoa-linh-kich-phat.webp',
+  'hoa_linh:hoi_chieu': '/oracle-cards/tu-vi/web_ready/175-hoa-linh-kich-phat.webp',
+}
+
+function boPhuTinhImage(b) {
+  return BO_PHU_TINH_ART[`${b?.slug}:${b?.the}`] || null
+}
+
 function formatPalace(p) {
   return PALACE_NAMES[p] || p
 }
@@ -913,8 +931,16 @@ h3 { margin-top: 0; }
 .bo-pt-section { margin: 16px 0; padding: 12px; background: #fff; border-radius: 6px; border: 1px solid #b8a5d8; }
 .bo-pt-cung { margin: 8px 0; line-height: 1.9; }
 .bo-pt-chip {
-  display: inline-block; margin: 2px 4px; padding: 1px 9px;
+  display: inline-flex; align-items: center; gap: 5px; margin: 2px 4px; padding: 1px 9px;
   border-radius: 10px; font-size: 0.82em;
+}
+.bo-pt-chip img {
+  width: 20px;
+  height: 28px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid rgba(106, 76, 147, 0.28);
+  flex: 0 0 auto;
 }
 .bo-pt-chip em { font-style: normal; opacity: 0.7; font-size: 0.9em; }
 .bo-pt-chip.sat { background: #ffebee; color: #b71c1c; }
