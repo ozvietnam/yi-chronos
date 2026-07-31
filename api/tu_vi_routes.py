@@ -187,43 +187,6 @@ def tu_vi_van_han(request: TuViVanHanRequest, caller: dict = Depends(require_cal
     return {"status": "ok", **out}
 
 
-class _ChuDeRequest(_AnalyzeRequest):
-    chu_de: str = "su_nghiep"
-
-
-@router.post("/chu-de/doi-tam")
-def tu_vi_chu_de_doi_tam(req: _ChuDeRequest, request: Request) -> dict:
-    """ĐỌC THEO CHỦ ĐỀ (dời tâm) — lấy cung của chủ đề làm TÂM, đọc CHÒM THẬT của nó.
-
-    Cổ pháp Trung Châu đọc tam phương tứ chính theo điểm tham chiếu (không chỉ từ Mệnh).
-    0-LLM, tất định, nội dung sao/rule CHỈ lấy bản đã duyệt (quote-or-silence). Miễn phí.
-    """
-    from engine.tu_vi.chu_de import CHU_DE, doc_doi_tam, doi_tam_source_text
-    from engine.tu_vi.from_birth import cast_la_so_from_birth
-
-    if req.chu_de not in CHU_DE:
-        return {"status": "error", "message": f"Chủ đề không hỗ trợ. Có: {sorted(CHU_DE)}"}
-    person = _resolve_person_from_request(req, request)
-    try:
-        la_so = cast_la_so_from_birth(birth_datetime_local=person.birth_datetime_local,
-                                      gender=person.gender, timezone=person.timezone)
-    except (ValueError, KeyError) as e:
-        return {"status": "error", "message": str(e)}
-    blk = doc_doi_tam(la_so, req.chu_de)
-    return {"status": "ok", **blk, "source_text": doi_tam_source_text(blk)}
-
-
-@router.get("/chu-de/danh-sach")
-def tu_vi_chu_de_list() -> dict:
-    """Danh sách chủ đề đọc-theo-chủ-đề (slug · tên · icon · cung tâm)."""
-    from engine.tu_vi.chu_de import CHU_DE, _CUNG_VI
-    return {"status": "ok", "chu_de": [
-        {"slug": k, "ten": v["ten"], "icon": v.get("icon"),
-         "cung_tam": _CUNG_VI.get(v["cung_chinh"], v["cung_chinh"]),
-         "goc_nhin": v.get("goc_nhin")}
-        for k, v in CHU_DE.items()]}
-
-
 @router.get("/do-hinh-co")
 def tu_vi_do_hinh_co() -> dict[str, object]:
     """4 đồ hình âm dương cổ (Thái cực · Tiên thiên · Hậu thiên · Hà Đồ) cho
@@ -774,6 +737,43 @@ def yi_tuvi_cung_phu_the_bac_phai(req: _AnalyzeRequest, request: Request) -> dic
         "ngu_uan_focus": ngu_uan_focus,
         "la_so": la_so,  # Full chart cho UI render 12 ô đối chiếu
     }
+
+
+class _ChuDeRequest(_AnalyzeRequest):
+    chu_de: str = "su_nghiep"
+
+
+@router.post("/chu-de/doi-tam")
+def tu_vi_chu_de_doi_tam(req: _ChuDeRequest, request: Request) -> dict:
+    """ĐỌC THEO CHỦ ĐỀ (dời tâm) — lấy cung của chủ đề làm TÂM, đọc CHÒM THẬT của nó.
+
+    Cổ pháp Trung Châu đọc tam phương tứ chính theo điểm tham chiếu (không chỉ từ Mệnh).
+    0-LLM, tất định, nội dung sao/rule CHỈ lấy bản đã duyệt (quote-or-silence). Miễn phí.
+    """
+    from engine.tu_vi.chu_de import CHU_DE, doc_doi_tam, doi_tam_source_text
+    from engine.tu_vi.from_birth import cast_la_so_from_birth
+
+    if req.chu_de not in CHU_DE:
+        return {"status": "error", "message": f"Chủ đề không hỗ trợ. Có: {sorted(CHU_DE)}"}
+    person = _resolve_person_from_request(req, request)
+    try:
+        la_so = cast_la_so_from_birth(birth_datetime_local=person.birth_datetime_local,
+                                      gender=person.gender, timezone=person.timezone)
+    except (ValueError, KeyError) as e:
+        return {"status": "error", "message": str(e)}
+    blk = doc_doi_tam(la_so, req.chu_de)
+    return {"status": "ok", **blk, "source_text": doi_tam_source_text(blk)}
+
+
+@router.get("/chu-de/danh-sach")
+def tu_vi_chu_de_list() -> dict:
+    """Danh sách chủ đề đọc-theo-chủ-đề (slug · tên · icon · cung tâm)."""
+    from engine.tu_vi.chu_de import CHU_DE, _CUNG_VI
+    return {"status": "ok", "chu_de": [
+        {"slug": k, "ten": v["ten"], "icon": v.get("icon"),
+         "cung_tam": _CUNG_VI.get(v["cung_chinh"], v["cung_chinh"]),
+         "goc_nhin": v.get("goc_nhin")}
+        for k, v in CHU_DE.items()]}
 
 
 class _LuanCungRequest(_AnalyzeRequest):
