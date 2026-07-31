@@ -442,6 +442,7 @@ async function castChart() {
     loadChartStrength();
     loadSafetyCheck();
     loadThienQuanArchetype();
+    peekPheMenhSau();      // đã mua luận sâu rồi → TỰ HIỆN, khỏi bấm, khỏi lo mất tiền
 
     // Auto-save to user_castings (silent — only if logged in)
     if (isAuthenticated.value && resp.la_so) {
@@ -523,6 +524,20 @@ async function loadPheMenh(force = false) {
   } finally {
     pheMenhLoading.value = false;
   }
+}
+
+// TỰ HIỆN bản ĐÃ LƯU — chỉ ĐỌC cache, KHÔNG bao giờ sinh mới, KHÔNG trừ xu.
+// Anh 2026-07-31: "trước luận giải rồi thì sau không trừ phí, phải tìm được kết quả cũ —
+// tại sao giờ vẫn phải bấm lại?" → đúng: người dùng thấy nút '(99 xu)' sẽ tưởng mất tiền
+// nên không dám bấm → coi như mất luôn bản đã mua.
+async function peekPheMenhSau() {
+  const personKey = activePerson.value?.person_key;
+  if (!personKey) return;
+  try {
+    const resp = await fetch(`/api/tu-vi/analyze/${encodeURIComponent(personKey)}/phe_menh_sau`)
+      .then((r) => r.json()).catch(() => ({ status: "not_cached" }));
+    if (resp.status === "ok") pheMenhSau.value = { ...resp, from_cache: true, xu_spent: 0 };
+  } catch { /* im lặng — chỉ là nạp sẵn */ }
 }
 
 async function loadPheMenhSau(force = false) {
