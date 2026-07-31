@@ -813,4 +813,58 @@ async function submitChangePassword() {
 
 .ub-newuser-form label { display: block; }
 .ub-newuser-form button[type=submit] { margin-top: 0.5rem; }
+
+@media (max-width: 560px) {
+  .ub-pill {
+    max-width: min(52vw, 220px);
+    padding: 0.4rem 0.65rem 0.4rem 0.5rem;
+    font-size: 0.8rem;
+  }
+  .ub-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 7.5rem;
+  }
+  .ub-role,
+  .ub-caret {
+    display: none;
+  }
+  .ub-xu {
+    font-size: 0.7rem;
+    padding: 1px 5px;
+  }
+  .ub-menu {
+    position: fixed;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    min-width: 0;
+    border-radius: 12px 12px 0 0;
+    padding: 0.6rem 0.6rem calc(0.6rem + env(safe-area-inset-bottom, 0px));
+    max-height: 78vh;
+    overflow-y: auto;
+    z-index: 1600;
+  }
+  .ub-modal-backdrop {
+    align-items: flex-end;
+    padding: 0;
+  }
+  .ub-modal {
+    width: 100%;
+    max-width: none;
+    border-radius: 12px 12px 0 0;
+    max-height: 92vh;
+    padding: 1rem 1.1rem calc(1rem + env(safe-area-inset-bottom, 0px));
+  }
+  .ub-modal-wide {
+    max-width: none;
+  }
+  .ub-users-table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
 </style>

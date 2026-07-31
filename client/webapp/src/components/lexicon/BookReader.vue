@@ -39,6 +39,8 @@ const searchHits = ref([]);
 const searchLoading = ref(false);
 const popularHashtags = ref([]);
 const popularPersons = ref([]);
+const showToc = ref(false);
+const contentRef = ref(null);
 
 // === Translation toggle (Việt / Trung) ===
 const lang = ref("zh");  // "zh" = bản gốc, "vi" = bản dịch
@@ -237,10 +239,12 @@ function gotoPage(pn) {
   if (pn < 1) return;
   if (totalPages.value && pn > totalPages.value) return;
   currentPage.value = pn;
+  if (contentRef.value) contentRef.value.scrollTop = 0;
 }
 
 function gotoSection(sec) {
   currentPage.value = sec.start_page;
+  showToc.value = false;
 }
 
 function onClickPage(ev) {
@@ -287,6 +291,9 @@ onMounted(async () => {
         <button class="figbtn searchbtn" @click="showSearch = !showSearch; if (showSearch) loadIndexes()">
           🔍 Tìm
         </button>
+        <button class="figbtn tocbtn" @click="showToc = !showToc">
+          📑 Mục lục
+        </button>
         <button class="figbtn" @click="showFigures = !showFigures; if (showFigures) loadFigures()">
           🎨 Hình ({{ figures.length || '?' }})
         </button>
@@ -302,8 +309,8 @@ onMounted(async () => {
     <div v-else-if="error && !overview" class="status error">{{ error }}</div>
 
     <div v-else-if="overview" class="reader-body">
-      <!-- TOC sidebar -->
-      <aside class="toc">
+      <!-- TOC sidebar / mobile drawer -->
+      <aside class="toc" :class="{ open: showToc }">
         <h4>📑 Mục lục ({{ tocSections.length }})</h4>
         <ul>
           <li v-for="sec in tocSections" :key="sec.section_id"
@@ -318,9 +325,16 @@ onMounted(async () => {
           Chưa có mục lục — sẽ tự cập nhật sau khi LLM phát hiện chương đầu tiên.
         </div>
       </aside>
+      <button
+        v-if="showToc"
+        type="button"
+        class="toc-backdrop"
+        aria-label="Đóng mục lục"
+        @click="showToc = false"
+      />
 
       <!-- Page content -->
-      <main class="page-pane">
+      <main ref="contentRef" class="page-pane reading-pane">
         <div class="copyright-banner">
           ⚠️ <strong>Bản phục chế nội bộ</strong> — phục vụ nghiên cứu, không thay thế sách in.
           <span v-if="overview.book.author">
@@ -347,7 +361,7 @@ onMounted(async () => {
           <span v-for="q in pageContent.que_mentions" :key="'q-'+q" class="que-chip">☱ {{ q }}</span>
         </div>
 
-        <article class="page-content" v-html="pageContent.html"></article>
+        <article class="page-content reading-surface reading-prose" v-html="pageContent.html"></article>
         <div v-if="pageContent.wikilinks?.length" class="page-wls">
           <strong>Khái niệm trên trang này:</strong>
           <span v-for="w in pageContent.wikilinks" :key="w" class="wl-chip"
@@ -588,14 +602,15 @@ onMounted(async () => {
   margin-bottom: 0.75rem;
 }
 .page-content {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: "Be Vietnam Pro", Georgia, "Times New Roman", serif;
   font-size: calc(16px * var(--reading-scale));
-  line-height: 1.7;
+  line-height: var(--reading-line-height, 1.78);
   color: var(--read-text);
 }
 .page-content :deep(p) {
   font-size: calc(16px * var(--reading-scale));
-  line-height: 1.7;
+  line-height: var(--reading-line-height, 1.78);
+  margin: 0.65em 0;
 }
 .page-content :deep(h1) {
   color: var(--read-heading);
@@ -1040,7 +1055,50 @@ onMounted(async () => {
 }
 
 @media (max-width: 700px) {
-  .reader-body { grid-template-columns: 1fr; }
-  .toc { display: none; }
+  .reader-body { grid-template-columns: 1fr; position: relative; }
+  .toc {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: min(86vw, 320px);
+    z-index: 120;
+    box-shadow: 8px 0 28px rgba(0, 0, 0, 0.45);
+  }
+  .toc.open { display: block; }
+  .toc-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 110;
+    border: 0;
+    background: rgba(0, 0, 0, 0.55);
+    cursor: pointer;
+  }
+  .page-pane {
+    padding-inline: 0.35rem;
+  }
+  .page-content :deep(p) {
+    font-size: calc(17px * var(--reading-scale));
+  }
+  .pager {
+    position: sticky;
+    bottom: 0;
+    background: linear-gradient(180deg, transparent, var(--read-bg) 30%);
+    padding-bottom: calc(0.5rem + env(safe-area-inset-bottom, 0px));
+  }
+  .pager button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  .head-right {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+  .figbtn {
+    min-height: 40px;
+  }
 }
 </style>

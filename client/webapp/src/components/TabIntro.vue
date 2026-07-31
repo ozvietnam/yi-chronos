@@ -91,4 +91,25 @@ defineProps({
   font-size: 12px;
   color: rgba(255,144,128,0.92);
 }
+
+@media (max-width: 560px) {
+  .tab-intro {
+    padding: 12px 14px;
+    border-radius: 10px;
+  }
+  .ti-head {
+    gap: 10px;
+  }
+  .ti-text h2 {
+    font-size: 15px;
+    line-height: 1.35;
+  }
+  .ti-text p,
+  .ti-steps {
+    font-size: 12px;
+  }
+  .ti-steps {
+    padding-left: 18px;
+  }
+}
 </style>

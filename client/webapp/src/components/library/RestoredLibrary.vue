@@ -10,7 +10,7 @@
  *  GET /api/library/restored-books/{book_id}/content
  *  GET /api/library/restored-books/search?q=...
  */
-import { ref, computed, onMounted, watch } from "vue";
+import { ref, computed, onMounted, watch, nextTick } from "vue";
 
 const books = ref([]);
 const categories = ref({});
@@ -29,6 +29,8 @@ const searchLoading = ref(false);
 // Pagination view (split content thành chunks 20K chars để render nhanh)
 const CHUNK_SIZE = 20000;
 const chunkIdx = ref(0);
+const showBookList = ref(true);
+const mainRef = ref(null);
 const totalChunks = computed(() => {
   if (!bookContent.value?.content_md) return 1;
   return Math.ceil(bookContent.value.content_md.length / CHUNK_SIZE);
@@ -66,6 +68,9 @@ async function openBook(bid) {
   errorContent.value = "";
   loadingContent.value = true;
   chunkIdx.value = 0;
+  if (typeof window !== "undefined" && window.innerWidth <= 800) {
+    showBookList.value = false;
+  }
   try {
     const r = await fetch(`/api/library/restored-books/${bid}/content`);
     if (!r.ok) throw new Error(`HTTP ${r.status}`);
@@ -130,7 +135,24 @@ function renderMd(text) {
   return html;
 }
 
+function scrollReaderTop() {
+  nextTick(() => {
+    if (mainRef.value) mainRef.value.scrollTop = 0;
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+}
+
+function prevChunk() {
+  chunkIdx.value = Math.max(0, chunkIdx.value - 1);
+  scrollReaderTop();
+}
+function nextChunk() {
+  chunkIdx.value = Math.min(totalChunks.value - 1, chunkIdx.value + 1);
+  scrollReaderTop();
+}
+
 onMounted(loadList);
+watch(chunkIdx, scrollReaderTop);
 watch(search, () => {
   // Debounced search
   clearTimeout(window.__libSearchTo);
@@ -163,9 +185,9 @@ watch(search, () => {
       </div>
     </div>
 
-    <div class="rlib-body">
+    <div class="rlib-body" :class="{ 'is-reading': selectedBookId && !showBookList }">
       <!-- Sidebar: books grouped by category -->
-      <aside class="rlib-sidebar">
+      <aside v-show="showBookList || !selectedBookId" class="rlib-sidebar">
         <div v-if="loadingList" class="loading-state">Đang tải...</div>
         <div v-if="errorList" class="error">{{ errorList }}</div>
         <div v-for="(books_in_cat, cat) in categories" :key="cat" class="rlib-cat">
@@ -182,7 +204,7 @@ watch(search, () => {
       </aside>
 
       <!-- Main: reader -->
-      <main class="rlib-main">
+      <main ref="mainRef" class="rlib-main reading-pane">
         <div v-if="!selectedBookId" class="empty-state">
           ← Chọn 1 sách bên trái để bắt đầu đọc
         </div>
@@ -191,18 +213,26 @@ watch(search, () => {
 
         <div v-if="bookContent" class="reader">
           <div class="reader-head">
+            <button
+              v-if="!showBookList"
+              type="button"
+              class="reader-back"
+              @click="showBookList = true"
+            >
+              ← Sách
+            </button>
             <h3>{{ bookContent.title }}</h3>
             <div class="reader-controls" v-if="totalChunks > 1">
-              <button @click="chunkIdx = Math.max(0, chunkIdx - 1)" :disabled="chunkIdx === 0">← Trang trước</button>
+              <button @click="prevChunk" :disabled="chunkIdx === 0">← Trước</button>
               <span>Phần {{ chunkIdx + 1 }} / {{ totalChunks }}</span>
-              <button @click="chunkIdx = Math.min(totalChunks - 1, chunkIdx + 1)" :disabled="chunkIdx === totalChunks - 1">Trang sau →</button>
+              <button @click="nextChunk" :disabled="chunkIdx === totalChunks - 1">Sau →</button>
             </div>
           </div>
-          <div class="reader-body" v-html="renderMd(currentChunk)"></div>
-          <div class="reader-controls" v-if="totalChunks > 1">
-            <button @click="chunkIdx = Math.max(0, chunkIdx - 1)" :disabled="chunkIdx === 0">← Trang trước</button>
+          <div class="reader-body reading-surface reading-prose" v-html="renderMd(currentChunk)"></div>
+          <div class="reader-controls reader-controls-bottom" v-if="totalChunks > 1">
+            <button @click="prevChunk" :disabled="chunkIdx === 0">← Trước</button>
             <span>Phần {{ chunkIdx + 1 }} / {{ totalChunks }}</span>
-            <button @click="chunkIdx = Math.min(totalChunks - 1, chunkIdx + 1)" :disabled="chunkIdx === totalChunks - 1">Trang sau →</button>
+            <button @click="nextChunk" :disabled="chunkIdx === totalChunks - 1">Sau →</button>
           </div>
         </div>
       </main>
@@ -212,92 +242,140 @@ watch(search, () => {
 
 <style scoped>
 .rlib {
-  background: rgba(15, 23, 42, 0.4);
-  border-radius: 8px; padding: 1rem; margin: 0.5rem 0;
+  background: var(--read-bg, rgba(15, 23, 42, 0.4));
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 0.5rem 0;
+  color: var(--read-text, #e2e8f0);
 }
-.rlib-head h2 { margin: 0; color: #fcd34d; font-size: 1.1rem; }
-.subtitle { color: #94a3b8; font-size: 0.85rem; margin: 0.3rem 0 0.7rem; font-style: italic; }
+.rlib-head h2 { margin: 0; color: var(--read-heading, #fcd34d); font-size: calc(1.05rem * var(--reading-scale)); }
+.subtitle { color: var(--read-text-dim, #94a3b8); font-size: calc(0.85rem * var(--reading-scale)); margin: 0.3rem 0 0.7rem; font-style: italic; }
 
 .rlib-search {
   display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.6rem;
-  background: rgba(252, 211, 77, 0.05); border: 1px solid rgba(252, 211, 77, 0.2);
-  border-radius: 5px; padding: 0.4rem 0.7rem;
+  background: var(--read-cite-bg, rgba(252, 211, 77, 0.05));
+  border: 1px solid var(--read-border, rgba(252, 211, 77, 0.2));
+  border-radius: 8px; padding: 0.45rem 0.75rem;
 }
 .rlib-search input {
-  flex: 1; background: transparent; color: #e0e7ff; border: none; outline: none;
-  font-size: 0.9rem; padding: 0.3rem;
+  flex: 1; background: transparent; color: var(--read-text, #e0e7ff); border: none; outline: none;
+  font-size: calc(0.92rem * var(--reading-scale)); padding: 0.35rem; min-height: 40px;
 }
-.rlib-search .loading { color: #fcd34d; }
+.rlib-search .loading { color: var(--read-rule, #fcd34d); }
 
 .rlib-search-results {
-  background: rgba(0,0,0,0.3); border-radius: 5px; padding: 0.5rem;
+  background: var(--read-bg-soft, rgba(0,0,0,0.3)); border-radius: 8px; padding: 0.5rem;
   max-height: 250px; overflow-y: auto; margin-bottom: 0.6rem;
+  -webkit-overflow-scrolling: touch;
 }
-.search-hit { padding: 0.4rem 0.6rem; cursor: pointer; border-radius: 4px; }
-.search-hit:hover { background: rgba(252, 211, 77, 0.08); }
-.hit-book { color: #fcd34d; font-weight: 600; font-size: 0.85rem; }
-.hit-book small { color: #94a3b8; font-weight: 400; }
-.hit-snippet { color: #cbd5e1; font-size: 0.82rem; line-height: 1.5; margin-top: 0.2rem; }
+.search-hit { padding: 0.5rem 0.65rem; cursor: pointer; border-radius: 6px; min-height: 44px; }
+.search-hit:hover { background: var(--read-cite-bg, rgba(252, 211, 77, 0.08)); }
+.hit-book { color: var(--read-heading, #fcd34d); font-weight: 600; font-size: calc(0.85rem * var(--reading-scale)); }
+.hit-book small { color: var(--read-text-dim, #94a3b8); font-weight: 400; }
+.hit-snippet { color: var(--read-text-dim, #cbd5e1); font-size: calc(0.84rem * var(--reading-scale)); line-height: var(--reading-line-height, 1.78); margin-top: 0.2rem; }
 .hit-snippet :deep(p) { margin: 0.2rem 0; }
 
 .rlib-body { display: grid; grid-template-columns: 280px 1fr; gap: 1rem; min-height: 500px; }
+.rlib-body.is-reading { grid-template-columns: 1fr; }
 
 .rlib-sidebar {
-  background: rgba(0,0,0,0.25); border-radius: 5px; padding: 0.5rem;
-  max-height: 70vh; overflow-y: auto;
+  background: var(--read-bg-soft, rgba(0,0,0,0.25)); border-radius: 8px; padding: 0.5rem;
+  max-height: 70vh; overflow-y: auto; border: 1px solid var(--read-border, transparent);
+  -webkit-overflow-scrolling: touch;
 }
-.rlib-cat h4 { margin: 0.5rem 0.3rem 0.3rem; color: #c4b5fd; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.02em; }
+.rlib-cat h4 { margin: 0.5rem 0.3rem 0.3rem; color: var(--read-han, #c4b5fd); font-size: calc(0.8rem * var(--reading-scale)); font-weight: 600; text-transform: uppercase; letter-spacing: 0.02em; }
 .rlib-cat ul { list-style: none; padding: 0; margin: 0 0 0.5rem; }
 .rlib-cat li {
-  padding: 0.35rem 0.5rem; cursor: pointer; border-radius: 4px;
-  margin-bottom: 0.15rem; transition: background 0.15s;
+  padding: 0.45rem 0.55rem; cursor: pointer; border-radius: 6px;
+  margin-bottom: 0.15rem; transition: background 0.15s; min-height: 44px;
 }
-.rlib-cat li:hover { background: rgba(252, 211, 77, 0.08); }
-.rlib-cat li.active { background: rgba(252, 211, 77, 0.18); }
-.rlib-cat li .book-title { color: #fcd34d; font-size: 0.85rem; line-height: 1.3; }
-.rlib-cat li small { color: #94a3b8; font-size: 0.7rem; display: block; margin-top: 0.1rem; }
+.rlib-cat li:hover { background: var(--read-cite-bg, rgba(252, 211, 77, 0.08)); }
+.rlib-cat li.active { background: var(--read-cite-bg, rgba(252, 211, 77, 0.18)); border-left: 3px solid var(--read-rule, #fcd34d); }
+.rlib-cat li .book-title { color: var(--read-heading, #fcd34d); font-size: calc(0.86rem * var(--reading-scale)); line-height: 1.35; }
+.rlib-cat li small { color: var(--read-text-faint, #94a3b8); font-size: calc(0.72rem * var(--reading-scale)); display: block; margin-top: 0.1rem; }
 
 .rlib-main {
-  background: rgba(0,0,0,0.25); border-radius: 5px; padding: 0.8rem;
-  max-height: 70vh; overflow-y: auto;
+  background: var(--read-surface, rgba(0,0,0,0.25));
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+  max-height: 70vh;
+  border: 1px solid var(--read-border, transparent);
 }
 .empty-state {
   display: flex; align-items: center; justify-content: center;
-  height: 200px; color: #64748b; font-style: italic;
+  height: 200px; color: var(--read-text-faint, #64748b); font-style: italic;
 }
-.loading-state { color: #fcd34d; padding: 1rem; text-align: center; }
+.loading-state { color: var(--read-rule, #fcd34d); padding: 1rem; text-align: center; }
 .error { color: #f87171; padding: 0.5rem; }
 
-.reader-head { border-bottom: 1px solid rgba(252,211,77,0.2); padding-bottom: 0.4rem; margin-bottom: 0.7rem; }
-.reader-head h3 { margin: 0; color: #fcd34d; font-size: 1rem; }
+.reader-head {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 0.75rem;
+  border-bottom: 1px solid var(--read-border, rgba(252,211,77,0.2));
+  padding-bottom: 0.55rem; margin-bottom: 0.75rem;
+  position: sticky; top: 0; z-index: 2;
+  background: var(--read-surface, rgba(0,0,0,0.25));
+  padding-top: 0.15rem;
+}
+.reader-back {
+  background: var(--read-cite-bg, rgba(252,211,77,0.12));
+  border: 1px solid var(--read-border, rgba(252,211,77,0.3));
+  color: var(--read-link, #fcd34d);
+  padding: 0.35rem 0.65rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: calc(0.82rem * var(--reading-scale));
+  min-height: 40px;
+}
+.reader-head h3 { margin: 0; color: var(--read-heading, #fcd34d); font-size: calc(1rem * var(--reading-scale)); flex: 1; min-width: 0; }
 .reader-controls {
-  display: flex; align-items: center; gap: 0.6rem; margin: 0.7rem 0;
-  font-size: 0.85rem; color: #cbd5e1; justify-content: center;
+  display: flex; align-items: center; gap: 0.6rem; margin: 0.55rem 0;
+  font-size: calc(0.85rem * var(--reading-scale)); color: var(--read-text-dim, #cbd5e1); justify-content: center;
+  flex-wrap: wrap;
+}
+.reader-controls-bottom {
+  position: sticky;
+  bottom: 0;
+  padding: 0.5rem 0 0.15rem;
+  background: linear-gradient(180deg, transparent, var(--read-bg, #1d1813) 28%);
 }
 .reader-controls button {
-  background: rgba(252,211,77,0.15); border: 1px solid rgba(252,211,77,0.3);
-  color: #fcd34d; padding: 0.3rem 0.7rem; border-radius: 4px; cursor: pointer; font-size: 0.82rem;
+  background: var(--read-cite-bg, rgba(252,211,77,0.15));
+  border: 1px solid var(--read-border, rgba(252,211,77,0.3));
+  color: var(--read-link, #fcd34d);
+  padding: 0.45rem 0.85rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: calc(0.84rem * var(--reading-scale));
+  min-height: 44px;
 }
 .reader-controls button:disabled { opacity: 0.4; cursor: not-allowed; }
 .reader-body {
-  color: #e2e8f0; line-height: 1.7; font-size: 0.92rem;
-  font-family: 'Charter', 'Iowan Old Style', 'Palatino', Georgia, serif;
+  font-family: "Be Vietnam Pro", Charter, "Iowan Old Style", Palatino, Georgia, serif;
 }
-.reader-body :deep(h1) { color: #fcd34d; font-size: 1.4rem; margin: 1.2rem 0 0.6rem; }
-.reader-body :deep(h2) { color: #fcd34d; font-size: 1.15rem; margin: 1rem 0 0.5rem; }
-.reader-body :deep(h3) { color: #c4b5fd; font-size: 1.02rem; margin: 0.8rem 0 0.4rem; }
-.reader-body :deep(b) { color: #fcd34d; }
-.reader-body :deep(i) { color: #c4b5fd; }
-.reader-body :deep(ul) { padding-left: 1.2rem; }
-.reader-body :deep(li) { margin: 0.25rem 0; }
+.reader-body :deep(h1) { color: var(--read-heading, #fcd34d); font-size: calc(1.35rem * var(--reading-scale)); margin: 1.1rem 0 0.55rem; }
+.reader-body :deep(h2) { color: var(--read-heading, #fcd34d); font-size: calc(1.12rem * var(--reading-scale)); margin: 0.95rem 0 0.45rem; }
+.reader-body :deep(h3) { color: var(--read-han, #c4b5fd); font-size: calc(1.02rem * var(--reading-scale)); margin: 0.75rem 0 0.35rem; }
+.reader-body :deep(b) { color: var(--read-heading, #fcd34d); }
+.reader-body :deep(i) { color: var(--read-han, #c4b5fd); }
+.reader-body :deep(ul) { padding-left: 1.25rem; }
+.reader-body :deep(li) { margin: 0.3rem 0; }
 .reader-body :deep(.page-marker) {
-  color: #64748b; font-style: italic; text-align: center; font-size: 0.78rem;
-  margin: 0.8rem 0; padding: 0.2rem; border-top: 1px dashed rgba(100,116,139,0.3);
+  color: var(--read-text-faint, #64748b); font-style: italic; text-align: center;
+  font-size: calc(0.78rem * var(--reading-scale));
+  margin: 1rem 0; padding: 0.25rem; border-top: 1px dashed var(--read-border, rgba(100,116,139,0.3));
 }
-.reader-body :deep(.page-empty) { color: #64748b; font-style: italic; text-align: center; font-size: 0.78rem; margin: 0.4rem 0; }
+.reader-body :deep(.page-empty) { color: var(--read-text-faint, #64748b); font-style: italic; text-align: center; font-size: calc(0.78rem * var(--reading-scale)); margin: 0.4rem 0; }
 
 @media (max-width: 800px) {
-  .rlib-body { grid-template-columns: 1fr; }
-  .rlib-sidebar { max-height: 250px; }
+  .rlib-body { grid-template-columns: 1fr; min-height: auto; }
+  .rlib-sidebar { max-height: min(42vh, 320px); }
+  .rlib-main {
+    max-height: none;
+    min-height: min(72vh, calc(100vh - 220px));
+    padding: 0.75rem 0.85rem;
+  }
+  .rlib-body.is-reading .rlib-main {
+    min-height: min(78vh, calc(100vh - 160px));
+  }
 }
 </style>
