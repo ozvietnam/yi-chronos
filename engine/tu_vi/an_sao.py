@@ -387,6 +387,114 @@ def dia_khong_kiep(hour_index: int) -> tuple[int, int]:
     return khong, kiep
 
 
+# ─── 8b. Lưu Tinh (5 sao an theo Can năm — dùng cho Lưu Niên) ─────────────────
+#
+# Kình Dương, Đà La, Lộc Tồn, Thiên Khôi, Thiên Việt CHỈ phụ thuộc Can của năm
+# (không phụ thuộc giờ/tháng sinh) — nên khi thay Can năm sinh bằng Can của
+# năm Lưu Niên/Đại Vận đang xét, cùng công thức trên cho ra vị trí "sao lưu"
+# của năm đó. Đây là cơ chế cổ điển "trùng phùng" (sao lưu gặp lại đúng vị trí
+# sao bản mệnh) — nguồn xác nhận quote-or-silence trong sao_noi_dung/
+# atomic_questions (2026-07-04):
+#   - Kình Dương: "Kình Dương trùng phùng lưu Dương, Tây Thi khuynh vẫn thân"
+#     (tu-vi-dau-so-toan-thu-vu-tai-luc) — mạnh, cảnh báo tai họa/nguy hiểm.
+#   - Đà La: "Đà Lưu Đà: tai họa khủng khiếp, nhất là khi gặp thêm Thất Sát
+#     đồng cung" (tuvifull-luan-giai-cac-chinh-tinh) — mạnh, cảnh báo.
+#   - Lộc Tồn: "Lộc trùng điệp" giữa lưu niên và nguyên cục — nguồn ghi RÕ
+#     "sức ảnh hưởng rất yếu" (atomic_questions, Trung Châu), khác hẳn 2 sao
+#     trên — chỉ đáng chú ý khi CÙNG LÚC có Đại Vận Hóa Lộc trùng điệp.
+#   - Thiên Khôi/Thiên Việt: "Lưu Khôi Lưu Việt xung khởi/trùng điệp nguyên
+#     cục Khôi Việt" — nguồn ghi TÍCH CỰC: "cơ hội chuyển biến", "phát đột
+#     ngột", "được người tri ngộ" (atomic_questions, Trung Châu/TVDSTT) —
+#     tính cả trường hợp TRÙNG (cùng cung) lẫn XUNG (đối cung).
+#
+# Iron #4/#6/#8/#9: đây là TÍN HIỆU đáng quan-sát, KHÔNG phải lời tiên tri
+# cát/hung cố định — mức mạnh/yếu khác nhau rõ giữa các sao (xem "muc" dưới).
+
+TRUNG_PHUNG_NGHIA: dict[str, dict] = {
+    "Kình Dương": {
+        "muc": "manh_canh_bao",
+        "y_nghia": (
+            "Lưu Kình Dương trùng phùng đúng cung có Kình Dương bản mệnh — "
+            "cổ văn ví như 'Tây Thi khuynh vẫn thân': năm này dễ gặp tai họa, "
+            "nguy hiểm đến thân, nên quan sát kỹ trước khi hành động quyết liệt/đối đầu."
+        ),
+        "nguon": "Kình Dương trùng phùng lưu Dương, Tây Thi khuynh vẫn thân (tu-vi-dau-so-toan-thu-vu-tai-luc)",
+    },
+    "Đà La": {
+        "muc": "manh_canh_bao",
+        "y_nghia": (
+            "Lưu Đà La trùng phùng đúng cung có Đà La bản mệnh — cổ văn ghi "
+            "'tai họa khủng khiếp', đặc biệt nặng nếu có Thất Sát đồng cung. "
+            "Tín hiệu đáng quan sát kỹ, không phải bản án."
+        ),
+        "nguon": "Đà Lưu Đà: tai họa khủng khiếp, nhất là khi gặp thêm Thất Sát đồng cung (tuvifull-luan-giai-cac-chinh-tinh)",
+    },
+    "Lộc Tồn": {
+        "muc": "yeu",
+        "y_nghia": (
+            "Lưu Lộc Tồn trùng điệp đúng cung có Lộc Tồn bản mệnh — nguồn ghi "
+            "RÕ mức ảnh hưởng RẤT YẾU (khác hẳn Kình Dương/Đà La), chỉ thật sự "
+            "đáng chú ý khi CÙNG LÚC có Đại Vận Hóa Lộc trùng điệp."
+        ),
+        "nguon": "Hai cung hạn lưu niên và nguyên cục mà cấu tạo thành 'Lộc trùng điệp' thì sức ảnh hưởng rất yếu (atomic_questions, nguồn Trung Châu)",
+    },
+    "Thiên Khôi": {
+        "muc": "tot_co_hoi",
+        "y_nghia": (
+            "Lưu Thiên Khôi trùng điệp hoặc xung chiếu cung có Thiên Khôi/Thiên "
+            "Việt bản mệnh — nguồn ghi tích cực: cơ hội chuyển biến, tài trí được "
+            "phát huy, thường gặp quý nhân/người tri ngộ trong năm này."
+        ),
+        "nguon": "Lưu Khôi, Lưu Việt xung khởi/trùng điệp Thiên Khôi Thiên Việt nguyên cục — chủ về tài trí được phát huy, gặp nhiều cơ hội (atomic_questions, Trung Châu)",
+    },
+    "Thiên Việt": {
+        "muc": "tot_co_hoi",
+        "y_nghia": (
+            "Lưu Thiên Việt trùng điệp hoặc xung chiếu cung có Thiên Khôi/Thiên "
+            "Việt bản mệnh — cùng cơ chế với Lưu Thiên Khôi: cơ hội chuyển biến, "
+            "thường gặp quý nhân/người tri ngộ trong năm này."
+        ),
+        "nguon": "Lưu Khôi, Lưu Việt xung khởi/trùng điệp Thiên Khôi Thiên Việt nguyên cục — chủ về tài trí được phát huy, gặp nhiều cơ hội (atomic_questions, Trung Châu)",
+    },
+}
+
+
+def luu_tinh_5_sao(year_stem: str) -> dict[str, int]:
+    """Vị trí 5 phụ tinh an-theo-Can-năm cho một năm LƯU NIÊN/ĐẠI VẬN bất kỳ.
+
+    Dùng đúng công thức an sao bản mệnh (kinh_duong/da_la/loc_ton/
+    thien_khoi_viet) nhưng truyền Can của năm đang xét thay vì Can năm sinh.
+    Chỉ 5 sao này có công thức THUẦN theo Can năm (không lẫn giờ/tháng sinh)
+    nên mới có "vị trí lưu" tính được mà không cần giả định thêm gì ngoài
+    nguồn đã có (xem TRUNG_PHUNG_NGHIA ở trên cho phạm vi + lý do).
+    """
+    khoi_idx, viet_idx = thien_khoi_viet(year_stem)
+    return {
+        "Kình Dương": kinh_duong(year_stem),
+        "Đà La": da_la(year_stem),
+        "Lộc Tồn": loc_ton(year_stem),
+        "Thiên Khôi": khoi_idx,
+        "Thiên Việt": viet_idx,
+    }
+
+
+def trung_phung_check(sao: str, luu_branch_idx: int, natal_branch_idx: int | None) -> dict | None:
+    """Trả về thông tin trùng phùng/xung chiếu nếu sao lưu gặp lại đúng cung
+    (hoặc đối cung, riêng Khôi/Việt) của sao bản mệnh cùng tên. None nếu
+    không có bản mệnh cùng tên trong lá số, hoặc không trùng/xung.
+    """
+    if natal_branch_idx is None:
+        return None
+    meaning = TRUNG_PHUNG_NGHIA.get(sao)
+    if meaning is None:
+        return None
+    if luu_branch_idx == natal_branch_idx:
+        return {"kieu": "trung_diep", **meaning}
+    if sao in ("Thiên Khôi", "Thiên Việt") and _fix(luu_branch_idx - natal_branch_idx) == 6:
+        return {"kieu": "xung_chieu", **meaning}
+    return None
+
+
 # ─── 9. Đại Vận ───────────────────────────────────────────────────────────────
 
 

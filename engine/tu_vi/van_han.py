@@ -406,6 +406,24 @@ def _year_stem_branch(year: int) -> tuple[str, str]:
     return can[(year - 1984) % 10], chi[(year - 1984) % 12]
 
 
+def _luu_tinh_block(la_so: dict, year_can: str) -> dict:
+    """5 phụ tinh an-theo-Can-năm (Kình/Đà/Lộc/Khôi/Việt) — vị trí LƯU năm nay
+    + kiểm trùng phùng/xung chiếu với vị trí bản mệnh cùng tên (nguồn xem
+    an_sao.TRUNG_PHUNG_NGHIA). 5 sao này KHÔNG đổi theo tháng trong 1 năm lưu,
+    nên chỉ tính ở tầng Lưu Niên, không lặp lại ở Lưu Nguyệt."""
+    from engine.tu_vi.an_sao import luu_tinh_5_sao, trung_phung_check
+    natal_idx = {**la_so.get("sat_tinh", {}), **la_so.get("phu_tinh", {})}
+    branch_to_palace = {p["branch_index"]: p["name"] for p in la_so.get("palaces", [])}
+    out: dict = {}
+    for sao, luu_idx in luu_tinh_5_sao(year_can).items():
+        entry = {"vi_tri": BRANCHES_TVI[luu_idx], "cung": branch_to_palace.get(luu_idx, "?")}
+        tp = trung_phung_check(sao, luu_idx, natal_idx.get(sao))
+        if tp:
+            entry["trung_phung"] = tp
+        out[sao] = entry
+    return out
+
+
 def luu_nien_block(la_so: dict, year: int) -> dict:
     """Khối grounded 1 Lưu Niên. Lưu niên Mệnh = cung tại chi năm (Thái Tuế)."""
     y_can, y_chi = _year_stem_branch(year)
@@ -420,6 +438,7 @@ def luu_nien_block(la_so: dict, year: int) -> dict:
         "tu_hoa_van": _hoa_lit(y_can, la_so),   # Tứ Hóa lưu niên theo can năm
         "tu_hoa_can": y_can,
         "nguyen_tac": THE_DUNG_PRINCIPLE,
+        "luu_tinh": _luu_tinh_block(la_so, y_can),   # 2026-07-31: khôi phục từ stash thất lạc
     }
 
 

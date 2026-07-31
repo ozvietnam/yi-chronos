@@ -57,6 +57,25 @@ def test_grounded_chi_lay_founder_verified_1():
         assert blk["chua_co_nguon"] == (len(blk["sao_nguon"]) == 0)
 
 
+def test_luu_nien_luu_tinh_5_sao_trung_phung():
+    """Lưu Niên phải kèm vị trí 5 phụ tinh an-theo-Can-năm (Kình/Đà/Lộc/Khôi/Việt)
+    + kiểm trùng phùng với bản mệnh. Founder 2026 (Bính Ngọ): Kình Dương lưu tại
+    Ngọ == Kình Dương bản mệnh (year_stem sinh Mậu Thìn dùng công thức khác nhưng
+    2026 trùng đúng cung Ngọ) → phải gắn cờ trung_phung."""
+    r = _founder()
+    n = vh.luu_nien_block(r, 2026)
+    lt = n["luu_tinh"]
+    assert set(lt) == {"Kình Dương", "Đà La", "Lộc Tồn", "Thiên Khôi", "Thiên Việt"}
+    for sao, info in lt.items():
+        assert info["vi_tri"] in BRANCHES_TVI and info["cung"]
+        if "trung_phung" in info:
+            assert info["trung_phung"]["kieu"] in ("trung_diep", "xung_chieu")
+            assert info["trung_phung"]["y_nghia"] and info["trung_phung"]["nguon"]
+    # Không tính lại ở Lưu Nguyệt (5 sao này không đổi theo tháng trong 1 năm).
+    g = vh.luu_nguyet_block(r, 2026, 9)
+    assert "luu_tinh" not in g
+
+
 def test_overview_skeleton_tat_dinh():
     """Overview 12 đại vận + N năm — skeleton tất định (0 LLM), khớp lá số founder."""
     r = _founder()

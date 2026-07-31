@@ -20,6 +20,19 @@ const error = ref("");
 
 const HOA_COLOR = { "Lộc": "loc", "Quyền": "quyen", "Khoa": "khoa", "Kỵ": "ky" };
 const litHoa = computed(() => (block.value?.tu_hoa_van || []).filter((h) => !h.cung.startsWith("(")));
+// Lưu Tinh (Kình/Đà/Lộc/Khôi/Việt) — chỉ hiện sao có TRÙNG PHÙNG thật (quote-or-silence:
+// không rác UI với sao không có tín hiệu gì đáng chú ý năm nay).
+const luuTinhTrungPhung = computed(() => {
+  const lt = block.value?.luu_tinh || {};
+  return Object.entries(lt)
+    .filter(([, info]) => info.trung_phung)
+    .map(([sao, info]) => ({ sao, ...info }));
+});
+const MUC_LABEL = {
+  manh_canh_bao: { text: "⚠️ mạnh — cảnh báo", cls: "canh-bao" },
+  yeu: { text: "yếu", cls: "yeu" },
+  tot_co_hoi: { text: "✨ tốt — cơ hội", cls: "co-hoi" },
+};
 
 function reqBase() {
   return { birth_datetime_local: tuviPersonBirth.value, gender: tuviPersonGender.value || "nam" };
@@ -136,6 +149,17 @@ onMounted(init);
           <b>{{ h.hoa }}</b> {{ h.sao }} → {{ h.cung }}<small>{{ h.nghia }}</small>
         </div>
       </div>
+      <div v-if="viewMode === 'year' && luuTinhTrungPhung.length" class="ln-tp-block">
+        <b class="ln-tp-title">🔁 Trùng phùng năm nay</b>
+        <div v-for="tp in luuTinhTrungPhung" :key="tp.sao" class="ln-tp-item" :data-muc="MUC_LABEL[tp.trung_phung.muc]?.cls">
+          <div class="ln-tp-head">
+            <span>Lưu {{ tp.sao }} tại {{ tp.vi_tri }} ({{ tp.cung }}) — {{ tp.trung_phung.kieu === 'trung_diep' ? 'trùng điệp' : 'xung chiếu' }} bản mệnh</span>
+            <span class="ln-tp-muc">{{ MUC_LABEL[tp.trung_phung.muc]?.text }}</span>
+          </div>
+          <p>{{ tp.trung_phung.y_nghia }}</p>
+          <span class="ln-src">📖 {{ tp.trung_phung.nguon }}</span>
+        </div>
+      </div>
       <div class="ln-luan-zone">
         <button v-if="!luan && !block.chua_co_nguon" class="ln-luan-btn" :disabled="luanBusy" @click="genLuan">
           {{ luanBusy ? "Đang luận…" : "✍️ Luận vận này" }}
@@ -197,6 +221,15 @@ onMounted(init);
 .ln-hoa[data-hoa="quyen"] { border-left-color: #d6a05a; }
 .ln-hoa[data-hoa="khoa"] { border-left-color: #7ec8e3; }
 .ln-hoa[data-hoa="ky"] { border-left-color: #d65a4a; }
+.ln-tp-block { margin-bottom: 0.7rem; }
+.ln-tp-title { display: block; font-size: 0.8rem; color: var(--read-text-dim, #cbd5e1); margin-bottom: 6px; }
+.ln-tp-item { border: 1px solid var(--read-border, rgba(230,238,245,0.16)); border-left-width: 3px; border-radius: 6px; padding: 7px 10px; margin-bottom: 6px; font-size: 0.82rem; line-height: 1.55; color: var(--read-text-dim, #cbd5e1); }
+.ln-tp-item[data-muc="canh-bao"] { border-left-color: #d65a4a; }
+.ln-tp-item[data-muc="co-hoi"] { border-left-color: #5ab07a; }
+.ln-tp-item[data-muc="yeu"] { border-left-color: #64748b; }
+.ln-tp-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; font-weight: 600; color: var(--read-text, #e2e8f0); }
+.ln-tp-muc { font-size: 0.72rem; font-weight: 600; white-space: nowrap; }
+.ln-tp-item p { margin: 4px 0; }
 .ln-sao-item { padding: 5px 0; border-top: 1px solid var(--read-border, rgba(230,238,245,0.08)); }
 .ln-sao-item:first-of-type { border-top: none; }
 .ln-sao-item p { margin: 0; font-size: 0.85rem; line-height: 1.55; color: var(--read-text-dim, #cbd5e1); }
