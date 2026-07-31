@@ -18,11 +18,15 @@ NHAN_CUNG: dict[str, list[str]] = {
     "tham_lang":    ["dan", "than"],             # Tham Lang ở Dần, Thân
     "thien_tuong":  ["thin", "tuat"],            # Thiên Tướng ở Thìn, Tuất
     "that_sat":     ["thin", "hoi"],             # Thất Sát ở Thìn, Hợi
-    "thien_luong":  ["ty"],                       # Thiên Lương ở Tỵ
-    "thien_co":     ["ty"],                       # Thiên Cơ ở Tỵ
-    "pha_quan":     ["ty", "than"],              # Phá Quân ở Tỵ, Thân
+    "thien_luong":  ["ti"],                       # Thiên Lương ở Tỵ
+    "thien_co":     ["ti"],                       # Thiên Cơ ở Tỵ
+    "pha_quan":     ["ti", "than"],              # Phá Quân ở Tỵ, Thân
     "vu_khuc":      ["than"],                     # Vũ Khúc ở Thân
 }
+# Quy ước canonical chi TOÀN HỆ THỐNG (khớp la_so_input_builder.CHI_VI_TO_CANON,
+# thien_luong.CHI_VI, to_hop_cung.CHI_RING): "ty" = Tý (子), "ti" = Tỵ (巳) —
+# 2 chi KHÁC NHAU. Fix 2026-07-17: 3 dòng trên trước đây dùng "ty" cho vị trí
+# Tỵ (đụng độ với "ty"=Tý của Tử Vi) — engine sẽ báo Nhân Cung SAI cung.
 
 CITATION = "Trần Đoàn Toàn Thư p63-64 (atoms tdts.S4.Q25-Q33)"
 

@@ -57,7 +57,8 @@ onMounted(load);
 
     <p class="hint">
       LLM tự đề xuất concept/mapping mới trong YOLO mode → đã auto-merge vào lexicon.
-      Anh review để mark rõ <em>approved</em> hoặc <em>rejected</em> (nếu sai).
+      Anh review: <em>approved</em> = mark verified · <em>rejected</em> = rollback
+      (gỡ mapping/concept đã merge khỏi lexicon).
     </p>
 
     <div v-if="loading" class="status">Đang tải…</div>

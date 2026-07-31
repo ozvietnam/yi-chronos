@@ -3870,9 +3870,11 @@ def yi_lexicon_distill_queue(status: str | None = None, limit: int = 100) -> dic
 
 @app.post("/api/yi-lexicon/distill-queue/{item_id}/resolve")
 def yi_lexicon_resolve_distill(item_id: int, req: LexiconResolveItemRequest) -> dict:
-    from engine.yi_lexicon import resolve_distill_item
-    ok = resolve_distill_item(item_id, status=req.status, reviewer_note=req.reviewer_note)
-    return {"status": "ok" if ok else "not_found"}
+    """Duyệt distill item — vòng YOLO khép: approve → verify mappings,
+    reject → rollback (gỡ mapping/concept đã auto-merge khỏi lexicon)."""
+    from engine.yi_lexicon import review_distill_item
+    result = review_distill_item(item_id, status=req.status, reviewer_note=req.reviewer_note)
+    return {"status": "ok" if result["found"] else "not_found", "review": result}
 
 
 # ─── Lexicon conflict resolver (anh arbiter) ─────────────────────────────────
@@ -5648,6 +5650,9 @@ def yi_wiki_interpret(req: MaiHoaInterpretRequest) -> dict:
             "note": r.posture_note,
         },
         "four_steps_complete": r.four_steps_complete,
+        # ⭐ Tượng loại vạn vật ĐẦY ĐỦ (Thiệu Vĩ Hoa p45-60, seed đã-nối 2026-07-16)
+        # cho các quẻ trong Chính/Hỗ/Biến — {} nếu seed thiếu
+        "tuong_loai_van_vat": r.tuong_loai_van_vat,
         # ⭐ Tam yếu (Mai Hoa Q1 thâm nhuần) — 3 yếu cốt lõi + verdict
         "tam_yeu": _build_tam_yeu_summary(r),
         # ⭐ 11 chiêm chuyên đề (Mai Hoa Q2 thâm nhuần) — route theo intent / question
