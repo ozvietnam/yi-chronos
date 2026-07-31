@@ -1149,6 +1149,15 @@ TASK: Viết phê mệnh SÂU — **BATCH {batch_name}** (5 sections)
 
 🎯 YÊU CẦU TUYỆT ĐỐI (anh PHẢI tuân thủ — đây là VIP quality cho người Việt):
 
+0️⃣  **BÁM KHO SÁCH ĐÃ DUYỆT** (quan trọng nhất — đây là bản TRẢ PHÍ):
+    Khối "★ KHO SÁCH ĐÃ DUYỆT" ở trên là trích dẫn THẬT từ sách cổ, đã kiểm chứng, khớp
+    đúng lá số này. Khi luận về **SAO ở từng cung**, **TỨ HÓA**, **ĐẠI VẬN** → PHẢI dùng
+    các trích dẫn đó làm xương sống và **GHI TÊN SÁCH** ngay trong câu
+    (vd: "sách Trung Châu phái viết: …", "theo Đẩu Số Tinh Thành: …").
+    · Ý nào KHÔNG có trong kho → nói bằng nguyên lý chung, KHÔNG bịa thành 'sách nói'.
+    · TUYỆT ĐỐI KHÔNG bịa tên sách / số trang / câu phú không có trong kho.
+    · Ưu tiên nội dung kho hơn trí nhớ của chính anh khi hai bên khác nhau.
+
 1️⃣  **Mỗi section ~2000-4000 chữ Tiếng Việt** — không ít hơn 2000.
 
 2️⃣  **NGÔN NGỮ VIỆT THUẦN HIỆN ĐẠI**, không sa đà cổ văn.
@@ -1299,6 +1308,74 @@ TASK: Viết phê mệnh SÂU — **BATCH {batch_name}** (5 sections)
         completion_tokens = getattr(resp, "completion_tokens", 0) or 0
         cost = getattr(resp, "cost_usd", 0) or 0
         return parsed, provider.name, prompt_tokens + completion_tokens, cost, None, tried
+
+    def _grounded_library_context(self) -> str:
+        """★ Bơm KHO ĐÃ DUYỆT vào bản luận trả phí — nguồn THẬT thay vì trí nhớ mô hình.
+
+        Kéo đúng vật liệu cho từng phần của phê mệnh sâu:
+          · sao_noi_dung (đã duyệt) → phần bài tinh thần / lập tọa mệnh
+          · tu_hoa_nguon (702 rule) + phi_hoa chồng tầng → phần Tứ Hóa diễn giải
+          · van_han_nguon + Thể-Dụng đại vận đang đi → phần Đại Vận / Lưu Niên
+        Chỉ lấy bản founder_verified=1; không có nguồn → BỎ TRỐNG (quote-or-silence).
+        """
+        from engine.tu_vi import van_han as vh
+
+        ls = self.la_so
+        out: list[str] = ["\n━━━ ★ KHO SÁCH ĐÃ DUYỆT (BẮT BUỘC LUẬN TỪ ĐÂY — có ghi nguồn) ━━━",
+                          "  Quy tắc: mọi nhận định về SAO / TỨ HÓA / ĐẠI VẬN phải dựa vào các trích dẫn",
+                          "  dưới đây và GHI TÊN SÁCH. Không có trích dẫn cho ý nào thì KHÔNG bịa ý đó."]
+
+        # 1) Nội dung SAO theo đúng cung nó đóng (kho đã duyệt)
+        sao_lines: list[str] = []
+        for p in ls.get("palaces", [])[:12]:
+            pname = p.get("name") or "?"
+            stars = vh._stars_at(ls, p.get("branch_index"))
+            for st in stars[:2]:
+                for g in vh._grounded_sao(st, cung=pname, limit=1):
+                    sao_lines.append(f"  • {st} @ {pname}: {g['dich']} (nguồn: {g['nguon']})")
+        if sao_lines:
+            out.append("\n── SAO × CUNG (nội dung đã duyệt, dùng cho bài tinh thần / lập tọa mệnh) ──")
+            out.extend(sao_lines[:22])
+
+        # 2) TỨ HÓA — phi tinh chồng tầng + rule trích sách
+        try:
+            can_nam = ls.get("year_stem")
+            ph = vh.phi_hoa(ls, [("Nguyên cục", can_nam)]) if can_nam else {}
+            tu_hoa_lines: list[str] = []
+            for t in (ph.get("tu_hoa") or [])[:6]:
+                tu_hoa_lines.append(f"  • {t['nghia']}")
+                for g in (t.get("nguon") or [])[:1]:
+                    tu_hoa_lines.append(f"      (nguồn: {g['rule']} — {g['nguon']})")
+            for t in (ph.get("trung_phung") or [])[:4]:
+                tu_hoa_lines.append(f"  • {t['loai']}: {t['sao']} @ {t['cung']} — {t['nghia']}")
+                if t.get("nguyen_ly"):
+                    tu_hoa_lines.append(f"      → nguyên lý: {t['nguyen_ly']}")
+            nghia = vh._tu_hoa_rules(("hoa_nghia",), limit=8)
+            if nghia:
+                tu_hoa_lines.append("  — Nghĩa từng Hóa (trích sách phái Tứ Hóa):")
+                tu_hoa_lines += [f"      · {g['rule']} ({g['nguon']})" for g in nghia]
+            if tu_hoa_lines:
+                out.append("\n── TỨ HÓA (dùng cho phần 'Tứ Hóa diễn giải' — TRÍCH SÁCH, không tự chế) ──")
+                out.extend(tu_hoa_lines)
+        except Exception:
+            pass
+
+        # 3) ĐẠI VẬN đang đi — Thể-Dụng + tam phương + nguyên tắc đọc cung theo vận
+        try:
+            byear = int(str(self.person.birth_datetime_local)[:4])
+            import time as _t
+            now_y = _t.localtime().tm_year
+            bt = vh._bao_tram_dai_van(ls, byear, now_y)
+            if bt and bt.get("cycle_index"):
+                blk = vh.dai_van_block(ls, bt["cycle_index"])
+                src = vh.block_to_source_text(blk)
+                if src:
+                    out.append("\n── ĐẠI VẬN ĐANG ĐI (grounded — dùng cho phần Đại Vận / Lưu Niên) ──")
+                    out.append(src[:3500])
+        except Exception:
+            pass
+
+        return "\n".join(out) if len(out) > 3 else ""
 
     def phe_menh_sau(self) -> dict:
         """Phê mệnh SÂU v2 (VIP) — 2-call split, 10 sections × 2000-4000 chars/section.
@@ -1515,6 +1592,17 @@ TASK: Viết phê mệnh SÂU — **BATCH {batch_name}** (5 sections)
             tc_ctx = build_trung_chau_context(self.la_so, gender=self.la_so.get("gender", "nam"))
             if tc_ctx:
                 ctx_parts.append("\n" + tc_ctx)
+        except Exception:
+            pass
+
+        # ★ KHO ĐÃ DUYỆT — bơm nguồn THẬT vào bản trả phí (Anh 2026-07-31: "nâng cấp bao
+        # nhiêu vòng kho thư viện rồi"). Trước đây bản 99 xu KHÔNG dùng một chữ nào từ
+        # tu_hoa_nguon (702 rule) / sao_noi_dung (2030) / van_han_nguon (55) → phần Tứ Hóa,
+        # Đại Vận viết bằng trí nhớ mô hình. Nay ép LLM luận TỪ NGUỒN (quote-or-silence).
+        try:
+            g = self._grounded_library_context()
+            if g:
+                ctx_parts.append(g)
         except Exception:
             pass
 
