@@ -531,6 +531,7 @@ def test_plain_summary_explains_karmic_debt_for_ordinary_reader():
     assert any("Bài học kèm 19" in b for b in ps["bullets"])
     assert any("Bài học kèm 13" in b for b in ps["bullets"])
     assert "kiếp trước" not in (ps.get("karmic_intro_vi") or "").lower() or "không phải án" in ps["karmic_intro_vi"].lower()
+    assert "Decoz" not in (ps.get("karmic_intro_vi") or "")
 
     debts = {d["number"]: d for d in res["reading"]["karmic_debts"]}
     assert 13 in debts and 19 in debts
@@ -542,6 +543,55 @@ def test_plain_summary_explains_karmic_debt_for_ordinary_reader():
     # Deep reading carries karmic practice onto life path improve
     assert "nhờ" in res["deep_reading"]["core"]["life_path"]["improve"]
     assert res["deep_reading"]["core"]["life_path"].get("karmic", {}).get("number") == 19
+
+
+def test_plain_summary_and_meanings_for_every_user_without_karmic():
+    """Ordinary cast (no karmic debt) still gets plain_vi + concrete practice."""
+    from engine.than_so.interpretation import describe_number
+    from engine.than_so.constants import number_meanings
+
+    number_meanings.cache_clear()
+    for n in ("1", "2", "3", "4", "5", "6", "7", "8", "9", "11", "22", "33"):
+        entry = number_meanings()[n]
+        assert entry.get("plain_vi"), f"missing plain_vi for {n}"
+        assert entry.get("practice_vi"), f"missing practice_vi for {n}"
+
+    d8 = describe_number(8)
+    assert "tổ chức" in d8["plain_vi"].lower() or "quản lý" in d8["plain_vi"].lower()
+    assert d8["practice_vi"].startswith("Tuần này")
+
+    res = cast_than_so("Nguyễn Văn An", "1990-11-23", include_chaldean=False)
+    assert res["reading"]["karmic_debts"] == []
+    ps = res["reading"]["plain_summary"]
+    assert len(ps["core_cards"]) >= 5
+    lp_card = next(c for c in ps["core_cards"] if c["role"] == "life_path")
+    assert lp_card["plain_vi"] and len(lp_card["plain_vi"]) > 40
+    assert lp_card["practice_vi"]
+    assert any(lp_card["plain_vi"][:40] in b for b in ps["bullets"])
+    assert ps["one_practice_vi"] == lp_card["practice_vi"]
+    assert "how_to_use_vi" in ps and "Đường Đời" in ps["how_to_use_vi"]
+
+    deep_lp = res["deep_reading"]["core"]["life_path"]
+    assert "Method A" not in deep_lp["read"]
+    assert "Decoz" not in deep_lp["read"]
+    assert deep_lp["plain_vi"]
+    assert deep_lp["improve"] == deep_lp["practice_vi"]
+
+    # reading.core surfaces plain for UI glossary/cards
+    assert res["reading"]["core"]["life_path"]["plain_vi"]
+    assert res["reading"]["core"]["expression"]["practice_vi"]
+
+
+def test_number_meanings_schema_v2_has_plain_fields():
+    import json
+    from pathlib import Path
+
+    data = json.loads(
+        (Path("data/than_so/master/number_meanings.json")).read_text(encoding="utf-8")
+    )
+    assert data["schema_version"] == "v2"
+    assert "plain_vi" in data["numbers"]["11"]
+    assert "master_note_vi" in data["numbers"]["22"]
 
 
 def test_interpretation_principles_loaded():
