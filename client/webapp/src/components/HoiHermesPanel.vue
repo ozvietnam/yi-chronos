@@ -5,7 +5,7 @@
  * hợp arbiter. Không chọn sage = Trọng tài tự định tuyến. Login-gated; tốn gói/free/xu.
  */
 import { ref, computed, onMounted, onUnmounted } from "vue";
-import { activePerson } from "../stores/userDataStore.js";
+import { activePerson, personLabel } from "../stores/userDataStore.js";
 import { sessionToken } from "../stores/authStore.js";
 
 const sages = ref([]);
@@ -23,7 +23,7 @@ function stopTimers() {
   if (tickTimer) { clearInterval(tickTimer); tickTimer = null; }
 }
 
-const personName = computed(() => activePerson.value?.name || "người đang xem");
+const personName = computed(() => (activePerson.value ? personLabel(activePerson.value) : "người đang xem"));
 const personKey = computed(() => activePerson.value?.person_key || "self");
 const hasBirth = computed(() => !!activePerson.value?.birth_datetime_local);
 

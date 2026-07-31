@@ -10,7 +10,7 @@ const HermesAdminPanel = defineAsyncComponent(() => import("./components/HermesA
 const MyPublicationsPanel = defineAsyncComponent(() => import("./components/MyPublicationsPanel.vue"));
 import WikiPopup from "./components/WikiPopup.vue";
 import { isOwner } from "./stores/authStore.js";
-import { activePerson, activeBirthDatetime } from "./stores/userDataStore.js";
+import { activePerson, activeBirthDatetime, personLabel } from "./stores/userDataStore.js";
 import ReadingControls from "./components/ReadingControls.vue";
 import { useReadingPrefs } from "./composables/useReadingPrefs.js";
 const UniverseCore = defineAsyncComponent(() => import("./components/UniverseCore.vue"));
@@ -713,7 +713,7 @@ onBeforeUnmount(() => {
           title="Bát Tự — Tứ Trụ + Hà Lạc Lý Số (cross-module differentiator)"
           purpose="Bát Tự (Tử Bình) phân tích 4 trụ Năm/Tháng/Ngày/Giờ → Thiên Can + Địa Chi + Thập Thần + Ngũ Hành cân bằng. Hà Lạc Lý Số nối tiếp: từ Tứ Trụ suy ra 2 quẻ Kinh Dịch (Tiên thiên + Hậu thiên) + lộ trình 12 hào ~ 84-90 năm cuộc đời. Đây là feature differentiator quan trọng — Kabala.vn có nhắc nhưng không ship."
           :steps="[
-            'Bước 1: nhập sinh thần (datetime-local, có thể từ active person ở tab Hồ sơ).',
+            'Bước 1: ngày giờ sinh TỰ LẤY từ hồ sơ đang chọn (nhập 1 lần ở tab Hồ sơ) — đổi người bằng thanh 👤 Đang xem.',
             'Bước 2: chọn TA Nam / TA Nữ + múi giờ.',
             'Bước 3: bấm Luận — Bát Tự và Hà Lạc tính song song.',
             'Bước 4 (Bát Tự): xem 4 trụ + Nhật chủ (Day Master) + cân bằng Ngũ Hành.',
@@ -768,7 +768,7 @@ onBeforeUnmount(() => {
             title="Bắc Phái Tử Vi Đẩu Số — An sao + 14 chính tinh"
             purpose="Trường phái chính để lập lá số cá nhân: 14 chính tinh + phụ tinh + sát tinh + Tứ Hóa đặt vào 12 cung. Mỹ thuật đi theo ngôn ngữ chân dung sao, cung vị và câu chuyện đời người."
             :steps="[
-              'Bước 1: nhập sinh thần (datetime-local) + giới tính.',
+              'Bước 1: ngày giờ sinh + giới tính TỰ LẤY từ hồ sơ đang chọn (nhập 1 lần ở tab Hồ sơ).',
               'Bước 2: bấm An sao — engine tự convert Gregorian → âm lịch.',
               'Bước 3: xem lá số 4×4 với 12 cung. Mệnh có ★, Thân có 身.',
               'Bước 4: chính tinh (gold), phụ tinh (teal), sát tinh (đỏ); Tứ Hóa hiển thị badge L/Q/K/K.',
@@ -783,7 +783,7 @@ onBeforeUnmount(() => {
           <CungPhuTheBacPhaiPanel
             :birth-datetime-local="activeBirthDatetime"
             :gender="activePerson?.gender || 'nam'"
-            :name="activePerson?.name || ''"
+            :name="activePerson ? personLabel(activePerson) : ''"
             :person-key="activePerson?.person_key || ''"
           />
 

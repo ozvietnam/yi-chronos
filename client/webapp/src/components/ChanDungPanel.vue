@@ -5,7 +5,7 @@
  * tâm) + lịch sử đã hỏi + bệ phóng tới sản phẩm tốt nhất. Đọc đồng dạng — KHÔNG predict.
  */
 import { ref, computed, watch, onMounted } from "vue";
-import { activePerson } from "../stores/userDataStore.js";
+import { activePerson, personLabel } from "../stores/userDataStore.js";
 import { sessionToken } from "../stores/authStore.js";
 
 const emit = defineEmits(["open-product", "open-page"]);
@@ -16,7 +16,7 @@ const loading = ref(false);
 const err = ref("");
 
 const personKey = computed(() => activePerson.value?.person_key || activePerson.value?.id || "self");
-const personName = computed(() => activePerson.value?.name || cd.value?.name || "Quý khách");
+const personName = computed(() => (activePerson.value ? personLabel(activePerson.value) : (cd.value?.name || "Quý khách")));
 const hasBirth = computed(() => !!activePerson.value?.birth_datetime_local);
 
 const HANH_COLOR = { "Mộc": "#16a34a", "Hoả": "#dc2626", "Thổ": "#ca8a04", "Kim": "#a3a3a3", "Thuỷ": "#2563eb" };

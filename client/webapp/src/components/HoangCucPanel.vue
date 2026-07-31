@@ -1,6 +1,6 @@
 <script setup>
 import { ref, computed, onMounted, watch } from "vue";
-import { activePerson } from "../stores/userDataStore.js";
+import { activePerson, personLabel } from "../stores/userDataStore.js";
 import ActivePersonBar from "./ActivePersonBar.vue";
 
 // ── Thời cuộc Nguyên-Hội-Vận-Thế ─────────────────────────────────────────
@@ -12,7 +12,7 @@ const namQue = ref(null);    // năm-quẻ theo PHÉP 经世 (hệ duy nhất, m
 const atoms = ref([]);
 
 // Người đang active = cùng lá số Tử Vi/Bát Tự → tự điền tuổi, không bắt gõ
-const personName = computed(() => activePerson.value?.name || "");
+const personName = computed(() => (activePerson.value ? personLabel(activePerson.value) : ""));
 const personBirthYear = computed(() => {
   const p = activePerson.value;
   if (!p) return null;

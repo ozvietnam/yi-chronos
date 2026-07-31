@@ -412,7 +412,7 @@ onMounted(async () => {
 
 async function castChart() {
   if (!inputBirth.value) {
-    errorMsg.value = "Cần nhập sinh thần.";
+    errorMsg.value = "Chưa có ngày giờ sinh — thêm/chọn hồ sơ ở tab Hồ sơ.";
     return;
   }
   loading.value = true;
