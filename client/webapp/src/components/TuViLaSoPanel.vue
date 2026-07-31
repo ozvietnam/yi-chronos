@@ -23,6 +23,7 @@ import LuuNienPanel from "./LuuNienPanel.vue";
 import VanHanPanel from "./VanHanPanel.vue";
 import TuViVsCDKCompare from "./TuViVsCDKCompare.vue";
 import ActivePersonBar from "./ActivePersonBar.vue";
+import ChuDePanel from "./ChuDePanel.vue";
 import TuVi3LayerPanel from "./TuVi3LayerPanel.vue";
 // Nút "📖 xem sao" → CHUYỂN sang tab Thư viện + mở đúng sao (App xử lý). Hợp nhất
 // 1 nơi tra sao duy nhất (bỏ drawer nhúng cũ — kiến-thức-trên-chart, Anh chốt tách sạch).
@@ -1358,6 +1359,9 @@ const grid = computed(() => {
       </template>
 
       <!-- ── 🗓️ VẬN HẠN — CTA nổi bật ngay dưới lá số (mở VanHanPanel: đủ mọi tầng) ── -->
+      <!-- 🎯 Đọc theo chủ đề — dời tâm sang cung của việc Anh đang bận tâm (miễn phí) -->
+      <ChuDePanel v-if="data" :birth-datetime-local="inputBirth" :gender="inputGender" />
+
       <button v-if="data" type="button" class="van-han-cta" @click="showVanHan = true">
         <span class="vhc-icon">🗓️</span>
         <span class="vhc-text">
