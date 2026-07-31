@@ -247,3 +247,114 @@ def gom_gia_vi(chu_de: str, la_so_input: dict, three_layer: dict,
                     if len(out) >= max_cau:
                         return out
     return out
+
+
+# ─── DỜI TÂM theo chủ đề (2026-07-31) ────────────────────────────────────────
+# Anh khảo sát kỹ pháp "lập thái cực" (dời tâm lá số theo câu hỏi). Rà 11 sách Tử Vi:
+# KHÔNG sách nào gọi tên "lập thái cực" — NHƯNG Trung Châu phái đọc chòm theo điểm tham
+# chiếu khác Mệnh (nguyên văn "tam phương tứ chính CỦA THIÊN TƯỚNG"). Ta làm ĐÚNG RUỘT đó,
+# gọi bằng tên có nguồn, KHÔNG chép từ nguồn AI trên mạng.
+#
+# Vì sao cần: `CHU_DE.cung_lien_quan` ở trên chọn cung phụ THỦ CÔNG nên sai hình học —
+# vd sự nghiệp lấy [Quan Lộc, Mệnh, Tài Bạch, Thiên Di], nhưng Thiên Di là đối cung của
+# MỆNH, không thuộc chòm Quan Lộc; đối cung đúng của Quan Lộc là PHU THÊ.
+# Hàm dưới tính chòm THẬT của cung tâm + kéo nội dung sao/rule ĐÃ DUYỆT (quote-or-silence).
+
+PARADIGM_DOI_TAM = (
+    "Đọc theo chủ đề = LẤY CUNG CỦA CHỦ ĐỀ LÀM TÂM rồi đọc cả chòm của chính nó "
+    "(tam phương tứ chính) — cổ pháp Trung Châu đọc chòm theo điểm tham chiếu, không chỉ "
+    "đọc từ cung Mệnh. ĐỌC ĐỒNG DẠNG để quan-sát, KHÔNG tiên tri; mệnh là ĐỘNG TỪ."
+)
+
+
+def _doc_cung_grounded(la_so: dict, cung_vi: str, *, chom: bool) -> dict:
+    """Đọc 1 cung: sao + nội dung ĐÃ DUYỆT; `chom=True` thì kèm tam phương tứ chính của nó."""
+    from engine.tu_vi import van_han as vh
+
+    bi = next((p.get("branch_index") for p in la_so.get("palaces", [])
+               if p.get("name") == cung_vi), None)
+    if bi is None:
+        return {"cung": cung_vi, "co_du_lieu": False}
+    stars = vh._stars_at(la_so, bi)
+    borrowed = False
+    if not stars:                       # Vô Chính Diệu → mượn sao cung xung (cổ pháp)
+        stars = vh._stars_at(la_so, (bi + 6) % 12)
+        borrowed = bool(stars)
+    nguon: list[dict] = []
+    for st in stars:
+        nguon.extend(vh._grounded_sao(st, cung=cung_vi, limit=1))
+    out = {"cung": cung_vi, "co_du_lieu": True, "vi_tri": vh.BRANCHES_TVI[bi],
+           "sao": stars, "sao_muon_xung": borrowed, "sao_nguon": nguon,
+           "chua_co_nguon": not nguon}
+    if chom:
+        out["hoi_chieu"] = vh._tam_phuong(la_so, bi)
+        out["cung_rules"] = vh._cung_van_rules(cung_vi, "all")
+    return out
+
+
+def doc_doi_tam(la_so: dict, chu_de: str) -> dict:
+    """Đọc chủ đề bằng cách DỜI TÂM: cung chủ đề làm tâm + CHÒM THẬT của nó.
+
+    0-LLM, tất định. Nội dung sao/rule chỉ lấy bản founder_verified=1; thiếu → để trống.
+    """
+    spec = CHU_DE.get(chu_de)
+    if not spec:
+        return {"available": False, "reason": "chu_de_khong_ho_tro",
+                "ho_tro": sorted(CHU_DE.keys())}
+    cung_tam = _CUNG_VI.get(spec["cung_chinh"], spec["cung_chinh"])
+    tam = _doc_cung_grounded(la_so, cung_tam, chom=True)
+    # cung phụ = các cung liên quan KHÁC cung tâm và KHÔNG nằm sẵn trong chòm (tránh lặp)
+    trong_chom = {h["cung"] for h in (tam.get("hoi_chieu") or [])} | {cung_tam}
+    phu = []
+    for c in spec.get("cung_lien_quan", []):
+        ten = _CUNG_VI.get(c, c)
+        if ten in trong_chom:
+            continue
+        d = _doc_cung_grounded(la_so, ten, chom=False)
+        if d.get("co_du_lieu"):
+            phu.append(d)
+    return {
+        "available": True, "chu_de": chu_de, "ten": spec["ten"], "icon": spec.get("icon"),
+        "goc_nhin": spec.get("goc_nhin"),
+        "cung_tam": cung_tam, "tam": tam, "phu_tro": phu,
+        "paradigm_note": PARADIGM_DOI_TAM,
+        "luu_y": ("Sức khoẻ: gợi mở QUAN-SÁT để chăm sóc bản thân, KHÔNG phải chẩn đoán "
+                  "y tế — có triệu chứng thì đi khám." if chu_de == "suc_khoe" else None),
+    }
+
+
+def doi_tam_source_text(blk: dict) -> str:
+    """Ép khối dời-tâm thành TEXT NGUỒN cho LLM biên-tập-từ-nguồn (pattern van_han)."""
+    if not blk.get("available"):
+        return ""
+    L = [f"### ĐỌC THEO CHỦ ĐỀ: {blk['ten']} — {blk.get('goc_nhin') or ''}",
+         f"### LẤY CUNG {blk['cung_tam']} LÀM TÂM (dời tâm theo chủ đề)",
+         f"### Nguyên tắc: {blk['paradigm_note']}"]
+    t = blk.get("tam") or {}
+    if t.get("co_du_lieu"):
+        sao = ", ".join(t.get("sao") or []) or "Vô Chính Diệu"
+        L.append(f"### CUNG TÂM {t['cung']} ({t['vi_tri']}) — sao: {sao}"
+                 + (" [Vô Chính Diệu — mượn sao cung xung]" if t.get("sao_muon_xung") else ""))
+        for s in t.get("sao_nguon") or []:
+            L.append(f"  · {s['sao']}: {s['dich']} (nguồn: {s['nguon']})")
+        if not t.get("sao_nguon"):
+            L.append("  · CHƯA CÓ NGUỒN trong kho — KHÔNG luận, không bịa.")
+        for r in t.get("cung_rules") or []:
+            L.append(f"  · nguyên tắc đọc cung {t['cung']}: {r['rule']} (nguồn: {r['nguon']})")
+        if t.get("hoi_chieu"):
+            L.append("### CHÒM CỦA CUNG TÂM (tam phương tứ chính — cổ pháp đọc cả chòm):")
+            for h in t["hoi_chieu"]:
+                sh = ", ".join(h.get("sao") or []) or "Vô Chính Diệu"
+                L.append(f"- {h['quan_he']}: {h['cung']} ({h['vi_tri']}) — {sh}")
+                for s in h.get("sao_nguon") or []:
+                    L.append(f"    · {s['sao']}: {s['dich']} (nguồn: {s['nguon']})")
+    if blk.get("phu_tro"):
+        L.append("### CUNG PHỤ TRỢ (đối chiếu thêm, KHÔNG lấn át cung tâm):")
+        for p in blk["phu_tro"]:
+            sp = ", ".join(p.get("sao") or []) or "Vô Chính Diệu"
+            L.append(f"- {p['cung']} ({p['vi_tri']}): {sp}")
+            for s in (p.get("sao_nguon") or [])[:1]:
+                L.append(f"    · {s['sao']}: {s['dich']} (nguồn: {s['nguon']})")
+    if blk.get("luu_y"):
+        L.append(f"### LƯU Ý: {blk['luu_y']}")
+    return "\n".join(L)
