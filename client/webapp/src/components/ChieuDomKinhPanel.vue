@@ -447,6 +447,24 @@ const noiTamLoading = ref(false);
 const noiTamError = ref("");
 const noiTamCached = ref(false);   // bản đã lưu → xem lại miễn phí
 
+// Chỉ DÒ bản nội tâm đã lưu (peek) → tự hiện khi mở panel; KHÔNG sinh mới, KHÔNG trừ xu.
+// Anh 2026-07-31: "đã luận rồi thì phải tìm được kết quả cũ, sao còn bắt bấm lại?"
+async function tryLoadCachedNoiTam() {
+  const person = activePerson.value;
+  if (!person?.person_key && !person?.birth_datetime_local) return;
+  try {
+    const resp = await fetch("/api/tu-vi/q4/cdk/luan-noi-tam", {
+      method: "POST", headers: { "Content-Type": "application/json" }, credentials: "include",
+      body: JSON.stringify({ person_key: person.person_key, peek: true }),
+    });
+    const data = await resp.json();
+    if (data.status === "ok" && data.luan) {
+      noiTamLuan.value = data.luan;
+      noiTamCached.value = true;
+    }
+  } catch { /* im lặng — chỉ là nạp sẵn */ }
+}
+
 async function loadNoiTam() {
   const person = activePerson.value;
   const genderText = String(person?.gender || person?.gender_optional || "nam").toLowerCase();
@@ -577,6 +595,7 @@ onMounted(async () => {
   tryLoadCachedDaiHan();
   tryLoadCachedLuuNien();
   tryLoadCachedBulk12Cung();
+  tryLoadCachedNoiTam();
 });
 
 function toggleStar(id) {

@@ -440,6 +440,8 @@ class _AnalyzeRequest(BaseModel):
     gender: Optional[str] = None
     name: Optional[str] = "Người"
     timezone: str = "Asia/Ho_Chi_Minh"
+    # peek=True: CHỈ dò bản đã lưu (không sinh mới, không trừ xu) — cho UI tự hiện kết quả cũ.
+    peek: bool = False
     # Analysis options
     luu_nien_start: int = 2026
     luu_nien_end: int = 2030
@@ -843,6 +845,9 @@ def yi_tuvi_cdk_luan_noi_tam(req: _AnalyzeRequest, request: Request) -> dict:
             return cached
         except Exception:
             pass
+    # peek=true → CHỈ dò bản cũ (frontend tự hiện khi mở panel), KHÔNG sinh mới, KHÔNG trừ xu.
+    if req.peek:
+        return {"status": "not_cached"}
     blocked = _xu_precheck(user, price, False)
     if blocked:
         return blocked
