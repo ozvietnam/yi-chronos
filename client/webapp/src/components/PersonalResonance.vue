@@ -2,6 +2,9 @@
 import { reactive, ref, watch } from "vue";
 import { Send, UserPlus } from "lucide-vue-next";
 import { compareBasic, convertCalendar } from "../lib/api";
+import { isAuthenticated } from "../stores/authStore.js";
+import { useActivePersonBirth } from "../stores/useActivePersonBirth.js";
+import ActivePersonBar from "./ActivePersonBar.vue";
 
 const props = defineProps({
   personal: {
@@ -69,6 +72,21 @@ function createProfile() {
   emit("profile-create");
 }
 
+// Đã đăng nhập → ngày sinh lấy từ HỒ SƠ tài khoản (nhập 1 lần, Anh chốt 2026-07-18);
+// khách chưa đăng nhập vẫn tự nhập ở form dưới (hồ sơ lưu máy).
+useActivePersonBirth(
+  {
+    get value() { return form.birth_datetime_local; },
+    set value(v) { form.birth_datetime_local = v; },
+  },
+  {
+    genderRef: {
+      get value() { return form.gender_optional; },
+      set value(v) { form.gender_optional = v; },
+    },
+  },
+);
+
 function submit() {
   emit("submit-profile", { ...form });
 }
@@ -103,26 +121,31 @@ async function runCompareBasic() {
       <small>giờ dân dụng</small>
     </div>
 
-    <div class="profile-toolbar profile-form">
-      <label class="profile-picker">
-        <span>Hồ sơ</span>
-        <select :value="activeProfileId" @change="onProfileSelect">
-          <option v-for="p in profiles" :key="p.id" :value="p.id">{{ p.label }}</option>
-        </select>
-      </label>
-      <button class="outline-button profile-new" type="button" @click="createProfile">
-        <UserPlus :size="16" />
-        <span>Tạo hồ sơ mới</span>
-      </button>
-    </div>
-    <p class="profile-hint">Đang làm việc dưới hồ sơ đã chọn — lưu trên máy (localStorage), không cần đăng nhập.</p>
+    <!-- Đã đăng nhập: dùng hồ sơ tài khoản (nhập ngày sinh 1 lần ở tab Hồ sơ). -->
+    <ActivePersonBar v-if="isAuthenticated" />
+    <template v-else>
+      <div class="profile-toolbar profile-form">
+        <label class="profile-picker">
+          <span>Hồ sơ</span>
+          <select :value="activeProfileId" @change="onProfileSelect">
+            <option v-for="p in profiles" :key="p.id" :value="p.id">{{ p.label }}</option>
+          </select>
+        </label>
+        <button class="outline-button profile-new" type="button" @click="createProfile">
+          <UserPlus :size="16" />
+          <span>Tạo hồ sơ mới</span>
+        </button>
+      </div>
+      <p class="profile-hint">Đang làm việc dưới hồ sơ đã chọn — lưu trên máy (localStorage), không cần đăng nhập.</p>
+    </template>
 
     <form class="profile-form" @submit.prevent="submit">
-      <label>
+      <label v-if="!isAuthenticated">
         <span>Tên hiển thị</span>
         <input v-model="form.profile_label" type="text" placeholder="Ví dụ: Lại Minh Thắng" />
       </label>
-      <label>
+      <!-- Ngày sinh: đã đăng nhập → tự lấy từ hồ sơ (thanh trên), không nhập lại. -->
+      <label v-if="!isAuthenticated">
         <span>Ngày giờ sinh</span>
         <input v-model="form.birth_datetime_local" type="datetime-local" />
       </label>
