@@ -784,3 +784,27 @@ def test_no_predict_language_in_paradigm_note():
     assert "đồng dạng" in note or "phản chiếu" in note
     # Đảm bảo có warning không predict
     assert "không" in note and ("predict" in note or "dự đoán" in note or "tuyệt đối" in note)
+
+
+def test_personal_reading_weaves_cell_deep():
+    """Insight có cung phải mang cell_deep (dệt deep_readings — nối 2026-07-16).
+
+    Trước fix: MON/TINH/THAN_DEEP + 14 combo chỉ lộ qua endpoint tra cứu,
+    interpret_personal_chart không dùng ("hút mà chưa nối").
+    """
+    from engine.ky_mon import cast, interpret_personal_chart
+
+    state = cast(1988, 6, 5, 23, 30)
+    insights = interpret_personal_chart(state)
+
+    with_deep = [i for i in insights if i.get("cell_deep")]
+    assert with_deep, "phải có ít nhất 1 insight được dệt luận sâu"
+    for i in with_deep:
+        cd = i["cell_deep"]
+        assert cd["cung"] == i["cung"]
+        # Ít nhất 1 tầng tra được; tầng nào có phải là dict nội dung thật
+        layers = [cd.get("mon_deep"), cd.get("tinh_deep"), cd.get("than_deep")]
+        assert any(layers)
+        for layer in layers:
+            if layer:
+                assert isinstance(layer, dict) and len(layer) >= 2

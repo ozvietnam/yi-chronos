@@ -5,6 +5,50 @@
 
 ---
 
+## 🔄 CẬP NHẬT 2026-07-17 — Phase A/B/C/D thực ra ĐÃ XONG, doc này bị stale
+
+Rà lại (yêu cầu "sang khối gap-analysis Tử Vi") phát hiện: **toàn bộ Phase A→D bên
+dưới đã được build + wire trong commit `9410bf03` (auto-sync 2026-06-27)** — 17 ngày
+sau ngày viết doc này — nhưng doc chưa từng được cập nhật để đóng dấu DONE. Kết quả:
+đọc doc từ đầu sẽ tưởng còn ~1.6M token / 2.5 phiên việc, trong khi thực tế còn lại
+rất nhỏ.
+
+**Đối chiếu thực tế từng Mảng:**
+
+| Mảng | Doc nói | Thực tế 2026-07-17 |
+|---|---|---|
+| 2 — Paradigm Engine (6 hàm) | ❌ chưa có | ✅ `engine/tu_vi/paradigm/` — **7 hàm** (thêm `to_hop_cung`/`giap_cung`/`muon_sao` ngoài 6 hàm gốc), đủ nguồn trích dẫn. **Chưa có test nào** cho tới hôm nay — viết 34 test, phát hiện + sửa 1 bug thật (xem dưới). |
+| 3 — Mapping CUNG_SAO | 🔴 blocker, 14/168 tĩnh | ✅ `engine/tu_vi/cung_sao_mapping.py` — **live query auto-gen** (không phải bảng tĩnh), phủ **8 sách** (4 gốc + `tu-vi-dau-so-toan-thu-zh`, `tuvi-bon-ba-tiktok`, `tu-vi-huy-tuan-tiktok`, `nguyet-do-so-menh-tiktok`), cache module-level, lọc `anti_paradigm`/`quan_diem` khỏi luận tích cực. |
+| 4 — Cross-School Orchestrator | 🟡 needed | ✅ `engine/tu_vi/cross_school.py` (346 dòng) — `luan_sao_cung`, `luan_to_hop_cung`, `detect_paradigm_warnings` (gọi cả 7 hàm paradigm). |
+| 5 — Output Filler v2 | 🔴 blocker | ✅ `engine/atomization/output_filler_v2.py` (369 dòng) — `render_3_layer()` dùng paradigm + cross_school + mapping đúng như spec doc. |
+| — API | (không nhắc) | ✅ `api/tu_vi_3layer.py` (955 dòng, **router riêng**, đã `include_router` trong `api/main.py`) — `/api/tu-vi/3-layer`, `/3-layer/from-birth`, `/3-layer/narrative`, `/3-layer/chu-de(-sau)`, `/3-layer/gia-vi`, `/3-layer/feedback`, `/hop-hon`, `/thien-luong`, `/cung-sau`, `/duyen`, `/gia-dao`, `/3-layer/founder-demo`, ... |
+| 6 — UI TuViLaSoPanelV2 | 🟡 needed | ✅ `client/webapp/src/components/TuVi3LayerPanel.vue` — **đã mount** bên trong `TuViLaSoPanel.vue:1745`, gọi đủ endpoint trên. |
+| 7 — Founder Verify Workflow | 🟡 needed | ✅ **ĐÃ CÓ, qua route khác không như doc mô tả**: `AtomVerifyPanel.vue` (260 dòng, xây 2026-06-26) + `api/atomization.py` (`POST /verify/{atom_id}`, `POST /verify-bulk`) — mount ở tab `atom-verify` trong `App.vue`, browse theo sách/mục, **duyệt hàng loạt**, đúng 4 sách Tử Vi cần (`BOOK_VI` khớp chính xác danh sách trong roadmap). **KHÔNG dùng** `api/atoms_verify.py` (`/api/atoms/verify` + `/api/atoms/pending`, xây riêng, đăng ký router trong `main.py`) — verify 2026-07-17: **0 caller ở đâu cả (không UI, không script, không test)** → nhiều khả năng là bản nháp trùng chức năng bị bỏ quên. Đề xuất: giữ nguyên (không xóa mù) — anh quyết xoá hay giữ làm API hẹp cho automation sau. |
+
+**Bug thật tìm thấy khi viết test cho Mảng 2** (không có trong doc gốc, vì doc gốc
+viết TRƯỚC khi code tồn tại): `engine/tu_vi/paradigm/nhan_cung.py` dùng canonical
+`"ty"` (=Tý) cho vị trí Nhân Cung của Thiên Lương/Thiên Cơ/Phá Quân — nhưng theo
+đúng quy ước canonical toàn hệ thống (`la_so_input_builder.CHI_VI_TO_CANON` v.v.)
+thì `"ty"` = Tý và `"ti"` = Tỵ là **2 chi khác nhau**; comment nguồn trong chính
+file đó ghi rõ "ở Tỵ". Bug này chạy thật (`cross_school.detect_paradigm_warnings`
+→ `output_filler_v2.render_3_layer` → API `/api/tu-vi/3-layer` user-facing) — khiến
+**bỏ sót cảnh báo** khi sao thật ở Tỵ, và **báo giả** khi sao ở Tý. Đã sửa (3 dòng)
++ 34 test cho toàn bộ package paradigm (`tests/test_tu_vi_paradigm_engine.py`).
+
+**Còn lại CHƯA verify được từ container này** (thiếu `data/yi_wiki/wiki.sqlite3` —
+DB không theo git/CI, chỉ sync qua VPS theo CLAUDE.md): chất lượng thật của output
+3-layer trên lá số founder — cần chạy `POST /api/tu-vi/3-layer/founder-demo` (hoặc
+`from-birth`) trên máy có DB thật để mắt thấy văn bản sinh ra có đúng "chuyện về
+anh / vì sao / sách cổ nói" như acceptance test §Goal mô tả hay không. Đây là việc
+duy nhất còn thật sự cần làm trong roadmap gốc — không phải build gì mới, mà là
+**QC bằng mắt trên dữ liệu thật**.
+
+**Kết luận**: Phase A→D coi như DONE về mặt kỹ thuật (code + wiring + giờ có test).
+Effort thật còn lại ≈ 1 lượt QC thủ công trên máy có DB, không phải "~1.6M
+tokens / 2.5 phiên" như ước tính gốc.
+
+---
+
 ## 🎯 GOAL ĐỊNH NGHĨA RÕ
 
 > Anh đưa BẤT KỲ 1 lá số (year/month/day/hour/gender) → Em sinh OUTPUT 3-Layer cho user:

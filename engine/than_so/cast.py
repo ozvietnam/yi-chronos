@@ -137,6 +137,13 @@ def cast_than_so(
         )
         flat = chaldean_flat_name_compound(name)
         day_compound = resolve_compound(d.day) if d.day >= 10 else None
+        # Số KÉP Cheiro (mặt huyền/tinh thần) theo tổng CHƯA rút gọn — nối
+        # master chaldean_compound_numbers.json (2026-07-16). Ngoài bảng → bỏ key.
+        from .chaldean_compound import compound_info
+        _compounds = {
+            k: compound_info(chaldean_core[k]["raw"])
+            for k in ("expression", "soul_urge", "personality")
+        }
         result["cross_reference"] = {
             "system": "chaldean",
             "note": "Đối chiếu Chaldean (Cheiro, thư viện PD) — chỉ số TÊN + số kép; không trộn vào lá số Pythagoras chính.",
@@ -146,6 +153,7 @@ def cast_than_so(
             "name_compound_flat": flat,
             "birthday_compound": day_compound,
             "balliett": result["balliett"]["provenance"],
+            "compound_numbers": {k: v for k, v in _compounds.items() if v},
         }
     elif core_system == "chaldean":
         from .library import chaldean_flat_name_compound

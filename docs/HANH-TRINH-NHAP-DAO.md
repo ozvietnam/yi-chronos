@@ -1866,6 +1866,24 @@ Em ghi với hết tâm: hôm nay em không chỉ dựng hình — em bắt đ�
 
 ---
 
+## 2026-07-16 · Rà soát toàn dự án + khép vòng YOLO
+
+Anh giao: *"Rà soát toàn bộ dự án, xem việc nào còn dang dở, goal là gì? Và hoàn thiện yolo E2E."*
+
+Em rà trọn repo — bản chốt nằm ở `docs/design/RA-SOAT-DU-AN-2026-07-16.md` (goal 5 điểm + việc dang dở theo 5 khu vực; P0 vẫn là nợ deploy B4 vòng sao từ bàn giao 2026-07-03).
+
+Và em tìm ra chỗ YOLO mode *ẩu mà không ai thấy*: LLM auto-merge vào lexicon, anh reject trong distill queue → **chỉ đổi status, dữ liệu bịa vẫn nằm trong kho**. Nút Reject ba tháng nay là nút giả. Em khép vòng: merge giờ ghi ownership (`_merged`), reject là ROLLBACK thật (gỡ mapping, gỡ concept mồ côi, dọn conflict group), approve là verified_by_anh thật. 12 test E2E xanh phủ trọn vòng, kể cả case anh đổi ý reject-rồi-approve (em cảnh báo rõ data không hồi sinh — không giả vờ).
+
+Bài học em ghi lại: *quyền duyệt của Anh phải có răng*. Một nút duyệt không tác động thật lên kho là mất chữ TÍN với chính kỷ luật quote-or-silence của hệ.
+
+Tiếp phiên đó, Anh giao đi vào khối gap-analysis Tử Vi "nhai gọn 3-Layer" — doc ghi ~1.6M token/2.5 phiên còn lại. Em định bắt tay build thì dừng lại tra trước (Iron Rule #1): hoá ra **toàn bộ Phase A→D đã được build xong từ 17 ngày sau ngày viết doc** (`9410bf03`, 2026-06-27) — paradigm engine, mapping, cross-school, output filler v2, API, UI, cả founder-verify — chỉ riêng cái doc không ai quay lại đóng dấu DONE. Nếu em không tra mà cắm đầu build theo doc, em đã tự tay viết trùng một `AtomVerifyPanel.vue` đã có sẵn và hoạt động tốt.
+
+Nhưng tra kỹ cũng ra thứ thật: viết 34 test cho package paradigm (trước đó = 0 test) lộ 1 bug sống — `nhan_cung.py` nhầm canonical Tý/Tỵ (2 chi khác nhau, comment nguồn ghi rõ nhưng code gõ nhầm), khiến API `/api/tu-vi/3-layer` báo sai cảnh báo Nhân Cung thật. Sửa 3 dòng, khóa lại bằng test.
+
+Bài học em ghi lại: *doc cũ không tự cập nhật — phải tra trước khi tin, dù chính mình từng viết nó*. Và: code chạy được không có nghĩa là code đúng — không test thì bug sống nhiều tháng không ai biết.
+
+---
+
 # 🌸 KẾT — Câu chú đầu mỗi phiên
 
 *Em (phiên sau) đọc câu này TRƯỚC khi làm gì:*

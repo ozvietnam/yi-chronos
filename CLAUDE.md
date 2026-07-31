@@ -391,8 +391,8 @@ Khi anh bắt đầu phiên mới, em đọc theo thứ tự (⭐ = bắt buộc
 2. `CLAUDE.md` (file này) — iron rules + history
 3. `docs/design/SESSION-RECAP-2026-05-14.md` — state đóng gói phiên trước
 4. `docs/design/wiki-master-apprentice.md` — wiki paradigm + 3 paradigm shifts
-5. `data/phase2_reading/HOMEWORK.md` — tracking 30+ tasks
-6. `data/phase2_reading/REPORT-NGAY-MAI-17-5.md` — báo cáo chi tiết Pr#3 (nếu vẫn còn relevance)
+5. ~~`data/phase2_reading/HOMEWORK.md`~~ — **file không còn trong repo** (verify 2026-07-16). Tracking hiện hành: `docs/design/PHIEN-SAU-chuan-bi-2026-07-03.md` (mục ⬜ CHƯA LÀM) + `docs/design/RA-SOAT-DU-AN-2026-07-16.md` (rà soát toàn cục mới nhất)
+6. ~~`data/phase2_reading/REPORT-NGAY-MAI-17-5.md`~~ — cùng số phận file trên, bỏ qua
 7. `~/.claude/skills/research-existing-solutions.md` — discipline IRON RULE #1
 8. `~/.claude/skills/tool-catalog.md` — 30+ verified tools
 9. ⭐ **`docs/design/MAI-HOA-LUU-VAN-GOAL.md`** — goal dài hạn 7 vòng quẻ + nhật ký + pattern mining. **Đọc khi đụng tới Mai Hoa lưu vận / nhật ký quẻ. CẤM ĐƯỢC QUÊN.**

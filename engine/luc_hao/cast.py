@@ -30,6 +30,7 @@ from .relations import (
     _select_dung_than_line,
 )
 from .ruler_profile import _build_ruler_profile
+from .than_sat import compute_than_sat
 from .timing import (
     _estimate_by_maihoa_formula,
     _pace_bucket,
@@ -212,6 +213,8 @@ def cast_luc_hao(
             "tuan_khong_branches": list(tuan_khong_set),
         },
         "lines": lines,
+        # Thần sát theo can/chi ngày gieo (seed Thiệu Vĩ Hoa p99-103, nối 2026-07-16)
+        "than_sat": compute_than_sat(day_stem, day_branch, lines),
         "moving_line_analysis": moving_impact,
         "dung_than": {
             "line_position": dung_than_line["line_position"],

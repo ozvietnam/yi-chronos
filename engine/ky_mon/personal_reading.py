@@ -796,6 +796,27 @@ def interpret_personal_chart(state: dict) -> list[dict]:
         ),
     })
 
+    # ─── Dệt luận sâu Đàm Liên vào từng insight (nối 2026-07-16) ───
+    # Audit "hút mà chưa nối": deep_readings (MON/TINH/THAN_DEEP + 14 combo)
+    # trước đây chỉ lộ qua endpoint tra cứu, luận cá nhân không dùng.
+    # Additive + grounded: insight có cung → attach deep reading của đúng cell
+    # (môn + tinh + thần tại cung đó); cung không có trong bàn → bỏ qua.
+    from .deep_readings import interpret_cell_deep
+
+    for insight in insights:
+        cung = insight.get("cung", "")
+        if not cung or cung not in {**mon, **tinh, **than}:
+            continue
+        cell_deep = interpret_cell_deep(
+            cung_vn=cung,
+            mon_vn=mon.get(cung, {}).get("mon_vn"),
+            tinh_vn=tinh.get(cung, {}).get("tinh_vn"),
+            than_vn=than.get(cung, {}).get("than_vn"),
+        )
+        # Chỉ attach khi tra được ít nhất 1 tầng (quote-or-silence)
+        if cell_deep["mon_deep"] or cell_deep["tinh_deep"] or cell_deep["than_deep"]:
+            insight["cell_deep"] = cell_deep
+
     return insights
 
 

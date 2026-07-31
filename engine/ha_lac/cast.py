@@ -63,6 +63,17 @@ def _compute_menh_hop_cach(birth_dt_str, tu_tru, tien_thien, nd_tien, pools, yea
                 mang = k
                 break
         year_polarity = "dương" if year_stem in ("Giáp", "Bính", "Mậu", "Canh", "Nhâm") else "âm"
+        # Tháng ÂM LỊCH cho TC4 Nguyệt lệnh (sxtwl, cùng converter Tử Vi dùng).
+        # Convert fail → None, TC4 tự ghi "Thiếu tháng âm lịch" (quote-or-silence).
+        birth_month_amlich = None
+        try:
+            from engine.yi_wiki.lich_conversion import parse_solar_string, solar_to_lunar
+            birth_month_amlich = solar_to_lunar(parse_solar_string(birth_dt_str)).lunar_month
+        except Exception:
+            pass
+        # TC3: lời hào nguyên đường từ seed (None nếu chưa phủ → TC3 tự ghi thiếu)
+        from .loi_hao import get_loi_hao
+        loi_hao_nd = get_loi_hao(tien_thien.name_vi, nd_tien)
         result = evaluate_menh_hop_cach(
             source_quai_name=tien_thien.name_vi,
             upper_trigram=tien_thien.upper_trigram,
@@ -73,8 +84,9 @@ def _compute_menh_hop_cach(birth_dt_str, tu_tru, tien_thien, nd_tien, pools, yea
             so_duong=pools.tien_raw,
             so_am=pools.dia_raw,
             season_key=season,
-            birth_month_amlich=None,  # TODO: convert dương→âm lịch
+            birth_month_amlich=birth_month_amlich,
             mang_nap_am=mang,
+            loi_hao_nd=loi_hao_nd,
         )
         return result.to_dict()
     except Exception as e:
@@ -162,6 +174,13 @@ def cast_ha_lac(
         nguyen_duong_tien=nd_tien,
         nguyen_duong_hau=nd_hau,
     )
+
+    # Step 6b: inject lời hào Kinh Dịch per stage (v3 roadmap #5, seed Xuân Cang).
+    # Quote-or-silence: quẻ/hào chưa có trong seed → loi_hao=None, không bịa.
+    from .loi_hao import loi_hao_for_stage
+    for stage in trajectory:
+        quai_name = tien_thien.name_vi if stage["hexagram"] == "tien" else hau_thien.name_vi
+        stage["loi_hao"] = loi_hao_for_stage(quai_name, stage["line_position"])
 
     all_notes = list(tien_thien.notes) + nd_tien_notes + hau_notes
 
