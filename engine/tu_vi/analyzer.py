@@ -1320,6 +1320,23 @@ TASK: Viết phê mệnh SÂU — **BATCH {batch_name}** (5 sections)
         """
         from engine.tu_vi import van_han as vh
 
+        def _book(slug: str) -> str:
+            """Mã kho → TÊN SÁCH người đọc hiểu (tránh lòi 'tuvifull-...' ra bản trả phí)."""
+            s = (slug or "").lower()
+            for key, label in (
+                ("trung-chau", "Trung Châu phái Tử Vi Đẩu Số (Vương Đình Chi)"),
+                ("tuong-te", "Tử Vi Đẩu Số Tường Tế"),
+                ("tinh-hoa", "Tử Vi Đẩu Số Tinh Hoa Tập Thành"),
+                ("tinh-thanh", "Đẩu Số Tinh Thành"),
+                ("toan-thu", "Tử Vi Đẩu Số Toàn Thư"),
+                ("tvdstt", "Tử Vi Đẩu Số Toàn Thư"),
+                ("luan-giai-cac-chinh-tinh", "Luận Giải Các Chính Tinh"),
+                ("khhb", "Tạp chí Khoa Học Huyền Bí (trước 1975)"),
+            ):
+                if key in s:
+                    return label
+            return slug or "sách cổ"
+
         ls = self.la_so
         out: list[str] = ["\n━━━ ★ KHO SÁCH ĐÃ DUYỆT (BẮT BUỘC LUẬN TỪ ĐÂY — có ghi nguồn) ━━━",
                           "  Quy tắc: mọi nhận định về SAO / TỨ HÓA / ĐẠI VẬN phải dựa vào các trích dẫn",
@@ -1332,7 +1349,7 @@ TASK: Viết phê mệnh SÂU — **BATCH {batch_name}** (5 sections)
             stars = vh._stars_at(ls, p.get("branch_index"))
             for st in stars[:2]:
                 for g in vh._grounded_sao(st, cung=pname, limit=1):
-                    sao_lines.append(f"  • {st} @ {pname}: {g['dich']} (nguồn: {g['nguon']})")
+                    sao_lines.append(f"  • {st} @ {pname}: {g['dich']} (nguồn: {_book(g['nguon'])})")
         if sao_lines:
             out.append("\n── SAO × CUNG (nội dung đã duyệt, dùng cho bài tinh thần / lập tọa mệnh) ──")
             out.extend(sao_lines[:22])
