@@ -65,6 +65,43 @@ def require_caller(
     )
 
 
+def _guest_ip(request: Request) -> str:
+    """IP khách để khoá rate-limit. Sau Traefik, request.client.host chỉ là IP proxy (mọi khách
+    chung 1 bucket) → ưu tiên phần tử CUỐI của X-Forwarded-For (do Traefik — hop duy nhất vào —
+    ghi thêm; các phần tử đứng trước có thể bị khách giả mạo nên bỏ qua)."""
+    xff = request.headers.get("x-forwarded-for", "")
+    if xff:
+        last = xff.split(",")[-1].strip()
+        if last:
+            return last
+    return (request.client.host if request.client else None) or "anon"
+
+
+def optional_caller(
+    request: Request,
+    x_api_key: Optional[str] = Header(None, alias="X-API-Key"),
+    x_user_id: Optional[str] = Header(None, alias="X-User-Id"),
+) -> dict:
+    """Như require_caller nhưng KHÔNG 401 với ẩn danh — trả identity 'anon' khoá theo IP.
+
+    Dùng cho endpoint CÔNG KHAI (guest vẫn dùng được) nhưng cần rate-limit nhẹ chống abuse CPU
+    (vd /3-layer/from-birth: nhập ngày sinh xem lá số). Service-key / session hợp lệ → tính theo
+    user_id; còn lại → khoá theo IP. Key sai KHÔNG hard-fail (bị coi như anon → vẫn bị throttle).
+
+    Returns: {"source": "service"|"session"|"anon", "user_id": str, "is_owner": bool}
+    """
+    if x_api_key is not None and _valid_service_key(x_api_key) and x_user_id:
+        return {"source": "service", "user_id": str(x_user_id), "is_owner": False}
+    user = _auth.get_current_user(request)
+    if user:
+        return {
+            "source": "session",
+            "user_id": str(user["user_id"]),
+            "is_owner": user.get("role") == "owner",
+        }
+    return {"source": "anon", "user_id": f"ip:{_guest_ip(request)}", "is_owner": False}
+
+
 def rate_limit_caller(
     caller: dict, *, bucket: str, limit: int, window_sec: int
 ) -> None:

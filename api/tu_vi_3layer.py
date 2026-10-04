@@ -29,7 +29,7 @@ from fastapi import APIRouter, Depends, Header, HTTPException, Request
 from pydantic import BaseModel, Field
 
 from engine.atomization.output_filler_v2 import render_3_layer
-from api.service_auth import require_caller, rate_limit_caller
+from api.service_auth import optional_caller, rate_limit_caller, require_caller
 
 router = APIRouter(prefix="/api/tu-vi", tags=["tu-vi-3layer"])
 
@@ -39,6 +39,10 @@ router = APIRouter(prefix="/api/tu-vi", tags=["tu-vi-3layer"])
 _LLM_BUCKET = "tuvi_3layer"
 _LLM_LIMIT = 60          # ≤60 lần / giờ / user (owner miễn) — rộng cho user thật, chặn spam
 _LLM_WINDOW = 3600
+
+# Route cấu trúc (không LLM) cho khách xem: không bắt đăng nhập nhưng throttle theo user/IP
+# chống abuse CPU (chặn khách spam ngày sinh ngẫu nhiên).
+CAST_BUCKET, CAST_LIMIT, CAST_WINDOW = "tuvi_cast", 120, 3600
 
 # Phản hồi độ khớp chân dung (cuối mỗi phần: khai vị + từng món chính) — lưu cạnh
 # users. KHÔNG để chung wiki.sqlite3 (đó là content db, ngoài CI). Đây là dữ liệu
@@ -153,9 +157,10 @@ CUC_NAME_TO_CANON = {
 
 
 @router.post("/3-layer/from-birth")
-async def render_from_birth(birth: BirthInput) -> dict:
+async def render_from_birth(birth: BirthInput, caller: dict = Depends(optional_caller)) -> dict:
     """Nhập ngày sinh → tự an sao (re-use /api/tu-vi/cast logic) → render 3-Layer."""
     # Re-use route handler có sẵn solar→lunar conversion (engine an_sao = source of truth)
+    rate_limit_caller(caller, bucket=CAST_BUCKET, limit=CAST_LIMIT, window_sec=CAST_WINDOW)
     from api.tu_vi_routes import tu_vi_cast
     from api.schemas import TuViCastRequest
 
@@ -528,12 +533,13 @@ class HopHonInput(BaseModel):
 
 
 @router.post("/hop-hon")
-async def hop_hon(inp: HopHonInput) -> dict:
+async def hop_hon(inp: HopHonInput, caller: dict = Depends(optional_caller)) -> dict:
     """Hợp Hôn Tam Hệ — chấm độ tương ứng 2 lá số (Tử Vi + Bát Tự + Kinh Dịch).
 
     User nhập lá số mình + 1 lá số khác → kết quả + gia quy + hướng dẫn đọc.
     Paradigm: đọc đồng dạng, KHÔNG predict.
     """
+    rate_limit_caller(caller, bucket=CAST_BUCKET, limit=CAST_LIMIT, window_sec=CAST_WINDOW)
     from engine.bat_tu.tu_tru import extract_tu_tru
     from engine.ha_lac.cast import cast_ha_lac
     from engine.tu_vi.hop_hon import phan_tich_hop_hon
@@ -575,8 +581,9 @@ class ThienLuongInput(BaseModel):
 
 
 @router.post("/thien-luong")
-async def thien_luong_endpoint(inp: ThienLuongInput) -> dict:
+async def thien_luong_endpoint(inp: ThienLuongInput, caller: dict = Depends(optional_caller)) -> dict:
     """Góc nhìn phái Thiên Lương (đọc tuổi trước sao, Thái Tuế chủ đạo). Song song Trần Đoàn/Trung Châu."""
+    rate_limit_caller(caller, bucket=CAST_BUCKET, limit=CAST_LIMIT, window_sec=CAST_WINDOW)
     from engine.tu_vi.thien_luong import luan_thien_luong
     g = "nữ" if inp.gender in ("nữ", "nu", "F", "f") else "nam"
     try:
@@ -595,8 +602,9 @@ class CungSauInput(BaseModel):
 
 
 @router.post("/cung-sau")
-async def cung_sau_endpoint(inp: CungSauInput) -> dict:
+async def cung_sau_endpoint(inp: CungSauInput, caller: dict = Depends(optional_caller)) -> dict:
     """Đọc sâu Phúc Đức + Nô Bộc (Toàn Thư + góc dân gian Việt có cờ nguồn). Anh duyệt Q2/Q3."""
+    rate_limit_caller(caller, bucket=CAST_BUCKET, limit=CAST_LIMIT, window_sec=CAST_WINDOW)
     from engine.tu_vi.cung_sau import doc_phuc_duc, doc_no_boc
     g = "nữ" if inp.gender in ("nữ", "nu", "F", "f") else "nam"
     try:
@@ -615,10 +623,11 @@ class DuyenInput(BaseModel):
 
 
 @router.post("/duyen")
-async def duyen_ca_nhan_endpoint(inp: DuyenInput) -> dict:
+async def duyen_ca_nhan_endpoint(inp: DuyenInput, caller: dict = Depends(optional_caller)) -> dict:
     """Duyên của tôi — bộ 4 tính năng cho người ĐANG TÌM:
     chân dung nửa kia · đường tình duyên · năm có duyên · tuổi hợp.
     """
+    rate_limit_caller(caller, bucket=CAST_BUCKET, limit=CAST_LIMIT, window_sec=CAST_WINDOW)
     from datetime import datetime
     from engine.tu_vi.duyen import (chan_dung_nua_kia, duyen_ca_nhan, dao_hoa_van, tuoi_hop)
 
@@ -653,8 +662,9 @@ class GiaDaoInput(BaseModel):
 
 
 @router.post("/gia-dao")
-async def gia_dao(inp: GiaDaoInput) -> dict:
+async def gia_dao(inp: GiaDaoInput, caller: dict = Depends(optional_caller)) -> dict:
     """Gia Đạo (đã cưới): gia quy ăn ở hợp đạo + năm thuận đón con (tính cho người nữ/mẹ)."""
+    rate_limit_caller(caller, bucket=CAST_BUCKET, limit=CAST_LIMIT, window_sec=CAST_WINDOW)
     from datetime import datetime
     from engine.tu_vi.gia_dao import gia_quy_an_o, nam_sinh_con
 
@@ -689,8 +699,9 @@ class DatTenInput(BaseModel):
 
 
 @router.post("/dat-ten")
-async def dat_ten(inp: DatTenInput) -> dict:
+async def dat_ten(inp: DatTenInput, caller: dict = Depends(optional_caller)) -> dict:
     """Đặt tên con bổ ngũ hành: Bát Tự bé → dụng thần → gợi ý hành + chữ/tên mẫu."""
+    rate_limit_caller(caller, bucket=CAST_BUCKET, limit=CAST_LIMIT, window_sec=CAST_WINDOW)
     from engine.bat_tu.tu_tru import extract_tu_tru
     from engine.tu_vi.gia_dao import dat_ten_con
     try:
@@ -709,9 +720,10 @@ class LuanConInput(BaseModel):
 
 
 @router.post("/luan-con")
-async def luan_con(inp: LuanConInput) -> dict:
+async def luan_con(inp: LuanConInput, caller: dict = Depends(optional_caller)) -> dict:
     """Luận lá số con cái: lăng kính trẻ (6 cung) + Bát Tự dụng thần (hướng nuôi)
     + đối chiếu TRƯỜNG NĂNG LƯỢNG bố mẹ (nếu có bát tự bố/mẹ). Đọc cái NỀN, không phán."""
+    rate_limit_caller(caller, bucket=CAST_BUCKET, limit=CAST_LIMIT, window_sec=CAST_WINDOW)
     from engine.bat_tu.tu_tru import extract_tu_tru
     from engine.tu_vi.gia_dao import luan_la_so_con
     from engine.tu_vi.hop_hon import _pillars_list, CAN_NH
