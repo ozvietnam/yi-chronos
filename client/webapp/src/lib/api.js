@@ -583,6 +583,17 @@ export function dongYMonthlyHealth({ birthDatetimeLocal, timezone = "Asia/Ho_Chi
   });
 }
 
+// Cầu nối hai mắt: Tử Vi (CÁI GÌ — tạng/bệnh) × Bát Tự/Đông y (KHI NÀO — thời điểm)
+export function dongYCauNoiSucKhoe({ birthDatetimeLocal, timezone = "Asia/Ho_Chi_Minh", gender = "nam", year = 2026 }) {
+  return request(`/api/dong-y/cau-noi-suc-khoe`, {
+    method: "POST",
+    body: JSON.stringify({
+      birth_datetime_local: birthDatetimeLocal,
+      timezone, gender, year,
+    }),
+  });
+}
+
 export function dongYFull({ birthDatetimeLocal, timezone = "Asia/Ho_Chi_Minh", gender = "nam", chanThuong = "" }) {
   return request(`/api/dong-y/full`, {
     method: "POST",

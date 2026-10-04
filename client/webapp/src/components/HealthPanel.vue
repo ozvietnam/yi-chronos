@@ -1,6 +1,6 @@
 <script setup>
 import { ref, computed } from "vue";
-import { batTuSucKhoeSau, dongYFull, dongYMonthlyHealth } from "../lib/api";
+import { batTuSucKhoeSau, dongYFull, dongYMonthlyHealth, dongYCauNoiSucKhoe } from "../lib/api";
 import { useActivePersonBirth } from "../stores/useActivePersonBirth.js";
 import ActivePersonBar from "./ActivePersonBar.vue";
 import RefBlock from "./RefBlock.vue";
@@ -27,6 +27,29 @@ const monthlyData = ref(null);
 const monthlyLoading = ref(false);
 const monthlyError = ref("");
 const monthlyYear = ref(2026);
+
+// Cầu nối hai mắt: Tử Vi (CÁI GÌ — tạng/bệnh) × Bát Tự/Đông y (KHI NÀO — thời điểm)
+const cauNoiData = ref(null);
+const cauNoiLoading = ref(false);
+const cauNoiError = ref("");
+
+async function analyzeCauNoi() {
+  if (!inputBirth.value) { cauNoiError.value = "Cần ngày-giờ sinh."; return; }
+  cauNoiLoading.value = true;
+  cauNoiError.value = "";
+  try {
+    cauNoiData.value = await dongYCauNoiSucKhoe({
+      birthDatetimeLocal: inputBirth.value,
+      timezone: inputTimezone.value,
+      gender: inputGender.value,
+      year: Number(monthlyYear.value),
+    });
+  } catch (e) {
+    cauNoiError.value = e.message || String(e);
+  } finally {
+    cauNoiLoading.value = false;
+  }
+}
 
 async function analyzeMonthly() {
   if (!inputBirth.value) { monthlyError.value = "Cần ngày-giờ sinh."; return; }
@@ -119,6 +142,13 @@ function renderMd(s) {
   return html;
 }
 
+function renderInline(s) {
+  if (!s) return "";
+  return String(s)
+    .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+    .replace(/\*\*([^*]+)\*\*/g, "<b>$1</b>");
+}
+
 const sk = computed(() => data.value?.suc_khoe_sau);
 </script>
 
@@ -166,11 +196,73 @@ const sk = computed(() => data.value?.suc_khoe_sau);
           {{ monthlyLoading ? "⏳ Đang..." : `📅 Lịch 12 Tháng (${monthlyYear})` }}
         </button>
         <input type="number" v-model="monthlyYear" min="2020" max="2100" class="hp-year-input" />
+        <button class="hp-btn hp-btn-bridge" :disabled="cauNoiLoading" @click="analyzeCauNoi">
+          {{ cauNoiLoading ? "⏳ Đang..." : "🔗 Cầu Nối Hai Mắt" }}
+        </button>
       </div>
       <p v-if="errorMsg" class="hp-error">{{ errorMsg }}</p>
       <p v-if="dongYError" class="hp-error">{{ dongYError }}</p>
       <p v-if="monthlyError" class="hp-error">{{ monthlyError }}</p>
+      <p v-if="cauNoiError" class="hp-error">{{ cauNoiError }}</p>
     </div>
+
+    <!-- ── CẦU NỐI HAI MẮT: Tử Vi (CÁI GÌ) × Bát Tự (KHI NÀO) ─────────── -->
+    <template v-if="cauNoiData">
+      <header class="hp-dy-header">
+        <h3>🔗 Cầu Nối Hai Mắt — Tạng gì · Khi nào</h3>
+        <p>
+          <span class="hp-badge" :class="cauNoiData.dong_thuan_tang.khop_tang ? 'ok' : 'warn'">
+            {{ cauNoiData.dong_thuan_tang.khop_tang ? "✓ Hai mắt đồng thuận" : "⚠ Hai mắt lệch" }}
+            — độ tin: {{ cauNoiData.dong_thuan_tang.do_tin }}
+          </span>
+        </p>
+      </header>
+
+      <div class="hp-two-eyes">
+        <article class="hp-card" style="border-left-color: #7b5ea7;">
+          <h3>👁 CÁI GÌ — theo Sao (Tử Vi)</h3>
+          <template v-if="cauNoiData.hai_mat.tu_vi_CAI_GI.available">
+            <p><b>Cung Tật Ách</b> @{{ cauNoiData.hai_mat.tu_vi_CAI_GI.cung.vi_tri }}
+              · sao: {{ (cauNoiData.hai_mat.tu_vi_CAI_GI.cung.sao || []).join(", ") }}</p>
+            <p><b>Tạng nền:</b> {{ cauNoiData.hai_mat.tu_vi_CAI_GI.tang }}</p>
+            <ul>
+              <li v-for="(b, i) in cauNoiData.hai_mat.tu_vi_CAI_GI.benh_co_nguon" :key="'b' + i">
+                {{ b.noi_dung }} <small class="hp-src">— {{ b.nguon }}</small>
+              </li>
+            </ul>
+            <p v-if="cauNoiData.hai_mat.tu_vi_CAI_GI.thoi_diem_sao" class="hp-warn-inline">
+              ⚑ Cung bệnh "động" (Thiên Thương / Thiên Sứ hội sát) — giữ gìn khi vận tới.
+            </p>
+          </template>
+          <p v-else class="hp-muted">Chưa lập được lá số Tử Vi.</p>
+        </article>
+
+        <article class="hp-card" style="border-left-color: #3a8a6a;">
+          <h3>👁 KHI NÀO — theo Khí (Bát Tự)</h3>
+          <template v-if="cauNoiData.hai_mat.bat_tu_KHI_NAO.available">
+            <p><b>Thể trạng:</b> {{ cauNoiData.hai_mat.bat_tu_KHI_NAO.the_trang.tang_chu }}
+              ({{ cauNoiData.hai_mat.bat_tu_KHI_NAO.the_trang.manh_yeu }})</p>
+            <p v-if="cauNoiData.hai_mat.bat_tu_KHI_NAO.khi_nam"><b>Khí năm:</b>
+              {{ cauNoiData.hai_mat.bat_tu_KHI_NAO.khi_nam.luc_khi }}
+              <small>(trung vận {{ cauNoiData.hai_mat.bat_tu_KHI_NAO.khi_nam.trung_van }})</small></p>
+            <p><b>Kỳ cần giữ:</b></p>
+            <ul>
+              <li v-for="(t, i) in cauNoiData.hai_mat.bat_tu_KHI_NAO.thang_can_giu" :key="'t' + i">{{ t }}</li>
+            </ul>
+          </template>
+          <p v-else class="hp-muted">Mắt Bát Tự chưa mở được.</p>
+        </article>
+      </div>
+
+      <article class="hp-card" style="border-left-color: #d4af37;">
+        <h3>🎯 Ghép lại — tạng gì, vào khi nào</h3>
+        <ul>
+          <li v-for="(c, i) in cauNoiData.cau_noi" :key="'c' + i" v-html="renderInline(c)"></li>
+        </ul>
+      </article>
+
+      <p class="hp-iron-rule-footer">{{ cauNoiData.disclaimer }}</p>
+    </template>
 
     <!-- ── Lịch 12 Tháng Sức Khỏe ────────────────────────────────────── -->
     <template v-if="monthlyData">
@@ -607,4 +699,15 @@ const sk = computed(() => data.value?.suc_khoe_sau);
 .hp-month-detail summary { cursor: pointer; color: rgba(245,230,177,0.7); }
 .hp-month-detail ul { padding-left: 16px; margin: 4px 0; }
 .hp-month-detail li { margin: 2px 0; }
+
+/* Cầu nối hai mắt */
+.hp-two-eyes { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (max-width: 640px) { .hp-two-eyes { grid-template-columns: 1fr; } }
+.hp-badge { display: inline-block; padding: 3px 12px; border-radius: 12px; font-size: 13px; font-weight: 600; }
+.hp-badge.ok { background: rgba(90,176,122,0.18); color: #8be0a3; border: 1px solid rgba(90,176,122,0.4); }
+.hp-badge.warn { background: rgba(232,180,90,0.18); color: #f0c674; border: 1px solid rgba(232,180,90,0.4); }
+.hp-src { color: rgba(230,238,245,0.5); font-style: italic; }
+.hp-muted { color: rgba(230,238,245,0.5); font-style: italic; }
+.hp-warn-inline { color: #f0a0b0; font-size: 12px; margin-top: 6px; }
+.hp-btn-bridge { background: linear-gradient(135deg, #7b5ea7, #3a8a6a); color: #fff; }
 </style>

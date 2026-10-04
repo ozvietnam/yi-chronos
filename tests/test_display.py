@@ -454,3 +454,140 @@ def test_giu_field_cu_khong_vo_contract():
         assert "items" in by_id["cung_phu_the"]
     if "song_phai" in by_id:
         assert "items" in by_id["song_phai"]
+
+
+# ── 12) RESIDUE jargon — không lẫn lý-thuật còn sót trong tom_tat ─────────────
+# Bối cảnh: các entry dao_hoa / sát tinh / tứ hoá cung Phu Thê TRƯỚC ĐÂY thiếu
+# nghia_thuan → display fallback _plain_vi (chỉ strip token trong is_jargon) →
+# rò lý-thuật như "Phu Thê", "cương khắc", "chính tinh", "lưu Kình" + toán tử
+# treo ("( →", "+ →") do tên sao bị xoá. Sau khi author nghia_thuan cho cả 3 nhóm
+# + propagate qua reading.py + bổ sung glossary, MỌI section.tom_tat phải SẠCH
+# các token này. Quét rộng (đệ quy, nhiều lá, cả 2 giới) để bắt mọi tổ hợp.
+
+# Token lý-thuật KHÔNG được phép lọt vào BẤT KỲ tom_tat nào (người Việt không biết
+# tử vi đọc vẫn hiểu). Gồm token mới thêm vào glossary + token cổ rò ở cách cục.
+# CỐ Ý rộng hơn danh sách glossary (yêu cầu: "not just the glossary-listed ones").
+_RESIDUE_TOKENS = [
+    "chính tinh", "sát tinh", "cương khắc", "lưu Kình", "lưu Đà",
+    "thuộc hạ cách", "Phu Thê", "gặp sát",
+]
+# Toán tử / dấu treo còn sót khi tên sao bị xoá (vd "(天刑空曜 → 清白)" → "( →)").
+_DANGLING_OPS = ["( →", "+ →", "→ )", "( →)", "+ ,", "+,", "+ )", "+ lưu", "+ Đà"]
+
+# Lá có dao_hoa / sát tinh / tứ hoá ở cung Phu Thê + cách cục 'gặp sát' + default.
+# Anchor (đã xác minh surface từng nhóm) + lưới rộng cho độ phủ.
+_RESIDUE_BIRTHS = [
+    _BIRTH,                # 1990-08-20 — chính tinh + cách cục
+    "1980-01-18T01:00",    # sát tinh ở cung Phu Thê
+    "1980-02-10T08:00",    # đào hoa ở cung Phu Thê
+    "1980-01-03T20:00",    # tứ hoá nhập Phu
+    "1980-02-03T02:00", "1980-02-03T14:00", "1980-02-03T21:00",
+    "1980-01-10T01:00",    # cách cục 'gặp sát'
+] + [
+    f"{y}-{m:02d}-{d:02d}T{hh:02d}:00"
+    for y in (1985, 1988, 1992, 1995)
+    for m in (3, 6, 9, 12) for d in (7, 21) for hh in (5, 17)
+]
+
+
+def _walk_strings(obj):
+    """Đệ quy yield MỌI chuỗi trong obj (str/list/tuple/dict)."""
+    if isinstance(obj, str):
+        yield obj
+    elif isinstance(obj, (list, tuple)):
+        for x in obj:
+            yield from _walk_strings(x)
+    elif isinstance(obj, dict):
+        for v in obj.values():
+            yield from _walk_strings(v)
+
+
+def _residue_in(tom_tat) -> list[str]:
+    """List token RESIDUE + toán tử treo tìm thấy trong tom_tat (đệ quy)."""
+    hits: list[str] = []
+    for s in _walk_strings(tom_tat):
+        for t in _RESIDUE_TOKENS:
+            if t in s:
+                hits.append(t)
+        for op in _DANGLING_OPS:
+            if op in s:
+                hits.append(op)
+    return hits
+
+
+def test_tom_tat_khong_ro_residue_jargon():
+    """REGRESSION: quét MỌI section.tom_tat (đệ quy) của NHIỀU lá × 2 giới — phải
+    0 token lý-thuật rò + 0 toán tử treo. Đồng thời tự-chứng minh có exercise đủ
+    3 nhóm (đào hoa / sát tinh / tứ hoá) ở cung Phu Thê + cách cục, để test KHÔNG
+    pass rỗng (assert-0 vô nghĩa nếu không lá nào surface nhóm rò)."""
+    violations: list[str] = []
+    surfaced = {"dao_hoa_luan": 0, "sat_tinh_luan": 0,
+                "tu_hoa_luan": 0, "cach_cuc": 0}
+    n_scanned = 0
+    for gender in ("nữ", "nam"):
+        for birth in _RESIDUE_BIRTHS:
+            ro = read_tinh_duyen(birth_datetime_local=birth, gender=gender)
+            cpt = ro.get("cung_phu_the_tuvi") or {}
+            for grp in ("dao_hoa_luan", "sat_tinh_luan", "tu_hoa_luan"):
+                if cpt.get(grp):
+                    surfaced[grp] += 1
+            d = build_display(ro, gender)
+            for sec in d["sections"]:
+                if sec["id"] == "cach_cuc" and sec.get("tom_tat"):
+                    surfaced["cach_cuc"] += 1
+                hits = _residue_in(sec.get("tom_tat"))
+                if hits:
+                    violations.append(
+                        f"{gender}/{birth}/{sec['id']}: {sorted(set(hits))}")
+            n_scanned += 1
+    # (a) Test phải THỰC SỰ exercise từng nhóm rò — nếu 0 thì test vô nghĩa.
+    for grp, cnt in surfaced.items():
+        assert cnt > 0, (
+            f"test không exercise '{grp}' (0 lá surface) — anchor lá bị lệch, "
+            f"residue scan không có ý nghĩa")
+    # (b) 0 residue trên toàn bộ.
+    assert not violations, (
+        f"tom_tat rò residue jargon/toán-tử trên {n_scanned} lượt quét:\n  "
+        + "\n  ".join(violations[:30]))
+
+
+def test_moi_entry_3_nhom_co_nghia_thuan_sach():
+    """Mọi entry dao_hoa / sát tinh / tứ hoá trong tuvi_phuthe.json PHẢI có
+    nghia_thuan non-rỗng + SẠCH (0 Hán, 0 tên-sao/thập-thần jargon, 0 residue).
+    Guard: entry mới thêm mà quên nghia_thuan → display lại fallback _plain_vi
+    (rò jargon). Đây là độ phủ TẤT CẢ entry (không phụ thuộc lá nào surface)."""
+    from engine.tinh_duyen import knowledge_loader as kb
+    tp = kb.get("tuvi_phuthe")
+    for group in ("dao_hoa_tinh", "sat_tinh_phu_the", "tu_hoa_phu_the"):
+        block = tp.get(group) or {}
+        n = 0
+        for key, entry in block.items():
+            if key.startswith("_") or not isinstance(entry, dict):
+                continue
+            n += 1
+            nt = entry.get("nghia_thuan")
+            assert nt and nt.strip(), f"{group}.{key} thiếu nghia_thuan"
+            assert not _HAN_RE.search(nt), f"{group}.{key} nghia_thuan còn Hán"
+            assert not _jargon_in(nt), \
+                f"{group}.{key} nghia_thuan còn JARGON {_jargon_in(nt)}"
+            assert not _residue_in(nt), \
+                f"{group}.{key} nghia_thuan còn residue {_residue_in(nt)}"
+        assert n > 0, f"nhóm {group} không có entry nào — JSON bị lệch?"
+
+
+def test_plain_vi_lam_sach_residue_cach_cuc():
+    """Chốt deterministic: _plain_vi (fallback path) làm sạch các chuỗi cách cục
+    cổ TỪNG rò 'gặp sát' / 'thuộc hạ cách' + token lý-thuật khác. Bảo đảm dù lá
+    nào kích hoạt cách cục đó thì tom_tat vẫn sạch (không phụ thuộc chart)."""
+    from engine.tinh_duyen.display import _plain_vi
+    samples = [
+        "Tam phương tứ chính gặp sát tại cung Phu là khí lứa đôi nhiều thử thách",
+        "sinh năm Canh ở Hợi thuộc hạ cách, gặp sát thì khí dễ đơn độc",
+        "nếu không gặp sát thì khí hoà — gia đạo lứa đôi êm",
+        "Ở/chiếu Phu Thê tăng cương khắc; cặp với chính tinh + lưu Kình",
+    ]
+    for s in samples:
+        out = _plain_vi(s)
+        assert not _residue_in(out), \
+            f"_plain_vi chưa làm sạch residue {_residue_in(out)} trong: {out!r}"
+        assert not _HAN_RE.search(out), f"_plain_vi còn Hán: {out!r}"

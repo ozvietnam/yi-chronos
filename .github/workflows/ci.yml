@@ -15,7 +15,13 @@ jobs:
           python-version: "3.12"   # 3.14 not yet in ubuntu-latest; 3.12 compat
       - name: Install deps
         run: pip install -r requirements.txt
-      - name: Run pytest
+      - name: Smoke + core tests (BẮT BUỘC pass — không còn '|| true')
+        env:
+          YI_PROJECT_ROOT: ${{ github.workspace }}
+        run: |
+          python -c "from api.main import app; print('boot OK, routes =', len(app.routes))"
+          python -m pytest tests/test_luu_nguyet.py tests/test_douyin_research_text.py tests/test_ha_lac.py tests/test_tu_vi_paradigm_engine.py tests/test_yolo_e2e.py -q --tb=short
+      - name: Run pytest (toàn bộ — chỉ thông tin, chưa chặn vì ~35 test cần môi trường/dữ liệu riêng)
         env:
           YI_PROJECT_ROOT: ${{ github.workspace }}
         run: python -m pytest tests/ -q --tb=short 2>&1 || true

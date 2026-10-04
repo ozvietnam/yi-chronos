@@ -1959,6 +1959,20 @@ class MonthlyHealthRequest(BaseModel):
     year: int = 2026
 
 
+@app.post("/api/dong-y/cau-noi-suc-khoe")
+def dong_y_cau_noi_suc_khoe(request: MonthlyHealthRequest) -> dict[str, object]:
+    """CẦU NỐI sức khỏe HAI MẮT: Tử Vi (CÁI GÌ — tạng/bệnh đích danh) × Bát Tự/Đông y
+    (KHI NÀO — lịch tháng áp lực + Ngũ Vận Lục Khí). Gọi hai hệ sẵn có rồi GHÉP + đối
+    chiếu chéo tạng (khớp = tin cao). Iron #9: dưỡng–phòng, KHÔNG đoán ngày dữ/tử vong."""
+    from engine.dong_y.cau_noi_suc_khoe import cau_noi_suc_khoe
+    try:
+        return cau_noi_suc_khoe(
+            birth_datetime_local=request.birth_datetime_local, gender=request.gender,
+            timezone=request.timezone, year=request.year)
+    except (ValueError, KeyError) as e:
+        return {"status": "error", "reason": str(e)}
+
+
 @app.post("/api/dong-y/monthly-health")
 def dong_y_monthly_health(request: MonthlyHealthRequest) -> dict[str, object]:
     """Lịch sức khỏe 12 tháng cá nhân — Bát Tự Lưu Nguyệt × Đông Y × chân dung sức khỏe."""

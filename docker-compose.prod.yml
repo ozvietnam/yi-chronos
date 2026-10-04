@@ -156,7 +156,9 @@ services:
     image: ghcr.io/huggingface/text-embeddings-inference:cpu-1.6
     container_name: yi-tei
     restart: unless-stopped
-    mem_limit: 3g
+    # 2026-10-04: nâng 3g→5g. Ở 3g, TEI (bge-m3) chạm trần ~87% → cgroup ép đẩy 1.8GB ra swap
+    # (swap host đầy 2.0/2.0GB). Host còn ~7.4GB RAM khả dụng.
+    mem_limit: 5g
     command: ["--model-id", "BAAI/bge-m3", "--auto-truncate"]
     volumes:
       - tei-data:/data

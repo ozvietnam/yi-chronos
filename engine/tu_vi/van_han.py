@@ -68,12 +68,46 @@ _CUNG_VAN_NGHIA = {
         "nguon": "Trung Châu phái (Vương Đình Chi)"},
     "Nô Bộc": {
         "rule": "Cung Giao Hữu (Nô Bộc) của vận cát → người dưới quyền đồng cam cộng khổ, "
-                "chung mục tiêu; gặp sát-kỵ → tranh chấp, bất hòa trong công việc.",
+                "chung mục tiêu; gặp sát-kỵ → tranh chấp, bất hòa trong công việc. Đây cũng "
+                "là cung CỐ ĐỊNH của THIÊN THƯƠNG (天傷) — vận đi tới + hội sát-kỵ chủ hư hao.",
         "nguon": "Trung Châu phái (Vương Đình Chi)"},
     "Phụ Mẫu": {
         "rule": "Bạch Hổ ở cung Phụ Mẫu của lưu niên → chủ hung tang (tang chế); kỳ này "
                 "quan-sát sức khỏe / quan hệ với bậc trên.",
         "nguon": "Trung Châu phái (Vương Đình Chi)"},
+}
+# Bổ sung cho Tật Ách: cung CỐ ĐỊNH của THIÊN SỨ (天使) + đọc theo ngũ hành tạng (dưới).
+_CUNG_VAN_NGHIA["Tật Ách"]["rule"] += (" Đây là cung CỐ ĐỊNH của THIÊN SỨ (天使, 'truyền "
+    "tống chi thần'); vận tới + hội sát-kỵ → cổ thư chủ bệnh ách, phá bại (đọc để DƯỠNG).")
+
+# ══ Bộ sao "THỜI ĐIỂM HƯ-HAO" (2026-07-22, rút từ 1 ca luận hồi cứu) ══════════════════
+# Cổ thư đánh dấu "hạn" KHÔNG bằng Thất Sát (tướng tinh — chỉ KHUẾCH ĐẠI), mà bằng bộ cố
+# định: THIÊN THƯƠNG (天傷, luôn ở cung Nô Bộc) + THIÊN SỨ (天使, luôn ở cung Tật Ách).
+# Iron #9: đọc để DƯỠNG/quan-sát, KHÔNG đoán tử vong — cổ thư chỉ chép "phá bại" (đổ vỡ,
+# hao tổn), không viết "chết"; lại là sao AI CŨNG CÓ, chỉ "động" khi vận tới + hội sát-kỵ.
+_THUONG_SU_QUOTE = {
+    "rule": ("Khi Thái Tuế / Đại Vận đi tới cung có THIÊN THƯƠNG (Nô Bộc) hoặc THIÊN SỨ "
+             "(Tật Ách) mà cung ấy HỘI thêm sát tinh (Kình Dương, Đà La, Hỏa Tinh, Linh "
+             "Tinh, Không-Kiếp, Bạch Hổ) hoặc Hóa Kỵ → cổ thư chủ 'PHÁ BẠI' (đổ vỡ, hao "
+             "tổn). Kỳ này GIỮ GÌN sức khỏe / của cải, quan-sát thân tâm — KHÔNG phải điềm "
+             "định sẵn, và KHÔNG suy diễn thành tử vong."),
+    "nguon": "Tử Vi Đẩu Số Toàn Thư (Vũ Tài Lục)",
+    "quote_goc": ("Thái Tuế gặp Thiên Thương/Thiên Sứ mà lại hội với Cự Môn, Thiên Cơ, "
+                  "Kình Dương, Đà La, Hỏa Tinh và Hóa Kỵ thì năm ấy chủ phá bại."),
+}
+_SAT_TINH_SET = {"Kình Dương", "Đà La", "Hỏa Tinh", "Linh Tinh", "Địa Không", "Địa Kiếp",
+                 "Bạch Hổ"}
+
+# ── Ngũ hành CHI → tạng phủ (Đông y) — "phần dẫn xuất" để luận cung TẬT ÁCH (cung bệnh) ──
+_CHI_NGU_HANH = {"Dần": "Mộc", "Mão": "Mộc", "Tỵ": "Hỏa", "Ngọ": "Hỏa",
+                 "Thân": "Kim", "Dậu": "Kim", "Hợi": "Thủy", "Tý": "Thủy",
+                 "Thìn": "Thổ", "Tuất": "Thổ", "Sửu": "Thổ", "Mùi": "Thổ"}
+_TANG_THEO_HANH = {
+    "Kim": "phế/phổi, đường hô hấp, đại tràng, da lông",
+    "Mộc": "can/gan, mật, gân, mắt",
+    "Thủy": "thận, bàng quang, hệ tiết niệu-sinh dục, tai",
+    "Hỏa": "tâm/tim, tiểu tràng, huyết mạch",
+    "Thổ": "tỳ-vị (lá lách - dạ dày), hệ tiêu hóa",
 }
 
 
@@ -150,6 +184,41 @@ def _stars_at(la_so: dict, branch_index: int) -> list[str]:
     br = BRANCHES_TVI[branch_index]
     stars = [s for s, idx in la_so.get("chinh_tinh", {}).items() if idx == branch_index]
     return stars
+
+
+def _all_stars_at(la_so: dict, branch_index: int) -> list[str]:
+    """MỌI sao (chính + phụ + sát + lẻ + vòng sao) đóng tại 1 branch — để dò Thiên Thương /
+    Thiên Sứ / sát tinh khi luận Tật Ách - Nô Bộc."""
+    out: list[str] = []
+    for key in ("chinh_tinh", "phu_tinh", "sat_tinh", "sao_le", "sao_q2", "sao_q3",
+                "thai_tue_belt", "tuong_tinh_belt", "trang_sinh"):
+        d = la_so.get(key)
+        if isinstance(d, dict):
+            out += [s for s, idx in d.items() if idx == branch_index]
+    return out
+
+
+def _thuong_su_canh_bao(la_so: dict, branch_index: int) -> "dict | None":
+    """Cung VẬN tại branch_index có THIÊN THƯƠNG / THIÊN SỨ + HỘI sát tinh cùng cung →
+    trả cảnh báo hư-hao GROUNDED. None nếu không có Thương/Sứ, hoặc có mà CHƯA hội sát
+    (chưa 'động'). Iron #9: dưỡng/quan-sát, không đoán tử."""
+    stars = set(_all_stars_at(la_so, branch_index))
+    thuong_su = [s for s in ("Thiên Thương", "Thiên Sứ") if s in stars]
+    if not thuong_su:
+        return None
+    sat = sorted(stars & _SAT_TINH_SET)
+    if not sat:
+        return None
+    return {"sao_thoi_diem": thuong_su, "hoi_sat": sat, **_THUONG_SU_QUOTE}
+
+
+def _tat_ach_tang(branch_index: int) -> dict:
+    """Tạng phủ (Đông y) mà cung TẬT ÁCH ứng — theo ngũ hành CHI của cung (Kim=phổi,
+    Mộc=gan...). 'Phần dẫn xuất' xương-tất-định cho luận cung bệnh."""
+    chi = BRANCHES_TVI[branch_index]
+    hanh = _CHI_NGU_HANH.get(chi, "")
+    return {"chi": chi, "hanh": hanh, "tang": _TANG_THEO_HANH.get(hanh, ""),
+            "nguon": "Đông y ngũ hành tạng tượng"}
 
 
 def _hoa_lit(hoa_stem: str, la_so: dict) -> list[dict]:
@@ -360,7 +429,7 @@ def _the_dung_block(la_so: dict, active_branch_index: int, tang: str) -> dict:
           f"(Thể) theo cách của {tang} (Dụng).")
     if borrowed:
         dg += " Cung Vô Chính Diệu — mượn sao cung xung chiếu (đối diện) để luận."
-    return {
+    block = {
         "vi_tri": BRANCHES_TVI[active_branch_index],
         "cung_the": palace_name,          # cung nguyên cục = THỂ
         "sao": stars,                     # sao đóng tại vị trí vận Mệnh (hoặc mượn xung)
@@ -374,6 +443,15 @@ def _the_dung_block(la_so: dict, active_branch_index: int, tang: str) -> dict:
         # #3: nguyên tắc đọc cung này khi là cung VẬN — LIST có nguồn (rỗng nếu chưa trích).
         "cung_van_rules": _cung_van_rules(palace_name, _TANG_KEY.get(tang, "all")),
     }
+    # Bộ sao thời-điểm hư-hao (Thiên Thương @Nô Bộc / Thiên Sứ @Tật Ách) + hội sát → cảnh
+    # báo DƯỠNG SINH grounded (chỉ hiện khi thực sự "động"; Iron #9: không đoán tử).
+    cb = _thuong_su_canh_bao(la_so, active_branch_index)
+    if cb:
+        block["thuong_su_canh_bao"] = cb
+    # Cung TẬT ÁCH (cung bệnh) → thêm tạng phủ theo ngũ hành CHI (phần dẫn xuất Đông y).
+    if palace_name == "Tật Ách":
+        block["tang_ngu_hanh"] = _tat_ach_tang(active_branch_index)
+    return block
 
 
 # ── ĐẠI VẬN ───────────────────────────────────────────────────────────────────

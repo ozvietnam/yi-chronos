@@ -19,8 +19,29 @@ env:
   IMAGE_NAME: ${{ github.repository }}  # ozvietnam/yi-chronos
 
 jobs:
+  gate:
+    name: Gate — API phải khởi động được + test lõi (chặn TRƯỚC khi build/deploy)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install deps
+        run: pip install -r requirements.txt
+      - name: Smoke — import api.main (bắt NameError/ImportError lúc boot, vd sự cố 31/07)
+        env:
+          YI_PROJECT_ROOT: ${{ github.workspace }}
+        run: python -c "from api.main import app; print('boot OK, routes =', len(app.routes))"
+      - name: Core tests (không cần dữ liệu gitignore — bắt buộc pass)
+        env:
+          YI_PROJECT_ROOT: ${{ github.workspace }}
+        run: python -m pytest tests/test_luu_nguyet.py tests/test_douyin_research_text.py tests/test_ha_lac.py tests/test_tu_vi_paradigm_engine.py tests/test_yolo_e2e.py -q --tb=short
+
   build-and-push:
     name: Build + push image to GHCR
+    needs: gate
     runs-on: ubuntu-latest
     permissions:
       contents: read
