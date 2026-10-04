@@ -96,8 +96,149 @@ def test_star_hoa_participation_reveals_nature():
     assert set(r["never_ky"]) == {"Tử Vi", "Thiên Lương"}
 
 
+def test_bat_quai_star_mapping_ngu_hanh_consistent():
+    # Ch.20 (tr.270-276): 8 chính tinh có tính bát quái, mỗi sao ứng 1 quái mà NGŨ HÀNH
+    # của quái khớp ngũ hành (độc lập dẫn xuất ở chinh_tinh.json) của sao — bằng chứng
+    # mapping CÓ NGUYÊN LÝ, không tùy tiện. Ngoại lệ DUY NHẤT: Thiên Đồng (Đoài/kim mà
+    # Đồng hành thủy) — chính Đằng Sơn nêu (tr.272: "Đồng chưa bị mang tính rõ rệt như Sát").
+    r = dsv.verify_bat_quai_ngu_hanh()
+    assert r["n_quai_stars"] == 8
+    assert r["n_match"] == 7                       # 7/8 khớp ngũ hành quái = ngũ hành sao
+    assert r["mismatches"] == ["Thiên Đồng"]       # ngoại lệ duy nhất, đúng sách
+    assert r["covers_all_14"] is True              # 8 có-quái + 6 vô-quái = trọn 14, không trùng
+    # Mệnh chủ Vũ Khúc ứng Càn (quái uy lực nhất); Mệnh cung Thiên Tướng vô-quái → THỂ/DỤNG.
+    assert dsv.BAT_QUAI_STAR["Vũ Khúc"] == "Càn"
+    assert "Thiên Tướng" in dsv.NO_QUAI_STARS
+    assert "Thiên Tướng" not in dsv.BAT_QUAI_STAR
+
+
+def test_loc_ton_kinh_da_structure_ch6_ch7():
+    # Tập 2 Ch.6: Lộc Tồn an theo can = MÙA (Giáp Ất→Dần Mão xuân, Bính Đinh Mậu Kỷ→Tỵ Ngọ
+    # hạ, Canh Tân→Thân Dậu thu, Nhâm Quý→Hợi Tý đông) → chứa đủ 4 mùa = hành Thổ trung
+    # ương → Lộc Tồn KHÔNG BAO GIỜ ở tứ mộ Thìn Tuất Sửu Mùi.
+    # Tập 2 Ch.7: "tiền Kình hậu Đà" — Kình Dương = Lộc+1 (quá sớm/dương), Đà La = Lộc−1
+    # (quá trễ/âm). Cả hai luật phải tái tạo trọn 10 can từ engine an_sao canonical.
+    r = dsv.verify_loc_ton_kinh_da()
+    assert r["n_stems"] == 10
+    assert r["tien_kinh_hau_da"] == 10        # Kình=Lộc+1, Đà=Lộc−1 cả 10 can
+    assert r["loc_ton_avoids_tu_mo"] == 10    # Lộc Tồn ∉ Thìn Tuất Sửu Mùi
+    assert r["loc_ton_matches_season"] == 10  # Lộc Tồn = mùa theo can (Ch.6)
+    assert r["all_pass"] is True
+
+
+def test_luu_ha_follows_dang_son_ngu_hanh_school():
+    # Tập 2 Ch.10: Lưu Hà an theo CAN năm. Đằng Sơn BẢO VỆ phái ngũ-hành-thuần (bài thiệu /
+    # Mệnh Lý Sách Ẩn): Đinh→Thân, Canh→Thìn — KHÁC Thái Thứ Lang (TVĐSTB) đảo chỗ Đinh↔Canh
+    # (Đinh→Thìn, Canh→Thân) mà Đằng Sơn cho là sai. Kiểm engine sao_q3.luu_ha theo phái nào.
+    r = dsv.verify_luu_ha_school()
+    assert r["n_stems"] == 10
+    assert r["match_ngu_hanh_thuan"] == 10          # engine khớp trọn phái Đằng Sơn bảo vệ
+    assert r["follows_dang_son_school"] is True
+    assert r["differs_from_thai_thu_lang_at"] == ["Canh", "Đinh"]  # đúng 2 can tranh chấp
+    assert r["mau_luu_ha"] == "Tỵ"                  # founder Mậu → Lưu Hà ≡ Lộc Tồn ≡ Mệnh Tỵ
+
+
+def test_khoi_viet_follows_dang_son_traditional_school():
+    # Tập 2 Ch.11-12: Khôi Việt = Lục Cát, gốc thần sát Thiên Ất quý nhân (an theo can năm).
+    # Đằng Sơn theo BÀI THIỆU TRUYỀN THỐNG (Giáp Mậu Canh→Sửu Mùi, Ất Kỷ→Tý Thân, Tân→Ngọ Dần...);
+    # bác phái "đổi mới" (Canh=Ngọ Dần giống Tân) + Tạ Phồn Trị (Kỷ=Dần Ngọ). Kiểm engine theo phái nào.
+    r = dsv.verify_khoi_viet_school()
+    assert r["n_stems"] == 10
+    assert r["match_traditional"] == 10
+    assert r["follows_dang_son_school"] is True
+    assert r["canh_traditional_suu_mui"] is True      # KHÔNG theo đổi mới (Ngọ Dần)
+    assert r["ky_traditional_than_ty"] is True         # KHÔNG theo Tạ Phồn Trị (Dần Ngọ)
+    assert r["mau_khoi_viet"] == ["Mùi", "Sửu"]        # founder Mậu → quý nhân Sửu/Mùi (Tài↔Phúc)
+
+
+def test_dao_ma_cai_sat_follows_dang_son_truong_sinh():
+    # Tập 2 Ch.17: Đào Hoa / Thiên Mã / Hoa Cái / Kiếp Sát an theo CHI năm, suy ra từ vòng
+    # Trường Sinh ngũ hành "ĐỒNG SINH CỘNG TỬ" (chú thích 3-4) — Trung Châu phái HK chỉ giữ 4
+    # trong 12 vị trí: Đào Hoa=Mộc Dục, Thiên Mã=Bệnh, Hoa Cái=Mộ, Kiếp Sát=Tuyệt.
+    # tam hợp→ngũ hành→Trường Sinh thuận: Hỏa/Thổ(Dần Ngọ Tuất)→Dần, Thủy(Thân Tý Thìn)→Thân,
+    # Kim(Tỵ Dậu Sửu)→Tỵ, Mộc(Hợi Mão Mùi)→Hợi. Cặp Đào-Sát "đoan/xấu" vĩnh viễn tam hợp.
+    r = dsv.verify_dao_ma_cai_sat()
+    assert r["n_branches"] == 12
+    assert r["dao_hoa_is_moc_duc"] == 12
+    assert r["thien_ma_is_benh"] == 12
+    assert r["hoa_cai_is_mo"] == 12
+    assert r["kiep_sat_is_tuyet"] == 12
+    assert r["follows_dong_sinh_cong_tu"] is True
+    assert r["dao_sat_tam_hop"] == 12             # cặp Đào-Sát vĩnh viễn tam hợp
+    assert r["founder_kiep_sat_branch"] == "Tỵ"   # năm Thìn → Kiếp Sát ở Tỵ = Mệnh founder
+
+
+def test_tu_mo_tu_duong_config_ch19():
+    # Tập 2 Ch.19 p222-223: TUỔI TỨ MỘ (Thìn Tuất Sửu Mùi) = "dễ tu tâm dưỡng tính hơn các tuổi khác".
+    # Chữ ký tính toán: Thiên Không + Thiếu Dương + Kiếp Sát + Cô Thần CÙNG đáp 1 cung GÓC
+    # (Dần Thân Tỵ Hợi) → 4 sao duyên-nghiệp chế-hóa; sao lạc-lõng (Hồng năm dương / Hỉ năm âm)
+    # cùng cung Long Đức (tứ đức tiếp tay Thiếu Dương). Đối chiếu tuổi tứ Đào Hoa (Tý Ngọ Mão Dậu):
+    # Thiên Không ĐỘC THỦ ở tứ mộ (không góc, vắng Hồng Loan) = gieo họa.
+    r = dsv.verify_tu_mo_tu_duong()
+    assert r["tu_mo_years_corner_colocated"] == 4    # cả 4 năm tứ mộ: 4 sao cùng 1 cung góc
+    assert r["tu_mo_lac_long_eq_long_duc"] == 4      # lạc-lõng ≡ Long Đức cả 4 năm
+    assert r["dao_hoa_thien_khong_doc_thu"] == 4     # tứ Đào Hoa: Thiên Không độc thủ tứ mộ
+    assert r["follows_dang_son_tu_duong"] is True
+    assert r["founder_corner"] == "Tỵ"               # năm Thìn → góc tu-dưỡng = Mệnh Tỵ
+
+
+def test_hoa_linh_engine_diverges_from_dang_son_at_ty_dau_suu():
+    # Tập 2 Ch.20-21: Iron #3 — CHỖ ĐẦU TIÊN engine KHÔNG theo phái Đằng Sơn (ghi nhận trung thực,
+    # KHÔNG ép sửa). Bài thiệu truyền thống: Tỵ Dậu Sửu → Hỏa Mão, Linh Tuất. Đằng Sơn suy lại từ
+    # thủy-hỏa giao thoa (trùng Tạ Phồn Trị) ĐẢO riêng Tỵ Dậu Sửu → Hỏa Tuất, Linh Mão. Engine theo
+    # TRUYỀN THỐNG. Về giờ: engine cộng h cho cả Hỏa+Linh (thuận-thuận = phái Hán/thiên-văn).
+    r = dsv.verify_hoa_linh_school()
+    assert r["match_traditional"] == 12
+    assert r["engine_follows_traditional"] is True
+    assert r["match_dang_son_correction"] == 9          # 3 năm Tỵ Dậu Sửu khác Đằng Sơn
+    assert r["diverges_from_dang_son_at"] == ["Dậu", "Sửu", "Tỵ"]
+    assert r["ty_dau_suu_engine"] == ["Mão", "Tuất"]    # engine = truyền thống
+    assert r["ty_dau_suu_dang_son"] == ["Tuất", "Mão"]  # Đằng Sơn/Tạ Phồn Trị đảo
+    assert r["gio_both_thuan_han_school"] is True        # giờ: cả 2 sao thuận = phái Hán/thiên-văn
+    assert r["founder_thin_hoa_linh"] == ["Dần", "Tuất"]  # năm Thìn khớp CẢ 2 phái (tranh chấp chỉ ở Tỵ Dậu Sửu)
+
+
+def test_menh_than_chu_ch23():
+    # Tập 2 Ch.23 p278-279: Mệnh chủ (theo chi Mệnh) + Thân chủ (theo chi năm), bí kíp Trần Đoàn.
+    # Mệnh chủ Đằng Sơn: Tý=Tham Lang, Sửu/Hợi=Cự Môn, Dần/Tuất=Lộc Tồn, Mão/Dậu=Văn Khúc,
+    # Tỵ/Mùi=VŨ KHÚC, Thìn/Thân=Liêm Trinh, Ngọ=Phá Quân → khẳng định founder Mệnh Tỵ = VŨ KHÚC
+    # (KHÔNG Liêm Trinh như bảng VN sai). Thân chủ: Tý=LINH Tinh, Ngọ=Hỏa Tinh, Sửu/Mùi=Thiên Tướng,
+    # Dần/Thân=Thiên Lương, Mão/Dậu=Thiên Đồng, Tỵ/Hợi=Thiên Cơ, Thìn/Tuất=Văn Xương.
+    r = dsv.verify_menh_than_chu()
+    assert r["menh_chu_match"] == 12
+    assert r["menh_chu_follows_dang_son"] is True
+    assert r["founder_menh_chu"] == "Vũ Khúc"          # founder Mệnh Tỵ — KHÔNG phải Liêm Trinh
+    assert r["founder_than_chu"] == "Văn Xương"        # founder năm Thìn (khớp cả engine + Đằng Sơn)
+    # Thân chủ: engine KHỚP TRỌN Đằng Sơn 12/12 sau khi vá BUG sao chép ở Tý
+    # (engine cũ Tý="Hỏa Tinh" trùng Ngọ → sửa về "Linh Tinh" theo TVDSTT Q.2 + Đằng Sơn T2 tr.279).
+    # Giữ assert ty_than_chu_engine + linh_tinh_missing làm CHỐT CHẶN tái-lỗi (regression guard).
+    assert r["than_chu_match"] == 12
+    assert r["than_chu_diverges_at"] == []
+    assert r["ty_than_chu_engine"] == "Linh Tinh"
+    assert r["ty_than_chu_dang_son"] == "Linh Tinh"
+    assert r["linh_tinh_missing_in_engine_table"] is False
+
+
+def test_tuan_triet_ch24_ch25():
+    # Tập 2 Ch.24-25: Tuần = không vong của NĂM (2 chi ngoài chu kỳ thiên can lục-giáp-tuần, tài Thiên-Địa,
+    # "phản Thái Tuế"); Triệt = không vong của THÁNG (an theo can năm). Triệt Đằng Sơn Bảng 2: Giáp Kỷ→Thân Dậu,
+    # Ất Canh→Ngọ Mùi, Bính Tân→Thìn Tỵ, Đinh Nhâm→Dần Mão, Mậu Quý→Tý Sửu. ĐỊNH LÝ (tr.294): THÁI TUẾ
+    # KHÔNG BAO GIỜ bị Tuần xâm phạm. Founder Mậu Thìn → Triệt Tý-Sửu, Tuần Tuất-Hợi; Mệnh Tỵ THÔNG.
+    r = dsv.verify_tuan_triet()
+    assert r["triet_match"] == 10
+    assert r["triet_follows_dang_son"] is True
+    assert r["thai_tue_never_in_tuan"] is True          # định lý Đằng Sơn p294 (cả 60 lục giáp)
+    assert r["founder_triet"] == ["Sửu", "Tý"]          # Tật Ách + Tài Bạch
+    assert r["founder_tuan"] == ["Hợi", "Tuất"]         # Thiên Di + Nô Bộc
+    assert r["menh_clear_of_both"] is True              # Mệnh Tỵ ngoài cả Tuần lẫn Triệt
+    assert r["thien_di_in_tuan"] is True                # Thiên Di Hợi (Phá Quân Không Kiếp) bị không-vong-hóa
+
+
 def test_report_runs_end_to_end():
     # Báo cáo tổng phải chạy trọn, trả đủ các mảng định lý
     rep = dsv.full_report()
     assert set(rep) >= {"tam_hop", "brightness", "brightness_relation", "hoa_ky_structure",
-                        "loc_quyen_walk", "star_hoa_participation", "tu_hoa_balance", "conservation"}
+                        "loc_quyen_walk", "star_hoa_participation", "tu_hoa_balance",
+                        "conservation", "bat_quai_ngu_hanh", "loc_ton_kinh_da", "luu_ha_school",
+                        "khoi_viet_school", "dao_ma_cai_sat", "tu_mo_tu_duong", "hoa_linh_school",
+                        "menh_than_chu", "tuan_triet"}

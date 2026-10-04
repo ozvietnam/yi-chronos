@@ -318,6 +318,351 @@ def verify_star_hoa_participation():
     }
 
 
+# Ch.20 (tr.270-276): TÍNH BÁT QUÁI của 14 chính tinh. 8 sao mang 1 quái; ngũ hành quái
+# khớp ngũ hành sao (đã dẫn xuất độc lập) — bằng chứng mapping CÓ NGUYÊN LÝ. Ngoại lệ DUY
+# NHẤT: Thiên Đồng (Đoài/kim mà Đồng thủy — gán Đoài vì Đoài "con gái út vui vẻ" không hợp
+# Sát hung dữ, tr.271-272). 6 sao VÔ-QUÁI: Phủ Tướng Sát Âm Dương Cự (14 = 8 + 6).
+QUAI_HANH = {"Càn": "kim", "Khảm": "thủy", "Cấn": "thổ", "Chấn": "mộc",
+             "Tốn": "mộc", "Li": "hỏa", "Khôn": "thổ", "Đoài": "kim"}
+BAT_QUAI_STAR = {"Vũ Khúc": "Càn", "Phá Quân": "Khảm", "Tử Vi": "Cấn", "Thiên Cơ": "Chấn",
+                 "Tham Lang": "Tốn", "Liêm Trinh": "Li", "Thiên Lương": "Khôn",
+                 "Thiên Đồng": "Đoài"}
+NO_QUAI_STARS = ["Thiên Phủ", "Thiên Tướng", "Thất Sát", "Thái Âm", "Thái Dương", "Cự Môn"]
+
+
+def verify_bat_quai_ngu_hanh():
+    """Định lý Ch.20 (tr.270-276): mapping 8 chính tinh → 8 quái NHẤT QUÁN với ngũ hành sao
+    (dẫn xuất độc lập ở chinh_tinh.json). Khớp 7/8; Thiên Đồng là ngoại lệ Đằng Sơn TỰ NÊU.
+    14 chính tinh = 8 (có quái) + 6 (vô quái), không trùng, phủ trọn.
+    """
+    disp2hanh = {v["display"]: v["hanh"] for v in STARS.values()}
+    matches, mismatches = [], []
+    for star, quai in BAT_QUAI_STAR.items():
+        if QUAI_HANH[quai] == disp2hanh.get(star):
+            matches.append(star)
+        else:
+            mismatches.append(star)
+    covers_all = sorted(list(BAT_QUAI_STAR) + NO_QUAI_STARS) == sorted(disp2hanh)
+    return {
+        "n_quai_stars": len(BAT_QUAI_STAR),
+        "n_match": len(matches),
+        "matches": matches,
+        "mismatches": mismatches,
+        "covers_all_14": covers_all,
+    }
+
+
+def verify_loc_ton_kinh_da():
+    """Định lý Lộc Tồn (Tập 2 Ch.6) + Kình Đà (Tập 2 Ch.7) — kế thừa, kiểm bằng máy.
+
+    Ch.6: Lộc Tồn an theo CAN năm = MÙA (Giáp Ất→Dần Mão xuân, Bính Đinh Mậu Kỷ→Tỵ Ngọ
+    hạ, Canh Tân→Thân Dậu thu, Nhâm Quý→Hợi Tý đông). Vì gom đủ 4 mùa = "kết hợp khít khao
+    Lộc-Quyền-Khoa-Kỵ" = hành Thổ trung ương → Lộc Tồn KHÔNG BAO GIỜ ở tứ mộ Thìn Tuất Sửu Mùi.
+    Ch.7: "tiền Kình hậu Đà" — Kình Dương = Lộc+1 (đến quá sớm, ứng dương), Đà La = Lộc−1
+    (đến quá trễ, ứng âm). Kiểm trên engine an_sao canonical (loc_ton/kinh_duong/da_la), trọn 10 can.
+    """
+    from engine.tu_vi import an_sao as _a
+
+    B = _a.BRANCHES_TVI
+    TU_MO = {"Thìn", "Tuất", "Sửu", "Mùi"}
+    SEASON = {"Giáp": "Dần", "Ất": "Mão", "Bính": "Tỵ", "Đinh": "Ngọ", "Mậu": "Tỵ",
+              "Kỷ": "Ngọ", "Canh": "Thân", "Tân": "Dậu", "Nhâm": "Hợi", "Quý": "Tý"}
+    flank, avoid_mo, season = [], [], []
+    for s in _a.STEMS_TVI:
+        lt, kd, dl = _a.loc_ton(s), _a.kinh_duong(s), _a.da_la(s)
+        if kd == (lt + 1) % 12 and dl == (lt - 1) % 12:
+            flank.append(s)
+        if B[lt] not in TU_MO:
+            avoid_mo.append(s)
+        if B[lt] == SEASON[s]:
+            season.append(s)
+    n = len(_a.STEMS_TVI)
+    return {
+        "n_stems": n,
+        "tien_kinh_hau_da": len(flank),
+        "loc_ton_avoids_tu_mo": len(avoid_mo),
+        "loc_ton_matches_season": len(season),
+        "all_pass": len(flank) == len(avoid_mo) == len(season) == n,
+    }
+
+
+def verify_luu_ha_school():
+    """Định lý Lưu Hà (Tập 2 Ch.10) — Iron #3 đa phái, kiểm engine đứng phái nào.
+
+    Lưu Hà an theo CAN năm. Đằng Sơn BẢO VỆ phái NGŨ-HÀNH-THUẦN (bài thiệu / Mệnh Lý Sách Ẩn):
+    Đinh→Thân, Canh→Thìn. Thái Thứ Lang (Tử Vi Đẩu Số Tân Biên) ĐẢO CHỖ Đinh↔Canh
+    (Đinh→Thìn, Canh→Thân) — Đằng Sơn cho là lỗi. Kiểm `sao_q3.luu_ha` (engine canonical) theo phái nào.
+    Founder Mậu → Lưu Hà ở Tỵ = đồng cung Lộc Tồn = Mệnh (Mậu/Kỷ/Canh/Nhâm có Lưu Hà ≡ Lộc Tồn).
+    """
+    from engine.tu_vi import sao_q3, an_sao as _a
+
+    B = _a.BRANCHES_TVI
+    NGU_HANH_THUAN = {"Giáp": "Dậu", "Ất": "Tuất", "Bính": "Mùi", "Đinh": "Thân", "Mậu": "Tỵ",
+                      "Kỷ": "Ngọ", "Canh": "Thìn", "Tân": "Mão", "Nhâm": "Hợi", "Quý": "Tý"}
+    THAI_THU_LANG = {**NGU_HANH_THUAN, "Đinh": "Thìn", "Canh": "Thân"}  # đảo Đinh↔Canh
+    engine_tbl = {s: B[sao_q3.luu_ha(s)] for s in _a.STEMS_TVI}
+    match_nh = [s for s in _a.STEMS_TVI if engine_tbl[s] == NGU_HANH_THUAN[s]]
+    differ_ttl = [s for s in _a.STEMS_TVI if engine_tbl[s] != THAI_THU_LANG[s]]
+    n = len(_a.STEMS_TVI)
+    return {
+        "n_stems": n,
+        "match_ngu_hanh_thuan": len(match_nh),
+        "follows_dang_son_school": len(match_nh) == n,
+        "differs_from_thai_thu_lang_at": sorted(differ_ttl),
+        "mau_luu_ha": engine_tbl["Mậu"],
+    }
+
+
+def verify_khoi_viet_school():
+    """Định lý Khôi Việt (Tập 2 Ch.11-12) — Iron #3 đa phái, kiểm engine đứng phái nào.
+
+    Khôi Việt = Lục Cát (cùng Tả Hữu Xương Khúc), gốc thần sát THIÊN ẤT QUÝ NHÂN (an theo can năm,
+    cứu chính tinh cực hãm hóa Kỵ). Đằng Sơn theo BÀI THIỆU TRUYỀN THỐNG: Giáp Mậu Canh→Sửu Mùi,
+    Ất Kỷ→Tý Thân, Bính Đinh→Hợi Dậu, Nhâm Quý→Mão Tỵ, Tân→Ngọ Dần. Tranh chấp: phái "đổi mới"
+    cho Canh=Ngọ Dần (giống Tân); Tạ Phồn Trị cho Kỷ=Dần Ngọ. Kiểm `an_sao.thien_khoi_viet` theo phái nào.
+    Founder Mậu → Khôi Việt Sửu/Mùi = trục Tài Bạch ↔ Phúc Đức ("tọa quý hướng quý").
+    """
+    from engine.tu_vi import an_sao as _a
+
+    B = _a.BRANCHES_TVI
+    TRADITIONAL = {"Giáp": {"Sửu", "Mùi"}, "Mậu": {"Sửu", "Mùi"}, "Canh": {"Sửu", "Mùi"},
+                   "Ất": {"Tý", "Thân"}, "Kỷ": {"Tý", "Thân"},
+                   "Bính": {"Hợi", "Dậu"}, "Đinh": {"Hợi", "Dậu"},
+                   "Nhâm": {"Mão", "Tỵ"}, "Quý": {"Mão", "Tỵ"}, "Tân": {"Ngọ", "Dần"}}
+    engine_tbl = {s: {B[i] for i in _a.thien_khoi_viet(s)} for s in _a.STEMS_TVI}
+    match = [s for s in _a.STEMS_TVI if engine_tbl[s] == TRADITIONAL[s]]
+    n = len(_a.STEMS_TVI)
+    return {
+        "n_stems": n,
+        "match_traditional": len(match),
+        "follows_dang_son_school": len(match) == n,
+        "canh_traditional_suu_mui": engine_tbl["Canh"] == {"Sửu", "Mùi"},
+        "ky_traditional_than_ty": engine_tbl["Kỷ"] == {"Tý", "Thân"},
+        "mau_khoi_viet": sorted(engine_tbl["Mậu"]),
+    }
+
+
+def verify_dao_ma_cai_sat():
+    """Định lý Đào-Mã-Cái-Sát (Tập 2 Ch.17) — an theo CHI năm, suy từ vòng Trường Sinh ngũ hành.
+
+    Đằng Sơn (chú thích 3-4): Tử Vi dùng thuyết "ĐỒNG SINH CỘNG TỬ" (mộc TS Hợi, hỏa+thổ TS Dần,
+    kim TS Tỵ, thủy TS Thân; THUẬN cho cả âm-dương — KHÔNG dùng "âm sinh dương tử"). Trung Châu phái HK
+    chỉ giữ 4 trong 12 vị trí: Đào Hoa(Hàm Trì)=Mộc Dục(+1), Thiên Mã=Bệnh(+6), Hoa Cái=Mộ(+8),
+    Kiếp Sát=Tuyệt(+9). Cặp Đào-Sát ("đoan/xấu") vĩnh viễn TAM HỢP. Kiểm engine (ham_tri / sao_q3.thien_ma
+    / vòng Tướng Tinh) có tái tạo đúng phái này cho trọn 12 chi năm.
+    Founder năm Thìn (Thân Tý Thìn, thủy) → Kiếp Sát ở Tỵ = đồng cung Mệnh.
+    """
+    from engine.tu_vi import an_sao as _a, sao_q3
+
+    branches = list(_a.BRANCHES_TVI)             # tuple int→name
+    NB = {name: i for i, name in enumerate(branches)}   # name→index
+    # Trường Sinh head theo tam hợp chi năm (đồng sinh cộng tử, thuận)
+    TS_HEAD = {
+        "Dần": NB["Dần"], "Ngọ": NB["Dần"], "Tuất": NB["Dần"],      # hỏa+thổ → TS Dần
+        "Thân": NB["Thân"], "Tý": NB["Thân"], "Thìn": NB["Thân"],   # thủy   → TS Thân
+        "Tỵ": NB["Tỵ"], "Dậu": NB["Tỵ"], "Sửu": NB["Tỵ"],           # kim    → TS Tỵ
+        "Hợi": NB["Hợi"], "Mão": NB["Hợi"], "Mùi": NB["Hợi"],       # mộc    → TS Hợi
+    }
+    dao_ok = ma_ok = cai_ok = sat_ok = dao_sat_th = 0
+    for yb in branches:
+        ts = TS_HEAD[yb]
+        exp_dao = (ts + 1) % 12   # Mộc Dục
+        exp_ma = (ts + 6) % 12    # Bệnh
+        exp_cai = (ts + 8) % 12   # Mộ
+        exp_sat = (ts + 9) % 12   # Tuyệt
+        tt = sao_q3.tuong_tinh_belt(yb)
+        if _a.ham_tri(yb) == exp_dao:
+            dao_ok += 1
+        if sao_q3.thien_ma(yb) == exp_ma:
+            ma_ok += 1
+        if tt["Hoa Cái"] == exp_cai:
+            cai_ok += 1
+        if tt["Kiếp Sát"] == exp_sat:
+            sat_ok += 1
+        if (_a.ham_tri(yb) - tt["Kiếp Sát"]) % 12 in (4, 8):   # Đào-Sát tam hợp
+            dao_sat_th += 1
+    n = len(branches)
+    return {
+        "n_branches": n,
+        "dao_hoa_is_moc_duc": dao_ok,
+        "thien_ma_is_benh": ma_ok,
+        "hoa_cai_is_mo": cai_ok,
+        "kiep_sat_is_tuyet": sat_ok,
+        "follows_dong_sinh_cong_tu": dao_ok == ma_ok == cai_ok == sat_ok == n,
+        "dao_sat_tam_hop": dao_sat_th,
+        "founder_kiep_sat_branch": branches[sao_q3.tuong_tinh_belt("Thìn")["Kiếp Sát"]],
+    }
+
+
+def verify_tu_mo_tu_duong():
+    """Định lý tu-dưỡng TỨ MỘ (Tập 2 Ch.19 p222-223) — chữ ký tính toán của "tuổi tứ mộ dễ tu tâm
+    dưỡng tính hơn các tuổi khác".
+
+    TUỔI TỨ MỘ (Thìn Tuất Sửu Mùi): Thiên Không + Thiếu Dương + Kiếp Sát + Cô Thần CÙNG đáp 1 cung
+    GÓC (Dần Thân Tỵ Hợi) → 4 sao duyên-nghiệp (bản-năng / thánh-tính / băng-tâm-sát / cô-độc) chế-hóa
+    lẫn nhau; sao lạc-lõng (Hồng năm dương, Hỉ năm âm) cùng cung Long Đức (tứ đức tiếp tay Thiếu Dương).
+    Đối chiếu tuổi tứ Đào Hoa (Tý Ngọ Mão Dậu): Thiên Không ĐỘC THỦ ở tứ mộ (không góc, vắng Hồng Loan)
+    = gieo họa. Founder năm Thìn → góc tu-dưỡng = Tỵ = đồng cung Mệnh.
+    """
+    from engine.tu_vi import an_sao as _a, sao_q3
+
+    BR = _a.BRANCHES_TVI
+    NB = {n: i for i, n in enumerate(BR)}
+    CORNERS = {NB[x] for x in ("Dần", "Thân", "Tỵ", "Hợi")}
+    TU_MO = {NB[x] for x in ("Thìn", "Tuất", "Sửu", "Mùi")}
+
+    colo = lac = 0
+    for yb in ("Thìn", "Tuất", "Sửu", "Mùi"):
+        tt = _a.thai_tue_belt(yb)
+        tts = sao_q3.tuong_tinh_belt(yb)
+        core = {_a.thien_khong(yb), tt["Thiếu Dương"], tts["Kiếp Sát"], _a.co_than(yb)}
+        if len(core) == 1 and next(iter(core)) in CORNERS:
+            colo += 1
+        duong = NB[yb] % 2 == 0
+        lac_star = _a.hong_loan(yb) if duong else _a.thien_hi(yb)
+        if lac_star == tt["Long Đức"]:
+            lac += 1
+
+    doc_thu = 0
+    for yb in ("Tý", "Ngọ", "Mão", "Dậu"):
+        tk = _a.thien_khong(yb)
+        if tk in TU_MO and tk not in CORNERS:
+            doc_thu += 1
+
+    tt = _a.thai_tue_belt("Thìn")
+    tts = sao_q3.tuong_tinh_belt("Thìn")
+    fcore = {_a.thien_khong("Thìn"), tt["Thiếu Dương"], tts["Kiếp Sát"], _a.co_than("Thìn")}
+    founder_corner = BR[next(iter(fcore))] if len(fcore) == 1 else None
+    return {
+        "tu_mo_years_corner_colocated": colo,
+        "tu_mo_lac_long_eq_long_duc": lac,
+        "dao_hoa_thien_khong_doc_thu": doc_thu,
+        "follows_dang_son_tu_duong": colo == 4 and lac == 4 and doc_thu == 4,
+        "founder_corner": founder_corner,
+    }
+
+
+def verify_hoa_linh_school():
+    """Định lý Hỏa Linh (Tập 2 Ch.20-21) — Iron #3 đa phái. CHỖ ĐẦU TIÊN engine KHÔNG theo phái
+    Đằng Sơn (ghi nhận TRUNG THỰC, KHÔNG ép sửa — multi-school respect, present cho founder duyệt).
+
+    Bài thiệu TRUYỀN THỐNG (Hỏa, Linh) tại cung khởi: Dần Ngọ Tuất→(Sửu,Mão) · Thân Tý Thìn→(Dần,Tuất)
+    · Tỵ Dậu Sửu→(Mão,Tuất) · Hợi Mão Mùi→(Dậu,Tuất). Đằng Sơn suy lại từ thủy-hỏa giao thoa
+    (trùng Tạ Phồn Trị): ĐẢO riêng Tỵ Dậu Sửu → (Tuất, Mão). Engine `hoa_linh_tinh` theo TRUYỀN THỐNG.
+    Về GIỜ: engine cộng h cho CẢ Hỏa+Linh (thuận-thuận = phái Hán/thiên-văn — Đằng Sơn cho là chuẩn
+    thiên-văn nhất, dù bản thân tạm dùng VN thuận-nghịch). Founder năm Thìn → Hỏa Dần, Linh Tuất:
+    KHỚP cả 2 phái (tranh chấp chỉ ở Tỵ Dậu Sửu).
+    """
+    from engine.tu_vi import an_sao as _a
+
+    BR = _a.BRANCHES_TVI
+    TRAD = {
+        "Dần": ("Sửu", "Mão"), "Ngọ": ("Sửu", "Mão"), "Tuất": ("Sửu", "Mão"),
+        "Thân": ("Dần", "Tuất"), "Tý": ("Dần", "Tuất"), "Thìn": ("Dần", "Tuất"),
+        "Tỵ": ("Mão", "Tuất"), "Dậu": ("Mão", "Tuất"), "Sửu": ("Mão", "Tuất"),
+        "Hợi": ("Dậu", "Tuất"), "Mão": ("Dậu", "Tuất"), "Mùi": ("Dậu", "Tuất"),
+    }
+    DANGSON = {**TRAD, "Tỵ": ("Tuất", "Mão"), "Dậu": ("Tuất", "Mão"), "Sửu": ("Tuất", "Mão")}
+    eng = {yb: tuple(BR[i] for i in _a.hoa_linh_tinh(yb, 1)) for yb in BR}   # giờ Tý → h=0
+    match_trad = [yb for yb in BR if eng[yb] == TRAD[yb]]
+    match_ds = [yb for yb in BR if eng[yb] == DANGSON[yb]]
+    tds = ("Tỵ", "Dậu", "Sửu")
+    e1, e2 = _a.hoa_linh_tinh("Tý", 1), _a.hoa_linh_tinh("Tý", 2)            # h: 0 vs 1
+    both_thuan = ((e2[0] - e1[0]) % 12 == 1) and ((e2[1] - e1[1]) % 12 == 1)
+    return {
+        "match_traditional": len(match_trad),
+        "match_dang_son_correction": len(match_ds),
+        "engine_follows_traditional": len(match_trad) == 12,
+        "diverges_from_dang_son_at": sorted(yb for yb in tds if eng[yb] != DANGSON[yb]),
+        "ty_dau_suu_engine": list(eng["Tỵ"]),
+        "ty_dau_suu_dang_son": list(DANGSON["Tỵ"]),
+        "gio_both_thuan_han_school": both_thuan,
+        "founder_thin_hoa_linh": list(eng["Thìn"]),
+    }
+
+
+def verify_menh_than_chu():
+    """Định lý Mệnh chủ / Thân chủ (Tập 2 Ch.23 p278-279) — bí kíp Trần Đoàn, Iron #3.
+
+    Mệnh chủ an theo CHI MỆNH cung; Thân chủ an theo CHI NĂM. Bảng Đằng Sơn (≡ TVDSTT Q.2):
+    Mệnh chủ — Tý:Tham Lang · Sửu/Hợi:Cự Môn · Dần/Tuất:Lộc Tồn · Mão/Dậu:Văn Khúc · Tỵ/Mùi:VŨ KHÚC
+    · Thìn/Thân:Liêm Trinh · Ngọ:Phá Quân. → founder Mệnh Tỵ = VŨ KHÚC (KHÔNG Liêm Trinh — bảng VN sai).
+    Thân chủ — Tý:LINH Tinh · Ngọ:Hỏa Tinh · Sửu/Mùi:Thiên Tướng · Dần/Thân:Thiên Lương · Mão/Dậu:Thiên
+    Đồng · Tỵ/Hợi:Thiên Cơ · Thìn/Tuất:Văn Xương. Engine KHỚP TRỌN 12/12 sau khi vá BUG sao chép ở Tý
+    (engine cũ Tý=Hỏa Tinh trùng Ngọ → sửa về Linh Tinh; founder năm Thìn=Văn Xương không đổi).
+    """
+    from engine.tu_vi import an_sao as _a
+
+    BR = _a.BRANCHES_TVI
+    MENH_CHU_DS = {
+        "Tý": "Tham Lang", "Sửu": "Cự Môn", "Hợi": "Cự Môn", "Dần": "Lộc Tồn", "Tuất": "Lộc Tồn",
+        "Mão": "Văn Khúc", "Dậu": "Văn Khúc", "Tỵ": "Vũ Khúc", "Mùi": "Vũ Khúc",
+        "Thìn": "Liêm Trinh", "Thân": "Liêm Trinh", "Ngọ": "Phá Quân",
+    }
+    THAN_CHU_DS = {
+        "Tý": "Linh Tinh", "Ngọ": "Hỏa Tinh", "Sửu": "Thiên Tướng", "Mùi": "Thiên Tướng",
+        "Dần": "Thiên Lương", "Thân": "Thiên Lương", "Mão": "Thiên Đồng", "Dậu": "Thiên Đồng",
+        "Tỵ": "Thiên Cơ", "Hợi": "Thiên Cơ", "Thìn": "Văn Xương", "Tuất": "Văn Xương",
+    }
+    menh_eng = {b: _a.menh_chu(BR.index(b)) for b in BR}
+    than_eng = {b: _a.than_chu(b) for b in BR}
+    menh_match = [b for b in BR if menh_eng[b] == MENH_CHU_DS[b]]
+    than_match = [b for b in BR if than_eng[b] == THAN_CHU_DS[b]]
+    than_div = sorted(b for b in BR if than_eng[b] != THAN_CHU_DS[b])
+    linh_missing = "Linh Tinh" not in set(than_eng.values())
+    return {
+        "menh_chu_match": len(menh_match),
+        "menh_chu_follows_dang_son": len(menh_match) == 12,
+        "founder_menh_chu": menh_eng["Tỵ"],
+        "founder_than_chu": than_eng["Thìn"],
+        "than_chu_match": len(than_match),
+        "than_chu_diverges_at": than_div,
+        "ty_than_chu_engine": than_eng["Tý"],
+        "ty_than_chu_dang_son": THAN_CHU_DS["Tý"],
+        "linh_tinh_missing_in_engine_table": linh_missing,
+    }
+
+
+def verify_tuan_triet():
+    """Định lý Tuần Triệt (Tập 2 Ch.24-25) — không vong.
+
+    Tuần ("Tuần trung không vong") = 2 chi ngoài chu kỳ thiên can của lục-giáp-tuần chứa năm sinh
+    (Thiên-Địa trái cựa → "không vong"; tài Thiên-Địa, "phản Thái Tuế"). Triệt ("Triệt lộ không vong")
+    = không vong của THÁNG, an theo can năm (Bảng 2 Đằng Sơn): Giáp Kỷ→Thân Dậu · Ất Canh→Ngọ Mùi ·
+    Bính Tân→Thìn Tỵ · Đinh Nhâm→Dần Mão · Mậu Quý→Tý Sửu. ĐỊNH LÝ (tr.294): THÁI TUẾ KHÔNG BAO GIỜ
+    bị Tuần xâm phạm (chi năm ∉ Tuần, vì chi năm nằm TRONG tuần còn không-vong là 2 chi DƯ).
+    Founder Mậu Thìn → Triệt Tý-Sửu (Tật Ách-Tài Bạch), Tuần Tuất-Hợi (Nô Bộc-Thiên Di) → Mệnh Tỵ THÔNG
+    (ngoài cả hai); Thiên Di Hợi (Phá Quân + Không Kiếp) NẰM TRONG Tuần → xung-phá bị không-vong-hóa.
+    """
+    from engine.tu_vi import an_sao as _a, sao_q3
+
+    BR = _a.BRANCHES_TVI
+    STEMS = _a.STEMS_TVI
+    TRIET_DS = {
+        "Giáp": {"Thân", "Dậu"}, "Kỷ": {"Thân", "Dậu"}, "Ất": {"Ngọ", "Mùi"}, "Canh": {"Ngọ", "Mùi"},
+        "Bính": {"Thìn", "Tỵ"}, "Tân": {"Thìn", "Tỵ"}, "Đinh": {"Dần", "Mão"}, "Nhâm": {"Dần", "Mão"},
+        "Mậu": {"Tý", "Sửu"}, "Quý": {"Tý", "Sửu"},
+    }
+    triet_match = [s for s in STEMS if {BR[i] for i in sao_q3.triet(s)} == TRIET_DS[s]]
+    never = True
+    for k in range(60):                                   # 60 lục giáp năm
+        stem, branch_idx = STEMS[k % 10], k % 12
+        if branch_idx in sao_q3.tuan(stem, BR[branch_idx]):
+            never = False
+            break
+    ftriet = {BR[i] for i in sao_q3.triet("Mậu")}
+    ftuan = {BR[i] for i in sao_q3.tuan("Mậu", "Thìn")}
+    return {
+        "triet_match": len(triet_match),
+        "triet_follows_dang_son": len(triet_match) == 10,
+        "thai_tue_never_in_tuan": never,
+        "founder_triet": sorted(ftriet),
+        "founder_tuan": sorted(ftuan),
+        "menh_clear_of_both": "Tỵ" not in (ftriet | ftuan),
+        "thien_di_in_tuan": "Hợi" in ftuan,
+    }
+
+
 def full_report():
     return {
         "tam_hop": verify_tam_hop(),
@@ -326,6 +671,15 @@ def full_report():
         "hoa_ky_structure": verify_hoa_ky_structure(),
         "loc_quyen_walk": verify_loc_quyen_walk(),
         "star_hoa_participation": verify_star_hoa_participation(),
+        "bat_quai_ngu_hanh": verify_bat_quai_ngu_hanh(),
+        "loc_ton_kinh_da": verify_loc_ton_kinh_da(),
+        "luu_ha_school": verify_luu_ha_school(),
+        "khoi_viet_school": verify_khoi_viet_school(),
+        "dao_ma_cai_sat": verify_dao_ma_cai_sat(),
+        "tu_mo_tu_duong": verify_tu_mo_tu_duong(),
+        "hoa_linh_school": verify_hoa_linh_school(),
+        "menh_than_chu": verify_menh_than_chu(),
+        "tuan_triet": verify_tuan_triet(),
         "tu_hoa_balance": verify_tu_hoa_balance(),
         "conservation": verify_conservation(),
     }
