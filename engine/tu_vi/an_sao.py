@@ -1145,4 +1145,10 @@ def cast_la_so(
     # ── GIẢI MÃ ĐỊA BÀN: năm tiểu vận per-cung (tĩnh, năm-chi ↔ cung) ─────────────
     out["tieu_van"] = tieu_van_per_cung(year_branch, gender)
 
+    # Trục Đằng Sơn — view phái sinh 4 trợ (Tả-Hữu-Xương-Khúc) ↔ 4 hoại (Hình-Riêu-Không-Kiếp).
+    # Luật "toàn-không" (Tử Vi Hoàn Toàn Khoa Học, Đằng Sơn Ch.24-25): chỉ ĐỌC vị trí 8 sao
+    # ĐÃ AN ở trên (KHÔNG an lại → tránh trùng sao). Iron Rule #4/#6: nêu cấu trúc, không predict.
+    from .dang_son_truc import build_dang_son_truc
+    out["dang_son_truc"] = build_dang_son_truc(out)
+
     return out
